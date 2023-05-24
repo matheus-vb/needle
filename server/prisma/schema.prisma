@@ -19,6 +19,7 @@ enum TaskType {
   DEV
   DESIGN
   PM
+  GENERAL
 }
 
 enum TaskStatus {
@@ -62,7 +63,7 @@ model Task {
   workspace Workspace @relation(fields: [workId], references: [id])
   user User @relation(fields: [userId], references: [id])
   document Document @relation(fields: [documentId], references: [id])
-  status TaskStatus
+  status TaskStatus @default(TODO)
   type TaskType
   documentId String @unique
   endDate DateTime
