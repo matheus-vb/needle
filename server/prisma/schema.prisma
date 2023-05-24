@@ -50,7 +50,15 @@ model Task {
   id String @id @default(uuid())
   workspace Workspace @relation(fields: [workId], references: [id])
   user User @relation(fields: [userId], references: [id])
+  document Document @relation(fields: [documentId], references: [id])
+  type Type
+  documentId String @unique
+  endDate DateTime
   workId String
   userId String
-  type Type
+}
+
+model Document {
+  id String @id @default(uuid())
+  task Task?
 }
