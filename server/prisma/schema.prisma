@@ -15,7 +15,7 @@ enum Role {
   PRODUCT_MANAGER
 }
 
-enum Type {
+enum TaskType {
   DEV
   DESIGN
   PM
@@ -26,6 +26,7 @@ enum TaskStatus {
   IN_PROGRESS
   PENDING
   DONE
+  NOT_VISIBLE
 }
 
 model User {
@@ -56,12 +57,13 @@ model Workspace {
 
 model Task {
   id String @id @default(uuid())
+  title String
+  description String
   workspace Workspace @relation(fields: [workId], references: [id])
   user User @relation(fields: [userId], references: [id])
   document Document @relation(fields: [documentId], references: [id])
   status TaskStatus
-  sprint Int
-  type Type
+  type TaskType
   documentId String @unique
   endDate DateTime
   workId String
