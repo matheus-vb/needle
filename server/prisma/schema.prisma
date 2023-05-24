@@ -21,6 +21,13 @@ enum Type {
   PM
 }
 
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  PENDING
+  DONE
+}
+
 model User {
   id String @id @default(uuid())
   role Role
@@ -41,6 +48,7 @@ model User_Workspace{
 
 model Workspace {
   id String @id @default(uuid())
+  accessCode String @unique
   name String
   tasks Task[]
   users User_Workspace[]
@@ -51,6 +59,8 @@ model Task {
   workspace Workspace @relation(fields: [workId], references: [id])
   user User @relation(fields: [userId], references: [id])
   document Document @relation(fields: [documentId], references: [id])
+  status TaskStatus
+  week Int
   type Type
   documentId String @unique
   endDate DateTime
@@ -61,4 +71,5 @@ model Task {
 model Document {
   id String @id @default(uuid())
   task Task?
+  text String
 }
