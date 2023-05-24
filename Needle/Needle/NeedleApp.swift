@@ -11,7 +11,9 @@ import SwiftUI
 struct NeedleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WorkspaceView()
         }
     }
 }
+
+
