@@ -31,49 +31,49 @@ enum TaskStatus {
 }
 
 model User {
-  id String @id @default(uuid())
-  role Role
-  name String
-  email String @unique
-  password_hash String 
-  workspaces User_Workspace[]
-  tasks Task[]
+  id            String           @id @default(uuid())
+  role          Role
+  name          String
+  email         String           @unique
+  password_hash String
+  workspaces    User_Workspace[]
+  tasks         Task[]
 }
 
-model User_Workspace{
-  id String @id @default(uuid())
-  user User @relation(fields: [userId], references: [id])
-  workspace Workspace @relation(fields: [workspaceId], references: [id])
-  userId String
+model User_Workspace {
+  id          String    @id @default(uuid())
+  user        User      @relation(fields: [userId], references: [id])
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  userId      String
   workspaceId String
 }
 
 model Workspace {
-  id String @id @default(uuid())
-  accessCode String @unique
-  name String
-  tasks Task[]
-  users User_Workspace[]
+  id         String           @id @default(uuid())
+  accessCode String           @unique
+  name       String
+  tasks      Task[]
+  users      User_Workspace[]
 }
 
 model Task {
-  id String @id @default(uuid())
-  title String
+  id          String     @id @default(uuid())
+  title       String
   description String
-  workspace Workspace @relation(fields: [workId], references: [id])
-  user User @relation(fields: [userId], references: [id])
-  document Document @relation(fields: [documentId], references: [id])
-  status TaskStatus @default(TODO)
-  type TaskType
-  documentId String @unique
-  endDate DateTime
-  workId String
-  userId String
+  workspace   Workspace  @relation(fields: [workId], references: [id])
+  user        User       @relation(fields: [userId], references: [id])
+  document    Document   @relation(fields: [documentId], references: [id])
+  status      TaskStatus @default(TODO)
+  type        TaskType
+  documentId  String     @unique
+  endDate     DateTime
+  workId      String
+  userId      String
 }
 
 model Document {
-  id String @id @default(uuid())
+  id    String @id @default(uuid())
   title String
-  task Task?
-  text String
+  task  Task?
+  text  String
 }
