@@ -60,7 +60,7 @@ model Task {
   user User @relation(fields: [userId], references: [id])
   document Document @relation(fields: [documentId], references: [id])
   status TaskStatus
-  week Int
+  sprint Int
   type Type
   documentId String @unique
   endDate DateTime
