@@ -72,6 +72,7 @@ model Task {
 
 model Document {
   id String @id @default(uuid())
+  title String
   task Task?
   text String
 }
