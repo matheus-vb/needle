@@ -27,4 +27,15 @@ export class WorkspaceRepository implements IWorkspaceInterface{
         })
         return workspace
     }
+
+    async findWorkspaceList(ids: string[]): Promise<Workspace[] | null> {
+        const elements = await prisma.workspace.findMany({
+            where: {
+                id: {
+                    in: ids,
+                }
+            }
+        })
+        return elements
+    }
 }
