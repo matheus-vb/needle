@@ -66,7 +66,7 @@ export class CreateTaskUseCase {
         }
 
         const document = await this.documentRepository.create({
-            text: `${title} docuemntation`,
+            text: `${title} documentation`,
             title,
         })
 
