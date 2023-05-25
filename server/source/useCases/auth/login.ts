@@ -1,4 +1,5 @@
 import { User } from "@prisma/client"
+import { compare } from "bcryptjs"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { UserNotFound } from "../errors/UserNotFound"
 
@@ -23,5 +24,7 @@ export class LoginUserUseCase{
             if(!existingUser){
                 throw new UserNotFound()
             }
+
+            const isPasswordCorrect = compare(password, existingUser.password_hash);
     }
 }
