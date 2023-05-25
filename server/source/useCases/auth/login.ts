@@ -31,5 +31,9 @@ export class LoginUserUseCase{
             if(!isPasswordCorrect){
                 throw new IncorrectPassword()
             }
+
+            return{
+                user: existingUser,
+            }
     }
 }
