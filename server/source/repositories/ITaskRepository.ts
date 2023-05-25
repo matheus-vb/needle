@@ -5,4 +5,5 @@ export interface ITaskRepository {
     findById(id: string): Promise<Task | null>;
     filterByAuthor(id: string): Promise<Task[]>;
     updateStatus(id: string, status: TaskStatus): Promise<Task>;
+    updateAssignee(id: string, userId: string): Promise<Task>;
 }
