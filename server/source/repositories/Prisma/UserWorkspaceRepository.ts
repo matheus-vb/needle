@@ -1,10 +1,14 @@
 import { Prisma, User_Workspace } from "@prisma/client";
+import { prisma } from "../../lib/prisma";
 import { IUserWorkspaceRepository } from "../IUserWorkspaceRepository";
 
 
 export class UserRepositoryRepository implements IUserWorkspaceRepository{
-    create(data: Prisma.User_WorkspaceUncheckedCreateInput): Promise<User_Workspace> {
-        throw new Error("Method not implemented.");
+    async create(data: Prisma.User_WorkspaceUncheckedCreateInput): Promise<User_Workspace> {
+        const relatioUserWorkspace = await prisma.user_Workspace.create({
+            data,
+        })
+        return relatioUserWorkspace
     }
     findByUserId(id: string): Promise<User_Workspace | null> {
         throw new Error("Method not implemented.");
