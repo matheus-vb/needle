@@ -11,8 +11,15 @@ export class TaskRepository implements ITaskRepository{
         return task;
     }
 
-    findById(id: string): Promise<Task | null> {
-        throw new Error("Method not implemented.");
+    async findById(id: string): Promise<Task | null> {
+        const task = await prisma.task.findFirst(
+            {
+                where:{
+                    id: id,
+                }
+            }
+        )
+        return task
     }
     filterByAuthor(id: string): Promise<Task[]> {
         throw new Error("Method not implemented.");
