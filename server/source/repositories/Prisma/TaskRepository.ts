@@ -32,8 +32,17 @@ export class TaskRepository implements ITaskRepository{
         })
         return tasks
     }
-    updateStatus(id: string, status: TaskStatus): Promise<Task> {
-        throw new Error("Method not implemented.");
+
+    async updateStatus(id: string, status: TaskStatus): Promise<Task> {
+        const task = await prisma.task.update({
+          where: {
+            id: id,
+          },
+          data: {
+            status: status,
+          }
+        })
+        return task
     }
     
 }
