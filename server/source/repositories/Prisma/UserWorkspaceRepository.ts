@@ -34,8 +34,14 @@ export class UserRepositoryRepository implements IUserWorkspaceRepository{
         })
         return relationUserWorkspace
     }
-    findUserInWorkspace(userId: string, workspaceId: string): Promise<User_Workspace | null> {
-        throw new Error("Method not implemented.");
+    async findUserInWorkspace(userId: string, workspaceId: string): Promise<User_Workspace | null> {
+        const relationUserWorkspace = await prisma.user_Workspace.findFirst({
+            where: {
+                userId: userId,
+                workspaceId: workspaceId
+            }
+        })
+        
+        return (relationUserWorkspace ? relationUserWorkspace : null)
     }
-
 }
