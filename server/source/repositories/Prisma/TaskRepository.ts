@@ -21,8 +21,16 @@ export class TaskRepository implements ITaskRepository{
         )
         return task
     }
-    filterByAuthor(id: string): Promise<Task[]> {
-        throw new Error("Method not implemented.");
+
+    async filterByAuthor(id: string): Promise<Task[]> {
+        const tasks = await prisma.task.findMany({
+            where: {
+                user: {
+                    id: id,
+                }
+            }
+        })
+        return tasks
     }
     updateStatus(id: string, status: TaskStatus): Promise<Task> {
         throw new Error("Method not implemented.");
