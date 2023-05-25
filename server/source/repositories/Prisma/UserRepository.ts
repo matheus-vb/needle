@@ -18,7 +18,12 @@ export class UserRepository implements IUserRepository{
         })
         return user
     }
-    findByEmail(email: string): Promise<User | null> {
-        throw new Error("Method not implemented.");
+    async findByEmail(email: string): Promise<User | null> {
+        const user = await prisma.user.findFirst({
+            where:{
+                email: email,
+            }
+        })
+        return user
     }
 }
