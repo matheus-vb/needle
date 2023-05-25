@@ -5,4 +5,5 @@ export interface IUserWorkspaceRepository {
     findByUserId(id: string): Promise<User_Workspace | null>;
     findByWorkspaceId(id: string): Promise<User_Workspace | null>;
     findById(id: string): Promise<User_Workspace | null>;
+    findUserInWorkspace(userId: string, workspaceId: string): Promise<User_Workspace | null>;
 }
