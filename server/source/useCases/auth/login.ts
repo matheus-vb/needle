@@ -1,6 +1,7 @@
 import { User } from "@prisma/client"
 import { compare } from "bcryptjs"
 import { IUserRepository } from "../../repositories/IUserRepository"
+import { IncorrectPassword } from "../errors/IncorrectPassword"
 import { UserNotFound } from "../errors/UserNotFound"
 
 interface ILoginUserUseCaseRequest{
@@ -26,5 +27,9 @@ export class LoginUserUseCase{
             }
 
             const isPasswordCorrect = compare(password, existingUser.password_hash);
+
+            if(!isPasswordCorrect){
+                throw new IncorrectPassword()
+            }
     }
 }
