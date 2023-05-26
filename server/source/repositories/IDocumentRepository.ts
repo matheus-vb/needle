@@ -5,4 +5,5 @@ export interface IDocumentRepository {
     findDocumentByTask(task: Task): Promise<Document | null>;
     queryDocumentByTitle(query: string): Promise<Document[]>;
     queryDocumentByTaskTag(tag: string): Promise<Document[]>;
+    queryDocumentByType(type: TaskType): Promise<Document[]>;
 }
