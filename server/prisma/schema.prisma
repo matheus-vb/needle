@@ -69,6 +69,14 @@ model Task {
   endDate     DateTime
   workId      String
   userId      String
+  TaskTag     TaskTag[]
+}
+
+model TaskTag {
+  id     String @id @default(uuid())
+  tag    String
+  task   Task   @relation(fields: [taskId], references: [id])
+  taskId String
 }
 
 model Document {
