@@ -1,4 +1,4 @@
-import { Prisma, Document, Task } from "@prisma/client";
+import { Prisma, Document, Task, TaskType } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IDocumentRepository } from "../IDocumentRepository";
 
@@ -41,6 +41,18 @@ export class DocumentRepository implements IDocumentRepository {
                             tag,
                         }
                     }
+                }
+            }
+        })
+
+        return documents;
+    }
+
+    async queryDocumentByType(type: TaskType) {
+        const documents = await prisma.document.findMany({
+            where: {
+                task: {
+                    type,
                 }
             }
         })
