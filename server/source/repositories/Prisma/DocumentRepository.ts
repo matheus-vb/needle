@@ -31,4 +31,20 @@ export class DocumentRepository implements IDocumentRepository {
 
         return documents;
     }
+
+    async queryDocumentByTaskTag(tag: string) {
+        const documents = await prisma.document.findMany({
+            where :{
+                task: {
+                    TaskTag: {
+                        some:{
+                            tag,
+                        }
+                    }
+                }
+            }
+        })
+
+        return documents;
+    }
 }
