@@ -12,4 +12,6 @@ export function makeCreateTaskUseCase() {
     const docuementRepository = new DocumentRepository();
     const workspaceRepository = new WorkspaceRepository();
     const useCase = new CreateTaskUseCase(taskRepository, userRepository, workspaceRepository, userWorkspaceRepository, docuementRepository);
+
+    return useCase;
 }
