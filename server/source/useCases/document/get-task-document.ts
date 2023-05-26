@@ -2,20 +2,20 @@ import { Document } from "@prisma/client"
 import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IDocumentRepository } from "../../repositories/IDocumentRepository";
 
-interface IGetTaskDocumentationRequest {
+interface IGetTaskDocumentationUseCaseRequest {
     taskId: string
 }
 
-interface IGetTaskDocumentationReply {
+interface IGetTaskDocumentationUseCaseReply {
     document: Document
 }
 
-export class GetTaskDocumentation {
+export class GetTaskDocumentationUseCase {
     constructor(private taskRepository: ITaskRepository, private documentRepository: IDocumentRepository) {}
 
     async handle({
         taskId,
-    }: IGetTaskDocumentationRequest): Promise<IGetTaskDocumentationReply> {
+    }: IGetTaskDocumentationUseCaseRequest): Promise<IGetTaskDocumentationUseCaseReply> {
         const task = await this.taskRepository.findById(taskId);
         if (!task) {
             throw new Error();
