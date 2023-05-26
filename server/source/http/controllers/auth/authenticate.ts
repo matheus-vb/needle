@@ -13,7 +13,7 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
     try {
         const authenticateUseCase = makeAuthenticateUseCase();
 
-        const user = await authenticateUseCase.handle({
+        const { user } = await authenticateUseCase.handle({
             email,
             password,
         })
