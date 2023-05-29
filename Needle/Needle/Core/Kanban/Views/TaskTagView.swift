@@ -8,31 +8,26 @@
 import SwiftUI
 
 struct TaskTagView: View {
-    enum tagTypeEnum {
-        case dev
-        case design
-        case pm
-    }
     
-    let tagType: tagTypeEnum
+    let tagType: String
     
     var body: some View {
-        if tagType == .dev{
+        if tagType == "dev" {
             HStack{
                 Text("membro")
                     .font(.system(size: 13))
                     .foregroundColor(.black)
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                    .padding(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
                     .background(Color(red: 0.89, green: 0.89, blue: 0.89)).cornerRadius(4)
                 
                 Text("dev")
                     .font(.system(size: 13))
-                    .foregroundColor(.black)
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                    .background(Color(red: 0.52, green: 0.67, blue: 0.97)).cornerRadius(4)
+                    .foregroundColor(.white)
+                    .padding(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
+                    .background(Color(.black)).cornerRadius(4)
             }
         }
-        else if tagType == .design {
+        else if tagType == "design" {
             HStack{
                 Text("membro")
                     .font(.system(size: 13))
@@ -48,11 +43,11 @@ struct TaskTagView: View {
             }
         }
         else {
-            Text("PM")
+            Text(tagType)
                 .font(.system(size: 13))
                 .foregroundColor(.black)
                 .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                .background(Color(.orange)).cornerRadius(4)
+                .background(Color(red: 0.99, green: 0.59, blue: 0.22)).cornerRadius(4)
         }
         
         
@@ -61,6 +56,6 @@ struct TaskTagView: View {
 
 struct TaskTagView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskTagView(tagType: .dev)
+        TaskTagView(tagType: "dev")
     }
 }

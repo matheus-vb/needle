@@ -11,6 +11,7 @@
 		CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */; };
 		CA47E0372A2145A600A63F28 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0362A2145A600A63F28 /* TaskModel.swift */; };
 		CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0382A21484F00A63F28 /* TaskTagView.swift */; };
+		CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */; };
 		CAE434352A1E9DAF00A2A4BE /* NeedleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE434342A1E9DAF00A2A4BE /* NeedleApp.swift */; };
 		CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE434362A1E9DAF00A2A4BE /* WorkspaceView.swift */; };
 		CAE434392A1E9DB000A2A4BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE434382A1E9DB000A2A4BE /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTaskComponentView.swift; sourceTree = "<group>"; };
 		CA47E0362A2145A600A63F28 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		CA47E0382A21484F00A63F28 /* TaskTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTagView.swift; sourceTree = "<group>"; };
+		CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnTitle.swift; sourceTree = "<group>"; };
 		CAE434312A1E9DAF00A2A4BE /* Needle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Needle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE434342A1E9DAF00A2A4BE /* NeedleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleApp.swift; sourceTree = "<group>"; };
 		CAE434362A1E9DAF00A2A4BE /* WorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceView.swift; sourceTree = "<group>"; };
@@ -98,8 +100,8 @@
 		CAE434442A1EA68B00A2A4BE /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				CAE434512A213F4500A2A4BE /* Kanban */,
 				CAE434492A1EA87500A2A4BE /* Components */,
+				CAE434512A213F4500A2A4BE /* Kanban */,
 				CAE434472A1EA83500A2A4BE /* Workspace */,
 			);
 			path = Core;
@@ -154,6 +156,7 @@
 				CA47E0322A21413800A63F28 /* KanbanComponentView.swift */,
 				CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */,
 				CA47E0382A21484F00A63F28 /* TaskTagView.swift */,
+				CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
+				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
 				CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */,
