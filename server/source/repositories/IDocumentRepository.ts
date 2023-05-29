@@ -6,5 +6,5 @@ export interface IDocumentRepository {
     updateDocument(id: string, text: string): Promise<Document>;
     queryDocumentByTitle(query: string, accessCode: string): Promise<Document[]>;
     queryDocumentByTaskTag(tag: string, accessCode: string): Promise<Document[]>;
-    queryDocumentByType(type: TaskType): Promise<Document[]>;
+    queryDocumentByType(type: TaskType, accessCode: string): Promise<Document[]>;
 }
