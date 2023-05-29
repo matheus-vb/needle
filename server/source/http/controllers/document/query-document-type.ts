@@ -6,14 +6,16 @@ import { makeQueryDocumentByTypeUseCase } from "../../../useCases/factories/docu
 export async function queryDocumentByTaskType(request: FastifyRequest, reply: FastifyReply) {
     const queryDocumentByTaskTypeBodySchema = z.object({
         type: z.string(),
+        accessCode: z.string(),
     })
 
-    const { type } = queryDocumentByTaskTypeBodySchema.parse(request.params);
+    const { type, accessCode } = queryDocumentByTaskTypeBodySchema.parse(request.params);
 
     try {
         const queryDocumentByTaskTypeUseCase = makeQueryDocumentByTypeUseCase();
         const { documents } = await queryDocumentByTaskTypeUseCase.handle({
             type,
+            accessCode
         })
 
         return reply.status(200).send({ data: documents });
