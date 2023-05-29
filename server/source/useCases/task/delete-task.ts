@@ -8,7 +8,7 @@ export class DeleteTaskUseCase {
     constructor (private taskRepository: TaskRepository) {}
 
     async handle({
-        taskId: string,
+        taskId,
     }: IDeleteTaskRequest){
         await this.taskRepository.deleteTask(taskId);
     }
