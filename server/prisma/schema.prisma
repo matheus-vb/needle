@@ -61,14 +61,14 @@ model Task {
   title       String
   description String
   workspace   Workspace  @relation(fields: [workId], references: [id])
-  user        User       @relation(fields: [userId], references: [id])
+  user        User?      @relation(fields: [userId], references: [id])
   document    Document   @relation(fields: [documentId], references: [id])
   status      TaskStatus @default(TODO)
   type        TaskType
   documentId  String     @unique
   endDate     DateTime
   workId      String
-  userId      String
+  userId      String?
   TaskTag     TaskTag[]
 }
 
