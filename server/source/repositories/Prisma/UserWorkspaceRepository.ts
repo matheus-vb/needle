@@ -10,7 +10,7 @@ export class UserWorkspaceRepository implements IUserWorkspaceRepository{
         })
         return relatioUserWorkspace
     }
-    async findByUserId(id: string): Promise<User_Workspace[] | null> {
+    async findByUserId(id: string): Promise<User_Workspace[]> {
         const realationUserWorkspace = await prisma.user_Workspace.findMany({
             where: {
                 userId: id,
