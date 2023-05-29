@@ -8,7 +8,7 @@ export async function queryDocumentByTaskType(request: FastifyRequest, reply: Fa
         type: z.string(),
     })
 
-    const { type } = queryDocumentByTaskTypeBodySchema.parse(request.body);
+    const { type } = queryDocumentByTaskTypeBodySchema.parse(request.params);
 
     try {
         const queryDocumentByTaskTypeUseCase = makeQueryDocumentByTypeUseCase();
