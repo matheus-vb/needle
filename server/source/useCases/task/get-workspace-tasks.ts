@@ -15,7 +15,7 @@ export class GetWorkspaceTasksUseCase{
     async handle({
         workspaceId,
     }: IGetWorkspaceTasksRequest): Promise<IGetWorkspaceTasksResponse> {
-        const tasks = this.taskRepository.findTasksByWorksapceId(workspaceId);
+        const tasks = await this.taskRepository.findTasksByWorksapceId(workspaceId);
 
         return {
             tasks,
