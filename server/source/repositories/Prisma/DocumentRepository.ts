@@ -20,11 +20,16 @@ export class DocumentRepository implements IDocumentRepository {
         return document;
     }
 
-    async queryDocumentByTitle(query: string) {
+    async queryDocumentByTitle(query: string, accessCode: string) {
         const documents = await prisma.document.findMany({
             where: {
                 title: {
                     contains: query,
+                },
+                task:{
+                    workspace:{
+                        accessCode: accessCode
+                    }
                 }
             }
         })
