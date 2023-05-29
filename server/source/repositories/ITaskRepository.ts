@@ -7,4 +7,5 @@ export interface ITaskRepository {
     updateStatus(id: string, status: TaskStatus): Promise<Task>;
     updateAssignee(id: string, userId: string): Promise<Task>;
     findTasksByWorksapceId(workspaceId: string): Promise<Task[]>;
+    deleteTask(taskId: string): Promise<void>;
 }
