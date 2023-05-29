@@ -7,7 +7,7 @@ export async function queryDocumentByTitle(request: FastifyRequest, reply: Fasti
         query: z.string(),
     })
 
-    const { query } = queryDocumentByTaskTitleBodySchema.parse(request.body);
+    const { query } = queryDocumentByTaskTitleBodySchema.parse(request.params);
 
     try {
         const queryDocumentByTaskTitleUseCase = makeQueryDocumentByTitleUseCase();

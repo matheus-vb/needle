@@ -7,7 +7,7 @@ export async function listUserWorkspaces(request: FastifyRequest, response: Fast
         id: z.string(),
     })
 
-    const { id } = listWorkspaceBodySchema.parse(request.body);
+    const { id } = listWorkspaceBodySchema.parse(request.params);
 
     try{
 

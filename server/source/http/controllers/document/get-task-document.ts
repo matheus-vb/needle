@@ -7,7 +7,7 @@ export async function getTaskDocument(request: FastifyRequest, reply: FastifyRep
         taskId: z.string(),
     })
 
-    const { taskId } = getTaskDocumentBodySchema.parse(request.body);
+    const { taskId } = getTaskDocumentBodySchema.parse(request.params);
 
     try {
         const getTaskDocumentationUseCase = makeGetTaskDocuementUseCase();

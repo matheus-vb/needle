@@ -8,7 +8,7 @@ export async function getWorkspaceMembers(request: FastifyRequest, response: Fas
         role: z.string()
     })
 
-    const {workspaceId, role} = getWorkspaceMembersBodySchema.parse(request.body);
+    const {workspaceId, role} = getWorkspaceMembersBodySchema.parse(request.params);
 
     try{
         const getWorkspaceMembersUseCase = makeGetWorkspaceMembersUseCase();

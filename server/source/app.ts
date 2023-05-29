@@ -1,11 +1,20 @@
 import fastify from "fastify";
 import { ZodError } from "zod";
+import { authRoutes } from "./http/controllers/auth/routes";
+import { taskRoutes } from "./http/controllers/task/routes";
+import { documentRoutes } from "./http/controllers/document/routes";
+import { workspaceRoutes } from "./http/controllers/workspace/routes";
 
 export const app = fastify();
 
 app.get('/', ()=> {
     return "tudo ok!"
 })
+
+app.register(authRoutes);
+app.register(taskRoutes);
+app.register(documentRoutes);
+app.register(workspaceRoutes);
 
 app.setErrorHandler((error, _, reply) => {
     if (error instanceof ZodError) {
