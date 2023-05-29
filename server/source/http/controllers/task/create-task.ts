@@ -12,7 +12,7 @@ export async function createTask(request: FastifyRequest, response: FastifyReply
         description: z.string(),
         stats: z.string(),
         type: z.string(),
-        endDate: z.date()
+        endDate: z.coerce.date()
     })
 
     const {userId, accessCode, title, description, stats, type, endDate} = createTaskBodySchema.parse(request.body)
