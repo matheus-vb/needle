@@ -4,8 +4,8 @@ import { makeQueryDocumentByTagUseCase } from "../../../useCases/factories/docum
 
 export async function queryDocumentByTaskTag(request: FastifyRequest, reply: FastifyReply) {
     const queryDocumentByTaskTagBodySchema = z.object({
-        tag: z.string(),
         accessCode: z.string(),
+        tag: z.string(),
     })
 
     const { tag, accessCode } = queryDocumentByTaskTagBodySchema.parse(request.params);

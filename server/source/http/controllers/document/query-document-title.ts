@@ -4,8 +4,8 @@ import { makeQueryDocumentByTitleUseCase } from "../../../useCases/factories/doc
 
 export async function queryDocumentByTitle(request: FastifyRequest, reply: FastifyReply) {
     const queryDocumentByTaskTitleBodySchema = z.object({
-        query: z.string(),
         accessCode: z.string(),
+        query: z.string(),
     })
 
     const { query, accessCode } = queryDocumentByTaskTitleBodySchema.parse(request.params);
