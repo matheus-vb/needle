@@ -6,7 +6,7 @@ import { makeCreateTaskUseCase } from "../../../useCases/factories/task/make-cre
 export async function createTask(request: FastifyRequest, response: FastifyReply){
     
     const createTaskBodySchema = z.object({
-        userId: z.string(),
+        userId: z.string().nullish(),
         accessCode: z.string(),
         title: z.string(),
         description: z.string(),
@@ -20,7 +20,7 @@ export async function createTask(request: FastifyRequest, response: FastifyReply
     try{
         const creteTaskUseCase = makeCreateTaskUseCase();
         
-        const { task } = await creteTaskUseCase.handle({userId, accessCode, title, description, status: stats , type, endDate});
+        const { task } = await creteTaskUseCase.handle({userId: userId ? userId : null, accessCode, title, description, status: stats , type, endDate});
         
         return response.status(201).send({task});
     }catch(e){
