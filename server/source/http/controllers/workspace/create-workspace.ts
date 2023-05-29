@@ -4,14 +4,15 @@ import { makeCreateWorkspaceUseCase } from "../../../useCases/factories/workspac
 
 export async function createWorkspace(request: FastifyRequest, response: FastifyReply){
     const createWorkspaceBodySchema = z.object({
-        name: z.string()
+        name: z.string(),
+        userId: z.string(),
     })
 
-    const { name } = createWorkspaceBodySchema.parse(request.body);
+    const { name, userId } = createWorkspaceBodySchema.parse(request.body);
 
     try{
         const createWorkspaceUseCase = makeCreateWorkspaceUseCase()
-        const { workspace } = await createWorkspaceUseCase.handle({name});
+        const { workspace } = await createWorkspaceUseCase.handle({name, userId});
         return response.status(201).send(workspace)
     }catch(e){
         throw e
