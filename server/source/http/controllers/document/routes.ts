@@ -7,8 +7,8 @@ import { updateDocument } from "./update-document";
 
 export async function documentRoutes(app: FastifyInstance) {
     app.get('/document/task/:taskId', getTaskDocument);
-    app.get('/document/tag/:tag', queryDocumentByTaskTag);
-    app.get('/document/title/:query', queryDocumentByTitle)
-    app.get('/document/type/:type', queryDocumentByTaskType);
+    app.get('/document/tag/:tag/:accessCode', queryDocumentByTaskTag);
+    app.get('/document/title/:quer/:accessCode', queryDocumentByTitle)
+    app.get('/document/type/:type/:accessCode', queryDocumentByTaskType);
     app.patch('/document', updateDocument);
 }
