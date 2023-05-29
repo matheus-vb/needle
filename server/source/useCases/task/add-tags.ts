@@ -4,11 +4,11 @@ import { ITagRepository } from "../../repositories/ITagRepository";
 
 interface IAddTagsToTaskUseCaseRequest {
     taskId: string,
-    tags: string[]
+    tag: string
 }
 
 interface IAddTagsToTaskUseCaseReply {
-    tagsOut: TaskTag[]
+    taskTag: TaskTag
 }
 
 export class AddTagsToTaskUseCase {
@@ -16,26 +16,20 @@ export class AddTagsToTaskUseCase {
 
     async handle({
         taskId,
-        tags,
+        tag,
     }: IAddTagsToTaskUseCaseRequest): Promise<IAddTagsToTaskUseCaseReply> {
         const task = await this.taskRepository.findById(taskId);
         if(!task) {
             throw new Error();
         }
 
-        let tagsOut: TaskTag[] = []
-
-        for (const tag of tags) {
-            const currentTag = await this.tagRepository.create({
-                taskId,
-                tag
-            })
-
-            tagsOut.push(currentTag);
-        }
+        const taskTag = await this.tagRepository.create({
+            taskId,
+            tag
+        })
 
         return {
-            tagsOut,
+            taskTag,
         }
     }
 }
