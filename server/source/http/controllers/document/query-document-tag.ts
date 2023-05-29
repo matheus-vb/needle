@@ -5,15 +5,17 @@ import { makeQueryDocumentByTagUseCase } from "../../../useCases/factories/docum
 export async function queryDocumentByTaskTag(request: FastifyRequest, reply: FastifyReply) {
     const queryDocumentByTaskTagBodySchema = z.object({
         tag: z.string(),
+        accessCode: z.string(),
     })
 
-    const { tag } = queryDocumentByTaskTagBodySchema.parse(request.params);
+    const { tag, accessCode } = queryDocumentByTaskTagBodySchema.parse(request.params);
 
     try {
         const queryDocumentByTaskTagUseCase = makeQueryDocumentByTagUseCase();
 
         const { documents } = await queryDocumentByTaskTagUseCase.handle({
             tag,
+            accessCode
         })
 
         return reply.status(200).send({ data: documents });
