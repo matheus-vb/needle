@@ -7,7 +7,7 @@ interface IGetWorkspaceMembersByRoleRequest{
 }
 
 interface IGetWorkspaceMembersByRoleReply{
-    members: User[] | null
+    members: User[]
 }
 
 export class GetWorkspaceMembersByRoleUseCase{
