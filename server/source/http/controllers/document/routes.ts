@@ -6,9 +6,9 @@ import { queryDocumentByTitle } from "./query-document-title";
 import { updateDocument } from "./update-document";
 
 export async function documentRoutes(app: FastifyInstance) {
-    app.get('/document/task', getTaskDocument);
-    app.get('/document/tag', queryDocumentByTaskTag);
-    app.get('/document/title', queryDocumentByTitle)
-    app.get('/document/type', queryDocumentByTaskType);
+    app.get('/document/task/:taskId', getTaskDocument);
+    app.get('/document/tag/:tag', queryDocumentByTaskTag);
+    app.get('/document/title/:query', queryDocumentByTitle)
+    app.get('/document/type/:type', queryDocumentByTaskType);
     app.patch('/document', updateDocument);
 }
