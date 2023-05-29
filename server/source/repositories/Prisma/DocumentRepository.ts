@@ -32,7 +32,7 @@ export class DocumentRepository implements IDocumentRepository {
         return documents;
     }
 
-    async queryDocumentByTaskTag(tag: string) {
+    async queryDocumentByTaskTag(tag: string, accessCode: string) {
         const documents = await prisma.document.findMany({
             where :{
                 task: {
@@ -40,6 +40,9 @@ export class DocumentRepository implements IDocumentRepository {
                         some:{
                             tag,
                         }
+                    },
+                    workspace:{
+                        accessCode: accessCode
                     }
                 }
             }
