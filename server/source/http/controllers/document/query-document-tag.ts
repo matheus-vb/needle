@@ -7,7 +7,7 @@ export async function queryDocumentByTaskTag(request: FastifyRequest, reply: Fas
         tag: z.string(),
     })
 
-    const { tag } = queryDocumentByTaskTagBodySchema.parse(request.body);
+    const { tag } = queryDocumentByTaskTagBodySchema.parse(request.params);
 
     try {
         const queryDocumentByTaskTagUseCase = makeQueryDocumentByTagUseCase();
