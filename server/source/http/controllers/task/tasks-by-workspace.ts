@@ -9,7 +9,7 @@ export async function tasksByWorkspace(request: FastifyRequest, response: Fastif
         workspaceId: z.string(),
     })
 
-    const { workspaceId } = taskByWorkspaceBodySchema.parse(request.body)
+    const { workspaceId } = taskByWorkspaceBodySchema.parse(request.params)
 
     try{
        const getTasksByWorkspaceUseCase= makeGetWorkspaceTasksUseCase();
