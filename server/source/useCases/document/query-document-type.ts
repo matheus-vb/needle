@@ -3,7 +3,8 @@ import { IDocumentRepository } from "../../repositories/IDocumentRepository"
 import { Document, TaskType } from "@prisma/client"
 
 interface IQueryDocuemntByTypeUseCaseRequest {
-    type: string
+    type: string,
+    accessCode: string
 }
 
 interface IQueryDocuemntByTypeUseCaseReply {
@@ -15,11 +16,12 @@ export class QueryDocuemntByTypeUseCase {
 
     async handle({
         type,
+        accessCode
     }: IQueryDocuemntByTypeUseCaseRequest): Promise<IQueryDocuemntByTypeUseCaseReply> {
         const typeEnum = z.nativeEnum(TaskType);
         const checkedType = typeEnum.parse(type);
         
-        const documents = await this.documentRepository.queryDocumentByType(checkedType);
+        const documents = await this.documentRepository.queryDocumentByType(checkedType, accessCode);
 
         return {
             documents,
