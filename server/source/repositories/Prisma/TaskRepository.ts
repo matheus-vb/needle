@@ -58,4 +58,21 @@ export class TaskRepository implements ITaskRepository{
         return task;
     }
     
+    async findTasksByWorksapceId(workspaceId: string): Promise<Task[]> {
+       const tasks = await prisma.task.findMany({
+        where:{
+            workId: workspaceId,
+        }
+       })
+
+       return tasks;
+    }
+
+    async deleteTask(taskId: string){
+        await prisma.task.delete({
+            where:{
+                id: taskId,
+            }
+        })
+    }
 }

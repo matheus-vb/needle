@@ -10,7 +10,7 @@ interface IListWorkspaceUseCaseRequest {
 }
 
 interface IListWorkspaceUseCaseReply {
-    workspaces: Workspace[] | null
+    workspaces: Workspace[]
 }
 
 export class ListWorkspaceUseCase {

@@ -3,14 +3,14 @@ import { prisma } from "../../lib/prisma";
 import { IUserWorkspaceRepository } from "../IUserWorkspaceRepository";
 
 
-export class UserRepositoryRepository implements IUserWorkspaceRepository{
+export class UserWorkspaceRepository implements IUserWorkspaceRepository{
     async create(data: Prisma.User_WorkspaceUncheckedCreateInput): Promise<User_Workspace> {
         const relatioUserWorkspace = await prisma.user_Workspace.create({
             data,
         })
         return relatioUserWorkspace
     }
-    async findByUserId(id: string): Promise<User_Workspace[] | null> {
+    async findByUserId(id: string): Promise<User_Workspace[]> {
         const realationUserWorkspace = await prisma.user_Workspace.findMany({
             where: {
                 userId: id,

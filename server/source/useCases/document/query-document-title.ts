@@ -2,7 +2,8 @@ import { Document } from "@prisma/client"
 import { IDocumentRepository } from "../../repositories/IDocumentRepository"
 
 interface IQueryDocumentByTitleUseCaseRequest {
-    query: string
+    query: string,
+    accessCode: string
 }
 
 interface IQueryDocumentByTitleUseCaseReply {
@@ -14,8 +15,9 @@ export class QueryDocumentByTitleUseCase {
 
     async handle({
         query,
+        accessCode
     }: IQueryDocumentByTitleUseCaseRequest): Promise<IQueryDocumentByTitleUseCaseReply> {
-        const documents = await this.documentsRepository.queryDocumentByTitle(query);
+        const documents = await this.documentsRepository.queryDocumentByTitle(query, accessCode);
 
         return {
             documents,
