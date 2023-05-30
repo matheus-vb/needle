@@ -16,39 +16,42 @@ struct tagView: View {
         Text(name)
             .font(.custom(.spaceGrotesk, size: 24))
             .foregroundColor(.black)
-            .fixedSize(horizontal: false, vertical: true)
-            .multilineTextAlignment(.center)
+            .padding(.horizontal, 16.0)
+            .padding(.vertical, 4.0)
             .background(
-                RoundedRectangle(cornerRadius: 2, style: .circular)
-                    .fill(Color.gray)
+                RoundedRectangle(cornerRadius: 4, style: .circular)
+                    .fill(Color.color.kanbanGray)
             )
     }
 }
+
+struct initialButtonStyle: ButtonStyle {
+    let fontColor: Color
+    let bgColor: Color
     
-var cadastroButtonView: some View {
-    Text("Cadastre-se")
-        .font(.custom(.spaceGrotesk, size: 24))
-        .foregroundColor(.black)
-        .fixedSize(horizontal: false, vertical: true)
-        .frame(width: 214, height: 63)
-        .multilineTextAlignment(.center)
-        .background(
-            RoundedRectangle(cornerRadius: 2, style: .circular)
-                .fill(Color.green)
-        )
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(fontColor)
+            .background(bgColor)
+            .cornerRadius(8)
+    }
 }
+
     
-var loginButtonView: some View {
-    Text("Entrar")
-        .font(.custom(.spaceGrotesk, size: 24))
-        .foregroundColor(.white)
-        .fixedSize(horizontal: false, vertical: true)
-        .frame(width: 214, height: 63)
-        .multilineTextAlignment(.center)
-        .background(
-            RoundedRectangle(cornerRadius: 2, style: .circular)
+struct loginButtonStyle: View {
+        
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 4, style: .circular)
                 .fill(Color.black)
-        )
+            Text("Entrar")
+                .font(.custom(.spaceGrotesk, size: 24))
+                .foregroundColor(.white)
+                .padding(.vertical, 16.0)
+        }
+        .frame(width: 213, height: 63)
+        
+    }
 }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0322A21413800A63F28 /* KanbanComponentView.swift */; };
 		CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */; };
 		CA47E0372A2145A600A63F28 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0362A2145A600A63F28 /* TaskModel.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CA47E0322A21413800A63F28 /* KanbanComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanComponentView.swift; sourceTree = "<group>"; };
 		CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTaskComponentView.swift; sourceTree = "<group>"; };
 		CA47E0362A2145A600A63F28 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				8F92A32A2A21459700D163D0 /* Image.swift */,
 				8F92A32E2A214D9000D163D0 /* MyCustomFonts.swift */,
+				8F9145942A2522C60082F40A /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			files = (
 				8F92A3262A21416100D163D0 /* LoginView.swift in Sources */,
 				8F92A32B2A21459700D163D0 /* Image.swift in Sources */,
+				8F9145952A2522C60082F40A /* Color.swift in Sources */,
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
