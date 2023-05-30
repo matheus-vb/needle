@@ -11,7 +11,7 @@ import SwiftUI
 struct NeedleApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            DocumenterrView()
         }
     }
 }
