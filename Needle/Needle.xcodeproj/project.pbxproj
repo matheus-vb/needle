@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		8F92A3262A21416100D163D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* LoginView.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
 		8F92A32B2A21459700D163D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32A2A21459700D163D0 /* Image.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8F92A3252A21416100D163D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
 		8F92A32A2A21459700D163D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				8F92A32A2A21459700D163D0 /* Image.swift */,
 				8F92A32E2A214D9000D163D0 /* MyCustomFonts.swift */,
+				8F9145942A2522C60082F40A /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			files = (
 				8F92A3262A21416100D163D0 /* LoginView.swift in Sources */,
 				8F92A32B2A21459700D163D0 /* Image.swift in Sources */,
+				8F9145952A2522C60082F40A /* Color.swift in Sources */,
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
