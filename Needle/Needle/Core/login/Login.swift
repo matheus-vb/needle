@@ -17,6 +17,7 @@ struct Login: View {
             VStack{
                 emailSection
                 passwordSection
+                loginButton
             }
         }
     }

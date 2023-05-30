@@ -38,4 +38,20 @@ extension Login{
                 )
         }
     }
+    
+    var loginButton: some View {
+        Button(action: {
+            //acao
+        }, label: {
+            Text("Enviar")
+                //.padding([.leading, .trailing], 54)
+               // .padding([.top, .bottom], 12)
+        }).buttonStyle(BorderlessButtonStyle())
+        .font(.system(size: 18, weight: .regular))
+        .foregroundColor(Color.white)
+        .frame(width: 528)
+        .frame(minHeight: 48)
+        .background(Color.black)
+        .cornerRadius(16)
+    }
 }
