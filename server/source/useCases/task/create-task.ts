@@ -19,7 +19,7 @@ id: string;
 */
 
 interface ICreateTaskUseCaseRequest {
-    userId: string,
+    userId: string | null,
     accessCode: string,
     title: string,
     description: string,
@@ -50,18 +50,16 @@ export class CreateTaskUseCase {
         type,
         userId,
     }: ICreateTaskUseCaseRequest): Promise<ICreateTaskUseCaseReply> {
-        const user = await this.userRepository.findById(userId);
-        if(!user) {
-            throw new Error();
+        
+        if(userId) {
+            const user = await this.userRepository.findById(userId);
+            if(!user) {
+                throw new Error();
+            }
         }
 
         const workspace = await this.workspaceRepository.findByCode(accessCode);
         if (!workspace) {
-            throw new Error();
-        }
-
-        const userWorkspace = await this.userWorkspaceRepository.findUserInWorkspace(userId, workspace.id);
-        if(!userWorkspace) {
             throw new Error();
         }
 

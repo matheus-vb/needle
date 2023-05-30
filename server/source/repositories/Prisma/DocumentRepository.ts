@@ -20,26 +20,15 @@ export class DocumentRepository implements IDocumentRepository {
         return document;
     }
 
-    async queryDocumentByTitle(query: string) {
+    async queryDocumentByTitle(query: string, accessCode: string) {
         const documents = await prisma.document.findMany({
             where: {
                 title: {
                     contains: query,
-                }
-            }
-        })
-
-        return documents;
-    }
-
-    async queryDocumentByTaskTag(tag: string) {
-        const documents = await prisma.document.findMany({
-            where :{
-                task: {
-                    TaskTag: {
-                        some:{
-                            tag,
-                        }
+                },
+                task:{
+                    workspace:{
+                        accessCode: accessCode
                     }
                 }
             }
@@ -48,11 +37,33 @@ export class DocumentRepository implements IDocumentRepository {
         return documents;
     }
 
-    async queryDocumentByType(type: TaskType) {
+    async queryDocumentByTaskTag(tag: string, accessCode: string) {
+        const documents = await prisma.document.findMany({
+            where :{
+                task: {
+                    TaskTag: {
+                        some:{
+                            tag,
+                        }
+                    },
+                    workspace:{
+                        accessCode: accessCode
+                    }
+                }
+            }
+        })
+
+        return documents;
+    }
+
+    async queryDocumentByType(type: TaskType, accessCode: string) {
         const documents = await prisma.document.findMany({
             where: {
                 task: {
                     type,
+                    workspace:{
+                        accessCode: accessCode
+                    }
                 }
             }
         })

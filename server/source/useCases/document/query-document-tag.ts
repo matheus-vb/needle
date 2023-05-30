@@ -2,7 +2,8 @@ import { Document } from "@prisma/client";
 import { IDocumentRepository } from "../../repositories/IDocumentRepository";
 
 interface IQueryDocuemntByTagUseCaseRequest {
-    tag: string
+    tag: string,
+    accessCode: string,
 }
 
 interface IQueryDocuemntByTagUseCaseReply {
@@ -15,9 +16,9 @@ export class QueryDocuemntByTagUseCase {
     ) {}
 
     async handle({
-        tag,
+        tag, accessCode
     }: IQueryDocuemntByTagUseCaseRequest): Promise<IQueryDocuemntByTagUseCaseReply> {
-        const documents = await this.documentRepository.queryDocumentByTaskTag(tag);
+        const documents = await this.documentRepository.queryDocumentByTaskTag(tag, accessCode);
 
         return {
             documents,
