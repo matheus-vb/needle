@@ -10,6 +10,14 @@
 		2716F6892A2670D300CAF94E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6882A2670D300CAF94E /* Login.swift */; };
 		2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */; };
 		2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6912A2676E300CAF94E /* LoginViewComponents.swift */; };
+		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
+		CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0322A21413800A63F28 /* KanbanComponentView.swift */; };
+		CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */; };
+		CA47E0372A2145A600A63F28 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0362A2145A600A63F28 /* TaskModel.swift */; };
+		CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0382A21484F00A63F28 /* TaskTagView.swift */; };
+		CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */; };
+		CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C132A259D7400CB0AB7 /* KanbanSideBarView.swift */; };
+		CA6B4C162A259DEB00CB0AB7 /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C152A259DEB00CB0AB7 /* KanbanViewModel.swift */; };
 		8F92A3262A21416100D163D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* LoginView.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
 		8F92A32B2A21459700D163D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32A2A21459700D163D0 /* Image.swift */; };
@@ -23,12 +31,21 @@
 		CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE434452A1EA75D00A2A4BE /* WorkspaceModel.swift */; };
 		CAE4344B2A1EA90400A2A4BE /* WorkspaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4344A2A1EA90400A2A4BE /* WorkspaceViewModel.swift */; };
 		CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE4344E2A1EA9C400A2A4BE /* AnyComponent.swift */; };
+		CAE434552A213F8C00A2A4BE /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE434542A213F8C00A2A4BE /* KanbanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2716F6882A2670D300CAF94E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2716F6912A2676E300CAF94E /* LoginViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewComponents.swift; sourceTree = "<group>"; };
+		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CA47E0322A21413800A63F28 /* KanbanComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanComponentView.swift; sourceTree = "<group>"; };
+		CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTaskComponentView.swift; sourceTree = "<group>"; };
+		CA47E0362A2145A600A63F28 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		CA47E0382A21484F00A63F28 /* TaskTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTagView.swift; sourceTree = "<group>"; };
+		CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnTitle.swift; sourceTree = "<group>"; };
+		CA6B4C132A259D7400CB0AB7 /* KanbanSideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanSideBarView.swift; sourceTree = "<group>"; };
+		CA6B4C152A259DEB00CB0AB7 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
 		8F92A3252A21416100D163D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
 		8F92A32A2A21459700D163D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -44,6 +61,7 @@
 		CAE434452A1EA75D00A2A4BE /* WorkspaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceModel.swift; sourceTree = "<group>"; };
 		CAE4344A2A1EA90400A2A4BE /* WorkspaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceViewModel.swift; sourceTree = "<group>"; };
 		CAE4344E2A1EA9C400A2A4BE /* AnyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyComponent.swift; sourceTree = "<group>"; };
+		CAE434542A213F8C00A2A4BE /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +90,7 @@
 			children = (
 				8F92A32A2A21459700D163D0 /* Image.swift */,
 				8F92A32E2A214D9000D163D0 /* MyCustomFonts.swift */,
+				8F9145942A2522C60082F40A /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE434452A1EA75D00A2A4BE /* WorkspaceModel.swift */,
+				CA47E0362A2145A600A63F28 /* TaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +156,7 @@
 			children = (
 				2716F6872A2670A100CAF94E /* login */,
 				CAE434492A1EA87500A2A4BE /* Components */,
+				CAE434512A213F4500A2A4BE /* Kanban */,
 				CAE434472A1EA83500A2A4BE /* Workspace */,
 			);
 			path = Core;
@@ -175,6 +196,36 @@
 				CAE4344A2A1EA90400A2A4BE /* WorkspaceViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CAE434512A213F4500A2A4BE /* Kanban */ = {
+			isa = PBXGroup;
+			children = (
+				CAE434522A213F4F00A2A4BE /* Views */,
+				CAE434532A213F5900A2A4BE /* ViewsModels */,
+			);
+			path = Kanban;
+			sourceTree = "<group>";
+		};
+		CAE434522A213F4F00A2A4BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAE434542A213F8C00A2A4BE /* KanbanView.swift */,
+				CA47E0322A21413800A63F28 /* KanbanComponentView.swift */,
+				CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */,
+				CA47E0382A21484F00A63F28 /* TaskTagView.swift */,
+				CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */,
+				CA6B4C132A259D7400CB0AB7 /* KanbanSideBarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CAE434532A213F5900A2A4BE /* ViewsModels */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B4C152A259DEB00CB0AB7 /* KanbanViewModel.swift */,
+			);
+			path = ViewsModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,17 +301,26 @@
 			files = (
 				8F92A3262A21416100D163D0 /* LoginView.swift in Sources */,
 				8F92A32B2A21459700D163D0 /* Image.swift in Sources */,
+				8F9145952A2522C60082F40A /* Color.swift in Sources */,
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
 				2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */,
+				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
+				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
 				8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */,
 				CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */,
+				CA47E0372A2145A600A63F28 /* TaskModel.swift in Sources */,
+				CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */,
+				CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */,
+				CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */,
+				CAE434552A213F8C00A2A4BE /* KanbanView.swift in Sources */,
 				CAE4344B2A1EA90400A2A4BE /* WorkspaceViewModel.swift in Sources */,
 				2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */,
 				8F92A32D2A21483F00D163D0 /* LoginComponents.swift in Sources */,
 				2716F6892A2670D300CAF94E /* Login.swift in Sources */,
 				CAE434352A1E9DAF00A2A4BE /* NeedleApp.swift in Sources */,
+				CA6B4C162A259DEB00CB0AB7 /* KanbanViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

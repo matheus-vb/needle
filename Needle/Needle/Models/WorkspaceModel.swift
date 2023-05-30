@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Workspace: Identifiable, Codable {
+struct WorkspaceModel: Identifiable, Codable {
     var id: String
     var accessCode: String
     var name: String
