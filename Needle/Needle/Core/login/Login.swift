@@ -14,10 +14,10 @@ struct Login: View {
             Image("LoginBG")
                 .resizable()
                 .scaledToFill()
-            VStack{
-                emailSection
-                passwordSection
-                loginButton
+            VStack(spacing: 77){
+                loginTitle
+                textFieldsComponent
+                    .padding([.leading, .trailing], 352)
             }
         }
     }

@@ -54,4 +54,23 @@ extension Login{
         .background(Color.black)
         .cornerRadius(16)
     }
+    
+    var textFieldsComponent: some View{
+        VStack(alignment: .center, spacing: 40){
+            emailSection
+            passwordSection
+            loginButton
+        }
+    }
+    
+    var loginTitle: some View{
+        VStack(alignment: .center, spacing: 8){
+            Text("Login")
+                .font(.system(size: 40, weight: .bold))
+                .foregroundColor(.black)
+            Text("Realize login para ter acesso aos seus workspaces")
+                .font(.system(size: 24, weight: .light))
+                .foregroundColor(.black)
+        }
+    }
 }
