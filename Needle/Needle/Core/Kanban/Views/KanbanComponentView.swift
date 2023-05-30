@@ -30,37 +30,54 @@ struct KanbanComponentView: View {
         Task(title: "Task 4", tagType: "geral", column: .inProgress),
         Task(title: "Task 5", tagType: "design", column: .inReviw),
         Task(title: "Task 6", tagType: "design", column: .toDo),
+        Task(title: "Task 7", tagType: "design", column: .toDo),
+        Task(title: "Task 8", tagType: "dev", column: .toDo),
         Task(title: "Task 6", tagType: "design", column: .toDo),
-        Task(title: "Task 6", tagType: "dev", column: .toDo),
+        Task(title: "Task 7", tagType: "design", column: .toDo),
+        Task(title: "Task 8", tagType: "dev", column: .toDo),
+        Task(title: "Task 6", tagType: "design", column: .toDo),
+        Task(title: "Task 7", tagType: "design", column: .toDo),
+        Task(title: "Task 6", tagType: "design", column: .toDo),
+        Task(title: "Task 7", tagType: "design", column: .toDo),
     ]
+    let workspaceName: String
 
     var body: some View {
-        HStack {
-            ForEach(TaskColumn.allCases, id: \.self) { column in
-                VStack {
-                    KanbanColumnTitle(title: column)
-                    
-                    Spacer().frame(height: 28)
-                    
-                    VStack {
-                        ForEach(tasks.filter { $0.column == column }) { task in
-                            
-                            KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
-                                .onDrag {
-                                    let index = tasks.firstIndex { $0.id == task.id } ?? 0
-                                    return NSItemProvider(object: "\(index)" as NSString)
-                                }
-                            Spacer().frame(height: 24)
-                        }
-                        .onDrop(of: [.text], delegate: TaskDropDelegate(column: column, tasks: $tasks))
-                    }.frame(width: 282)
-                    Spacer()
-                    
-                }.foregroundColor(.black)
-                    
+        VStack{
+            HStack{
+                Text(workspaceName)
+                    .padding(10)
+                    .foregroundColor(.black)
+                    .font(.system(size: 40))
+                Spacer()
             }
-        }.background(.white)
-            .frame(width: 1180)
+            HStack {
+                ForEach(TaskColumn.allCases, id: \.self) { column in
+                    VStack {
+                        KanbanColumnTitle(title: column)
+                        
+                        Spacer().frame(height: 28)
+                        
+                        VStack (spacing: 24){
+                            ForEach(tasks.filter { $0.column == column }) { task in
+                                
+                                KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
+                                    .onDrag {
+                                        let index = tasks.firstIndex { $0.id == task.id } ?? 0
+                                        return NSItemProvider(object: "\(index)" as NSString)
+                                    }
+                            }
+                            .onDrop(of: [.text], delegate: TaskDropDelegate(column: column, tasks: $tasks))
+                        }.frame(maxWidth: 282, maxHeight: .infinity, alignment: .top)
+                            
+                        Spacer()
+                        
+                    }.foregroundColor(.black)
+                    
+                }
+            }.background(.clear)
+                .frame(width: 1180)
+        }
     }
 }
 
@@ -87,6 +104,6 @@ struct TaskDropDelegate: DropDelegate {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        KanbanComponentView()
+        KanbanComponentView(workspaceName: "Projeto Teste")
     }
 }
