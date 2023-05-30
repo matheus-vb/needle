@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "imagemFundoLogin.png",
+      "filename" : "LoginBG.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

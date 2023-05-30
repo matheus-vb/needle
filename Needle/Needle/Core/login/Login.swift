@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct Login: View {
+    @EnvironmentObject var loginViewModel: LoginViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct Login_Previews: PreviewProvider {
-    static var previews: some View {
-        Login()
+        ZStack{
+            Image("LoginBG")
+                .resizable()
+                .scaledToFill()
+            VStack{
+                emailSection
+                passwordSection
+            }
+        }
     }
 }

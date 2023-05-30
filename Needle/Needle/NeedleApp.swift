@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct NeedleApp: App {
+    @StateObject private var loginViewModel = LoginViewModel()
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            Login()
+                .environmentObject(loginViewModel)
         }
     }
 }

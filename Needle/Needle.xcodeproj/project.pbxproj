@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2716F6892A2670D300CAF94E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6882A2670D300CAF94E /* Login.swift */; };
 		2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */; };
+		2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6912A2676E300CAF94E /* LoginViewComponents.swift */; };
 		8F92A3262A21416100D163D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* LoginView.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
 		8F92A32B2A21459700D163D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32A2A21459700D163D0 /* Image.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		2716F6882A2670D300CAF94E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2716F6912A2676E300CAF94E /* LoginViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewComponents.swift; sourceTree = "<group>"; };
 		8F92A3252A21416100D163D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
 		8F92A32A2A21459700D163D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				2716F6882A2670D300CAF94E /* Login.swift */,
 				2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */,
+				2716F6912A2676E300CAF94E /* LoginViewComponents.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				8F92A3262A21416100D163D0 /* LoginView.swift in Sources */,
 				8F92A32B2A21459700D163D0 /* Image.swift in Sources */,
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
+				2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
 				8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */,
