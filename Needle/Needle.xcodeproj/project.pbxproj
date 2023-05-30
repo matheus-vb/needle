@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2716F6892A2670D300CAF94E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6882A2670D300CAF94E /* Login.swift */; };
+		2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */; };
+		2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6912A2676E300CAF94E /* LoginViewComponents.swift */; };
 		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0322A21413800A63F28 /* KanbanComponentView.swift */; };
 		CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2716F6882A2670D300CAF94E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2716F6912A2676E300CAF94E /* LoginViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewComponents.swift; sourceTree = "<group>"; };
 		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CA47E0322A21413800A63F28 /* KanbanComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanComponentView.swift; sourceTree = "<group>"; };
 		CA47E0342A21444300A63F28 /* KanbanTaskComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTaskComponentView.swift; sourceTree = "<group>"; };
@@ -69,6 +75,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2716F6872A2670A100CAF94E /* login */ = {
+			isa = PBXGroup;
+			children = (
+				2716F6882A2670D300CAF94E /* Login.swift */,
+				2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */,
+				2716F6912A2676E300CAF94E /* LoginViewComponents.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
 		8F92A3292A21457F00D163D0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +154,7 @@
 		CAE434442A1EA68B00A2A4BE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2716F6872A2670A100CAF94E /* login */,
 				CAE434492A1EA87500A2A4BE /* Components */,
 				CAE434512A213F4500A2A4BE /* Kanban */,
 				CAE434472A1EA83500A2A4BE /* Workspace */,
@@ -286,6 +303,7 @@
 				8F92A32B2A21459700D163D0 /* Image.swift in Sources */,
 				8F9145952A2522C60082F40A /* Color.swift in Sources */,
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
+				2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */,
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
@@ -298,7 +316,9 @@
 				CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */,
 				CAE434552A213F8C00A2A4BE /* KanbanView.swift in Sources */,
 				CAE4344B2A1EA90400A2A4BE /* WorkspaceViewModel.swift in Sources */,
+				2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */,
 				8F92A32D2A21483F00D163D0 /* LoginComponents.swift in Sources */,
+				2716F6892A2670D300CAF94E /* Login.swift in Sources */,
 				CAE434352A1E9DAF00A2A4BE /* NeedleApp.swift in Sources */,
 				CA6B4C162A259DEB00CB0AB7 /* KanbanViewModel.swift in Sources */,
 			);
@@ -431,7 +451,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -459,7 +479,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
