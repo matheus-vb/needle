@@ -133,6 +133,6 @@ class DocumentService {
                 return
             }
         }
+        task.resume()
     }
-    task.resume()
 }

@@ -177,6 +177,6 @@ class TaskService {
                 return
             }
         }
+        task.resume()
     }
-    task.resume()
 }
