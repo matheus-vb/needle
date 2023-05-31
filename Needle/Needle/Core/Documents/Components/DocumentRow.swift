@@ -10,7 +10,6 @@ import SwiftUI
 struct DocumentRow: View {
     var body: some View {
         HStack(){
-            Spacer()
             HStack(spacing: 44){
                 Image("documentImg")
                     .resizable()
@@ -33,7 +32,6 @@ struct DocumentRow: View {
             Text("Owner Fulano")
                 .font(.system(size: 18, weight: .regular))
                 .foregroundColor(Color.color.mainBlack)
-            Spacer()
         }
         .frame(width: 1107, height: 105)
         .background(.white)
