@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct TaskResponse {
+struct SingleTaskResponse: Codable {
+    let data: Task
+}
+
+struct TaskResponse: Codable {
     let data: [Task]
 }
 
