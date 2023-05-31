@@ -7,7 +7,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct Task: Identifiable {
+struct TaskCard: Identifiable {
     let id = UUID()
     let title: String
     let tagType: String
@@ -23,22 +23,22 @@ enum TaskColumn: String, CaseIterable {
 }
 
 struct KanbanComponentView: View {
-    @State var tasks: [Task] = [
-        Task(title: "Task 1", tagType: "dev", column: .toDo),
-        Task(title: "Task 2", tagType: "design", column: .toDo),
-        Task(title: "Task 3", tagType: "dev", column: .done),
-        Task(title: "Task 4", tagType: "geral", column: .inProgress),
-        Task(title: "Task 5", tagType: "design", column: .inReviw),
-        Task(title: "Task 6", tagType: "design", column: .toDo),
-        Task(title: "Task 7", tagType: "design", column: .toDo),
-        Task(title: "Task 8", tagType: "dev", column: .toDo),
-        Task(title: "Task 6", tagType: "design", column: .toDo),
-        Task(title: "Task 7", tagType: "design", column: .toDo),
-        Task(title: "Task 8", tagType: "dev", column: .toDo),
-        Task(title: "Task 6", tagType: "design", column: .toDo),
-        Task(title: "Task 7", tagType: "design", column: .toDo),
-        Task(title: "Task 6", tagType: "design", column: .toDo),
-        Task(title: "Task 7", tagType: "design", column: .toDo),
+    @State var tasks: [TaskCard] = [
+        TaskCard(title: "Task 1", tagType: "dev", column: .toDo),
+        TaskCard(title: "Task 2", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 3", tagType: "dev", column: .done),
+        TaskCard(title: "Task 4", tagType: "geral", column: .inProgress),
+        TaskCard(title: "Task 5", tagType: "design", column: .inReviw),
+        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 8", tagType: "dev", column: .toDo),
+        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 8", tagType: "dev", column: .toDo),
+        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
     ]
     let workspaceName: String
 
@@ -83,7 +83,7 @@ struct KanbanComponentView: View {
 
 struct TaskDropDelegate: DropDelegate {
     let column: TaskColumn
-    @Binding var tasks: [Task]
+    @Binding var tasks: [TaskCard]
 
         func performDrop(info: DropInfo) -> Bool {
             if let item = info.itemProviders(for: [.text]).first {

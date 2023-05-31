@@ -7,18 +7,16 @@
 
 import Foundation
 
-struct WorkspaceModel: Identifiable, Codable {
+struct SingleWorkspaceResponse: Codable {
+    let data: Workspace
+}
+
+struct WorkspaceResponse: Codable {
+    let data: [Workspace]
+}
+
+struct Workspace: Identifiable, Codable {
     var id: String
     var accessCode: String
     var name: String
 }
-
-/*
- model Workspace {
-   id String @id @default(uuid())
-   accessCode String @unique
-   name String
-   tasks Task[]
-   users User_Workspace[]
- }
- */
