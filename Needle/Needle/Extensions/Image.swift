@@ -20,4 +20,5 @@ struct Icons {
 
 struct Drawings {
     let bigWool = Image("bigWool")
+    let cadastroButton = Image("CadastroButton")
 }
