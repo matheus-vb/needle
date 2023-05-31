@@ -11,6 +11,7 @@ import SwiftUI
 struct NeedleApp: App {
     @StateObject private var loginViewModel = LoginViewModel()
     @StateObject private var registerViewModel = RegisterViewModel()
+    @StateObject private var documentsViewModel = DocumentsViewModel()
     var body: some Scene {
         WindowGroup {
             // Uncomment to start in KanbanView
@@ -18,6 +19,7 @@ struct NeedleApp: App {
             
             // Uncomment to start in HomeView
             DocumentsView()
+                .environmentObject(documentsViewModel)
         }
     }
 }
