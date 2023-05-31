@@ -13,6 +13,8 @@
 		279FB7872A26947F00DF8D01 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB7862A26947F00DF8D01 /* Register.swift */; };
 		279FB7892A26948F00DF8D01 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB7882A26948F00DF8D01 /* RegisterViewModel.swift */; };
 		279FB78B2A26949C00DF8D01 /* RegisterViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */; };
+		27CAFDAB2A27BF0100E88959 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CAFDAA2A27BF0100E88959 /* DocumentsView.swift */; };
+		27CAFDAE2A27BF5900E88959 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CAFDAD2A27BF5900E88959 /* TableHeader.swift */; };
 		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		8F92A3262A21416100D163D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* HomeView.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
@@ -44,6 +46,8 @@
 		279FB7862A26947F00DF8D01 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		279FB7882A26948F00DF8D01 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewComponents.swift; sourceTree = "<group>"; };
+		27CAFDAA2A27BF0100E88959 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
+		27CAFDAD2A27BF5900E88959 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
 		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8F92A3252A21416100D163D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,23 @@
 				279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */,
 			);
 			path = Register_Component;
+			sourceTree = "<group>";
+		};
+		27CAFDA92A27BEF300E88959 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				27CAFDAC2A27BF4C00E88959 /* Components */,
+				27CAFDAA2A27BF0100E88959 /* DocumentsView.swift */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		27CAFDAC2A27BF4C00E88959 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				27CAFDAD2A27BF5900E88959 /* TableHeader.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8F92A3292A21457F00D163D0 /* Extensions */ = {
@@ -170,6 +191,7 @@
 		CAE434442A1EA68B00A2A4BE /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				27CAFDA92A27BEF300E88959 /* Documents */,
 				279FB7852A26946B00DF8D01 /* Register_Component */,
 				2716F6872A2670A100CAF94E /* login */,
 				CAE434492A1EA87500A2A4BE /* Components */,
@@ -321,8 +343,10 @@
 				8F92A32B2A21459700D163D0 /* Image.swift in Sources */,
 				8F9145952A2522C60082F40A /* Color.swift in Sources */,
 				CAE434462A1EA75D00A2A4BE /* WorkspaceModel.swift in Sources */,
+				27CAFDAE2A27BF5900E88959 /* TableHeader.swift in Sources */,
 				2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */,
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
+				27CAFDAB2A27BF0100E88959 /* DocumentsView.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
@@ -471,7 +495,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -499,7 +523,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
