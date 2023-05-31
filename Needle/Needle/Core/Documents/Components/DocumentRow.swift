@@ -25,14 +25,12 @@ struct DocumentRow: View {
                 .font(.system(size: 18, weight: .regular))
                 .foregroundColor(Color.color.mainBlack)
             Spacer()
-            Text("Owner ")
-                .font(.system(size: 18, weight: .regular))
-                .foregroundColor(Color.color.mainBlack)
-            Spacer()
             Text("Owner Fulano")
                 .font(.system(size: 18, weight: .regular))
                 .foregroundColor(Color.color.mainBlack)
         }
+        .padding(.leading, 56)
+        .padding(.trailing, 56)
         .frame(width: 1107, height: 105)
         .background(.white)
     }

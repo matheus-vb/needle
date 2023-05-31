@@ -9,10 +9,19 @@ import SwiftUI
 
 struct DocumentsView: View {
     var body: some View {
-        HStack{
-            Text("Ola mundo")
+        VStack(spacing: 0){
+            TableHeader()
+            ScrollView{
+                DocumentRow()
+                DocumentRow()
+                DocumentRow()
+                DocumentRow()
+                DocumentRow()
+            }
         }
+        .cornerRadius(18)
         .background(Color.color.backgroundGray)
+        .frame(width: 1107, height: 592)
     }
 }
 

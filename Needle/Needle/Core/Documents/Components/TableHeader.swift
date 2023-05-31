@@ -10,17 +10,19 @@ import SwiftUI
 struct TableHeader: View {
     var body: some View {
         HStack(){
-            Spacer()
             Text("Task")
                 .font(.system(size: 20, weight: .bold))
+            Spacer()
             Spacer()
             Text("Área")
                 .font(.system(size: 20, weight: .bold))
             Spacer()
+            Spacer()
             Text("Criador")
                 .font(.system(size: 20, weight: .bold))
-            Spacer()
         }
+        .padding(.leading, 56)
+        .padding(.trailing, 56)
         .frame(width: 1108, height: 74)
         .background(Color.color.mainBlack)
     }
