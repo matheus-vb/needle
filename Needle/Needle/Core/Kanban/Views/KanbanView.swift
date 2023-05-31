@@ -24,7 +24,7 @@ struct KanbanView: View {
         }
     }
     
-    let workspace: WorkspaceModel
+    let workspace: Workspace
     
     var magnification: some Gesture {
         MagnificationGesture()
@@ -124,6 +124,6 @@ struct KanbanView: View {
 
 struct KanbanView_Previews: PreviewProvider {
     static var previews: some View {
-        KanbanView(workspace: WorkspaceModel(id: "1", accessCode: "123", name: "Projeto Teste"))
+        KanbanView(workspace: Workspace(id: "1", accessCode: "123", name: "Projeto Teste"))
     }
 }
