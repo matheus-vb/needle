@@ -15,6 +15,16 @@
 		279FB78B2A26949C00DF8D01 /* RegisterViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */; };
 		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		8F92A3262A21416100D163D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* HomeView.swift */; };
+		8657B8E22A26677A0065EF04 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8E12A26677A0065EF04 /* DocumentView.swift */; };
+		8657B8E52A2667990065EF04 /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8657B8E42A2667990065EF04 /* RichTextKit */; };
+		8657B8E72A2673570065EF04 /* DocumenterrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8E62A2673570065EF04 /* DocumenterrView.swift */; };
+		8657B8E92A26739E0065EF04 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8E82A26739E0065EF04 /* DocumentViewModel.swift */; };
+		8657B8ED2A2676270065EF04 /* DocumentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8EC2A2676270065EF04 /* DocumentService.swift */; };
+		8657B8EF2A2676720065EF04 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8EE2A2676720065EF04 /* Global.swift */; };
+		8657B8F12A2689840065EF04 /* DocumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8F02A2689840065EF04 /* DocumentModel.swift */; };
+		8657B8F32A2692C20065EF04 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8F22A2692C20065EF04 /* TaskService.swift */; };
+		8657B8F52A2694240065EF04 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8F42A2694240065EF04 /* TaskModel.swift */; };
+		8F92A3262A21416100D163D0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* LoginView.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
 		8F92A32B2A21459700D163D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32A2A21459700D163D0 /* Image.swift */; };
 		8F92A32D2A21483F00D163D0 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32C2A21483F00D163D0 /* HomeComponents.swift */; };
@@ -46,6 +56,15 @@
 		279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewComponents.swift; sourceTree = "<group>"; };
 		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8F92A3252A21416100D163D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8657B8E12A26677A0065EF04 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
+		8657B8E62A2673570065EF04 /* DocumenterrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumenterrView.swift; sourceTree = "<group>"; };
+		8657B8E82A26739E0065EF04 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
+		8657B8EC2A2676270065EF04 /* DocumentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentService.swift; sourceTree = "<group>"; };
+		8657B8EE2A2676720065EF04 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		8657B8F02A2689840065EF04 /* DocumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentModel.swift; sourceTree = "<group>"; };
+		8657B8F22A2692C20065EF04 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		8657B8F42A2694240065EF04 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		8F92A3252A21416100D163D0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
 		8F92A32A2A21459700D163D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8F92A32C2A21483F00D163D0 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
@@ -75,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8657B8E52A2667990065EF04 /* RichTextKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +119,25 @@
 				279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */,
 			);
 			path = Register_Component;
+		};
+		8657B8E02A2667650065EF04 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				8657B8E12A26677A0065EF04 /* DocumentView.swift */,
+				8657B8E82A26739E0065EF04 /* DocumentViewModel.swift */,
+				8657B8E62A2673570065EF04 /* DocumenterrView.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		8657B8EB2A2676050065EF04 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8657B8EC2A2676270065EF04 /* DocumentService.swift */,
+				8657B8F22A2692C20065EF04 /* TaskService.swift */,
+				8657B8EE2A2676720065EF04 /* Global.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		8F92A3292A21457F00D163D0 /* Extensions */ = {
@@ -138,6 +177,7 @@
 		CAE434332A1E9DAF00A2A4BE /* Needle */ = {
 			isa = PBXGroup;
 			children = (
+				8657B8EB2A2676050065EF04 /* Service */,
 				CAE434342A1E9DAF00A2A4BE /* NeedleApp.swift */,
 				CAE434432A1EA5B300A2A4BE /* Models */,
 				CAE434442A1EA68B00A2A4BE /* Core */,
@@ -162,7 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				CAE434452A1EA75D00A2A4BE /* WorkspaceModel.swift */,
-				CA47E0362A2145A600A63F28 /* TaskModel.swift */,
+				8657B8F02A2689840065EF04 /* DocumentModel.swift */,
+				8657B8F42A2694240065EF04 /* TaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +213,7 @@
 			children = (
 				279FB7852A26946B00DF8D01 /* Register_Component */,
 				2716F6872A2670A100CAF94E /* login */,
+				8657B8E02A2667650065EF04 /* Document */,
 				CAE434492A1EA87500A2A4BE /* Components */,
 				CAE434512A213F4500A2A4BE /* Kanban */,
 				CAE434472A1EA83500A2A4BE /* Workspace */,
@@ -261,6 +303,9 @@
 			dependencies = (
 			);
 			name = Needle;
+			packageProductDependencies = (
+				8657B8E42A2667990065EF04 /* RichTextKit */,
+			);
 			productName = Needle;
 			productReference = CAE434312A1E9DAF00A2A4BE /* Needle.app */;
 			productType = "com.apple.product-type.application";
@@ -289,6 +334,9 @@
 				Base,
 			);
 			mainGroup = CAE434282A1E9DAF00A2A4BE;
+			packageReferences = (
+				8657B8E32A2667990065EF04 /* XCRemoteSwiftPackageReference "RichTextKit" */,
+			);
 			productRefGroup = CAE434322A1E9DAF00A2A4BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -324,12 +372,15 @@
 				2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */,
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
+				8657B8E92A26739E0065EF04 /* DocumentViewModel.swift in Sources */,
+				8657B8E72A2673570065EF04 /* DocumenterrView.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
+				8657B8ED2A2676270065EF04 /* DocumentService.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
+				8657B8EF2A2676720065EF04 /* Global.swift in Sources */,
 				8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */,
 				279FB7872A26947F00DF8D01 /* Register.swift in Sources */,
 				CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */,
-				CA47E0372A2145A600A63F28 /* TaskModel.swift in Sources */,
 				CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */,
 				CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */,
 				CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */,
@@ -339,6 +390,12 @@
 				279FB7892A26948F00DF8D01 /* RegisterViewModel.swift in Sources */,
 				8F92A32D2A21483F00D163D0 /* HomeComponents.swift in Sources */,
 				2716F6892A2670D300CAF94E /* Login.swift in Sources */,
+				8657B8E22A26677A0065EF04 /* DocumentView.swift in Sources */,
+				8657B8F52A2694240065EF04 /* TaskModel.swift in Sources */,
+				8657B8F32A2692C20065EF04 /* TaskService.swift in Sources */,
+				CAE4344B2A1EA90400A2A4BE /* WorkspaceViewModel.swift in Sources */,
+				8F92A32D2A21483F00D163D0 /* LoginComponents.swift in Sources */,
+				8657B8F12A2689840065EF04 /* DocumentModel.swift in Sources */,
 				CAE434352A1E9DAF00A2A4BE /* NeedleApp.swift in Sources */,
 				CA6B4C162A259DEB00CB0AB7 /* KanbanViewModel.swift in Sources */,
 			);
@@ -471,7 +528,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -499,7 +556,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -538,6 +595,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8657B8E32A2667990065EF04 /* XCRemoteSwiftPackageReference "RichTextKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/RichTextKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8657B8E42A2667990065EF04 /* RichTextKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8657B8E32A2667990065EF04 /* XCRemoteSwiftPackageReference "RichTextKit" */;
+			productName = RichTextKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAE434292A1E9DAF00A2A4BE /* Project object */;
 }
