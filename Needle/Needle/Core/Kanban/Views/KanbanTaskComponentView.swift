@@ -22,6 +22,7 @@ struct KanbanTaskComponentView: View {
             HStack{
                 Spacer().frame(width: 20)
                 Text(TaskTitle)
+                    .font(.custom(.spaceGrotesk, size: 16))
                     .foregroundColor(.black)
                 Spacer()
             }

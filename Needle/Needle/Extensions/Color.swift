@@ -22,8 +22,8 @@ struct Colors {
     let kanbanGrayLOWOPACITY = Color("Kanban_Gray_LOWOPACITY")
     let kanbanGreenLOWOPACITY = Color("Kanban_Green_LOWOPACITY")
     let kanbanOrangeLOWOPACITY = Color("Kanban_Orange_LOWOPACITY")
-    let mainBlack = Color("Main Gray")
-    let mainGray = Color("Main Black")
+    let mainBlack = Color("Main Black")
+    let mainGray = Color("Main Gray")
     let mainGreen = Color("Main Green")
     let mediumGray = Color("Medium Gray")
 }
