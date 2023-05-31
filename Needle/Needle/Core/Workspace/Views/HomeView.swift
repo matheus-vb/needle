@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct HomeView: View {
     var body: some View {
         ZStack {
             Color.white
@@ -106,8 +106,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        HomeView()
     }
 }

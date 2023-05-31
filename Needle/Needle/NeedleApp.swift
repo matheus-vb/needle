@@ -11,7 +11,11 @@ import SwiftUI
 struct NeedleApp: App {
     var body: some Scene {
         WindowGroup {
-            KanbanView(workspace: WorkspaceModel(id: "1", accessCode: "123", name: "Projeto Teste")).frame(minWidth: 900, minHeight: 570)
+            // Uncoment to kanban home view
+            //KanbanView(workspace: WorkspaceModel(id: "1", accessCode: "123", name: "Projeto Teste")).frame(minWidth: 900, minHeight: 570)
+            
+            // Uncoment to start home view
+            HomeView()
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension LoginView {
+extension HomeView {
     
 struct tagView: View {
     let name: String
