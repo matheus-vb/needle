@@ -21,4 +21,8 @@ struct Icons {
 struct Drawings {
     let bigWool = Image("bigWool")
     let cadastroButton = Image("CadastroButton")
+    let trashcanDrawing = Image("trashPopUp")
+    let inviteDrawing = Image("invitePopUp")
+    let notFoundDrawing = Image("notFoundPopUp")
+    let cleanDrawing = Image("cleanPopUp")
 }
