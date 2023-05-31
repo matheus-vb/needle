@@ -10,16 +10,46 @@ import SwiftUI
 struct DocumentsView: View {
     @EnvironmentObject var documentsViewModel: DocumentsViewModel
     var body: some View {
-        VStack(alignment: .leading, spacing: 50){
-            Text("Documentos")
-                .font(.system(size: 40, weight: .regular))
-                .foregroundColor(Color.color.mainBlack)
-            TextField("Procure por nome da task, área e taks", text: $documentsViewModel.searchString)
-                .frame(width: 704, height: 36)
-                .font(.system(size: 18))
-                .background(.gray)
-                .foregroundColor(.black)
-            TableView()
+        HStack{
+            VStack{
+                Text("Needle")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(Color.color.mainBlack)
+                Button(action: {
+                    print("CLiquei para voltar")
+                }, label: {
+                    HStack(spacing: 0){
+                        Image(systemName: "arrow.left")
+                            .foregroundColor(Color.color.mediumGray)
+                            .font(.system(size: 14, weight: .bold))
+                        Text("voltar")
+                            .foregroundColor(Color.color.mediumGray)
+                            .font(.system(size: 14, weight: .bold))
+                    }
+                }).buttonStyle(.borderless)
+                .frame(width: 67, height: 20)
+                .padding(.top, 52)
+                Spacer()
+            }
+            .padding(.top, 42)
+            .frame(width: 168)
+            Rectangle().frame(width: 2)
+                .foregroundColor(.gray)
+            Spacer()
+            VStack(alignment: .leading, spacing: 50){
+                Text("Documentos")
+                    .font(.system(size: 40, weight: .regular))
+                    .foregroundColor(Color.color.mainBlack)
+                TextField("Procure por nome da task, área e taks", text: $documentsViewModel.searchString)
+                    .frame(width: 704, height: 36)
+                    .font(.system(size: 18))
+                    .background(.gray)
+                    .foregroundColor(.black)
+                TableView()
+                Spacer()
+            }
+            .padding(.top, 110)
+            Spacer()
         }
         .background(Color.color.backgroundGray)
     }
