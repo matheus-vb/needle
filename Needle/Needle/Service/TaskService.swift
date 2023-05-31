@@ -14,7 +14,7 @@ class TaskService {
         self.baseUrl = baseUrl
     }
     
-    func updateStatus(taskId: String, status: String, completion: @escaping (_ result: Task?) -> Void) {
+    func updateStatus(taskId: String, status: String, completion: @escaping (_ result: Task1?) -> Void) {
         let urlString = baseUrl + "task"
         let url = URL(string: urlString)!
         
@@ -53,9 +53,10 @@ class TaskService {
                 return
             }
         }
+        task.resume()
     }
     
-    func assignTask(id: String, userId: String, completion: @escaping ( _ result: Task?) -> Void) {
+    func assignTask(id: String, userId: String, completion: @escaping ( _ result: Task1?) -> Void) {
         let urlString = baseUrl + "task/assign"
         let url = URL(string: urlString)!
         
@@ -94,9 +95,10 @@ class TaskService {
                 return
             }
         }
+        task.resume()
     }
     
-    func workspaceTasks(workspaceId: String, completion: @escaping (_ result: [Task]?) -> Void) {
+    func workspaceTasks(workspaceId: String, completion: @escaping (_ result: [Task1]?) -> Void) {
         let urlString = baseUrl + "task/\(workspaceId)"
         let url = URL(string: urlString)!
         
@@ -132,9 +134,10 @@ class TaskService {
                 return
             }
         }
+        task.resume()
     }
     
-    func createTask(accessCode: String, taskInput: Task, completion: @escaping (_ result: Task?) -> Void) {
+    func createTask(accessCode: String, taskInput: Task1, completion: @escaping (_ result: Task1?) -> Void) {
         let urlString = baseUrl + "task/create"
         let url = URL(string: urlString)!
         
@@ -175,4 +178,5 @@ class TaskService {
             }
         }
     }
+    task.resume()
 }

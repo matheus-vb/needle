@@ -54,6 +54,7 @@ class DocumentService {
                 return
             }
         }
+        task.resume()
     }
     
     func getSingleDocumentation(taskId: String, completion: @escaping (_ result: Document?) -> Void) {
@@ -92,6 +93,7 @@ class DocumentService {
                 return
             }
         }
+        task.resume()
     }
     
     //TODO
@@ -132,4 +134,5 @@ class DocumentService {
             }
         }
     }
+    task.resume()
 }
