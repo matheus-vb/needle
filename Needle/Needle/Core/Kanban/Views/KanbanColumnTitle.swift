@@ -22,15 +22,17 @@ struct KanbanColumnTitle: View {
         ZStack{
             Rectangle().foregroundColor(colorTaskColumn)
                 .frame(height: 51)
-                .opacity(0.2)
+                .opacity(0.15)
                 .cornerRadius(8)
             HStack{
                 Rectangle().foregroundColor(colorTaskColumn)
                     .frame(width: 19, height: 51)
-                    .opacity(0.6)
+                    .opacity(0.4)
                     .cornerRadius(4)
                     
-                Text(title.rawValue).foregroundColor(.black)
+                Text(title.rawValue)
+                    .foregroundColor(.black)
+                    .font(.custom(.spaceGrotesk, size: 24))
                 Spacer()
             }
         }.padding(12)

@@ -48,13 +48,14 @@ struct KanbanComponentView: View {
                 Text(workspaceName)
                     .padding(10)
                     .foregroundColor(.black)
-                    .font(.system(size: 40))
+                    .font(.custom(.spaceGroteskSemiBold, size: 40))
                 Spacer()
             }
             HStack {
                 ForEach(TaskColumn.allCases, id: \.self) { column in
                     VStack {
                         KanbanColumnTitle(title: column)
+                            .font(.custom(.spaceGrotesk, size: 24))
                         
                         Spacer().frame(height: 28)
                         
@@ -63,7 +64,7 @@ struct KanbanComponentView: View {
                                 
                                 KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
                                     .onDrag {
-                                        let index = tasks.firstIndex { $0.id == task.id } ?? 0
+                                        let index = $tasks.firstIndex { $0.id == task.id } ?? 0
                                         return NSItemProvider(object: "\(index)" as NSString)
                                     }
                             }
@@ -90,8 +91,10 @@ struct TaskDropDelegate: DropDelegate {
                 print(item)
                 item.loadItem(forTypeIdentifier: UTType.text.identifier, options: nil) { (data, error) in
                     DispatchQueue.main.async {
+                        print(data)
                         if let data = data as? Data, let index = String(data: data, encoding: .utf8), let i = Int(index) {
                             tasks[i].column = column
+                            print(column)
                         }
                     }
                 }

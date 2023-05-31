@@ -15,28 +15,28 @@ struct TaskTagView: View {
         if tagType == "dev" {
             HStack{
                 Text("membro")
-                    .font(.system(size: 13))
+                    .font(.custom(.spaceGrotesk, size: 13))
                     .foregroundColor(.black)
                     .padding(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
                     .background(Color(red: 0.89, green: 0.89, blue: 0.89)).cornerRadius(4)
                 
                 Text("dev")
-                    .font(.system(size: 13))
-                    .foregroundColor(.white)
+                    .font(.custom(.spaceGrotesk, size: 13))
+                    .foregroundColor(.black)
                     .padding(EdgeInsets(top: 6, leading: 16, bottom: 6, trailing: 16))
-                    .background(Color(.black)).cornerRadius(4)
+                    .background(Color(red: 0.52, green: 0.67, blue: 0.97)).cornerRadius(4)
             }
         }
         else if tagType == "design" {
             HStack{
                 Text("membro")
-                    .font(.system(size: 13))
+                    .font(.custom(.spaceGrotesk, size: 13))
                     .foregroundColor(.black)
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                     .background(Color(red: 0.89, green: 0.89, blue: 0.89)).cornerRadius(4)
                 
                 Text("design")
-                    .font(.system(size: 13))
+                    .font(.custom(.spaceGrotesk, size: 13))
                     .foregroundColor(.black)
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                     .background(Color(red: 0.87, green: 0.78, blue: 1.00)).cornerRadius(4)
@@ -44,7 +44,7 @@ struct TaskTagView: View {
         }
         else {
             Text(tagType)
-                .font(.system(size: 13))
+                .font(.custom(.spaceGrotesk, size: 13))
                 .foregroundColor(.black)
                 .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 .background(Color(red: 0.99, green: 0.59, blue: 0.22)).cornerRadius(4)
