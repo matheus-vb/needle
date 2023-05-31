@@ -11,32 +11,15 @@
 
 import Foundation
 
-
-enum TaskType: String, CaseIterable {
-    case Dev = "dev"
-    case Design = "design"
-    case PM = "PM"
-    
-}
-
-struct TaskModel: Identifiable {
-    var id: String
-    var type: TaskType
-    var documentId: String
-    var endDate: Date?
-    var userId: String
-}
-
-
 struct SingleTaskResponse: Codable {
-    let data: Task1
+    let data: Task
 }
 
 struct TaskResponse: Codable {
-    let data: [Task1]
+    let data: [Task]
 }
 
-struct Task1: Codable, Identifiable {
+struct Task: Codable, Identifiable {
     let id: String
     let title: String
     let description: String
