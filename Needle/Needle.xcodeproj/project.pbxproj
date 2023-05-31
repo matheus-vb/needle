@@ -24,6 +24,7 @@
 		8657B8FB2A27C5EA0065EF04 /* RegisterViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8F82A27C5EA0065EF04 /* RegisterViewComponents.swift */; };
 		8657B8FE2A27C62A0065EF04 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8FD2A27C62A0065EF04 /* HomeView.swift */; };
 		8657B9002A27CF800065EF04 /* WorkspaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B8FF2A27CF800065EF04 /* WorkspaceService.swift */; };
+		8657B9022A27D7CD0065EF04 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8657B9012A27D7CD0065EF04 /* UserModel.swift */; };
 		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
 		8F92A32B2A21459700D163D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32A2A21459700D163D0 /* Image.swift */; };
@@ -63,6 +64,7 @@
 		8657B8F82A27C5EA0065EF04 /* RegisterViewComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewComponents.swift; sourceTree = "<group>"; };
 		8657B8FD2A27C62A0065EF04 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8657B8FF2A27CF800065EF04 /* WorkspaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceService.swift; sourceTree = "<group>"; };
+		8657B9012A27D7CD0065EF04 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
 		8F92A32A2A21459700D163D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE434452A1EA75D00A2A4BE /* WorkspaceModel.swift */,
+				8657B9012A27D7CD0065EF04 /* UserModel.swift */,
 				8657B8F02A2689840065EF04 /* DocumentModel.swift */,
 				8657B8F42A2694240065EF04 /* TaskModel.swift */,
 			);
@@ -398,6 +401,7 @@
 				8F92A32D2A21483F00D163D0 /* HomeComponents.swift in Sources */,
 				8657B8F12A2689840065EF04 /* DocumentModel.swift in Sources */,
 				CAE434352A1E9DAF00A2A4BE /* NeedleApp.swift in Sources */,
+				8657B9022A27D7CD0065EF04 /* UserModel.swift in Sources */,
 				CA6B4C162A259DEB00CB0AB7 /* KanbanViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
