@@ -22,7 +22,7 @@ struct TableHeader: View {
             Spacer()
         }
         .frame(width: 1108, height: 74)
-        .background(.black)
+        .background(Color.color.mainBlack)
     }
 }
 
