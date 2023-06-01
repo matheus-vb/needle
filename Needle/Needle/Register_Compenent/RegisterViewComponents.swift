@@ -84,11 +84,10 @@ extension Register{
         Button(action: {
             var user: User = User(id: "", role: registerViewModel.role, name: registerViewModel.name, email: registerViewModel.email)
             
-            print("IN")
-            
             registerViewModel.authService.register(user: user, password: registerViewModel.password) { result in
                 if let result {
                     user = result
+                    dismiss()
                 }
             }
             
