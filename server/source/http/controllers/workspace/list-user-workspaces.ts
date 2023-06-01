@@ -14,7 +14,7 @@ export async function listUserWorkspaces(request: FastifyRequest, response: Fast
         const listWorspaceUseCase = makeListWorkspaceUseCase();
         const { workspaces } = await listWorspaceUseCase.handle({id});
 
-        return response.status(200).send(workspaces);
+        return response.status(200).send({data: workspaces});
     }catch(e){
         throw e;
     }

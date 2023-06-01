@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct WorkspaceView: View {
-
-
-
-    let workspaces: [WorkspaceGridModel] = [WorkspaceGridModel(id: "1", accessCode: "28749", name: "Needle", owner: "Felipo"), WorkspaceGridModel(id: "2", accessCode: "30749", name: "Needle", owner: "Medeiros"), WorkspaceGridModel(id: "3", accessCode: "29749", name: "Needle", owner: "Matheus")]
-
+    @EnvironmentObject var workspaceViewModel: WorkspaceViewModel
+    var user: User
     
+    @State var workspaces: [Workspace] = []
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
@@ -87,7 +85,19 @@ struct WorkspaceView: View {
                 
                 
             }
-        }.background(
+        }
+        .onAppear{
+            print(user)
+            DispatchQueue.main.async {
+                workspaceViewModel.workspaceService.listUserWorkspaces(id: user.id, completion: {result in
+                    if let result{
+                        self.workspaces = result
+                    }
+                })
+                print(workspaces)
+            }
+        }
+        .background(
             HStack{
                 Spacer()
                 VStack{
@@ -95,11 +105,5 @@ struct WorkspaceView: View {
                     Image("backgroundIcon")
                 }
             }.background(Color.color.backgroundGray))
-    }
-}
-
-struct WorkspaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkspaceView()
     }
 }

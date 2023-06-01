@@ -45,6 +45,7 @@ extension Login{
                 loginViewModel.authService.login(email: loginViewModel.email, password: loginViewModel.password) { result in
                     if let result {
                         loginViewModel.user = result
+                        print("ooi")
                         goToWorkspaces.toggle()
                     }
                 }                

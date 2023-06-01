@@ -9,11 +9,13 @@ import SwiftUI
 
 struct Login: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @StateObject var workspaceViewModel: WorkspaceViewModel = WorkspaceViewModel()
+    
     @State var goToWorkspaces = false
     var body: some View {
         GeometryReader{geometry in
             ZStack{
-                NavigationLink(destination: WorkspaceView().navigationBarBackButtonHidden(true), isActive: $goToWorkspaces, label: {EmptyView()})
+                NavigationLink(destination: WorkspaceView(user: loginViewModel.user ?? User(id: "1", role: "MEMBER", name: "", email: "")).environmentObject(workspaceViewModel).navigationBarBackButtonHidden(true), isActive: $goToWorkspaces, label: {EmptyView()})
                 Image("background")
                     .resizable()
                     .scaledToFill()
