@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct DocumentRow: View {
+    let title: String
+    let area: String
+    let author: String
+    
     var body: some View {
         HStack(){
             HStack(spacing: 44){
@@ -15,17 +19,17 @@ struct DocumentRow: View {
                     .resizable()
                     .frame(width: 34, height: 40)
                 VStack{
-                    Text("Project Overview")
+                    Text(title)
                         .font(.system(size: 18, weight: .regular))
                         .foregroundColor(Color.color.mainBlack)
                 }
             }
             Spacer()
-            Text("Geral")
+            Text(area)
                 .font(.system(size: 18, weight: .regular))
                 .foregroundColor(Color.color.mainBlack)
             Spacer()
-            Text("Owner Fulano")
+            Text(author)
                 .font(.system(size: 18, weight: .regular))
                 .foregroundColor(Color.color.mainBlack)
         }
@@ -33,11 +37,5 @@ struct DocumentRow: View {
         .padding(.trailing, 56)
         .frame(width: 1107, height: 105)
         .background(.white)
-    }
-}
-
-struct DocumentRow_Previews: PreviewProvider {
-    static var previews: some View {
-        DocumentRow()
     }
 }
