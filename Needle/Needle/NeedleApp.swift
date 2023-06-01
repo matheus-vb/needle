@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct NeedleApp: App {
-    @StateObject private var loginViewModel = LoginViewModel()
     @StateObject private var documentsViewModel = DocumentsViewModel()
     var body: some Scene {
         WindowGroup {
