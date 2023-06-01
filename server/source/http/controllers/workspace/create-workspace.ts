@@ -13,7 +13,7 @@ export async function createWorkspace(request: FastifyRequest, response: Fastify
     try{
         const createWorkspaceUseCase = makeCreateWorkspaceUseCase()
         const { workspace } = await createWorkspaceUseCase.handle({name, userId});
-        return response.status(201).send(workspace)
+        return response.status(201).send({data: workspace})
     }catch(e){
         throw e
     }

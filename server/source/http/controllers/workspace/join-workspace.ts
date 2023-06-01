@@ -15,7 +15,7 @@ export async function joinWorkspace(request: FastifyRequest, response: FastifyRe
 
         const { userWorkspace } = await joinWorkspaceUseCase.handle({userId, accessCode});
 
-        return response.status(200).send(userWorkspace)
+        return response.status(200).send({data: userWorkspace})
     }catch(e){
         throw e;
     }
