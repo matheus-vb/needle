@@ -41,7 +41,13 @@ extension Login{
     
     var loginButton: some View {
         Button(action: {
-            //acao
+            loginViewModel.authService.login(email: loginViewModel.email, password: loginViewModel.password) { result in
+                if let result {
+                    loginViewModel.user = result
+                    print(loginViewModel.user)
+                }
+            }
+            
         }, label: {
             Text("Enviar")
                 //.padding([.leading, .trailing], 54)
