@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var registerViewModel = RegisterViewModel()
+    @State var goToRegister = false;
     var body: some View {
         ZStack {
+            NavigationLink(destination: Register().environmentObject(registerViewModel), isActive: $goToRegister, label: {EmptyView()})
             Color.color.backgroundGray
                 .ignoresSafeArea()
             VStack {
@@ -34,7 +37,7 @@ struct HomeView: View {
                             }
                             HStack(spacing: 32.0) {
                                 Button {
-                                    
+                                    goToRegister.toggle()
                                 } label: {
                                     Text("Cadastro")
                                         .font(.custom(.spaceGrotesk, size: 24))

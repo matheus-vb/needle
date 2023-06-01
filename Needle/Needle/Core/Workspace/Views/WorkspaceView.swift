@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkspaceView: View {
-    let workspaces: [WorkspaceModel] = [WorkspaceModel(id: "1", accessCode: "28749", name: "Needle", users: [UserModel(id: "1", name: "Felipo")]), WorkspaceModel(id: "2", accessCode: "29749", name: "Needle", users: [UserModel(id: "2", name: "Thales")]), WorkspaceModel(id: "3", accessCode: "30749", name: "Needle", users: [UserModel(id: "3", name: "Miggle")])]
+    let workspaces: [WorkspaceModel] = []
     
     let columns = [
         GridItem(.flexible()),

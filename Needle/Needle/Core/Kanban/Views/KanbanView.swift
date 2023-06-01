@@ -120,10 +120,3 @@ struct KanbanView: View {
     }
     
 }
-
-
-struct KanbanView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanView(workspace: WorkspaceModel(id: "1", accessCode: "123", name: "Projeto Teste", users: [UserModel(id: "1", name: "Felipo")]))
-    }
-}
