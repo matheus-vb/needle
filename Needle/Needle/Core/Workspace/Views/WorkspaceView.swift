@@ -11,7 +11,6 @@ struct WorkspaceView: View {
     @EnvironmentObject var workspaceViewModel: WorkspaceViewModel
     var user: User
     
-    @State var workspaces: [Workspace] = []
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
@@ -94,7 +93,6 @@ struct WorkspaceView: View {
                         workspaceViewModel.workspaces = result
                     }
                 })
-                print(workspaces)
             }
         }
         .background(
