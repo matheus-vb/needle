@@ -12,7 +12,7 @@ struct Login: View {
     var body: some View {
         GeometryReader{geometry in
             ZStack{
-                Image("LoginBG")
+                Image("background")
                     .resizable()
                     .scaledToFill()
                 Image("needleLogo")

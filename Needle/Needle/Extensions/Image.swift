@@ -16,10 +16,13 @@ extension Image {
 struct Icons {
     let needle = Image("needle")
     let wool = Image("wool")
+    let trash = Image("trash")
+    let addButton = Image("addWorkspaceButton")
 }
 
 struct Drawings {
     let bigWool = Image("bigWool")
+    let background = Image("background")
     let cadastroButton = Image("CadastroButton")
     let trashcanDrawing = Image("trashPopUp")
     let inviteDrawing = Image("invitePopUp")

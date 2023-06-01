@@ -10,6 +10,7 @@
 		2716F6892A2670D300CAF94E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6882A2670D300CAF94E /* Login.swift */; };
 		2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */; };
 		2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6912A2676E300CAF94E /* LoginViewComponents.swift */; };
+		8F31EA2C2A27B3F20048EFBD /* WorkspaceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31EA2B2A27B3F20048EFBD /* WorkspaceComponents.swift */; };
 		760498172A27BD2700D46ABF /* PopUpComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760498162A27BD2700D46ABF /* PopUpComponents.swift */; };
 		760498192A27C9A000D46ABF /* InvitePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760498182A27C9A000D46ABF /* InvitePopUpView.swift */; };
 		7604981B2A27C9B000D46ABF /* InvitePopUpComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604981A2A27C9B000D46ABF /* InvitePopUpComponents.swift */; };
@@ -60,6 +61,7 @@
 		2716F6882A2670D300CAF94E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2716F6912A2676E300CAF94E /* LoginViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewComponents.swift; sourceTree = "<group>"; };
+		8F31EA2B2A27B3F20048EFBD /* WorkspaceComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceComponents.swift; sourceTree = "<group>"; };
 		760498162A27BD2700D46ABF /* PopUpComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpComponents.swift; sourceTree = "<group>"; };
 		760498182A27C9A000D46ABF /* InvitePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePopUpView.swift; sourceTree = "<group>"; };
 		7604981A2A27C9B000D46ABF /* InvitePopUpComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitePopUpComponents.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				760498162A27BD2700D46ABF /* PopUpComponents.swift */,
 				7604981A2A27C9B000D46ABF /* InvitePopUpComponents.swift */,
 				8F92A32C2A21483F00D163D0 /* HomeComponents.swift */,
+				8F31EA2B2A27B3F20048EFBD /* WorkspaceComponents.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				8657B8E92A26739E0065EF04 /* DocumentViewModel.swift in Sources */,
 				8657B8E72A2673570065EF04 /* DocumenterrView.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
+				8F31EA2C2A27B3F20048EFBD /* WorkspaceComponents.swift in Sources */,
 				760498192A27C9A000D46ABF /* InvitePopUpView.swift in Sources */,
 				8657B8FB2A27C5EA0065EF04 /* RegisterViewComponents.swift in Sources */,
 				8657B8ED2A2676270065EF04 /* DocumentService.swift in Sources */,
@@ -445,6 +449,7 @@
 				7604981B2A27C9B000D46ABF /* InvitePopUpComponents.swift in Sources */,
 				CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */,
 				CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */,
+				8F31EA322A27C2B50048EFBD /* UserModel.swift in Sources */,
 				CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */,
 				CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */,
 				CAE434552A213F8C00A2A4BE /* KanbanView.swift in Sources */,
