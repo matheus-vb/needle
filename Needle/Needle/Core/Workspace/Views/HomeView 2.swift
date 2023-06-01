@@ -8,16 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var registerViewModel = RegisterViewModel()
-    @StateObject private var loginViewModel = LoginViewModel()
-    @State var goToRegister = false;
-    @State var goToLogin = false;
     var body: some View {
         ZStack {
-            NavigationLink(destination: Register().environmentObject(registerViewModel), isActive: $goToRegister, label: {EmptyView()})
-            NavigationLink(destination: Login().environmentObject(loginViewModel), isActive: $goToLogin, label: {EmptyView()})
-
-            Color.color.backgroundGray
+            Color.white
                 .ignoresSafeArea()
             VStack {
                 HStack {
@@ -41,7 +34,7 @@ struct HomeView: View {
                             }
                             HStack(spacing: 32.0) {
                                 Button {
-                                    goToRegister.toggle()
+                                    
                                 } label: {
                                     Text("Cadastro")
                                         .font(.custom(.spaceGrotesk, size: 24))
@@ -49,7 +42,7 @@ struct HomeView: View {
                                 }
                                 .buttonStyle(initialButtonStyle(fontColor: .black, bgColor: Color.color.mainGreen))
                                 Button {
-                                    goToLogin.toggle()
+                                    
                                 } label: {
                                     Text("Entrar")
                                         .font(.custom(.spaceGrotesk, size: 24))
@@ -113,7 +106,7 @@ struct HomeView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }

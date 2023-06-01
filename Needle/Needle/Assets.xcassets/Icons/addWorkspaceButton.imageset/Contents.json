@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Login.png",
+      "filename" : "addWorkspaceButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Login@2x.png",
+      "filename" : "addWorkspaceButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Login@3x.png",
+      "filename" : "addWorkspaceButton@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

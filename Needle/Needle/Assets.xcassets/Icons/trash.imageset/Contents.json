@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "CadastroButton.png",
+      "filename" : "trash.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "CadastroButton@2x.png",
+      "filename" : "trash@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "CadastroButton@3x.png",
+      "filename" : "trash@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

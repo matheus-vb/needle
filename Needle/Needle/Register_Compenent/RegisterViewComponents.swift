@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(macOS 13.0, *)
 extension Register{
     var nameSection: some View {
         VStack(alignment: .leading, spacing: 16){
@@ -28,13 +29,14 @@ extension Register{
             Text("Área de atuação:")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.black)
-            TextField("Ex: Desenvolvimento, design", text: $registerViewModel.role)
+            TextField("MEMBER or PRODUCT_MANAGER", text: $registerViewModel.role)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.gray)
                 .overlay(
                     Rectangle()
                         .stroke(Color.black, lineWidth: 2)
                 )
+                .textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
     var emailSection: some View {
@@ -57,7 +59,7 @@ extension Register{
             Text("Senha: ")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.black)
-            TextField("Insira seu senha", text: $registerViewModel.password)
+            SecureField("Insira seu senha", text: $registerViewModel.password)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.gray)
                 .overlay(
@@ -80,7 +82,16 @@ extension Register{
     
     var registerButton: some View {
         Button(action: {
-            //acao
+            var user: User = User(id: "", role: registerViewModel.role, name: registerViewModel.name, email: registerViewModel.email)
+            
+            registerViewModel.authService.register(user: user, password: registerViewModel.password) { result in
+                if let result {
+                    user = result
+                    dismiss()
+                }
+            }
+            
+            
         }, label: {
             Text("Entrar")
                 //.padding([.leading, .trailing], 54)

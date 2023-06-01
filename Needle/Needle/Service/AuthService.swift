@@ -29,7 +29,7 @@ class AuthService {
         
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
-                print(error)
+                print("ERROR ---> \(error) ----|||")
                 completion(nil)
                 return
             }

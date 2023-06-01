@@ -21,7 +21,7 @@ struct TableView: View {
         }
         .cornerRadius(18)
         .background(Color.color.backgroundGray)
-        .frame(width: 1107, height: 592)
+        .frame(width: 1107)
     }
 }
 

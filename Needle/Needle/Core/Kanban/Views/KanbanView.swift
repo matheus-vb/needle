@@ -70,9 +70,3 @@ struct KanbanView: View {
         }
     }
 }
-
-struct KanbanView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanView()
-    }
-}

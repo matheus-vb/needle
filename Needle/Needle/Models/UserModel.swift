@@ -2,6 +2,7 @@
 //  UserModel.swift
 //  Needle
 //
+//  Created by lss8 on 31/05/23.
 //  Created by matheusvb on 31/05/23.
 //
 
