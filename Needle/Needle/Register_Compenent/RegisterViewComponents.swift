@@ -29,7 +29,7 @@ extension Register{
             Text("Área de atuação:")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.black)
-            TextField("Ex: Desenvolvimento, design", text: $registerViewModel.role)
+            TextField("MEMBER or PRODUCT_MANAGER", text: $registerViewModel.role)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.gray)
                 .overlay(
