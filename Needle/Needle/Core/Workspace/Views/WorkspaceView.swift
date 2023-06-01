@@ -9,9 +9,6 @@ import SwiftUI
 
 struct WorkspaceView: View {
     
-    let workspaces: [WorkspaceGridModel] = []
-    let user: User
-    
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
