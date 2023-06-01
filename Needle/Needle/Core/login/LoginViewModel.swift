@@ -14,4 +14,5 @@ class LoginViewModel: ObservableObject{
     @Published var user: User?
     
     let authService = AuthService(baseUrl: _URL)
+    let workspacesService = WorkspaceService(baseUrl: _URL)
 }

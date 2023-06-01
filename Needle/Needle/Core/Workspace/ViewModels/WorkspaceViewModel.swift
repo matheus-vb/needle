@@ -9,5 +9,5 @@ import Foundation
 import SwiftUI
 
 class WorkspaceViewModel: ObservableObject{
-    @Published var workspaces: [WorkspaceGridModel] = []
+    @Published var workspaces: [Workspace] = []
 }

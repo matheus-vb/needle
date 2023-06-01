@@ -45,6 +45,11 @@ extension Login{
                 loginViewModel.authService.login(email: loginViewModel.email, password: loginViewModel.password) { result in
                     if let result {
                         loginViewModel.user = result
+                        loginViewModel.workspacesService.listUserWorkspaces(id: result.id){workspaces in
+                            if let workspaces{
+                                workspaceViewModel.workspaces = workspaces
+                            }
+                        }
                         goToWorkspaces.toggle()
                     }
                 }                
