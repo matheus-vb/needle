@@ -8,25 +8,19 @@
 import SwiftUI
 
 struct TableView: View {
+    @Binding var documents: [Document]
+    
     var body: some View {
         VStack(spacing: 0){
             TableHeader()
             ScrollView{
-                DocumentRow()
-                DocumentRow()
-                DocumentRow()
-                DocumentRow()
-                DocumentRow()
+                ForEach(documents) { document in
+                    DocumentRow(title: document.title, area: document.type, author: document.author ?? "Not defined")
+                }
             }
         }
         .cornerRadius(18)
         .background(Color.color.backgroundGray)
         .frame(width: 1107)
-    }
-}
-
-struct TableView_Previews: PreviewProvider {
-    static var previews: some View {
-        TableView()
     }
 }

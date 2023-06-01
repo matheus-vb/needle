@@ -69,4 +69,25 @@ struct KanbanView: View {
             }
         }
     }
+  
+    func adjustScale(from state: MagnificationGesture.Value) {
+        let delta = state / finalScale
+        scale *= delta
+        finalScale = state
+    }
+    
+    func getMinimumScaleAllowed() -> CGFloat {
+        return max(scale, minScale)
+    }
+    
+    func getMaximumScaleAllowed() -> CGFloat {
+        return min(scale, maxScale)
+    }
+    
+    func validateScaleLimits() {
+        scale = getMinimumScaleAllowed()
+        scale = getMaximumScaleAllowed()
+    }
+    
 }
+
