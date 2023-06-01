@@ -59,7 +59,7 @@ extension Register{
             Text("Senha: ")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.black)
-            TextField("Insira seu senha", text: $registerViewModel.password)
+            SecureField("Insira seu senha", text: $registerViewModel.password)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.gray)
                 .overlay(
