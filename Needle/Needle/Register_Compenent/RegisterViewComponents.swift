@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(macOS 13.0, *)
 extension Register{
     var nameSection: some View {
         VStack(alignment: .leading, spacing: 16){

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(macOS 13.0, *)
 struct Login: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     @EnvironmentObject private var coodinator: Coordinator

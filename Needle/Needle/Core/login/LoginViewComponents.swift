@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(macOS 13.0, *)
 extension Login{
     
     var emailSection: some View {
