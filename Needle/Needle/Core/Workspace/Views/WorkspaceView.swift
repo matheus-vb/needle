@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct WorkspaceView: View {
-    let workspaces: [WorkspaceGridModel] = [WorkspaceGridModel(id: "1", accessCode: "28749", name: "Needle", owner: "Felipo"), WorkspaceGridModel(id: "2", accessCode: "30749", name: "Needle", owner: "Medeiros"), WorkspaceGridModel(id: "3", accessCode: "29749", name: "Needle", owner: "Matheus")]
+    let workspaces: [WorkspaceGridModel] = []
+    let user: User
     
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
@@ -91,11 +92,5 @@ struct WorkspaceView: View {
                     Image("backgroundIcon")
                 }
             }.background(Color.color.backgroundGray))
-    }
-}
-
-struct WorkspaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        WorkspaceView()
     }
 }
