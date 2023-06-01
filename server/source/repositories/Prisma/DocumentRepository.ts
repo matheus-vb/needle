@@ -83,4 +83,16 @@ export class DocumentRepository implements IDocumentRepository {
 
         return document;
     }
+
+    async getWorkspaceDocuments(workspaceId: string) {
+        const documents = await prisma.document.findMany({
+            where: {
+                task: {
+                    workId: workspaceId,
+                }
+            }
+        })
+
+        return documents;
+    }
 }
