@@ -10,4 +10,6 @@ import SwiftUI
 
 class WorkspaceViewModel: ObservableObject{
     @Published var workspaces: [Workspace] = []
+    
+    let workspaceService = WorkspaceService(baseUrl: _URL)
 }

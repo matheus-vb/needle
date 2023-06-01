@@ -103,7 +103,7 @@ class WorkspaceService {
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let session = URLSession.shared

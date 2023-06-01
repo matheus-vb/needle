@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct WorkspaceView: View {
-    
     @EnvironmentObject var workspaceViewModel: WorkspaceViewModel
     var user: User
     
+    @State var workspaces: [Workspace] = []
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
@@ -76,7 +76,7 @@ struct WorkspaceView: View {
                         Spacer().frame(height:24)
                         LazyVGrid(columns: columns, spacing: 20.0) {
                             
-                            ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
+                            ForEach(workspaces, id: \.self) { workspace in
                                 workspaceCardView(workspace: workspace)
                             }
                         }
@@ -84,6 +84,17 @@ struct WorkspaceView: View {
                 }
                 
                 
+            }
+        }
+        .onAppear{
+            print(user)
+            DispatchQueue.main.async {
+                workspaceViewModel.workspaceService.listUserWorkspaces(id: user.id, completion: {result in
+                    if let result{
+                        self.workspaces = result
+                    }
+                })
+                print(workspaces)
             }
         }
         .background(
