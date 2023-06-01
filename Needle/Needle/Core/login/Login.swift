@@ -13,7 +13,7 @@ struct Login: View {
     var body: some View {
         GeometryReader{geometry in
             ZStack{
-                NavigationLink(destination: WorkspaceView(), isActive: $goToWorkspaces, label: {EmptyView()})
+                NavigationLink(destination: WorkspaceView().navigationBarBackButtonHidden(true), isActive: $goToWorkspaces, label: {EmptyView()})
                 Image("background")
                     .resizable()
                     .scaledToFill()
