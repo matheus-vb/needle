@@ -28,4 +28,5 @@ struct Drawings {
     let inviteDrawing = Image("invitePopUp")
     let notFoundDrawing = Image("notFoundPopUp")
     let cleanDrawing = Image("cleanPopUp")
+    let popUpBG = Image("creatPopUp")
 }
