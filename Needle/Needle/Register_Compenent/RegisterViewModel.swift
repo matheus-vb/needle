@@ -12,4 +12,7 @@ class RegisterViewModel: ObservableObject{
     @Published var role: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
+    
+    let authService = AuthService(baseUrl: _URL)
+    
 }
