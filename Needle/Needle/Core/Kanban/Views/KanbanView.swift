@@ -19,12 +19,12 @@ struct KanbanView: View {
         func makeBody(configuration: Self.Configuration) -> some View {
             configuration.label
                 .foregroundColor(.black)
-                .background(.gray)
+                .background(Color(red: 0.82, green: 0.82, blue: 0.82))
                 .cornerRadius(10)
         }
     }
     
-    let workspace: WorkspaceModel
+    let workspace: Workspace
     
     var magnification: some Gesture {
         MagnificationGesture()
@@ -43,6 +43,9 @@ struct KanbanView: View {
         ZStack{
             HStack(spacing: 0){
                 KanbanSideBarView()
+                
+                Rectangle().frame(width: 2)
+                    .background(.gray)
                 
                 
                 ScrollView([.horizontal, .vertical]) {
@@ -69,12 +72,12 @@ struct KanbanView: View {
                         
                         VStack(alignment: .leading){
                         }.frame(height: geometryHeight * scale, alignment: .top)
-                    }
+                    }.padding(.horizontal,70)
                 }.background(.white)
             }
             
             VStack{
-                Spacer().frame(height: 26)
+                Spacer().frame(height: 24)
                 HStack{
                     Spacer()
                     
@@ -83,14 +86,14 @@ struct KanbanView: View {
                     }) {
                         HStack{
                             Text("logout")
-                                .font(.system(size: 13,weight: .semibold))
-                                
+                                .font(.custom(.spaceGroteskBold, size: 13))
+                            
                             Image(systemName: "xmark.icloud")
                                 .frame(width: 22.46, height: 15.63)
                         }.frame(maxWidth: 114, maxHeight: 53)
                     }.buttonStyle(InitialButtonStyle())
                     
-                    Spacer().frame(width: 26)
+                    Spacer().frame(width: 24)
                 }
                 Spacer()
             }

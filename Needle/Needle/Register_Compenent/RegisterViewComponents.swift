@@ -35,6 +35,7 @@ extension Register{
                     Rectangle()
                         .stroke(Color.black, lineWidth: 2)
                 )
+                .textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
     var emailSection: some View {
@@ -80,7 +81,17 @@ extension Register{
     
     var registerButton: some View {
         Button(action: {
-            //acao
+            var user: User = User(id: "", role: registerViewModel.role, name: registerViewModel.name, email: registerViewModel.email)
+            
+            print("IN")
+            
+            registerViewModel.authService.register(user: user, password: registerViewModel.password) { result in
+                if let result {
+                    user = result
+                }
+            }
+            
+            
         }, label: {
             Text("Entrar")
                 //.padding([.leading, .trailing], 54)
