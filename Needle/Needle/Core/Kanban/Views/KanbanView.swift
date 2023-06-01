@@ -120,13 +120,3 @@ struct KanbanView: View {
     }
     
 }
-<<<<<<< HEAD
-=======
-
-
-/*struct KanbanView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanView(workspace: WorkspaceGridModel(id: "1", accessCode: "123", name: "Projeto Teste", owner: "Felipo"))
-    }
-}*/
->>>>>>> develop
