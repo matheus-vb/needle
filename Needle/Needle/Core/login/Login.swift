@@ -18,7 +18,7 @@ struct Login: View {
                     .resizable()
                     .scaledToFill()
                 Image("needleLogo")
-                    .offset(x: -geometry.size.width/2 + 75, y: -geometry.size.height/2 - 40)
+                    .position(x: 80, y: 50)
                 VStack(spacing: 77){
                     Spacer()
                     loginTitle

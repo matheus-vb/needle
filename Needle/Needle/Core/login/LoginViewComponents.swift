@@ -29,7 +29,7 @@ extension Login{
             Text("Senha: ")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.black)
-            TextField("Insira seu senha", text: $loginViewModel.password)
+            SecureField("Insira seu senha", text: $loginViewModel.password)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.gray)
                 .overlay(
