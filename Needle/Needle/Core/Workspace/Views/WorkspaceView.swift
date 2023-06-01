@@ -11,9 +11,10 @@ struct WorkspaceView: View {
     let workspaces: [WorkspaceGridModel] = [WorkspaceGridModel(id: "1", accessCode: "28749", name: "Needle", owner: "Felipo"), WorkspaceGridModel(id: "2", accessCode: "30749", name: "Needle", owner: "Medeiros"), WorkspaceGridModel(id: "3", accessCode: "29749", name: "Needle", owner: "Matheus")]
     
     let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
+        GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
+    
+    @State var geometryHeight: Double = 0.0
     
     var body: some View {
         
@@ -27,7 +28,7 @@ struct WorkspaceView: View {
                         .font(.custom(.spaceGrotesk, size: 19))
                         .foregroundColor(.black)
                 }
-
+                
                 Spacer()
                 
                 Button {
@@ -65,15 +66,22 @@ struct WorkspaceView: View {
                             .foregroundColor(.white)
                     }
                     .buttonStyle(addButtonStyle())
-                    Spacer().frame(maxWidth: 1000000)
+                    Spacer().frame(minWidth: 600)
                 }
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 20.0) {
-                        ForEach(workspaces, id: \.self) { workspace in
-                            workspaceCardView(workspace: workspace)
+                HStack{
+                    Spacer().frame(width: 41)
+                    ScrollView{
+                        Spacer().frame(height:24)
+                        LazyVGrid(columns: columns, spacing: 20.0) {
+                            
+                            ForEach(workspaces, id: \.self) { workspace in
+                                workspaceCardView(workspace: workspace)
+                            }
                         }
                     }
                 }
+                
+                
             }
         }.background(
             HStack{
