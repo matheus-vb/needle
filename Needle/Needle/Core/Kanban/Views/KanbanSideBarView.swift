@@ -12,13 +12,23 @@ struct KanbanSideBarView: View {
         let cor: Color
         
         private var colorBackground: Color {
-            return cor == Color.black ? .black : .white
+            return cor == Color.black ? .black : Color.color.kanbanGrayLOWOPACITY
         }
         
         func makeBody(configuration: Self.Configuration) -> some View {
             configuration.label
                 .background(colorBackground)
                 .clipShape(Circle())
+                
+        }
+    }
+    
+    struct HomeButtonStyle: ButtonStyle {
+        
+        
+        func makeBody(configuration: Self.Configuration) -> some View {
+            configuration.label
+                .background(.clear)
                 
         }
     }
@@ -32,22 +42,25 @@ struct KanbanSideBarView: View {
                 .foregroundColor(.black)
             
             Spacer().frame(height: 50)
+            Button(action: {
+                print("Home")
+            }) {
+                HStack(spacing: 8){
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 10, height: 20)
+                        .foregroundColor(.gray)
+                    Text("Home")
+                        .font(.custom(.spaceGroteskBold, size: 16))
+                        .foregroundColor(.gray)
+                }
+            }.buttonStyle(HomeButtonStyle())
             
-            HStack(spacing: 8){
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .frame(width: 10, height: 20)
-                    .foregroundColor(.gray)
-                Text("Home")
-                    .font(.custom(.spaceGroteskBold, size: 16))
-                    .foregroundColor(.gray)
-            }
-            
-            Spacer()
+            Spacer().frame(minHeight: 34)
             
             VStack(spacing: 20){
                 Button(action: {
-                    print("saí")
+                    print("adicionei")
                 }) {
                     VStack{
                         Image(systemName: "plus")
@@ -76,7 +89,7 @@ struct KanbanSideBarView: View {
                     ZStack{
                         Circle()
                             .strokeBorder(.black, lineWidth: 2)
-                            .background(.white)
+                            .background(Color.color.backgroundGray)
                             .frame(height: 46)
                         
                         Image(systemName: "gobackward")
@@ -104,7 +117,7 @@ struct KanbanSideBarView: View {
             Spacer().frame(height: 87)
             
         }.frame(width: 170)
-            .background(.white)
+            .background(Color.color.backgroundGray)
     }
 }
 

@@ -96,9 +96,8 @@ class DocumentService {
         task.resume()
     }
     
-    //TODO
-    func getWorkspaceDocumentations(taskId: String, completion: @escaping (_ result: [Document]?) -> Void) {
-        let urlString = baseUrl + "document"
+    func getWorkspaceDocumentations(workspaceId: String, completion: @escaping (_ result: [Document]?) -> Void) {
+        let urlString = baseUrl + "workspace/\(workspaceId)"
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
@@ -123,7 +122,46 @@ class DocumentService {
             do {
                 let decoder = JSONDecoder()
                 let document = try decoder.decode(DocumentResponse.self, from: data)
-                
+                print("OK")
+                completion(document.data)
+                return
+    
+            } catch {
+                print(error)
+                completion(nil)
+                return
+            }
+        }
+        task.resume()
+    }
+    
+    func queryDocumentation(accessCode: String, query: String, completion: @escaping (_ result: [Document]?) -> Void) {
+        let urlString = baseUrl + "document/title/\(accessCode)/\(query)"
+        let url = URL(string: urlString)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error)
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {
+                print("No data returned from server")
+                completion(nil)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let document = try decoder.decode(DocumentResponse.self, from: data)
+                print("OK")
                 completion(document.data)
                 return
     
