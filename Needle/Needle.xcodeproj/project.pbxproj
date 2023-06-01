@@ -38,7 +38,6 @@
 		8F31EA342A290EDB0048EFBD /* WorkspaceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31EA332A290EDB0048EFBD /* WorkspaceComponents.swift */; };
 		8F31EA362A2910E00048EFBD /* WorkspaceGridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31EA352A2910E00048EFBD /* WorkspaceGridModel.swift */; };
 		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
-		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
 		8F92A32B2A21459700D163D0 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32A2A21459700D163D0 /* Image.swift */; };
 		8F92A32D2A21483F00D163D0 /* HomeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32C2A21483F00D163D0 /* HomeComponents.swift */; };
 		8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A32E2A214D9000D163D0 /* MyCustomFonts.swift */; };
@@ -90,7 +89,6 @@
 		8F31EA332A290EDB0048EFBD /* WorkspaceComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceComponents.swift; sourceTree = "<group>"; };
 		8F31EA352A2910E00048EFBD /* WorkspaceGridModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceGridModel.swift; sourceTree = "<group>"; };
 		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
 		8F92A32A2A21459700D163D0 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8F92A32C2A21483F00D163D0 /* HomeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeComponents.swift; sourceTree = "<group>"; };
 		8F92A32E2A214D9000D163D0 /* MyCustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomFonts.swift; sourceTree = "<group>"; };
@@ -300,9 +298,8 @@
 		CAE4344C2A1EA97D00A2A4BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CAE434362A1E9DAF00A2A4BE /* WorkspaceView.swift */,
 				8657B8FD2A27C62A0065EF04 /* HomeView.swift */,
-				8F92A3272A2143D900D163D0 /* TesteView.swift */,
+				CAE434362A1E9DAF00A2A4BE /* WorkspaceView.swift */,
 				76EF28E92A26983D00CD9328 /* PopUpView.swift */,
 				760498182A27C9A000D46ABF /* InvitePopUpView.swift */,
 			);
@@ -448,7 +445,6 @@
 				8657B8ED2A2676270065EF04 /* DocumentService.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
 				8657B8EF2A2676720065EF04 /* Global.swift in Sources */,
-				8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */,
 				7604981B2A27C9B000D46ABF /* InvitePopUpComponents.swift in Sources */,
 				CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */,
 				CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */,
@@ -602,7 +598,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = CMWHQAT5B4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -632,7 +628,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = 88BLQ7RZ9Q;
+				DEVELOPMENT_TEAM = CMWHQAT5B4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

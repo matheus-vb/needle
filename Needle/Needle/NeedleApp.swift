@@ -19,6 +19,7 @@ struct NeedleApp: App {
             
             // Uncomment to start in HomeView
             WorkspaceView()
+                .frame(minWidth: 900, minHeight: 570)
         }
     }
 }
