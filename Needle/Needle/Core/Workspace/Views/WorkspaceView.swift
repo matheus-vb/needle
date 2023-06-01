@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WorkspaceView: View {
+    
     let workspaces: [WorkspaceGridModel] = []
     let user: User
     
@@ -84,7 +85,8 @@ struct WorkspaceView: View {
                 
                 
             }
-        }.background(
+        }
+        .background(
             HStack{
                 Spacer()
                 VStack{

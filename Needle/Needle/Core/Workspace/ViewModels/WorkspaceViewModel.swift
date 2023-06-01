@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-extension WorkspaceView {
-    @MainActor class WorkspaceViewModel: ObservableObject {
-        
-    }
+class WorkspaceViewModel: ObservableObject{
+    @Published var workspaces: [WorkspaceGridModel] = []
 }
