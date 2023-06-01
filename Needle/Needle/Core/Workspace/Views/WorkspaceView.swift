@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkspaceView: View {
-    let workspaces: [WorkspaceModel] = [WorkspaceModel(id: "1", accessCode: "28749", name: "Needle", users: [UserModel(id: "1", name: "Felipo")]), WorkspaceModel(id: "2", accessCode: "29749", name: "Needle", users: [UserModel(id: "2", name: "Thales")]), WorkspaceModel(id: "3", accessCode: "30749", name: "Needle", users: [UserModel(id: "3", name: "Miggle")])]
+    let workspaces: [WorkspaceGridModel] = [WorkspaceGridModel(id: "1", accessCode: "28749", name: "Needle", owner: "Felipo"), WorkspaceGridModel(id: "2", accessCode: "30749", name: "Needle", owner: "Medeiros"), WorkspaceGridModel(id: "3", accessCode: "29749", name: "Needle", owner: "Matheus")]
     
     let columns = [
         GridItem(.flexible()),
@@ -63,13 +63,13 @@ struct WorkspaceView: View {
                         .buttonStyle(addButtonStyle())
                         Spacer()
                     }
-                    /*ScrollView {
+                    ScrollView {
                         LazyVGrid(columns: columns, spacing: 20.0) {
                             ForEach(workspaces, id: \.self) { workspace in
                                 workspaceCardView(workspace: workspace)
                             }
                         }
-                    }*/
+                    }
                 }
                 .padding(.horizontal, 216.0)
             }

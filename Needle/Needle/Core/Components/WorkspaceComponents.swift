@@ -32,7 +32,7 @@ extension WorkspaceView {
     }
     
     struct workspaceCardView: View {
-        let workspace: WorkspaceModel
+        let workspace: WorkspaceGridModel
         
         var body: some View {
             ZStack {
@@ -48,7 +48,7 @@ extension WorkspaceView {
                             Image.icons.trash
                         }
                         HStack {
-                            Text("owner | \(workspace.users[0].name)")
+                            Text("owner | \(workspace.owner)")
                                 .font(.custom(.spaceGrotesk, size: 32))
                                 .foregroundColor(Color.color.mainBlack)
                             Spacer()
