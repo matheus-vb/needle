@@ -14,7 +14,7 @@ extension WorkspaceView {
         
         func makeBody(configuration: Self.Configuration) -> some View {
             configuration.label
-                .frame(minWidth: 455, idealWidth: 488, minHeight: 32)
+                .frame(minWidth: 450, idealWidth: 488, maxWidth: 488, minHeight: 32)
                 .background(Color.color.mainBlack)
                 .cornerRadius(8)
             
