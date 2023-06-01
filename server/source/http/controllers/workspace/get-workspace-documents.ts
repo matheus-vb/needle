@@ -7,12 +7,12 @@ export async function getWorkspaceDocuments(request: FastifyRequest, reply: Fast
         workspaceId: z.string(),
     })
 
-    const { workspaceId } = getWorkspaceDocumentsBodySchema.parse(request.body);
+    const { workspaceId } = getWorkspaceDocumentsBodySchema.parse(request.params);
 
     try {
         const getWorkspaceDocumentsUseCase = makeGetWorkspaceDocuments();
 
-        const documents = await getWorkspaceDocumentsUseCase.handle({
+        const { documents } = await getWorkspaceDocumentsUseCase.handle({
             workspaceId,
         })
 
