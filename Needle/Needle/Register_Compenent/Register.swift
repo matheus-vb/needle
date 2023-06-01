@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Register: View {
     @EnvironmentObject var registerViewModel: RegisterViewModel
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         GeometryReader{geometry in
             ZStack{
