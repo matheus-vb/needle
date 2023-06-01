@@ -13,6 +13,8 @@
 		279FB7872A26947F00DF8D01 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB7862A26947F00DF8D01 /* Register.swift */; };
 		279FB7892A26948F00DF8D01 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB7882A26948F00DF8D01 /* RegisterViewModel.swift */; };
 		279FB78B2A26949C00DF8D01 /* RegisterViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */; };
+		8F31EA2C2A27B3F20048EFBD /* WorkspaceComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31EA2B2A27B3F20048EFBD /* WorkspaceComponents.swift */; };
+		8F31EA322A27C2B50048EFBD /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F31EA312A27C2B50048EFBD /* UserModel.swift */; };
 		8F9145952A2522C60082F40A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9145942A2522C60082F40A /* Color.swift */; };
 		8F92A3262A21416100D163D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3252A21416100D163D0 /* HomeView.swift */; };
 		8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92A3272A2143D900D163D0 /* TesteView.swift */; };
@@ -44,6 +46,8 @@
 		279FB7862A26947F00DF8D01 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		279FB7882A26948F00DF8D01 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		279FB78A2A26949C00DF8D01 /* RegisterViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewComponents.swift; sourceTree = "<group>"; };
+		8F31EA2B2A27B3F20048EFBD /* WorkspaceComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceComponents.swift; sourceTree = "<group>"; };
+		8F31EA312A27C2B50048EFBD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8F9145942A2522C60082F40A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8F92A3252A21416100D163D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8F92A3272A2143D900D163D0 /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			children = (
 				CAE434452A1EA75D00A2A4BE /* WorkspaceModel.swift */,
 				CA47E0362A2145A600A63F28 /* TaskModel.swift */,
+				8F31EA312A27C2B50048EFBD /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			children = (
 				CAE4344E2A1EA9C400A2A4BE /* AnyComponent.swift */,
 				8F92A32C2A21483F00D163D0 /* HomeComponents.swift */,
+				8F31EA2B2A27B3F20048EFBD /* WorkspaceComponents.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,12 +331,14 @@
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
 				8F92A32F2A214D9100D163D0 /* MyCustomFonts.swift in Sources */,
+				8F31EA2C2A27B3F20048EFBD /* WorkspaceComponents.swift in Sources */,
 				CAE434372A1E9DAF00A2A4BE /* WorkspaceView.swift in Sources */,
 				8F92A3282A2143D900D163D0 /* TesteView.swift in Sources */,
 				279FB7872A26947F00DF8D01 /* Register.swift in Sources */,
 				CAE4344F2A1EA9C400A2A4BE /* AnyComponent.swift in Sources */,
 				CA47E0372A2145A600A63F28 /* TaskModel.swift in Sources */,
 				CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */,
+				8F31EA322A27C2B50048EFBD /* UserModel.swift in Sources */,
 				CA47E0332A21413800A63F28 /* KanbanComponentView.swift in Sources */,
 				CA47E0352A21444300A63F28 /* KanbanTaskComponentView.swift in Sources */,
 				CAE434552A213F8C00A2A4BE /* KanbanView.swift in Sources */,
