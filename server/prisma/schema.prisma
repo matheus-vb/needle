@@ -80,10 +80,10 @@ model TaskTag {
 }
 
 model Document {
-  id     String @id @default(uuid())
+  id     String  @id @default(uuid())
   title  String
   task   Task?
   text   String
-  author String
+  author String?
   type   String
 }
