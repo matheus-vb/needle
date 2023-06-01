@@ -14,9 +14,7 @@ struct NeedleApp: App {
     @StateObject private var documentsViewModel = DocumentsViewModel()
     var body: some Scene {
         WindowGroup {
-            Register()
-                .environmentObject(registerViewModel)
-
+            HomeView()
         }
     }
 }
