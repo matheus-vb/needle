@@ -11,10 +11,10 @@ import SwiftUI
 extension WorkspaceView {
     
     struct addButtonStyle: ButtonStyle {
-
+        
         func makeBody(configuration: Self.Configuration) -> some View {
             configuration.label
-                .frame(width: 488, height: 32)
+                .frame(minWidth: 455, idealWidth: 488, minHeight: 32)
                 .background(Color.color.mainBlack)
                 .cornerRadius(8)
             
@@ -32,47 +32,50 @@ extension WorkspaceView {
     }
     
     struct workspaceCardView: View {
-        let workspace: WorkspaceModel
+        let workspace: WorkspaceGridModel
         
         var body: some View {
-            ZStack {
-                Color.white
-                    .ignoresSafeArea()
-                VStack {
-                    VStack(spacing: 8.0) {
-                        HStack {
-                            Text(workspace.name)
-                                .font(.custom(.spaceGrotesk, size: 32))
-                                .foregroundColor(Color.color.mainBlack)
-                            Spacer()
-                            Image.icons.trash
-                        }
-                        HStack {
-                            Text("owner | \(workspace.users[0].name)")
-                                .font(.custom(.spaceGrotesk, size: 32))
-                                .foregroundColor(Color.color.mainBlack)
-                            Spacer()
-                        }
-                    }
+            VStack{
+                Spacer().frame(height: 24)
+                
+                HStack {
+                    Spacer().frame(width: 24)
+                    Text(workspace.name)
+                        .font(.custom(.spaceGroteskBold, size: 32))
+                        .foregroundColor(Color.color.mainBlack)
                     Spacer()
-                    HStack {
-                        Spacer()
-                        Text("#\(workspace.accessCode)")
-                            .font(.custom(.spaceGrotesk, size: 16))
-                            .foregroundColor(Color.color.mainBlack)
-                            .background(
-                                RoundedRectangle(cornerRadius: 4, style: .circular)
-                                    .fill(Color.color.mainGreen)
-                                    .frame(width: 88, height: 32)
-                            )
-                    }
-                    
+                    Image.icons.trash
+                    Spacer().frame(width: 24)
                 }
-                .padding(.all, 24.0)
-            }
+                HStack {
+                    Spacer().frame(width: 24)
+                    Text("owner | \(workspace.owner)")
+                        .font(.custom(.spaceGrotesk, size: 32))
+                        .foregroundColor(Color.color.mainBlack)
+                    Spacer()
+                }
+                Spacer()
+                
+                HStack{
+                    Spacer()
+                    
+                    Text("#\(workspace.accessCode)")
+                        .frame(width: 88, height: 32)
+                        .font(.custom(.spaceGrotesk, size: 16))
+                        .foregroundColor(Color.color.mainBlack)
+                        .background(Color.color.mainGreen)
+                        .cornerRadius(4)
+                    Spacer().frame(width: 24)
+                }
+                
+                Spacer().frame(height: 20)
+                
+            }.background(.white)
             .frame(width: 488, height: 284)
             .cornerRadius(8)
             .shadow(radius: 8)
+            
+            
         }
     }
     

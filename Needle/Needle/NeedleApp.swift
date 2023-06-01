@@ -18,7 +18,8 @@ struct NeedleApp: App {
             //KanbanView(workspace: WorkspaceModel(id: "1", accessCode: "123", name: "Projeto Teste")).frame(minWidth: 900, minHeight: 570)
             
             // Uncomment to start in HomeView
-            HomeView()
+            WorkspaceView()
+                .frame(minWidth: 900, minHeight: 570)
         }
     }
 }
