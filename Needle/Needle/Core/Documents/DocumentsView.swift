@@ -9,6 +9,10 @@ import SwiftUI
 
 struct DocumentsView: View {
     @EnvironmentObject var documentsViewModel: DocumentsViewModel
+    @State var documents: [Document] = []
+    
+    let workspace: Workspace
+    
     var body: some View {
         HStack{
             VStack{
@@ -16,7 +20,7 @@ struct DocumentsView: View {
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(Color.color.mainBlack)
                 Button(action: {
-                    print("CLiquei para voltar")
+                    documents = documentsViewModel.documents ?? []
                 }, label: {
                     HStack(spacing: 0){
                         Image(systemName: "arrow.left")
@@ -45,12 +49,19 @@ struct DocumentsView: View {
                     .font(.system(size: 18))
                     .background(.gray)
                     .foregroundColor(.black)
-                TableView()
+                TableView(documents: $documents)
                 Spacer()
             }
             .padding(.top, 110)
+            .refreshable {
+                documents = documentsViewModel.documents ?? []
+            }
             Spacer()
         }
         .background(Color.color.backgroundGray)
+        .onChange(of: documentsViewModel.searchString) { _ in
+            documentsViewModel.queryDocuments(accessCode: workspace.accessCode)
+            documents = documentsViewModel.documents ?? []
+        }
     }
 }

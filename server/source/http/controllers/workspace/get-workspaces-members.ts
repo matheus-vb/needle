@@ -15,7 +15,7 @@ export async function getWorkspaceMembers(request: FastifyRequest, response: Fas
 
         const { members } = await getWorkspaceMembersUseCase.handle({workspaceId, role});
 
-        return response.status(200).send(members);
+        return response.status(200).send({data: members});
     }catch(e){
         throw e;
     }

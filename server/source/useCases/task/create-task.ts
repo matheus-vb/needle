@@ -1,4 +1,4 @@
-import { Task, TaskType } from "@prisma/client";
+import { Task, TaskType, User } from "@prisma/client";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository";
@@ -51,11 +51,16 @@ export class CreateTaskUseCase {
         userId,
     }: ICreateTaskUseCaseRequest): Promise<ICreateTaskUseCaseReply> {
         
+        let userExists: boolean = false
+        let author = "";
+
         if(userId) {
             const user = await this.userRepository.findById(userId);
             if(!user) {
                 throw new Error();
             }
+            userExists = true
+            author = user.name;
         }
 
         const workspace = await this.workspaceRepository.findByCode(accessCode);
@@ -66,6 +71,8 @@ export class CreateTaskUseCase {
         const document = await this.documentRepository.create({
             text: `${title} documentation`,
             title,
+            author: userExists ? author : null,
+            type,
         })
 
         const typeEnum = z.nativeEnum(TaskType);
