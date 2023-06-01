@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-@available(macOS 13.0, *)
 struct HomeView: View {
-    @EnvironmentObject private var coordinator: Coordinator
     var body: some View {
         ZStack {
-            Color.color.backgroundGray
+            Color.white
                 .ignoresSafeArea()
             VStack {
                 HStack {
@@ -36,7 +34,7 @@ struct HomeView: View {
                             }
                             HStack(spacing: 32.0) {
                                 Button {
-                                    coordinator.push(.register)
+                                    
                                 } label: {
                                     Text("Cadastro")
                                         .font(.custom(.spaceGrotesk, size: 24))
@@ -44,7 +42,7 @@ struct HomeView: View {
                                 }
                                 .buttonStyle(initialButtonStyle(fontColor: .black, bgColor: Color.color.mainGreen))
                                 Button {
-                                    coordinator.push(.login)
+                                    
                                 } label: {
                                     Text("Entrar")
                                         .font(.custom(.spaceGrotesk, size: 24))
@@ -105,5 +103,11 @@ struct HomeView: View {
                 }
             }
         }
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }
