@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+@available(macOS 13.0, *)
 struct Register: View {
     @EnvironmentObject var registerViewModel: RegisterViewModel
+    @EnvironmentObject private var coodinator: Coordinator
+
     var body: some View {
         GeometryReader{geometry in
             ZStack{

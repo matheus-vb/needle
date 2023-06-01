@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Login: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @EnvironmentObject private var coodinator: Coordinator
     var body: some View {
         GeometryReader{geometry in
             ZStack{

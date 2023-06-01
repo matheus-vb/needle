@@ -14,7 +14,11 @@ struct NeedleApp: App {
     @StateObject private var documentsViewModel = DocumentsViewModel()
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            if #available(macOS 13.0, *) {
+                CoordinatorView()
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

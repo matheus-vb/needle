@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+@available(macOS 13.0, *)
 struct HomeView: View {
+    @EnvironmentObject private var coodinator: Coordinator
     var body: some View {
         ZStack {
             Color.white

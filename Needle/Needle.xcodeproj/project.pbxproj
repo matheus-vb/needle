@@ -11,6 +11,7 @@
 		2716F68B2A2670DA00CAF94E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */; };
 		2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2716F6912A2676E300CAF94E /* LoginViewComponents.swift */; };
 		27AD8E572A290D3900F33970 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD8E562A290D3900F33970 /* Coordinator.swift */; };
+		27AD8E592A2911AF00F33970 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD8E582A2911AF00F33970 /* CoordinatorView.swift */; };
 		27CAFDAB2A27BF0100E88959 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CAFDAA2A27BF0100E88959 /* DocumentsView.swift */; };
 		27CAFDAE2A27BF5900E88959 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CAFDAD2A27BF5900E88959 /* TableHeader.swift */; };
 		27CAFDB02A27C0CD00E88959 /* DocumentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CAFDAF2A27C0CD00E88959 /* DocumentRow.swift */; };
@@ -62,6 +63,7 @@
 		2716F68A2A2670DA00CAF94E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2716F6912A2676E300CAF94E /* LoginViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewComponents.swift; sourceTree = "<group>"; };
 		27AD8E562A290D3900F33970 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		27AD8E582A2911AF00F33970 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		27CAFDAA2A27BF0100E88959 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
 		27CAFDAD2A27BF5900E88959 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
 		27CAFDAF2A27C0CD00E88959 /* DocumentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentRow.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				CAE434382A1E9DB000A2A4BE /* Assets.xcassets */,
 				CAE4343D2A1E9DB000A2A4BE /* Needle.entitlements */,
 				CAE4343A2A1E9DB000A2A4BE /* Preview Content */,
+				27AD8E582A2911AF00F33970 /* CoordinatorView.swift */,
 			);
 			path = Needle;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				8657B8FA2A27C5EA0065EF04 /* RegisterViewModel.swift in Sources */,
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
 				8657B8FE2A27C62A0065EF04 /* HomeView.swift in Sources */,
+				27AD8E592A2911AF00F33970 /* CoordinatorView.swift in Sources */,
 				CA47E0392A21484F00A63F28 /* TaskTagView.swift in Sources */,
 				8657B8E92A26739E0065EF04 /* DocumentViewModel.swift in Sources */,
 				8657B8E72A2673570065EF04 /* DocumenterrView.swift in Sources */,
@@ -598,7 +602,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -628,7 +632,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
