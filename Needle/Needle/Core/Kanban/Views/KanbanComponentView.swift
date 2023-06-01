@@ -27,21 +27,17 @@ struct KanbanComponentView: View {
         TaskCard(title: "Task 1", tagType: "dev", column: .toDo),
         TaskCard(title: "Task 2", tagType: "design", column: .toDo),
         TaskCard(title: "Task 3", tagType: "dev", column: .done),
-        TaskCard(title: "Task 4", tagType: "geral", column: .inProgress),
-        TaskCard(title: "Task 5", tagType: "design", column: .inReviw),
-        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 8", tagType: "dev", column: .toDo),
-        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 8", tagType: "dev", column: .toDo),
-        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
+        TaskCard(title: "Task 4", tagType: "geral", column: .done),
+        //        TaskCard(title: "Task 5", tagType: "design", column: .inReviw),
+        //        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
+        //        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
+        //        TaskCard(title: "Task 8", tagType: "dev", column: .toDo),
     ]
+    
     let workspaceName: String
-
+    
+    @State var taskIndex = 0
+    
     var body: some View {
         VStack{
             HStack{
@@ -64,16 +60,18 @@ struct KanbanComponentView: View {
                                 
                                 KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
                                     .onDrag {
-                                        let index = $tasks.firstIndex { $0.id == task.id } ?? 0
-                                        return NSItemProvider(object: "\(index)" as NSString)
+                                        taskIndex = $tasks.firstIndex { $0.id == task.id } ?? 0
+                                        return NSItemProvider(object: "\(taskIndex)" as NSString)
                                     }
                             }
-                            .onDrop(of: [.text], delegate: TaskDropDelegate(column: column, tasks: $tasks))
-                        }.frame(maxWidth: 282, maxHeight: .infinity, alignment: .top)
                             
+                        }.frame(maxWidth: 282, alignment: .top)
+                        
+                        
                         Spacer()
                         
                     }.foregroundColor(.black)
+                        .onDrop(of: [.text], delegate: TaskDropDelegate(column: column, tasks: $tasks, taskIndex: taskIndex))
                     
                 }
             }.background(.clear)
@@ -85,24 +83,14 @@ struct KanbanComponentView: View {
 struct TaskDropDelegate: DropDelegate {
     let column: TaskColumn
     @Binding var tasks: [TaskCard]
-
-        func performDrop(info: DropInfo) -> Bool {
-            if let item = info.itemProviders(for: [.text]).first {
-                print(item)
-                item.loadItem(forTypeIdentifier: UTType.text.identifier, options: nil) { (data, error) in
-                    DispatchQueue.main.async {
-                        print(data)
-                        if let data = data as? Data, let index = String(data: data, encoding: .utf8), let i = Int(index) {
-                            tasks[i].column = column
-                            print(column)
-                        }
-                    }
-                }
-                return true
-            } else {
-                return false
-            }
-        }
+    let taskIndex: Int
+    
+    func performDrop(info: DropInfo) -> Bool {
+        
+        tasks[taskIndex].column = column
+        print(column)
+        return true
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
