@@ -10,5 +10,4 @@ import SwiftUI
 
 class WorkspaceViewModel: ObservableObject{
     @Published var workspaces: [WorkspaceGridModel] = []
-    @Published var user: User
 }

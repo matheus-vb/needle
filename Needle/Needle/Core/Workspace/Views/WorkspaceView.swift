@@ -9,6 +9,9 @@ import SwiftUI
 
 struct WorkspaceView: View {
     
+    @EnvironmentObject var workspaceViewModel: WorkspaceViewModel
+    var user: User
+    
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
@@ -73,7 +76,7 @@ struct WorkspaceView: View {
                         Spacer().frame(height:24)
                         LazyVGrid(columns: columns, spacing: 20.0) {
                             
-                            ForEach(workspaces, id: \.self) { workspace in
+                            ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
                                 workspaceCardView(workspace: workspace)
                             }
                         }

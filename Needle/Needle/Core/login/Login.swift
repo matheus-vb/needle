@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Login: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
+    @StateObject var workspaceViewModel: WorkspaceViewModel = WorkspaceViewModel()
+    
     @State var goToWorkspaces = false
     var body: some View {
         GeometryReader{geometry in
