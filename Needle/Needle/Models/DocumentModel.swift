@@ -19,6 +19,6 @@ struct Document: Codable, Identifiable {
     let id: String
     let title: String
     let text: String
-    let author: String?
+    //let author: String?
     let type: String
 }

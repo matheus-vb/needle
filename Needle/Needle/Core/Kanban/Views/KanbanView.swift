@@ -9,12 +9,13 @@ import SwiftUI
 
 struct KanbanView: View {
     @ObservedObject var kanbanViewModel: KanbanViewModel
+    @StateObject var documentsViewModel: DocumentsViewModel
     
     var body: some View {
         ZStack{
             HStack(spacing: 0){
                 
-                KanbanSideBarView()
+                KanbanSideBarView(workspace: kanbanViewModel.workspace, documentViewModel: documentsViewModel)
                 
                 Rectangle().frame(width: 2)
                     .background(Color.color.mainBlack)
