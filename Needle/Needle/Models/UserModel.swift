@@ -16,7 +16,7 @@ struct UserRespoonse: Codable {
     let data: [User]
 }
 
-struct User: Codable, Identifiable {
+struct User: Codable, Identifiable, Hashable {
     let id: String
     let role: String
     let name: String

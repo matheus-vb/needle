@@ -9,7 +9,7 @@ import SwiftUI
 import RichTextKit
 
 struct DocumentView: View {
-    @State var text = NSAttributedString.empty
+    @State var text: NSAttributedString
     @StateObject var context = RichTextContext()
     @State var data = Data()
     
