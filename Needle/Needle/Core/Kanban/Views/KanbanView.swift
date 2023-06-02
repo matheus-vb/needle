@@ -11,12 +11,15 @@ struct KanbanView: View {
     @ObservedObject var kanbanViewModel: KanbanViewModel
     @StateObject var documentsViewModel: DocumentsViewModel
     @State var reset: Bool = false
+    @State var back: Bool = false
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack{
             HStack(spacing: 0){
                 
-                KanbanSideBarView(workspace: kanbanViewModel.workspace, documentViewModel: documentsViewModel, reset: $reset)
+                KanbanSideBarView(workspace: kanbanViewModel.workspace, documentViewModel: documentsViewModel, reset: $reset, back: $back)
                 
                 Rectangle().frame(width: 2)
                     .background(Color.color.mainBlack)
@@ -69,6 +72,9 @@ struct KanbanView: View {
                 }
                 Spacer()
             }
+        }
+        .onChange(of: back) { _ in
+            dismiss()
         }
     }
 }
