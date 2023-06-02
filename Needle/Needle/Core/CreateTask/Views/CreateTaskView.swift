@@ -14,12 +14,19 @@ struct CreateTaskView: View {
     
     @State private var title = "titulo"
     
-    @State var newTask: TaskModel = TaskModel(id: "1", title: "", description: "", status: "", type: "", documentId: "1", endDate: "", workId: "1", userId: "", taskTag: "")
+    @Environment(\.dismiss) var dismiss
+    
+    @State var cancelled: Bool = false
+    
+    @State var newTask: TaskModel = TaskModel(id: "1", title: "", description: "", status: "", type: "", documentId: "1", endDate: "", workId: "1", userId: "")
     
     
     var workspace: WorkspaceModel = WorkspaceModel(id: "1", accessCode: "123", name: "workspace teste", users:[
         User(id: "1", role: "Design", name: "Flipo", email: "gfrm"),User(id: "2", role: "dev", name: "Meidoras", email: "mdrs")
     ])
+    
+    let workspaceId: String
+    let accessCode: String
     
     @State var textTemplate: String = "1. Descrição da Task (2 linhas máximo)\n\n2. Detalhes de Implementação\n\n3. Referências de Códio\n\n4. Teste\n\n5. Desafios e Soluções\n\n6. Referências\n\n"
     
@@ -59,14 +66,17 @@ struct CreateTaskView: View {
                         .cornerRadius(20)
                 }
                 else {
-                    DocumentView(text: NSAttributedString(string: textTemplate, attributes: [.font: NSFont.systemFont(ofSize: 24), .foregroundColor: NSColor(.white)]), taskId: newTask.id).background(Color.color.mainBlack)
+                    DocumentView(text: NSAttributedString(string: textTemplate, attributes: [.font: NSFont.systemFont(ofSize: 24), .foregroundColor: NSColor(.white)]), taskId: newTask.id!).background(Color.color.mainBlack)
                 }
                 Spacer()
             }
             Spacer()
             
-            SideBarCriarTask(workspace: workspace, newTask: newTask).shadow(radius: 8)
+            SideBarCriarTask(workspace: workspace, newTask: newTask, cancelled: $cancelled, workspaceId: workspaceId, title: title, description: descriptionText, accessCode: accessCode).shadow(radius: 8)
         }.background(Color.color.backgroundGray)
+            .onChange(of: cancelled) { _ in
+                dismiss()
+            }
     }
     
     var dropdownChoice: some View {
@@ -95,11 +105,5 @@ struct CreateTaskView: View {
                 .background(.black, in: RoundedRectangle(cornerRadius: 4, style: .continuous))
                 .frame(width: 150)
         }
-    }
-}
-
-struct CreateTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateTaskView()
     }
 }

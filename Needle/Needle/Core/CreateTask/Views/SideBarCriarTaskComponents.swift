@@ -69,9 +69,9 @@ extension SideBarCriarTask {
     }
     
     enum area: String, CaseIterable {
-        case dev = "dev"
-        case design = "design"
-        case geral = "geral"
+        case dev = "DEV"
+        case design = "DESIGN"
+        case geral = "GENERAL"
     }
     
     

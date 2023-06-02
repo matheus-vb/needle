@@ -17,7 +17,7 @@ struct NeedleApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                CreateTaskView()
+                HomeView()
                     .frame(minWidth: 900, minHeight: 570)
 //                KanbanView(kanbanViewModel: kanbanViewModel )
 //                    .frame(minWidth: 900, minHeight: 570)

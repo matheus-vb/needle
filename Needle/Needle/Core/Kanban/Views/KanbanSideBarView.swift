@@ -10,6 +10,7 @@ import SwiftUI
 struct KanbanSideBarView: View {
     let workspace: Workspace
     let documentViewModel: DocumentsViewModel
+    @Binding var reset: Bool
     
     struct SideBarButtonStyle: ButtonStyle {
         let cor: Color
@@ -62,9 +63,7 @@ struct KanbanSideBarView: View {
             Spacer().frame(minHeight: 34)
             
             VStack(spacing: 20){
-                Button(action: {
-                    print("adicionei")
-                }) {
+                NavigationLink(destination: CreateTaskView(workspaceId: workspace.id, accessCode: workspace.accessCode), label: {
                     VStack{
                         Image(systemName: "plus")
                             .resizable()
@@ -72,7 +71,7 @@ struct KanbanSideBarView: View {
                             .foregroundColor(.white)
                         
                     }.frame(width: 46, height: 46)
-                }.buttonStyle(SideBarButtonStyle(cor: .black))
+                }).buttonStyle(SideBarButtonStyle(cor: .black))
                 
                 Button(action: {
                     print("compartilhei")
@@ -87,7 +86,7 @@ struct KanbanSideBarView: View {
                 }.buttonStyle(SideBarButtonStyle(cor: .black))
                 
                 Button(action: {
-                    print("resetei")
+                    reset.toggle()
                 }){
                     ZStack{
                         Circle()

@@ -23,6 +23,15 @@ struct SideBarCriarTask: View {
     
     @State private var tags = ""
     
+    @Binding var cancelled: Bool
+    
+    let workspaceId: String
+    let title: String
+    let description: String
+    let accessCode: String
+    
+    let taskService = TaskService(baseUrl: _URL)
+    
     var body: some View {
         ScrollView{
             VStack{
@@ -73,7 +82,7 @@ struct SideBarCriarTask: View {
                         
                         TextField("ex: API, dados, design system, etc", text: $tags)
                             .onChange(of: tags)  { newValue in
-                                newTask.taskTag = tags
+                                //newTask.taskTag = tags
                             }
                             .frame(width: 427)
                     }
@@ -82,13 +91,25 @@ struct SideBarCriarTask: View {
                     
                     HStack(spacing: 32){
                         Button(action: {
-                            
+                            cancelled.toggle()
                         }, label: {
                             Text("Cancelar")
                                 .font(.custom(.spaceGrotesk, size: 18))
                         }).buttonStyle(CriarButtonStyle(fontColor: .white, bgColor: .clear))
                         
                         Button(action: {
+                            let taskToAdd = TaskModel(id: nil, title: title, description: description, status: "TODO", type: areaChoice, documentId: nil, endDate: "2000-01-01T04:00:00.000Z", workId: workspaceId)
+                            
+                            print(taskToAdd)
+                            
+                            taskService.createTask(accessCode: accessCode, taskInput: taskToAdd) { _ in
+                            }
+                            
+                            Task {
+                                try? await Task.sleep(nanoseconds: 250_000_000)
+                                cancelled.toggle()
+                            }
+                            
                             
                         }, label: {
                             Text("+ Criar")

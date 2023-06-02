@@ -11,6 +11,8 @@ struct DocumentsView: View {
     @EnvironmentObject var documentsViewModel: DocumentsViewModel
     @State var documents: [Document] = []
     
+    @Environment(\.dismiss) var dismiss
+    
     let workspace: Workspace
     
     var body: some View {
@@ -20,7 +22,7 @@ struct DocumentsView: View {
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(Color.color.mainBlack)
                 Button(action: {
-                    documents = documentsViewModel.documents ?? []
+                    dismiss()
                 }, label: {
                     HStack(spacing: 0){
                         Image(systemName: "arrow.left")
