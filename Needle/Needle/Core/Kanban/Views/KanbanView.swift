@@ -10,12 +10,13 @@ import SwiftUI
 struct KanbanView: View {
     @ObservedObject var kanbanViewModel: KanbanViewModel
     @StateObject var documentsViewModel: DocumentsViewModel
+    @State var reset: Bool = false
     
     var body: some View {
         ZStack{
             HStack(spacing: 0){
                 
-                KanbanSideBarView(workspace: kanbanViewModel.workspace, documentViewModel: documentsViewModel)
+                KanbanSideBarView(workspace: kanbanViewModel.workspace, documentViewModel: documentsViewModel, reset: $reset)
                 
                 Rectangle().frame(width: 2)
                     .background(Color.color.mainBlack)
@@ -29,7 +30,7 @@ struct KanbanView: View {
                         VStack{
                             Spacer().frame(height: pow(32 * (kanbanViewModel.geometryHeight/957), kanbanViewModel.scale))
                             
-                            KanbanComponentView(workspaceName: kanbanViewModel.workspace.name, workspaceId: kanbanViewModel.workspace.id)
+                            KanbanComponentView(workspaceName: kanbanViewModel.workspace.name, workspaceId: kanbanViewModel.workspace.id, reset: $reset)
                         }.background(
                             GeometryReader { geometry in
                                 Color.color.backgroundGray

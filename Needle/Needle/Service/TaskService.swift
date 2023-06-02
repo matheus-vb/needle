@@ -165,7 +165,7 @@ class TaskService {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let body = ["userId": taskInput.userId, "accessCode": accessCode, "title": taskInput.title, "description": taskInput.description, "stats": taskInput.status, "type": taskInput.type, "endDate": taskInput.endDate]
+        let body = ["accessCode": accessCode, "title": taskInput.title, "description": taskInput.description, "stats": taskInput.status, "type": taskInput.type, "endDate": taskInput.endDate]
         
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         

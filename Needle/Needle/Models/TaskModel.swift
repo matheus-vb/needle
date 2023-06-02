@@ -20,14 +20,13 @@ struct TaskResponse: Codable {
 }
 
 struct TaskModel: Codable, Identifiable {
-    let id: String
+    let id: String?
     var title: String
     var description: String
     var status: String
     var type: String
-    let documentId: String
+    let documentId: String?
     var endDate: String
     let workId: String
     var userId: String?
-    var taskTag: String
 }

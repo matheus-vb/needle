@@ -7,7 +7,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct TaskCard: Identifiable {
+struct TaskCard: Identifiable, Hashable {
     let id: String
     let title: String
     let tagType: String
@@ -32,6 +32,8 @@ struct KanbanComponentView: View {
     
     @State var taskIndex = 0
     
+    @Binding var reset: Bool
+    
     var body: some View {
         VStack{
             HStack{
@@ -51,9 +53,7 @@ struct KanbanComponentView: View {
                         
                         VStack (spacing: 24){
                             ForEach(tasks.filter { $0.column == column }) { task in
-                                NavigationLink(destination: DocumentView(text: NSAttributedString(string: ""), taskId: task.id), label: {
-                                    KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
-                                })
+                                KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
                                     .onDrag {
                                         taskIndex = $tasks.firstIndex { $0.id == task.id } ?? 0
                                         return NSItemProvider(object: "\(taskIndex)" as NSString)
@@ -71,7 +71,8 @@ struct KanbanComponentView: View {
                 }
             }.background(.clear)
                 .frame(width: 1180)
-        }.onAppear {
+        }
+        .onChange(of: reset) { _ in
             Task {
                 let rawTasks = await kanbanComponentViewModel.taskService.returnWorkspaceTasks(workspaceId: workspaceId)
                 print(rawTasks.count)
@@ -86,7 +87,28 @@ struct KanbanComponentView: View {
                     default: column = TaskColumn.toDo
                     }
                     
-                    let card = TaskCard(id: task.id,title: task.title, tagType: task.type, column: column)
+                    let card = TaskCard(id: task.id!,title: task.title, tagType: task.type, column: column)
+                    tasks.append(card)
+                    tasks = Array(Set(tasks))
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                let rawTasks = await kanbanComponentViewModel.taskService.returnWorkspaceTasks(workspaceId: workspaceId)
+                print(rawTasks.count)
+                for task in rawTasks {
+                    var column = TaskColumn.toDo
+                    
+                    switch task.status {
+                    case "TODO": column = TaskColumn.toDo
+                    case "IN_PROGRESS": column = TaskColumn.inProgress
+                    case "PENDING": column = TaskColumn.inReviw
+                    case "DONE": column = TaskColumn.done
+                    default: column = TaskColumn.toDo
+                    }
+                    
+                    let card = TaskCard(id: task.id!,title: task.title, tagType: task.type, column: column)
                     tasks.append(card)
                 }
             }
