@@ -11,6 +11,7 @@ struct KanbanSideBarView: View {
     let workspace: Workspace
     let documentViewModel: DocumentsViewModel
     @Binding var reset: Bool
+    @Binding var back: Bool
     
     struct SideBarButtonStyle: ButtonStyle {
         let cor: Color
@@ -47,7 +48,7 @@ struct KanbanSideBarView: View {
             
             Spacer().frame(height: 50)
             Button(action: {
-                print("Home")
+                back.toggle()
             }) {
                 HStack(spacing: 8){
                     Image(systemName: "chevron.left")
