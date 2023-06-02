@@ -11,7 +11,6 @@ struct WorkspaceView: View {
     @EnvironmentObject var workspaceViewModel: WorkspaceViewModel
     var user: User
     
-    @State var workspaces: [Workspace] = []
     let columns = [
         GridItem(.adaptive(minimum: 498, maximum: 498)),
     ]
@@ -21,11 +20,17 @@ struct WorkspaceView: View {
     @State var didTapCreate: Bool = false
     @State var workspaceName: String = ""
     
+    @State var selectedWorkspce: Workspace?
+    
+    @State var goToKanban = false
+    
     var body: some View {
         
-        ZStack {
-            VStack {
-                Spacer().frame(height: 32)
+        VStack {
+            NavigationLink(destination: KanbanView(kanbanViewModel: KanbanView.KanbanViewModel(workspace: selectedWorkspce ?? Workspace(id: "1", accessCode: "123", name: ""))), isActive: $goToKanban, label: {EmptyView()})
+            Spacer().frame(height: 32)
+            HStack {
+                Spacer().frame(width: 32)
                 HStack {
                     Spacer().frame(width: 32)
                     HStack {
@@ -67,23 +72,12 @@ struct WorkspaceView: View {
                         Button {
                             showAdd.toggle()
                             
-                        } label: {
-                            Text("+")
-                                .font(.custom(.spaceGrotesk, size: 24))
-                                .foregroundColor(.white)
-                        }
-                        .buttonStyle(addButtonStyle())
-                        Spacer().frame(minWidth: 600)
-                    }
-                    HStack{
-                        Spacer().frame(width: 41)
-                        ScrollView{
-                            Spacer().frame(height:24)
-                            LazyVGrid(columns: columns, spacing: 20.0) {
-                                
-                                ForEach(workspaces, id: \.self) { workspace in
-                                    workspaceCardView(workspace: workspace)
-                                }
+                            ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
+                                workspaceCardView(workspace: workspace)
+                                    .onTapGesture {
+                                        self.selectedWorkspce = workspace
+                                        goToKanban.toggle()
+                                    }
                             }
                         }
                     }
@@ -103,7 +97,13 @@ struct WorkspaceView: View {
                 workspaceViewModel.workspaceService.createWorkspace(name: workspaceName, userId: user.id) { result in
                     
                 }
-                
+             
+            DispatchQueue.main.async {
+                workspaceViewModel.workspaceService.listUserWorkspaces(id: user.id, completion: {result in
+                    if let result{
+                        workspaceViewModel.workspaces = result
+                    }
+                })
             }
         }
         .background(

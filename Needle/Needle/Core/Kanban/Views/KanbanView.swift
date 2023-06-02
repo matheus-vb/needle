@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KanbanView: View {
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
+    @ObservedObject var kanbanViewModel: KanbanViewModel
     
     var body: some View {
         ZStack{
