@@ -23,18 +23,12 @@ enum TaskColumn: String, CaseIterable {
 }
 
 struct KanbanComponentView: View {
-    @State var tasks: [TaskCard] = [
-        TaskCard(title: "Task 1", tagType: "dev", column: .toDo),
-        TaskCard(title: "Task 2", tagType: "design", column: .toDo),
-        TaskCard(title: "Task 3", tagType: "dev", column: .done),
-        TaskCard(title: "Task 4", tagType: "geral", column: .done),
-        //        TaskCard(title: "Task 5", tagType: "design", column: .inReviw),
-        //        TaskCard(title: "Task 6", tagType: "design", column: .toDo),
-        //        TaskCard(title: "Task 7", tagType: "design", column: .toDo),
-        //        TaskCard(title: "Task 8", tagType: "dev", column: .toDo),
-    ]
+    @ObservedObject var kanbanComponentViewModel = KanbanComponentViewModel()
+    
+    @State var tasks: [TaskCard] = []
     
     let workspaceName: String
+    let workspaceId: String
     
     @State var taskIndex = 0
     
@@ -76,6 +70,25 @@ struct KanbanComponentView: View {
                 }
             }.background(.clear)
                 .frame(width: 1180)
+        }.onAppear {
+            Task {
+                let rawTasks = await kanbanComponentViewModel.taskService.returnWorkspaceTasks(workspaceId: workspaceId)
+                print(rawTasks.count)
+                for task in rawTasks {
+                    var column = TaskColumn.toDo
+                    
+                    switch task.status {
+                    case "TODO": column = TaskColumn.toDo
+                    case "IN_PROGRESS": column = TaskColumn.inProgress
+                    case "PENDING": column = TaskColumn.inReviw
+                    case "DONE": column = TaskColumn.done
+                    default: column = TaskColumn.toDo
+                    }
+                    
+                    let card = TaskCard(title: task.title, tagType: task.type, column: column)
+                    tasks.append(card)
+                }
+            }
         }
     }
 }
@@ -93,8 +106,3 @@ struct TaskDropDelegate: DropDelegate {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanComponentView(workspaceName: "Projeto Teste")
-    }
-}

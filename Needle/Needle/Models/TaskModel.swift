@@ -29,5 +29,4 @@ struct TaskModel: Codable, Identifiable {
     let endDate: String
     let workId: String
     let userId: String?
-    let taskTag: String
 }

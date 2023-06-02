@@ -28,7 +28,7 @@ struct KanbanView: View {
                         VStack{
                             Spacer().frame(height: pow(32 * (kanbanViewModel.geometryHeight/957), kanbanViewModel.scale))
                             
-                            KanbanComponentView(workspaceName: kanbanViewModel.workspace.name)
+                            KanbanComponentView(workspaceName: kanbanViewModel.workspace.name, workspaceId: kanbanViewModel.workspace.id)
                         }.background(
                             GeometryReader { geometry in
                                 Color.color.backgroundGray
