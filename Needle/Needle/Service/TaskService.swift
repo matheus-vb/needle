@@ -14,6 +14,26 @@ class TaskService {
         self.baseUrl = baseUrl
     }
     
+    func returnWorkspaceTasks(workspaceId: String) async -> [TaskModel] {
+        var tasks: [TaskModel] = []
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        self.workspaceTasks(workspaceId: workspaceId) { result in
+            if let result = result {
+                tasks = result
+                print("RESULT:")
+                print(result)
+                semaphore.signal()
+            } else {
+                tasks = []
+                semaphore.signal()
+            }
+        }
+        
+        semaphore.wait()
+        return tasks
+    }
+    
     func updateStatus(taskId: String, status: String, completion: @escaping (_ result: TaskModel?) -> Void) {
         let urlString = baseUrl + "task"
         let url = URL(string: urlString)!
@@ -105,7 +125,7 @@ class TaskService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        print(request)
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { data, response, error in
