@@ -51,7 +51,7 @@ struct KanbanComponentView: View {
                         
                         VStack (spacing: 24){
                             ForEach(tasks.filter { $0.column == column }) { task in
-                                NavigationLink(destination: DocumentView(taskId: task.id), label: {
+                                NavigationLink(destination: DocumentView(text: NSAttributedString(string: ""), taskId: task.id), label: {
                                     KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
                                 })
                                     .onDrag {

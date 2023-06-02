@@ -14,7 +14,8 @@ struct CreateTaskView: View {
     
     @State private var title = "titulo"
     
-    @State var newTask: Task = Task(id: "1", title: "", description: "", status: "", type: "", documentId: "1", endDate: "", workId: "1", userId: "", taskTag: "")
+    @State var newTask: TaskModel = TaskModel(id: "1", title: "", description: "", status: "", type: "", documentId: "1", endDate: "", workId: "1", userId: "", taskTag: "")
+    
     
     var workspace: WorkspaceModel = WorkspaceModel(id: "1", accessCode: "123", name: "workspace teste", users:[
         User(id: "1", role: "Design", name: "Flipo", email: "gfrm"),User(id: "2", role: "dev", name: "Meidoras", email: "mdrs")
@@ -58,7 +59,7 @@ struct CreateTaskView: View {
                         .cornerRadius(20)
                 }
                 else {
-                    DocumentView(text: NSAttributedString(string: textTemplate, attributes: [.font: NSFont.systemFont(ofSize: 24), .foregroundColor: NSColor(.white)])).background(Color.color.mainBlack)
+                    DocumentView(text: NSAttributedString(string: textTemplate, attributes: [.font: NSFont.systemFont(ofSize: 24), .foregroundColor: NSColor(.white)]), taskId: newTask.id).background(Color.color.mainBlack)
                 }
                 Spacer()
             }

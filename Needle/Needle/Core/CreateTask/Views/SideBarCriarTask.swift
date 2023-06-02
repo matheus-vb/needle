@@ -11,7 +11,7 @@ struct SideBarCriarTask: View {
     
     var workspace: WorkspaceModel
     
-    @State var newTask: Task
+    @State var newTask: TaskModel
     
     @State var statusChoice = "Selecione"
     
