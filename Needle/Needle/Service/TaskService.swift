@@ -14,7 +14,27 @@ class TaskService {
         self.baseUrl = baseUrl
     }
     
-    func updateStatus(taskId: String, status: String, completion: @escaping (_ result: Task?) -> Void) {
+    func returnWorkspaceTasks(workspaceId: String) async -> [TaskModel] {
+        var tasks: [TaskModel] = []
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        self.workspaceTasks(workspaceId: workspaceId) { result in
+            if let result = result {
+                tasks = result
+                print("RESULT:")
+                print(result)
+                semaphore.signal()
+            } else {
+                tasks = []
+                semaphore.signal()
+            }
+        }
+        
+        semaphore.wait()
+        return tasks
+    }
+    
+    func updateStatus(taskId: String, status: String, completion: @escaping (_ result: TaskModel?) -> Void) {
         let urlString = baseUrl + "task"
         let url = URL(string: urlString)!
         
@@ -56,7 +76,7 @@ class TaskService {
         task.resume()
     }
     
-    func assignTask(id: String, userId: String, completion: @escaping ( _ result: Task?) -> Void) {
+    func assignTask(id: String, userId: String, completion: @escaping ( _ result: TaskModel?) -> Void) {
         let urlString = baseUrl + "task/assign"
         let url = URL(string: urlString)!
         
@@ -98,14 +118,14 @@ class TaskService {
         task.resume()
     }
     
-    func workspaceTasks(workspaceId: String, completion: @escaping (_ result: [Task]?) -> Void) {
+    func workspaceTasks(workspaceId: String, completion: @escaping (_ result: [TaskModel]?) -> Void) {
         let urlString = baseUrl + "task/\(workspaceId)"
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        print(request)
         let session = URLSession.shared
         
         let task = session.dataTask(with: request) { data, response, error in
@@ -137,7 +157,7 @@ class TaskService {
         task.resume()
     }
     
-    func createTask(accessCode: String, taskInput: Task, completion: @escaping (_ result: Task?) -> Void) {
+    func createTask(accessCode: String, taskInput: TaskModel, completion: @escaping (_ result: TaskModel?) -> Void) {
         let urlString = baseUrl + "task/create"
         let url = URL(string: urlString)!
         

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct WorkspaceModel: Identifiable, Codable, Hashable {
     static func == (lhs: WorkspaceModel, rhs: WorkspaceModel) -> Bool {
         return lhs.id == rhs.id && lhs.accessCode == rhs.accessCode
@@ -30,7 +31,7 @@ struct WorkspaceResponse: Codable {
     let data: [Workspace]
 }
 
-struct Workspace: Identifiable, Codable {
+struct Workspace: Identifiable, Codable, Hashable {
     var id: String
     var accessCode: String
     var name: String

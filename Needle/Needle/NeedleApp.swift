@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct NeedleApp: App {
-    @StateObject private var documentsViewModel = DocumentsViewModel()
-    @StateObject private var kanbanViewModel = KanbanView.KanbanViewModel(workspace: Workspace(id: "1", accessCode: "123", name: "Projeto Teste"))
-    
+
+    @StateObject private var loginViewModel = LoginViewModel()
+    @StateObject private var registerViewModel = RegisterViewModel()
+    @StateObject private var documentsViewModel = DocumentsViewModel(workspaceId: "c17985fe-2d27-44d3-a6cc-c2d2029b4e59")
+
     var body: some Scene {
         WindowGroup {
             NavigationStack{

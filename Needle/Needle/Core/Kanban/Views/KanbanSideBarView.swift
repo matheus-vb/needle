@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct KanbanSideBarView: View {
+    let workspace: Workspace
+    let documentViewModel: DocumentsViewModel
+    
     struct SideBarButtonStyle: ButtonStyle {
         let cor: Color
         
@@ -103,26 +106,29 @@ struct KanbanSideBarView: View {
             Spacer().frame(height: 120)
             Spacer()
             
-            Button(action: {
-                print("documentei")
-            }) {
+            NavigationLink(destination: DocumentsView(workspace: workspace).environmentObject(documentViewModel), label: {
                 VStack{
                     Image(systemName: "doc")
                         .resizable()
                         .frame(width: 16, height: 20)
                         .foregroundColor(.white)
                 }.frame(width: 46, height: 46)
-            }.buttonStyle(SideBarButtonStyle(cor: .black))
+            }).buttonStyle(SideBarButtonStyle(cor: .black))
+            
+//            Button(action: {
+//
+//            }) {
+//                VStack{
+//                    Image(systemName: "doc")
+//                        .resizable()
+//                        .frame(width: 16, height: 20)
+//                        .foregroundColor(.white)
+//                }.frame(width: 46, height: 46)
+//            }.buttonStyle(SideBarButtonStyle(cor: .black))
             
             Spacer().frame(height: 87)
             
         }.frame(width: 170)
             .background(Color.color.backgroundGray)
-    }
-}
-
-struct KanbanSideBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanSideBarView()
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+class KanbanComponentViewModel: ObservableObject {
+    @Published var tasks: [TaskModel] = []
+    let taskService = TaskService(baseUrl: _URL)
+}
