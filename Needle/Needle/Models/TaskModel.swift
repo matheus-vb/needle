@@ -21,13 +21,13 @@ struct TaskResponse: Codable {
 
 struct Task: Codable, Identifiable {
     let id: String
-    let title: String
-    let description: String
-    let status: String
-    let type: String
+    var title: String
+    var description: String
+    var status: String
+    var type: String
     let documentId: String
-    let endDate: String
+    var endDate: String
     let workId: String
-    let userId: String?
-    let taskTag: String
+    var userId: String?
+    var taskTag: String
 }

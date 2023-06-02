@@ -11,10 +11,14 @@ import SwiftUI
 struct NeedleApp: App {
     @StateObject private var documentsViewModel = DocumentsViewModel()
     @StateObject private var kanbanViewModel = KanbanView.KanbanViewModel(workspace: Workspace(id: "1", accessCode: "123", name: "Projeto Teste"))
+    
     var body: some Scene {
         WindowGroup {
             NavigationStack{
-                HomeView()
+                CreateTaskView()
+                    .frame(minWidth: 900, minHeight: 570)
+//                KanbanView(kanbanViewModel: kanbanViewModel )
+//                    .frame(minWidth: 900, minHeight: 570)
             }
         }
     }

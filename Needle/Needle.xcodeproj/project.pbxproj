@@ -47,6 +47,7 @@
 		CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */; };
 		CA6B4C142A259D7400CB0AB7 /* KanbanSideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C132A259D7400CB0AB7 /* KanbanSideBarView.swift */; };
 		CA6B4C162A259DEB00CB0AB7 /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4C152A259DEB00CB0AB7 /* KanbanViewModel.swift */; };
+		CA6EC4FB2A29703E005F9FBD /* SideBarCriarTaskComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6EC4FA2A29703E005F9FBD /* SideBarCriarTaskComponents.swift */; };
 		CA9183B12A2841D600D4AD6A /* KanbanComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9183B02A2841D600D4AD6A /* KanbanComponentViewModel.swift */; };
 		CA9DB1CE2A27E10C00B7478C /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9DB1CD2A27E10C00B7478C /* CreateTaskView.swift */; };
 		CA9DB1D02A27E38500B7478C /* SideBarCriarTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9DB1CF2A27E38500B7478C /* SideBarCriarTask.swift */; };
@@ -102,6 +103,7 @@
 		CA6B4C112A25249D00CB0AB7 /* KanbanColumnTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnTitle.swift; sourceTree = "<group>"; };
 		CA6B4C132A259D7400CB0AB7 /* KanbanSideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanSideBarView.swift; sourceTree = "<group>"; };
 		CA6B4C152A259DEB00CB0AB7 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
+		CA6EC4FA2A29703E005F9FBD /* SideBarCriarTaskComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarCriarTaskComponents.swift; sourceTree = "<group>"; };
 		CA9183B02A2841D600D4AD6A /* KanbanComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanComponentViewModel.swift; sourceTree = "<group>"; };
 		CA9DB1C72A26783C00B7478C /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		CA9DB1C82A26784300B7478C /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			children = (
 				CA9DB1CD2A27E10C00B7478C /* CreateTaskView.swift */,
 				CA9DB1CF2A27E38500B7478C /* SideBarCriarTask.swift */,
+				CA6EC4FA2A29703E005F9FBD /* SideBarCriarTaskComponents.swift */,
 				CA9DB1D12A27E5ED00B7478C /* TitleSideBarCriarTask.swift */,
 			);
 			path = Views;
@@ -466,6 +469,7 @@
 				2716F6922A2676E300CAF94E /* LoginViewComponents.swift in Sources */,
 				27CAFDB02A27C0CD00E88959 /* DocumentRow.swift in Sources */,
 				CA9DB1D22A27E5ED00B7478C /* TitleSideBarCriarTask.swift in Sources */,
+				CA6EC4FB2A29703E005F9FBD /* SideBarCriarTaskComponents.swift in Sources */,
 				27CAFDB22A27C67A00E88959 /* TableView.swift in Sources */,
 				CA9DB1D02A27E38500B7478C /* SideBarCriarTask.swift in Sources */,
 				CA6B4C122A25249D00CB0AB7 /* KanbanColumnTitle.swift in Sources */,
@@ -638,7 +642,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = CMWHQAT5B4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -649,6 +653,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.gfrm.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -668,7 +673,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Needle/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = CMWHQAT5B4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -679,6 +684,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.gfrm.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -88,7 +88,6 @@ struct TaskDropDelegate: DropDelegate {
     func performDrop(info: DropInfo) -> Bool {
         
         tasks[taskIndex].column = column
-        print(column)
         return true
     }
 }

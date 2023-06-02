@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KanbanView: View {
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
+    @ObservedObject var kanbanViewModel: KanbanViewModel 
     
     var body: some View {
         ZStack{
@@ -61,7 +61,7 @@ struct KanbanView: View {
                             Image(systemName: "xmark.icloud")
                                 .frame(width: 22.46, height: 15.63)
                         }.frame(maxWidth: 114, maxHeight: 53)
-                    }.buttonStyle(KanbanView.KanbanViewModel.InitialButtonStyle())
+                    }.buttonStyle(KanbanViewModel.InitialButtonStyle())
                     
                     Spacer().frame(width: 24)
                 }
