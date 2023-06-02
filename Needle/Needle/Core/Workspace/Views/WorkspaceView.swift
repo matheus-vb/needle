@@ -17,9 +17,14 @@ struct WorkspaceView: View {
     
     @State var geometryHeight: Double = 0.0
     
+    @State var selectedWorkspce: Workspace?
+    
+    @State var goToKanban = false
+    
     var body: some View {
         
         VStack {
+            NavigationLink(destination: KanbanView(kanbanViewModel: KanbanView.KanbanViewModel(workspace: selectedWorkspce ?? Workspace(id: "1", accessCode: "123", name: ""))), isActive: $goToKanban, label: {EmptyView()})
             Spacer().frame(height: 32)
             HStack {
                 Spacer().frame(width: 32)
@@ -77,6 +82,10 @@ struct WorkspaceView: View {
                             
                             ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
                                 workspaceCardView(workspace: workspace)
+                                    .onTapGesture {
+                                        self.selectedWorkspce = workspace
+                                        goToKanban.toggle()
+                                    }
                             }
                         }
                     }
