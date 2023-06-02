@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension PopUpCreatTaskView {
+extension PopUpCreateWorkspaceView {
     struct initialButtonStyle: ButtonStyle {
         let fontColor: Color
         let bgColor: Color

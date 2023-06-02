@@ -15,7 +15,9 @@ struct Login: View {
     var body: some View {
         GeometryReader{geometry in
             ZStack{
-                NavigationLink(destination: WorkspaceView(user: loginViewModel.user ?? User(id: "1", role: "MEMBER", name: "", email: "")).environmentObject(workspaceViewModel).navigationBarBackButtonHidden(true), isActive: $goToWorkspaces, label: {EmptyView()})
+                
+                
+                NavigationLink(destination: WorkspaceView(user: loginViewModel.user ?? User(id: "", role: "", name: "", email: "")).environmentObject(workspaceViewModel).navigationBarBackButtonHidden(true), isActive: $goToWorkspaces, label: {EmptyView()})
                 Image("background")
                     .resizable()
                     .scaledToFill()

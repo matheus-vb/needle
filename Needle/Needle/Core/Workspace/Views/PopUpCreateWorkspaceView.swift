@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct PopUpCreatTaskView: View {
-    @State private var workspaceName: String = ""
+struct PopUpCreateWorkspaceView: View {
+    @Binding var workspaceName: String
+    @Binding var showPopup: Bool
+    @Binding var didTapCreate: Bool
+    
     
     var body: some View {
         ZStack {
@@ -41,7 +44,7 @@ struct PopUpCreatTaskView: View {
                 }
                 HStack {
                     Button{
-                        
+                        showPopup.toggle()
                     } label:{
                         Text("Cancelar")
                             .font(.custom(.spaceGrotesk, size: 16))
@@ -65,9 +68,3 @@ struct PopUpCreatTaskView: View {
     }
 }
     
-
-struct PopUpCreatTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        PopUpCreatTaskView()
-    }
-}
