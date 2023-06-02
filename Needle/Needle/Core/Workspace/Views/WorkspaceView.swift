@@ -16,21 +16,20 @@ struct WorkspaceView: View {
     ]
     
     @State var geometryHeight: Double = 0.0
-    @State var showAdd: Bool = false
-    @State var didTapCreate: Bool = false
-    @State var workspaceName: String = ""
     
     @State var selectedWorkspce: Workspace?
     
     @State var goToKanban = false
     
+    @State var showAdd: Bool = false
+    @State var didTapCreate: Bool = false
+    @State var workspaceName: String = ""
+    
     var body: some View {
-        
-        VStack {
-            NavigationLink(destination: KanbanView(kanbanViewModel: KanbanView.KanbanViewModel(workspace: selectedWorkspce ?? Workspace(id: "1", accessCode: "123", name: ""))), isActive: $goToKanban, label: {EmptyView()})
-            Spacer().frame(height: 32)
-            HStack {
-                Spacer().frame(width: 32)
+        ZStack {
+            VStack {
+                NavigationLink(destination: KanbanView(kanbanViewModel: KanbanView.KanbanViewModel(workspace: selectedWorkspce ?? Workspace(id: "1", accessCode: "123", name: ""))), isActive: $goToKanban, label: {EmptyView()})
+                Spacer().frame(height: 32)
                 HStack {
                     Spacer().frame(width: 32)
                     HStack {
@@ -71,39 +70,48 @@ struct WorkspaceView: View {
                         Spacer().frame(minWidth: 32, maxWidth: 256)
                         Button {
                             showAdd.toggle()
-                            
-                            ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
-                                workspaceCardView(workspace: workspace)
-                                    .onTapGesture {
-                                        self.selectedWorkspce = workspace
-                                        goToKanban.toggle()
-                                    }
+                        } label: {
+                            Text("+")
+                                .font(.custom(.spaceGrotesk, size: 24))
+                                .foregroundColor(.white)
+                        }
+                        .buttonStyle(addButtonStyle())
+                        Spacer().frame(minWidth: 600)
+                    }
+                    HStack{
+                        Spacer().frame(width: 41)
+                        ScrollView{
+                            Spacer().frame(height:24)
+                            LazyVGrid(columns: columns, spacing: 20.0) {
+                                
+                                ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
+                                    workspaceCardView(workspace: workspace)
+                                        .onTapGesture {
+                                            self.selectedWorkspce = workspace
+                                            goToKanban.toggle()
+                                        }
+                                }
                             }
                         }
                     }
-                    
-                    
                 }
             }
             PopUpCreateWorkspaceView(workspaceName: $workspaceName, showPopup: $showAdd, didTapCreate: $didTapCreate)
-                .opacity(showAdd ? 1 : 0)
+                            .opacity(showAdd ? 1 : 0)
         }
         .onAppear{
             print(user)
-            updateWorkspaces()
+            Task {
+                await updateWorkspaces()
+            }
         }
         .onChange(of: didTapCreate) { _ in
             Task {
-                workspaceViewModel.workspaceService.createWorkspace(name: workspaceName, userId: user.id) { result in
-                    
+                let workspace = await workspaceViewModel.workspaceService.returnCreatedWorkspace(name: workspaceName, userId: user.id)
+                if let created = workspace {
+                    workspaceViewModel.workspaces.append(created)
+                    showAdd = false
                 }
-             
-            DispatchQueue.main.async {
-                workspaceViewModel.workspaceService.listUserWorkspaces(id: user.id, completion: {result in
-                    if let result{
-                        workspaceViewModel.workspaces = result
-                    }
-                })
             }
         }
         .background(
@@ -116,13 +124,9 @@ struct WorkspaceView: View {
             }.background(Color.color.backgroundGray))
     }
     
-    func updateWorkspaces() {
-        DispatchQueue.main.async {
-            workspaceViewModel.workspaceService.listUserWorkspaces(id: user.id, completion: {result in
-                if let result{
-                    self.workspaces = result
-                }
-            })
+    func updateWorkspaces() async {
+        Task {
+            workspaceViewModel.workspaces =  await workspaceViewModel.workspaceService.returnWorkspaces(id: user.id)
         }
     }
 }
