@@ -52,7 +52,7 @@ struct PopUpCreateWorkspaceView: View {
                     }
                     .buttonStyle(initialButtonStyle(fontColor: .white, bgColor: .black))
                     Button{
-                        
+                        didTapCreate.toggle()
                     }label: {
                         Text("Criar")
                             .font(.custom(.spaceGrotesk, size: 16))
