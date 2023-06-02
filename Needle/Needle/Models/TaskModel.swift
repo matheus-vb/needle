@@ -12,14 +12,14 @@
 import Foundation
 
 struct SingleTaskResponse: Codable {
-    let data: Task
+    let data: TaskModel
 }
 
 struct TaskResponse: Codable {
-    let data: [Task]
+    let data: [TaskModel]
 }
 
-struct Task: Codable, Identifiable {
+struct TaskModel: Codable, Identifiable {
     let id: String
     let title: String
     let description: String

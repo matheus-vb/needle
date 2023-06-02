@@ -12,7 +12,12 @@ class LoginViewModel: ObservableObject{
     @Published var password: String = ""
     
     @Published var user: User?
+    @Published var isLogged: Bool = false
     
     let authService = AuthService(baseUrl: _URL)
     let workspacesService = WorkspaceService(baseUrl: _URL)
+    
+    func login() {
+        
+    }
 }

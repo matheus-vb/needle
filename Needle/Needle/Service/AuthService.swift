@@ -14,6 +14,24 @@ class AuthService {
         self.baseUrl = baseUrl
     }
     
+    func returnLogin(email: String, password: String) async -> User? {
+        var responseUser: User?
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        self.login(email: email, password: password) { result in
+            if let result = result {
+                responseUser = result
+                semaphore.signal()
+            } else {
+                responseUser = nil
+                semaphore.signal()
+            }
+        }
+        
+        semaphore.wait()
+        return responseUser
+    }
+    
     func register(user: User, password: String, completion: @escaping (_ result: User?) -> Void) {
         let urlString = baseUrl + "register"
         let url = URL(string: urlString)!

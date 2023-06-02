@@ -41,17 +41,13 @@ extension Login{
     
     var loginButton: some View {
         Button(action: {
-            DispatchQueue.main.async {
-                loginViewModel.authService.login(email: loginViewModel.email, password: loginViewModel.password) { result in
-                    if let result {
-                        loginViewModel.user = result
-                        print("ooi")
-                        goToWorkspaces.toggle()
-                    }
-                }                
+            Task {
+                loginViewModel.user = await loginViewModel.authService.returnLogin(email: loginViewModel.email, password: loginViewModel.password)
+                if loginViewModel.user != nil {
+                    try? await Task.sleep(nanoseconds: 500_000_000)
+                    goToWorkspaces.toggle()
+                }
             }
-            
-            
         }, label: {
             Text("Enviar")
                 //.padding([.leading, .trailing], 54)
