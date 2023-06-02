@@ -59,6 +59,13 @@ struct DocumentsView: View {
             Spacer()
         }
         .background(Color.color.backgroundGray)
+        .onAppear {
+            documentsViewModel.documentService.getWorkspaceDocumentations(workspaceId: workspace.id) { result in
+                if let result = result {
+                    documents = result
+                }
+            }
+        }
         .onChange(of: documentsViewModel.searchString) { _ in
             documentsViewModel.queryDocuments(accessCode: workspace.accessCode)
             documents = documentsViewModel.documents ?? []

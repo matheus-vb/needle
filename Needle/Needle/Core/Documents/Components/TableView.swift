@@ -15,7 +15,7 @@ struct TableView: View {
             TableHeader()
             ScrollView{
                 ForEach(documents) { document in
-                    DocumentRow(title: document.title, area: document.type, author: document.author ?? "Not defined")
+                    DocumentRow(title: document.title, area: document.type, author: document.id ?? "Not defined")
                 }
             }
         }

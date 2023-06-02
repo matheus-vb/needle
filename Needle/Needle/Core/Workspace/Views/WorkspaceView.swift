@@ -84,9 +84,14 @@ struct WorkspaceView: View {
                             LazyVGrid(columns: columns, spacing: 20.0) {
                                 
                                 ForEach(workspaceViewModel.workspaces, id: \.self) { workspace in
-                                    NavigationLink(destination: KanbanView(kanbanViewModel: KanbanView.KanbanViewModel(workspace: workspace)), label: {
+                                    
+                                    
+                                    NavigationLink(destination: KanbanView(kanbanViewModel: KanbanView.KanbanViewModel(workspace: workspace), documentsViewModel: DocumentsViewModel(workspaceId: workspace.id)), label: {
                                         workspaceCardView(workspace: workspace)
                                     })
+                                    
+                                    
+                                    
                                 }
                             }
                         }

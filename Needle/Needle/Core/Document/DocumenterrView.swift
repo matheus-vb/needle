@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DocumenterrView: View {
     var body: some View {
-        DocumentView()
+        DocumentView(taskId: "1")
     }
 }
 

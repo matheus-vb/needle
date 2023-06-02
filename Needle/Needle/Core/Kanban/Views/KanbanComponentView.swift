@@ -8,7 +8,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct TaskCard: Identifiable {
-    let id = UUID()
+    let id: String
     let title: String
     let tagType: String
     var column: TaskColumn
@@ -51,8 +51,9 @@ struct KanbanComponentView: View {
                         
                         VStack (spacing: 24){
                             ForEach(tasks.filter { $0.column == column }) { task in
-                                
-                                KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
+                                NavigationLink(destination: DocumentView(taskId: task.id), label: {
+                                    KanbanTaskComponentView(TaskTitle: task.title, TaskTagType: task.tagType, columm: task.column)
+                                })
                                     .onDrag {
                                         taskIndex = $tasks.firstIndex { $0.id == task.id } ?? 0
                                         return NSItemProvider(object: "\(taskIndex)" as NSString)
@@ -85,7 +86,7 @@ struct KanbanComponentView: View {
                     default: column = TaskColumn.toDo
                     }
                     
-                    let card = TaskCard(title: task.title, tagType: task.type, column: column)
+                    let card = TaskCard(id: task.id,title: task.title, tagType: task.type, column: column)
                     tasks.append(card)
                 }
             }
@@ -98,10 +99,30 @@ struct TaskDropDelegate: DropDelegate {
     @Binding var tasks: [TaskCard]
     let taskIndex: Int
     
+    let taskService = TaskService(baseUrl: _URL)
+    
     func performDrop(info: DropInfo) -> Bool {
         
         tasks[taskIndex].column = column
         print(column)
+        
+        var status: String = ""
+        
+        switch column {
+        case .done: status = "DONE"
+        case .inProgress: status = "IN_PROGRESS"
+        case .inReviw: status = "PENDING"
+        case .toDo: status = "TODO"
+        }
+        
+        taskService.updateStatus(taskId: tasks[taskIndex].id, status: status) { result in
+            if let result = result {
+                print(result)
+            } else {
+                print("ERRO")
+            }
+        }
+        
         return true
     }
 }

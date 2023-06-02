@@ -14,6 +14,10 @@ class DocumentService {
         self.baseUrl = baseUrl
     }
     
+    func returnDocuments() async -> [Document] {
+        return []
+    }
+    
     func updateDocumentation(id: String, text: String, completion: @escaping (_ result: Document?) -> Void) {
         let urlString = baseUrl + "document"
         let url = URL(string: urlString)!
@@ -58,7 +62,7 @@ class DocumentService {
     }
     
     func getSingleDocumentation(taskId: String, completion: @escaping (_ result: Document?) -> Void) {
-        let urlString = baseUrl + "document/\(taskId)"
+        let urlString = baseUrl + "document/task/\(taskId)"
         let url = URL(string: urlString)!
         
         var request = URLRequest(url: url)
