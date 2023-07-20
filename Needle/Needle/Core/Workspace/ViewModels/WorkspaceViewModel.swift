@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-extension WorkspaceView {
-    @MainActor class WorkspaceViewModel: ObservableObject {
-        
-    }
+class WorkspaceViewModel: ObservableObject{
+    @Published var workspaces: [Workspace] = []
+    
+    let workspaceService = WorkspaceService(baseUrl: _URL)
 }

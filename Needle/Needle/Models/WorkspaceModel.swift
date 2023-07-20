@@ -7,18 +7,32 @@
 
 import Foundation
 
-struct Workspace: Identifiable, Codable {
+
+struct WorkspaceModel: Identifiable, Codable, Hashable {
+    static func == (lhs: WorkspaceModel, rhs: WorkspaceModel) -> Bool {
+        return lhs.id == rhs.id && lhs.accessCode == rhs.accessCode
+    }
+    
+    var id: String
+    var accessCode: String
+    var name: String
+    var users: [User]
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(accessCode)
+    }
+}
+
+struct SingleWorkspaceResponse: Codable {
+    let data: Workspace
+}
+
+struct WorkspaceResponse: Codable {
+    let data: [Workspace]
+}
+
+struct Workspace: Identifiable, Codable, Hashable {
     var id: String
     var accessCode: String
     var name: String
 }
-
-/*
- model Workspace {
-   id String @id @default(uuid())
-   accessCode String @unique
-   name String
-   tasks Task[]
-   users User_Workspace[]
- }
- */
