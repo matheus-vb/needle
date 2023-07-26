@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CreateTaskView: View {
     var body: some View {
-        HStack{
-            
+        GeometryReader{metrics in
+            HStack(spacing: 0){
+                LeftSide(metrics: metrics)
+                RightSide(metrics: metrics)
+            }
         }
-        .frame(width: 1512, height: 982)
     }
 }
 
