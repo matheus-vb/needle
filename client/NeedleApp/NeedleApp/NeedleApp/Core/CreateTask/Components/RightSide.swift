@@ -17,52 +17,8 @@ struct RightSide: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 80){
-            Text("Atributos")
-                .font(.system(size: 24, weight: .bold))
-            VStack(spacing: 46){
-                HStack(spacing: 64){
-                    Text("Status")
-                    Picker("Status",selection: $statusSelection){
-                        ForEach(statusOp, id: \.self){
-                            Text($0)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                }
-                
-                HStack(spacing: 64){
-                    Text("Prioridade")
-                    Picker("Prioridade",selection: $prioritySelection){
-                        ForEach(statusOp, id: \.self){
-                            Text($0)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                }
-                
-                HStack(spacing: 64){
-                    Text("Prazo")
-                    DatePicker(selection: $deadLineSelection, in: ...Date.now, displayedComponents: .date) {
-                                   Text("Select a date")
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                }
-                
-                HStack(spacing: 64){
-                    Text("Área")
-                    Picker("Área",selection: $statusSelection){
-                        ForEach(statusOp, id: \.self){
-                            Text($0)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .labelsHidden()
-                }
-            }
-            .font(.system(size: 16, weight: .bold))
+            titleSection
+            pickersSection
             Spacer()
         }
         .padding([.top], 124)
