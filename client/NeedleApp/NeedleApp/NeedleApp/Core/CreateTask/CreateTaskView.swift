@@ -15,6 +15,7 @@ struct CreateTaskView: View {
                 LeftSide(metrics: metrics)
                     .environmentObject(createTaskViewModel)
                 RightSide(metrics: metrics)
+                    .environmentObject(createTaskViewModel)
             }
         }
     }

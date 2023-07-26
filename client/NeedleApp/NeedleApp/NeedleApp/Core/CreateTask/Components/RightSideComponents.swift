@@ -13,8 +13,8 @@ extension RightSide{
         VStack(spacing: 46){
             HStack(spacing: 64){
                 Text("Status")
-                Picker("Status",selection: $statusSelection){
-                    ForEach(statusOp, id: \.self){
+                Picker("Status",selection: $createTaskViewModel.statusSelection){
+                    ForEach(createTaskViewModel.statusOp, id: \.self){
                         Text($0)
                     }
                 }
@@ -24,8 +24,8 @@ extension RightSide{
             
             HStack(spacing: 64){
                 Text("Prioridade")
-                Picker("Prioridade",selection: $prioritySelection){
-                    ForEach(statusOp, id: \.self){
+                Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
+                    ForEach(createTaskViewModel.priorityOp, id: \.self){
                         Text($0)
                     }
                 }
@@ -35,7 +35,7 @@ extension RightSide{
             
             HStack(spacing: 64){
                 Text("Prazo")
-                DatePicker(selection: $deadLineSelection, in: ...Date.now, displayedComponents: .date) {
+                DatePicker(selection: $createTaskViewModel.deadLineSelection, in: ...Date.now, displayedComponents: .date) {
                                Text("Select a date")
                 }
                 .pickerStyle(.menu)
@@ -44,19 +44,8 @@ extension RightSide{
             
             HStack(spacing: 64){
                 Text("Área")
-                Picker("Área",selection: $statusSelection){
-                    ForEach(statusOp, id: \.self){
-                        Text($0)
-                    }
-                }
-                .pickerStyle(.menu)
-                .labelsHidden()
-            }
-            
-            HStack(spacing: 64){
-                Text("Atribuir")
-                Picker("Atribuir",selection: $statusSelection){
-                    ForEach(statusOp, id: \.self){
+                Picker("Área",selection: $createTaskViewModel.categorySelection){
+                    ForEach(createTaskViewModel.categoryOp, id: \.self){
                         Text($0)
                     }
                 }

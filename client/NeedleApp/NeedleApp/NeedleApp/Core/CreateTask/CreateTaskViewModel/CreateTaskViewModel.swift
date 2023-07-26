@@ -10,4 +10,13 @@ import Foundation
 class CreateTaskViewModel: ObservableObject{
     @Published var taskDescription: String = "Adicione uma breve descrição do projeto"
     @Published var taskTitle: String = "Task 1"
+    
+    @Published var statusSelection: String = "1"
+    @Published var prioritySelection: String = "1"
+    @Published var deadLineSelection = Date.now
+    @Published var categorySelection: String = "1"
+    
+    let statusOp = ["1", "2", "3"]
+    let priorityOp = ["1", "2", "3"]
+    let categoryOp = ["1", "2", "3"]
 }

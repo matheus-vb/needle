@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct RightSide: View {
+    @EnvironmentObject var createTaskViewModel: CreateTaskViewModel
     let metrics: GeometryProxy
-    
-    let statusOp = ["1", "2", "3"]
-    @State var statusSelection: String = "1"
-    @State var prioritySelection: String = "1"
-    @State var deadLineSelection = Date.now
     
     var body: some View {
         VStack(alignment: .leading, spacing: 80){
