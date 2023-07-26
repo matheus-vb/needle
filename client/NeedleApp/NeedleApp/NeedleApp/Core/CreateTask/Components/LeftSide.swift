@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct LeftSide: View {
+    @EnvironmentObject var createTaskViewModel: CreateTaskViewModel
     let metrics: GeometryProxy
-    
-    @State var taskDescription: String = "Adicione uma breve descrição do projeto"
-    @State var taskTitle: String = "Task 1"
     
     @State var atDescription: Bool = true
     @State var atTemplate: Bool = false
@@ -60,7 +58,7 @@ extension LeftSide{
     }
     
     var title: some View {
-        TitleEditableText(text: $taskTitle)
+        TitleEditableText(text: $createTaskViewModel.taskTitle)
     }
     
     var contentScreen: some View {
@@ -70,7 +68,7 @@ extension LeftSide{
                     Text("AQUI DEVERIA APARECER A VIEW DOS TEMPLATES ;)))")
                 }
             }else if(atDescription){
-                TextEditor(text: $taskDescription)
+                TextEditor(text: $createTaskViewModel.taskDescription)
                     .scrollContentBackground(.hidden)
                     .frame(width: metrics.size.width*0.5, height:  metrics.size.width*0.3)
                     .padding([.leading, .top], 24)
