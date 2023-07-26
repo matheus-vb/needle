@@ -9,12 +9,18 @@ import SwiftUI
 
 struct LeftSide: View {
     let metrics: GeometryProxy
+    
     @State var taskDescription: String = ""
+    @State var taskTitle: String = "Task 1"
+    
     var body: some View {
         VStack{
-            Text("Task 1")
-            buttonsContainer
-            TextField("Description", text: $taskDescription)
+            VStack(alignment: .leading, spacing: 25){
+                title
+                buttonsContainer
+                TextField("Adicione uma breve descrição do projeto", text: $taskDescription)
+            }
+            .padding([.leading], 124)
         }
         .frame(width: metrics.size.width*0.7, height: metrics.size.height)
         .background(.blue)
@@ -43,5 +49,9 @@ extension LeftSide{
             descriptionButton
             templateButton
         }
+    }
+    
+    var title: some View {
+        EditableText(text: $taskTitle)
     }
 }
