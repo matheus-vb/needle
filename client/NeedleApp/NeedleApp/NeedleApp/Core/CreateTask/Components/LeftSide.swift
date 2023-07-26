@@ -10,15 +10,18 @@ import SwiftUI
 struct LeftSide: View {
     let metrics: GeometryProxy
     
-    @State var taskDescription: String = ""
+    @State var taskDescription: String = "Adicione uma breve descrição do projeto"
     @State var taskTitle: String = "Task 1"
+    
+    @State var atDescription: Bool = true
+    @State var atTemplate: Bool = false
     
     var body: some View {
         VStack{
             VStack(alignment: .leading, spacing: 25){
                 title
                 buttonsContainer
-                TextField("Adicione uma breve descrição do projeto", text: $taskDescription)
+                contentScreen
                 Spacer()
             }
             .padding([.leading, .top], 124)
@@ -32,6 +35,8 @@ extension LeftSide{
     var descriptionButton: some View{
         Button(action: {
             print("Botao de descricao")
+            atTemplate.toggle()
+            atDescription.toggle()
         }, label: {
             Text("Descrição")
         })
@@ -40,6 +45,8 @@ extension LeftSide{
     var templateButton: some View{
         Button(action: {
             print("Botao de descricao")
+            atTemplate.toggle()
+            atDescription.toggle()
         }, label: {
             Text("Template")
         })
@@ -53,6 +60,23 @@ extension LeftSide{
     }
     
     var title: some View {
-        EditableText(text: $taskTitle)
+        TitleEditableText(text: $taskTitle)
+    }
+    
+    var contentScreen: some View {
+        VStack{
+            if(atTemplate){
+                VStack{
+                    Text("AQUI DEVERIA APARECER A VIEW DOS TEMPLATES ;)))")
+                }
+            }else if(atDescription){
+                TextEditor(text: $taskDescription)
+                    .scrollContentBackground(.hidden)
+                    .frame(width: metrics.size.width*0.5, height:  metrics.size.width*0.3)
+                    .padding([.leading, .top], 24)
+                    .background(.gray)
+                    .font(.system(size: 20, weight: .regular))
+            }
+        }
     }
 }

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct EditableText: View {
+struct TitleEditableText: View {
     @Binding var text: String
-
+    
     @State private var temporaryText: String
     @FocusState private var isFocused: Bool
 
