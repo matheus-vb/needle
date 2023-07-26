@@ -28,6 +28,8 @@
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
+		D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */; };
+		D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
+		D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkspaceSheet.swift; sourceTree = "<group>"; };
+		D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +139,9 @@
 				274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */,
 				274A27F92A719F6C0002CFEA /* ContentView.swift */,
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
+				D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */,
 				D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */,
+				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
 				274A27FB2A719F6E0002CFEA /* Assets.xcassets */,
 				274A28002A719F6E0002CFEA /* NeedleApp.entitlements */,
 				274A27FD2A719F6E0002CFEA /* Preview Content */,
@@ -373,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,
@@ -383,6 +390,7 @@
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */,
+				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A28392A71A0AF0002CFEA /* DTOsPlaceHolder.swift in Sources */,
 				274A282C2A71A0240002CFEA /* Task.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,

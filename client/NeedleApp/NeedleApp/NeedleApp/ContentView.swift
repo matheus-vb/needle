@@ -8,15 +8,19 @@
 import SwiftUI
 import CoreData
 
-struct MockWorkspaces {
-    var content: [Workspace] = [
+class MockWorkspaces: ObservableObject {
+    @Published var content: [Workspace] = [
         Workspace(),
         Workspace()
     ]
 }
 
 struct ContentView: View {
-    @State var mock = MockWorkspaces()
+    @StateObject var mock = MockWorkspaces()
+    
+    @State var isDeleting = false
+    
+    @State var cardIndex = 0
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -36,17 +40,16 @@ struct ContentView: View {
     
     var workspaceGrid: some View {
         LazyVGrid(columns: columns, spacing: 24) {
-            ForEach(mock.content) { card in
-                WorkspaceCardView(workspaceInfo: card, action: {
-                    
-                    if let index = mock.content.firstIndex(of: card) {
-                        mock.content.remove(at: index)
-                    }
+            ForEach(mock.content.indices, id: \.self) { index in
+                WorkspaceCardView(workspaceInfo: mock.content[index], action: {
+                    isDeleting.toggle()
+                    cardIndex = index
                 })
             }
         }
         .frame(width: 1000)
     }
+
     
     var banner: some View {
         HStack {
@@ -77,6 +80,12 @@ struct ContentView: View {
                 }.padding(.bottom, 120)
             }
         }
+        .sheet(isPresented: $isDeleting) {
+            DeleteWorkspaceSheet(index: cardIndex)
+                .foregroundColor(Color("main-grey"))
+                .background(.white)
+                .environmentObject(mock)
+                }
         .foregroundColor(Color("main-grey"))
         .background(Color("BG"))
     }
