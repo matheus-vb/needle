@@ -12,7 +12,7 @@ struct NeedleAppApp: App {
     var body: some Scene {
         WindowGroup {
             CreateTaskView()
-                .frame(minWidth: 1200, minHeight: 600)
+                .frame(minWidth: 900, minHeight: 600)
         }
     }
 }
