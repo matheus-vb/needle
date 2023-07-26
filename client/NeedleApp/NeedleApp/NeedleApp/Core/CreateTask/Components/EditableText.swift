@@ -24,5 +24,6 @@ struct EditableText: View {
             .onTapGesture { isFocused = true }
             .onExitCommand { temporaryText = text; isFocused = false }
             .textFieldStyle(.plain)
+            .font(.system(size: 40, weight: .bold))
     }
 }
