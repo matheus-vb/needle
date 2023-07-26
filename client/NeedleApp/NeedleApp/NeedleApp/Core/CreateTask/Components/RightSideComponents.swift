@@ -35,7 +35,7 @@ extension RightSide{
             
             HStack(spacing: 64){
                 Text("Prazo")
-                DatePicker(selection: $createTaskViewModel.deadLineSelection, in: ...Date.now, displayedComponents: .date) {
+                DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                                Text("Select a date")
                 }
                 .pickerStyle(.menu)
