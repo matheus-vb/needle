@@ -27,6 +27,7 @@
 		274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */; };
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */; };
+		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
+		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,9 +245,18 @@
 		274E63BD2A71A21D00FACCC5 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
+				274E63C02A71A2DE00FACCC5 /* CreateTaskViewModel */,
 				274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */,
 			);
 			path = CreateTask;
+			sourceTree = "<group>";
+		};
+		274E63C02A71A2DE00FACCC5 /* CreateTaskViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */,
+			);
+			path = CreateTaskViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +396,7 @@
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
+				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				274A28392A71A0AF0002CFEA /* DTOsPlaceHolder.swift in Sources */,
