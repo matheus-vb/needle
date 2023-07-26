@@ -16,6 +16,7 @@ struct RightSide: View {
             titleSection
             pickersSection
             Spacer()
+            buttonsSection
         }
         .padding([.top], 124)
         .padding([.leading], 87)

@@ -62,4 +62,21 @@ extension RightSide{
                 .font(.system(size: 24, weight: .bold))
         }
     }
+    
+    var buttonsSection: some View{
+        HStack(spacing: 56){
+            Button(action: {
+                print("Botao cancelar")
+            }, label: {
+                Text("Cancelar")
+            })
+            Button(action: {
+                print("Criar Task")
+            }, label: {
+                Text("+ Criar")
+            })
+        }
+        .padding([.bottom], 80)
+        .padding([.trailing], 50)
+    }
 }
