@@ -19,8 +19,9 @@ struct LeftSide: View {
                 title
                 buttonsContainer
                 TextField("Adicione uma breve descrição do projeto", text: $taskDescription)
+                Spacer()
             }
-            .padding([.leading], 124)
+            .padding([.leading, .top], 124)
         }
         .frame(width: metrics.size.width*0.7, height: metrics.size.height)
         .background(.blue)
