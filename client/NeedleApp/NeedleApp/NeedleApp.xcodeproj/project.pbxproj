@@ -26,6 +26,8 @@
 		274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */; };
 		274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */; };
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
+		8A9BC3642A72EFA900A070FC /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A9BC3632A72EFA900A070FC /* RichTextKit */; };
+		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlaceHolder.swift; sourceTree = "<group>"; };
 		274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
+		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9BC3642A72EFA900A070FC /* RichTextKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
+				8A9BC3672A7314B700A070FC /* EditDocumentation */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -237,6 +242,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		8A9BC3672A7314B700A070FC /* EditDocumentation */ = {
+			isa = PBXGroup;
+			children = (
+				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
+			);
+			path = EditDocumentation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,6 +266,9 @@
 			dependencies = (
 			);
 			name = NeedleApp;
+			packageProductDependencies = (
+				8A9BC3632A72EFA900A070FC /* RichTextKit */,
+			);
 			productName = NeedleApp;
 			productReference = 274A27F42A719F6C0002CFEA /* NeedleApp.app */;
 			productType = "com.apple.product-type.application";
@@ -325,6 +341,9 @@
 				Base,
 			);
 			mainGroup = 274A27EB2A719F6C0002CFEA;
+			packageReferences = (
+				8A9BC3622A72EFA900A070FC /* XCRemoteSwiftPackageReference "RichTextKit" */,
+			);
 			productRefGroup = 274A27F52A719F6C0002CFEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -367,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,
@@ -540,7 +560,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -567,7 +587,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -696,6 +716,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A9BC3622A72EFA900A070FC /* XCRemoteSwiftPackageReference "RichTextKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/RichTextKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A9BC3632A72EFA900A070FC /* RichTextKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A9BC3622A72EFA900A070FC /* XCRemoteSwiftPackageReference "RichTextKit" */;
+			productName = RichTextKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 274A27EC2A719F6C0002CFEA /* Project object */;
 }
