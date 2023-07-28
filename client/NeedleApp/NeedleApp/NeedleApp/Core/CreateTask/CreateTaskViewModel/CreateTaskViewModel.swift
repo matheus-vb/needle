@@ -16,7 +16,7 @@ class CreateTaskViewModel: ObservableObject{
     @Published var deadLineSelection = Date.now
     @Published var categorySelection: String = "1"
     
-    let statusOp = ["1", "2", "3"]
+    let statusOp = ["TODO", "IN_PROGRESS", "PENDING", "DONE"]
     let priorityOp = ["1", "2", "3"]
-    let categoryOp = ["1", "2", "3"]
+    let categoryOp = ["DEV", "DESIGN", "PM", "GENERAL"]
 }
