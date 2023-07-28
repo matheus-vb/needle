@@ -28,11 +28,16 @@
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
-		274E63C52A71A45D00FACCC5 /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C42A71A45D00FACCC5 /* LeftSide.swift */; };
-		274E63C72A71A4B300FACCC5 /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C62A71A4B300FACCC5 /* RightSide.swift */; };
-		274E63CA2A71A96E00FACCC5 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C92A71A96E00FACCC5 /* TitleEditableText.swift */; };
-		274E63CE2A71B32900FACCC5 /* LeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63CD2A71B32900FACCC5 /* LeftSideComponents.swift */; };
-		274E63D02A71B86D00FACCC5 /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63CF2A71B86D00FACCC5 /* RightSideComponents.swift */; };
+		8637895D2A744EB5004EEB9B /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789582A744EB5004EEB9B /* RightSideComponents.swift */; };
+		8637895E2A744EB5004EEB9B /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789592A744EB5004EEB9B /* RightSide.swift */; };
+		8637895F2A744EB5004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637895A2A744EB5004EEB9B /* LeftSide.swift */; };
+		863789602A744EB5004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637895B2A744EB5004EEB9B /* TitleEditableText.swift */; };
+		863789612A744EB5004EEB9B /* LeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637895C2A744EB5004EEB9B /* LeftSideComponents.swift */; };
+		863789672A744EBD004EEB9B /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789642A744EBD004EEB9B /* RightSide.swift */; };
+		863789682A744EBD004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789662A744EBD004EEB9B /* TitleEditableText.swift */; };
+		863789692A744EBD004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789632A744EBD004EEB9B /* LeftSide.swift */; };
+		8637896A2A744EBD004EEB9B /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789652A744EBD004EEB9B /* RightSideComponents.swift */; };
+		8637896B2A744EBD004EEB9B /* LeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789622A744EBD004EEB9B /* LeftSideComponents.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,11 +84,16 @@
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
-		274E63C42A71A45D00FACCC5 /* LeftSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSide.swift; sourceTree = "<group>"; };
-		274E63C62A71A4B300FACCC5 /* RightSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSide.swift; sourceTree = "<group>"; };
-		274E63C92A71A96E00FACCC5 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
-		274E63CD2A71B32900FACCC5 /* LeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideComponents.swift; sourceTree = "<group>"; };
-		274E63CF2A71B86D00FACCC5 /* RightSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideComponents.swift; sourceTree = "<group>"; };
+		863789582A744EB5004EEB9B /* RightSideComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSideComponents.swift; path = CreateTask/Components/RightSideComponents.swift; sourceTree = "<group>"; };
+		863789592A744EB5004EEB9B /* RightSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RightSide.swift; path = CreateTask/Components/RightSide.swift; sourceTree = "<group>"; };
+		8637895A2A744EB5004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftSide.swift; path = CreateTask/Components/LeftSide.swift; sourceTree = "<group>"; };
+		8637895B2A744EB5004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleEditableText.swift; path = CreateTask/Components/TitleEditableText.swift; sourceTree = "<group>"; };
+		8637895C2A744EB5004EEB9B /* LeftSideComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeftSideComponents.swift; path = CreateTask/Components/LeftSideComponents.swift; sourceTree = "<group>"; };
+		863789622A744EBD004EEB9B /* LeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LeftSideComponents.swift; path = NeedleApp/Core/CreateTask/Components/LeftSideComponents.swift; sourceTree = SOURCE_ROOT; };
+		863789632A744EBD004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LeftSide.swift; path = NeedleApp/Core/CreateTask/Components/LeftSide.swift; sourceTree = SOURCE_ROOT; };
+		863789642A744EBD004EEB9B /* RightSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RightSide.swift; path = NeedleApp/Core/CreateTask/Components/RightSide.swift; sourceTree = SOURCE_ROOT; };
+		863789652A744EBD004EEB9B /* RightSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RightSideComponents.swift; path = NeedleApp/Core/CreateTask/Components/RightSideComponents.swift; sourceTree = SOURCE_ROOT; };
+		863789662A744EBD004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleEditableText.swift; path = NeedleApp/Core/CreateTask/Components/TitleEditableText.swift; sourceTree = SOURCE_ROOT; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,6 +245,11 @@
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
 				8A9BC3612A72EAC400A070FC /* Home */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
+				8637895A2A744EB5004EEB9B /* LeftSide.swift */,
+				8637895C2A744EB5004EEB9B /* LeftSideComponents.swift */,
+				863789592A744EB5004EEB9B /* RightSide.swift */,
+				863789582A744EB5004EEB9B /* RightSideComponents.swift */,
+				8637895B2A744EB5004EEB9B /* TitleEditableText.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -276,13 +291,14 @@
 		274E63C32A71A44000FACCC5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				274E63C42A71A45D00FACCC5 /* LeftSide.swift */,
-				274E63C62A71A4B300FACCC5 /* RightSide.swift */,
-				274E63C92A71A96E00FACCC5 /* TitleEditableText.swift */,
-				274E63CD2A71B32900FACCC5 /* LeftSideComponents.swift */,
-				274E63CF2A71B86D00FACCC5 /* RightSideComponents.swift */,
+				863789632A744EBD004EEB9B /* LeftSide.swift */,
+				863789622A744EBD004EEB9B /* LeftSideComponents.swift */,
+				863789642A744EBD004EEB9B /* RightSide.swift */,
+				863789652A744EBD004EEB9B /* RightSideComponents.swift */,
+				863789662A744EBD004EEB9B /* TitleEditableText.swift */,
 			);
 			path = Components;
+			sourceTree = "<unknown>";
 		};
 		8A9BC3612A72EAC400A070FC /* Home */ = {
 			isa = PBXGroup;
@@ -426,25 +442,29 @@
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
+				8637896A2A744EBD004EEB9B /* RightSideComponents.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
+				8637895E2A744EB5004EEB9B /* RightSide.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
+				8637896B2A744EBD004EEB9B /* LeftSideComponents.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
+				863789612A744EB5004EEB9B /* LeftSideComponents.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
-				274A28392A71A0AF0002CFEA /* DTOsPlaceHolder.swift in Sources */,
+				8637895F2A744EB5004EEB9B /* LeftSide.swift in Sources */,
 				274A282C2A71A0240002CFEA /* Task.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
+				863789692A744EBD004EEB9B /* LeftSide.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
+				863789602A744EB5004EEB9B /* TitleEditableText.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
-				274E63C52A71A45D00FACCC5 /* LeftSide.swift in Sources */,
-				274E63D02A71B86D00FACCC5 /* RightSideComponents.swift in Sources */,
-				274E63CE2A71B32900FACCC5 /* LeftSideComponents.swift in Sources */,
-				274E63CA2A71A96E00FACCC5 /* TitleEditableText.swift in Sources */,
+				863789672A744EBD004EEB9B /* RightSide.swift in Sources */,
+				8637895D2A744EB5004EEB9B /* RightSideComponents.swift in Sources */,
+				863789682A744EBD004EEB9B /* TitleEditableText.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
-				274E63C72A71A4B300FACCC5 /* RightSide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +624,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -614,7 +634,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -631,7 +651,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -641,7 +661,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
