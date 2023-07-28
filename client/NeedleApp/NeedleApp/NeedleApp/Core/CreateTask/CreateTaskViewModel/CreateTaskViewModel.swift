@@ -17,7 +17,7 @@ class CreateTaskViewModel: ObservableObject{
     @Published var categorySelection: String = "1"
     
     let statusOp = ["TODO", "IN_PROGRESS", "PENDING", "DONE"]
-    let priorityOp = ["1", "2", "3"]
+    let priorityOp = ["VERY_HIGH", "HIGH", "MEDIUM", "LOW"]
     let categoryOp = ["DEV", "DESIGN", "PM", "GENERAL"]
     
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
