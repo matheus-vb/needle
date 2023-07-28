@@ -22,7 +22,7 @@ class CreateTaskViewModel: ObservableObject{
     
     func createTask(){
         let task: CreateTaskDTO
-        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection, type: self.categorySelection, endDate: self.deadLineSelection)
+        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection, type: self.categorySelection, endDate: self.deadLineSelection, priority: self.prioritySelection)
         
         print(task)
     }
