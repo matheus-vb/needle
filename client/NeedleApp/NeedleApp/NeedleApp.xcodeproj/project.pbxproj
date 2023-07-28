@@ -33,6 +33,7 @@
 		274E63CA2A71A96E00FACCC5 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C92A71A96E00FACCC5 /* TitleEditableText.swift */; };
 		274E63CE2A71B32900FACCC5 /* LeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63CD2A71B32900FACCC5 /* LeftSideComponents.swift */; };
 		274E63D02A71B86D00FACCC5 /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63CF2A71B86D00FACCC5 /* RightSideComponents.swift */; };
+		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		274E63C92A71A96E00FACCC5 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		274E63CD2A71B32900FACCC5 /* LeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideComponents.swift; sourceTree = "<group>"; };
 		274E63CF2A71B86D00FACCC5 /* RightSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSideComponents.swift; sourceTree = "<group>"; };
+		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
+				8A9BC3612A72EAC400A070FC /* Home */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
 			);
 			path = Core;
@@ -280,6 +283,13 @@
 				274E63CF2A71B86D00FACCC5 /* RightSideComponents.swift */,
 			);
 			path = Components;
+		};
+		8A9BC3612A72EAC400A070FC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8A9BC35F2A71C00300A070FC /* LoginPageView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +432,8 @@
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
+				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
+				274A28392A71A0AF0002CFEA /* DTOsPlaceHolder.swift in Sources */,
 				274A282C2A71A0240002CFEA /* Task.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
@@ -592,7 +604,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -619,7 +631,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
