@@ -28,6 +28,7 @@
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		8A9BC3642A72EFA900A070FC /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A9BC3632A72EFA900A070FC /* RichTextKit */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
+		8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0855B2A7459A800B644D9 /* textEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
+		8AC0855B2A7459A800B644D9 /* textEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
+				8AC0855B2A7459A800B644D9 /* textEditorView.swift */,
 			);
 			path = EditDocumentation;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
+				8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
