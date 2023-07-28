@@ -19,4 +19,11 @@ class CreateTaskViewModel: ObservableObject{
     let statusOp = ["TODO", "IN_PROGRESS", "PENDING", "DONE"]
     let priorityOp = ["1", "2", "3"]
     let categoryOp = ["DEV", "DESIGN", "PM", "GENERAL"]
+    
+    func createTask(){
+        let task: CreateTaskDTO
+        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection, type: self.categorySelection, endDate: self.deadLineSelection)
+        
+        print(task)
+    }
 }

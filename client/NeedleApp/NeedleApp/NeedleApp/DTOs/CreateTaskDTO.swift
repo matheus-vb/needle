@@ -8,11 +8,11 @@
 import Foundation
 
 struct CreateTaskDTO: Codable{
-    let userID: String
+    let userId: String
     let accessCode: String
     let title: String
     let description: String
     let stats: String
     let type: String
-    let endDate: String
+    let endDate: Date
 }
