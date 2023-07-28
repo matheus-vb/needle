@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class NotificationService {
+    private init(){}
+    
+    static let shared = NotificationService()
+    
+    var token: String?
+}
