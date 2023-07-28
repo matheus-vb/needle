@@ -18,7 +18,7 @@
 		274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */; };
 		274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */; };
 		274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28292A71A01B0002CFEA /* Workspace.swift */; };
-		274A282C2A71A0240002CFEA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282B2A71A0240002CFEA /* Task.swift */; };
+		274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282B2A71A0240002CFEA /* TaskModel.swift */; };
 		274A282E2A71A0290002CFEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282D2A71A0290002CFEA /* User.swift */; };
 		274A28302A71A0340002CFEA /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282F2A71A0340002CFEA /* Document.swift */; };
 		274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28322A71A07E0002CFEA /* ManagersPlaceHolder.swift */; };
@@ -33,6 +33,8 @@
 		8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897A2A7451FA004EEB9B /* TitleEditableText.swift */; };
 		863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897B2A7451FA004EEB9B /* LeftSideComponents.swift */; };
 		863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897C2A7451FA004EEB9B /* RightSideComponents.swift */; };
+		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
+		863789852A745D70004EEB9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationService.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +71,7 @@
 		274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPlaceholder.swift; sourceTree = "<group>"; };
 		274A28292A71A01B0002CFEA /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
-		274A282B2A71A0240002CFEA /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		274A282B2A71A0240002CFEA /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		274A282D2A71A0290002CFEA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		274A282F2A71A0340002CFEA /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		274A28322A71A07E0002CFEA /* ManagersPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagersPlaceHolder.swift; sourceTree = "<group>"; };
@@ -84,6 +86,8 @@
 		8637897A2A7451FA004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		8637897B2A7451FA004EEB9B /* LeftSideComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideComponents.swift; sourceTree = "<group>"; };
 		8637897C2A7451FA004EEB9B /* RightSideComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSideComponents.swift; sourceTree = "<group>"; };
+		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
+		863789842A745D70004EEB9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */,
+				863789822A745BC1004EEB9B /* KeychainSwift.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */,
+				863789842A745D70004EEB9B /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -198,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				274A28292A71A01B0002CFEA /* Workspace.swift */,
-				274A282B2A71A0240002CFEA /* Task.swift */,
+				274A282B2A71A0240002CFEA /* TaskModel.swift */,
 				274A282D2A71A0290002CFEA /* User.swift */,
 				274A282F2A71A0340002CFEA /* Document.swift */,
 			);
@@ -425,7 +431,9 @@
 			files = (
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
+				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,
+				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
@@ -438,7 +446,7 @@
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
 				8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */,
 				8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */,
-				274A282C2A71A0240002CFEA /* Task.swift in Sources */,
+				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
 				8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */,
@@ -613,6 +621,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -640,6 +649,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
