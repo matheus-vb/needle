@@ -90,7 +90,7 @@ model Document {
   title       String
   task        Task?
   text        String
-  textString  String
+  textString  String @default("")
   author      String?
   type        String
 }
