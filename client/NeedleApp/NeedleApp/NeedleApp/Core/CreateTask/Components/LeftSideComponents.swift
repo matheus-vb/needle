@@ -44,6 +44,7 @@ extension LeftSide{
             if(atTemplate){
                 VStack{
                     EditDocumentationView(documentation: $createTaskViewModel.documentationString)
+                        .environmentObject(createTaskViewModel)
                 }
             }else if(atDescription){
                 TextEditor(text: $createTaskViewModel.taskDescription)

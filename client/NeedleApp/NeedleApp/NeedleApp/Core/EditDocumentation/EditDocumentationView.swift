@@ -10,6 +10,7 @@ import SwiftUI
 struct EditDocumentationView: View {
     
     @Binding var documentation : NSAttributedString
+    @EnvironmentObject var createTaskViewModel: CreateTaskViewModel
     
     @State var data = Data()
     
