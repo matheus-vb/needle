@@ -9,9 +9,6 @@ import SwiftUI
 
 struct EditDocumentationView: View {
     
-    let taskName : String
-    let taskID : String
-    
     @State var documentation : NSAttributedString = NSAttributedString.empty
     
     @State var data = Data()
@@ -24,8 +21,6 @@ struct EditDocumentationView: View {
     var body: some View {
         
         VStack(alignment: .leading){
-            Text(taskName)
-                .font(.largeTitle)
             HStack {
                 Picker("", selection: $selectedOption) {
                     ForEach(options, id: \.self){
@@ -77,6 +72,6 @@ struct EditDocumentationView: View {
 
 struct EditDocumentationView_Previews: PreviewProvider {
     static var previews: some View {
-        EditDocumentationView(taskName: "Task Exemplo", taskID: "8900")
+        EditDocumentationView()
     }
 }
