@@ -35,8 +35,8 @@
 		863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897C2A7451FA004EEB9B /* RightSideComponents.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationService.swift */; };
+		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
-		8A9BC3642A72EFA900A070FC /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A9BC3632A72EFA900A070FC /* RichTextKit */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 		8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0855B2A7459A800B644D9 /* textEditorView.swift */; };
 /* End PBXBuildFile section */
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A9BC3642A72EFA900A070FC /* RichTextKit in Frameworks */,
+				864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +332,7 @@
 			);
 			name = NeedleApp;
 			packageProductDependencies = (
-				8A9BC3632A72EFA900A070FC /* RichTextKit */,
+				864D699F2A7878AF00EB256A /* RichTextKit */,
 			);
 			productName = NeedleApp;
 			productReference = 274A27F42A719F6C0002CFEA /* NeedleApp.app */;
@@ -407,7 +407,7 @@
 			);
 			mainGroup = 274A27EB2A719F6C0002CFEA;
 			packageReferences = (
-				8A9BC3622A72EFA900A070FC /* XCRemoteSwiftPackageReference "RichTextKit" */,
+				864D699E2A7878AF00EB256A /* XCRemoteSwiftPackageReference "RichTextKit" */,
 			);
 			productRefGroup = 274A27F52A719F6C0002CFEA /* Products */;
 			projectDirPath = "";
@@ -637,7 +637,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -648,7 +648,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -666,7 +666,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -677,7 +677,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -798,7 +798,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8A9BC3622A72EFA900A070FC /* XCRemoteSwiftPackageReference "RichTextKit" */ = {
+		864D699E2A7878AF00EB256A /* XCRemoteSwiftPackageReference "RichTextKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielsaidi/RichTextKit.git";
 			requirement = {
@@ -809,9 +809,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8A9BC3632A72EFA900A070FC /* RichTextKit */ = {
+		864D699F2A7878AF00EB256A /* RichTextKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8A9BC3622A72EFA900A070FC /* XCRemoteSwiftPackageReference "RichTextKit" */;
+			package = 864D699E2A7878AF00EB256A /* XCRemoteSwiftPackageReference "RichTextKit" */;
 			productName = RichTextKit;
 		};
 /* End XCSwiftPackageProductDependency section */
