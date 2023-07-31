@@ -30,14 +30,19 @@ enum TaskStatus {
   NOT_VISIBLE
 }
 
+enum TaskPriority {
+  VERY_HIGH
+  HIGH
+  MEDIUM
+  LOW
+}
+
 model User {
-  id            String           @id @default(uuid())
-  role          Role
-  name          String
-  email         String           @unique
-  password_hash String
-  workspaces    User_Workspace[]
-  tasks         Task[]
+  id         String           @id @default(uuid())
+  name       String
+  email      String           @unique
+  workspaces User_Workspace[]
+  tasks      Task[]
 }
 
 model User_Workspace {
@@ -57,19 +62,20 @@ model Workspace {
 }
 
 model Task {
-  id          String     @id @default(uuid())
-  title       String
-  description String
-  workspace   Workspace  @relation(fields: [workId], references: [id])
-  user        User?      @relation(fields: [userId], references: [id])
-  document    Document   @relation(fields: [documentId], references: [id])
-  status      TaskStatus @default(TODO)
-  type        TaskType
-  documentId  String     @unique
-  endDate     DateTime
-  workId      String
-  userId      String?
-  TaskTag     TaskTag[]
+  id            String     @id @default(uuid())
+  title         String
+  description   String
+  workspace     Workspace  @relation(fields: [workId], references: [id])
+  user          User?      @relation(fields: [userId], references: [id])
+  document      Document   @relation(fields: [documentId], references: [id])
+  status        TaskStatus @default(TODO)
+  type          TaskType
+  documentId    String     @unique
+  endDate       DateTime
+  workId        String
+  userId        String?
+  taskPriority  TaskPriority
+  TaskTag       TaskTag[]
 }
 
 model TaskTag {
