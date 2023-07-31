@@ -43,7 +43,7 @@ extension LeftSide{
         VStack{
             if(atTemplate){
                 VStack{
-                    Text("AQUI DEVERIA APARECER A VIEW DOS TEMPLATES ;)))")
+                    EditDocumentationView(documentation: $createTaskViewModel.documentationString)
                 }
             }else if(atDescription){
                 TextEditor(text: $createTaskViewModel.taskDescription)

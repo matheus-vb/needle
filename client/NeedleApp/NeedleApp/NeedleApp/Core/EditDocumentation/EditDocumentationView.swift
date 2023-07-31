@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditDocumentationView: View {
     
-    @State var documentation : NSAttributedString = NSAttributedString.empty
+    @Binding var documentation : NSAttributedString
     
     @State var data = Data()
     
@@ -67,11 +67,5 @@ struct EditDocumentationView: View {
 //            }
             
         }
-    }
-}
-
-struct EditDocumentationView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditDocumentationView()
     }
 }

@@ -15,6 +15,7 @@ class CreateTaskViewModel: ObservableObject{
     @Published var prioritySelection: String = "1"
     @Published var deadLineSelection = Date.now
     @Published var categorySelection: String = "1"
+    @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
     
     let statusOp = ["TODO", "IN_PROGRESS", "PENDING", "DONE"]
     let priorityOp = ["VERY_HIGH", "HIGH", "MEDIUM", "LOW"]
