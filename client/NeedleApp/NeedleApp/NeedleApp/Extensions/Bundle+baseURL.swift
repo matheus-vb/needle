@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension Bundle {
+    static var baseURL: String {
+        let urlString = Bundle.main.object(forInfoDictionaryKey: "API_URL") as! String
+        return urlString
+    }
+}
