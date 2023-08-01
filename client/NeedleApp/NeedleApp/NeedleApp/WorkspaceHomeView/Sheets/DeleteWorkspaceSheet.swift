@@ -8,12 +8,6 @@
 import Foundation
 import SwiftUI
 
-// acao pra remover {
-//
-//    if let index = mock.content.firstIndex(of: card) {
-//        mock.content.remove(at: index)
-//    }
-
 struct DeleteWorkspaceSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var mock: MockWorkspaces
@@ -39,9 +33,3 @@ struct DeleteWorkspaceSheet: View {
         .padding(.vertical, 32)
     }
 }
-
-//struct DeleteWorkspaceSheet_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DeleteWorkspaceSheet()
-//    }
-//}

@@ -10,6 +10,6 @@ import Foundation
 struct Workspace: Identifiable, Equatable {
     var id = UUID()
     var accessCode: String = "#F47HS9"
-    var name: String = "nome do workspace"
-    var owner: String = "fulano de tal"
+    var name: String = "Workspace title"
+    var owner: String = "Task owner"
 }

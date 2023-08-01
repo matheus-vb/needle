@@ -15,10 +15,12 @@ class MockWorkspaces: ObservableObject {
     ]
 }
 
-struct ContentView: View {
+struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
     
     @State var isDeleting = false
+    
+    @State var isNaming = false
     
     @State var cardIndex = 0
     
@@ -33,6 +35,7 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 8){
             Text("Workspaces").font(.largeTitle)
             Button("+"){
+                isNaming.toggle()
                 mock.content.append(Workspace())
             }.buttonStyle(AddWorkspaceButton())
         }
@@ -80,6 +83,14 @@ struct ContentView: View {
                 }.padding(.bottom, 120)
             }
         }
+        .sheet(isPresented: $isNaming) {
+            NameWorkspaceSheet(index: cardIndex)
+                .foregroundColor(Color("main-grey"))
+                .background(.white)
+                .environmentObject(mock)
+                }
+        .foregroundColor(Color("main-grey"))
+        .background(Color("BG"))
         .sheet(isPresented: $isDeleting) {
             DeleteWorkspaceSheet(index: cardIndex)
                 .foregroundColor(Color("main-grey"))
