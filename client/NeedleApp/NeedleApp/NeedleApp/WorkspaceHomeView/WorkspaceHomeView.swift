@@ -35,8 +35,9 @@ struct WorkspaceHomeView: View {
         VStack(alignment: .leading, spacing: 8){
             Text("Workspaces").font(.largeTitle)
             Button("+"){
-                isNaming.toggle()
                 mock.content.append(Workspace())
+                cardIndex = mock.content.count - 1
+                isNaming.toggle()
             }.buttonStyle(AddWorkspaceButton())
         }
     }
