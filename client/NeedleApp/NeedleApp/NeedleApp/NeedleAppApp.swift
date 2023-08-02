@@ -15,8 +15,10 @@ struct NeedleAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CreateTaskView()
-                .frame(minWidth: 1100, minHeight: 600)
+//            CreateTaskView()
+//                .frame(minWidth: 1100, minHeight: 600)
+            
+            EditDocumentationView(taskName: "TaskName", taskID: "09888")
         }
     }
 }

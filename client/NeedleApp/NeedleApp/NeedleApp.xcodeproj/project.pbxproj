@@ -38,7 +38,6 @@
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3642A72EFA900A070FC /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8A9BC3632A72EFA900A070FC /* RichTextKit */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
-		8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0855B2A7459A800B644D9 /* textEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +92,6 @@
 		863789842A745D70004EEB9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
-		8AC0855B2A7459A800B644D9 /* textEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
-				8AC0855B2A7459A800B644D9 /* textEditorView.swift */,
 			);
 			path = EditDocumentation;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
-				8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
 				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
