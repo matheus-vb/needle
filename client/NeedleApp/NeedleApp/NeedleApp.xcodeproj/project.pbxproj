@@ -26,12 +26,6 @@
 		274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */; };
 		274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */; };
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
-		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
-		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
-		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
-		D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */; };
-		D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */; };
-		D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */; };
 		274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789782A7451FA004EEB9B /* LeftSide.swift */; };
@@ -47,6 +41,12 @@
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 		8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0855B2A7459A800B644D9 /* textEditorView.swift */; };
+		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
+		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
+		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
+		D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */; };
+		D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */; };
+		D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,12 +90,6 @@
 		274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlaceHolder.swift; sourceTree = "<group>"; };
 		274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
-		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
-		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
-		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
-		D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkspaceSheet.swift; sourceTree = "<group>"; };
-		D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetActionButton.swift; sourceTree = "<group>"; };
-		D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameWorkspaceSheet.swift; sourceTree = "<group>"; };
 		274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		863789782A7451FA004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSide.swift; sourceTree = "<group>"; };
@@ -113,6 +107,12 @@
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
 		8AC0855B2A7459A800B644D9 /* textEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textEditorView.swift; sourceTree = "<group>"; };
+		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
+		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
+		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
+		D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkspaceSheet.swift; sourceTree = "<group>"; };
+		D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetActionButton.swift; sourceTree = "<group>"; };
+		D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameWorkspaceSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,6 @@
 				274A28252A719FEF0002CFEA /* Services */,
 				274A28222A719FD50002CFEA /* Utilities */,
 				274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */,
-				D4E40A792A72EBC300B47A07 /* WorkspaceHomeView */,
 				274A27FB2A719F6E0002CFEA /* Assets.xcassets */,
 				274A28002A719F6E0002CFEA /* NeedleApp.entitlements */,
 				274A27FD2A719F6E0002CFEA /* Preview Content */,
@@ -267,6 +266,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
 				8A9BC3612A72EAC400A070FC /* Home */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
@@ -289,36 +289,6 @@
 				274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		D4E40A792A72EBC300B47A07 /* WorkspaceHomeView */ = {
-			isa = PBXGroup;
-			children = (
-				D4E40A7A2A72EBDB00B47A07 /* ButtonStyles */,
-				D4E40A7B2A72EBF900B47A07 /* Sheets */,
-				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
-				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
-			);
-			path = WorkspaceHomeView;
-			sourceTree = "<group>";
-		};
-		D4E40A7A2A72EBDB00B47A07 /* ButtonStyles */ = {
-			isa = PBXGroup;
-			children = (
-				D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */,
-				D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */,
-				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
-			);
-			path = ButtonStyles;
-			sourceTree = "<group>";
-		};
-		D4E40A7B2A72EBF900B47A07 /* Sheets */ = {
-			isa = PBXGroup;
-			children = (
-				D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */,
-				D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */,
-			);
-			path = Sheets;
 			sourceTree = "<group>";
 		};
 		274E63BD2A71A21D00FACCC5 /* CreateTask */ = {
@@ -375,6 +345,36 @@
 				8AC0855B2A7459A800B644D9 /* textEditorView.swift */,
 			);
 			path = EditDocumentation;
+			sourceTree = "<group>";
+		};
+		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
+			isa = PBXGroup;
+			children = (
+				D4E40A7A2A72EBDB00B47A07 /* ButtonStyles */,
+				D4E40A7B2A72EBF900B47A07 /* Sheets */,
+				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
+				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
+			);
+			path = WorkspaceHome;
+			sourceTree = "<group>";
+		};
+		D4E40A7A2A72EBDB00B47A07 /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */,
+				D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */,
+				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
+			);
+			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		D4E40A7B2A72EBF900B47A07 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */,
+				D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,7 +522,7 @@
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
-				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,
+				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
@@ -533,8 +533,7 @@
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */,
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
-				274A28392A71A0AF0002CFEA /* DTOsPlaceHolder.swift in Sources */,
-				274A282C2A71A0240002CFEA /* Task.swift in Sources */,
+				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
 				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
@@ -728,7 +727,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplicationB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -758,7 +757,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplicationB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
