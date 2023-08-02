@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
+import RichTextKit
 
 struct EditDocumentationView: View {
     
     @Binding var documentation : NSAttributedString
     @EnvironmentObject var createTaskViewModel: CreateTaskViewModel
     
-    @State var data = Data()
+    //let taskName : String
+    //let taskID : String
     
-    var options : [String] = ["Descrição", "Exemplo"]
+    @StateObject var context = RichTextContext()
+    
+    @State var data = Data()
+    @State var saved : String = ""
+    
     @State var selectedOption = "Descrição"
     
     //    let documentService = DocumentService(baseUrl: _URL)
@@ -22,26 +28,30 @@ struct EditDocumentationView: View {
     var body: some View {
         
         VStack(alignment: .leading){
-            HStack {
-                Picker("", selection: $selectedOption) {
-                    ForEach(options, id: \.self){
-                        Text($0)
-                    }
-                }.pickerStyle(.segmented)
-                    .labelsHidden()
-                Spacer().layoutPriority(1)
+            HStack{
+                editor
+                toolbar
             }
             
-            textEditorView(documentation: $documentation)
+            Button("Receber"){
+                let decodedData = Data(base64Encoded: saved, options: .ignoreUnknownCharacters)
+                do{
+                    let decoded = try NSAttributedString(data: decodedData!, format: .rtf)
+                    documentation = decoded
+                    context.setAttributedString(to: documentation)
+                } catch {
+                    print(error)
+                }
+            }
             
             Button("Enviar"){
-                print(documentation.string)
                 do {
-                    //UPLOAD
-                    
                     data = try documentation.richTextData(for: .rtf)
                     let encodedData = data.base64EncodedString(options: .lineLength64Characters)
-//                    documentService.updateDocumentation(id: docId, text: encodedData, plainText: documentation.string) { _ in }
+                    saved = encodedData
+                    
+                    //                    documentService.updateDocumentation(id: docId, text: encodedData, plainText: documentation.string) { _ in }
+                    
                 } catch {
                     print(error)
                 }
@@ -49,11 +59,8 @@ struct EditDocumentationView: View {
         }
         .padding()
         .onAppear {
-            //LOAD RTF
-            
 //            documentService.getSingleDocumentation(taskId: taskId) { result in
 //                if let result = result {
-//                    print(result)
 //                    docId = result.id
 //
 //                    let decodedData = Data(base64Encoded: result.text, options: .ignoreUnknownCharacters)
@@ -61,6 +68,7 @@ struct EditDocumentationView: View {
 //                    do {
 //                        let decoded = try NSAttributedString(data: decodedData!, format: .rtf)
 //                        documentation = decoded
+//                        context.setAttributedString(to: documentation)
 //                    } catch {
 //                        print(error)
 //                    }
@@ -68,5 +76,23 @@ struct EditDocumentationView: View {
 //            }
             
         }
+    }
+}
+
+private extension EditDocumentationView {
+    
+    var editor: some View {
+        RichTextEditor(text: $documentation, context: context) {
+            $0.textContentInset = CGSize(width: 10, height: 20)
+        }
+        .frame(minWidth: 400)
+        .focusedValue(\.richTextContext, context)
+    }
+    
+    var toolbar: some View {
+        
+        RichTextFormatSidebar(context: context)
+            .frame(minWidth: 200)
+            .layoutPriority(-1)
     }
 }
