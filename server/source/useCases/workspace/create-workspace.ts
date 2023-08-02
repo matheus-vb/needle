@@ -42,6 +42,7 @@ export class CreateWorkspaceUseCase {
         const userWorkspace = await this.userWorkRepository.create({
             userId,
             workspaceId: workspace.id,
+            userRole: "PRODUCT_MANAGER"
         })
 
         return {

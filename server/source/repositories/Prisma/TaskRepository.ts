@@ -2,7 +2,7 @@ import { Prisma, Task, TaskStatus } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ITaskRepository } from "../ITaskRepository";
 
-export class TaskRepository implements ITaskRepository{
+export class TaskRepository implements ITaskRepository {
 
     async create(data: Prisma.TaskUncheckedCreateInput) {
         const task = await prisma.task.create({
@@ -14,7 +14,7 @@ export class TaskRepository implements ITaskRepository{
     async findById(id: string) {
         const task = await prisma.task.findFirst(
             {
-                where:{
+                where: {
                     id: id,
                 }
             }
@@ -35,12 +35,12 @@ export class TaskRepository implements ITaskRepository{
 
     async updateStatus(id: string, status: TaskStatus) {
         const task = await prisma.task.update({
-          where: {
-            id: id,
-          },
-          data: {
-            status: status,
-          }
+            where: {
+                id: id,
+            },
+            data: {
+                status: status,
+            }
         })
         return task
     }
@@ -57,20 +57,23 @@ export class TaskRepository implements ITaskRepository{
 
         return task;
     }
-    
-    async findTasksByWorksapceId(workspaceId: string): Promise<Task[]> {
-       const tasks = await prisma.task.findMany({
-        where:{
-            workId: workspaceId,
-        }
-       })
 
-       return tasks;
+    async findTasksByWorksapceId(workspaceId: string): Promise<Task[]> {
+        const tasks = await prisma.task.findMany({
+            where: {
+                workId: workspaceId,
+            },
+            include: {
+                document: true
+            }
+        })
+
+        return tasks;
     }
 
-    async deleteTask(taskId: string){
+    async deleteTask(taskId: string) {
         await prisma.task.delete({
-            where:{
+            where: {
                 id: taskId,
             }
         })

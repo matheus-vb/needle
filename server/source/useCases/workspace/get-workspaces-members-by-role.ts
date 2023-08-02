@@ -17,6 +17,8 @@ export class GetWorkspaceMembersByRoleUseCase{
         workspaceId,
         role
     }: IGetWorkspaceMembersByRoleRequest): Promise<IGetWorkspaceMembersByRoleReply>{
+        console.log(workspaceId)
+        console.log(role)
         const users = await this.userRepository.findAllUsersInWorkspace(workspaceId, role);
 
         return {
