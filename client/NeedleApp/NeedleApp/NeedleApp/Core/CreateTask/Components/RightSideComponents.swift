@@ -56,8 +56,8 @@ extension RightSide{
             HStack(spacing: 64){
                 Text("Atribuir")
                 Picker("Área",selection: $createTaskViewModel.selectedMember){
-                    ForEach(createTaskViewModel.members, id: \.self) {
-                        Text($0)
+                    ForEach(createTaskViewModel.members, id: \.self) {membro in
+                        Text(membro.name)
                     }
                 }
                 .pickerStyle(.menu)
