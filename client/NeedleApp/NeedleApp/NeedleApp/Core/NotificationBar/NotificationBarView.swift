@@ -22,6 +22,22 @@ struct NotificationBarView: View {
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    
+    var header: some View {
+        HStack(spacing: 36) {
+            Text("O")
+            Text("\(mock.list.count) notificações")
+            Text("􀝖")
+        }
+    }
+    
+    var notificationStack: some View {
+        VStack(alignment: .leading, spacing: 24) {
+            ForEach(mock.list.indices, id: \.self) { index in
+                NotificationCardView(notificationInfo: AppNotification(username: mock.list[index].username, type: mock.list[index].type, task: mock.list[index].task, projectName: mock.list[index].projectName, timeAgo: mock.list[index].timeAgo))
+            }
+        }
+    }
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -30,20 +46,13 @@ struct NotificationBarView: View {
                 .frame(width: 290, height: 717)
                 .shadow(radius: 10, x: 0, y: 4)
             VStack(spacing: 24) {
-                HStack(spacing: 36) {
-                    Text("O")
-                    Text("\(mock.list.count) notificações")
-                    Text("􀝖")
-                }.font(.headline)
+                header
+                .font(.headline)
                 .padding(.top, 20)
-                    .background(.white)
+                .background(.white)
                 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 24) {
-                        ForEach(mock.list.indices, id: \.self) { index in
-                            NotificationCardView(notificationInfo: AppNotification(username: mock.list[index].username, type: mock.list[index].type, task: mock.list[index].task, projectName: mock.list[index].projectName, timeAgo: mock.list[index].timeAgo))
-                        }
-                    }
+                    notificationStack
                 }
             }
             .foregroundColor(.black)
