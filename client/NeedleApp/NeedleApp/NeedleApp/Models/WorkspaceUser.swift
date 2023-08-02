@@ -8,6 +8,6 @@
 import Foundation
 
 struct WorkspaceUser: Codable, Identifiable, Hashable{
-    var id = UUID()
+    var id: String
     let name: String
 }

@@ -15,10 +15,10 @@ class CreateTaskViewModel: ObservableObject{
     @Published var prioritySelection: TaskPriority = .LOW
     @Published var deadLineSelection = Date.now
     @Published var categorySelection: TaskType = .GENERAL
-    @Published var selectedMember: String = ""
+    @Published var selectedMember: WorkspaceUser = WorkspaceUser(id: "", name: "")
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
         
-    @Published var members: [String] = ["Joao pedro", "Matheus Veras", "Bia Ferre", "Vitoria Pinheiro"]
+    @Published var members: [WorkspaceUser] = [WorkspaceUser(id: "", name: "Joao Medeiros"), WorkspaceUser(id: "", name: "Bia Ferre"), WorkspaceUser(id: "", name: "Matheus Veras"), WorkspaceUser(id: "", name: "Vitoria Pinheir"), WorkspaceUser(id: "", name: "André Valença")]
     
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
     func createTask(){
