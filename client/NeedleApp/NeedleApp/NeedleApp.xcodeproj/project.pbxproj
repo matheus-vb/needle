@@ -26,6 +26,7 @@
 		274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */; };
 		274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */; };
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
+		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
 		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
 		D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */; };
@@ -74,6 +75,7 @@
 		274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlaceHolder.swift; sourceTree = "<group>"; };
 		274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
+		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
 		D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkspaceSheet.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */,
+				D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */,
 				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
 			);
 			path = ButtonStyles;
@@ -425,6 +428,7 @@
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
+				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,8 @@ struct WorkspaceHomeView: View {
     
     @State var isNaming = false
     
+    @State var isJoining = false
+    
     @State var cardIndex = 0
     
     var columns: [GridItem] = [
@@ -34,9 +36,14 @@ struct WorkspaceHomeView: View {
     var gridHeader: some View {
         VStack(alignment: .leading, spacing: 8){
             Text("Workspaces").font(.largeTitle)
-            Button("+"){
-                isNaming.toggle()
-            }.buttonStyle(AddWorkspaceButton())
+            HStack(spacing: 24) {
+                Button("+ Create"){
+                    isNaming.toggle()
+                }.buttonStyle(AddWorkspaceButton())
+                Button("􀉤 Join"){
+                    isJoining.toggle()
+                }.buttonStyle(JoinWorkspaceButton())
+            }
         }
     }
     
