@@ -14,8 +14,8 @@ extension RightSide{
             HStack(spacing: 64){
                 Text("Status")
                 Picker("Status",selection: $createTaskViewModel.statusSelection){
-                    ForEach(createTaskViewModel.statusOp, id: \.self){
-                        Text($0)
+                    ForEach(TaskStatus.allCases, id: \.self) { status in
+                        Text(status.rawValue)
                     }
                 }
                 .pickerStyle(.menu)
