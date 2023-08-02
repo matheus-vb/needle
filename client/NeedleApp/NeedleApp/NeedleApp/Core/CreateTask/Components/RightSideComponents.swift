@@ -52,6 +52,17 @@ extension RightSide{
                 .pickerStyle(.menu)
                 .labelsHidden()
             }
+            
+            HStack(spacing: 64){
+                Text("Atribuir")
+                Picker("Área",selection: $createTaskViewModel.selectedMember){
+                    ForEach(createTaskViewModel.members, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
+            }
         }
         .font(.system(size: 16, weight: .bold))
     }

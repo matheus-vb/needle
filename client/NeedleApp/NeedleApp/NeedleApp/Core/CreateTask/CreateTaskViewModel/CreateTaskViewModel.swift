@@ -15,9 +15,11 @@ class CreateTaskViewModel: ObservableObject{
     @Published var prioritySelection: TaskPriority = .LOW
     @Published var deadLineSelection = Date.now
     @Published var categorySelection: TaskType = .GENERAL
-    @Published var members: [String] = ["Joao pedro, Matheus Veras, Bia Ferre, Vitoria Pinheiro"]
+    @Published var selectedMember: String = ""
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
         
+    @Published var members: [String] = ["Joao pedro", "Matheus Veras", "Bia Ferre", "Vitoria Pinheiro"]
+    
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
     func createTask(){
         let task: CreateTaskDTO
