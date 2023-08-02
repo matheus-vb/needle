@@ -8,4 +8,11 @@ export interface ITaskRepository {
     updateAssignee(id: string, userId: string): Promise<Task>;
     findTasksByWorksapceId(workspaceId: string): Promise<Task[]>;
     deleteTask(taskId: string): Promise<void>;
+    queryTasks(
+        workspaceId: string,
+        query: string | null,
+        status: string | null,
+        area: string | null,
+        priority: string | null
+        ): Promise<Task[]>;
 }
