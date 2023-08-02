@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		270912D22A7AE9B000CB91FA /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D12A7AE9AF00CB91FA /* TaskStatus.swift */; };
+		270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D32A7AEACF00CB91FA /* TaskPriority.swift */; };
 		273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */; };
 		274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */; };
 		274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F92A719F6C0002CFEA /* ContentView.swift */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		270912D12A7AE9AF00CB91FA /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
+		270912D32A7AEACF00CB91FA /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskDTO.swift; sourceTree = "<group>"; };
 		274A27F42A719F6C0002CFEA /* NeedleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeedleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleAppApp.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				270912D12A7AE9AF00CB91FA /* TaskStatus.swift */,
+				270912D32A7AEACF00CB91FA /* TaskPriority.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -157,11 +160,11 @@
 		274A27F62A719F6C0002CFEA /* NeedleApp */ = {
 			isa = PBXGroup;
 			children = (
-				270912D02A7AE99A00CB91FA /* Enums */,
 				274A28402A71A0DD0002CFEA /* Components */,
 				274A283D2A71A0C00002CFEA /* Coordinator */,
 				274A283A2A71A0B40002CFEA /* Core */,
 				274A28372A71A0A70002CFEA /* DTOs */,
+				270912D02A7AE99A00CB91FA /* Enums */,
 				274A28342A71A0870002CFEA /* Extensions */,
 				274A28312A71A0710002CFEA /* Managers */,
 				274A28282A71A0090002CFEA /* Models */,
@@ -467,6 +470,7 @@
 			files = (
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
+				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* ContentView.swift in Sources */,

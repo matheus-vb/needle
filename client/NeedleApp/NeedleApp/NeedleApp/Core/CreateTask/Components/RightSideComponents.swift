@@ -25,8 +25,8 @@ extension RightSide{
             HStack(spacing: 64){
                 Text("Prioridade")
                 Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
-                    ForEach(createTaskViewModel.priorityOp, id: \.self){
-                        Text($0)
+                    ForEach(TaskPriority.allCases, id: \.self) { priority in
+                        Text(priority.rawValue)
                     }
                 }
                 .pickerStyle(.menu)
