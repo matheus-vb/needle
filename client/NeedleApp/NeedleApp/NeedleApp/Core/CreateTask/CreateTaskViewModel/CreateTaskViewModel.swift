@@ -23,7 +23,7 @@ class CreateTaskViewModel: ObservableObject{
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
     func createTask(){
         let task: CreateTaskDTO
-        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection.rawValue, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
+        task = CreateTaskDTO(userId: selectedMember.id, accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection.rawValue, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
         
         print(task)
     }
