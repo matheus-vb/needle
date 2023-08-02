@@ -28,7 +28,7 @@ export class UserRepository implements IUserRepository{
         return user
     }
 
-    async findAllUsersInWorkspace(workspaceId: string, role: string): Promise<User[]> {
+    async findAllUsersInWorkspace(workspaceId: string, role: Role): Promise<User[]> {
         const roleEnum = z.nativeEnum(Role)
         const checkedRole = roleEnum.parse(role)
         const users = await prisma.user.findMany({
@@ -36,9 +36,9 @@ export class UserRepository implements IUserRepository{
                 workspaces:{
                     some:{
                         workspaceId: workspaceId,
+                        userRole: checkedRole
                     }
                 },
-                role: checkedRole
             }
         })
 
