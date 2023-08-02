@@ -15,6 +15,7 @@ class CreateTaskViewModel: ObservableObject{
     @Published var prioritySelection: TaskPriority = .LOW
     @Published var deadLineSelection = Date.now
     @Published var categorySelection: TaskType = .GENERAL
+    @Published var members: [String] = ["Joao pedro, Matheus Veras, Bia Ferre, Vitoria Pinheiro"]
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
         
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
