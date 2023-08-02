@@ -49,6 +49,7 @@ model User_Workspace {
   id          String    @id @default(uuid())
   user        User      @relation(fields: [userId], references: [id])
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  userRole   Role
   userId      String
   workspaceId String
 }
@@ -86,10 +87,11 @@ model TaskTag {
 }
 
 model Document {
-  id     String  @id @default(uuid())
-  title  String
-  task   Task?
-  text   String
-  author String?
-  type   String
+  id          String  @id @default(uuid())
+  title       String
+  task        Task?
+  text        String
+  textString  String @default("")
+  author      String?
+  type        String
 }
