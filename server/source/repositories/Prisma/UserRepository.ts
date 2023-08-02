@@ -1,9 +1,9 @@
-import { Prisma, Role, User } from "@prisma/client";
+import { Prisma, User, Role } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IUserRepository } from "../IUserRepository";
 import { z } from "zod";
 
-export class UserRepository implements IUserRepository{
+export class UserRepository implements IUserRepository {
     async create(data: Prisma.UserCreateInput): Promise<User> {
         const user = await prisma.user.create({
             data,
@@ -13,7 +13,7 @@ export class UserRepository implements IUserRepository{
 
     async findById(id: string): Promise<User | null> {
         const user = await prisma.user.findFirst({
-            where:{
+            where: {
                 id: id
             }
         })
@@ -21,7 +21,7 @@ export class UserRepository implements IUserRepository{
     }
     async findByEmail(email: string): Promise<User | null> {
         const user = await prisma.user.findFirst({
-            where:{
+            where: {
                 email: email,
             }
         })
@@ -32,9 +32,9 @@ export class UserRepository implements IUserRepository{
         const roleEnum = z.nativeEnum(Role)
         const checkedRole = roleEnum.parse(role)
         const users = await prisma.user.findMany({
-            where:{
-                workspaces:{
-                    some:{
+            where: {
+                workspaces: {
+                    some: {
                         workspaceId: workspaceId,
                         userRole: checkedRole
                     }
@@ -44,4 +44,22 @@ export class UserRepository implements IUserRepository{
 
         return users
     }
+
+    async getUserNamesInWorkspace(workspaceId: string) {
+        const members = await prisma.user.findMany({
+            where: {
+                workspaces: {
+                    some: {
+                        workspaceId: workspaceId,
+                    },
+                },
+            },
+            select: {
+                name: true,
+            },
+        });
+
+        return members
+    }
+
 }
