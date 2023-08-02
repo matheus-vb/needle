@@ -15,7 +15,7 @@ struct NeedleAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            WorkspaceHomeView()
+            NotificationBarView()
         }
     }
 }

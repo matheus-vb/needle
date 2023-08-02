@@ -41,6 +41,9 @@
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 		8AC0855C2A7459A800B644D9 /* textEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC0855B2A7459A800B644D9 /* textEditorView.swift */; };
+		D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CA2A7AE4130089481D /* NotificationBarView.swift */; };
+		D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */; };
+		D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8D12A7AF3F70089481D /* AppNotification.swift */; };
 		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
 		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
@@ -107,6 +110,9 @@
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
 		8AC0855B2A7459A800B644D9 /* textEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textEditorView.swift; sourceTree = "<group>"; };
+		D445C8CA2A7AE4130089481D /* NotificationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBarView.swift; sourceTree = "<group>"; };
+		D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCardView.swift; sourceTree = "<group>"; };
+		D445C8D12A7AF3F70089481D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 		274A28282A71A0090002CFEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D445C8D12A7AF3F70089481D /* AppNotification.swift */,
 				274A28292A71A01B0002CFEA /* Workspace.swift */,
 				274A282B2A71A0240002CFEA /* TaskModel.swift */,
 				274A282D2A71A0290002CFEA /* User.swift */,
@@ -266,6 +273,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D445C8CE2A7AF3C60089481D /* NotificationBar */,
 				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
 				8A9BC3612A72EAC400A070FC /* Home */,
@@ -345,6 +353,15 @@
 				8AC0855B2A7459A800B644D9 /* textEditorView.swift */,
 			);
 			path = EditDocumentation;
+			sourceTree = "<group>";
+		};
+		D445C8CE2A7AF3C60089481D /* NotificationBar */ = {
+			isa = PBXGroup;
+			children = (
+				D445C8CA2A7AE4130089481D /* NotificationBarView.swift */,
+				D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */,
+			);
+			path = NotificationBar;
 			sourceTree = "<group>";
 		};
 		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
@@ -521,6 +538,7 @@
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
+				D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
@@ -539,6 +557,7 @@
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
+				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
 				8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */,
@@ -553,6 +572,7 @@
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
+				D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
