@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>NeedleApp.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+<<<<<<< HEAD
+=======
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>274A27F32A719F6C0002CFEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>274A28042A719F6E0002CFEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>274A280E2A719F6E0002CFEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+>>>>>>> develop
+</dict>
+</plist>

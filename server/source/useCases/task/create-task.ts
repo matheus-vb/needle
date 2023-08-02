@@ -1,4 +1,4 @@
-import { Task, TaskType, User } from "@prisma/client";
+import { Task, TaskPriority, TaskType, User } from "@prisma/client";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository";
@@ -26,6 +26,7 @@ interface ICreateTaskUseCaseRequest {
     status: string,
     type: string,
     endDate: Date,
+    priority: string
 }
 
 interface ICreateTaskUseCaseReply {
@@ -49,6 +50,7 @@ export class CreateTaskUseCase {
         title,
         type,
         userId,
+        priority
     }: ICreateTaskUseCaseRequest): Promise<ICreateTaskUseCaseReply> {
         
         let userExists: boolean = false
@@ -77,6 +79,8 @@ export class CreateTaskUseCase {
 
         const typeEnum = z.nativeEnum(TaskType);
         const checkedType = typeEnum.parse(type);
+        const priorityEnum = z.nativeEnum(TaskPriority);
+        const checkedPriority = priorityEnum.parse(priority)
 
         const task = await this.taskRepository.create({
             description,
@@ -86,6 +90,7 @@ export class CreateTaskUseCase {
             type: checkedType,
             userId,
             workId: workspace.id,
+            taskPriority: checkedPriority
         })
 
         return {
