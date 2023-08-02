@@ -1,4 +1,4 @@
-import { Prisma, User } from "@prisma/client";
+import { Prisma, User, Role } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IUserRepository } from "../IUserRepository";
 import { z } from "zod";
@@ -28,12 +28,15 @@ export class UserRepository implements IUserRepository {
         return user
     }
 
-    async findAllUsersInWorkspace(workspaceId: string): Promise<User[]> {
+    async findAllUsersInWorkspace(workspaceId: string, role: Role): Promise<User[]> {
+        const roleEnum = z.nativeEnum(Role)
+        const checkedRole = roleEnum.parse(role)
         const users = await prisma.user.findMany({
             where: {
                 workspaces: {
                     some: {
                         workspaceId: workspaceId,
+                        userRole: checkedRole
                     }
                 },
             }
