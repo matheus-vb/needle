@@ -14,15 +14,13 @@ class CreateTaskViewModel: ObservableObject{
     @Published var statusSelection: TaskStatus = .TODO
     @Published var prioritySelection: TaskPriority = .LOW
     @Published var deadLineSelection = Date.now
-    @Published var categorySelection: String = "1"
+    @Published var categorySelection: TaskType = .GENERAL
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
-    
-    let categoryOp = ["DEV", "DESIGN", "PM", "GENERAL"]
-    
+        
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
     func createTask(){
         let task: CreateTaskDTO
-        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
+        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection.rawValue, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
         
         print(task)
     }

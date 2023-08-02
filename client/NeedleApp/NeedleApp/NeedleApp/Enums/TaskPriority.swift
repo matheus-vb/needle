@@ -7,8 +7,6 @@
 
 import Foundation
 
-let priorityOp = ["VERY_HIGH", "HIGH", "MEDIUM", "LOW"]
-
 enum TaskPriority: String, CaseIterable{
     case VERY_HIGH = "VERY_HIGH"
     case HIGH = "HIGH"
