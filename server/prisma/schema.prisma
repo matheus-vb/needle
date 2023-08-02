@@ -49,6 +49,7 @@ model User_Workspace {
   id          String    @id @default(uuid())
   user        User      @relation(fields: [userId], references: [id])
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  user_role   Role
   userId      String
   workspaceId String
 }
