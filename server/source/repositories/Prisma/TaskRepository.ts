@@ -1,4 +1,4 @@
-import { Prisma, Task, TaskStatus } from "@prisma/client";
+import { Prisma, Task, TaskPriority, TaskStatus, TaskType } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ITaskRepository } from "../ITaskRepository";
 
@@ -78,4 +78,43 @@ export class TaskRepository implements ITaskRepository {
             }
         })
     }
+
+    async queryTasks(workspaceId: string, query: string | null, status: TaskStatus | null, area: TaskType | null, priority: TaskPriority | null) {
+        let whereClause: any = {
+            workId: workspaceId,
+            status: status || undefined,
+            type: area || undefined,
+            taskPriority: priority || undefined
+        };
+    
+        if (query) {
+            whereClause = {
+                ...whereClause,
+                OR: [
+                    {
+                        title: {
+                            contains: query,
+                        },
+                    },
+                    {
+                        user: {
+                            name: {
+                                contains: query,
+                            },
+                        },
+                    },
+                ],
+            };
+        }
+    
+        const tasks = await prisma.task.findMany({
+            where: whereClause,
+            include: {
+                document: true
+            }
+        });
+    
+        return tasks;
+    }
+    
 }
