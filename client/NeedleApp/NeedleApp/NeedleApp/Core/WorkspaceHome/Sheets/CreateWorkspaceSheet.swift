@@ -8,11 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct NameWorkspaceSheet: View {
+struct CreateWorkspaceSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var mock: MockWorkspaces
     
-    @State var index: Int
     @State var projectName: String = ""
     
     var body: some View {
@@ -22,11 +21,9 @@ struct NameWorkspaceSheet: View {
             HStack {
                 Button("Cancelar", action: {
                     dismiss()
-//                    mock.content.remove(at: index)
                 }).buttonStyle(PrimarySheetActionButton())
                 Button("Create", action: {
                     WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: projectName)
-                    
                     
                     dismiss()
                 }).buttonStyle(SecondarySheetActionButton())

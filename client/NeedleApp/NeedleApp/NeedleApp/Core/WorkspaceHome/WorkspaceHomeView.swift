@@ -91,8 +91,16 @@ struct WorkspaceHomeView: View {
                 }.padding(.bottom, 120)
             }
         }
+        .sheet(isPresented: $isJoining) {
+            JoinWorkspaceSheet()
+                .foregroundColor(Color("main-grey"))
+                .background(.white)
+                .environmentObject(mock)
+                }
+        .foregroundColor(Color("main-grey"))
+        .background(Color("BG"))
         .sheet(isPresented: $isNaming) {
-            NameWorkspaceSheet(index: cardIndex)
+            CreateWorkspaceSheet()
                 .foregroundColor(Color("main-grey"))
                 .background(.white)
                 .environmentObject(mock)
