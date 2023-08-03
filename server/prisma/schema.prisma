@@ -49,7 +49,7 @@ model User_Workspace {
   id          String    @id @default(uuid())
   user        User      @relation(fields: [userId], references: [id])
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
-  userRole   Role
+  userRole    Role
   userId      String
   workspaceId String
 }
@@ -63,20 +63,21 @@ model Workspace {
 }
 
 model Task {
-  id            String     @id @default(uuid())
-  title         String
-  description   String
-  workspace     Workspace  @relation(fields: [workId], references: [id])
-  user          User?      @relation(fields: [userId], references: [id])
-  document      Document   @relation(fields: [documentId], references: [id])
-  status        TaskStatus @default(TODO)
-  type          TaskType
-  documentId    String     @unique
-  endDate       DateTime
-  workId        String
-  userId        String?
-  taskPriority  TaskPriority
-  TaskTag       TaskTag[]
+  id           String       @id @default(uuid())
+  title        String
+  description  String
+  workspace    Workspace    @relation(fields: [workId], references: [id])
+  user         User?        @relation(fields: [userId], references: [id])
+  document     Document     @relation(fields: [documentId], references: [id])
+  status       TaskStatus   @default(TODO)
+  type         TaskType
+  documentId   String       @unique
+  endDate      DateTime
+  workId       String
+  userId       String?
+  taskPriority TaskPriority
+  TaskTag      TaskTag[]
+  created_at   DateTime     @default(now())
 }
 
 model TaskTag {
@@ -87,11 +88,11 @@ model TaskTag {
 }
 
 model Document {
-  id          String  @id @default(uuid())
-  title       String
-  task        Task?
-  text        String
-  textString  String @default("")
-  author      String?
-  type        String
+  id         String  @id @default(uuid())
+  title      String
+  task       Task?
+  text       String
+  textString String  @default("")
+  author     String?
+  type       String
 }
