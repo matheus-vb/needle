@@ -13,7 +13,7 @@ extension ProjectLeftSideComponent{
             Image("needleLogo")
                 .resizable()
                 .frame(width: 22, height: 22)
-            Text("Needle")
+            Text("Projetos")
                 .font(.system(size: 16, weight: .bold))
                 .foregroundColor(.black)
         }
