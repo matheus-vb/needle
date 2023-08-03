@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct RootView: View {
+    @ObservedObject var authManager = AuthenticationManager.shared
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        mainView
+    }
+    
+    var mainView: some View {
+        ZStack {
+            if authManager.user == nil {
+                LoginPageView()
+            } else {
+                WorkspaceHomeView()
+            }
+        }
     }
 }
 
