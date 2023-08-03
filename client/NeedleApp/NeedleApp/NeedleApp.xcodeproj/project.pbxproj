@@ -34,6 +34,8 @@
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
 		27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F62A7C2D2600FDA10F /* ProjectView.swift */; };
+		27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */; };
+		27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */; };
 		8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789782A7451FA004EEB9B /* LeftSide.swift */; };
 		8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789792A7451FA004EEB9B /* RightSide.swift */; };
 		8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897A2A7451FA004EEB9B /* TitleEditableText.swift */; };
@@ -104,6 +106,8 @@
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
 		27B795F62A7C2D2600FDA10F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponent.swift; sourceTree = "<group>"; };
+		27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponents.swift; sourceTree = "<group>"; };
 		863789782A7451FA004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSide.swift; sourceTree = "<group>"; };
 		863789792A7451FA004EEB9B /* RightSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSide.swift; sourceTree = "<group>"; };
 		8637897A2A7451FA004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
@@ -340,6 +344,8 @@
 			isa = PBXGroup;
 			children = (
 				27B795F62A7C2D2600FDA10F /* ProjectView.swift */,
+				27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */,
+				27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */,
 			);
 			path = ProjectView;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
 				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
+				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
@@ -587,6 +594,7 @@
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
 				8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */,
+				27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */,
 				8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */,
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,

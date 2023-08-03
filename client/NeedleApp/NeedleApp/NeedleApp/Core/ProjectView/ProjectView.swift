@@ -10,7 +10,9 @@ import SwiftUI
 struct ProjectView: View {
     var body: some View {
         NavigationSplitView(sidebar: {
-            Text("Hello world")
+            ProjectLeftSideComponent()
+                .padding(.top, 62)
+                .background(Color("BG"))
         }, detail: {
             Text("Hello world")
         })
