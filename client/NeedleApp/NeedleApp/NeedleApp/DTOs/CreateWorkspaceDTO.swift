@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct CreateWorkspaceDTO: Codable {
+    let name: String
+    let userId: String
+}
