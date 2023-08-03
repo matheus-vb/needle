@@ -52,6 +52,12 @@
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
 		864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */; };
+		868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DD2A7C211B001D9213 /* AuthenticationManager.swift */; };
+		868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DF2A7C225D001D9213 /* ConvertToDict.swift */; };
+		868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E12A7C2286001D9213 /* SignInDTO.swift */; };
+		868604E52A7C243A001D9213 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E42A7C243A001D9213 /* UserResponse.swift */; };
+		868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */; };
+		868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E92A7C2AB4001D9213 /* RootView.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -132,6 +138,12 @@
 		864D69A52A787BFB00EB256A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
+		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
+		868604E42A7C243A001D9213 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
+		868604E92A7C2AB4001D9213 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -253,6 +265,7 @@
 			children = (
 				274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */,
 				863789822A745BC1004EEB9B /* KeychainSwift.swift */,
+				868604DF2A7C225D001D9213 /* ConvertToDict.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -269,6 +282,7 @@
 		274A28282A71A0090002CFEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				868604E32A7C242E001D9213 /* Response */,
 				274A28292A71A01B0002CFEA /* Workspace.swift */,
 				274A282B2A71A0240002CFEA /* TaskModel.swift */,
 				274A282D2A71A0290002CFEA /* User.swift */,
@@ -283,6 +297,7 @@
 			children = (
 				274A28322A71A07E0002CFEA /* ManagersPlaceHolder.swift */,
 				864D69A12A787B0700EB256A /* NetworkingManager.swift */,
+				868604DD2A7C211B001D9213 /* AuthenticationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -300,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */,
+				868604E12A7C2286001D9213 /* SignInDTO.swift */,
 				275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */,
 			);
 			path = DTOs;
@@ -309,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				27B795F52A7C2D1400FDA10F /* ProjectView */,
+				868604E82A7C2AAA001D9213 /* Root */,
 				8AD0B4282A7C1FEE00F24296 /* OnboardingView */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
 				8A9BC3612A72EAC400A070FC /* Home */,
@@ -397,10 +414,27 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		868604E32A7C242E001D9213 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				868604E42A7C243A001D9213 /* UserResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		868604E82A7C2AAA001D9213 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				868604E92A7C2AB4001D9213 /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		8A9BC3612A72EAC400A070FC /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				8A9BC35F2A71C00300A070FC /* LoginPageView.swift */,
+				868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -590,6 +624,7 @@
 				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
+				868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
@@ -598,17 +633,21 @@
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
+				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
+				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
 				8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
+				868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */,
 				270912D22A7AE9B000CB91FA /* TaskStatus.swift in Sources */,
 				D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */,
+				868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */,
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */,
@@ -617,6 +656,7 @@
 				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
 				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
+				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
@@ -815,7 +855,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -845,7 +885,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
