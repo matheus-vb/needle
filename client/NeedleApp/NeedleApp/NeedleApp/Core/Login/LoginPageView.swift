@@ -48,6 +48,8 @@ struct LoginPageView: View {
                                 
                                 AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
                                 
+                                WorkspaceDataService.shared.getUsersWorkspaces(userId: userID)
+                                
                             default:
                                 break
                             }

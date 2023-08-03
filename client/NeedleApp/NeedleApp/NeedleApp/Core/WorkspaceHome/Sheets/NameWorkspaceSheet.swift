@@ -25,9 +25,10 @@ struct NameWorkspaceSheet: View {
 //                    mock.content.remove(at: index)
                 }).buttonStyle(PrimarySheetActionButton())
                 Button("Create", action: {
+                    WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: projectName)
+                    
+                    
                     dismiss()
-                    let newWorkspace = Workspace(name: projectName)
-                    mock.content.append(newWorkspace)
                 }).buttonStyle(SecondarySheetActionButton())
             }
         }

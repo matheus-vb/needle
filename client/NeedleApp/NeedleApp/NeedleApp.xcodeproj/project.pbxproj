@@ -59,6 +59,11 @@
 		868604E52A7C243A001D9213 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E42A7C243A001D9213 /* UserResponse.swift */; };
 		868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */; };
 		868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E92A7C2AB4001D9213 /* RootView.swift */; };
+		868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */; };
+		868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */; };
+		868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */; };
+		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
+		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -146,6 +151,11 @@
 		868604E42A7C243A001D9213 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
 		868604E92A7C2AB4001D9213 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDataService.swift; sourceTree = "<group>"; };
+		868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacesResponse.swift; sourceTree = "<group>"; };
+		868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceDTO.swift; sourceTree = "<group>"; };
+		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
+		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -277,6 +287,7 @@
 			children = (
 				274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */,
 				863789842A745D70004EEB9B /* NotificationService.swift */,
+				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -319,6 +330,8 @@
 				273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */,
 				868604E12A7C2286001D9213 /* SignInDTO.swift */,
 				275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */,
+				868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */,
+				868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -326,11 +339,12 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
 				27B795F52A7C2D1400FDA10F /* ProjectView */,
 				868604E82A7C2AAA001D9213 /* Root */,
 				8AD0B4282A7C1FEE00F24296 /* OnboardingView */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
-				8A9BC3612A72EAC400A070FC /* Home */,
+				8A9BC3612A72EAC400A070FC /* Login */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
 				8A9BC3672A7314B700A070FC /* EditDocumentation */,
 			);
@@ -356,7 +370,6 @@
 		274E63BD2A71A21D00FACCC5 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
-				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
 				863789772A7451C8004EEB9B /* Components */,
 				274E63C02A71A2DE00FACCC5 /* CreateTaskViewModel */,
 				274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */,
@@ -421,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				868604E42A7C243A001D9213 /* UserResponse.swift */,
+				868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -433,13 +447,13 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
-		8A9BC3612A72EAC400A070FC /* Home */ = {
+		8A9BC3612A72EAC400A070FC /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				8A9BC35F2A71C00300A070FC /* LoginPageView.swift */,
 				868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */,
 			);
-			path = Home;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		8A9BC3672A7314B700A070FC /* EditDocumentation */ = {
@@ -465,6 +479,7 @@
 				D4E40A7B2A72EBF900B47A07 /* Sheets */,
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
 				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
+				868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */,
 			);
 			path = WorkspaceHome;
 			sourceTree = "<group>";
@@ -625,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
+				868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */,
@@ -634,12 +650,16 @@
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
+				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
 				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
+				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
+				868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */,
+				868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
 				8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */,
