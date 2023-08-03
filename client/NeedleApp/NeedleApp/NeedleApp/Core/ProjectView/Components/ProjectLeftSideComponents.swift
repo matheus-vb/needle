@@ -18,4 +18,14 @@ extension ProjectLeftSideComponent{
                 .foregroundColor(.black)
         }
     }
+    
+    var projectsList: some View {
+        ScrollView{
+            VStack(spacing: 24){
+                ForEach(projectViewModel.projects, id: \.self){project in
+                    ProjectButton(project: project)
+                }
+            }
+        }
+    }
 }

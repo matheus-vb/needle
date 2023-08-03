@@ -24,7 +24,6 @@ struct ProjectView: View {
                     .environmentObject(projectViewModel)
             }
         })
-        .ignoresSafeArea()
     }
 }
 

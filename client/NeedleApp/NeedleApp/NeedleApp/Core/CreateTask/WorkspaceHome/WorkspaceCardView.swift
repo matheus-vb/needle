@@ -12,20 +12,17 @@ struct WorkspaceCardView: View, Identifiable {
     var id = UUID()
     var action: () -> Void
     var title: String
-    var owner: String
     var code: String
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
         self.title = workspaceInfo.name
         self.action = action
-        self.owner = workspaceInfo.owner
         self.code = workspaceInfo.accessCode
     }
     
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.title)
-            Text("owner | \(owner)")
         }
     }
     
