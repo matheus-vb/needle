@@ -8,5 +8,5 @@
 import Foundation
 
 class ProjectViewModel: ObservableObject{
-    
+    @Published var selectedTab: Int = 1 // 1 -> Kanbar, 2 -> Documentation
 }
