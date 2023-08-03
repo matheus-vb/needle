@@ -14,8 +14,8 @@ extension RightSide{
             HStack(spacing: 64){
                 Text("Status")
                 Picker("Status",selection: $createTaskViewModel.statusSelection){
-                    ForEach(createTaskViewModel.statusOp, id: \.self){
-                        Text($0)
+                    ForEach(TaskStatus.allCases, id: \.self) { status in
+                        Text(status.rawValue)
                     }
                 }
                 .pickerStyle(.menu)
@@ -25,8 +25,8 @@ extension RightSide{
             HStack(spacing: 64){
                 Text("Prioridade")
                 Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
-                    ForEach(createTaskViewModel.priorityOp, id: \.self){
-                        Text($0)
+                    ForEach(TaskPriority.allCases, id: \.self) { priority in
+                        Text(priority.rawValue)
                     }
                 }
                 .pickerStyle(.menu)
@@ -45,8 +45,19 @@ extension RightSide{
             HStack(spacing: 64){
                 Text("Área")
                 Picker("Área",selection: $createTaskViewModel.categorySelection){
-                    ForEach(createTaskViewModel.categoryOp, id: \.self){
-                        Text($0)
+                    ForEach(TaskType.allCases, id: \.self) { type in
+                        Text(type.rawValue)
+                    }
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
+            }
+            
+            HStack(spacing: 64){
+                Text("Atribuir")
+                Picker("Área",selection: $createTaskViewModel.selectedMember){
+                    ForEach(createTaskViewModel.members, id: \.self) {membro in
+                        Text(membro.name)
                     }
                 }
                 .pickerStyle(.menu)
