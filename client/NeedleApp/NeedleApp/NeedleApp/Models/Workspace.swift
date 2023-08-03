@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Workspace: Identifiable, Equatable {
+struct Workspace: Identifiable, Equatable, Codable, Hashable {
     var id = UUID()
-    var accessCode: String = "#F47HS9"
-    var name: String = "Workspace title"
-    var owner: String = "Task owner"
+    var accessCode: String
+    var name: String
 }

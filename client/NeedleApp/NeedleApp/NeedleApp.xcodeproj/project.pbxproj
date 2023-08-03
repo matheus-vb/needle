@@ -11,6 +11,7 @@
 		270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D32A7AEACF00CB91FA /* TaskPriority.swift */; };
 		270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D52A7AEB8F00CB91FA /* TaskType.swift */; };
 		270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */; };
+		2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721B0D92A7C414F0085F42E /* ProjectButton.swift */; };
 		273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */; };
 		274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */; };
 		274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */; };
@@ -33,6 +34,15 @@
 		274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
+		27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F62A7C2D2600FDA10F /* ProjectView.swift */; };
+		27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */; };
+		27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */; };
+		27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */; };
+		27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */; };
+		27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796002A7C348A00FDA10F /* ProjectViewModel.swift */; };
+		27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796032A7C35F500FDA10F /* DummyKanbanView.swift */; };
+		27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */; };
+		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
 		8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789782A7451FA004EEB9B /* LeftSide.swift */; };
 		8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789792A7451FA004EEB9B /* RightSide.swift */; };
 		8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897A2A7451FA004EEB9B /* TitleEditableText.swift */; };
@@ -43,6 +53,17 @@
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
 		864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */; };
+		868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DD2A7C211B001D9213 /* AuthenticationManager.swift */; };
+		868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DF2A7C225D001D9213 /* ConvertToDict.swift */; };
+		868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E12A7C2286001D9213 /* SignInDTO.swift */; };
+		868604E52A7C243A001D9213 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E42A7C243A001D9213 /* UserResponse.swift */; };
+		868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */; };
+		868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E92A7C2AB4001D9213 /* RootView.swift */; };
+		868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */; };
+		868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */; };
+		868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */; };
+		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
+		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -52,7 +73,8 @@
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
 		D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */; };
 		D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */; };
-		D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */; };
+		D4DB8A662A7C41E700C3DA38 /* JoinWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB8A652A7C41E700C3DA38 /* JoinWorkspaceSheet.swift */; };
+		D4E40A782A72EB7F00B47A07 /* CreateWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E40A772A72EB7F00B47A07 /* CreateWorkspaceSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +99,7 @@
 		270912D32A7AEACF00CB91FA /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		270912D52A7AEB8F00CB91FA /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceUser.swift; sourceTree = "<group>"; };
+		2721B0D92A7C414F0085F42E /* ProjectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButton.swift; sourceTree = "<group>"; };
 		273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskDTO.swift; sourceTree = "<group>"; };
 		274A27F42A719F6C0002CFEA /* NeedleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeedleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleAppApp.swift; sourceTree = "<group>"; };
@@ -103,6 +126,15 @@
 		274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
+		27B795F62A7C2D2600FDA10F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
+		27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponent.swift; sourceTree = "<group>"; };
+		27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponents.swift; sourceTree = "<group>"; };
+		27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRightSideComponent.swift; sourceTree = "<group>"; };
+		27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRightSideComponents.swift; sourceTree = "<group>"; };
+		27B796002A7C348A00FDA10F /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		27B796032A7C35F500FDA10F /* DummyKanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKanbanView.swift; sourceTree = "<group>"; };
+		27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDocumentationView.swift; sourceTree = "<group>"; };
+		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
 		863789782A7451FA004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSide.swift; sourceTree = "<group>"; };
 		863789792A7451FA004EEB9B /* RightSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSide.swift; sourceTree = "<group>"; };
 		8637897A2A7451FA004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
@@ -115,6 +147,17 @@
 		864D69A52A787BFB00EB256A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
+		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
+		868604E42A7C243A001D9213 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
+		868604E92A7C2AB4001D9213 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDataService.swift; sourceTree = "<group>"; };
+		868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacesResponse.swift; sourceTree = "<group>"; };
+		868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceDTO.swift; sourceTree = "<group>"; };
+		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
+		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -124,7 +167,8 @@
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
 		D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkspaceSheet.swift; sourceTree = "<group>"; };
 		D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetActionButton.swift; sourceTree = "<group>"; };
-		D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameWorkspaceSheet.swift; sourceTree = "<group>"; };
+		D4DB8A652A7C41E700C3DA38 /* JoinWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceSheet.swift; sourceTree = "<group>"; };
+		D4E40A772A72EB7F00B47A07 /* CreateWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +203,7 @@
 				270912D12A7AE9AF00CB91FA /* TaskStatus.swift */,
 				270912D32A7AEACF00CB91FA /* TaskPriority.swift */,
 				270912D52A7AEB8F00CB91FA /* TaskType.swift */,
+				27B796072A7C37EB00FDA10F /* SelectedTab.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -236,6 +281,7 @@
 			children = (
 				274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */,
 				863789822A745BC1004EEB9B /* KeychainSwift.swift */,
+				868604DF2A7C225D001D9213 /* ConvertToDict.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -245,6 +291,7 @@
 			children = (
 				274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */,
 				863789842A745D70004EEB9B /* NotificationService.swift */,
+				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -252,6 +299,7 @@
 		274A28282A71A0090002CFEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				868604E32A7C242E001D9213 /* Response */,
 				274A28292A71A01B0002CFEA /* Workspace.swift */,
 				274A282B2A71A0240002CFEA /* TaskModel.swift */,
 				274A282D2A71A0290002CFEA /* User.swift */,
@@ -266,6 +314,7 @@
 			children = (
 				274A28322A71A07E0002CFEA /* ManagersPlaceHolder.swift */,
 				864D69A12A787B0700EB256A /* NetworkingManager.swift */,
+				868604DD2A7C211B001D9213 /* AuthenticationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -284,7 +333,10 @@
 			isa = PBXGroup;
 			children = (
 				273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */,
+				868604E12A7C2286001D9213 /* SignInDTO.swift */,
 				275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */,
+				868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */,
+				868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -292,9 +344,12 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
+				27B795F52A7C2D1400FDA10F /* ProjectView */,
+				868604E82A7C2AAA001D9213 /* Root */,
 				8AD0B4282A7C1FEE00F24296 /* OnboardingView */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
-				8A9BC3612A72EAC400A070FC /* Home */,
+				8A9BC3612A72EAC400A070FC /* Login */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
 				8A9BC3672A7314B700A070FC /* EditDocumentation */,
 			);
@@ -320,7 +375,6 @@
 		274E63BD2A71A21D00FACCC5 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
-				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
 				863789772A7451C8004EEB9B /* Components */,
 				274E63C02A71A2DE00FACCC5 /* CreateTaskViewModel */,
 				274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */,
@@ -334,6 +388,30 @@
 				274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */,
 			);
 			path = CreateTaskViewModel;
+			sourceTree = "<group>";
+		};
+		27B795F52A7C2D1400FDA10F /* ProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				27B796022A7C355C00FDA10F /* Components */,
+				27B795F62A7C2D2600FDA10F /* ProjectView.swift */,
+				27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */,
+				27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */,
+				27B796002A7C348A00FDA10F /* ProjectViewModel.swift */,
+			);
+			path = ProjectView;
+			sourceTree = "<group>";
+		};
+		27B796022A7C355C00FDA10F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */,
+				27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */,
+				27B796032A7C35F500FDA10F /* DummyKanbanView.swift */,
+				27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */,
+				2721B0D92A7C414F0085F42E /* ProjectButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		863789772A7451C8004EEB9B /* Components */ = {
@@ -357,12 +435,30 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		8A9BC3612A72EAC400A070FC /* Home */ = {
+		868604E32A7C242E001D9213 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				868604E42A7C243A001D9213 /* UserResponse.swift */,
+				868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		868604E82A7C2AAA001D9213 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				868604E92A7C2AB4001D9213 /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		8A9BC3612A72EAC400A070FC /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				8A9BC35F2A71C00300A070FC /* LoginPageView.swift */,
+				868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */,
 			);
-			path = Home;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		8A9BC3672A7314B700A070FC /* EditDocumentation */ = {
@@ -388,6 +484,7 @@
 				D4E40A7B2A72EBF900B47A07 /* Sheets */,
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
 				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
+				868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */,
 			);
 			path = WorkspaceHome;
 			sourceTree = "<group>";
@@ -405,7 +502,8 @@
 		D4E40A7B2A72EBF900B47A07 /* Sheets */ = {
 			isa = PBXGroup;
 			children = (
-				D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */,
+				D4E40A772A72EB7F00B47A07 /* CreateWorkspaceSheet.swift */,
+				D4DB8A652A7C41E700C3DA38 /* JoinWorkspaceSheet.swift */,
 				D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */,
 			);
 			path = Sheets;
@@ -548,49 +646,70 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
+				D4DB8A662A7C41E700C3DA38 /* JoinWorkspaceSheet.swift in Sources */,
+				868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
+				868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
-				D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */,
+				D4E40A782A72EB7F00B47A07 /* CreateWorkspaceSheet.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
+				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
+				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
+				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
+				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
+				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
+				868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */,
+				868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
 				8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
+				868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */,
 				270912D22A7AE9B000CB91FA /* TaskStatus.swift in Sources */,
 				D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */,
+				868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */,
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
+				27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */,
+				27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
 				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
-				8AD0B42A2A7C426C00F24296 /* Color.swift in Sources */,
+				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
+				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
 				8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */,
+				27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */,
 				8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */,
+				27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */,
+				27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */,
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
+				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
+				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
 				8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
+				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 			);
@@ -755,7 +874,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -785,7 +904,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -26,13 +26,13 @@ class NetworkingManager{
     }
     
     static func download(url: URL) -> AnyPublisher<Data, Error> {
-        guard let token = KeychainSwift().get("token") else {
-            return Fail(error: NetworkingError.tokenNotFound)
-                .eraseToAnyPublisher()
-        }
+//        guard let token = KeychainSwift().get("token") else {
+//            return Fail(error: NetworkingError.tokenNotFound)
+//                .eraseToAnyPublisher()
+//        }
         
         var request = URLRequest(url: url)
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        //request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .default))
@@ -42,16 +42,16 @@ class NetworkingManager{
     }
     
     static func post(url: URL, body: Data) -> AnyPublisher<Data, Error> {
-        guard let token = KeychainSwift().get("token") else {
-            return Fail(error: NetworkingError.tokenNotFound)
-                .eraseToAnyPublisher()
-        }
+//        guard let token = KeychainSwift().get("token") else {
+//            return Fail(error: NetworkingError.tokenNotFound)
+//                .eraseToAnyPublisher()
+//        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = body
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .default))
@@ -84,6 +84,7 @@ class NetworkingManager{
                 print(networkingError.localizedDescription)
                 onError(networkingError)
             } else {
+                print(error)
                 onError(NetworkingError.unknown)
             }
         }
