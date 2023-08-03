@@ -10,13 +10,15 @@ import CoreData
 
 class MockWorkspaces: ObservableObject {
     @Published var content: [Workspace] = [
-        Workspace(accessCode: "12345", name: "Proj 1", owner: "er"),
-        Workspace(accessCode: "55555", name: "Proj 2", owner: "er"),
+        Workspace(accessCode: "12345", name: "Proj 1"),
+        Workspace(accessCode: "55555", name: "Proj 2"),
     ]
 }
 
 struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
+    @ObservedObject var viewModel = WorkspaceHomeViewModel()
+    
     
     @State var isDeleting = false
     
@@ -49,8 +51,8 @@ struct WorkspaceHomeView: View {
     
     var workspaceGrid: some View {
         LazyVGrid(columns: columns, spacing: 24) {
-            ForEach(mock.content.indices, id: \.self) { index in
-                WorkspaceCardView(workspaceInfo: mock.content[index], action: {
+            ForEach(viewModel.workspaces.indices, id: \.self) { index in
+                WorkspaceCardView(workspaceInfo: viewModel.workspaces[index], action: {
                     isDeleting.toggle()
                     cardIndex = index
                 })

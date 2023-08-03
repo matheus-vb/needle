@@ -18,7 +18,7 @@ struct WorkspaceCardView: View, Identifiable {
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
         self.title = workspaceInfo.name
         self.action = action
-        self.owner = workspaceInfo.owner
+        self.owner = "quem"
         self.code = workspaceInfo.accessCode
     }
     
