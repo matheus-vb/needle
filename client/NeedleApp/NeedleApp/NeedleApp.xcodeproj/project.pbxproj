@@ -11,6 +11,7 @@
 		270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D32A7AEACF00CB91FA /* TaskPriority.swift */; };
 		270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D52A7AEB8F00CB91FA /* TaskType.swift */; };
 		270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */; };
+		2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721B0D92A7C414F0085F42E /* ProjectButton.swift */; };
 		273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */; };
 		274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */; };
 		274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */; };
@@ -96,6 +97,7 @@
 		270912D32A7AEACF00CB91FA /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		270912D52A7AEB8F00CB91FA /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceUser.swift; sourceTree = "<group>"; };
+		2721B0D92A7C414F0085F42E /* ProjectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButton.swift; sourceTree = "<group>"; };
 		273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskDTO.swift; sourceTree = "<group>"; };
 		274A27F42A719F6C0002CFEA /* NeedleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeedleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleAppApp.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */,
 				27B796032A7C35F500FDA10F /* DummyKanbanView.swift */,
 				27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */,
+				2721B0D92A7C414F0085F42E /* ProjectButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
+				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 			);
@@ -875,7 +879,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -905,7 +909,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
