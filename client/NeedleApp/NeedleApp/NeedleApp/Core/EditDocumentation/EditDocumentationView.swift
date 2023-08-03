@@ -10,11 +10,13 @@ import RichTextKit
 
 struct EditDocumentationView: View {
     
-    let taskName : String
-    let taskID : String
+    @Binding var documentation : NSAttributedString
+    @EnvironmentObject var createTaskViewModel: CreateTaskViewModel
+    
+    //let taskName : String
+    //let taskID : String
     
     @StateObject var context = RichTextContext()
-    @State var documentation : NSAttributedString = NSAttributedString(string: "")
     
     @State var data = Data()
     @State var saved : String = ""
@@ -92,11 +94,5 @@ private extension EditDocumentationView {
         RichTextFormatSidebar(context: context)
             .frame(minWidth: 200)
             .layoutPriority(-1)
-    }
-}
-
-struct EditDocumentationView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditDocumentationView(taskName: "Task Exemplo", taskID: "8900")
     }
 }
