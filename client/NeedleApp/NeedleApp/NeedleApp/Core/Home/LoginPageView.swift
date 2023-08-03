@@ -16,6 +16,8 @@ struct LoginPageView: View {
     @AppStorage("lastName") var lastName: String = ""
     @AppStorage("userID") var userID: String = ""
     
+    @ObservedObject var viewModel = LoginPageViewModel()
+    
     var body: some View {
         VStack {
             Spacer()
@@ -39,6 +41,12 @@ struct LoginPageView: View {
                                 self.firstName = firstName ?? ""
                                 self.lastName = lastName ?? ""
                                 self.userID = userID
+                                
+                                print(userID)
+                                print(email)
+                                print(firstName)
+                                
+                                AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
                                 
                             default:
                                 break
