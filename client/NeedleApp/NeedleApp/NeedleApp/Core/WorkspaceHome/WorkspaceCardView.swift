@@ -12,8 +12,8 @@ struct WorkspaceCardView: View, Identifiable {
     var id = UUID()
     var action: () -> Void
     var title: String
-    var owner: String
     var code: String
+    var owner: String
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
         self.title = workspaceInfo.name
@@ -25,7 +25,6 @@ struct WorkspaceCardView: View, Identifiable {
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.title)
-            Text("owner | \(owner)")
         }
     }
     

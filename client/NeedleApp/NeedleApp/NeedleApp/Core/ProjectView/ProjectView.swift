@@ -24,7 +24,11 @@ struct ProjectView: View {
                     .environmentObject(projectViewModel)
             }
         })
-        .ignoresSafeArea()
+        .onAppear{
+            if projectViewModel.selectedProject.accessCode == ""{
+                projectViewModel.selectedProject = projectViewModel.projects[0]
+            }
+        }
     }
 }
 
