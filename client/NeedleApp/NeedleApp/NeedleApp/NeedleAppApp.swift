@@ -16,7 +16,8 @@ struct NeedleAppApp: App {
     var body: some Scene {
         WindowGroup {
 //            WorkspaceHomeView()
-            CreateTaskView()
+            OnboardingView()
+//            CreateTaskView()
                 .frame(minWidth: 1100, minHeight: 600)
         }
     }
