@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct WorkspacesResponse: Codable {
+    let data: [Workspace]
+}
