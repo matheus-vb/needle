@@ -49,6 +49,7 @@
 		868604E52A7C243A001D9213 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E42A7C243A001D9213 /* UserResponse.swift */; };
 		868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */; };
 		868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E92A7C2AB4001D9213 /* RootView.swift */; };
+		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
@@ -125,6 +126,7 @@
 		868604E42A7C243A001D9213 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		868604E62A7C24E1001D9213 /* LoginPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewModel.swift; sourceTree = "<group>"; };
 		868604E92A7C2AB4001D9213 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
 		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				868604E82A7C2AAA001D9213 /* Root */,
+				8AD0B4282A7C1FEE00F24296 /* OnboardingView */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
 				8A9BC3612A72EAC400A070FC /* Home */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
@@ -399,6 +402,14 @@
 				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
 			);
 			path = EditDocumentation;
+			sourceTree = "<group>";
+		};
+		8AD0B4282A7C1FEE00F24296 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */,
+			);
+			path = OnboardingView;
 			sourceTree = "<group>";
 		};
 		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
@@ -584,6 +595,7 @@
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
+				8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
 				868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */,
 				270912D22A7AE9B000CB91FA /* TaskStatus.swift in Sources */,
