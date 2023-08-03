@@ -14,7 +14,8 @@ struct ProjectView: View {
                 .padding(.top, 62)
                 .background(Color("BG"))
         }, detail: {
-            Text("Hello world")
+            ProjectsViewRightSideComponent()
+                .background(Color("BG"))
         })
         .ignoresSafeArea()
     }
