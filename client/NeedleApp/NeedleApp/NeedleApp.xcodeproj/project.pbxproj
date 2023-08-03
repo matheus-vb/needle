@@ -39,6 +39,9 @@
 		27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */; };
 		27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */; };
 		27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796002A7C348A00FDA10F /* ProjectViewModel.swift */; };
+		27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796032A7C35F500FDA10F /* DummyKanbanView.swift */; };
+		27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */; };
+		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
 		8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789782A7451FA004EEB9B /* LeftSide.swift */; };
 		8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789792A7451FA004EEB9B /* RightSide.swift */; };
 		8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897A2A7451FA004EEB9B /* TitleEditableText.swift */; };
@@ -114,6 +117,9 @@
 		27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRightSideComponent.swift; sourceTree = "<group>"; };
 		27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRightSideComponents.swift; sourceTree = "<group>"; };
 		27B796002A7C348A00FDA10F /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
+		27B796032A7C35F500FDA10F /* DummyKanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKanbanView.swift; sourceTree = "<group>"; };
+		27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDocumentationView.swift; sourceTree = "<group>"; };
+		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
 		863789782A7451FA004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSide.swift; sourceTree = "<group>"; };
 		863789792A7451FA004EEB9B /* RightSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSide.swift; sourceTree = "<group>"; };
 		8637897A2A7451FA004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 				270912D12A7AE9AF00CB91FA /* TaskStatus.swift */,
 				270912D32A7AEACF00CB91FA /* TaskPriority.swift */,
 				270912D52A7AEB8F00CB91FA /* TaskType.swift */,
+				27B796072A7C37EB00FDA10F /* SelectedTab.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -363,6 +370,8 @@
 			children = (
 				27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */,
 				27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */,
+				27B796032A7C35F500FDA10F /* DummyKanbanView.swift */,
+				27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -584,6 +593,7 @@
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
+				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
@@ -601,6 +611,8 @@
 				D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */,
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
+				27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */,
+				27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */,
 				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
 				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
 				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,

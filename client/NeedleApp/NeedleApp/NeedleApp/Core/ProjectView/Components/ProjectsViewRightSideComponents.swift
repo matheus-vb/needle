@@ -20,6 +20,7 @@ extension ProjectsViewRightSideComponent{
         HStack(spacing: 48){
             Button(action: {
                 print("Kanban Button")
+                projectViewModel.selectedTab = .Kanban
             }, label: {
                 Text("Kanbar")
                     .font(.system(size: 16, weight: .regular))
@@ -29,6 +30,7 @@ extension ProjectsViewRightSideComponent{
             
             Button(action: {
                 print("Documentation Button")
+                projectViewModel.selectedTab = .Documentation
             }, label: {
                 Text("Documentação")
                     .font(.system(size: 16, weight: .regular))

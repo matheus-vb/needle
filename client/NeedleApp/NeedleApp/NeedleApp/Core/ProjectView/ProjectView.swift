@@ -18,9 +18,11 @@ struct ProjectView: View {
                 .background(Color("BG"))
                 .environmentObject(projectViewModel)
         }, detail: {
-            ProjectsViewRightSideComponent()
-                .background(Color("BG"))
-                .environmentObject(projectViewModel)
+            VStack{
+                ProjectsViewRightSideComponent()
+                    .background(Color("BG"))
+                    .environmentObject(projectViewModel)
+            }
         })
         .ignoresSafeArea()
     }
