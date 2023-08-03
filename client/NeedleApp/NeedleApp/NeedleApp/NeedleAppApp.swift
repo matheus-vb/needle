@@ -15,10 +15,10 @@ struct NeedleAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            WorkspaceHomeView()
+//            ProjectView()
             RootView()
                 .frame(minWidth: 1100, minHeight: 600)
-        }
+        }.windowStyle(HiddenTitleBarWindowStyle())
     }
 }
 
