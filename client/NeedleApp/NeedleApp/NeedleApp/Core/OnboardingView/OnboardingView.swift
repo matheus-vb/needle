@@ -94,7 +94,7 @@ struct OnboardingPageView: View{
                             HStack{
                                 Button("Voltar", action: decrementPage)
                                 Button("Começar"){
-                                    isOnboard.toggle()
+                                    isOnboard = false
                                 }
                             }
                         }

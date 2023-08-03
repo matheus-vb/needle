@@ -144,7 +144,6 @@
 		274A27EB2A719F6C0002CFEA = {
 			isa = PBXGroup;
 			children = (
-				8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */,
 				274A27F62A719F6C0002CFEA /* NeedleApp */,
 				274A28082A719F6E0002CFEA /* NeedleAppTests */,
 				274A28122A719F6E0002CFEA /* NeedleAppUITests */,
@@ -267,6 +266,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8AD0B4282A7C1FEE00F24296 /* OnboardingView */,
 				274E63BD2A71A21D00FACCC5 /* CreateTask */,
 				8A9BC3612A72EAC400A070FC /* Home */,
 				274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */,
@@ -345,6 +345,14 @@
 				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
 			);
 			path = EditDocumentation;
+			sourceTree = "<group>";
+		};
+		8AD0B4282A7C1FEE00F24296 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */,
+			);
+			path = OnboardingView;
 			sourceTree = "<group>";
 		};
 		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
