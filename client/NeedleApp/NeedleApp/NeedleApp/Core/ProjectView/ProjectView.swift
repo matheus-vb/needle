@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ProjectView: View {
+    
+    @StateObject var projectViewModel: ProjectViewModel = ProjectViewModel()
+    
     var body: some View {
         NavigationSplitView(sidebar: {
             ProjectLeftSideComponent()
                 .padding(.top, 62)
                 .background(Color("BG"))
+                .environmentObject(projectViewModel)
         }, detail: {
             ProjectsViewRightSideComponent()
                 .background(Color("BG"))
+                .environmentObject(projectViewModel)
         })
         .ignoresSafeArea()
     }

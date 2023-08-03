@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProjectsViewRightSideComponent: View {
+    @EnvironmentObject var projectViewModel: ProjectViewModel
+
     var body: some View {
         VStack{
             topContainer

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ProjectLeftSideComponent: View {
+    @EnvironmentObject var projectViewModel: ProjectViewModel
     var body: some View {
         VStack{
             leftSideTitle
