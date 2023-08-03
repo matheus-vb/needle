@@ -22,9 +22,16 @@ extension ProjectsViewRightSideComponent{
                 print("Kanban Button")
                 projectViewModel.selectedTab = .Kanban
             }, label: {
-                Text("Kanbar")
+                Text("Kanban")
                     .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.black)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 6)
+                            .foregroundColor(projectViewModel.selectedTab == .Kanban ? Color("main-green"): Color("BG"))
+                            .offset(y: 12)
+                        , alignment: .bottom
+                    )
             })
             .buttonStyle(.plain)
             
@@ -35,6 +42,13 @@ extension ProjectsViewRightSideComponent{
                 Text("Documentação")
                     .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.black)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 6)
+                            .foregroundColor(projectViewModel.selectedTab == .Documentation ? Color("main-green"): Color("BG"))
+                            .offset(y: 12)
+                        , alignment: .bottom
+                    )
             })
             .buttonStyle(.plain)
         }
