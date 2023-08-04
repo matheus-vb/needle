@@ -42,6 +42,8 @@
 		27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796032A7C35F500FDA10F /* DummyKanbanView.swift */; };
 		27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */; };
 		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
+		27D87B7E2A7D740800F8DD95 /* CreateTaskPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */; };
+		27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationService.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
@@ -130,6 +132,8 @@
 		27B796032A7C35F500FDA10F /* DummyKanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKanbanView.swift; sourceTree = "<group>"; };
 		27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDocumentationView.swift; sourceTree = "<group>"; };
 		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
+		27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUp.swift; sourceTree = "<group>"; };
+		27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 			children = (
 				863789772A7451C8004EEB9B /* Components */,
 				274E63C02A71A2DE00FACCC5 /* CreateTaskViewModel */,
+				27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */,
 			);
 			path = CreateTask;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 		863789772A7451C8004EEB9B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
 				86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */,
 				D4DB8A662A7C41E700C3DA38 /* JoinWorkspaceSheet.swift in Sources */,
+				27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */,
 				868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
@@ -672,6 +679,7 @@
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */,
+				27D87B7E2A7D740800F8DD95 /* CreateTaskPopUp.swift in Sources */,
 				27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */,
 				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,
 				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
