@@ -48,9 +48,12 @@ struct WorkspaceCardView: View, Identifiable {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
-                .frame(width: 488, height: 283.96)
-                .shadow(radius: 10, x: 0, y: 4)
+            NavigationLink(destination: ProjectView(), label: {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
+                    .frame(width: 488, height: 283.96)
+                    .shadow(radius: 10, x: 0, y: 4)
+            })
+            .buttonStyle(.plain)
             VStack(alignment: .trailing) {
                 HStack {
                     basicInfo
