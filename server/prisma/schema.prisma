@@ -38,11 +38,12 @@ enum TaskPriority {
 }
 
 model User {
-  id         String           @id @default(uuid())
-  name       String
-  email      String           @unique
-  workspaces User_Workspace[]
-  tasks      Task[]
+  id          String           @id @default(uuid())
+  name        String
+  email       String           @unique
+  workspaces  User_Workspace[]
+  tasks       Task[]
+  deviceToken String?
 }
 
 model User_Workspace {
