@@ -9,7 +9,7 @@ import Foundation
 
 class CreateTaskViewModel: ObservableObject{
     @Published var taskDescription: String = "Adicione uma breve descrição do projeto"
-    @Published var taskTitle: String = "Task 1"
+    @Published var taskTitle: String = "Nome da Task"
     
     @Published var statusSelection: TaskStatus = .TODO
     @Published var prioritySelection: TaskPriority = .LOW
