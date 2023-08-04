@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct UpdateDeviceTokenDTO: Codable {
+    let userId: String
+    let deviceToken: String
+}
