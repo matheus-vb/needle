@@ -12,9 +12,15 @@ struct CreateTaskPopUp: View {
     var geometry: GeometryProxy
     var body: some View {
         VStack{
-            TitleEditableText(text: $createTaskViewModel.taskTitle)
+           taskTitle
         }
         .frame(width: geometry.size.width/3.0, height: geometry.size.height)
         .background(.white)
+    }
+}
+
+extension CreateTaskPopUp{
+    var taskTitle: some View {
+        TitleEditableText(text: $createTaskViewModel.taskTitle)
     }
 }
