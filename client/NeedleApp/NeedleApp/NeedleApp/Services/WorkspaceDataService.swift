@@ -20,6 +20,7 @@ class WorkspaceDataService: ObservableObject {
     var workspaceSubscription: AnyCancellable?
     var createWorkspaceSubscription: AnyCancellable?
     var joinWorkspaceSubscription: AnyCancellable?
+    var deleteWorkspaceSubscription: AnyCancellable?
     
     func getUsersWorkspaces(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "workspace/list/\(userId)") else { return }
@@ -67,6 +68,21 @@ class WorkspaceDataService: ObservableObject {
         guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
         
         joinWorkspaceSubscription = NetworkingManager.post(url: url, body: jsonData)
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] _ in
+                self?.getUsersWorkspaces(userId: userId)
+                self?.workspaceSubscription?.cancel()
+            })
+    }
+    
+    func deleteWorkspace(accessCode: String, userId: String) {
+        guard let url = URL(string: Bundle.baseURL + "workspace/delete/\(accessCode)") else { return }
+        
+        deleteWorkspaceSubscription = NetworkingManager.delete(url: url)
             .sink(receiveCompletion: {
                 completion in NetworkingManager.handleCompletion(completion: completion) { error in
                     self.currError = error as? NetworkingManager.NetworkingError
