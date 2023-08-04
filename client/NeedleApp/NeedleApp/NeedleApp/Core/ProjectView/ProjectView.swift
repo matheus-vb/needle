@@ -15,12 +15,12 @@ struct ProjectView: View {
         NavigationSplitView(sidebar: {
             ProjectLeftSideComponent()
                 .padding(.top, 62)
-                .background(Color("BG"))
+                .background(Color.theme.backgroundGray)
                 .environmentObject(projectViewModel)
         }, detail: {
             VStack{
                 ProjectsViewRightSideComponent()
-                    .background(Color("BG"))
+                    .background(Color.theme.backgroundGray)
                     .environmentObject(projectViewModel)
             }
         })
