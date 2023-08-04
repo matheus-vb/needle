@@ -64,10 +64,25 @@
 		868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */; };
 		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
 		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
+		8A0841B52A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */; };
+		8A0841B62A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */; };
+		8A0841B72A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */; };
+		8A0841B82A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */; };
+		8A0841B92A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */; };
+		8A0841BA2A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */; };
+		8A0841BB2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */; };
+		8A0841BC2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */; };
+		8A0841BD2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */; };
+		8A0841BE2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */; };
+		8A0841BF2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */; };
+		8A0841C02A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */; };
+		8A0841C12A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */; };
+		8A0841C22A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */; };
+		8A0841C32A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */; };
+		8A50B4A02A7D2C1300C2F676 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A50B49F2A7D2C1300C2F676 /* CustomFonts.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
-		8AD0B42A2A7C426C00F24296 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD0B4292A7C426C00F24296 /* Color.swift */; };
 		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
 		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
@@ -158,6 +173,12 @@
 		868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceDTO.swift; sourceTree = "<group>"; };
 		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
+		8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
+		8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
+		8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
+		8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		8A50B49F2A7D2C1300C2F676 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -231,6 +252,7 @@
 		274A27F62A719F6C0002CFEA /* NeedleApp */ = {
 			isa = PBXGroup;
 			children = (
+				8A0841AE2A7D3E57006F9D67 /* Resources */,
 				864D69AA2A787DBA00EB256A /* Info.plist */,
 				864D69A32A787BE000EB256A /* Config */,
 				274A28402A71A0DD0002CFEA /* Components */,
@@ -325,6 +347,7 @@
 				274A28352A71A0920002CFEA /* ExtensionPlaceHolder.swift */,
 				864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */,
 				8AD0B4292A7C426C00F24296 /* Color.swift */,
+				8A50B49F2A7D2C1300C2F676 /* CustomFonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +473,26 @@
 				868604E92A7C2AB4001D9213 /* RootView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		8A0841AE2A7D3E57006F9D67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A0841AF2A7D3E62006F9D67 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A0841AF2A7D3E62006F9D67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */,
+				8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */,
+				8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */,
+				8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */,
+				8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8A9BC3612A72EAC400A070FC /* Login */ = {
@@ -619,7 +662,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0841B52A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */,
 				274A27FF2A719F6E0002CFEA /* Preview Assets.xcassets in Resources */,
+				8A0841BE2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */,
+				8A0841BB2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */,
+				8A0841B82A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */,
+				8A0841C12A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */,
 				274A27FC2A719F6E0002CFEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +676,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0841C22A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */,
+				8A0841BF2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */,
+				8A0841BC2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */,
+				8A0841B92A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */,
+				8A0841B62A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +688,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0841C32A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */,
+				8A0841C02A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */,
+				8A0841BD2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */,
+				8A0841BA2A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */,
+				8A0841B72A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +746,7 @@
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
 				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
+				8A50B4A02A7D2C1300C2F676 /* CustomFonts.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
@@ -874,7 +933,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -904,7 +963,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
