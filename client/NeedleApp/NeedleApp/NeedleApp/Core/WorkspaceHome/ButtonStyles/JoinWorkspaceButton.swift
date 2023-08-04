@@ -17,7 +17,7 @@ struct JoinWorkspaceButton: ButtonStyle {
                 .padding(.top, 6)
                 .padding(.bottom, 5)
         
-                .background(Color.theme.mainGreen)
+                .background(Color.theme.greenMain)
                 .foregroundStyle(.black)
                 .frame(width: 488, height: 30)
                 .cornerRadius(24)
