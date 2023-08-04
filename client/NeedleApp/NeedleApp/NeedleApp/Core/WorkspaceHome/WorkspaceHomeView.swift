@@ -76,7 +76,7 @@ struct WorkspaceHomeView: View {
                 .blur(radius: 8)
             Circle()
                 .trim(from: 0, to: 0.8)
-                .stroke(Color.theme.mainGreen, lineWidth: 4)
+                .stroke(Color.theme.greenMain, lineWidth: 4)
                 .frame(width: 50, height: 50)
                 .rotationEffect(.degrees(isAnimating ? 360 : 0))
                 .onAppear() {
