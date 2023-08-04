@@ -76,7 +76,7 @@ extension CreateTaskPopUp{
             .scrollContentBackground(.hidden)
             .background(Color.clear)
             .font(.system(size: 20, weight: .regular))
-            .foregroundColor(Color.theme.mainGray)
+            .foregroundColor(Color.theme.grayKanban)
     }
     
     var attributesStack: some View {
