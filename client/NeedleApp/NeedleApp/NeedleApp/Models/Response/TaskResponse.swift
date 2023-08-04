@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct TaskResponse: Codable {
+    let data: [TaskModel]
+}
