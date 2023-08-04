@@ -15,12 +15,14 @@ struct RootView: View {
     }
     
     var mainView: some View {
-        ZStack {
-            if authManager.user == nil {
-                LoginPageView()
-            } else {
-                WorkspaceHomeView()
-            }
+        NavigationStack {
+            ZStack {
+                if authManager.user == nil {
+                    LoginPageView()
+                } else {
+                    WorkspaceHomeView()
+                }
+            }            
         }
     }
 }
