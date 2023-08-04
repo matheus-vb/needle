@@ -11,20 +11,20 @@ class CreateTaskViewModel: ObservableObject{
     @Published var taskDescription: String = "Adicione uma breve descrição do projeto"
     @Published var taskTitle: String = "Task 1"
     
-    @Published var statusSelection: String = "1"
-    @Published var prioritySelection: String = "1"
+    @Published var statusSelection: TaskStatus = .TODO
+    @Published var prioritySelection: TaskPriority = .LOW
     @Published var deadLineSelection = Date.now
-    @Published var categorySelection: String = "1"
-    
-    let statusOp = ["TODO", "IN_PROGRESS", "PENDING", "DONE"]
-    let priorityOp = ["VERY_HIGH", "HIGH", "MEDIUM", "LOW"]
-    let categoryOp = ["DEV", "DESIGN", "PM", "GENERAL"]
+    @Published var categorySelection: TaskType = .GENERAL
+    @Published var selectedMember: WorkspaceUser = WorkspaceUser(id: "", name: "")
+    @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
+        
+    @Published var members: [WorkspaceUser] = [WorkspaceUser(id: "", name: "Joao Medeiros"), WorkspaceUser(id: "", name: "Bia Ferre"), WorkspaceUser(id: "", name: "Matheus Veras"), WorkspaceUser(id: "", name: "Vitoria Pinheir"), WorkspaceUser(id: "", name: "André Valença")]
     
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
-    func createTask(){
-        let task: CreateTaskDTO
-        task = CreateTaskDTO(userId: "1", accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection, type: self.categorySelection, endDate: self.deadLineSelection, priority: self.prioritySelection)
-        
-        print(task)
-    }
+//    func createTask(){
+//        let task: CreateTaskDTO
+//        task = CreateTaskDTO(userId: selectedMember.id, accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection.rawValue, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
+//
+//        print(task)
+//    }
 }

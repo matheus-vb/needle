@@ -4,6 +4,7 @@ import { authRoutes } from "./http/controllers/auth/routes";
 import { taskRoutes } from "./http/controllers/task/routes";
 import { documentRoutes } from "./http/controllers/document/routes";
 import { workspaceRoutes } from "./http/controllers/workspace/routes";
+import { userRoutes } from "./http/controllers/user/routes";
 
 export const app = fastify();
 
@@ -12,6 +13,7 @@ app.get('/', ()=> {
 })
 
 app.register(authRoutes);
+app.register(userRoutes)
 app.register(taskRoutes);
 app.register(documentRoutes);
 app.register(workspaceRoutes);

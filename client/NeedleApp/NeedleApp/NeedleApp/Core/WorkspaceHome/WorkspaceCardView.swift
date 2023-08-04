@@ -12,27 +12,28 @@ struct WorkspaceCardView: View, Identifiable {
     var id = UUID()
     var action: () -> Void
     var title: String
-    var owner: String
     var code: String
+    var owner: String
+    var workspaceId: String
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
         self.title = workspaceInfo.name
         self.action = action
-        self.owner = workspaceInfo.owner
+        self.owner = "quem"
         self.code = workspaceInfo.accessCode
+        self.workspaceId = workspaceInfo.id
     }
     
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.title)
-            Text("owner | \(owner)")
         }
     }
     
     var deleteButton: some View {
         Button(action: action, label: {
             Text("􀈑")
-                .foregroundColor(Color("main-grey"))
+                .foregroundColor(Color.theme.mainGray)
         })
         .buttonStyle(.borderless)
     }
@@ -40,7 +41,7 @@ struct WorkspaceCardView: View, Identifiable {
     var accessCode: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 3.83)
-                .foregroundColor(Color("main-green"))
+                .foregroundColor(Color.theme.mainGreen)
             Text(code)
         }.frame(width: 88, height: 29)
     }
@@ -61,6 +62,5 @@ struct WorkspaceCardView: View, Identifiable {
                 
             }.padding(24)
         }
-        
     }
 }

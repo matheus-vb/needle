@@ -36,6 +36,7 @@ export class JoinWorkspaceUseCase {
         const userWorkspace = await this.userWorkRepository.create({
             userId,
             workspaceId: workspace.id,
+            userRole: "MEMBER"
         })
 
         return {

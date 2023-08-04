@@ -10,21 +10,19 @@ import CoreData
 
 class MockWorkspaces: ObservableObject {
     @Published var content: [Workspace] = [
-        Workspace(),
-        Workspace()
+        
     ]
 }
 
 struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
+    @ObservedObject var viewModel = WorkspaceHomeViewModel()
     
     @State var isDeleting = false
-    
     @State var isNaming = false
-    
     @State var isJoining = false
     
-    @State var cardIndex = 0
+    @State var accessCode: String?
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -49,22 +47,22 @@ struct WorkspaceHomeView: View {
     
     var workspaceGrid: some View {
         LazyVGrid(columns: columns, spacing: 24) {
-            ForEach(mock.content.indices, id: \.self) { index in
-                WorkspaceCardView(workspaceInfo: mock.content[index], action: {
+            ForEach(viewModel.workspaces.indices, id: \.self) { index in
+                WorkspaceCardView(workspaceInfo: viewModel.workspaces[index], action: {
+                    viewModel.accessCode = viewModel.workspaces[index].accessCode
                     isDeleting.toggle()
-                    cardIndex = index
                 })
             }
         }
         .frame(width: 1000)
     }
-
+    
     
     var banner: some View {
         HStack {
             Image("icon-horizontal")
             Spacer()
-            Button(action: {}, label: {Text("logout").foregroundColor(Color("main-grey"))})
+            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.mainGray)})
         }.padding(36)
     }
     
@@ -76,7 +74,7 @@ struct WorkspaceHomeView: View {
                 VStack() {
                     
                     banner
-                
+                    
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 28){
@@ -89,21 +87,30 @@ struct WorkspaceHomeView: View {
                 }.padding(.bottom, 120)
             }
         }
+        .sheet(isPresented: $isJoining) {
+            JoinWorkspaceSheet()
+                .foregroundColor(Color.theme.mainGray)
+                .background(.white)
+                .environmentObject(mock)
+        }
+        .foregroundColor(Color.theme.mainGray)
+        .background(Color.theme.backgroundGray)
         .sheet(isPresented: $isNaming) {
-            NameWorkspaceSheet(index: cardIndex)
-                .foregroundColor(Color("main-grey"))
+            CreateWorkspaceSheet()
+                .foregroundColor(Color.theme.mainGray)
                 .background(.white)
                 .environmentObject(mock)
-                }
-        .foregroundColor(Color("main-grey"))
-        .background(Color("BG"))
+        }
+        .foregroundColor(Color.theme.mainGray)
+        .background(Color.theme.backgroundGray)
         .sheet(isPresented: $isDeleting) {
-            DeleteWorkspaceSheet(index: cardIndex)
-                .foregroundColor(Color("main-grey"))
+            DeleteWorkspaceSheet()
+                .foregroundColor(Color.theme.mainGray)
                 .background(.white)
                 .environmentObject(mock)
-                }
-        .foregroundColor(Color("main-grey"))
-        .background(Color("BG"))
+                .environmentObject(viewModel)
+        }
+        .foregroundColor(Color.theme.mainGray)
+        .background(Color.theme.backgroundGray)
     }
 }
