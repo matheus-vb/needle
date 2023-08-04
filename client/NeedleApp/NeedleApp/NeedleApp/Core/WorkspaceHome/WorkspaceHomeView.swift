@@ -65,7 +65,7 @@ struct WorkspaceHomeView: View {
         HStack {
             Image("icon-horizontal")
             Spacer()
-            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.mainGray)})
+            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.grayHover)})
         }.padding(36)
     }
     
@@ -105,29 +105,29 @@ struct WorkspaceHomeView: View {
         }
         .sheet(isPresented: $isJoining) {
             JoinWorkspaceSheet()
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
-        .foregroundColor(Color.theme.mainGray)
-        .background(Color.theme.backgroundGray)
+        .foregroundColor(Color.theme.grayHover)
+        .background(Color.theme.grayBackground)
         .sheet(isPresented: $isNaming) {
             CreateWorkspaceSheet()
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
-        .foregroundColor(Color.theme.mainGray)
-        .background(Color.theme.backgroundGray)
+        .foregroundColor(Color.theme.grayHover)
+        .background(Color.theme.grayBackground)
         .sheet(isPresented: $isDeleting) {
             DeleteWorkspaceSheet()
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
                 .environmentObject(viewModel)
         }
-        .foregroundColor(Color.theme.mainGray)
-        .background(Color.theme.backgroundGray)
+        .foregroundColor(Color.theme.grayHover)
+        .background(Color.theme.grayBackground)
     }
     
     var body: some View {
