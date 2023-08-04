@@ -44,6 +44,8 @@
 		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
 		27D87B7E2A7D740800F8DD95 /* CreateTaskPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */; };
 		27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */; };
+		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
+		27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationService.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
@@ -134,6 +136,8 @@
 		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
 		27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUp.swift; sourceTree = "<group>"; };
 		27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
+		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
+		27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUPComponents.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 			isa = PBXGroup;
 			children = (
 				27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */,
+				27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */,
+				27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 				868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */,
 				868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
+				27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */,
 				274A28362A71A0920002CFEA /* ExtensionPlaceHolder.swift in Sources */,
 				8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */,
 				274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */,
@@ -686,6 +693,7 @@
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
+				27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
 				27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */,
