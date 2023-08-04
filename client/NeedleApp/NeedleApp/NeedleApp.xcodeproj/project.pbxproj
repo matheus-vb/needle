@@ -31,7 +31,6 @@
 		274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */; };
 		274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */; };
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
-		274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
 		27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F62A7C2D2600FDA10F /* ProjectView.swift */; };
@@ -43,11 +42,6 @@
 		27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796032A7C35F500FDA10F /* DummyKanbanView.swift */; };
 		27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */; };
 		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
-		8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789782A7451FA004EEB9B /* LeftSide.swift */; };
-		8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789792A7451FA004EEB9B /* RightSide.swift */; };
-		8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897A2A7451FA004EEB9B /* TitleEditableText.swift */; };
-		863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897B2A7451FA004EEB9B /* LeftSideComponents.swift */; };
-		863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637897C2A7451FA004EEB9B /* RightSideComponents.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationService.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
@@ -125,7 +119,6 @@
 		274A283B2A71A0BD0002CFEA /* CorePlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlaceHolder.swift; sourceTree = "<group>"; };
 		274A283E2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorPlaceHolder.swift; sourceTree = "<group>"; };
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
-		274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
 		27B795F62A7C2D2600FDA10F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
@@ -137,11 +130,6 @@
 		27B796032A7C35F500FDA10F /* DummyKanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKanbanView.swift; sourceTree = "<group>"; };
 		27B796052A7C361D00FDA10F /* DummyDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDocumentationView.swift; sourceTree = "<group>"; };
 		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
-		863789782A7451FA004EEB9B /* LeftSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSide.swift; sourceTree = "<group>"; };
-		863789792A7451FA004EEB9B /* RightSide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSide.swift; sourceTree = "<group>"; };
-		8637897A2A7451FA004EEB9B /* TitleEditableText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
-		8637897B2A7451FA004EEB9B /* LeftSideComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideComponents.swift; sourceTree = "<group>"; };
-		8637897C2A7451FA004EEB9B /* RightSideComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightSideComponents.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -382,7 +370,6 @@
 			children = (
 				863789772A7451C8004EEB9B /* Components */,
 				274E63C02A71A2DE00FACCC5 /* CreateTaskViewModel */,
-				274E63BE2A71A22700FACCC5 /* CreateTaskView.swift */,
 			);
 			path = CreateTask;
 			sourceTree = "<group>";
@@ -422,11 +409,6 @@
 		863789772A7451C8004EEB9B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				863789782A7451FA004EEB9B /* LeftSide.swift */,
-				8637897B2A7451FA004EEB9B /* LeftSideComponents.swift */,
-				863789792A7451FA004EEB9B /* RightSide.swift */,
-				8637897C2A7451FA004EEB9B /* RightSideComponents.swift */,
-				8637897A2A7451FA004EEB9B /* TitleEditableText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -691,19 +673,14 @@
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */,
 				27B796062A7C361D00FDA10F /* DummyDocumentationView.swift in Sources */,
-				274E63BF2A71A22700FACCC5 /* CreateTaskView.swift in Sources */,
-				863789812A7451FA004EEB9B /* RightSideComponents.swift in Sources */,
 				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,
-				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
 				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
-				8637897F2A7451FA004EEB9B /* TitleEditableText.swift in Sources */,
 				27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */,
-				8637897D2A7451FA004EEB9B /* LeftSide.swift in Sources */,
 				27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */,
 				27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */,
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
@@ -714,7 +691,6 @@
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
-				8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
