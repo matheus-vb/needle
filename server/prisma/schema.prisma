@@ -47,8 +47,8 @@ model User {
 
 model User_Workspace {
   id          String    @id @default(uuid())
-  user        User      @relation(fields: [userId], references: [id])
-  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
   userRole    Role
   userId      String
   workspaceId String
