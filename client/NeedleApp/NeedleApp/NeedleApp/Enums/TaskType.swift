@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TaskType: String, CaseIterable{
+enum TaskType: String, CaseIterable, Codable{
     case DEV = "DEV"
     case DESIGN = "DESIGN"
     case PM = "PM"

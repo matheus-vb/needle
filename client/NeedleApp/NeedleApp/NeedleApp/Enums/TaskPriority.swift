@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TaskPriority: String, CaseIterable{
+enum TaskPriority: String, CaseIterable, Codable {
     case VERY_HIGH = "VERY_HIGH"
     case HIGH = "HIGH"
     case MEDIUM = "MEDIUM"
