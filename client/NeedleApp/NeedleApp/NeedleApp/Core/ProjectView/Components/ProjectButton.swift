@@ -14,6 +14,16 @@ struct ProjectButton: View {
         Button(action: {
             print("cliquei em \(project.name)")
             projectViewModel.selectedProject = project
+            TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
+            Task {
+                withAnimation {
+                    projectViewModel.triggerLoading = true
+                }
+                try? await Task.sleep(nanoseconds: 750_000_000)
+                withAnimation {
+                    projectViewModel.triggerLoading = false
+                }
+            }
         }, label: {
             Text("\(project.name)")
                 .font(.system(size: 12, weight: .regular))
