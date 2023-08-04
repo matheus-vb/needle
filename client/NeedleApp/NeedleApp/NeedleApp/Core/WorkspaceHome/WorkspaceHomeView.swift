@@ -10,8 +10,7 @@ import CoreData
 
 class MockWorkspaces: ObservableObject {
     @Published var content: [Workspace] = [
-        Workspace(accessCode: "12345", name: "Proj 1"),
-        Workspace(accessCode: "55555", name: "Proj 2"),
+        
     ]
 }
 
