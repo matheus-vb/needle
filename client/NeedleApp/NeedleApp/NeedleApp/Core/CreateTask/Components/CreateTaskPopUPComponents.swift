@@ -104,6 +104,8 @@ extension CreateTaskPopUp{
                 print("Botao de sair")
             }, label: {
                 Image(systemName: "xmark")
+                    .resizable()
+                    .frame(width: 20, height: 20)
                     .foregroundColor(.black)
             })
         }

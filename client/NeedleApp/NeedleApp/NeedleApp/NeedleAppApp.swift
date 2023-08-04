@@ -18,10 +18,10 @@ struct NeedleAppApp: App {
             GeometryReader{reader in
                 ZStack{
                     ProjectView()
-                        .frame(minWidth: 1100, minHeight: 600)
                     CreateTaskPopUp(geometry: reader)
                 }
             }
+            .frame(minWidth: 1100, minHeight: 600)
         }.windowStyle(HiddenTitleBarWindowStyle())
     }
 }
