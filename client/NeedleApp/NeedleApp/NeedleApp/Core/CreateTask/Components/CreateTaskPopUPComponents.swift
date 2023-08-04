@@ -67,6 +67,14 @@ extension CreateTaskPopUp{
         }
     }
     
+    var description: some View{
+        TextEditor(text: $createTaskViewModel.taskDescription)
+            .scrollContentBackground(.hidden)
+            .background(Color.clear)
+            .font(.system(size: 20, weight: .regular))
+            .foregroundColor(Color.theme.mainGray)
+    }
+    
     var attributesStack: some View {
         VStack(alignment: .leading){
             deadLine
