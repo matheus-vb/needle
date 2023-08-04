@@ -18,6 +18,7 @@ class TaskDataService: ObservableObject {
     @Published var allUsersTasks: [String: [TaskModel]] = [:]
     
     var getWorkspaceTasksSubscription: AnyCancellable?
+    var getAllUsersTasksSubscription: AnyCancellable?
     var createTaskSubscription: AnyCancellable?
     
     func getWorkspaceTasks(userId: String, workspaceId: String) {
@@ -52,5 +53,11 @@ class TaskDataService: ObservableObject {
                 self?.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
                 self?.createTaskSubscription?.cancel()
             })
+    }
+    
+    func fetchAllUsersTasks(userId: String, workspaces: [Workspace]) {
+        for workspace in workspaces {
+            self.getWorkspaceTasks(userId: userId, workspaceId: workspace.id)
+        }
     }
 }
