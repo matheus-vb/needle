@@ -13,13 +13,10 @@ struct CreateTaskPopUp: View {
     var body: some View {
         VStack(spacing: 30){
             taskTitle
-            VStack(alignment: .leading){
-                deadLine
-                responsible
-                type
-                priority
-            }
+            attributesStack
+            Spacer()
         }
+        .padding(64)
         .frame(width: geometry.size.width/3.0, height: geometry.size.height)
         .background(.white)
     }

@@ -66,4 +66,14 @@ extension CreateTaskPopUp{
             .labelsHidden()
         }
     }
+    
+    var attributesStack: some View {
+        VStack(alignment: .leading){
+            deadLine
+            responsible
+            type
+            priority
+        }
+        .padding([.trailing], 288)
+    }
 }
