@@ -65,6 +65,8 @@
 		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
 		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
 		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
+		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
+		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -159,6 +161,8 @@
 		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
+		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 			children = (
 				274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */,
 				863789842A745D70004EEB9B /* NotificationService.swift */,
+				86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */,
 				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
 			);
 			path = Services;
@@ -440,6 +445,7 @@
 			children = (
 				868604E42A7C243A001D9213 /* UserResponse.swift */,
 				868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */,
+				86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -656,6 +662,8 @@
 				D4E40A782A72EB7F00B47A07 /* CreateWorkspaceSheet.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
+				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
+				86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
