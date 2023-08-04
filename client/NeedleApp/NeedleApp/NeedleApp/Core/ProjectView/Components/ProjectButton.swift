@@ -21,7 +21,7 @@ struct ProjectButton: View {
                 .padding([.leading, .trailing], 14)
                 .padding([.top, .bottom], 10)
                 .frame(minWidth: 170, maxWidth: 180)
-                .background(projectViewModel.selectedProject.accessCode == project.accessCode ? Color("main-green") : Color("BG"))
+                .background(projectViewModel.selectedProject.accessCode == project.accessCode ? Color.theme.mainGreen : Color.theme.backgroundGray)
         })
         .overlay(
             Rectangle()
