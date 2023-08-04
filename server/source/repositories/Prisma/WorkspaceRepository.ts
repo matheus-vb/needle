@@ -38,4 +38,14 @@ export class WorkspaceRepository implements IWorkspaceInterface{
         })
         return elements
     }
+
+    async deleteWorkspace(id: string) {
+        const workspace = await prisma.workspace.delete({
+            where: {
+                id,
+            }
+        })
+
+        return workspace;
+    }
 }
