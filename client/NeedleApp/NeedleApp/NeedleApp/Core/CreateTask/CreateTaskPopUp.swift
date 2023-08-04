@@ -12,11 +12,9 @@ struct CreateTaskPopUp: View {
     var geometry: GeometryProxy
     var body: some View {
         ScrollView{
-            VStack(spacing: 30){
-                taskTitle
-                attributesStack
-                description
-                Spacer()
+            VStack(spacing: 24){
+                topSection
+                contentStack
             }
         }
         .scrollIndicators(.hidden)

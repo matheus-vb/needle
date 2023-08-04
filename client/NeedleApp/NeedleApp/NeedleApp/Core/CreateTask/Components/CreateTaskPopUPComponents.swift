@@ -23,6 +23,7 @@ extension CreateTaskPopUp{
             .labelsHidden()
             .background(Color.clear)
             .border(Color.clear)
+            Spacer()
         }
         .font(.system(size: 16))
         .foregroundColor(Color.theme.mainGray)
@@ -38,6 +39,7 @@ extension CreateTaskPopUp{
             }
             .pickerStyle(.menu)
             .labelsHidden()
+            Spacer()
         }
     }
         
@@ -51,6 +53,7 @@ extension CreateTaskPopUp{
            }
            .pickerStyle(.menu)
            .labelsHidden()
+            Spacer()
         }
     }
     
@@ -64,6 +67,7 @@ extension CreateTaskPopUp{
             }
             .pickerStyle(.menu)
             .labelsHidden()
+            Spacer()
         }
     }
     
@@ -82,6 +86,27 @@ extension CreateTaskPopUp{
             type
             priority
         }
-        .padding([.trailing], 288)
+    }
+    
+    var contentStack: some View{
+        VStack(spacing: 30){
+            taskTitle
+            attributesStack
+            description
+            Spacer()
+        }
+    }
+    
+    var topSection: some View{
+        HStack{
+            Spacer()
+            Button(action: {
+                print("Botao de sair")
+            }, label: {
+                Image(systemName: "xmark")
+                    .foregroundColor(.black)
+            })
+        }
+        .buttonStyle(.plain)
     }
 }
