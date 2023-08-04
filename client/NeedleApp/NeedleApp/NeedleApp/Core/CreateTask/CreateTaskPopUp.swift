@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct CreateTaskPopUp: View {
+    @StateObject var createTaskViewModel: CreateTaskViewModel = CreateTaskViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct CreateTaskPopUp_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateTaskPopUp()
+        TitleEditableText(text: $createTaskViewModel.taskTitle)
     }
 }
