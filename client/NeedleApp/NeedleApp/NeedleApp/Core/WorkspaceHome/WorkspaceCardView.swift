@@ -14,12 +14,14 @@ struct WorkspaceCardView: View, Identifiable {
     var title: String
     var code: String
     var owner: String
+    var workspaceId: String
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
         self.title = workspaceInfo.name
         self.action = action
         self.owner = "quem"
         self.code = workspaceInfo.accessCode
+        self.workspaceId = workspaceInfo.id
     }
     
     var basicInfo: some View {
@@ -60,6 +62,5 @@ struct WorkspaceCardView: View, Identifiable {
                 
             }.padding(24)
         }
-        
     }
 }

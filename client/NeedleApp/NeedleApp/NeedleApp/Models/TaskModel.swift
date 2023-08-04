@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskModel{
+struct TaskModel: Codable {
     let id: String?
     var title: String
     var description: String
@@ -17,4 +17,5 @@ struct TaskModel{
     var endDate: String
     let workId: String
     var userId: String?
+    let document: Document?
 }

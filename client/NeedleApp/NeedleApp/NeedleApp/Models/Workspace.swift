@@ -8,7 +8,7 @@
 import Foundation
 
 struct Workspace: Identifiable, Equatable, Codable, Hashable {
-    var id = UUID()
+    var id: String
     var accessCode: String
     var name: String
 }

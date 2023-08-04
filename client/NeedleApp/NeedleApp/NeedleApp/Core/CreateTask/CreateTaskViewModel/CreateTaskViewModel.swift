@@ -21,10 +21,10 @@ class CreateTaskViewModel: ObservableObject{
     @Published var members: [WorkspaceUser] = [WorkspaceUser(id: "", name: "Joao Medeiros"), WorkspaceUser(id: "", name: "Bia Ferre"), WorkspaceUser(id: "", name: "Matheus Veras"), WorkspaceUser(id: "", name: "Vitoria Pinheir"), WorkspaceUser(id: "", name: "André Valença")]
     
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
-    func createTask(){
-        let task: CreateTaskDTO
-        task = CreateTaskDTO(userId: selectedMember.id, accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection.rawValue, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
-        
-        print(task)
-    }
+//    func createTask(){
+//        let task: CreateTaskDTO
+//        task = CreateTaskDTO(userId: selectedMember.id, accessCode: "1", title: self.taskTitle, description: self.taskDescription, stats: self.statusSelection.rawValue, type: self.categorySelection.rawValue, endDate: self.deadLineSelection, priority: self.prioritySelection.rawValue)
+//
+//        print(task)
+//    }
 }
