@@ -494,11 +494,6 @@
 		8A0841AF2A7D3E62006F9D67 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */,
-				8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */,
-				8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */,
-				8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */,
-				8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -709,12 +704,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0841B52A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */,
 				274A27FF2A719F6E0002CFEA /* Preview Assets.xcassets in Resources */,
-				8A0841BE2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */,
-				8A0841BB2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */,
-				8A0841B82A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */,
-				8A0841C12A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */,
 				274A27FC2A719F6E0002CFEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,11 +713,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0841C22A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */,
-				8A0841BF2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */,
-				8A0841BC2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */,
-				8A0841B92A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */,
-				8A0841B62A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,11 +720,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A0841C32A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */,
-				8A0841C02A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */,
-				8A0841BD2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */,
-				8A0841BA2A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */,
-				8A0841B72A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,7 +777,6 @@
 				863789802A7451FA004EEB9B /* LeftSideComponents.swift in Sources */,
 				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
-				8A50B4A02A7D2C1300C2F676 /* CustomFonts.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,

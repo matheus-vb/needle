@@ -28,7 +28,7 @@ extension ProjectsViewRightSideComponent{
                     .overlay(
                         Rectangle()
                             .frame(height: 6)
-                            .foregroundColor(projectViewModel.selectedTab == .Kanban ? Color.theme.mainGreen: Color.theme.backgroundGray)
+                            .foregroundColor(projectViewModel.selectedTab == .Kanban ? Color.theme.greenMain: Color.theme.grayBackground)
                             .offset(y: 12)
                         , alignment: .bottom
                     )
@@ -45,7 +45,7 @@ extension ProjectsViewRightSideComponent{
                     .overlay(
                         Rectangle()
                             .frame(height: 6)
-                            .foregroundColor(projectViewModel.selectedTab == .Documentation ? Color.theme.mainGreen: Color.theme.backgroundGray)
+                            .foregroundColor(projectViewModel.selectedTab == .Documentation ? Color.theme.greenMain: Color.theme.grayBackground)
                             .offset(y: 12)
                         , alignment: .bottom
                     )
@@ -66,7 +66,7 @@ extension ProjectsViewRightSideComponent{
             .foregroundColor(.black)
             .padding([.leading, .trailing], 14)
             .padding([.top, .bottom], 10)
-            .background(Color.theme.mainGreen)
+            .background(Color.theme.greenMain)
         })
         .overlay(
             Rectangle()
