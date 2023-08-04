@@ -72,11 +72,16 @@ extension CreateTaskPopUp{
     }
     
     var description: some View{
-        TextEditor(text: $createTaskViewModel.taskDescription)
-            .scrollContentBackground(.hidden)
-            .background(Color.clear)
-            .font(.system(size: 20, weight: .regular))
-            .foregroundColor(Color.theme.grayKanban)
+        VStack(alignment: .leading ,spacing: 12){
+            Text("Descrição")
+                .font(.system(size: 20, weight: .regular))
+                .foregroundColor(Color.theme.mainBlack)
+            TextEditor(text: $createTaskViewModel.taskDescription)
+                .scrollContentBackground(.hidden)
+                .background(Color.clear)
+                .font(.system(size: 20, weight: .regular))
+                .foregroundColor(Color.theme.grayKanban)
+        }
     }
     
     var attributesStack: some View {
