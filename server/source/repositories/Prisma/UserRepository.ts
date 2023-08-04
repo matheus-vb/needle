@@ -62,4 +62,17 @@ export class UserRepository implements IUserRepository {
         return members
     }
 
+    async updateDeviceToken(id: string, deviceToken: string) {
+        const user = await prisma.user.update({
+            where: {
+                id,
+            },
+            data: {
+                deviceToken,
+            }
+        })
+
+        return user
+    }
+
 }

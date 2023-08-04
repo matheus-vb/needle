@@ -14,7 +14,7 @@ struct PrimarySheetActionButton: ButtonStyle {
                     .padding(.vertical, 8)
                     .padding(.horizontal, 36)
             
-                    .background(Color("main-grey"))
+                    .background(Color.theme.mainGray)
                     .foregroundStyle(.white)
                     .cornerRadius(4.23)
             }
@@ -26,7 +26,7 @@ struct SecondarySheetActionButton: ButtonStyle {
                 .padding(.vertical, 8)
                 .padding(.horizontal, 36)
             
-                    .background(Color("main-green"))
+                .background(Color.theme.mainGreen)
                     .foregroundStyle(.black)
                     .cornerRadius(4.23)
             }

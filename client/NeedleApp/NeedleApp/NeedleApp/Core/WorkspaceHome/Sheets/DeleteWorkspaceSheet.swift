@@ -11,8 +11,7 @@ import SwiftUI
 struct DeleteWorkspaceSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var mock: MockWorkspaces
-    
-    var index: Int
+    @EnvironmentObject var viewModel: WorkspaceHomeViewModel
 
     var body: some View {
         VStack(spacing: 24) {
@@ -22,9 +21,12 @@ struct DeleteWorkspaceSheet: View {
                     .multilineTextAlignment(.center)
             }
             HStack(spacing: 16) {
-                Button("Cancelar") {dismiss()}
+                Button("Cancelar") {
+                    dismiss()
+                }
                     .buttonStyle(PrimarySheetActionButton())
-                Button("Excluir") {mock.content.remove(at: index)
+                Button("Excluir") {
+                    WorkspaceDataService.shared.deleteWorkspace(accessCode: viewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
                     dismiss()
                 }
                     .buttonStyle(SecondarySheetActionButton())

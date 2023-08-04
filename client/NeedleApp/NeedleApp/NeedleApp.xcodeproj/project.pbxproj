@@ -64,22 +64,10 @@
 		868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */; };
 		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
 		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
-		8A0841B52A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */; };
-		8A0841B62A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */; };
-		8A0841B72A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */; };
-		8A0841B82A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */; };
-		8A0841B92A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */; };
-		8A0841BA2A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */; };
-		8A0841BB2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */; };
-		8A0841BC2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */; };
-		8A0841BD2A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */; };
-		8A0841BE2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */; };
-		8A0841BF2A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */; };
-		8A0841C02A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */; };
-		8A0841C12A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */; };
-		8A0841C22A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */; };
-		8A0841C32A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */; };
-		8A50B4A02A7D2C1300C2F676 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A50B49F2A7D2C1300C2F676 /* CustomFonts.swift */; };
+		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
+		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
+		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
+		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -173,16 +161,13 @@
 		868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkspaceDTO.swift; sourceTree = "<group>"; };
 		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
-		8A0841B02A7D3E96006F9D67 /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
-		8A0841B12A7D3E96006F9D67 /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
-		8A0841B22A7D3E96006F9D67 /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
-		8A0841B32A7D3E96006F9D67 /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
-		8A0841B42A7D3E96006F9D67 /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
-		8A50B49F2A7D2C1300C2F676 /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
+		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
+		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
-		8AD0B4292A7C426C00F24296 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
@@ -313,6 +298,7 @@
 			children = (
 				274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */,
 				863789842A745D70004EEB9B /* NotificationService.swift */,
+				86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */,
 				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
 			);
 			path = Services;
@@ -346,8 +332,7 @@
 			children = (
 				274A28352A71A0920002CFEA /* ExtensionPlaceHolder.swift */,
 				864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */,
-				8AD0B4292A7C426C00F24296 /* Color.swift */,
-				8A50B49F2A7D2C1300C2F676 /* CustomFonts.swift */,
+				86866C542A7C9B220027FEE9 /* Color+Theme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -356,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */,
+				86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */,
 				868604E12A7C2286001D9213 /* SignInDTO.swift */,
 				275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */,
 				868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */,
@@ -463,6 +449,7 @@
 			children = (
 				868604E42A7C243A001D9213 /* UserResponse.swift */,
 				868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */,
+				86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -704,6 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
+				86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */,
 				D4DB8A662A7C41E700C3DA38 /* JoinWorkspaceSheet.swift in Sources */,
 				868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
@@ -713,6 +701,8 @@
 				D4E40A782A72EB7F00B47A07 /* CreateWorkspaceSheet.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
+				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
+				86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
@@ -766,6 +756,7 @@
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
 				8637897E2A7451FA004EEB9B /* RightSide.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
+				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
@@ -933,7 +924,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -945,7 +936,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -963,7 +954,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -975,7 +966,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

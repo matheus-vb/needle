@@ -12,6 +12,8 @@ import Combine
 class WorkspaceHomeViewModel: ObservableObject {
     @Published var workspaces: [Workspace] = []
     
+    @Published var accessCode: String?
+    
     private var workspaceDS = WorkspaceDataService.shared
     private var cancellables = Set<AnyCancellable>()
     

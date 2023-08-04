@@ -48,6 +48,8 @@ struct LoginPageView: View {
                                 
                                 AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
                                 
+                                NotificationService.shared.updateDeviceToken(userId: userID)
+                                
                                 WorkspaceDataService.shared.getUsersWorkspaces(userId: userID)
                                 
                             default:

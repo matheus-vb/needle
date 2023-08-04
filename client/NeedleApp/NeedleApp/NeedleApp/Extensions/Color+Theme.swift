@@ -1,10 +1,9 @@
 //
-//  Color.swift
+//  Color+Theme.swift
 //  NeedleApp
 //
-//  Created by aaav on 03/08/23.
+//  Created by matheusvb on 03/08/23.
 //
-
 import Foundation
 import SwiftUI
 
@@ -27,3 +26,4 @@ struct ColorTheme {
     let blackMain = Color("OrangeMain")
     let blackMain = Color("RedMain")
 }
+

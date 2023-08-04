@@ -26,10 +26,10 @@ class NetworkingManager{
     }
     
     static func download(url: URL) -> AnyPublisher<Data, Error> {
-//        guard let token = KeychainSwift().get("token") else {
-//            return Fail(error: NetworkingError.tokenNotFound)
-//                .eraseToAnyPublisher()
-//        }
+        //        guard let token = KeychainSwift().get("token") else {
+        //            return Fail(error: NetworkingError.tokenNotFound)
+        //                .eraseToAnyPublisher()
+        //        }
         
         var request = URLRequest(url: url)
         //request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
@@ -42,16 +42,46 @@ class NetworkingManager{
     }
     
     static func post(url: URL, body: Data) -> AnyPublisher<Data, Error> {
-//        guard let token = KeychainSwift().get("token") else {
-//            return Fail(error: NetworkingError.tokenNotFound)
-//                .eraseToAnyPublisher()
-//        }
+        //        guard let token = KeychainSwift().get("token") else {
+        //            return Fail(error: NetworkingError.tokenNotFound)
+        //                .eraseToAnyPublisher()
+        //        }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = body
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        //        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .subscribe(on: DispatchQueue.global(qos: .default))
+            .tryMap({ try handleURLResponse(output: $0, url: url)})
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    static func patch(url: URL, body: Data) -> AnyPublisher<Data, Error> {
+        //            guard let token = KeychainSwift().get("token") else {
+        //                return Fail(error: NetworkingError.tokenNotFound)
+        //                    .eraseToAnyPublisher()
+        //            }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PATCH"
+        request.httpBody = body
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .subscribe(on: DispatchQueue.global(qos: .default))
+            .tryMap({ try handleURLResponse(output: $0, url: url)})
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    static func delete(url: URL) -> AnyPublisher<Data, Error> {
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .default))
@@ -61,7 +91,7 @@ class NetworkingManager{
     }
     
     static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
-
+        
         guard let response = output.response as? HTTPURLResponse,
               response.statusCode >= 200 && response.statusCode < 300 else {
             
