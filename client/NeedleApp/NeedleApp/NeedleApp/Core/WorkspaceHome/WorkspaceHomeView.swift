@@ -19,14 +19,11 @@ struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
     @ObservedObject var viewModel = WorkspaceHomeViewModel()
     
-    
     @State var isDeleting = false
-    
     @State var isNaming = false
-    
     @State var isJoining = false
     
-    @State var cardIndex = 0
+    @State var accessCode: String?
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -53,14 +50,14 @@ struct WorkspaceHomeView: View {
         LazyVGrid(columns: columns, spacing: 24) {
             ForEach(viewModel.workspaces.indices, id: \.self) { index in
                 WorkspaceCardView(workspaceInfo: viewModel.workspaces[index], action: {
+                    viewModel.accessCode = viewModel.workspaces[index].accessCode
                     isDeleting.toggle()
-                    cardIndex = index
                 })
             }
         }
         .frame(width: 1000)
     }
-
+    
     
     var banner: some View {
         HStack {
@@ -78,7 +75,7 @@ struct WorkspaceHomeView: View {
                 VStack() {
                     
                     banner
-                
+                    
                     Spacer()
                     
                     VStack(alignment: .leading, spacing: 28){
@@ -96,7 +93,7 @@ struct WorkspaceHomeView: View {
                 .foregroundColor(Color.theme.mainGray)
                 .background(.white)
                 .environmentObject(mock)
-                }
+        }
         .foregroundColor(Color.theme.mainGray)
         .background(Color.theme.backgroundGray)
         .sheet(isPresented: $isNaming) {
@@ -104,15 +101,16 @@ struct WorkspaceHomeView: View {
                 .foregroundColor(Color.theme.mainGray)
                 .background(.white)
                 .environmentObject(mock)
-                }
+        }
         .foregroundColor(Color.theme.mainGray)
         .background(Color.theme.backgroundGray)
         .sheet(isPresented: $isDeleting) {
-            DeleteWorkspaceSheet(index: cardIndex)
+            DeleteWorkspaceSheet()
                 .foregroundColor(Color.theme.mainGray)
                 .background(.white)
                 .environmentObject(mock)
-                }
+                .environmentObject(viewModel)
+        }
         .foregroundColor(Color.theme.mainGray)
         .background(Color.theme.backgroundGray)
     }

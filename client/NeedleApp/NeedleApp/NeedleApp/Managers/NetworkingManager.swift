@@ -60,6 +60,17 @@ class NetworkingManager{
             .eraseToAnyPublisher()
     }
     
+    static func delete(url: URL) -> AnyPublisher<Data, Error> {
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .subscribe(on: DispatchQueue.global(qos: .default))
+            .tryMap({ try handleURLResponse(output: $0, url: url)})
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
     static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
 
         guard let response = output.response as? HTTPURLResponse,
