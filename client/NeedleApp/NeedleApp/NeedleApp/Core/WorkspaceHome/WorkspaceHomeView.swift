@@ -24,6 +24,9 @@ struct WorkspaceHomeView: View {
     
     @State var accessCode: String?
     
+    @State var isAnimating = false
+    @State var showMain = false
+    
     var columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -66,23 +69,36 @@ struct WorkspaceHomeView: View {
         }.padding(36)
     }
     
-    var body: some View {
+    var loading: some View {
+        ZStack {
+            Image("icon-bg")
+                .offset(x: 200, y: 40)
+                .blur(radius: 8)
+            Circle()
+                .trim(from: 0, to: 0.8)
+                .stroke(Color.theme.mainGreen, lineWidth: 4)
+                .frame(width: 50, height: 50)
+                .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                .onAppear() {
+                    withAnimation (.linear(duration: 1).repeatForever(autoreverses: false)) {
+                        self.isAnimating.toggle()
+                    }
+                }
+        }
+    }
+    
+    var main: some View {
         ZStack {
             Image("icon-bg")
                 .offset(x: 200, y: 40)
             ScrollView {
                 VStack() {
-                    
                     banner
-                    
                     Spacer()
-                    
                     VStack(alignment: .leading, spacing: 28){
-                        
                         gridHeader
                         workspaceGrid
                     }
-                    
                     Spacer()
                 }.padding(.bottom, 120)
             }
@@ -112,5 +128,25 @@ struct WorkspaceHomeView: View {
         }
         .foregroundColor(Color.theme.grayHover)
         .background(Color.theme.grayBackground)
+    }
+    
+    var body: some View {
+        if showMain {
+            main
+        } else {
+            loading
+                .onAppear {
+                    Task {
+                        await loadData()
+                    }
+                }
+        }
+    }
+    
+    func loadData() async {
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        withAnimation {
+            showMain = true
+        }
     }
 }
