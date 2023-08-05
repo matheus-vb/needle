@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
-    @State var tasks : [TaskModel] = []
-    
-    
+struct KanbanView: View {
+    @State var tasks : [TaskModel]
     @State var currentlyDragging : String?
+    
+    @EnvironmentObject var projectViewModel: ProjectViewModel
     
     var body: some View {
         HStack(alignment: .center) {
@@ -29,13 +28,14 @@ struct ContentView: View {
         }
     }
     
-    func addItem(currentlyDragging: String, status: String) {
+    func addItem(currentlyDragging: String, status: TaskStatus) {
         if let sourceIndex = self.tasks.firstIndex(where: {
             $0.id == currentlyDragging
         }){
             var sourceItem = self.tasks.remove(at: sourceIndex)
-            sourceItem.status = status
+            sourceItem.status = status.rawValue
             self.tasks.append(sourceItem)
+            TaskDataService.shared.updateTaskStatus(taskId: currentlyDragging, status: status, userId: AuthenticationManager.shared.user!.id, workspaceId: projectViewModel.selectedProject.id)
         }
     }
     func swapItem(droppingTask: TaskModel, currentlyDragging: String) {
@@ -74,7 +74,7 @@ struct ContentView: View {
             currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.TODO.rawValue)
+                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.TODO)
             }
             return false
         } isTargeted: { status in
@@ -105,7 +105,7 @@ struct ContentView: View {
             currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.IN_PROGRESS.rawValue)
+                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.IN_PROGRESS)
             }
             return false
         } isTargeted: { status in
@@ -136,7 +136,7 @@ struct ContentView: View {
             currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.PENDING.rawValue)
+                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.PENDING)
             }
             return false
         } isTargeted: { status in
@@ -167,7 +167,7 @@ struct ContentView: View {
             currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.DONE.rawValue)
+                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.DONE)
             }
             return false
         } isTargeted: { status in
@@ -208,10 +208,4 @@ struct ContentView: View {
         .buttonStyle(PlainButtonStyle())
     }
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
 }
