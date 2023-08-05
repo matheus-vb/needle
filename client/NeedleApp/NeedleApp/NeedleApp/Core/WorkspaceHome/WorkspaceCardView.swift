@@ -33,7 +33,7 @@ struct WorkspaceCardView: View, Identifiable {
     var deleteButton: some View {
         Button(action: action, label: {
             Text("􀈑")
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
         })
         .buttonStyle(.borderless)
     }
@@ -41,16 +41,19 @@ struct WorkspaceCardView: View, Identifiable {
     var accessCode: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 3.83)
-                .foregroundColor(Color.theme.mainGreen)
+                .foregroundColor(Color.theme.greenMain)
             Text(code)
         }.frame(width: 88, height: 29)
     }
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
-                .frame(width: 488, height: 283.96)
-                .shadow(radius: 10, x: 0, y: 4)
+            NavigationLink(destination: ProjectView(), label: {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
+                    .frame(width: 488, height: 283.96)
+                    .shadow(radius: 10, x: 0, y: 4)
+            })
+            .buttonStyle(.plain)
             VStack(alignment: .trailing) {
                 HStack {
                     basicInfo

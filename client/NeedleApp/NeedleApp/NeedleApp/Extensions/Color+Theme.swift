@@ -12,20 +12,18 @@ extension Color {
 }
 
 struct ColorTheme {
-
-    let mainGreen = Color("MainGreen")
-    let mainGray = Color("MainGray")
-    let mainBlack = Color("MainBlack")
-    let mediumGray = Color("MediumGray")
-    let backgroundGray = Color("BackgroundGray")
-    let orangeKanban = Color("OrangeKanban")
-    let orangeKanbanLO = Color("OrangeKanbanLO")
-    let greenKanban = Color("GreenKanban")
-    let greenKanbanLO = Color("GreenKanbanLO")
+    let blackMain = Color("BlackMain")
     let blueKanban = Color("BlueKanban")
-    let blueKanbanLO = Color("BlueKanbanLO")
-    let grayKanban = Color("GrayKanban")
-    let grayKanbanLO = Color("GrayKanbanLO")
-    
+    let blueMain = Color("BlueMain")
+    let grayBackground = Color("GrayBackground")
+    let grayHover = Color("GrayHover")
+    let grayPressed = Color("GrayPressed")
+    let greenKanban = Color("GreenKanban")
+    let greenMain = Color("GreenMain")
+    let greenSecondary = Color("GreenSecondary")
+    let greenTertiary = Color("GreenTertiary")
+    let orangeKanban = Color("OrangeKanban")
+    let orangeMain = Color("OrangeMain")
+    let redMain = Color("RedMain")
 }
 
