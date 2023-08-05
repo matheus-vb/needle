@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct UpdateTaskStatusDTO: Codable {
+    let taskId: String
+    let status: String
+}
