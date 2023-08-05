@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProjectView: View {
     
-    @StateObject var projectViewModel: ProjectViewModel = ProjectViewModel()
+    @EnvironmentObject var projectViewModel: ProjectViewModel
     
     @State var isAnimating = false
     
@@ -56,6 +56,12 @@ struct ProjectView: View {
         .onAppear{
             if projectViewModel.selectedProject.accessCode == ""{
                 projectViewModel.selectedProject = projectViewModel.projects[0]
+            }
+            Task {
+                try? await Task.sleep(nanoseconds: 750_000_000)
+                withAnimation(.spring()) {
+                    projectViewModel.triggerLoading = false
+                }
             }
         }
     }
