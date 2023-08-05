@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class KanbanViewModel: ObservableObject {
+    //TODO: task manipulation
+}
