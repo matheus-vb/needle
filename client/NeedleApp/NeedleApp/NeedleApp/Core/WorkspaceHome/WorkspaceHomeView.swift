@@ -18,6 +18,8 @@ struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
     @ObservedObject var viewModel = WorkspaceHomeViewModel()
     
+    @StateObject var projectViewModel = ProjectViewModel()
+    
     @State var isDeleting = false
     @State var isNaming = false
     @State var isJoining = false
@@ -55,6 +57,7 @@ struct WorkspaceHomeView: View {
                     viewModel.accessCode = viewModel.workspaces[index].accessCode
                     isDeleting.toggle()
                 })
+                .environmentObject(projectViewModel)
             }
         }
         .frame(width: 1000)
