@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension ContentView {
+extension KanbanView {
     @ViewBuilder
     func KanbanColumnTitleView(rowName: String, color: Color) -> some View {
         

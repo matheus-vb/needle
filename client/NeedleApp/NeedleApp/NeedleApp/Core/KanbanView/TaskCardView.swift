@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension ContentView {
+extension KanbanView {
     
     @ViewBuilder
     func TaskCardView(task: TaskModel) -> some View {

@@ -72,6 +72,8 @@
 		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
 		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
 		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
+		86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */; };
+		86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -173,6 +175,8 @@
 		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
 		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
+		86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
+		86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskStatusDTO.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 				275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */,
 				868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */,
 				868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */,
+				86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				649B45422A7D79DB00F8F54B /* KanbanView.swift */,
+				86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */,
 				649B45442A7D7B8200F8F54B /* TaskCardView.swift */,
 				649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */,
 				649B45462A7D7BEC00F8F54B /* KanbanColumnTitleView.swift */,
@@ -701,6 +707,7 @@
 				D4E40A782A72EB7F00B47A07 /* CreateWorkspaceSheet.swift in Sources */,
 				649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */,
 				649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */,
+				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
@@ -709,6 +716,7 @@
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				649B45472A7D7BEC00F8F54B /* KanbanColumnTitleView.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
+				86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,

@@ -17,20 +17,13 @@ struct ProjectsViewRightSideComponent: View {
                 .padding([.leading, .trailing], 64)
             Spacer()
             if projectViewModel.selectedTab == .Kanban{
-                DummyKanbanView()
-                    .foregroundColor(.black)
-                    .font(.system(size: 60))
+                KanbanView(tasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? [])
+                    .environmentObject(projectViewModel)
             }else if projectViewModel.selectedTab == .Documentation{
                 DummyDocumentationView()
                     .foregroundColor(.black)
                     .font(.system(size: 60))
             }
         }
-    }
-}
-
-struct ProjectsViewRightSideComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectsViewRightSideComponent()
     }
 }
