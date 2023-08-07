@@ -33,6 +33,7 @@
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
+		2785BE182A813CAF0049494B /* popUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785BE172A813CAF0049494B /* popUpButton.swift */; };
 		27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F62A7C2D2600FDA10F /* ProjectView.swift */; };
 		27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */; };
 		27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */; };
@@ -125,6 +126,7 @@
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
+		2785BE172A813CAF0049494B /* popUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpButton.swift; sourceTree = "<group>"; };
 		27B795F62A7C2D2600FDA10F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponent.swift; sourceTree = "<group>"; };
 		27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponents.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */,
 				27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */,
 				27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */,
+				2785BE172A813CAF0049494B /* popUpButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
+				2785BE182A813CAF0049494B /* popUpButton.swift in Sources */,
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
