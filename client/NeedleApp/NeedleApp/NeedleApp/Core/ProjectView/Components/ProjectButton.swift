@@ -14,7 +14,6 @@ struct ProjectButton: View {
         Button(action: {
             print("cliquei em \(project.name)")
             projectViewModel.selectedProject = project
-            projectViewModel.showPopUp.toggle()
             TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
             Task {
                 withAnimation {
