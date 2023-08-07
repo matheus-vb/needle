@@ -98,7 +98,10 @@ extension CreateTaskPopUp{
             taskTitle
             attributesStack
             description
-            Spacer()
+            HStack{
+                Spacer()
+                createTask
+            }
         }
     }
     
@@ -115,5 +118,12 @@ extension CreateTaskPopUp{
             })
         }
         .buttonStyle(.plain)
+    }
+    
+    var createTask: some View {
+        HStack{
+            PopUpButton(text: "Cancelar")
+            PopUpButton(text: "Criar")
+        }
     }
 }
