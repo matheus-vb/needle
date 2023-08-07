@@ -178,6 +178,7 @@ struct KanbanView: View {
     func addTaskButton(status : String) -> some View {
         Button {
             self.tasks.append(TaskModel(id: UUID.init().uuidString, title: "Insira o titulo de sua task", description: "Descreva, em poucas palavras, sua task", status: status, type: TaskType.GENERAL.rawValue, documentId: nil, endDate: "00/00/00", workId: UUID.init().uuidString, document: nil))
+            projectViewModel.showPopUp.toggle()
         } label: {
             HStack(alignment: .center, spacing: 8) {
                 Text("􀅼")

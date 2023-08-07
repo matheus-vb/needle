@@ -33,6 +33,7 @@ struct LoginPageView: View {
                         case .success(let auth):
                             switch auth.credential {
                             case let authCredential as ASAuthorizationAppleIDCredential:
+                                print(authCredential)
                                 let userID = authCredential.user
                                 let email = authCredential.email
                                 let firstName = authCredential.fullName?.givenName
@@ -42,12 +43,11 @@ struct LoginPageView: View {
                                 self.lastName = lastName ?? ""
                                 self.userID = userID
                                 
+                                AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
+                                
                                 print(userID)
                                 print(email)
                                 print(firstName)
-                                
-                                AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
-                                
                                 NotificationService.shared.updateDeviceToken(userId: userID)
                                 
                                 WorkspaceDataService.shared.getUsersWorkspaces(userId: userID)

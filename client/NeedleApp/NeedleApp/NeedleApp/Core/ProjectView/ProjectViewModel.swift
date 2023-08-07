@@ -11,8 +11,9 @@ import Combine
 class ProjectViewModel: ObservableObject{
     @Published var selectedTab: SelectedTab = .Kanban 
     @Published var selectedProject: Workspace = Workspace(id: "id1", accessCode: "", name: "")
-    @Published var projects: [Workspace] = []
+    @Published var projects: [Workspace] = [Workspace(id: "1", accessCode: "123", name: "Projeto"), Workspace(id: "id1", accessCode: "", name: ""),Workspace(id: "id1", accessCode: "", name: ""),Workspace(id: "id1", accessCode: "", name: "")]
     @Published var tasks: [String:[TaskModel]] = [:]
+    @Published var showPopUp: Bool = false
     
     @Published var triggerLoading = false
     

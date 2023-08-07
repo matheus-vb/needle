@@ -37,32 +37,38 @@ struct ProjectView: View {
     }
     
     var main: some View {
-        NavigationSplitView(sidebar: {
-            ProjectLeftSideComponent()
-                .padding(.top, 62)
-                .background(Color.theme.grayBackground)
-                .environmentObject(projectViewModel)
-        }, detail: {
-            ZStack {
-                if projectViewModel.triggerLoading {
-                    loading
-                } else {
-                    ProjectsViewRightSideComponent()
-                        .background(Color.theme.grayBackground)
-                        .environmentObject(projectViewModel)                    
+        GeometryReader{geometry in
+            NavigationSplitView(sidebar: {
+                ProjectLeftSideComponent()
+                    .padding(.top, 62)
+                    .background(Color.theme.grayBackground)
+                    .environmentObject(projectViewModel)
+            }, detail: {
+                ZStack {
+                    if projectViewModel.triggerLoading {
+                        loading
+                    } else {
+                        ProjectsViewRightSideComponent()
+                            .background(Color.theme.grayBackground)
+                            .environmentObject(projectViewModel)
+                    }
                 }
-            }
-        })
-        .onAppear{
-            if projectViewModel.selectedProject.accessCode == ""{
-                projectViewModel.selectedProject = projectViewModel.projects[0]
-            }
-            if !projectViewModel.triggerLoading {
-                projectViewModel.triggerLoading = true
-                Task {
-                    try? await Task.sleep(nanoseconds: 750_000_000)
-                    withAnimation(.spring()) {
-                        projectViewModel.triggerLoading = false
+            })
+            .popover(isPresented: $projectViewModel.showPopUp, content: {
+                CreateTaskPopUp(geometry: geometry)
+                    .environmentObject(projectViewModel)
+            })
+            .onAppear{
+                if projectViewModel.selectedProject.accessCode == ""{
+                    projectViewModel.selectedProject = projectViewModel.projects[0]
+                }
+                if !projectViewModel.triggerLoading {
+                    projectViewModel.triggerLoading = true
+                    Task {
+                        try? await Task.sleep(nanoseconds: 750_000_000)
+                        withAnimation(.spring()) {
+                            projectViewModel.triggerLoading = false
+                        }
                     }
                 }
             }
