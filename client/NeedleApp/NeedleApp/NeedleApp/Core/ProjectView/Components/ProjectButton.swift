@@ -14,6 +14,7 @@ struct ProjectButton: View {
         Button(action: {
             print("cliquei em \(project.name)")
             projectViewModel.selectedProject = project
+            projectViewModel.showPopUp.toggle()
         }, label: {
             Text("\(project.name)")
                 .font(.system(size: 12, weight: .regular))

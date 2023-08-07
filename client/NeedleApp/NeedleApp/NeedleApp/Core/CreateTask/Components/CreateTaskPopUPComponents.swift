@@ -103,14 +103,14 @@ extension CreateTaskPopUp{
                 createTask
             }
         }
-        .frame(minHeight: geometry.size.height - 64)
+        .frame(minHeight: geometry.size.height - 128)
     }
     
     var topSection: some View{
         HStack{
             Spacer()
             Button(action: {
-                print("Botao de sair")
+                projectViewModel.showPopUp.toggle()
             }, label: {
                 Image(systemName: "xmark")
                     .resizable()
