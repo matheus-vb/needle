@@ -13,29 +13,10 @@ struct NeedleAppApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
-    @State var isPresented : Bool = false
-    
-    @State var mock : NotificationList = NotificationList()
-    
     var body: some Scene {
         WindowGroup {
             RootView()
                 .frame(minWidth: 1100, minHeight: 600)
-                .toolbar{
-                    Spacer()
-                    Text("Needle")
-                    Spacer()
-                    Image(systemName: mock.list.isEmpty ? "bell" : "bell.badge")
-                        .padding(.horizontal, 20)
-                        .popover(isPresented: $isPresented) {
-//                            NotificationBarView()
-                            NavigationBarView(mock: mock)
-                        }
-                        .onTapGesture {
-                            isPresented.toggle()
-                            print(mock.list.isEmpty)
-                        }
-                }
         }.windowStyle(HiddenTitleBarWindowStyle())
             
     }

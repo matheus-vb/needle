@@ -18,6 +18,8 @@ struct LoginPageView: View {
     
     @ObservedObject var viewModel = LoginPageViewModel()
     
+    @EnvironmentObject var authService: AuthenticationManager
+    
     var body: some View {
         VStack {
             Spacer()
