@@ -1,8 +1,8 @@
 //
-//  EditableText.swift
+//  TitleEditableText.swift
 //  NeedleApp
 //
-//  Created by jpcm2 on 26/07/23.
+//  Created by jpcm2 on 04/08/23.
 //
 
 import SwiftUI
@@ -24,6 +24,7 @@ struct TitleEditableText: View {
             .onTapGesture { isFocused = true }
             .onExitCommand { temporaryText = text; isFocused = false }
             .textFieldStyle(.plain)
-            .font(.system(size: 40, weight: .bold))
+            .font(.system(size: 40, weight: .medium))
+            .foregroundColor(.black)
     }
 }

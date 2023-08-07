@@ -11,4 +11,5 @@ enum TaskStatus: String, CaseIterable, Codable {
     case TODO = "TODO"
     case IN_PROGRESS = "IN_PROGRESS"
     case PENDING = "PENDING"
+    case DONE = "DONE"
 }

@@ -12,8 +12,8 @@ struct CreateTaskDTO: Codable {
     let accessCode: String
     let title: String
     let description: String
-    let stats: TaskStatus
-    let type: TaskType
-    let endDate: Date
-    let priority: TaskPriority
+    let stats: String
+    let type: String
+    let endDate: String
+    let priority: String
 }
