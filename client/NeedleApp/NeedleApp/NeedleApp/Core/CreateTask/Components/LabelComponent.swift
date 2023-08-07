@@ -18,6 +18,6 @@ struct LabelComponent: View {
             Text(label)
         }
         .font(.system(size: 16))
-        .foregroundColor(Color.theme.mainGray)
+        .foregroundColor(Color.theme.grayPressed)
     }
 }

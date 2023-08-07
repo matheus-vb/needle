@@ -9,12 +9,15 @@ import Foundation
 import SwiftUI
 
 struct WorkspaceCardView: View, Identifiable {
+    @EnvironmentObject var projectViewModel: ProjectViewModel
+    
     var id = UUID()
     var action: () -> Void
     var title: String
     var code: String
     var owner: String
     var workspaceId: String
+    let workspace: Workspace
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
         self.title = workspaceInfo.name
@@ -22,6 +25,7 @@ struct WorkspaceCardView: View, Identifiable {
         self.owner = "quem"
         self.code = workspaceInfo.accessCode
         self.workspaceId = workspaceInfo.id
+        self.workspace = workspaceInfo
     }
     
     var basicInfo: some View {
@@ -33,7 +37,7 @@ struct WorkspaceCardView: View, Identifiable {
     var deleteButton: some View {
         Button(action: action, label: {
             Text("􀈑")
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
         })
         .buttonStyle(.borderless)
     }
@@ -41,16 +45,23 @@ struct WorkspaceCardView: View, Identifiable {
     var accessCode: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 3.83)
-                .foregroundColor(Color.theme.mainGreen)
+                .foregroundColor(Color.theme.greenMain)
             Text(code)
         }.frame(width: 88, height: 29)
     }
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
-                .frame(width: 488, height: 283.96)
-                .shadow(radius: 10, x: 0, y: 4)
+            NavigationLink(destination: ProjectView().environmentObject(projectViewModel), label: {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
+                    .frame(width: 488, height: 283.96)
+                    .shadow(radius: 10, x: 0, y: 4)
+            })
+            .simultaneousGesture(TapGesture().onEnded {
+                TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: workspace.id)
+                projectViewModel.selectedProject = workspace
+            })
+            .buttonStyle(.plain)
             VStack(alignment: .trailing) {
                 HStack {
                     basicInfo

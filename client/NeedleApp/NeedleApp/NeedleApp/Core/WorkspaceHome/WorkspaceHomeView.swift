@@ -18,11 +18,16 @@ struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
     @ObservedObject var viewModel = WorkspaceHomeViewModel()
     
+    @StateObject var projectViewModel = ProjectViewModel()
+    
     @State var isDeleting = false
     @State var isNaming = false
     @State var isJoining = false
     
     @State var accessCode: String?
+    
+    @State var isAnimating = false
+    @State var showMain = false
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -52,6 +57,7 @@ struct WorkspaceHomeView: View {
                     viewModel.accessCode = viewModel.workspaces[index].accessCode
                     isDeleting.toggle()
                 })
+                .environmentObject(projectViewModel)
             }
         }
         .frame(width: 1000)
@@ -62,55 +68,88 @@ struct WorkspaceHomeView: View {
         HStack {
             Image("icon-horizontal")
             Spacer()
-            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.mainGray)})
+            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.grayHover)})
         }.padding(36)
     }
     
-    var body: some View {
+    var loading: some View {
+        ZStack {
+            Image("icon-bg")
+                .offset(x: 200, y: 40)
+                .blur(radius: 8)
+            Circle()
+                .trim(from: 0, to: 0.8)
+                .stroke(Color.theme.greenMain, lineWidth: 4)
+                .frame(width: 50, height: 50)
+                .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                .onAppear() {
+                    withAnimation (.linear(duration: 1).repeatForever(autoreverses: false)) {
+                        self.isAnimating.toggle()
+                    }
+                }
+        }
+    }
+    
+    var main: some View {
         ZStack {
             Image("icon-bg")
                 .offset(x: 200, y: 40)
             ScrollView {
                 VStack() {
-                    
                     banner
-                    
                     Spacer()
-                    
                     VStack(alignment: .leading, spacing: 28){
-                        
                         gridHeader
                         workspaceGrid
                     }
-                    
                     Spacer()
                 }.padding(.bottom, 120)
             }
         }
         .sheet(isPresented: $isJoining) {
             JoinWorkspaceSheet()
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
-        .foregroundColor(Color.theme.mainGray)
-        .background(Color.theme.backgroundGray)
+        .foregroundColor(Color.theme.grayHover)
+        .background(Color.theme.grayBackground)
         .sheet(isPresented: $isNaming) {
             CreateWorkspaceSheet()
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
-        .foregroundColor(Color.theme.mainGray)
-        .background(Color.theme.backgroundGray)
+        .foregroundColor(Color.theme.grayHover)
+        .background(Color.theme.grayBackground)
         .sheet(isPresented: $isDeleting) {
             DeleteWorkspaceSheet()
-                .foregroundColor(Color.theme.mainGray)
+                .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
                 .environmentObject(viewModel)
         }
-        .foregroundColor(Color.theme.mainGray)
-        .background(Color.theme.backgroundGray)
+        .foregroundColor(Color.theme.grayHover)
+        .background(Color.theme.grayBackground)
+    }
+    
+    var body: some View {
+        if showMain {
+            main
+        } else {
+            loading
+                .onAppear {
+                    Task {
+                        await loadData()
+                    }
+                }
+        }
+    }
+    
+    func loadData() async {
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        withAnimation {
+            showMain = true
+        }
     }
 }

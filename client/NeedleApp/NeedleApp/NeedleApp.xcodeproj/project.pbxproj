@@ -47,6 +47,10 @@
 		27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */; };
 		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
 		27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */; };
+		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
+		649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45442A7D7B8200F8F54B /* TaskCardView.swift */; };
+		649B45472A7D7BEC00F8F54B /* KanbanColumnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45462A7D7BEC00F8F54B /* KanbanColumnTitleView.swift */; };
+		649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationService.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
@@ -66,6 +70,9 @@
 		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
 		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
 		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
+		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
+		86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */; };
+		86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
@@ -126,6 +133,7 @@
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
+		2767791C2A814A21008AE0AE /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		2785BE172A813CAF0049494B /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
 		27B795F62A7C2D2600FDA10F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponent.swift; sourceTree = "<group>"; };
@@ -140,11 +148,13 @@
 		27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUPComponents.swift; sourceTree = "<group>"; };
+		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
+		649B45442A7D7B8200F8F54B /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
+		649B45462A7D7BEC00F8F54B /* KanbanColumnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnTitleView.swift; sourceTree = "<group>"; };
+		649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTagView.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
-		864D69A42A787BF200EB256A /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		864D69A52A787BFB00EB256A /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -161,6 +171,10 @@
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
 		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
+		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
+		86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
+		86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskStatusDTO.swift; sourceTree = "<group>"; };
+		86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Placeholder.xcconfig; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -233,6 +247,7 @@
 		274A27F62A719F6C0002CFEA /* NeedleApp */ = {
 			isa = PBXGroup;
 			children = (
+				8A0841AE2A7D3E57006F9D67 /* Resources */,
 				864D69AA2A787DBA00EB256A /* Info.plist */,
 				864D69A32A787BE000EB256A /* Config */,
 				274A28402A71A0DD0002CFEA /* Components */,
@@ -336,10 +351,12 @@
 			isa = PBXGroup;
 			children = (
 				273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */,
+				86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */,
 				868604E12A7C2286001D9213 /* SignInDTO.swift */,
 				275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */,
 				868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */,
 				868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */,
+				86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -347,6 +364,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				649B45412A7D79C300F8F54B /* KanbanView */,
 				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
 				27B795F52A7C2D1400FDA10F /* ProjectView */,
 				868604E82A7C2AAA001D9213 /* Root */,
@@ -417,6 +435,18 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		649B45412A7D79C300F8F54B /* KanbanView */ = {
+			isa = PBXGroup;
+			children = (
+				649B45422A7D79DB00F8F54B /* KanbanView.swift */,
+				86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */,
+				649B45442A7D7B8200F8F54B /* TaskCardView.swift */,
+				649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */,
+				649B45462A7D7BEC00F8F54B /* KanbanColumnTitleView.swift */,
+			);
+			path = KanbanView;
+			sourceTree = "<group>";
+		};
 		863789772A7451C8004EEB9B /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,8 +461,8 @@
 		864D69A32A787BE000EB256A /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				864D69A42A787BF200EB256A /* Debug.xcconfig */,
-				864D69A52A787BFB00EB256A /* Release.xcconfig */,
+				86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */,
+				2767791C2A814A21008AE0AE /* Debug.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -453,6 +483,21 @@
 				868604E92A7C2AB4001D9213 /* RootView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		8A0841AE2A7D3E57006F9D67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A0841AF2A7D3E62006F9D67 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A0841AF2A7D3E62006F9D67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8A9BC3612A72EAC400A070FC /* Login */ = {
@@ -658,12 +703,18 @@
 				868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				D4E40A782A72EB7F00B47A07 /* CreateWorkspaceSheet.swift in Sources */,
+				649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */,
+				649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */,
+				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
+				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
 				86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
+				649B45472A7D7BEC00F8F54B /* KanbanColumnTitleView.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
+				86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
@@ -712,6 +763,7 @@
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
+				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
@@ -755,7 +807,7 @@
 /* Begin XCBuildConfiguration section */
 		274A28172A719F6E0002CFEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 864D69A42A787BF200EB256A /* Debug.xcconfig */;
+			baseConfigurationReference = 2767791C2A814A21008AE0AE /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -816,7 +868,6 @@
 		};
 		274A28182A719F6E0002CFEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 864D69A52A787BFB00EB256A /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -884,6 +935,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeedleApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -914,6 +966,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeedleApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

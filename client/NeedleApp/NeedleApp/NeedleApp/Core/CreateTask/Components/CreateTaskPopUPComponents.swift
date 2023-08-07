@@ -19,14 +19,14 @@ extension CreateTaskPopUp{
                 Text("Select a date")
             }
             .colorInvert()
-            .colorMultiply(Color.theme.mainBlack)
+            .colorMultiply(Color.theme.blackMain)
             .labelsHidden()
             .background(Color.clear)
             .border(Color.clear)
             Spacer()
         }
         .font(.system(size: 16))
-        .foregroundColor(Color.theme.mainGray)
+        .foregroundColor(Color.theme.grayPressed)
     }
     
     var responsible: some View {
@@ -75,12 +75,12 @@ extension CreateTaskPopUp{
         VStack(alignment: .leading ,spacing: 12){
             Text("Descrição")
                 .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.mainBlack)
+                .foregroundColor(Color.theme.blackMain)
             TextEditor(text: $createTaskViewModel.taskDescription)
                 .scrollContentBackground(.hidden)
                 .background(Color.clear)
                 .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.grayKanban)
+                .foregroundColor(Color.theme.grayPressed)
         }
     }
     

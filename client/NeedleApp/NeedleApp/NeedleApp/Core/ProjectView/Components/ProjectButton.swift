@@ -15,6 +15,16 @@ struct ProjectButton: View {
             print("cliquei em \(project.name)")
             projectViewModel.selectedProject = project
             projectViewModel.showPopUp.toggle()
+            TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
+            Task {
+                withAnimation {
+                    projectViewModel.triggerLoading = true
+                }
+                try? await Task.sleep(nanoseconds: 750_000_000)
+                withAnimation {
+                    projectViewModel.triggerLoading = false
+                }
+            }
         }, label: {
             Text("\(project.name)")
                 .font(.system(size: 12, weight: .regular))
@@ -22,7 +32,7 @@ struct ProjectButton: View {
                 .padding([.leading, .trailing], 14)
                 .padding([.top, .bottom], 10)
                 .frame(minWidth: 170, maxWidth: 180)
-                .background(projectViewModel.selectedProject.accessCode == project.accessCode ? Color.theme.mainGreen : Color.theme.backgroundGray)
+                .background(projectViewModel.selectedProject.accessCode == project.accessCode ? Color.theme.greenMain : Color.theme.grayBackground)
         })
         .overlay(
             Rectangle()

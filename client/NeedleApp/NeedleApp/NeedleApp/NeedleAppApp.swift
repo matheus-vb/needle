@@ -15,12 +15,8 @@ struct NeedleAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GeometryReader{reader in
-                ZStack{
-                    ProjectView()
-                }
-            }
-            .frame(minWidth: 1100, minHeight: 600)
+            RootView()
+                .frame(minWidth: 1100, minHeight: 600)
         }.windowStyle(HiddenTitleBarWindowStyle())
     }
 }
