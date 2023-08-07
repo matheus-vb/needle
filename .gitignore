@@ -2,4 +2,6 @@
 */.DS_Store
 */client/NeedleApp/NeedleApp/.DS_Store
 *.resolved
-apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
+Debug.xcconfig
+Release.xcconfig
+# apply-gitignore = git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
