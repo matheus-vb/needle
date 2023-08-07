@@ -177,6 +177,7 @@
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
 		86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
 		86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskStatusDTO.swift; sourceTree = "<group>"; };
+		86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Placeholder.xcconfig; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
@@ -466,6 +467,7 @@
 			children = (
 				864D69A42A787BF200EB256A /* Debug.xcconfig */,
 				864D69A52A787BFB00EB256A /* Release.xcconfig */,
+				86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
