@@ -103,6 +103,7 @@ extension CreateTaskPopUp{
                 createTask
             }
         }
+        .frame(minHeight: geometry.size.height - 64)
     }
     
     var topSection: some View{
