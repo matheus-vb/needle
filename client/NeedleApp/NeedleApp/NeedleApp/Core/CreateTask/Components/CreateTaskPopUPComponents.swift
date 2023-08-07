@@ -35,6 +35,7 @@ extension CreateTaskPopUp{
             Picker("Área",selection: $createTaskViewModel.selectedMember){
                 ForEach(createTaskViewModel.members, id: \.self) {membro in
                     Text(membro.name)
+                        .foregroundColor(Color.theme.blackMain)
                 }
             }
             .pickerStyle(.menu)
@@ -49,6 +50,7 @@ extension CreateTaskPopUp{
             Picker("Área",selection: $createTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.rawValue)
+                       .foregroundColor(Color.theme.blackMain)
                }
            }
            .pickerStyle(.menu)
@@ -63,6 +65,7 @@ extension CreateTaskPopUp{
             Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.rawValue)
+                        .foregroundColor(Color.theme.blackMain)
                 }
             }
             .pickerStyle(.menu)
@@ -123,8 +126,19 @@ extension CreateTaskPopUp{
     
     var createTask: some View {
         HStack{
-            PopUpButton(text: "Cancelar")
-            PopUpButton(text: "Criar")
+            PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)
+            PopUpButton(text: "Criar", onButtonTapped: createTaskButton)
         }
+    }
+    
+    func cancelButton(){
+        projectViewModel.showPopUp.toggle()
+    }
+    
+    func createTaskButton(){
+        @AppStorage("userID") var userID: String = "Default User"
+        let dto = CreateTaskDTO(userId: userID, accessCode: projectViewModel.selectedProject.accessCode, title: createTaskViewModel.taskTitle, description: createTaskViewModel.taskDescription, stats: projectViewModel.selectedColumnStatus.rawValue, type: createTaskViewModel.categorySelection.rawValue, endDate: "\(createTaskViewModel.deadLineSelection)", priority: createTaskViewModel.prioritySelection.rawValue)
+        projectViewModel.createTask(dto: dto)
+        projectViewModel.showPopUp.toggle()
     }
 }

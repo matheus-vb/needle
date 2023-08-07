@@ -41,19 +41,19 @@ extension KanbanView {
     func trashButtonKanban(rowName: String) {
         switch rowName {
         case "A fazer":
-            self.tasks.removeAll { task in
+            kanbanViewModel.localTasks.removeAll { task in
                 task.status == TaskStatus.TODO.rawValue
             }
         case "Fazendo":
-            self.tasks.removeAll { task in
+            kanbanViewModel.localTasks.removeAll { task in
                 task.status == TaskStatus.IN_PROGRESS.rawValue
             }
         case "Feito":
-            self.tasks.removeAll { task in
+            kanbanViewModel.localTasks.removeAll { task in
                 task.status == TaskStatus.DONE.rawValue
             }
         case "Em revisão":
-            self.tasks.removeAll { task in
+            kanbanViewModel.localTasks.removeAll { task in
                 task.status ==  TaskStatus.PENDING.rawValue
             }
         default:

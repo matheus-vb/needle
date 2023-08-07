@@ -9,9 +9,10 @@ import SwiftUI
 
 struct PopUpButton: View {
     let text: String
+    var onButtonTapped: () -> Void
     var body: some View {
         Button(action: {
-            print("Ooi")
+            onButtonTapped()
         }, label:{
             Text(text)
                 .padding([.top, .bottom], 9)
@@ -22,11 +23,5 @@ struct PopUpButton: View {
                 .cornerRadius(12)
         })
         .buttonStyle(.plain)
-    }
-}
-
-struct popUpButton_Previews: PreviewProvider {
-    static var previews: some View {
-        PopUpButton(text: "Criar")
     }
 }
