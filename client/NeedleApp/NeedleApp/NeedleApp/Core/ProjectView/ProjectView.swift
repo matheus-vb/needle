@@ -57,10 +57,13 @@ struct ProjectView: View {
             if projectViewModel.selectedProject.accessCode == ""{
                 projectViewModel.selectedProject = projectViewModel.projects[0]
             }
-            Task {
-                try? await Task.sleep(nanoseconds: 750_000_000)
-                withAnimation(.spring()) {
-                    projectViewModel.triggerLoading = false
+            if !projectViewModel.triggerLoading {
+                projectViewModel.triggerLoading = true
+                Task {
+                    try? await Task.sleep(nanoseconds: 750_000_000)
+                    withAnimation(.spring()) {
+                        projectViewModel.triggerLoading = false
+                    }
                 }
             }
         }
