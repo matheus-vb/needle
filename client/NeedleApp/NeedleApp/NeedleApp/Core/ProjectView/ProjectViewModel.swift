@@ -14,7 +14,7 @@ class ProjectViewModel: ObservableObject{
     @Published var projects: [Workspace] = []
     @Published var tasks: [String:[TaskModel]] = [:]
     
-    @Published var triggerLoading = true
+    @Published var triggerLoading = false
     
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
