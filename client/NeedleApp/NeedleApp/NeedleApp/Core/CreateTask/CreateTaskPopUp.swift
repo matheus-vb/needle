@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateTaskPopUp: View {
     @StateObject var createTaskViewModel: CreateTaskViewModel = CreateTaskViewModel()
     @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var kanbanViewModel: KanbanViewModel
     var geometry: GeometryProxy
     var body: some View {
         ScrollView{

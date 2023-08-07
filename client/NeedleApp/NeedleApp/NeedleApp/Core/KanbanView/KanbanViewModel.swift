@@ -8,5 +8,9 @@
 import Foundation
 
 class KanbanViewModel: ObservableObject {
-    //TODO: task manipulation
+    @Published var localTasks: [TaskModel]
+    
+    init(localTasks: [TaskModel]) {
+        self.localTasks = localTasks
+    }
 }
