@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskModel: Codable {
+struct TaskModel: Codable, Identifiable {
     let id: String?
     var title: String
     var description: String

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProjectsViewRightSideComponent: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel
-
     var body: some View {
         VStack{
             topContainer
@@ -17,20 +16,14 @@ struct ProjectsViewRightSideComponent: View {
                 .padding([.leading, .trailing], 64)
             Spacer()
             if projectViewModel.selectedTab == .Kanban{
-                DummyKanbanView()
-                    .foregroundColor(.black)
-                    .font(.system(size: 60))
+                KanbanView()
+                    .environmentObject(projectViewModel)
+                    .environmentObject(KanbanViewModel(localTasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? []))
             }else if projectViewModel.selectedTab == .Documentation{
                 DummyDocumentationView()
                     .foregroundColor(.black)
                     .font(.system(size: 60))
             }
         }
-    }
-}
-
-struct ProjectsViewRightSideComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectsViewRightSideComponent()
     }
 }
