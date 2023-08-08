@@ -28,8 +28,9 @@ struct RootView: View {
             }
         }
         .toolbar{
-            Spacer()
-            Text("Needle")
+                Image("icon-horizontal")
+                .resizable()
+                .scaledToFit()
             Spacer()
             Image(systemName: mock.list.isEmpty ? "bell" : "bell.badge")
                 .popover(isPresented: $notificationIsPresented, arrowEdge: .bottom) {
@@ -37,7 +38,7 @@ struct RootView: View {
                 }
                 .onTapGesture { notificationIsPresented.toggle() }
             
-            Text("Laura Brito \(userLogoutIsPresented ? "􀰇" : "􀄥")")
+            Text("Laura Brito \(userLogoutIsPresented ? "􀄥" : "􀰇")")
                 .onTapGesture{
                 userLogoutIsPresented.toggle()
             }
