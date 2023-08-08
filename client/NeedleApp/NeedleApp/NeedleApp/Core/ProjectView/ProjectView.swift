@@ -70,7 +70,7 @@ struct ProjectView: View {
                 }
             })
             .popover(isPresented: $projectViewModel.showPopUp, content: {
-                CreateTaskPopUp(geometry: geometry)
+                CreateTaskPopUp(createTaskViewModel: CreateTaskViewModel(members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []), geometry: geometry)
                     .environmentObject(projectViewModel)
             })
             .onAppear{
