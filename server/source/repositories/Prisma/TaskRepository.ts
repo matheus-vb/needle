@@ -64,7 +64,8 @@ export class TaskRepository implements ITaskRepository {
                 workId: workspaceId,
             },
             include: {
-                document: true
+                document: true,
+                user: true
             }
         })
 
