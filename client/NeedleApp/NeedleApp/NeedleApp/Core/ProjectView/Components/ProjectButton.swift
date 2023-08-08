@@ -13,13 +13,13 @@ struct ProjectButton: View {
     var body: some View {
         Button(action: {
             print("cliquei em \(project.name)")
-            projectViewModel.selectedProject = project
             TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
             Task {
                 withAnimation {
                     projectViewModel.triggerLoading = true
                 }
-                try? await Task.sleep(nanoseconds: 750_000_000)
+                try? await Task.sleep(nanoseconds: 600_000_000)
+                projectViewModel.selectedProject = project
                 withAnimation {
                     projectViewModel.triggerLoading = false
                 }
