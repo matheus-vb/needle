@@ -63,8 +63,13 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.TODO.rawValue
                     }) {task in
-                        TaskCardView(task: task)
-                            .padding(.bottom, 20)
+                        Button(action: {
+                            projectViewModel.selectedTask = task
+                        }, label: {
+                            TaskCardView(task: task)
+                                .padding(.bottom, 20)
+                        })
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -93,9 +98,14 @@ struct KanbanView: View {
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.IN_PROGRESS.rawValue
-                    }) {task in
-                        TaskCardView(task: task)
-                            .padding(.bottom, 20)
+                    }){task in
+                        Button(action: {
+                            projectViewModel.selectedTask = task
+                        }, label: {
+                            TaskCardView(task: task)
+                                .padding(.bottom, 20)
+                        })
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -125,8 +135,13 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.PENDING.rawValue
                     }) {task in
-                        TaskCardView(task: task)
-                            .padding(.bottom, 20)
+                        Button(action: {
+                            projectViewModel.selectedTask = task
+                        }, label: {
+                            TaskCardView(task: task)
+                                .padding(.bottom, 20)
+                        })
+                        .buttonStyle(.plain)
                     }
                 }
             }
@@ -156,8 +171,13 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.DONE.rawValue
                     }) {task in
-                        TaskCardView(task: task)
-                            .padding(.bottom, 20)
+                        Button(action: {
+                            projectViewModel.selectedTask = task
+                        }, label: {
+                            TaskCardView(task: task)
+                                .padding(.bottom, 20)
+                        })
+                        .buttonStyle(.plain)
                     }
                 }
             }
