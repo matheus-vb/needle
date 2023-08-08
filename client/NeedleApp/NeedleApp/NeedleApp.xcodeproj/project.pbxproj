@@ -33,6 +33,8 @@
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
+		279F09BD2A82A0670016B12E /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09BC2A82A0670016B12E /* EditTaskView.swift */; };
+		279F09BF2A82A0870016B12E /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */; };
 		27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F62A7C2D2600FDA10F /* ProjectView.swift */; };
 		27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */; };
 		27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */; };
@@ -137,6 +139,8 @@
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
+		279F09BC2A82A0670016B12E /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
+		279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		27B795F62A7C2D2600FDA10F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		27B795F82A7C2E1300FDA10F /* ProjectLeftSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponent.swift; sourceTree = "<group>"; };
 		27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLeftSideComponents.swift; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				279F09BB2A82A0480016B12E /* EditTaskView */,
 				649B45412A7D79C300F8F54B /* KanbanView */,
 				D445C8CE2A7AF3C60089481D /* NotificationBar */,
 				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
@@ -425,6 +430,15 @@
 				274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */,
 			);
 			path = CreateTaskViewModel;
+			sourceTree = "<group>";
+		};
+		279F09BB2A82A0480016B12E /* EditTaskView */ = {
+			isa = PBXGroup;
+			children = (
+				279F09BC2A82A0670016B12E /* EditTaskView.swift */,
+				279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */,
+			);
+			path = EditTaskView;
 			sourceTree = "<group>";
 		};
 		27B795F52A7C2D1400FDA10F /* ProjectView */ = {
@@ -777,6 +791,7 @@
 				27B795FB2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift in Sources */,
 				868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */,
 				275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */,
+				279F09BD2A82A0670016B12E /* EditTaskView.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */,
@@ -795,6 +810,7 @@
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
+				279F09BF2A82A0870016B12E /* EditTaskViewModel.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
