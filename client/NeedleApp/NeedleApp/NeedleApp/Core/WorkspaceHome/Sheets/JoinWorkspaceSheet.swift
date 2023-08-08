@@ -36,7 +36,7 @@ struct JoinWorkspaceSheet: View {
                     dismiss()
                 }
                 PopUpButton(text: "Entrar") {
-                    WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: code)
+                    WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: code, role: selectedRole)
                     
                     dismiss()
                 }            }
