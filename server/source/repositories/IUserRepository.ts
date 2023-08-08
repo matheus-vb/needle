@@ -5,6 +5,6 @@ export interface IUserRepository {
     findById(id: string): Promise<User | null>;
     findByEmail(email: string): Promise<User | null>;
     findAllUsersInWorkspace(workspaceId: string, role: Role): Promise<User[]>
-    getUserNamesInWorkspace(workspaceId: string): Promise<{ name: string; }[]>;
+    getUsersInWorkspace(workspaceId: string): Promise<User[]>;
     updateDeviceToken(id: string, deviceToken: string): Promise<User>;
 }
