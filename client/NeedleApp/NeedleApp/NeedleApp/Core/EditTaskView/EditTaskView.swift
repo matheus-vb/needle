@@ -11,11 +11,9 @@ struct EditTaskPopUP: View {
     @StateObject var editTaskViewModel: EditTaskViewModel = EditTaskViewModel(taskDescription: "", taskTitle: "Titulo da Task", statusSelection: TaskStatus.IN_PROGRESS, prioritySelection: TaskPriority.LOW, categorySelection: TaskType.DEV, selectedMember: WorkspaceUser(id: "1", name: "Medeiros"), documentationString: NSAttributedString(string: "ola"))
     var geometry: GeometryProxy
     var body: some View {
-        ScrollView{
-            VStack(spacing: 24){
-                topSection
-                contentStack
-            }
+        VStack(spacing: 24){
+            topSection
+            contentStack
         }
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
@@ -111,6 +109,7 @@ extension EditTaskPopUP{
                 .background(Color.clear)
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
+                .frame(minHeight: 120)
         }
     }
     
@@ -142,15 +141,24 @@ extension EditTaskPopUP{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            description
-            HStack{
-                Spacer()
-                saveTask
+            ScrollView{
+                description
+                textEditor
+                HStack{
+                    Spacer()
+                    saveTask
+                }
             }
         }
         .frame(minHeight: geometry.size.height - 128)
     }
     
+    var textEditor: some View {
+        EditDocumentationView(documentation: $editTaskViewModel.documentationString)
+            .environmentObject(editTaskViewModel)
+            .foregroundColor(.white)
+            .background(.black)
+    }
     var saveTask: some View{
         HStack{
             PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)

@@ -85,6 +85,7 @@ extension CreateTaskPopUp{
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
         }
+        .frame(minHeight: geometry.size.height - 420)
     }
     
     var attributesStack: some View {
@@ -100,10 +101,13 @@ extension CreateTaskPopUp{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            description
-            HStack{
+            ScrollView{
+                description
                 Spacer()
-                createTask
+                HStack{
+                    Spacer()
+                    createTask
+                }
             }
         }
         .frame(minHeight: geometry.size.height - 128)

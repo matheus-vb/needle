@@ -13,11 +13,9 @@ struct CreateTaskPopUp: View {
     @EnvironmentObject var kanbanViewModel: KanbanViewModel
     var geometry: GeometryProxy
     var body: some View {
-        ScrollView{
-            VStack(spacing: 24){
-                topSection
-                contentStack
-            }
+        VStack(spacing: 24){
+            topSection
+            contentStack
         }
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)

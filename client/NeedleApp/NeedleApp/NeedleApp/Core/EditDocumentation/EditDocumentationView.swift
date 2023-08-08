@@ -11,7 +11,7 @@ import RichTextKit
 struct EditDocumentationView: View {
     
     @Binding var documentation : NSAttributedString
-    @EnvironmentObject var createTaskViewModel: CreateTaskViewModel
+    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
     
     //let taskName : String
     //let taskID : String
