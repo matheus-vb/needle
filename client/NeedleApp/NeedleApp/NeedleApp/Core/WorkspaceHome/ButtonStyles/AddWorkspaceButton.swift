@@ -18,7 +18,7 @@ struct AddWorkspaceButton: ButtonStyle {
                 .padding(.top, 6)
                 .padding(.bottom, 5)
         
-                .background(Color.theme.grayHover)
+                .background(Color.theme.blackMain)
                 .foregroundStyle(.white)
                 .frame(width: 488, height: 30)
                 .cornerRadius(12)

@@ -19,7 +19,7 @@ struct PopUpButton: View {
                 .frame(width: 104)
                 .background(text == "Cancelar" || text == "Próximo" || text == "Começar" ? Color.theme.blackMain : Color.theme.greenMain)
                 .foregroundColor(text == "Cancelar"  || text == "Próximo" || text == "Começar"  ? Color.white : Color.theme.blackMain)
-                .font(.system(size: 12, weight: .regular))
+                .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                 .cornerRadius(8)
         })
         .buttonStyle(.plain)
