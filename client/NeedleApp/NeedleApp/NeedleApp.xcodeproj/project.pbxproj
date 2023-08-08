@@ -47,6 +47,7 @@
 		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
 		27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7D92A82C12F0026F381 /* DocumentationDataService.swift */; };
 		27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */; };
+		27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7DD2A82D8BE0026F381 /* Templates.swift */; };
 		27D87B7E2A7D740800F8DD95 /* CreateTaskPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */; };
 		27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */; };
 		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
@@ -159,6 +160,7 @@
 		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
 		27BCF7D92A82C12F0026F381 /* DocumentationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationDataService.swift; sourceTree = "<group>"; };
 		27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocDTO.swift; sourceTree = "<group>"; };
+		27BCF7DD2A82D8BE0026F381 /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
 		27D87B7D2A7D740800F8DD95 /* CreateTaskPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUp.swift; sourceTree = "<group>"; };
 		27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				863789822A745BC1004EEB9B /* KeychainSwift.swift */,
 				868604DF2A7C225D001D9213 /* ConvertToDict.swift */,
 				86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */,
+				27BCF7DD2A82D8BE0026F381 /* Templates.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
+				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */,
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
