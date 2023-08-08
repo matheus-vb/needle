@@ -1,22 +1,28 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 import { makeJoinWorkspaceUseCase } from "../../../useCases/factories/workspace/make-join-workspace";
+import { Role } from "@prisma/client";
 
-export async function joinWorkspace(request: FastifyRequest, response: FastifyReply){
+export async function joinWorkspace(request: FastifyRequest, reply: FastifyReply){
     const joinWorkspaceBodySchema = z.object({
         userId: z.string(),
-        accessCode: z.string()
+        accessCode: z.string(),
+        role: z.nativeEnum(Role),
     })
 
-    const { userId, accessCode } = joinWorkspaceBodySchema.parse(request.body);
+    const { userId, accessCode, role } = joinWorkspaceBodySchema.parse(request.body);
 
     try{
         const joinWorkspaceUseCase = makeJoinWorkspaceUseCase();
 
-        const { userWorkspace } = await joinWorkspaceUseCase.handle({userId, accessCode});
+        const { userWorkspace } = await joinWorkspaceUseCase.handle({
+            userId,
+            accessCode,
+            role,
+        });
 
-        return response.status(200).send({data: userWorkspace})
-    }catch(e){
-        throw e;
+        return reply.status(200).send({data: userWorkspace})
+    }catch(err){
+        return reply.status(400).send({ err: err })
     }
 }
