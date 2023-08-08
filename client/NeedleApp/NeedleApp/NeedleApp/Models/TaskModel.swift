@@ -17,6 +17,7 @@ struct TaskModel: Codable, Identifiable {
     var endDate: String
     let workId: String
     var userId: String?
+    let taskPriority: TaskPriority
     let document: Document?
     let user: User?
 }

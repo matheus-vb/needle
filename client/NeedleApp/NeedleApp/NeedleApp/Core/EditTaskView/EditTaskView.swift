@@ -1,17 +1,14 @@
 //
-//  CreateTaskPopUp.swift
+//  EditTaskView.swift
 //  NeedleApp
 //
-//  Created by jpcm2 on 04/08/23.
+//  Created by jpcm2 on 08/08/23.
 //
 
 import SwiftUI
 
-struct CreateTaskPopUp: View {
-    @StateObject var createTaskViewModel: CreateTaskViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
-    
+struct EditTaskPopUP: View {
+    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
     var geometry: GeometryProxy
     var body: some View {
         VStack(spacing: 24){
@@ -23,5 +20,14 @@ struct CreateTaskPopUp: View {
         .padding([.top, .bottom],32)
         .frame(width: 4*geometry.size.width/9.0, height: geometry.size.height)
         .background(.white)
+    }
+}
+
+struct EditTaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        GeometryReader{ geometry in
+            EditTaskPopUP(geometry: geometry)
+        }
+       
     }
 }
