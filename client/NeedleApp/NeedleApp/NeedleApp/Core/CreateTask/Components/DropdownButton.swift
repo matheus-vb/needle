@@ -9,10 +9,12 @@ import SwiftUI
 
 struct DropdownButton: View {
     let text: String
-//    var onButtonTapped: () -> Void
+    var onButtonTapped: () -> Void
+    @State var isClicked = false
     var body: some View {
         Button(action: {
-//            onButtonTapped()
+            onButtonTapped()
+            isClicked.toggle()
         }, label:{
             HStack{
                 Text("\(text)")
@@ -22,7 +24,7 @@ struct DropdownButton: View {
                 .padding(.leading, 15)
 
                 Spacer()
-                Text("􀄥")
+                Text(isClicked ? "􀄥" : "􀄧")
                     .padding(.trailing, 15)
             }
             .frame(width: 104, height: 32)
@@ -37,10 +39,10 @@ struct DropdownButton: View {
 }
 
 
-struct DropdownButton_Previews: PreviewProvider {
-    static var previews: some View {
-        DropdownButton(text:"Status")
-            .frame(width: 200, height: 200)
-    }
-}
+//struct DropdownButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DropdownButton(text:"Status")
+//            .frame(width: 200, height: 200)
+//    }
+//}
 
