@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+func formatUpperCase(_ string: String) -> String {
+    return string
+        .replacingOccurrences(of: "_", with: " ")
+        .capitalized
+}

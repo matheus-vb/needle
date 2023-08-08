@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct UsersResponse: Codable {
+    let data: [User]
+}
