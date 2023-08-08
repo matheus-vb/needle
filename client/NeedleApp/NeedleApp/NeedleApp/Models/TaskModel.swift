@@ -18,4 +18,5 @@ struct TaskModel: Codable, Identifiable {
     let workId: String
     var userId: String?
     let document: Document?
+    let user: User?
 }

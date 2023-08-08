@@ -24,7 +24,7 @@ extension KanbanView {
 //                        .foregroundColor(Color(red: 0.94, green: 0.27, blue: 0.27))
 //                    foi de base pois a taskmodel n tem prioridade
                 }
-                Text(task.userId ?? "Sem nome")
+                Text(task.user?.name ?? "Sem nome")
                     .font(Font.custom("SF Pro", size: 12))
                     .foregroundColor(.black)
                 Text(task.title)

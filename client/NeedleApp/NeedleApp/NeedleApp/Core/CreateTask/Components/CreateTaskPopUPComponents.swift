@@ -137,7 +137,7 @@ extension CreateTaskPopUp{
     
     func createTaskButton(){
         @AppStorage("userID") var userID: String = "Default User"
-        let dto = CreateTaskDTO(userId: userID, accessCode: projectViewModel.selectedProject.accessCode, title: createTaskViewModel.taskTitle, description: createTaskViewModel.taskDescription, stats: projectViewModel.selectedColumnStatus.rawValue, type: createTaskViewModel.categorySelection.rawValue, endDate: "\(createTaskViewModel.deadLineSelection)", priority: createTaskViewModel.prioritySelection.rawValue)
+        let dto = CreateTaskDTO(userId: nil, accessCode: projectViewModel.selectedProject.accessCode, title: createTaskViewModel.taskTitle, description: createTaskViewModel.taskDescription, stats: projectViewModel.selectedColumnStatus.rawValue, type: createTaskViewModel.categorySelection.rawValue, endDate: "\(createTaskViewModel.deadLineSelection)", priority: createTaskViewModel.prioritySelection.rawValue)
         projectViewModel.createTask(dto: dto)
         projectViewModel.showPopUp.toggle()
     }
