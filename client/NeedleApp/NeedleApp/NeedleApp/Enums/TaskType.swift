@@ -12,4 +12,9 @@ enum TaskType: String, CaseIterable, Codable{
     case DESIGN = "DESIGN"
     case PM = "PM"
     case GENERAL = "GENERAL"
+    case BUSINESS = "BUSINESS"
+    case DEVOPS = "DEVOPS"
+    case SALES = "SALES"
+    case MARKETING = "MARKETING"
+    case QA = "QA"
 }

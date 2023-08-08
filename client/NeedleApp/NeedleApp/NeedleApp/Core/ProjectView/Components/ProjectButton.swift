@@ -14,6 +14,7 @@ struct ProjectButton: View {
         Button(action: {
             print("cliquei em \(project.name)")
             TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
+            WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: project.id)
             Task {
                 withAnimation {
                     projectViewModel.triggerLoading = true

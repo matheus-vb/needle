@@ -15,11 +15,14 @@ class CreateTaskViewModel: ObservableObject{
     @Published var prioritySelection: TaskPriority = .LOW
     @Published var deadLineSelection = Date.now
     @Published var categorySelection: TaskType = .GENERAL
-    @Published var selectedMember: WorkspaceUser = WorkspaceUser(id: "", name: "")
+    @Published var selectedMemberId: String = ""
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
-        
-    @Published var members: [WorkspaceUser] = [WorkspaceUser(id: "", name: "Joao Medeiros"), WorkspaceUser(id: "", name: "Bia Ferre"), WorkspaceUser(id: "", name: "Matheus Veras"), WorkspaceUser(id: "", name: "Vitoria Pinheir"), WorkspaceUser(id: "", name: "André Valença")]
     
+    @Published var members: [User]
+    
+    init(members: [User]) {
+        self.members = members
+    }
     // MARK: FALTA COLOCAR O USERID + ACCESSCODE
 //    func createTask(){
 //        let task: CreateTaskDTO
