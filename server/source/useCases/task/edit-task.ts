@@ -12,7 +12,7 @@ interface IEditTaskRequest{
     type: string
     endDate: Date
     priority: string
-    userId: string
+    userId: string | null
 }
 
 interface IEditTaskReply{
@@ -33,6 +33,9 @@ export class EditTaskUseCase{
         priority,
         userId
     }:IEditTaskRequest) : Promise<IEditTaskReply> {
+        if(!userId){
+            throw new UserNotFound();
+        }
         const user = await this.userRepository.findById(userId)
 
         if(!user){
