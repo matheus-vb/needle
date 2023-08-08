@@ -10,4 +10,5 @@ import Foundation
 struct JoinWorkspaceDTO: Codable {
     let userId: String
     let accessCode: String
+    let role: String
 }

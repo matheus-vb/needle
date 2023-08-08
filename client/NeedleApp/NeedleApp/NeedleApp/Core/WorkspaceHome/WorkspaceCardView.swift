@@ -59,6 +59,7 @@ struct WorkspaceCardView: View, Identifiable {
             })
             .simultaneousGesture(TapGesture().onEnded {
                 TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: workspace.id)
+                WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: workspaceId)
                 projectViewModel.selectedProject = workspace
             })
             .buttonStyle(.plain)

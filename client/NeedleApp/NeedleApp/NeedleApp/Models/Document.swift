@@ -13,4 +13,5 @@ struct Document: Codable, Identifiable{
     let text: String
     let author: String?
     let type: String
+    let textString: String
 }

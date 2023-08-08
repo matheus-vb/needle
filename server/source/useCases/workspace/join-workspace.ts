@@ -1,4 +1,4 @@
-import { User_Workspace } from "@prisma/client"
+import { Role, User_Workspace } from "@prisma/client"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
 import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository"
@@ -6,6 +6,7 @@ import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepos
 interface IJoinWorkspaceUseCaseRequest {
     userId: string
     accessCode: string
+    role: Role
 }
 
 interface IJoinWorkspaceUseCaseReply {
@@ -22,6 +23,7 @@ export class JoinWorkspaceUseCase {
     async handle({
         userId,
         accessCode,
+        role,
     }: IJoinWorkspaceUseCaseRequest): Promise<IJoinWorkspaceUseCaseReply> {
         const user = await this.userRepository.findById(userId);
         if(!user) {
@@ -36,7 +38,7 @@ export class JoinWorkspaceUseCase {
         const userWorkspace = await this.userWorkRepository.create({
             userId,
             workspaceId: workspace.id,
-            userRole: "MEMBER"
+            userRole: role
         })
 
         return {

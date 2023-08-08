@@ -16,4 +16,5 @@ struct CreateTaskDTO: Codable {
     let type: String
     let endDate: String
     let priority: String
+    let docTemplate: String
 }

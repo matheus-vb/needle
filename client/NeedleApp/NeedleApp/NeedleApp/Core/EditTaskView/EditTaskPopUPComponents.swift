@@ -1,21 +1,21 @@
 //
-//  CreateTaskPopUPComponents.swift
+//  EditTaskPopUPComponents.swift
 //  NeedleApp
 //
-//  Created by jpcm2 on 04/08/23.
+//  Created by jpcm2 on 08/08/23.
 //
 
+import Foundation
 import SwiftUI
 
-
-extension CreateTaskPopUp{
+extension EditTaskPopUP{
     var taskTitle: some View {
-        TitleEditableText(text: $createTaskViewModel.taskTitle)
+        TitleEditableText(text: $editTaskViewModel.taskTitle)
     }
     var deadLine: some View{
         HStack(spacing: 24){
             LabelComponent(imageName: "calendar", label: "Prazo")
-            DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
+            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
                 Text("Select a date")
             }
             .colorInvert()
@@ -32,11 +32,10 @@ extension CreateTaskPopUp{
     var responsible: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "person.fill", label: "Responsável")
-            Picker("Área",selection: $createTaskViewModel.selectedMemberId){
-                ForEach(createTaskViewModel.members) { membro in
+            Picker("Área",selection: $editTaskViewModel.selectedMember){
+                ForEach(editTaskViewModel.members, id: \.self) {membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
-                        .tag(membro.id)
                 }
             }
             .pickerStyle(.menu)
@@ -48,7 +47,7 @@ extension CreateTaskPopUp{
     var type: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "shippingbox", label:"Área")
-            Picker("Área",selection: $createTaskViewModel.categorySelection){
+            Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.rawValue)
                        .foregroundColor(Color.theme.blackMain)
@@ -63,7 +62,7 @@ extension CreateTaskPopUp{
     var priority: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "flag.fill", label: "Prioridade")
-            Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
+            Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.rawValue)
                         .foregroundColor(Color.theme.blackMain)
@@ -80,13 +79,13 @@ extension CreateTaskPopUp{
             Text("Descrição")
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.blackMain)
-            TextEditor(text: $createTaskViewModel.taskDescription)
+            TextEditor(text: $editTaskViewModel.taskDescription)
                 .scrollContentBackground(.hidden)
                 .background(Color.clear)
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
+                .frame(minHeight: 120)
         }
-        .frame(minHeight: geometry.size.height - 420)
     }
     
     var attributesStack: some View {
@@ -98,27 +97,11 @@ extension CreateTaskPopUp{
         }
     }
     
-    var contentStack: some View{
-        VStack(spacing: 30){
-            taskTitle
-            attributesStack
-            ScrollView{
-                description
-                Spacer()
-                HStack{
-                    Spacer()
-                    createTask
-                }
-            }
-        }
-        .frame(minHeight: geometry.size.height - 128)
-    }
-    
     var topSection: some View{
         HStack{
             Spacer()
             Button(action: {
-                projectViewModel.showPopUp.toggle()
+                print("Fechar")
             }, label: {
                 Image(systemName: "xmark")
                     .resizable()
@@ -129,37 +112,40 @@ extension CreateTaskPopUp{
         .buttonStyle(.plain)
     }
     
-    var createTask: some View {
+    var contentStack: some View{
+        VStack(spacing: 30){
+            taskTitle
+            attributesStack
+            ScrollView{
+                description
+                textEditor
+                HStack{
+                    Spacer()
+                    saveTask
+                }
+            }
+        }
+        .frame(minHeight: geometry.size.height - 128)
+    }
+    
+    var textEditor: some View {
+        EditDocumentationView(documentation: $editTaskViewModel.documentationString)
+            .environmentObject(editTaskViewModel)
+            .foregroundColor(.white)
+            .background(.black)
+    }
+    var saveTask: some View{
         HStack{
             PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)
-            PopUpButton(text: "Criar", onButtonTapped: createTaskButton)
+            PopUpButton(text: "Salvar", onButtonTapped: saveTaskButton)
         }
     }
     
     func cancelButton(){
-        projectViewModel.showPopUp.toggle()
+        
     }
     
-    func createTaskButton(){
-        var selectedMemberId: String? = createTaskViewModel.selectedMemberId
+    func saveTaskButton(){
         
-        if createTaskViewModel.selectedMemberId == "" {
-            selectedMemberId = nil
-        }
-        
-        let dto = CreateTaskDTO(
-            userId: selectedMemberId,
-            accessCode: projectViewModel.selectedProject.accessCode,
-            title: createTaskViewModel.taskTitle,
-            description: createTaskViewModel.taskDescription,
-            stats: projectViewModel.selectedColumnStatus.rawValue,
-            type: createTaskViewModel.categorySelection.rawValue,
-            endDate: "\(createTaskViewModel.deadLineSelection)",
-            priority: createTaskViewModel.prioritySelection.rawValue,
-            docTemplate: template.devTemplate
-        )
-        
-        projectViewModel.createTask(dto: dto)
-        projectViewModel.showPopUp.toggle()
     }
 }

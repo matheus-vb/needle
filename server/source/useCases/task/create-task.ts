@@ -15,6 +15,7 @@ interface ICreateTaskUseCaseRequest {
     type: string,
     endDate: Date,
     priority: string
+    docTemplate: string
 }
 
 interface ICreateTaskUseCaseReply {
@@ -38,7 +39,8 @@ export class CreateTaskUseCase {
         title,
         type,
         userId,
-        priority
+        priority,
+        docTemplate,
     }: ICreateTaskUseCaseRequest): Promise<ICreateTaskUseCaseReply> {
         
         let userExists: boolean = false
@@ -59,7 +61,7 @@ export class CreateTaskUseCase {
         }
 
         const document = await this.documentRepository.create({
-            text: `${title} documentation`,
+            text: docTemplate,
             title,
             author: userExists ? author : null,
             type,

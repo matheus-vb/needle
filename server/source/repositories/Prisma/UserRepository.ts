@@ -1,17 +1,16 @@
-import { Prisma, User, Role } from "@prisma/client";
+import { Prisma, Role } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IUserRepository } from "../IUserRepository";
-import { z } from "zod";
 
 export class UserRepository implements IUserRepository {
-    async create(data: Prisma.UserCreateInput): Promise<User> {
+    async create(data: Prisma.UserCreateInput) {
         const user = await prisma.user.create({
             data,
         })
         return user
     }
 
-    async findById(id: string): Promise<User | null> {
+    async findById(id: string) {
         const user = await prisma.user.findFirst({
             where: {
                 id: id
@@ -19,7 +18,7 @@ export class UserRepository implements IUserRepository {
         })
         return user
     }
-    async findByEmail(email: string): Promise<User | null> {
+    async findByEmail(email: string) {
         const user = await prisma.user.findFirst({
             where: {
                 email: email,
@@ -28,15 +27,13 @@ export class UserRepository implements IUserRepository {
         return user
     }
 
-    async findAllUsersInWorkspace(workspaceId: string, role: Role): Promise<User[]> {
-        const roleEnum = z.nativeEnum(Role)
-        const checkedRole = roleEnum.parse(role)
+    async findAllUsersInWorkspace(workspaceId: string, role: Role) {
         const users = await prisma.user.findMany({
             where: {
                 workspaces: {
                     some: {
                         workspaceId: workspaceId,
-                        userRole: checkedRole
+                        userRole: role
                     }
                 },
             }
@@ -45,7 +42,7 @@ export class UserRepository implements IUserRepository {
         return users
     }
 
-    async getUserNamesInWorkspace(workspaceId: string) {
+    async getUsersInWorkspace(workspaceId: string) {
         const members = await prisma.user.findMany({
             where: {
                 workspaces: {
@@ -53,10 +50,7 @@ export class UserRepository implements IUserRepository {
                         workspaceId: workspaceId,
                     },
                 },
-            },
-            select: {
-                name: true,
-            },
+            }
         });
 
         return members
