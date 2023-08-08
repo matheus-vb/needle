@@ -155,7 +155,8 @@ extension CreateTaskPopUp{
             stats: projectViewModel.selectedColumnStatus.rawValue,
             type: createTaskViewModel.categorySelection.rawValue,
             endDate: "\(createTaskViewModel.deadLineSelection)",
-            priority: createTaskViewModel.prioritySelection.rawValue
+            priority: createTaskViewModel.prioritySelection.rawValue,
+            docTemplate: template.devTemplate
         )
         
         projectViewModel.createTask(dto: dto)
