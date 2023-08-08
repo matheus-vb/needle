@@ -69,6 +69,10 @@ struct ProjectView: View {
                     }
                 }
             })
+            .popover(isPresented: $projectViewModel.showEditTaskPopUP, content: {
+                EditTaskPopUP(geometry: geometry)
+                    .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!))
+            })
             .popover(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(geometry: geometry)
                     .environmentObject(projectViewModel)

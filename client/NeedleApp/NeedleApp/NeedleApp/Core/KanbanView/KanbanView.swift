@@ -65,6 +65,7 @@ struct KanbanView: View {
                     }) {task in
                         Button(action: {
                             projectViewModel.selectedTask = task
+                            projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
                                 .padding(.bottom, 20)
@@ -101,6 +102,7 @@ struct KanbanView: View {
                     }){task in
                         Button(action: {
                             projectViewModel.selectedTask = task
+                            projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
                                 .padding(.bottom, 20)
@@ -137,6 +139,7 @@ struct KanbanView: View {
                     }) {task in
                         Button(action: {
                             projectViewModel.selectedTask = task
+                            projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
                                 .padding(.bottom, 20)
@@ -173,6 +176,7 @@ struct KanbanView: View {
                     }) {task in
                         Button(action: {
                             projectViewModel.selectedTask = task
+                            projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
                                 .padding(.bottom, 20)
