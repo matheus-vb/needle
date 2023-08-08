@@ -18,6 +18,7 @@ class ProjectViewModel: ObservableObject{
     @Published var showPopUp: Bool = false
     @Published var selectedColumnStatus: TaskStatus = .TODO
     @Published var triggerLoading = false
+    @Published var selectedTask: TaskModel?
     
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
