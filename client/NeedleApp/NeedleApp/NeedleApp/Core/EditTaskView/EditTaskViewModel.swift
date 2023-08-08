@@ -23,11 +23,10 @@ class EditTaskViewModel: ObservableObject{
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
         let date = formatter.date(from: isoDateString)
-        print(date)
         self.taskDescription = data.description
         self.taskTitle = data.title
         self.statusSelection = TaskStatus(rawValue: data.status)!
-        self.prioritySelection = .LOW
+        self.prioritySelection = data.taskPriority
         self.deadLineSelection = date!
         self.categorySelection = TaskType(rawValue: data.type)!
         self.selectedMember = WorkspaceUser(id: "1", name: "Medeiros")
