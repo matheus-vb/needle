@@ -42,7 +42,7 @@ export class UserRepository implements IUserRepository {
         return users
     }
 
-    async getUserNamesInWorkspace(workspaceId: string) {
+    async getUsersInWorkspace(workspaceId: string) {
         const members = await prisma.user.findMany({
             where: {
                 workspaces: {
@@ -50,10 +50,7 @@ export class UserRepository implements IUserRepository {
                         workspaceId: workspaceId,
                     },
                 },
-            },
-            select: {
-                name: true,
-            },
+            }
         });
 
         return members

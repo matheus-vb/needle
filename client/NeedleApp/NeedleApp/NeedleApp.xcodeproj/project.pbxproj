@@ -73,6 +73,9 @@
 		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
 		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
 		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
+		86E6FF022A82932D00BB5D9F /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF012A82932D00BB5D9F /* Role.swift */; };
+		86E6FF042A8297F900BB5D9F /* UpperCaseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */; };
+		86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */; };
 		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
 		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
 		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
@@ -183,6 +186,9 @@
 		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		86E6FF012A82932D00BB5D9F /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperCaseFormatter.swift; sourceTree = "<group>"; };
+		86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
 		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
 		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
@@ -243,6 +249,7 @@
 				270912D32A7AEACF00CB91FA /* TaskPriority.swift */,
 				270912D52A7AEB8F00CB91FA /* TaskType.swift */,
 				27B796072A7C37EB00FDA10F /* SelectedTab.swift */,
+				86E6FF012A82932D00BB5D9F /* Role.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -322,6 +329,7 @@
 				274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */,
 				863789822A745BC1004EEB9B /* KeychainSwift.swift */,
 				868604DF2A7C225D001D9213 /* ConvertToDict.swift */,
+				86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -510,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				868604E42A7C243A001D9213 /* UserResponse.swift */,
+				86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */,
 				868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */,
 				86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */,
 			);
@@ -779,6 +788,7 @@
 				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
+				86E6FF022A82932D00BB5D9F /* Role.swift in Sources */,
 				868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */,
 				868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
@@ -808,6 +818,7 @@
 				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
+				86E6FF042A8297F900BB5D9F /* UpperCaseFormatter.swift in Sources */,
 				27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */,
 				27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */,
 				27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */,
@@ -830,6 +841,7 @@
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
+				86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */,
 				D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

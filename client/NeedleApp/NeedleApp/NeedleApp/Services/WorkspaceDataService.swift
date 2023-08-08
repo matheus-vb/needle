@@ -17,10 +17,13 @@ class WorkspaceDataService: ObservableObject {
     
     @Published var workspaces: [Workspace] = []
     
+    @Published var members: [String: [User]] = [:]
+    
     var workspaceSubscription: AnyCancellable?
     var createWorkspaceSubscription: AnyCancellable?
     var joinWorkspaceSubscription: AnyCancellable?
     var deleteWorkspaceSubscription: AnyCancellable?
+    var getMembersSubscription: AnyCancellable?
     
     func getUsersWorkspaces(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "workspace/list/\(userId)") else { return }
@@ -59,10 +62,10 @@ class WorkspaceDataService: ObservableObject {
         
     }
     
-    func joinWorkspace(userId: String, accessCode: String) {
+    func joinWorkspace(userId: String, accessCode: String, role: Role) {
         guard let url = URL(string: Bundle.baseURL + "join") else { return }
         
-        let dto = JoinWorkspaceDTO(userId: userId, accessCode: accessCode)
+        let dto = JoinWorkspaceDTO(userId: userId, accessCode: accessCode, role: role.rawValue)
         
         let parameters = convertToDictionary(dto)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
@@ -91,6 +94,22 @@ class WorkspaceDataService: ObservableObject {
             }, receiveValue: { [weak self] _ in
                 self?.getUsersWorkspaces(userId: userId)
                 self?.workspaceSubscription?.cancel()
+            })
+    }
+    
+    func getWorkspaceMembers(workspaceId: String) {
+        guard let url = URL(string: Bundle.baseURL + "members/\(workspaceId)") else { return }
+        
+        getMembersSubscription = NetworkingManager.download(url: url)
+            .decode(type: UsersResponse.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] (returnedUsers) in
+                self?.members[workspaceId] = returnedUsers.data
+                self?.getMembersSubscription?.cancel()
             })
     }
 }

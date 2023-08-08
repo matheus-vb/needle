@@ -32,10 +32,11 @@ extension CreateTaskPopUp{
     var responsible: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "person.fill", label: "Responsável")
-            Picker("Área",selection: $createTaskViewModel.selectedMember){
-                ForEach(createTaskViewModel.members, id: \.self) {membro in
+            Picker("Área",selection: $createTaskViewModel.selectedMemberId){
+                ForEach(createTaskViewModel.members) { membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
+                        .tag(membro.id)
                 }
             }
             .pickerStyle(.menu)
@@ -140,8 +141,23 @@ extension CreateTaskPopUp{
     }
     
     func createTaskButton(){
-        @AppStorage("userID") var userID: String = "Default User"
-        let dto = CreateTaskDTO(userId: nil, accessCode: projectViewModel.selectedProject.accessCode, title: createTaskViewModel.taskTitle, description: createTaskViewModel.taskDescription, stats: projectViewModel.selectedColumnStatus.rawValue, type: createTaskViewModel.categorySelection.rawValue, endDate: "\(createTaskViewModel.deadLineSelection)", priority: createTaskViewModel.prioritySelection.rawValue)
+        var selectedMemberId: String? = createTaskViewModel.selectedMemberId
+        
+        if createTaskViewModel.selectedMemberId == "" {
+            selectedMemberId = nil
+        }
+        
+        let dto = CreateTaskDTO(
+            userId: selectedMemberId,
+            accessCode: projectViewModel.selectedProject.accessCode,
+            title: createTaskViewModel.taskTitle,
+            description: createTaskViewModel.taskDescription,
+            stats: projectViewModel.selectedColumnStatus.rawValue,
+            type: createTaskViewModel.categorySelection.rawValue,
+            endDate: "\(createTaskViewModel.deadLineSelection)",
+            priority: createTaskViewModel.prioritySelection.rawValue
+        )
+        
         projectViewModel.createTask(dto: dto)
         projectViewModel.showPopUp.toggle()
     }
