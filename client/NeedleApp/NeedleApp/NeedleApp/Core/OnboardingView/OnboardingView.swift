@@ -33,13 +33,13 @@ struct OnboardingPage : Identifiable, Equatable {
         OnboardingPage(
             title: "Documente sem\nperder tempo.",
             message: "Use os templates pra documentação de desenvolvimento, design ou gerência pra integrar o processo de forma fluida ao seu trabalho.",
-            image: "onboarding_image1",
+            image: "onboarding_image2",
             num: 1),
         
         OnboardingPage(
             title: "Toda informação na\npalma da sua mão.",
             message: "Pesquise como quiser por todas as documentações feitas pelo time, seja de tasks antigas ou atuais.\n\nFicar alinhado nunca foi tão fácil.",
-            image: "onboarding_image1",
+            image: "onboarding_image3",
             num: 2),
     ]
     
@@ -86,34 +86,37 @@ struct OnboardingPageView: View{
             VStack(alignment: .leading){
                 Text(onboardingPage.title)
                     .font(.custom(SpaceGrotesk.bold.rawValue, size: 60))
-
+                    .padding(.top, 60)
+                    .padding(.leading, 50)
                 HStack{
                     VStack(alignment: .leading){
                         Text(onboardingPage.message)
                             .font(.custom(SpaceGrotesk.regular.rawValue, size: 20))
+                            .padding(.leading, 50)
+
                         if onboardingPage.num == 0{
-//                            Button("Próximo", action: incrementPage)
                             PopUpButton(text: "Próximo", onButtonTapped: incrementPage)
+                                .padding(.leading, 50)
+
                         }
                         
                         if onboardingPage.num == 1{
                             HStack{
-//                                Button("Voltar", action: decrementPage)
-//                                Button("Próximo", action: incrementPage)
                                 PopUpButton(text: "Voltar", onButtonTapped: decrementPage)
                                 PopUpButton(text: "Próximo", onButtonTapped: incrementPage)
+                                
                             }
+                            .padding(.leading, 50)
+
                         }
                         
                         if onboardingPage.num == 2{
                             HStack{
-//                                Button("Voltar", action: decrementPage)
-//                                Button("Começar"){
-//                                    isOnboard = false
-//                                }
-                                PopUpButton(text: "Voltar", onButtonTapped: setOnboardingToFalse)
-                                PopUpButton(text: "Começar", onButtonTapped: incrementPage)
+                                PopUpButton(text: "Voltar", onButtonTapped: decrementPage)
+                                PopUpButton(text: "Começar", onButtonTapped: setOnboardingToFalse)
                             }
+                            .padding(.leading, 50)
+
                         }
                         Spacer()
                     }
@@ -122,13 +125,13 @@ struct OnboardingPageView: View{
                     Image(onboardingPage.image)
                         .resizable()
                         .scaledToFit()
-                        .frame(minWidth: 600)
+                        .ignoresSafeArea()
                         .layoutPriority(2)
                 }
             }
-            .padding(.top, 60)
-            .padding(.leading, 30)
-            .padding()
+//            .padding(.top, 60)
+//            .padding(.leading, 30)
+//            .padding()
         }
         
     }
