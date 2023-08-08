@@ -12,11 +12,11 @@ import UserNotifications
 struct NeedleAppApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @State var doc = NSAttributedString.empty
     var body: some Scene {
         WindowGroup {
 //            RootView()
-            WorkspaceHomeView()
+            NavigationBarView(mock: NotificationList())
                 .frame(minWidth: 1100, minHeight: 600)
                 .preferredColorScheme(.light)
         }.windowStyle(HiddenTitleBarWindowStyle())

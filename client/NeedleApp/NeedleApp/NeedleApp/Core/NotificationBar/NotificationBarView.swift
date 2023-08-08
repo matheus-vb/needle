@@ -21,14 +21,18 @@ struct NavigationBarView: View {
     
     var header: some View {
         HStack {
+            Image("simbolo")
+            Spacer()
+            Text("\(mock.list.count) notificações")
+                .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
+            Spacer()
             Button {
                 self.mock.list.removeAll()
             } label: {
                 Text("Limpar")
+                    .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                     .foregroundColor(Color.theme.blueKanban)
             }.buttonStyle(PlainButtonStyle())
-            Spacer()
-            Text("\(mock.list.count) notificações")
 //            Spacer()
 //            Text("􀝖")
         }
