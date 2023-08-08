@@ -17,6 +17,7 @@ struct NeedleAppApp: App {
         WindowGroup {
             RootView()
                 .frame(minWidth: 1100, minHeight: 600)
+                .preferredColorScheme(.light)
         }.windowStyle(HiddenTitleBarWindowStyle())
             
     }
