@@ -98,14 +98,14 @@ struct LoginPageView: View {
                     VStack(alignment: .leading) {
                         Text("Projetos e Tarefas")
                             .font(.custom(SpaceGrotesk.regular.rawValue, size: 32))
-                        VStack(alignment: .leading, spacing: 10){
-                            HStack {
+                        VStack(alignment: .leading, spacing: 20){
+                            HStack (spacing: 20) {
                                 Text("Product design")
                                     .customTextCard()
                                 Text("UI/UX")
                                     .customTextCard()
                             }
-                            HStack{
+                            HStack (spacing: 20){
                                 Text("Front-end")
                                     .customTextCard()
                                 Text("Back-end")
@@ -136,8 +136,9 @@ struct LoginPageView_Previews: PreviewProvider {
 struct LoginTextCardModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.custom(SpaceGrotesk.regular.rawValue, size: 24))
-            .padding(.horizontal, 15)
+            .font(.custom(SpaceGrotesk.regular.rawValue, size: 20))
+            .padding(.horizontal, 20)
+            .padding(.vertical, 4)
             .background(Color.theme.grayPressed)
             .cornerRadius(5)
     }

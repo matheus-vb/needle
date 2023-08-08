@@ -27,19 +27,19 @@ struct OnboardingPage : Identifiable, Equatable {
         OnboardingPage(
             title: "Task concluída é\ntask documentada.",
             message: "Use o clássico kanban de um modo novo: toda task requer documentação para ser concluída, aprovada pelo criador do workspace.",
-            image: "circle",
+            image: "onboarding_image1",
             num: 0),
         
         OnboardingPage(
             title: "Documente sem\nperder tempo.",
             message: "Use os templates pra documentação de desenvolvimento, design ou gerência pra integrar o processo de forma fluida ao seu trabalho.",
-            image: "star",
+            image: "onboarding_image1",
             num: 1),
         
         OnboardingPage(
             title: "Toda informação na\npalma da sua mão.",
             message: "Pesquise como quiser por todas as documentações feitas pelo time, seja de tasks antigas ou atuais.\n\nFicar alinhado nunca foi tão fácil.",
-            image: "bell",
+            image: "onboarding_image1",
             num: 2),
     ]
     
@@ -58,7 +58,6 @@ struct OnboardingView: View {
                     .tag(page.num)
             }
         }
-        .animation(.easeInOut, value: pageIndex)
     }
 
 }
@@ -71,49 +70,66 @@ struct OnboardingPageView: View{
     
     var body: some View{
         
-        VStack(alignment: .leading){
-            Text(onboardingPage.title)
-                .font(.system(size: 68))
+        ZStack {
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Image("Ilustra_Novelo_GRANDE")
+                        .resizable()
+                    .scaledToFit()
+                    .ignoresSafeArea()
+                    .opacity(0.3)
+                }
+            }
             
-            HStack{
+            VStack(alignment: .leading){
+                Text(onboardingPage.title)
+                    .font(.custom(SpaceGrotesk.bold.rawValue, size: 60))
+
+                HStack{
                     VStack(alignment: .leading){
                         Text(onboardingPage.message)
-                            .font(.system(size: 18))
+                            .font(.custom(SpaceGrotesk.regular.rawValue, size: 20))
                         if onboardingPage.num == 0{
-                            Button("Próximo", action: incrementPage)
+//                            Button("Próximo", action: incrementPage)
+                            PopUpButton(text: "Próximo", onButtonTapped: incrementPage)
                         }
                         
                         if onboardingPage.num == 1{
                             HStack{
-                                Button("Voltar", action: decrementPage)
-                                Button("Próximo", action: incrementPage)
+//                                Button("Voltar", action: decrementPage)
+//                                Button("Próximo", action: incrementPage)
+                                PopUpButton(text: "Voltar", onButtonTapped: decrementPage)
+                                PopUpButton(text: "Próximo", onButtonTapped: incrementPage)
                             }
                         }
                         
                         if onboardingPage.num == 2{
                             HStack{
-                                Button("Voltar", action: decrementPage)
-                                Button("Começar"){
-                                    isOnboard = false
-                                }
+//                                Button("Voltar", action: decrementPage)
+//                                Button("Começar"){
+//                                    isOnboard = false
+//                                }
+                                PopUpButton(text: "Voltar", onButtonTapped: setOnboardingToFalse)
+                                PopUpButton(text: "Começar", onButtonTapped: incrementPage)
                             }
                         }
                         Spacer()
                     }
                     .frame(maxWidth: 400, minHeight: 150, alignment: .leading)
-                    .border(.green)
-                    
-                    Image(systemName: onboardingPage.image)
+                    Spacer()
+                    Image(onboardingPage.image)
                         .resizable()
                         .scaledToFit()
                         .frame(minWidth: 600)
-                        .border(.yellow)
                         .layoutPriority(2)
+                }
             }
+            .padding(.top, 60)
+            .padding(.leading, 30)
+            .padding()
         }
-        .padding(.top, 60)
-        .padding(.leading, 50)
-        .padding()
         
     }
     
@@ -123,7 +139,9 @@ struct OnboardingPageView: View{
     func decrementPage(){
         self.pageIndex-=1
     }
-    
+    func setOnboardingToFalse(){
+        self.isOnboard = false
+    }
 }
 
 struct OnboardingView_Previews: PreviewProvider {
