@@ -80,6 +80,8 @@
 		8A76DFD02A8281A30044189B /* SpaceGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A76DFCB2A8281A20044189B /* SpaceGrotesk-Light.ttf */; };
 		8A76DFD12A8281A30044189B /* SpaceGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A76DFCC2A8281A30044189B /* SpaceGrotesk-Medium.ttf */; };
 		8A76DFD22A8281A30044189B /* SpaceGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A76DFCD2A8281A30044189B /* SpaceGrotesk-Regular.ttf */; };
+		8A76DFD42A82E2AC0044189B /* DashedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD32A82E2AC0044189B /* DashedButton.swift */; };
+		8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD52A82E6BC0044189B /* DropdownButton.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 		D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CA2A7AE4130089481D /* NotificationBarView.swift */; };
@@ -191,6 +193,8 @@
 		8A76DFCB2A8281A20044189B /* SpaceGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Light.ttf"; sourceTree = "<group>"; };
 		8A76DFCC2A8281A30044189B /* SpaceGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		8A76DFCD2A8281A30044189B /* SpaceGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		8A76DFD32A82E2AC0044189B /* DashedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedButton.swift; sourceTree = "<group>"; };
+		8A76DFD52A82E6BC0044189B /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
 		D445C8CA2A7AE4130089481D /* NotificationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBarView.swift; sourceTree = "<group>"; };
@@ -475,6 +479,8 @@
 				27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */,
 				27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */,
 				27F32F9D2A81729D0046CB62 /* PopUpButton.swift */,
+				8A76DFD32A82E2AC0044189B /* DashedButton.swift */,
+				8A76DFD52A82E6BC0044189B /* DropdownButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
 				86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
+				8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */,
 				649B45472A7D7BEC00F8F54B /* KanbanColumnTitleView.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */,
@@ -765,6 +772,7 @@
 				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationService.swift in Sources */,
+				8A76DFD42A82E2AC0044189B /* DashedButton.swift in Sources */,
 				868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */,
 				868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
