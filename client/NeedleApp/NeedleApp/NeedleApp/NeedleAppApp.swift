@@ -15,8 +15,7 @@ struct NeedleAppApp: App {
     @State var doc = NSAttributedString.empty
     var body: some Scene {
         WindowGroup {
-//            RootView()
-            NavigationBarView(mock: NotificationList())
+            RootView()
                 .frame(minWidth: 1100, minHeight: 600)
                 .preferredColorScheme(.light)
         }.windowStyle(HiddenTitleBarWindowStyle())
