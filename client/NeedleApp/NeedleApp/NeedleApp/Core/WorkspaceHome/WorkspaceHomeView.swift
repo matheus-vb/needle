@@ -96,13 +96,13 @@ struct WorkspaceHomeView: View {
                 .offset(x: 200, y: 40)
             ScrollView {
                 VStack() {
-                    banner
-                    Spacer()
+//                    banner
+//                    Spacer()
                     VStack(alignment: .leading, spacing: 28){
                         gridHeader
                         workspaceGrid
                     }
-                    Spacer()
+//                    Spacer()
                 }.padding(.bottom, 120)
             }
         }
