@@ -1,4 +1,5 @@
-import { Task } from "@prisma/client";
+import { Task, TaskPriority, TaskStatus, TaskType } from "@prisma/client";
+import { z } from "zod";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import { UserNotFound } from "../errors/UserNotFound";
@@ -44,9 +45,16 @@ export class EditTaskUseCase{
             throw new UserNotFound()
         }
 
+        const parseStatus = z.nativeEnum(TaskStatus)
+        const parsePriority = z.nativeEnum(TaskPriority)
+        const parseType = z.nativeEnum(TaskType)
+
+        const checkedStatus = parseStatus.parse(status)
+        const checkedType = parseType.parse(type)
+        const checkedPriority = parsePriority.parse(priority)
         const updatedTask = await this.taskRepository.updateTask(taskId, title, 
-                                                                description, status, type, endDate, 
-                                                                priority, priority, userId)
+                                                                description, checkedStatus, checkedType, endDate, 
+                                                                checkedPriority, userId)
         
         return {
             task: updatedTask
