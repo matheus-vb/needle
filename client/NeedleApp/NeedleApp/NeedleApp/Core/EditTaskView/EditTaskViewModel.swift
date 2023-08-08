@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EditTaskViewModel{
+class EditTaskViewModel: ObservableObject{
     @Published var taskDescription: String
     @Published var taskTitle: String
     @Published var statusSelection: TaskStatus = .TODO
@@ -16,6 +16,7 @@ class EditTaskViewModel{
     @Published var categorySelection: TaskType = .GENERAL
     @Published var selectedMember: WorkspaceUser = WorkspaceUser(id: "", name: "")
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
+    @Published var members: [WorkspaceUser] = [WorkspaceUser(id: "", name: "Joao Medeiros"), WorkspaceUser(id: "", name: "Bia Ferre"), WorkspaceUser(id: "", name: "Matheus Veras"), WorkspaceUser(id: "", name: "Vitoria Pinheir"), WorkspaceUser(id: "", name: "André Valença")]
     
     init(taskDescription: String, taskTitle: String, statusSelection: TaskStatus, prioritySelection: TaskPriority, deadLineSelection: Foundation.Date = Date.now, categorySelection: TaskType, selectedMember: WorkspaceUser, documentationString: NSAttributedString) {
         self.taskDescription = taskDescription
