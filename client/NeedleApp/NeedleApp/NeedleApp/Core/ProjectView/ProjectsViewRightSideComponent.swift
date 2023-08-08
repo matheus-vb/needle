@@ -20,9 +20,7 @@ struct ProjectsViewRightSideComponent: View {
                     .environmentObject(projectViewModel)
                     .environmentObject(KanbanViewModel(localTasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? []))
             }else if projectViewModel.selectedTab == .Documentation{
-                DummyDocumentationView()
-                    .foregroundColor(.black)
-                    .font(.system(size: 60))
+                SearchDocuments()
             }
         }
     }
