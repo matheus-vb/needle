@@ -11,7 +11,11 @@ struct ProjectView: View {
     
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var isAnimating = false
+    
+    @State var initalLoading = true
     
     var body: some View {
         main
@@ -39,14 +43,25 @@ struct ProjectView: View {
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
+                Button("BACK") {
+                    dismiss()
+                }
                 ProjectLeftSideComponent()
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
                     .environmentObject(projectViewModel)
             }, detail: {
                 ZStack {
-                    if projectViewModel.triggerLoading {
+                    if projectViewModel.triggerLoading || initalLoading {
                         loading
+                            .onAppear {
+                                Task {
+                                    try? await Task.sleep(nanoseconds: 1_000_000_000)
+                                    withAnimation {
+                                        initalLoading = false
+                                    }
+                                }
+                            }
                     } else {
                         ProjectsViewRightSideComponent()
                             .background(Color.theme.grayBackground)
@@ -61,15 +76,6 @@ struct ProjectView: View {
             .onAppear{
                 if projectViewModel.selectedProject.accessCode == ""{
                     projectViewModel.selectedProject = projectViewModel.projects[0]
-                }
-                if !projectViewModel.triggerLoading {
-                    projectViewModel.triggerLoading = true
-                    Task {
-                        try? await Task.sleep(nanoseconds: 750_000_000)
-                        withAnimation(.spring()) {
-                            projectViewModel.triggerLoading = false
-                        }
-                    }
                 }
             }
         }
