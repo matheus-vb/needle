@@ -102,6 +102,8 @@
 		8AA87FE42A83FC55007DFEB5 /* ButtonLandia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE32A83FC55007DFEB5 /* ButtonLandia.swift */; };
 		8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */; };
 		8AA87FE92A8404A6007DFEB5 /* ProjectGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */; };
+		D43EB9BB2A8414C900CF0315 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EB9BA2A8414C900CF0315 /* SheetView.swift */; };
+		D43EB9BD2A84184400CF0315 /* SheetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EB9BC2A84184400CF0315 /* SheetType.swift */; };
 		D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CA2A7AE4130089481D /* NotificationBarView.swift */; };
 		D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */; };
 		D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8D12A7AF3F70089481D /* AppNotification.swift */; };
@@ -233,6 +235,8 @@
 		8AA87FE32A83FC55007DFEB5 /* ButtonLandia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLandia.swift; sourceTree = "<group>"; };
 		8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedSmallerButton.swift; sourceTree = "<group>"; };
 		8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGreenButton.swift; sourceTree = "<group>"; };
+		D43EB9BA2A8414C900CF0315 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		D43EB9BC2A84184400CF0315 /* SheetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetType.swift; sourceTree = "<group>"; };
 		D445C8CA2A7AE4130089481D /* NotificationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBarView.swift; sourceTree = "<group>"; };
 		D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCardView.swift; sourceTree = "<group>"; };
 		D445C8D12A7AF3F70089481D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
@@ -462,6 +466,10 @@
 			children = (
 				274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */,
 				44FE06322A82E71800386ADE /* PickerApp.swift */,
+				D43EB9BA2A8414C900CF0315 /* SheetView.swift */,
+				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
+				D43EB9BC2A84184400CF0315 /* SheetType.swift */,
+				8AA87FE52A83FE32007DFEB5 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -544,7 +552,6 @@
 				27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */,
 				27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */,
 				27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */,
-				8AA87FE52A83FE32007DFEB5 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -669,7 +676,6 @@
 			children = (
 				D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */,
 				D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */,
-				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
 			);
 			path = ButtonStyles;
 			sourceTree = "<group>";
@@ -838,6 +844,7 @@
 				649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */,
 				649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */,
 				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
+				D43EB9BD2A84184400CF0315 /* SheetType.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
@@ -908,6 +915,7 @@
 				270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */,
 				27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
+				D43EB9BB2A8414C900CF0315 /* SheetView.swift in Sources */,
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
