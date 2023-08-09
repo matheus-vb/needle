@@ -9,11 +9,30 @@ import SwiftUI
 
 struct ButtonLandia: View {
     
-    @State var selectedOption = "Prioridade"
+    @State var selectedOption = "Status"
     
     var body: some View {
-        DropdownButton(text: $selectedOption, dropOptions: ["Alta", "Média", "Baixa"]) {
+        VStack{
+            DropdownButton(text: $selectedOption, dropOptions: ["Alta", "Baixo"]) {
+                
+            }
             
+            DashedButton(text:
+                            "Dashing"){
+                
+            }
+            DashedSmallerButton(text:
+                            "Dashing"){
+                
+            }
+            
+            PopUpButton(text: "Cancelar") {
+                
+            }
+            
+            ProjectGreenButton(text: "Project"){
+                
+            }
         }
     }
 }
