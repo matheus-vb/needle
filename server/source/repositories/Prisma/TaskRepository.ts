@@ -118,7 +118,7 @@ export class TaskRepository implements ITaskRepository {
         return tasks;
     }
 
-    async updateTask(taskId: string, title: string, description: string, status: TaskStatus, type: TaskType, endDate: Date, priority: TaskPriority, userId: string): Promise<Task> {
+    async updateTask(taskId: string, title: string, description: string, status: TaskStatus, type: TaskType, endDate: Date, priority: TaskPriority): Promise<Task> {
         const task = await prisma.task.update({
             where:{
                 id: taskId,
@@ -130,7 +130,6 @@ export class TaskRepository implements ITaskRepository {
                 type,
                 endDate,
                 taskPriority: priority,
-                userId
             }
         })
         return task

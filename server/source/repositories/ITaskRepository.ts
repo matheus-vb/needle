@@ -8,7 +8,7 @@ export interface ITaskRepository {
     updateAssignee(id: string, userId: string): Promise<Task>;
     findTasksByWorksapceId(workspaceId: string): Promise<Task[]>;
     updateTask(taskId: string, title:string, 
-        description:string, status:TaskStatus, type: TaskType, endDate: Date, priority: TaskPriority, userId: string): Promise<Task>;
+        description:string, status:TaskStatus, type: TaskType, endDate: Date, priority: TaskPriority): Promise<Task>;
     deleteTask(taskId: string): Promise<void>;
     queryTasks(
         workspaceId: string,
