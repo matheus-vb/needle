@@ -17,7 +17,7 @@ struct NeedleAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ProjectView()
+            ButtonLandia()
                 .environmentObject(projectViewModel)
 
                 .frame(minWidth: 1100, minHeight: 600)
