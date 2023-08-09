@@ -187,6 +187,10 @@ struct KanbanView: View {
             }
         }
         .dropDestination(for: String.self) { items, location in
+            if projectViewModel.roles[projectViewModel.selectedProject.id]! != Role.PRODUCT_MANAGER.rawValue {
+                return false
+            }
+            
             currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
