@@ -38,12 +38,12 @@ struct WorkspaceHomeView: View {
     
     var gridHeader: some View {
         VStack(alignment: .leading, spacing: 8){
-            Text("Workspaces").font(.largeTitle)
+            Text("Workspaces").font(.custom(SpaceGrotesk.regular.rawValue, size: 40)).foregroundColor(Color.theme.blackMain)
             HStack(spacing: 24) {
-                Button("+ Create"){
+                Button("+ Criar"){
                     isNaming.toggle()
                 }.buttonStyle(AddWorkspaceButton())
-                Button("􀉤 Join"){
+                Button("􀉤 Entrar"){
                     isJoining.toggle()
                 }.buttonStyle(JoinWorkspaceButton())
             }
@@ -96,13 +96,13 @@ struct WorkspaceHomeView: View {
                 .offset(x: 200, y: 40)
             ScrollView {
                 VStack() {
-                    banner
-                    Spacer()
+//                    banner
+//                    Spacer()
                     VStack(alignment: .leading, spacing: 28){
                         gridHeader
                         workspaceGrid
                     }
-                    Spacer()
+//                    Spacer()
                 }.padding(.bottom, 120)
             }
         }

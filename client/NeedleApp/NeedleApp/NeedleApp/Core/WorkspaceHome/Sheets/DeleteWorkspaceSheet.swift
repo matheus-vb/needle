@@ -16,20 +16,20 @@ struct DeleteWorkspaceSheet: View {
     var body: some View {
         VStack(spacing: 24) {
             VStack(spacing: 8) {
-                Text("Excluir projeto?").font(.title)
+                Text("Excluir projeto?").font(.custom(SpaceGrotesk.bold.rawValue, size: 16))
                 Text("Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos")
+                    .font(.custom(SpaceGrotesk.bold.rawValue, size: 12))
                     .multilineTextAlignment(.center)
             }
             HStack(spacing: 16) {
-                Button("Cancelar") {
+                
+                PopUpButton(text: "Cancelar") {
                     dismiss()
                 }
-                    .buttonStyle(PrimarySheetActionButton())
-                Button("Excluir") {
+                PopUpButton(text: "Excluir") {
                     WorkspaceDataService.shared.deleteWorkspace(accessCode: viewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
                     dismiss()
                 }
-                    .buttonStyle(SecondarySheetActionButton())
             }
         }.padding(.horizontal, 40)
         .padding(.vertical, 32)

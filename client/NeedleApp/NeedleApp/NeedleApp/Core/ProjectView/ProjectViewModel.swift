@@ -31,7 +31,9 @@ class ProjectViewModel: ObservableObject{
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        addSubscribers()
+        print(self.projects)
+
+//        addSubscribers()
     }
     
     func addSubscribers() {

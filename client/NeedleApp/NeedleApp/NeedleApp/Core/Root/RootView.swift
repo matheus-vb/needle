@@ -28,8 +28,9 @@ struct RootView: View {
             }
         }
         .toolbar{
-            Spacer()
-            Text("Needle")
+                Image("icon-horizontal")
+                .resizable()
+                .scaledToFit()
             Spacer()
             Image(systemName: mock.list.isEmpty ? "bell" : "bell.badge")
                 .popover(isPresented: $notificationIsPresented, arrowEdge: .bottom) {
@@ -37,13 +38,18 @@ struct RootView: View {
                 }
                 .onTapGesture { notificationIsPresented.toggle() }
             
-            Text("Laura Brito \(userLogoutIsPresented ? "􀰇" : "􀄥")")
+            Text("Laura Brito \(userLogoutIsPresented ? "􀄥" : "􀰇")")
+                .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                 .onTapGesture{
                 userLogoutIsPresented.toggle()
             }
             .popover(isPresented: $userLogoutIsPresented, arrowEdge: .bottom) {
-                Button("Sair  􀻵"){
+                Button {
                     authManager.user = nil
+                } label: {
+                    Text("Sair  􀻵")
+                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                    
                 }
                 .buttonStyle(.plain)
                 .padding(.horizontal, 20)
