@@ -103,7 +103,7 @@ class TaskDataService: ObservableObject {
         
         print(url)
         print(parameters)
-        saveTaskSubscription = NetworkingManager.patch(url: url, body: jsonData)
+       saveTaskSubscription = NetworkingManager.patch(url: url, body: jsonData)
             .sink(receiveCompletion: {
                 completion in NetworkingManager.handleCompletion(completion: completion) { error in
                     self.currError = error as? NetworkingManager.NetworkingError
