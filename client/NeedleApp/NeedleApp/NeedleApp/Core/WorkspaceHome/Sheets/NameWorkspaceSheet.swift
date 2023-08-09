@@ -16,17 +16,16 @@ struct CreateWorkspaceSheet: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            Text("New Project").font(.title)
-            TextField("Name defining", text: $projectName)
+            Text("Novo projeto").font(.custom(SpaceGrotesk.bold.rawValue, size: 16))
+            TextField("Definição de nome", text: $projectName)
             HStack {
-                Button("Cancelar", action: {
+                PopUpButton(text: "Cancelar"){
                     dismiss()
-                }).buttonStyle(PrimarySheetActionButton())
-                Button("Create", action: {
+                }
+                PopUpButton(text: "Criar"){
                     WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: projectName)
-                    
                     dismiss()
-                }).buttonStyle(SecondarySheetActionButton())
+                }
             }
         }
         .padding(.horizontal, 40)

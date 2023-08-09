@@ -22,9 +22,7 @@ class DocumentationDataService{
         
         let parameters = convertToDictionary(data)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
-        print(jsonData)
-        print(parameters)
-        print(url)
+
         updateDocumentationTaskSubscription = NetworkingManager.patch(url: url, body: jsonData)
             .sink(receiveCompletion: {
                 completion in NetworkingManager.handleCompletion(completion: completion) { error in
@@ -32,7 +30,6 @@ class DocumentationDataService{
                     self.errorCount += 1
                 }
             }, receiveValue: { [weak self] _ in
-                print("ooooooooou")
                 TaskDataService.shared.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
                 self?.updateDocumentationTaskSubscription?.cancel()
             })

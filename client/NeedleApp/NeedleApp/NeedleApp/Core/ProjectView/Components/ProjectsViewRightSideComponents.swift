@@ -59,8 +59,7 @@ extension ProjectsViewRightSideComponent{
             print("Convidar membro button")
         }, label: {
             HStack(spacing: 8){
-                Image("paperplane")
-                Text("Convidar Membro")
+                Text("􀈟 Convidar Membro")
             }
             .font(.system(size: 16, weight: .regular))
             .foregroundColor(.black)

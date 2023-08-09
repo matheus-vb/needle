@@ -12,7 +12,7 @@ struct JoinWorkspaceButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
         
-            .font(.footnote)
+            .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
             .padding(.horizontal, 200)
                 .padding(.top, 6)
                 .padding(.bottom, 5)

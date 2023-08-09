@@ -18,7 +18,7 @@ struct JoinWorkspaceSheet: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            Text("Join existing workspace").font(.title)
+            Text("Entrar em um workspace existente").font(.custom(SpaceGrotesk.bold.rawValue, size: 16))
             HStack {
                 Text("#").font(.title)
                 TextField("_ _ _ _ _ _", text: $code).frame(width:100)
@@ -32,16 +32,15 @@ struct JoinWorkspaceSheet: View {
             
             
             HStack {
-                Button("Cancel", action: {
+                PopUpButton(text: "Cancelar") {
                     dismiss()
-                }).buttonStyle(PrimarySheetActionButton())
-                Button("Join", action: {
+                }
+                PopUpButton(text: "Entrar") {
                     WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: code, role: selectedRole)
                     
                     dismiss()
-                }).buttonStyle(SecondarySheetActionButton())
-            }
-            Text("Insert the code given to you by your workspace owner.")
+                }            }
+            Text("Insira o código fornecido pelo dono do workspace.").font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
         }
         .padding(.horizontal, 40)
         .padding(.vertical, 32)

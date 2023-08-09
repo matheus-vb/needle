@@ -12,12 +12,14 @@ import UserNotifications
 struct NeedleAppApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+
     var body: some Scene {
         WindowGroup {
             RootView()
                 .frame(minWidth: 1100, minHeight: 600)
+                .preferredColorScheme(.light)
         }.windowStyle(HiddenTitleBarWindowStyle())
+        
             
     }
 }
