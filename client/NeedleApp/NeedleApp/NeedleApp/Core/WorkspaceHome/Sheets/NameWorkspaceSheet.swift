@@ -32,9 +32,3 @@ struct CreateWorkspaceSheet: View {
         .padding(.vertical, 32)
     }
 }
-
-//struct NameWorkspaceSheetPreview: PreviewProvider {
-//    static var previews: some View {
-//        NameWorkspaceSheet(index: 0).environmentObject(MockWorkspaces())
-//    }
-//}
