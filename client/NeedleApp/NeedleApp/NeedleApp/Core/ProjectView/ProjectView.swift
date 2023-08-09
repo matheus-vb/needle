@@ -16,7 +16,16 @@ struct ProjectView: View {
     @State var initalLoading = true
     
     var body: some View {
-        main
+        ZStack {
+            main
+            VStack {
+                AlertBoxView()
+                    .overlay(RoundedRectangle(cornerRadius: 16).stroke(.black, lineWidth: 2))
+                Spacer()
+            }
+            .offset(y: projectViewModel.showCard ? 0 : -500)
+            .animation(.easeInOut, value: projectViewModel.showCard)
+        }
     }
     
     var loading: some View {
