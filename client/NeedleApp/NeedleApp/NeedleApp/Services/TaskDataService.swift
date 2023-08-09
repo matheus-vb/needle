@@ -101,8 +101,6 @@ class TaskDataService: ObservableObject {
         let parameters = convertToDictionary(dto)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
         
-        print(url)
-        print(parameters)
        saveTaskSubscription = NetworkingManager.patch(url: url, body: jsonData)
             .sink(receiveCompletion: {
                 completion in NetworkingManager.handleCompletion(completion: completion) { error in
