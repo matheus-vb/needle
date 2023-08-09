@@ -21,6 +21,7 @@ struct ProjectsViewRightSideComponent: View {
                     .environmentObject(KanbanViewModel(localTasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? []))
             }else if projectViewModel.selectedTab == .Documentation{
                 SearchDocuments()
+                    .environmentObject(SearchDocumentsViewModel(tasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? [], workspaceId: projectViewModel.selectedProject.id))
             }
         }
     }
