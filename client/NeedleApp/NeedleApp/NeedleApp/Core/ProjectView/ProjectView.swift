@@ -11,8 +11,6 @@ struct ProjectView: View {
     
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
-    @Environment(\.dismiss) var dismiss
-    
     @State var isAnimating = false
     
     @State var initalLoading = true
@@ -52,9 +50,6 @@ struct ProjectView: View {
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
-                Button("BACK") {
-                    dismiss()
-                }
                 ProjectLeftSideComponent()
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
@@ -78,6 +73,7 @@ struct ProjectView: View {
                     }
                 }
             })
+            .navigationBarBackButtonHidden(true)
             .popover(isPresented: $projectViewModel.showEditTaskPopUP, content: {
                 EditTaskPopUP(geometry: geometry)
                     .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedProject.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []))
