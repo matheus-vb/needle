@@ -26,22 +26,25 @@ struct EditDocumentationView: View {
         VStack(alignment: .leading){
             HStack{
                 editor
+                leftBorder
                 toolbar
             }
             
-            Button("Enviar"){
-                do {
-                    data = try documentation.richTextData(for: .rtf)
-                    let encodedData = data.base64EncodedString(options: .lineLength64Characters)
-                    saved = encodedData
-                    let data = UpdateDocumentationDTO(id: editTaskViewModel.documentationID, text: encodedData, textString: documentation.string)
-                    editTaskViewModel.updateDoc(dataDTO: data)
-                } catch {
-                    print(error)
-                }
-            }
+//            Button("Enviar"){
+//                do {
+//                    data = try documentation.richTextData(for: .rtf)
+//                    let encodedData = data.base64EncodedString(options: .lineLength64Characters)
+//                    saved = encodedData
+//                    let data = UpdateDocumentationDTO(id: editTaskViewModel.documentationID, text: encodedData, textString: documentation.string)
+//                    editTaskViewModel.updateDoc(dataDTO: data)
+//                } catch {
+//                    print(error)
+//                }
+//            }
         }
-        .padding()
+        .frame(minHeight: 600)
+        .background(Color.theme.grayBackground)
+        .padding(2)
     }
 }
 
@@ -58,5 +61,14 @@ private extension EditDocumentationView {
         
         RichTextFormatSidebar(context: context)
             .layoutPriority(-1)
+            .foregroundColor(Color.theme.blackMain)
+    }
+    
+    var leftBorder: some View {
+        HStack {
+           Rectangle()
+               .frame(width: 2)
+               .foregroundColor(Color.theme.blackMain)
+       }
     }
 }
