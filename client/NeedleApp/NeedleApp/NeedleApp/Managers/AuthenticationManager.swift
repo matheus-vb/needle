@@ -14,8 +14,10 @@ class AuthenticationManager: ObservableObject {
     private init() {}
     
     @Published var user: User?
+    @Published var roles: [String: String] = [:]
     
     var signInSubscription: AnyCancellable?
+    var getRolesSubscription: AnyCancellable?
     
     @Published var currError: NetworkingManager.NetworkingError?
     @Published var errorCount: Int = 0
@@ -40,8 +42,24 @@ class AuthenticationManager: ObservableObject {
             }, receiveValue: { [weak self] (returnedUser) in
                 print("LOGGED")
                 self?.user = returnedUser.data
-                print(self?.user)
                 self?.signInSubscription?.cancel()
+            })
+    }
+    
+    func getRoleInWorkspace(userId: String, workspaceId: String) {
+        guard let url = URL(string: Bundle.baseURL + "user/\(workspaceId)/\(userId)") else { return }
+        
+        getRolesSubscription = NetworkingManager.download(url: url)
+            .decode(type: StringResponse.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] (returnedRole) in
+                print(returnedRole.data)
+                self?.roles[workspaceId] = returnedRole.data
+                self?.getRolesSubscription?.cancel()
             })
     }
 }
