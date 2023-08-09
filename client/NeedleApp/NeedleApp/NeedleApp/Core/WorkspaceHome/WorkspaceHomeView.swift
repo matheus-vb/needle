@@ -106,19 +106,19 @@ struct WorkspaceHomeView: View {
             }
         }
         .sheet(isPresented: $isJoining) {
-            JoinWorkspaceSheet()
+            SheetView(type: .joinCode)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
         .sheet(isPresented: $isNaming) {
-            CreateWorkspaceSheet()
+            SheetView(type: .newWorkspace)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
         .sheet(isPresented: $isDeleting) {
-            DeleteWorkspaceSheet()
+            SheetView(type: .deleteWorkspace)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)

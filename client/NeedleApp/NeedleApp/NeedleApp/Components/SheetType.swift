@@ -35,12 +35,12 @@ enum SheetType {
     
     var text: String {
         switch self {
-        case .newWorkspace: return ""
+        case .newWorkspace: return "Nomeie seu novo workspace:"
         case .deleteWorkspace: return "Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos"
-        case .joinCode: return "Insira o código que o dono do workspace\nlhe enviou."
+        case .joinCode: return "Insira o código do workspace:"
         case .shareCode: return "Envie o código do workspace para sua equipe e deixe-a alinhada"
         case .documentNotFound: return "Procure por outras palavras-chave como título da task, área ou data"
-        case .deleteTask: return "Não se preocupe, a documentação da task irá permanecer na aba de documentos"
+        case .deleteTask: return "Não se preocupe, a documentação da task\nirá permanecer na aba de documentos"
 
         }
     }
@@ -52,7 +52,7 @@ enum SheetType {
         case .joinCode: return true
         case .shareCode: return true
         case .documentNotFound: return false
-        case .deleteTask: return false
+        case .deleteTask: return true
 
         }
     }
