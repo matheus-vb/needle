@@ -12,6 +12,8 @@ struct KanbanView: View {
     @EnvironmentObject var kanbanViewModel: KanbanViewModel
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
+    @State var isDeleting = false
+    
     var body: some View {
         HStack(alignment: .center) {
             Spacer()
@@ -20,8 +22,8 @@ struct KanbanView: View {
                 DoingView()
                 InReviewView()
                 doneView()
-                Spacer()
-                    .frame(width: 60)
+//                Spacer()
+//                    .frame(width: 60)
             }
             Spacer()
         }
@@ -53,7 +55,7 @@ struct KanbanView: View {
     func TodoView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "A fazer", color: Color(red: 0.94, green: 0.27, blue: 0.27))
+                KanbanColumnTitleView(rowName: "A fazer", color: Color.theme.redMain)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.TODO)
@@ -90,7 +92,7 @@ struct KanbanView: View {
     func DoingView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Fazendo", color: Color(red: 0.94, green: 0.27, blue: 0.27))
+                KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.blueKanban)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.IN_PROGRESS)
@@ -127,7 +129,7 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Em revisão", color: Color(red: 0.23, green: 0.51, blue: 0.96))
+                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.orangeKanban)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.PENDING)
@@ -164,7 +166,7 @@ struct KanbanView: View {
     func doneView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Feito", color: Color(red: 0.98, green: 0.45, blue: 0.09))
+                KanbanColumnTitleView(rowName: "Feito", color: Color.theme.greenKanban)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.DONE)
@@ -220,7 +222,7 @@ struct KanbanView: View {
                 .foregroundColor(.black)
             }
             .padding(5)
-            .frame(minWidth: 128, maxWidth: 300)
+            .frame(minWidth: 128, maxWidth: 1000)
             .frame(height: 48)
 //            .frame(width: 256, height: 48, alignment: .center)
             .background(Color(red: 0.88, green: 1, blue: 0.74))

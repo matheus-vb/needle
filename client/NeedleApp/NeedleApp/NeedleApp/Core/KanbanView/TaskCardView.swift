@@ -15,17 +15,20 @@ extension KanbanView {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack{
-                    Text("Prazo: \(task.endDate)")
+                    Text("Prazo: \(String(task.endDate.prefix(10)))")
                         .font(Font.custom("SF Pro", size: 12))
-                        .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
+                        .foregroundColor(Color.theme.grayPressed)
                     Spacer()
+                    Text("􀋊")
+                    .font(Font.custom("SF Pro", size: 12))
+                    .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
                 }
                 Text(task.user?.name ?? "Sem nome")
                     .font(Font.custom("SF Pro", size: 12))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.theme.blackMain)
                 Text(task.title)
                     .font(Font.custom("SF Pro", size: 14))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.theme.blackMain)
             }
             Spacer()
                 .frame(height: 16)
@@ -38,16 +41,13 @@ extension KanbanView {
                     Text("􀈑")
                     .font(Font.custom("SF Pro", size: 14))
                     .foregroundColor(.black)
-//                    .frame(width: 16, alignment: .topLeading)
                 }
                 .buttonStyle(PlainButtonStyle())
 
             }
-//            Spacer()
-//                .frame(height: 10)
+
         }
         .padding(16)
-//        .frame(width: 256, height: 244, alignment: .topLeading)
         .frame(minWidth: 128)
         .background(.white)
         .cornerRadius(6)
@@ -58,9 +58,6 @@ extension KanbanView {
         )
         .draggable(task.id ?? "")
         .dropDestination(for: String.self) { items, location in
-//            print(items)
-//            print(task.id)
-//            print(location)
             currentlyDragging = items.first
             //                print("drop destination!")
             withAnimation(.easeIn) {
@@ -75,6 +72,19 @@ extension KanbanView {
     
     func deleteTask(task: TaskModel) {
         // código de deletar task
+    }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return Color.theme.redMain
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
     }
     
     
