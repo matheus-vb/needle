@@ -36,7 +36,6 @@ class TaskDataService: ObservableObject {
                 }
             }, receiveValue: { [weak self] (returnedTasks) in
                 self?.allUsersTasks[workspaceId] = returnedTasks.data
-                //self?.queryTasks(dto: QueryTasksDTO(workspaceId: workspaceId, query: nil, status: nil, area: nil, priority: nil))
                 self?.getWorkspaceTasksSubscription?.cancel()
             })
     }
