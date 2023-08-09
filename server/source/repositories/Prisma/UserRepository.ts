@@ -69,4 +69,18 @@ export class UserRepository implements IUserRepository {
         return user
     }
 
+    async getUserRoleInWorkspace(workspaceId: string, userId: string) {
+        const userWorkspace = await prisma.user_Workspace.findFirst({
+            where: {
+                userId,
+                workspaceId,
+            }
+        })
+
+        if(!userWorkspace) {
+            return null
+        }
+
+        return userWorkspace.userRole
+    }
 }
