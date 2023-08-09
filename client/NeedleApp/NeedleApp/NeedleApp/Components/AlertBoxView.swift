@@ -9,12 +9,15 @@ import SwiftUI
 
 struct AlertBoxView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct AlertBoxView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlertBoxView()
+        ZStack{
+            Color.theme.grayBackground
+            HStack {
+                Image(systemName: "exclamationmark.bubble.fill")
+                    .padding()
+                Text("Clique duas vezes em uma task para expandir!")
+            }
+        }
+        .frame(width: 240, height: 60)
+        .cornerRadius(16)
     }
 }
