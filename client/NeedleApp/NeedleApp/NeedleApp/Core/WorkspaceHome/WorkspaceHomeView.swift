@@ -101,7 +101,7 @@ struct WorkspaceHomeView: View {
                     VStack(alignment: .leading, spacing: 40){
                         gridHeader
                         workspaceGrid
-                    }.padding(.top, 100)
+                    }.padding(.top, 80)
                 }.padding(.bottom, 120)
             }
         }
@@ -129,6 +129,7 @@ struct WorkspaceHomeView: View {
     var body: some View {
         if showMain {
             main
+
         } else {
             loading
                 .onAppear {
