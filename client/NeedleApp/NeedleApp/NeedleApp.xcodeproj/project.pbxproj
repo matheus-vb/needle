@@ -33,6 +33,7 @@
 		274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */; };
 		274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		275FAF9F2A784E4100372DFE /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
+		276877D72A84147200CE70C4 /* UpdateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276877D62A84147200CE70C4 /* UpdateTaskDTO.swift */; };
 		279F09BD2A82A0670016B12E /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09BC2A82A0670016B12E /* EditTaskView.swift */; };
 		279F09BF2A82A0870016B12E /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */; };
 		279F09C12A82ACA80016B12E /* EditTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09C02A82ACA80016B12E /* EditTaskPopUPComponents.swift */; };
@@ -81,6 +82,7 @@
 		86E6FF102A83086900BB5D9F /* SearchDocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF0F2A83086900BB5D9F /* SearchDocumentsViewModel.swift */; };
 		86E6FF122A830AA300BB5D9F /* QueryTasksDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */; };
 		86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF132A83373000BB5D9F /* StringResponse.swift */; };
+		86E6FF162A840B3E00BB5D9F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF152A840B3E00BB5D9F /* AppView.swift */; };
 		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
 		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
 		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
@@ -162,6 +164,7 @@
 		274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPlaceHolder.swift; sourceTree = "<group>"; };
 		274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModel.swift; sourceTree = "<group>"; };
 		275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocumentationDTO.swift; sourceTree = "<group>"; };
+		276877D62A84147200CE70C4 /* UpdateTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskDTO.swift; sourceTree = "<group>"; };
 		279F09BC2A82A0670016B12E /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
 		279F09C02A82ACA80016B12E /* EditTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskPopUPComponents.swift; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 		86E6FF0F2A83086900BB5D9F /* SearchDocumentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocumentsViewModel.swift; sourceTree = "<group>"; };
 		86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTasksDTO.swift; sourceTree = "<group>"; };
 		86E6FF132A83373000BB5D9F /* StringResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResponse.swift; sourceTree = "<group>"; };
+		86E6FF152A840B3E00BB5D9F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
 		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 				86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */,
 				27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */,
 				86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */,
+				276877D62A84147200CE70C4 /* UpdateTaskDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				86E6FF172A840C0D00BB5D9F /* Toolbar */,
 				44FE062F2A82E67E00386ADE /* SearchDocuments */,
 				279F09BB2A82A0480016B12E /* EditTaskView */,
 				649B45412A7D79C300F8F54B /* KanbanView */,
@@ -575,8 +581,16 @@
 			isa = PBXGroup;
 			children = (
 				868604E92A7C2AB4001D9213 /* RootView.swift */,
+				86E6FF152A840B3E00BB5D9F /* AppView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		86E6FF172A840C0D00BB5D9F /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Toolbar;
 			sourceTree = "<group>";
 		};
 		8A0841AE2A7D3E57006F9D67 /* Resources */ = {
@@ -849,6 +863,7 @@
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */,
+				276877D72A84147200CE70C4 /* UpdateTaskDTO.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
 				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
@@ -911,6 +926,7 @@
 				279F09C12A82ACA80016B12E /* EditTaskPopUPComponents.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
+				86E6FF162A840B3E00BB5D9F /* AppView.swift in Sources */,
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
@@ -1078,7 +1094,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1092,7 +1108,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1110,7 +1126,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1124,7 +1140,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
