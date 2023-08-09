@@ -12,7 +12,7 @@ struct ProjectButton: View {
     let project: Workspace
     var body: some View {
         Button(action: {
-            print("cliquei em \(project.name)")
+            AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
             TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
             WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: project.id)
             Task {

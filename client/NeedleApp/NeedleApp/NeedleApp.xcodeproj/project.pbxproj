@@ -80,6 +80,7 @@
 		86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */; };
 		86E6FF102A83086900BB5D9F /* SearchDocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF0F2A83086900BB5D9F /* SearchDocumentsViewModel.swift */; };
 		86E6FF122A830AA300BB5D9F /* QueryTasksDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */; };
+		86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF132A83373000BB5D9F /* StringResponse.swift */; };
 		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
 		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
 		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
@@ -197,6 +198,7 @@
 		86E6FF0E2A83075700BB5D9F /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		86E6FF0F2A83086900BB5D9F /* SearchDocumentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocumentsViewModel.swift; sourceTree = "<group>"; };
 		86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTasksDTO.swift; sourceTree = "<group>"; };
+		86E6FF132A83373000BB5D9F /* StringResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResponse.swift; sourceTree = "<group>"; };
 		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
 		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */,
 				868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */,
 				86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */,
+				86E6FF132A83373000BB5D9F /* StringResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
+				86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */,
 				86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */,
 				D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */,
 			);
