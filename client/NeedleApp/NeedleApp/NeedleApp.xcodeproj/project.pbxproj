@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270515812A8430D2005FF0EE /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270515802A8430D2005FF0EE /* BackButton.swift */; };
 		270912D22A7AE9B000CB91FA /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D12A7AE9AF00CB91FA /* TaskStatus.swift */; };
 		270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D32A7AEACF00CB91FA /* TaskPriority.swift */; };
 		270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D52A7AEB8F00CB91FA /* TaskType.swift */; };
@@ -132,6 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270515802A8430D2005FF0EE /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		270912D12A7AE9AF00CB91FA /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		270912D32A7AEACF00CB91FA /* TaskPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskPriority.swift; sourceTree = "<group>"; };
 		270912D52A7AEB8F00CB91FA /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */,
 				27B796032A7C35F500FDA10F /* DummyKanbanView.swift */,
 				2721B0D92A7C414F0085F42E /* ProjectButton.swift */,
+				270515802A8430D2005FF0EE /* BackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */,
 				86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */,
+				270515812A8430D2005FF0EE /* BackButton.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,

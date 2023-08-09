@@ -11,8 +11,6 @@ struct ProjectView: View {
     
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
-    @Environment(\.dismiss) var dismiss
-    
     @State var isAnimating = false
     
     @State var initalLoading = true
@@ -43,9 +41,6 @@ struct ProjectView: View {
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
-                Button("BACK") {
-                    dismiss()
-                }
                 ProjectLeftSideComponent()
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
