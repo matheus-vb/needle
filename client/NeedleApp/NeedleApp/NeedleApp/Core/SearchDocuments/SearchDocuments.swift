@@ -25,6 +25,9 @@ struct SearchDocuments: View {
     @State private var sortByUpdate = false
     @State private var sortByUserName = false
     @State private var sortByType = false
+    @State private var dateIsPresented = false
+    
+    @State private var mydate = "Data"
     
     private func dateIsInRange(_ dateString: String) -> Bool {
         let dateFormatter = DateFormatter()
@@ -57,42 +60,28 @@ struct SearchDocuments: View {
                 DropdownButton(text: $filteredStatus, dropOptions: TaskStatus.allCases.map{$0.rawValue}){
                 }
                 
-                HStack{
-                    Text("Início:")
-                        .font(.custom("SF Pro", size: 12)
-                            .weight(.regular))
-                        .foregroundColor(.black)
-                        .padding(.leading, 10)
-
-                    Spacer()
+                DropdownDateButton(text: $mydate, dropOptions: []){
+                    dateIsPresented.toggle()
+                }.popover(isPresented: $dateIsPresented, arrowEdge: .bottom) {
+                    VStack{
+                        HStack{
+                            Text("Início: ")
+                            DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
+                                .labelsHidden()
+                                .frame(width: 100)
+                        }
+                            HStack{
+                                Text("Fim: ")
+                                DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
+                                    .labelsHidden()
+                                    .frame(width: 100)
+                            }
+                        
+                    }
+                    .padding()
+                    .background(Color.theme.greenSecondary)
                 }
-                    .frame(width: 60, height: 32)
-                    .background(Color.theme.greenMain)
-                    .overlay(
-                      RoundedRectangle(cornerRadius: 6)
-                        .stroke(.black, lineWidth: 1)
-                    )
-                
-                    DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
-                        .labelsHidden()
-                        .frame(width: 100)
-                HStack{
-                    Text("Fim:")
-                        .font(.custom("SF Pro", size: 12)
-                            .weight(.regular))
-                        .foregroundColor(.black)
-                }
-                    .frame(width: 60, height: 32)
-                    .background(Color.theme.greenMain)
-                    .overlay(
-                      RoundedRectangle(cornerRadius: 6)
-                        .stroke(.black, lineWidth: 1)
-                    )
-                
-                    DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
-                        .labelsHidden()
-                        .frame(width: 100)
-                
+                            
                 DropdownButton(text: $filteredType, dropOptions: TaskType.allCases.map{$0.rawValue}){
                 }
                 
@@ -110,28 +99,14 @@ struct SearchDocuments: View {
                         print("Search: \(searchText)")
                     } label: {
                         Image(systemName: "magnifyingglass")
-//                            .resizable()
                             .imageScale(.large)
-//                            .background(Color.theme.greenMain)
                             .foregroundColor(Color.theme.blackMain)
                     }
                     .padding(.trailing)
-
-
-                    
-//                    Button(action: {
-//                        print("Search: \(searchText)")
-//                    }) {
-//                        Image(systemName: "magnifyingglass")
-//                            .imageScale(.large)
-//                            .background(Color.theme.greenMain)
-//                            .foregroundColor(Color.theme.blackMain)
-//                    }
-//                    .padding(.trailing)
                 }
                 
             }
-            .padding(.horizontal)
+//            .padding(.horizontal)
             .padding(.top, 10)
             
             Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){

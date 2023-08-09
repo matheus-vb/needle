@@ -101,6 +101,7 @@
 		8AA87FE42A83FC55007DFEB5 /* ButtonLandia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE32A83FC55007DFEB5 /* ButtonLandia.swift */; };
 		8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */; };
 		8AA87FE92A8404A6007DFEB5 /* ProjectGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */; };
+		8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */; };
 		D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CA2A7AE4130089481D /* NotificationBarView.swift */; };
 		D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */; };
 		D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8D12A7AF3F70089481D /* AppNotification.swift */; };
@@ -231,6 +232,7 @@
 		8AA87FE32A83FC55007DFEB5 /* ButtonLandia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLandia.swift; sourceTree = "<group>"; };
 		8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedSmallerButton.swift; sourceTree = "<group>"; };
 		8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGreenButton.swift; sourceTree = "<group>"; };
+		8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownDateButton.swift; sourceTree = "<group>"; };
 		D445C8CA2A7AE4130089481D /* NotificationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBarView.swift; sourceTree = "<group>"; };
 		D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCardView.swift; sourceTree = "<group>"; };
 		D445C8D12A7AF3F70089481D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
@@ -627,6 +629,7 @@
 				8A76DFD32A82E2AC0044189B /* DashedButton.swift */,
 				8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */,
 				8A76DFD52A82E6BC0044189B /* DropdownButton.swift */,
+				8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */,
 				8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */,
 			);
 			path = Buttons;
@@ -892,6 +895,7 @@
 				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
+				8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */,
 				86E6FF122A830AA300BB5D9F /* QueryTasksDTO.swift in Sources */,
 				86E6FF042A8297F900BB5D9F /* UpperCaseFormatter.swift in Sources */,
 				27B795F92A7C2E1300FDA10F /* ProjectLeftSideComponent.swift in Sources */,
