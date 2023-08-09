@@ -29,18 +29,6 @@ struct EditDocumentationView: View {
                 leftBorder
                 toolbar
             }
-            
-//            Button("Enviar"){
-//                do {
-//                    data = try documentation.richTextData(for: .rtf)
-//                    let encodedData = data.base64EncodedString(options: .lineLength64Characters)
-//                    saved = encodedData
-//                    let data = UpdateDocumentationDTO(id: editTaskViewModel.documentationID, text: encodedData, textString: documentation.string)
-//                    editTaskViewModel.updateDoc(dataDTO: data)
-//                } catch {
-//                    print(error)
-//                }
-//            }
         }
         .frame(minHeight: 600)
         .background(Color.theme.grayBackground)
