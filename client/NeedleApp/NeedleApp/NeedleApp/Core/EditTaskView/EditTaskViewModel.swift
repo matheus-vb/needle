@@ -21,9 +21,9 @@ class EditTaskViewModel: ObservableObject{
     @Published var categorySelection: TaskType
     @Published var selectedMember: WorkspaceUser
     @Published var documentationString: NSAttributedString
-    @Published var members: [WorkspaceUser] = [WorkspaceUser(id: "", name: "Joao Medeiros"), WorkspaceUser(id: "", name: "Bia Ferre"), WorkspaceUser(id: "", name: "Matheus Veras"), WorkspaceUser(id: "", name: "Vitoria Pinheir"), WorkspaceUser(id: "", name: "André Valença")]
+    @Published var members: [User]
     
-    init(data: TaskModel, workspaceID: String) {
+    init(data: TaskModel, workspaceID: String, members: [User]) {
         let isoDateString = data.endDate
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
@@ -39,7 +39,7 @@ class EditTaskViewModel: ObservableObject{
         self.selectedMember = WorkspaceUser(id: "1", name: "Medeiros")
         self.documentationString = NSAttributedString(string: data.document?.text ?? "")
         self.documentationID = data.document?.id ?? "0"
-        
+        self.members = members
         //Pegar a documentacao
         let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
         do{

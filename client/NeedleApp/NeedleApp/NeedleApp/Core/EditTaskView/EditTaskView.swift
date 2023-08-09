@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel
     var geometry: GeometryProxy
     var body: some View {
         VStack(spacing: 24){
