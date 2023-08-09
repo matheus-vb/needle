@@ -21,7 +21,7 @@ struct KanbanView: View {
                 InReviewView()
                 doneView()
                 Spacer()
-                    .frame(minWidth: 60)
+                    .frame(width: 60)
             }
             Spacer()
         }
@@ -68,11 +68,11 @@ struct KanbanView: View {
                             projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
-                                .padding(.bottom, 20)
                         })
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -105,11 +105,11 @@ struct KanbanView: View {
                             projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
-                                .padding(.bottom, 20)
                         })
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -142,11 +142,11 @@ struct KanbanView: View {
                             projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
-                                .padding(.bottom, 20)
                         })
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -179,11 +179,11 @@ struct KanbanView: View {
                             projectViewModel.showEditTaskPopUP.toggle()
                         }, label: {
                             TaskCardView(task: task)
-                                .padding(.bottom, 20)
                         })
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -219,8 +219,10 @@ struct KanbanView: View {
                 )
                 .foregroundColor(.black)
             }
-            .padding(0)
-            .frame(width: 256, height: 48, alignment: .center)
+            .padding(5)
+            .frame(minWidth: 128, maxWidth: 300)
+            .frame(height: 48)
+//            .frame(width: 256, height: 48, alignment: .center)
             .background(Color(red: 0.88, green: 1, blue: 0.74))
             .cornerRadius(6)
             .overlay(

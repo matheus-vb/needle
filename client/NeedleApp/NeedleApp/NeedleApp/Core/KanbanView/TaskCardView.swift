@@ -19,10 +19,6 @@ extension KanbanView {
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
                     Spacer()
-//                    Text("􀋊")
-//                        .font(Font.custom("SF Pro", size: 12))
-//                        .foregroundColor(Color(red: 0.94, green: 0.27, blue: 0.27))
-//                    foi de base pois a taskmodel n tem prioridade
                 }
                 Text(task.user?.name ?? "Sem nome")
                     .font(Font.custom("SF Pro", size: 12))
@@ -33,18 +29,26 @@ extension KanbanView {
             }
             Spacer()
                 .frame(height: 16)
-            ScrollView(.vertical) {
-                Text(task.description)
-                    .font(Font.custom("SF Pro", size: 12))
-                    .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            HStack {
+                KanbanTagView(taskType: task.type)
+                Spacer()
+                Button {
+                    deleteTask(task: task)
+                } label: {
+                    Text("􀈑")
+                    .font(Font.custom("SF Pro", size: 14))
+                    .foregroundColor(.black)
+//                    .frame(width: 16, alignment: .topLeading)
+                }
+                .buttonStyle(PlainButtonStyle())
+
             }
-            KanbanTagView(taskType: task.type)
-            Spacer()
-                .frame(height: 10)
+//            Spacer()
+//                .frame(height: 10)
         }
         .padding(16)
-        .frame(width: 256, height: 244, alignment: .topLeading)
+//        .frame(width: 256, height: 244, alignment: .topLeading)
+        .frame(minWidth: 128)
         .background(.white)
         .cornerRadius(6)
         .overlay(
@@ -67,6 +71,10 @@ extension KanbanView {
         }
         
         
+    }
+    
+    func deleteTask(task: TaskModel) {
+        // código de deletar task
     }
     
     
