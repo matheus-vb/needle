@@ -204,6 +204,10 @@ struct KanbanView: View {
     @ViewBuilder
     func addTaskButton(status : TaskStatus) -> some View {
         Button {
+            if status == .DONE && projectViewModel.roles[projectViewModel.selectedProject.id]! != Role.PRODUCT_MANAGER.rawValue {
+                return
+            }
+            
             projectViewModel.showPopUp.toggle()
             projectViewModel.selectedColumnStatus = status
         } label: {
