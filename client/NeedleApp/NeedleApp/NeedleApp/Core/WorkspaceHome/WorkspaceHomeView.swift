@@ -37,13 +37,13 @@ struct WorkspaceHomeView: View {
     let height: CGFloat = 150
     
     var gridHeader: some View {
-        VStack(alignment: .leading, spacing: 8){
+        VStack(alignment: .leading, spacing: 28){
             Text("Workspaces").font(.custom(SpaceGrotesk.regular.rawValue, size: 40)).foregroundColor(Color.theme.blackMain)
-            HStack(spacing: 24) {
-                Button("+ Criar"){
+            HStack(spacing: 20) {
+                Button("+ Create new workspace"){
                     isNaming.toggle()
                 }.buttonStyle(AddWorkspaceButton())
-                Button("􀉤 Entrar"){
+                Button("􀉤 Join Workspace"){
                     isJoining.toggle()
                 }.buttonStyle(JoinWorkspaceButton())
             }
@@ -93,16 +93,15 @@ struct WorkspaceHomeView: View {
     var main: some View {
         ZStack {
             Image("icon-bg")
-                .offset(x: 200, y: 40)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: 2000, alignment: .bottomTrailing)
             ScrollView {
                 VStack() {
-//                    banner
-//                    Spacer()
-                    VStack(alignment: .leading, spacing: 28){
+                    VStack(alignment: .leading, spacing: 40){
                         gridHeader
                         workspaceGrid
-                    }
-//                    Spacer()
+                    }.padding(.top, 100)
                 }.padding(.bottom, 120)
             }
         }
@@ -112,16 +111,12 @@ struct WorkspaceHomeView: View {
                 .background(.white)
                 .environmentObject(mock)
         }
-        .foregroundColor(Color.theme.grayHover)
-        .background(Color.theme.grayBackground)
         .sheet(isPresented: $isNaming) {
             CreateWorkspaceSheet()
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
         }
-        .foregroundColor(Color.theme.grayHover)
-        .background(Color.theme.grayBackground)
         .sheet(isPresented: $isDeleting) {
             DeleteWorkspaceSheet()
                 .foregroundColor(Color.theme.grayHover)
@@ -129,8 +124,6 @@ struct WorkspaceHomeView: View {
                 .environmentObject(mock)
                 .environmentObject(viewModel)
         }
-        .foregroundColor(Color.theme.grayHover)
-        .background(Color.theme.grayBackground)
     }
     
     var body: some View {
