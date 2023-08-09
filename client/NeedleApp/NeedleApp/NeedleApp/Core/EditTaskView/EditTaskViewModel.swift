@@ -19,7 +19,7 @@ class EditTaskViewModel: ObservableObject{
     @Published var prioritySelection: TaskPriority
     @Published var deadLineSelection: Date
     @Published var categorySelection: TaskType
-    @Published var selectedMember: User
+    @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
     
@@ -36,7 +36,7 @@ class EditTaskViewModel: ObservableObject{
         self.prioritySelection = data.taskPriority
         self.deadLineSelection = date!
         self.categorySelection = TaskType(rawValue: data.type)!
-        self.selectedMember = data.user!
+        self.selectedMember = data.user
         self.documentationString = NSAttributedString(string: data.document?.text ?? "")
         self.documentationID = data.document?.id ?? "0"
         self.members = members
