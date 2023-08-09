@@ -1,14 +1,15 @@
 //
-//  DashedButton.swift
+//  DashingSmallerButton.swift
 //  NeedleApp
 //
-//  Created by aaav on 08/08/23.
+//  Created by aaav on 09/08/23.
 //
 
 import SwiftUI
 
-struct DashedButton: View {
+struct DashedSmallerButton: View {
     let text: String
+    @State var onHover = false
     var onButtonTapped: () -> Void
     var body: some View {
         Button(action: {
@@ -22,8 +23,8 @@ struct DashedButton: View {
                 )
                 .foregroundColor(.black)
             }
-            .frame(width: 256, height: 48, alignment: .center)
-            .background(Color.theme.greenSecondary)
+            .frame(width: 168, height: 48, alignment: .center)
+            .background(onHover ?  Color.theme.greenTertiary :  Color.theme.greenSecondary)
             .cornerRadius(6)
             .overlay(
               RoundedRectangle(cornerRadius: 6)
@@ -32,6 +33,9 @@ struct DashedButton: View {
             )
         })
         .buttonStyle(.plain)
+        .onHover { Bool in
+            self.onHover = Bool
+        }
     }
 }
 
