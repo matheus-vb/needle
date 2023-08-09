@@ -58,6 +58,7 @@ struct WorkspaceCardView: View, Identifiable {
                     .shadow(radius: 10, x: 0, y: 4)
             })
             .simultaneousGesture(TapGesture().onEnded {
+                AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: workspaceId)
                 TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: workspace.id)
                 WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: workspaceId)
                 projectViewModel.selectedProject = workspace

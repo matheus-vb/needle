@@ -17,6 +17,7 @@ class ProjectViewModel: ObservableObject{
     
     @Published var tasks: [String:[TaskModel]] = [:]
     @Published var workspaceMembers: [String:[User]] = [:]
+    @Published var roles: [String: String] = [:]
     
     @Published var showPopUp: Bool = false
     @Published var showEditTaskPopUP: Bool = false
@@ -26,6 +27,7 @@ class ProjectViewModel: ObservableObject{
     
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
+    private var authMGR = AuthenticationManager.shared
     private var cancellables = Set<AnyCancellable>()
     
     init() {
@@ -50,6 +52,12 @@ class ProjectViewModel: ObservableObject{
         worskpaceDS.$members
             .sink(receiveValue: { [weak self] returnedUsers in
                 self?.workspaceMembers = returnedUsers
+            })
+            .store(in: &cancellables)
+        
+        authMGR.$roles
+            .sink(receiveValue: { [weak self] returnedRoles in
+                self?.roles = returnedRoles
             })
             .store(in: &cancellables)
     }
