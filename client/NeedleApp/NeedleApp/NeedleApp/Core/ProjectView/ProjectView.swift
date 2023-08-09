@@ -69,6 +69,7 @@ struct ProjectView: View {
                     }
                 }
             })
+            .navigationBarBackButtonHidden(true)
             .popover(isPresented: $projectViewModel.showEditTaskPopUP, content: {
                 EditTaskPopUP(geometry: geometry)
                     .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedProject.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []))
