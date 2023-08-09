@@ -102,6 +102,7 @@ struct WorkspaceHomeView: View {
                         gridHeader
                         workspaceGrid
                     }
+                    .padding(.top, 110)
 //                    Spacer()
                 }.padding(.bottom, 120)
             }
