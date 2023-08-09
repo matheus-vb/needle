@@ -9,10 +9,8 @@ import SwiftUI
 
 struct BackButton: View {
     var onButtonTapped: () -> Void
-    @State var isPressed: Bool = false
     var body: some View {
         Button(action: {
-            isPressed.toggle()
             onButtonTapped()
         }, label: {
             HStack{
@@ -22,7 +20,6 @@ struct BackButton: View {
                 Text("Voltar")
                     .font(.system(size: 16, weight: .regular))
             }
-            .foregroundColor(isPressed ? Color.theme.greenSecondary : Color.theme.grayPressed)
         })
         .buttonStyle(.plain)
     }
