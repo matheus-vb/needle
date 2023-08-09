@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum SheetType {
-    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask
+    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError
     
     var image: Image {
         switch self {
@@ -19,6 +19,7 @@ enum SheetType {
         case .shareCode: return Image("ShareCode")
         case .documentNotFound: return Image("DocumentNotFound")
         case .deleteTask: return Image("CleanTask")
+        case .loginError: return Image("LoginError")
         }
     }
     
@@ -30,17 +31,19 @@ enum SheetType {
         case .shareCode: return ""
         case .documentNotFound: return "Documento não encontrado"
         case .deleteTask: return "Remover task do kanban?"
+        case .loginError: return "Erro de login"
         }
     }
     
     var text: String {
         switch self {
         case .newWorkspace: return "Nomeie seu novo workspace:"
-        case .deleteWorkspace: return "Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos"
-        case .joinCode: return "Insira o código do workspace:"
-        case .shareCode: return "Envie o código do workspace para sua equipe e deixe-a alinhada"
-        case .documentNotFound: return "Procure por outras palavras-chave como título da task, área ou data"
-        case .deleteTask: return "Não se preocupe, a documentação da task\nirá permanecer na aba de documentos"
+        case .deleteWorkspace: return "Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos."
+        case .joinCode: return ""
+        case .shareCode: return "Envie o código do workspace para sua equipe e deixe-a alinhada."
+        case .documentNotFound: return "Procure por outras palavras-chave como título da task, área ou data!"
+        case .deleteTask: return "Não se preocupe, a documentação da task irá permanecer na aba de documentos."
+        case .loginError: return "Confira o ID registrado ou tente novamente."
 
         }
     }
@@ -53,6 +56,7 @@ enum SheetType {
         case .shareCode: return true
         case .documentNotFound: return false
         case .deleteTask: return true
+        case .loginError: return false
 
         }
     }
@@ -65,6 +69,35 @@ enum SheetType {
         case .shareCode: return "Copiar"
         case .documentNotFound: return "Ok"
         case .deleteTask: return "Remover"
+        case .loginError: return "Ok"
+
+        }
+    }
+    
+    var width: CGFloat {
+        switch self {
+        case .newWorkspace: return 328
+        case .deleteWorkspace: return 328
+        case .joinCode: return 328
+        case .shareCode: return 328
+        case .documentNotFound: return 328
+        case .deleteTask: return 328
+        case .loginError: return 328
+
+
+        }
+    }
+    
+    var height: CGFloat {
+        switch self {
+        case .newWorkspace: return 264
+        case .deleteWorkspace: return 264
+        case .joinCode: return 264
+        case .shareCode: return 264
+        case .documentNotFound: return 264
+        case .deleteTask: return 264
+        case .loginError: return 264
+
 
         }
     }

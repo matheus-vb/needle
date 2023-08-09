@@ -112,10 +112,7 @@
 		D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */; };
 		D4659FB32A71B63A0038CD50 /* AddWorkspaceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */; };
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
-		D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */; };
 		D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */; };
-		D4DB8A662A7C41E700C3DA38 /* JoinWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DB8A652A7C41E700C3DA38 /* JoinWorkspaceSheet.swift */; };
-		D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,10 +244,7 @@
 		D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB22A71B63A0038CD50 /* AddWorkspaceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkspaceButton.swift; sourceTree = "<group>"; };
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
-		D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWorkspaceSheet.swift; sourceTree = "<group>"; };
 		D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetActionButton.swift; sourceTree = "<group>"; };
-		D4DB8A652A7C41E700C3DA38 /* JoinWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceSheet.swift; sourceTree = "<group>"; };
-		D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameWorkspaceSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,7 +664,6 @@
 			isa = PBXGroup;
 			children = (
 				D4E40A7A2A72EBDB00B47A07 /* ButtonStyles */,
-				D4E40A7B2A72EBF900B47A07 /* Sheets */,
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
 				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
 				868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */,
@@ -685,16 +678,6 @@
 				D45037A52A7AD3FA005B33A3 /* JoinWorkspaceButton.swift */,
 			);
 			path = ButtonStyles;
-			sourceTree = "<group>";
-		};
-		D4E40A7B2A72EBF900B47A07 /* Sheets */ = {
-			isa = PBXGroup;
-			children = (
-				D4E40A772A72EB7F00B47A07 /* NameWorkspaceSheet.swift */,
-				D4DB8A652A7C41E700C3DA38 /* JoinWorkspaceSheet.swift */,
-				D4659FB62A71C5720038CD50 /* DeleteWorkspaceSheet.swift */,
-			);
-			path = Sheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -838,16 +821,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4659FB72A71C5720038CD50 /* DeleteWorkspaceSheet.swift in Sources */,
 				86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */,
-				D4DB8A662A7C41E700C3DA38 /* JoinWorkspaceSheet.swift in Sources */,
 				27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */,
 				868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
-				D4E40A782A72EB7F00B47A07 /* NameWorkspaceSheet.swift in Sources */,
 				649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */,
 				649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */,
 				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
