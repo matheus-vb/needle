@@ -46,15 +46,17 @@ struct SheetView: View {
             
         }
         case .shareCode: return {
-//            pasteboard.string = textfieldInput
+            //            pasteboard.string = textfieldInput
         }
         case .documentNotFound: return { dismiss() }
         case .deleteTask: return { dismiss() } // pegar rota c matheus
+        case .loginError: return {dismiss()}
+
         }
     }
         
     var buttonBlock: some View {
-      HStack(spacing: 40) {
+      HStack(spacing: 16) {
           if type.twoButtons && type != .joinCode {
                     Button("Cancelar", action: {
                         dismiss()
@@ -65,19 +67,21 @@ struct SheetView: View {
                     }).buttonStyle(PrimarySheetActionButton())
                 }
           else if type == .joinCode {
-                  VStack(spacing: 24) {
+                  VStack(spacing: 20) {
                       
-                      Picker("Selecione uma função", selection: $selectedRole) {
+                      Picker("Selecione uma função: ", selection: $selectedRole) {
                           ForEach(Role.allCases.filter{ $0 != .PRODUCT_MANAGER }) { role in
                               Text(role.displayName).tag(role)
                           }
-                      }
+                      }.padding(.horizontal, 24)
+
                       
                       
                       HStack {
                           Button("Cancelar") {
                               dismiss()
-                          }.buttonStyle(SecondarySheetActionButton())
+                          }
+                          .buttonStyle(SecondarySheetActionButton())
                           Button("Entrar") {
                               WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role: selectedRole)
                               
@@ -88,7 +92,6 @@ struct SheetView: View {
                       }
                   }
                   .offset(y: -20)
-                  .padding(.horizontal, 40)
                   .padding(.vertical, 10)
           }
                 else   {
@@ -108,13 +111,12 @@ struct SheetView: View {
                 .foregroundColor(.black)
                 .frame(width: type == .joinCode ? 100 : 260)
 
-
         }
     }
     
     var errorMessage: some View {
         Text("Algo deu errado. Tente novamente.")
-            .font(.custom(SpaceGrotesk.regular.rawValue, size: 16)).foregroundColor(.red)
+            .font(.custom(SpaceGrotesk.regular.rawValue, size: 10)).foregroundColor(.red)
             .foregroundColor(.red)
     }
     
@@ -133,30 +135,41 @@ struct SheetView: View {
                         self.isAnimating.toggle()
                     }
                 }
-        }.frame(width: 328, height: 264)
+        }
 
     }
     
     var main: some View {
-        VStack(spacing: 24) {
-            VStack(spacing: 8) {
-                type.image
-                Text(type.title).font(.title)
-                Text(type.text)
-                    .multilineTextAlignment(.center)
-                    .frame(height: 40)
-                textField
-                    .opacity((type == .joinCode || type == .newWorkspace) ? 1.0 : 0.0)
+        VStack(spacing: 4) {
+            type.image
+            if isShowingError {
+                errorMessage
+            }
+                VStack(spacing: 12) {
+                    if type.title != ""{
+                        Text(type.title)
+                            .font(.custom("SF Pro", size: 16))
+                            .bold()
+                            .padding(.top, 8)
+                    }
+                    if type.text != ""{
+                        Text(type.text)
+                            .font(.custom("SF Pro", size: 14))
+                            .multilineTextAlignment(.center)
+                    }
                 
+                if type == .joinCode || type == .newWorkspace {
+                    textField
+                }
+            
             }
             buttonBlock
-            errorMessage.opacity(isShowingError ? 1.0 : 0.0)
-                .offset(y: -4)
+                .padding(.top, type == .joinCode ? 20 : 16)
         }
-        .frame(width: 328, height: 264)
+        .padding(.vertical, 20)
+        .padding(.horizontal, 35.5)
+
         .foregroundColor(.black)
-        .padding(.horizontal, 40)
-        .padding(.top, 40)
     }
     
     var body: some View {
@@ -171,7 +184,7 @@ struct SheetView: View {
                         }
                     }
             }
-        }
+        }.frame(width: type.width, height: type.height)
         .onChange(of: auth.errorCount, perform: { _ in
             isShowingError.toggle()
         })
@@ -181,15 +194,31 @@ struct SheetView: View {
         try? await Task.sleep(nanoseconds: 1_500_000_000)
         withAnimation {
             showMain = true
-//            dismiss()
         }
     }
 }
 
 struct SheetView_Previews: PreviewProvider {
     static var previews: some View {
-        SheetView(type: .deleteTask)
-            .background(.white)
+        VStack(spacing: 8) {
+            SheetView(type: .loginError)
+                .background(.white)
+            SheetView(type: .deleteWorkspace)
+                .background(.white)
 
+            SheetView(type: .documentNotFound)
+                .background(.white)
+
+            SheetView(type: .joinCode)
+                .background(.white)
+
+            SheetView(type: .newWorkspace)
+                .background(.white)
+
+            SheetView(type: .shareCode)
+                .background(.white)
+
+
+        }.background(.pink)
     }
 }

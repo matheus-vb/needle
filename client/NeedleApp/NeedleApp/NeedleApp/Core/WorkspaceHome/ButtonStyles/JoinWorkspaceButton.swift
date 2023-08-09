@@ -13,7 +13,7 @@ struct JoinWorkspaceButton: ButtonStyle {
         configuration.label
         
             .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
-            .padding(.horizontal, 150)
+            .padding(.horizontal, 130)
                 .padding(.top, 6)
                 .padding(.bottom, 5)
         
