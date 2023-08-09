@@ -83,6 +83,7 @@
 		86E6FF122A830AA300BB5D9F /* QueryTasksDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */; };
 		86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF132A83373000BB5D9F /* StringResponse.swift */; };
 		86E6FF162A840B3E00BB5D9F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF152A840B3E00BB5D9F /* AppView.swift */; };
+		86E6FF1B2A842E1C00BB5D9F /* AlertBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF1A2A842E1C00BB5D9F /* AlertBoxView.swift */; };
 		86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */; };
 		86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
 		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
@@ -213,6 +214,7 @@
 		86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryTasksDTO.swift; sourceTree = "<group>"; };
 		86E6FF132A83373000BB5D9F /* StringResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringResponse.swift; sourceTree = "<group>"; };
 		86E6FF152A840B3E00BB5D9F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		86E6FF1A2A842E1C00BB5D9F /* AlertBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBoxView.swift; sourceTree = "<group>"; };
 		86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataService.swift; sourceTree = "<group>"; };
 		86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskResponse.swift; sourceTree = "<group>"; };
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 			children = (
 				274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */,
 				44FE06322A82E71800386ADE /* PickerApp.swift */,
+				86E6FF1A2A842E1C00BB5D9F /* AlertBoxView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 				86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */,
+				86E6FF1B2A842E1C00BB5D9F /* AlertBoxView.swift in Sources */,
 				86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */,
 				D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */,
 			);
