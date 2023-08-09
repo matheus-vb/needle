@@ -10,6 +10,8 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
+    @EnvironmentObject var searchDocumentsViewModel: SearchDocumentsViewModel
+    
     @State private var searchText = ""
     @State private var sortOrder = [KeyPathComparator(\TaskModel.title)]
     @State private var sortByStatus = false
@@ -23,110 +25,6 @@ struct SearchDocuments: View {
     @State private var sortByUpdate = false
     @State private var sortByUserName = false
     @State private var sortByType = false
-    
-    @State var tasks: [TaskModel] = [
-        TaskModel(
-            id:"00",
-            title: "Document 1",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Design",
-            documentId: "Matheus",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "hVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-        ),
-        TaskModel(
-            id:"01",
-            title: "Document 2",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Development",
-            documentId: "Bibia",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "fVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-        ),
-        TaskModel(
-            id:"02",
-            title: "Document 3",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Design",
-            documentId: "Vivi",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "aaVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-        ),
-        TaskModel(
-            id:"03",
-            title: "Document 4",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Design",
-            documentId: "Laurinha",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "eVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-
-        ),
-        TaskModel(
-            id:"04",
-            title: "Document 5",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Design",
-            documentId: "André",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "dVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-        ),
-        TaskModel(
-            id:"05",
-            title: "Document 6",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Design",
-            documentId: "Medeiros",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "cVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-
-        ),
-        TaskModel(
-            id:"06",
-            title: "Document 7",
-            description: "abcdefg",
-            status: "Pendente",
-            type: "Design",
-            documentId: "Naval",
-            endDate: "2023-07-31",
-            workId: "Batata",
-            userId: "aVivi",
-            taskPriority: TaskPriority(rawValue: "HIGH")!,
-            document: nil,
-            user: nil
-        ),
-        
-    ]
     
     private func dateIsInRange(_ dateString: String) -> Bool {
         let dateFormatter = DateFormatter()
@@ -213,7 +111,7 @@ struct SearchDocuments: View {
             .padding(.horizontal)
             .padding(.top, 10)
             
-            Table(tasks, sortOrder: $sortOrder){
+            Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){
                 TableColumn("Nome da Task 􀄬", value: \.title)
                 TableColumn("Prioridade 􀄬", value: \.taskPriority.codingKey.stringValue )
                 TableColumn("Status 􀄬"){
@@ -226,7 +124,7 @@ struct SearchDocuments: View {
 //                TableColumn("Nome de Usuário 􀄬", value: \.userId?.codingKey.stringValue)du
             }
             .onChange(of: sortOrder){
-                tasks.sort(using: $0)
+                searchDocumentsViewModel.tasks.sort(using: $0)
             }
             .frame(height: 240)
             .cornerRadius(6)

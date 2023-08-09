@@ -16,11 +16,13 @@ class TaskDataService: ObservableObject {
     @Published var errorCount: Int = 0
     
     @Published var allUsersTasks: [String: [TaskModel]] = [:]
+    @Published var queriedTasks: [TaskModel] = []
     
     var getWorkspaceTasksSubscription: AnyCancellable?
     var getAllUsersTasksSubscription: AnyCancellable?
     var createTaskSubscription: AnyCancellable?
     var updateTaskStatusSubscription: AnyCancellable?
+    var queryTasksSubscription: AnyCancellable?
     
     func getWorkspaceTasks(userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "task/\(workspaceId)") else { return }
@@ -34,6 +36,7 @@ class TaskDataService: ObservableObject {
                 }
             }, receiveValue: { [weak self] (returnedTasks) in
                 self?.allUsersTasks[workspaceId] = returnedTasks.data
+                //self?.queryTasks(dto: QueryTasksDTO(workspaceId: workspaceId, query: nil, status: nil, area: nil, priority: nil))
                 self?.getWorkspaceTasksSubscription?.cancel()
             })
     }
@@ -76,9 +79,19 @@ class TaskDataService: ObservableObject {
             })
     }
     
-    func fetchAllUsersTasks(userId: String, workspaces: [Workspace]) {
-        for workspace in workspaces {
-            self.getWorkspaceTasks(userId: userId, workspaceId: workspace.id)
-        }
+    func queryTasks(dto: QueryTasksDTO) {
+        guard let url = URL(string: Bundle.baseURL + "task/query/\(dto.workspaceId)?\(dto.toQueryString())") else { return }
+        
+        queryTasksSubscription = NetworkingManager.download(url: url)
+            .decode(type: TaskResponse.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] (returnedTasks) in
+                self?.queriedTasks = returnedTasks.data
+                self?.queryTasksSubscription?.cancel()
+            })
     }
 }
