@@ -8,7 +8,7 @@
 import Foundation
 
 struct SaveTaskDTO{
-    let userId: String
+    let userId: String?
     let taskId: String
     let documentId: String
     let title: String

@@ -25,6 +25,8 @@ class ProjectViewModel: ObservableObject{
     @Published var triggerLoading = false
     @Published var selectedTask: TaskModel?
     
+    @Published var showCard: Bool = false
+    
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
     private var authMGR = AuthenticationManager.shared
@@ -62,5 +64,17 @@ class ProjectViewModel: ObservableObject{
     
     func createTask(dto: CreateTaskDTO){
         tasksDS.createTask(dto: dto, userId: userID, workspaceId: selectedProject.id)
+    }
+    
+    func presentCard() {
+        DispatchQueue.main.async {
+            Task {
+                self.showCard = true
+                
+                try? await Task.sleep(nanoseconds: 5_000_000_000)
+                
+                self.showCard = false
+            }
+        }
     }
 }
