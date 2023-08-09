@@ -7,4 +7,5 @@ export interface IUserRepository {
     findAllUsersInWorkspace(workspaceId: string, role: Role): Promise<User[]>
     getUsersInWorkspace(workspaceId: string): Promise<User[]>;
     updateDeviceToken(id: string, deviceToken: string): Promise<User>;
+    getUserRoleInWorkspace(workspaceId: String, userId: string): Promise<Role | null>;
 }
