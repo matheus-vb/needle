@@ -24,12 +24,8 @@ interface IUpdateTaskResponse {
     task: Task
 }
 
-export class updateTask {
-    constructor(
-        private taskRespository: ITaskRepository,
-        private userRepository: IUserRepository,
-        private docuementRepository: IDocumentRepository
-    ){}
+export class UpdateTaskUseCase {
+    constructor(private taskRespository: ITaskRepository,private docuementRepository: IDocumentRepository){}
 
     async handle({
         userId,
