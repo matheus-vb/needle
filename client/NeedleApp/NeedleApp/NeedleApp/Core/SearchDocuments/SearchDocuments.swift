@@ -17,9 +17,9 @@ struct SearchDocuments: View {
     @State private var sortByStatus = false
     @State private var startDate = Date()
     @State private var endDate = Date()
-    @State private var filteredType = ""
-    @State private var filteredStatus = ""
-    @State private var filteredPriority = ""
+    @State private var filteredType = "Área"
+    @State private var filteredStatus = "Status"
+    @State private var filteredPriority = "Prioridade"
     @State private var sortByTaskName = true
     @State private var sortByPriority = false
     @State private var sortByUpdate = false
@@ -34,26 +34,18 @@ struct SearchDocuments: View {
         }
         return false
     }
-    
-    let options: [OptionItem] = [
-        OptionItem(title: "Option 1", color: .blue),
-        OptionItem(title: "Option 2", color: .green),
-        OptionItem(title: "Option 3", color: .purple),
-    ]
-    
-    @State private var selectedOption: OptionItem = OptionItem(title: "Option 1", color: .blue)
-    
+
     
     var body: some View {
         VStack {
             HStack(){
                 Circle()
-                    .fill(Color.red)
+                    .fill(Color.theme.redMain)
                     .frame(width: 12, height: 12)
                 Text("Pendente")
                     .font(.system(size: 18, weight: .regular))
                 Circle()
-                    .fill(Color.green)
+                    .fill(Color.theme.greenKanban)
                     .frame(width: 12, height: 12)
                 Text("Revisado")
                     .font(.system(size: 18, weight: .regular))
@@ -61,67 +53,116 @@ struct SearchDocuments: View {
             }
             
             HStack {
-                PickerApp(selectedOption: selectedOption, options: options)
-                    .padding()
-                Picker(selection: $filteredStatus, label: Text("Status")){
-                    Text("Pendente").tag("pendente")
-                    Text("Revisado").tag("revisado")
-                }.pickerStyle(.menu)
-                    .frame(width: 160)
-                VStack {
+                
+                DropdownButton(text: $filteredStatus, dropOptions: TaskStatus.allCases.map{$0.rawValue}){
+                }
+                
+                HStack{
+                    Text("Início:")
+                        .font(.custom("SF Pro", size: 12)
+                            .weight(.regular))
+                        .foregroundColor(.black)
+                        .padding(.leading, 10)
+
+                    Spacer()
+                }
+                    .frame(width: 60, height: 32)
+                    .background(Color.theme.greenMain)
+                    .overlay(
+                      RoundedRectangle(cornerRadius: 6)
+                        .stroke(.black, lineWidth: 1)
+                    )
+                
                     DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
                         .labelsHidden()
                         .frame(width: 100)
+                HStack{
+                    Text("Fim:")
+                        .font(.custom("SF Pro", size: 12)
+                            .weight(.regular))
+                        .foregroundColor(.black)
+                }
+                    .frame(width: 60, height: 32)
+                    .background(Color.theme.greenMain)
+                    .overlay(
+                      RoundedRectangle(cornerRadius: 6)
+                        .stroke(.black, lineWidth: 1)
+                    )
+                
                     DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
                         .labelsHidden()
                         .frame(width: 100)
-                }
-                .padding(.horizontal)
                 
-                Picker(selection: $filteredType, label: Text("Área")) {
-                    Text("Inovação").tag("Inovação")
-                    Text("Design").tag("Design")
-                    Text("Development").tag("Development")
+                DropdownButton(text: $filteredType, dropOptions: TaskType.allCases.map{$0.rawValue}){
                 }
-                .pickerStyle(.menu)
-                .frame(width: 160)
                 
-                Picker(selection: $filteredPriority, label: Text("Prioridade")) {
-                    Text("Alta").tag("Alta")
-                    Text("Média").tag("Média")
-                    Text("Baixa").tag("Baixa")
+                DropdownButton(text: $filteredPriority, dropOptions: TaskPriority.allCases.map{$0.rawValue}){
                 }
-                .pickerStyle(.menu)
-                .frame(width: 160)
                 
-                TextField("Search", text: $searchText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 280)
+                Spacer()
                 
-                Button(action: {
-                    // call an API with searchText
-                    print("Search: \(searchText)")
-                }) {
-                    Image(systemName: "magnifyingglass")
-                        .imageScale(.large)
-                        .background(Color("main-green"))
+                HStack (spacing: 0){
+                    TextField("Search", text: $searchText)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(width: 280)
+                    
+                    Button {
+                        print("Search: \(searchText)")
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+//                            .resizable()
+                            .imageScale(.large)
+//                            .background(Color.theme.greenMain)
+                            .foregroundColor(Color.theme.blackMain)
+                    }
+                    .padding(.trailing)
+
+
+                    
+//                    Button(action: {
+//                        print("Search: \(searchText)")
+//                    }) {
+//                        Image(systemName: "magnifyingglass")
+//                            .imageScale(.large)
+//                            .background(Color.theme.greenMain)
+//                            .foregroundColor(Color.theme.blackMain)
+//                    }
+//                    .padding(.trailing)
                 }
-                .padding(.trailing)
+                
             }
             .padding(.horizontal)
             .padding(.top, 10)
             
             Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){
                 TableColumn("Nome da Task 􀄬", value: \.title)
-                TableColumn("Prioridade 􀄬", value: \.taskPriority.codingKey.stringValue )
+                TableColumn("Prioridade 􀄬", value: \.taskPriority.codingKey.stringValue ){
+                    switch $0.taskPriority{
+                    case .LOW:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.greenKanban)
+                    case .MEDIUM:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.orangeKanban)
+                    case .HIGH:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.redMain)
+                    case .VERY_HIGH:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.redMain)
+                    }
+                }
                 TableColumn("Status 􀄬"){
-                    Circle()
-                        .fill($0.status == "Pendente" ? Color.red : Color.green)
-                        .frame(width: 12, height: 12)
+                    Text("Status: 􀀁")
+                        .foregroundColor($0.status == "DONE" ? Color.theme.greenKanban : Color.theme.redMain)
                 }
                 TableColumn("Área 􀄬", value: \.type)
-                TableColumn("Atualização 􀄬", value: \.endDate)
-//                TableColumn("Nome de Usuário 􀄬", value: \.userId?.codingKey.stringValue)du
+                TableColumn("Atualização 􀄬"){
+                    Text(String($0.endDate.prefix(10)))
+                }
+                TableColumn("Nome de Usuário 􀄬"){
+                    Text(String($0.user?.name.codingKey.stringValue ?? "Usuário"))
+                }
             }
             .onChange(of: sortOrder){
                 searchDocumentsViewModel.tasks.sort(using: $0)
