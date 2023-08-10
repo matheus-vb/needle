@@ -65,6 +65,7 @@
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
 		864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */; };
+		86503D0A2A846092001D26EE /* OperatorOverload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D092A846092001D26EE /* OperatorOverload.swift */; };
 		868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DD2A7C211B001D9213 /* AuthenticationManager.swift */; };
 		868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DF2A7C225D001D9213 /* ConvertToDict.swift */; };
 		868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E12A7C2286001D9213 /* SignInDTO.swift */; };
@@ -195,6 +196,7 @@
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		86503D092A846092001D26EE /* OperatorOverload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorOverload.swift; sourceTree = "<group>"; };
 		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
 		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */,
+				86503D092A846092001D26EE /* OperatorOverload.swift */,
 				863789822A745BC1004EEB9B /* KeychainSwift.swift */,
 				868604DF2A7C225D001D9213 /* ConvertToDict.swift */,
 				86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */,
@@ -835,6 +838,7 @@
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
+				86503D0A2A846092001D26EE /* OperatorOverload.swift in Sources */,
 				27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */,
 				8AA87FE42A83FC55007DFEB5 /* ButtonLandia.swift in Sources */,
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,

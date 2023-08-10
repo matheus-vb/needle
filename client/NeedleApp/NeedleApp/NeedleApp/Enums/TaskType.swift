@@ -17,4 +17,9 @@ enum TaskType: String, CaseIterable, Codable{
     case SALES = "SALES"
     case MARKETING = "MARKETING"
     case QA = "QA"
+    
+    var displayName: String {
+        if rawValue == "QA" { return "QA" }
+        return formatUpperCase(rawValue)
+    }
 }
