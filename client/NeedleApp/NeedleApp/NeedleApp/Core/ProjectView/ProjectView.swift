@@ -21,6 +21,7 @@ struct ProjectView: View {
             VStack {
                 AlertBoxView()
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(.black, lineWidth: 2))
+                    .padding(.top, 10)
                 Spacer()
             }
             .offset(y: projectViewModel.showCard ? 0 : -500)

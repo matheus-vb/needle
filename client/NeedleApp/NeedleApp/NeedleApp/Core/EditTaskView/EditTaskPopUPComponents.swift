@@ -110,13 +110,13 @@ extension EditTaskPopUP{
                         .foregroundColor(Color.theme.redMain)
                 })
                 Button(action: {
-                    if(projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE.rawValue){
+                    if(projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE){
                         editTaskViewModel.unarchiveTask(task: projectViewModel.selectedTask!)
                     }else{
                         editTaskViewModel.archiveTask(task: projectViewModel.selectedTask!)
                     }
                 }, label: {
-                    Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE.rawValue ? "arrow.up.bin" : "archivebox"))
+                    Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color.theme.orangeKanban)

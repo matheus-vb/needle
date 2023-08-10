@@ -32,10 +32,10 @@ class EditTaskViewModel: ObservableObject{
         self.taskId = data.id ?? "1"
         self.taskDescription = data.description
         self.taskTitle = data.title
-        self.statusSelection = TaskStatus(rawValue: data.status)!
+        self.statusSelection = data.status
         self.prioritySelection = data.taskPriority
         self.deadLineSelection = date!
-        self.categorySelection = TaskType(rawValue: data.type)!
+        self.categorySelection = data.type
         self.selectedMember = data.user
         self.documentationString = NSAttributedString(string: data.document?.text ?? "")
         self.documentationID = data.document?.id ?? "0"
