@@ -15,6 +15,7 @@ struct ProjectView: View {
     
     @State var initalLoading = true
     
+    
     var body: some View {
         ZStack {
             main
@@ -23,6 +24,9 @@ struct ProjectView: View {
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(.black, lineWidth: 2))
                 Spacer()
             }
+            .sheet(isPresented: $projectViewModel.showShareCode, content: {
+                SheetView(accessCode: projectViewModel.getCode(), type: .shareCode)
+            })
             .offset(y: projectViewModel.showCard ? 0 : -500)
             .animation(.easeInOut, value: projectViewModel.showCard)
         }
