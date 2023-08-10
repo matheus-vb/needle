@@ -17,14 +17,17 @@ struct SearchDocuments: View {
     @State private var sortByStatus = false
     @State private var startDate = Date()
     @State private var endDate = Date()
-    @State private var filteredType = ""
-    @State private var filteredStatus = ""
-    @State private var filteredPriority = ""
+    @State private var filteredType = "Área"
+    @State private var filteredStatus = "Status"
+    @State private var filteredPriority = "Prioridade"
     @State private var sortByTaskName = true
     @State private var sortByPriority = false
     @State private var sortByUpdate = false
     @State private var sortByUserName = false
     @State private var sortByType = false
+    @State private var dateIsPresented = false
+    
+    @State private var mydate = "Data"
     
     private func dateIsInRange(_ dateString: String) -> Bool {
         let dateFormatter = DateFormatter()
@@ -34,51 +37,55 @@ struct SearchDocuments: View {
         }
         return false
     }
-    
-    let options: [OptionItem] = [
-        OptionItem(title: "Option 1", color: .blue),
-        OptionItem(title: "Option 2", color: .green),
-        OptionItem(title: "Option 3", color: .purple),
-    ]
-    
-    @State private var selectedOption: OptionItem = OptionItem(title: "Option 1", color: .blue)
-    
+
     
     var body: some View {
         VStack {
             HStack(){
                 Circle()
-                    .fill(Color.red)
+                    .fill(Color.theme.redMain)
                     .frame(width: 12, height: 12)
                 Text("Pendente")
                     .font(.system(size: 18, weight: .regular))
                 Circle()
-                    .fill(Color.green)
+                    .fill(Color.theme.greenKanban)
                     .frame(width: 12, height: 12)
                 Text("Revisado")
                     .font(.system(size: 18, weight: .regular))
                 Spacer()
             }
             
-            HStack {
-                Group{
-                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
-                        ForEach(TaskStatus.allCases, id: \.self) { status in
-                            Text(status.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(status as TaskStatus?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedStatus = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
+            HStack(spacing: 16) {
+//                Group{
+//                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
+//                        ForEach(TaskStatus.allCases, id: \.self) { status in
+//                            Text(status.displayName)
+//                                .foregroundColor(Color.theme.blackMain)
+//                                .tag(status as TaskStatus?)
+//                        }
+//                    }
+//                    .pickerStyle(.menu)
+//                    .frame(width: 160)
+//                    Button(action: {
+//                        searchDocumentsViewModel.selectedStatus = nil
+//                    }, label: {
+//                        Image(systemName: "arrow.counterclockwise")
+//                    })
+//                    .buttonStyle(.plain)
+//                }
                
+                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
+
+                }
+                
+                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
+                    
+                }
+                
+                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
+                    
+                }
+
                 Spacer()
                 //TODO: Add date to query
 //                VStack {
@@ -90,45 +97,6 @@ struct SearchDocuments: View {
 //                        .frame(width: 100)
 //                }
 //                .padding(.horizontal)
-                Group {
-                    Picker("Área", selection: $searchDocumentsViewModel.selectedArea) {
-                        ForEach(TaskType.allCases, id: \.self) { area in
-                            Text(area.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(area as TaskType?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedArea = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
-                
-                Spacer()
-                
-                Group{
-                    Picker("Prioridade", selection: $searchDocumentsViewModel.selectedPriority) {
-                        ForEach(TaskPriority.allCases, id: \.self) { priority in
-                            Text(priority.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(priority as TaskPriority?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedPriority = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
-                
-                Spacer()
                 
                 Group {
                     TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
@@ -142,12 +110,26 @@ struct SearchDocuments: View {
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal)
             .padding(.top, 10)
             
             Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){
                 TableColumn("Nome da Task 􀄬", value: \.title)
-                TableColumn("Prioridade 􀄬", value: \.taskPriority.codingKey.stringValue )
+                TableColumn("Prioridade 􀄬", value: \.taskPriority.codingKey.stringValue ){
+                    switch $0.taskPriority{
+                    case .LOW:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.greenKanban)
+                    case .MEDIUM:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.orangeKanban)
+                    case .HIGH:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.redMain)
+                    case .VERY_HIGH:
+                        Text("\($0.taskPriority.codingKey.stringValue) 􀋊")
+                            .foregroundColor(Color.theme.redMain)
+                    }
+                }
                 TableColumn("Status 􀄬"){
                     Circle()
                         .fill($0.status == TaskStatus.DONE.rawValue ? Color.green : Color.red)
