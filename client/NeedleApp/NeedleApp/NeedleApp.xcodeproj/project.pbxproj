@@ -201,6 +201,7 @@
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		86503D092A846092001D26EE /* OperatorOverload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorOverload.swift; sourceTree = "<group>"; };
+		86503D0B2A84A262001D26EE /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
 		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
@@ -571,6 +572,7 @@
 			children = (
 				86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */,
 				86E6FF0E2A83075700BB5D9F /* Debug.xcconfig */,
+				86503D0B2A84A262001D26EE /* Release.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1036,6 +1038,7 @@
 		};
 		274A28182A719F6E0002CFEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86503D0B2A84A262001D26EE /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1103,7 +1106,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeedleApp/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1135,7 +1138,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NeedleApp/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIUserInterfaceStyle = light;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -59,9 +59,18 @@ extension KanbanView {
         .dropDestination(for: String.self) { items, location in
             currentlyDragging = items.first
             //                print("drop destination!")
-            withAnimation(.easeIn) {
-                swapItem(droppingTask: task, currentlyDragging: currentlyDragging ?? "")
+            guard let temp = kanbanViewModel.localTasks.first(where: { $0.id == currentlyDragging }) else { return false }
+            
+            if temp.status != task.status {
+                withAnimation {
+                    addItem(currentlyDragging: currentlyDragging!, status: task.status)                    
+                }
+            } else {
+                withAnimation(.easeIn) {
+                    swapItem(droppingTask: task, currentlyDragging: currentlyDragging ?? "")
+                }
             }
+            
             return false
         } isTargeted: { status in
         }
