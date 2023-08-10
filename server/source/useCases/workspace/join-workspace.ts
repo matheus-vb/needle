@@ -3,6 +3,7 @@ import { IUserRepository } from "../../repositories/IUserRepository"
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
 import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository"
 import { sendNotification } from "../../notification/send-notification"
+import { INotificationRepository } from "../../repositories/INotificationRepository"
 
 interface IJoinWorkspaceUseCaseRequest {
     userId: string
@@ -18,7 +19,8 @@ export class JoinWorkspaceUseCase {
     constructor(
         private userRepository: IUserRepository, 
         private workspaceRepository: IWorkspaceInterface, 
-        private userWorkRepository: IUserWorkspaceRepository
+        private userWorkRepository: IUserWorkspaceRepository,
+        private notificationRepository: INotificationRepository,
     ) {}
 
     async handle({
@@ -40,7 +42,12 @@ export class JoinWorkspaceUseCase {
 
         for(const u of users) {
             if (u.deviceToken != null) {
-                sendNotification(u.deviceToken, `${user.name} acabou de entrar no workspace ${workspace.name}!`)
+                const alert = `${user.name} acabou de entrar no workspace ${workspace.name}!`
+                sendNotification(u.deviceToken, alert, {
+                    notificationRepository: this.notificationRepository,
+                    userId: user.id,
+                    workspaceId: workspace.id
+                })
             }
         }
 

@@ -4,6 +4,7 @@ import { IDocumentRepository } from "../../repositories/IDocumentRepository"
 import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
+import { INotificationRepository } from "../../repositories/INotificationRepository"
 
 interface IUpdateTaskRequest {
     userId: string | null
@@ -24,7 +25,12 @@ interface IUpdateTaskResponse {
 }
 
 export class UpdateTaskUseCase {
-    constructor(private taskRespository: ITaskRepository,private docuementRepository: IDocumentRepository, private userRepository: IUserRepository){}
+    constructor(
+        private taskRespository: ITaskRepository,
+        private docuementRepository: IDocumentRepository, 
+        private userRepository: IUserRepository,
+        private notificationRepository: INotificationRepository,
+    ){}
 
     async handle({
         userId,
@@ -73,14 +79,25 @@ export class UpdateTaskUseCase {
                 throw new Error()
             }
             
-            sendNotification(user.deviceToken, `Você foi marcado na task ${task.title}!`)
+            const alert = `Você foi marcado na task ${task.title}!`
+            sendNotification(user.deviceToken, alert, {
+                notificationRepository: this.notificationRepository,
+                userId: user.id,
+                workspaceId: task.workId
+            })
+
         } else if (task?.userId) {
             const user = await this.userRepository.findById(task.userId)
             if(!user || !user.deviceToken) {
                 throw new Error()
             }
             
-            sendNotification(user.deviceToken, `Sua task ${task.title} foi editada!`)
+            const alert = `Sua task ${task.title} foi editada!`
+            sendNotification(user.deviceToken, alert, {
+                notificationRepository: this.notificationRepository,
+                userId: user.id,
+                workspaceId: task.workId
+            })
         }
 
         if(!task){
