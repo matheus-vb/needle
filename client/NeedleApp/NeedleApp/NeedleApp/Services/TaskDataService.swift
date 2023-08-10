@@ -112,4 +112,18 @@ class TaskDataService: ObservableObject {
                 self?.createTaskSubscription?.cancel()
             })
     }
+    
+    func deleteTask(dto: DeleteTaskDTO, userId: String, workspaceId: String){
+        guard let url = URL(string: Bundle.baseURL + "task/delete/\(dto.taskId)") else { return }
+       saveTaskSubscription = NetworkingManager.delete(url: url)
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] _ in
+                self?.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
+                self?.createTaskSubscription?.cancel()
+            })
+    }
 }

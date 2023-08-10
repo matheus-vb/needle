@@ -13,6 +13,7 @@ struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: WorkspaceHomeViewModel
     @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
     @ObservedObject var auth = WorkspaceDataService.shared
     
     @State var isShowingError = false
@@ -52,9 +53,12 @@ struct SheetView: View {
             //            pasteboard.string = textfieldInput
         }
         case .documentNotFound: return { dismiss() }
-        case .deleteTask: return { dismiss() } // pegar rota c matheus
-        case .loginError: return {
-            dismiss()}
+        case .deleteTask: return {
+            projectViewModel.deleteTask()
+            editTaskViewModel.isDeleting.toggle()
+            projectViewModel.showEditTaskPopUP.toggle()
+        }
+        case .loginError: return {dismiss()}
 
         }
     }
@@ -63,7 +67,11 @@ struct SheetView: View {
       HStack(spacing: 16) {
           if type.twoButtons && type != .joinCode {
                     Button("Cancelar", action: {
-                        dismiss()
+                        if(type == .deleteTask){
+                            editTaskViewModel.isDeleting.toggle()
+                        }else{
+                            dismiss()
+                        }
                     }).buttonStyle(SecondarySheetActionButton())
                     
                     Button(type.primaryAction, action: {
