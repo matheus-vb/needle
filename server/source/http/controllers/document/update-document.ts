@@ -6,15 +6,17 @@ export async function updateDocument(request: FastifyRequest, reply: FastifyRepl
     const updateDocumentBodySchema = z.object({
         id: z.string(),
         text: z.string(),
+        textString: z.string()
     })
 
-    const { id, text } = updateDocumentBodySchema.parse(request.body);
+    const { id, text, textString } = updateDocumentBodySchema.parse(request.body);
 
     try {
         const updateDocumentUseCase = makeUpdateDocumentUseCase();
         const { document } = await updateDocumentUseCase.handle({
             id,
             text,
+            textString
         })
 
         return reply.status(200).send({ data: document });

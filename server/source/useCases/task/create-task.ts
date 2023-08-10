@@ -1,22 +1,10 @@
-import { Task, TaskType, User } from "@prisma/client";
+import { Task, TaskPriority, TaskStatus, TaskType, User } from "@prisma/client";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository";
 import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository";
 import { IDocumentRepository } from "../../repositories/IDocumentRepository";
 import { z } from "zod";
-
-/*
-id: string;
-    title: string;
-    description: string;
-    status: TaskStatus;
-    type: TaskType;
-    documentId: string;
-    endDate: Date;
-    workId: string;
-    userId: string;
-*/
 
 interface ICreateTaskUseCaseRequest {
     userId: string | null,
@@ -26,6 +14,8 @@ interface ICreateTaskUseCaseRequest {
     status: string,
     type: string,
     endDate: Date,
+    priority: string
+    docTemplate: string
 }
 
 interface ICreateTaskUseCaseReply {
@@ -49,6 +39,8 @@ export class CreateTaskUseCase {
         title,
         type,
         userId,
+        priority,
+        docTemplate,
     }: ICreateTaskUseCaseRequest): Promise<ICreateTaskUseCaseReply> {
         
         let userExists: boolean = false
@@ -69,7 +61,7 @@ export class CreateTaskUseCase {
         }
 
         const document = await this.documentRepository.create({
-            text: `${title} documentation`,
+            text: docTemplate,
             title,
             author: userExists ? author : null,
             type,
@@ -77,6 +69,12 @@ export class CreateTaskUseCase {
 
         const typeEnum = z.nativeEnum(TaskType);
         const checkedType = typeEnum.parse(type);
+
+        const priorityEnum = z.nativeEnum(TaskPriority);
+        const checkedPriority = priorityEnum.parse(priority)
+
+        const statusEnum = z.nativeEnum(TaskStatus)
+        const checkedStatus = statusEnum.parse(status)
 
         const task = await this.taskRepository.create({
             description,
@@ -86,6 +84,8 @@ export class CreateTaskUseCase {
             type: checkedType,
             userId,
             workId: workspace.id,
+            taskPriority: checkedPriority,
+            status: checkedStatus,
         })
 
         return {

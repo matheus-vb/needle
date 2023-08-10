@@ -1,47 +1,86 @@
-import { Prisma, Role, User } from "@prisma/client";
+import { Prisma, Role } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IUserRepository } from "../IUserRepository";
-import { z } from "zod";
 
-export class UserRepository implements IUserRepository{
-    async create(data: Prisma.UserCreateInput): Promise<User> {
+export class UserRepository implements IUserRepository {
+    async create(data: Prisma.UserCreateInput) {
         const user = await prisma.user.create({
             data,
         })
         return user
     }
 
-    async findById(id: string): Promise<User | null> {
+    async findById(id: string) {
         const user = await prisma.user.findFirst({
-            where:{
+            where: {
                 id: id
             }
         })
         return user
     }
-    async findByEmail(email: string): Promise<User | null> {
+    async findByEmail(email: string) {
         const user = await prisma.user.findFirst({
-            where:{
+            where: {
                 email: email,
             }
         })
         return user
     }
 
-    async findAllUsersInWorkspace(workspaceId: string, role: string): Promise<User[]> {
-        const roleEnum = z.nativeEnum(Role)
-        const checkedRole = roleEnum.parse(role)
+    async findAllUsersInWorkspace(workspaceId: string, role: Role) {
         const users = await prisma.user.findMany({
-            where:{
-                workspaces:{
-                    some:{
+            where: {
+                workspaces: {
+                    some: {
                         workspaceId: workspaceId,
+                        userRole: role
                     }
                 },
-                role: checkedRole
             }
         })
 
         return users
+    }
+
+    async getUsersInWorkspace(workspaceId: string) {
+        const members = await prisma.user.findMany({
+            where: {
+                workspaces: {
+                    some: {
+                        workspaceId: workspaceId,
+                    },
+                },
+            }
+        });
+
+        return members
+    }
+
+    async updateDeviceToken(id: string, deviceToken: string) {
+        const user = await prisma.user.update({
+            where: {
+                id,
+            },
+            data: {
+                deviceToken,
+            }
+        })
+
+        return user
+    }
+
+    async getUserRoleInWorkspace(workspaceId: string, userId: string) {
+        const userWorkspace = await prisma.user_Workspace.findFirst({
+            where: {
+                userId,
+                workspaceId,
+            }
+        })
+
+        if(!userWorkspace) {
+            return null
+        }
+
+        return userWorkspace.userRole
     }
 }

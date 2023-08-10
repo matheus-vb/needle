@@ -11,14 +11,25 @@ datasource db {
 }
 
 enum Role {
-  MEMBER
   PRODUCT_MANAGER
+  DESIGNER
+  DEVELOPER
+  QA
+  BUSINESS
+  DEVOPS
+  SALES
+  MARKETING
 }
 
 enum TaskType {
   DEV
   DESIGN
   PM
+  BUSINESS
+  DEVOPS
+  SALES
+  MARKETING
+  QA
   GENERAL
 }
 
@@ -30,46 +41,57 @@ enum TaskStatus {
   NOT_VISIBLE
 }
 
+enum TaskPriority {
+  VERY_HIGH
+  HIGH
+  MEDIUM
+  LOW
+}
+
 model User {
-  id            String           @id @default(uuid())
-  role          Role
-  name          String
-  email         String           @unique
-  password_hash String
-  workspaces    User_Workspace[]
-  tasks         Task[]
+  id           String           @id @default(uuid())
+  name         String
+  email        String           @unique
+  workspaces   User_Workspace[]
+  tasks        Task[]
+  deviceToken  String?
+  Notification Notification[]
 }
 
 model User_Workspace {
   id          String    @id @default(uuid())
-  user        User      @relation(fields: [userId], references: [id])
-  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  userRole    Role
   userId      String
   workspaceId String
 }
 
 model Workspace {
-  id         String           @id @default(uuid())
-  accessCode String           @unique
-  name       String
-  tasks      Task[]
-  users      User_Workspace[]
+  id           String           @id @default(uuid())
+  accessCode   String           @unique
+  name         String
+  tasks        Task[]
+  users        User_Workspace[]
+  Notification Notification[]
 }
 
 model Task {
-  id          String     @id @default(uuid())
-  title       String
-  description String
-  workspace   Workspace  @relation(fields: [workId], references: [id])
-  user        User?      @relation(fields: [userId], references: [id])
-  document    Document   @relation(fields: [documentId], references: [id])
-  status      TaskStatus @default(TODO)
-  type        TaskType
-  documentId  String     @unique
-  endDate     DateTime
-  workId      String
-  userId      String?
-  TaskTag     TaskTag[]
+  id           String       @id @default(uuid())
+  title        String
+  description  String
+  workspace    Workspace    @relation(fields: [workId], references: [id], onDelete: Cascade)
+  user         User?        @relation(fields: [userId], references: [id])
+  document     Document     @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  status       TaskStatus   @default(TODO)
+  type         TaskType
+  documentId   String       @unique
+  endDate      DateTime
+  workId       String
+  userId       String?
+  taskPriority TaskPriority
+  TaskTag      TaskTag[]
+  created_at   DateTime     @default(now())
 }
 
 model TaskTag {
@@ -80,10 +102,21 @@ model TaskTag {
 }
 
 model Document {
-  id     String  @id @default(uuid())
-  title  String
-  task   Task?
-  text   String
-  author String?
-  type   String
+  id         String  @id @default(uuid())
+  title      String
+  task       Task?
+  text       String
+  textString String  @default("")
+  author     String?
+  type       String
+}
+
+model Notification {
+  id          String    @id @default(uuid())
+  payload     String
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  workspaceId String
+  created_at  DateTime  @default(now())
 }

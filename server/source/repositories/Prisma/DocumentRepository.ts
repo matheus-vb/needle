@@ -71,13 +71,14 @@ export class DocumentRepository implements IDocumentRepository {
         return documents;
     }
 
-    async updateDocument(id: string, text: string) {
+    async updateDocument(id: string, text: string, textString: string) {
         const document = await prisma.document.update({
             where: {
                 id,
             },
             data: {
                 text,
+                textString
             }
         })
 
@@ -94,5 +95,14 @@ export class DocumentRepository implements IDocumentRepository {
         })
 
         return documents;
+    }
+
+    async deleteDocument(id: string): Promise<Document> {
+        const document = await prisma.document.delete({
+            where:{
+                id
+            }
+        })
+        return document
     }
 }

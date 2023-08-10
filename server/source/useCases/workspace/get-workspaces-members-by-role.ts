@@ -1,9 +1,9 @@
-import { User } from "@prisma/client"
+import { Role, User } from "@prisma/client"
 import { IUserRepository } from "../../repositories/IUserRepository"
 
 interface IGetWorkspaceMembersByRoleRequest{
     workspaceId: string
-    role: string
+    role: Role
 }
 
 interface IGetWorkspaceMembersByRoleReply{
@@ -16,7 +16,7 @@ export class GetWorkspaceMembersByRoleUseCase{
     async handle({
         workspaceId,
         role
-    }: IGetWorkspaceMembersByRoleRequest): Promise<IGetWorkspaceMembersByRoleReply>{
+    }: IGetWorkspaceMembersByRoleRequest): Promise<IGetWorkspaceMembersByRoleReply>{        
         const users = await this.userRepository.findAllUsersInWorkspace(workspaceId, role);
 
         return {

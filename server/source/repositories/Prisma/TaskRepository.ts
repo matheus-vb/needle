@@ -1,8 +1,8 @@
-import { Prisma, Task, TaskStatus } from "@prisma/client";
+import { Prisma, Task, TaskPriority, TaskStatus, TaskType } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { ITaskRepository } from "../ITaskRepository";
 
-export class TaskRepository implements ITaskRepository{
+export class TaskRepository implements ITaskRepository {
 
     async create(data: Prisma.TaskUncheckedCreateInput) {
         const task = await prisma.task.create({
@@ -14,7 +14,7 @@ export class TaskRepository implements ITaskRepository{
     async findById(id: string) {
         const task = await prisma.task.findFirst(
             {
-                where:{
+                where: {
                     id: id,
                 }
             }
@@ -35,12 +35,12 @@ export class TaskRepository implements ITaskRepository{
 
     async updateStatus(id: string, status: TaskStatus) {
         const task = await prisma.task.update({
-          where: {
-            id: id,
-          },
-          data: {
-            status: status,
-          }
+            where: {
+                id: id,
+            },
+            data: {
+                status: status,
+            }
         })
         return task
     }
@@ -57,22 +57,88 @@ export class TaskRepository implements ITaskRepository{
 
         return task;
     }
-    
-    async findTasksByWorksapceId(workspaceId: string): Promise<Task[]> {
-       const tasks = await prisma.task.findMany({
-        where:{
-            workId: workspaceId,
-        }
-       })
 
-       return tasks;
+    async findTasksByWorksapceId(workspaceId: string): Promise<Task[]> {
+        const tasks = await prisma.task.findMany({
+            where: {
+                workId: workspaceId,
+            },
+            include: {
+                document: true,
+                user: true
+            }
+        })
+
+        return tasks;
     }
 
-    async deleteTask(taskId: string){
+    async deleteTask(taskId: string) {
         await prisma.task.delete({
-            where:{
+            where: {
                 id: taskId,
             }
         })
     }
+
+    async queryTasks(workspaceId: string, query: string | null, status: TaskStatus | null, area: TaskType | null, priority: TaskPriority | null) {
+        let whereClause: any = {
+            workId: workspaceId,
+            status: status || undefined,
+            type: area || undefined,
+            taskPriority: priority || undefined
+        };
+    
+        if (query) {
+            whereClause = {
+                ...whereClause,
+                OR: [
+                    {
+                        title: {
+                            contains: query,
+                        },
+                    },
+                    {
+                        user: {
+                            name: {
+                                contains: query,
+                            },
+                        },
+                    },
+                    {
+                        description: {
+                            contains: query,
+                        }
+                    },
+                ],
+            };
+        }
+    
+        const tasks = await prisma.task.findMany({
+            where: whereClause,
+            include: {
+                document: true,
+                user: true
+            }
+        });
+    
+        return tasks;
+    }
+
+    async updateTask(taskId: string, title: string, description: string, status: TaskStatus, type: TaskType, endDate: Date, priority: TaskPriority): Promise<Task> {
+        const task = await prisma.task.update({
+            where:{
+                id: taskId,
+            },
+            data: {
+                title,
+                description,
+                status,
+                type,
+                endDate,
+                taskPriority: priority,
+            }
+        })
+        return task
+    }
+    
 }

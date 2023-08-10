@@ -4,6 +4,7 @@ import { IDocumentRepository } from "../../repositories/IDocumentRepository"
 interface IUpdateDocumentUseCaseRequest {
     id: string
     text: string
+    textString: string
 }
 
 interface IUpdateDocumentUseCaseReply {
@@ -16,8 +17,9 @@ export class UpdateDocumentUseCase {
     async handle({
         id,
         text,
+        textString
     }: IUpdateDocumentUseCaseRequest): Promise<IUpdateDocumentUseCaseReply> {
-        const document = await this.docuementRepository.updateDocument(id, text);
+        const document = await this.docuementRepository.updateDocument(id, text, textString);
 
         return {
             document,
