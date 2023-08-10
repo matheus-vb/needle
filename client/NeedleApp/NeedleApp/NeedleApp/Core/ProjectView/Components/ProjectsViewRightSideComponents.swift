@@ -55,24 +55,11 @@ extension ProjectsViewRightSideComponent{
     }
     
     var inviteMemberButton: some View {
-        Button(action: {
-            print("Convidar membro button")
-        }, label: {
-            HStack(spacing: 8){
-                Text("􀈟 Convidar Membro")
-            }
-            .font(.system(size: 16, weight: .regular))
-            .foregroundColor(.black)
-            .padding([.leading, .trailing], 14)
-            .padding([.top, .bottom], 10)
-            .background(Color.theme.greenMain)
-        })
-        .overlay(
-            Rectangle()
-                .stroke(style: StrokeStyle(lineWidth: 1))
-                .foregroundColor(.black)
-        )
-        .buttonStyle(.plain)
+        Button("􀈟 Convidar Membro") {
+            projectViewModel.showShareCode.toggle()
+            print("oi")
+        }
+        .buttonStyle(PrimarySheetActionButton())
     }
     
     @ViewBuilder

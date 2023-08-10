@@ -20,6 +20,8 @@ struct SheetView: View {
     @State var showMain = true
     @State var isAnimating = false
     
+    @State var accessCode = ""
+    
 //    let pasteboard = Pasteboard()
     
     @State var textfieldInput: String = ""
@@ -46,6 +48,7 @@ struct SheetView: View {
             
         }
         case .shareCode: return {
+            dismiss()
             //            pasteboard.string = textfieldInput
         }
         case .documentNotFound: return { dismiss() }
@@ -146,8 +149,8 @@ struct SheetView: View {
                 errorMessage
             }
                 VStack(spacing: 12) {
-                    if type.title != ""{
-                        Text(type.title)
+                    if type.title != "" {
+                        Text(type == .shareCode ? accessCode : type.title)
                             .font(.custom("SF Pro", size: 16))
                             .bold()
                             .padding(.top, 8)

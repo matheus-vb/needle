@@ -10,6 +10,8 @@ import Combine
 import SwiftUI
 
 class ProjectViewModel: ObservableObject{
+    @EnvironmentObject var workspaceModel: WorkspaceHomeViewModel
+
     @AppStorage("userID") var userID: String = "Default User"
     @Published var selectedTab: SelectedTab = .Kanban 
     @Published var selectedProject: Workspace = Workspace(id: "id1", accessCode: "", name: "")
@@ -27,6 +29,8 @@ class ProjectViewModel: ObservableObject{
     
     @Published var showCard: Bool = false
     
+    @State var showShareCode = false
+    
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
     private var authMGR = AuthenticationManager.shared
@@ -34,6 +38,10 @@ class ProjectViewModel: ObservableObject{
     
     init() {
         addSubscribers()
+    }
+    
+    func getCode() -> String {
+        return selectedProject.accessCode
     }
     
     func addSubscribers() {

@@ -95,6 +95,9 @@ struct KanbanView: View {
     func DoingView() -> some View {
         NavigationStack {
             VStack {
+                KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.blueKanban)
+                Spacer()
+                    .frame(height: 24)
                 addTaskButton(status: TaskStatus.IN_PROGRESS)
                 Spacer()
                     .frame(height: 24)
@@ -129,6 +132,16 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.blueKanban)
+=======
+                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.orangeKanban)
+>>>>>>> develop
+                Spacer()
+                    .frame(height: 24)
+>>>>>>> client/feature/workspaceStyling
                 addTaskButton(status: TaskStatus.PENDING)
                 Spacer()
                     .frame(height: 24)
