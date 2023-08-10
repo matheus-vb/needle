@@ -12,9 +12,17 @@ struct RootView: View {
     @State var notificationIsPresented : Bool = false
     @State var userLogoutIsPresented : Bool = false
     
+    @State var showErrorSheet: Bool = false
+    
     @StateObject var mock : NotificationList = NotificationList()
     var body: some View {
         mainView
+            .sheet(isPresented: $showErrorSheet, content: {
+                SheetView(type: .loginError)
+            })
+            .onChange(of: authManager.errorCount, perform: {_ in
+                showErrorSheet.toggle()
+            })
     }
     
     var mainView: some View {
@@ -34,7 +42,7 @@ struct RootView: View {
                             }
                             .onTapGesture { notificationIsPresented.toggle() }
                         
-                        Text("Laura Brito \(userLogoutIsPresented ? "􀄥" : "􀰇")")
+                        Text("\(authManager.user?.name ?? "") \(userLogoutIsPresented ? "􀄥" : "􀰇")")
                             .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                             .onTapGesture{
                                 userLogoutIsPresented.toggle()

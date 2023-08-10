@@ -11,6 +11,8 @@ import SwiftUI
 struct WorkspaceCardView: View, Identifiable {
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
+    @State var isHovered = false
+    
     var id = UUID()
     var action: () -> Void
     var title: String
@@ -30,7 +32,8 @@ struct WorkspaceCardView: View, Identifiable {
     
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(title).font(.title)
+            Text(title).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
+            Text("Clique para ver mais deste workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
         }
     }
     
@@ -53,7 +56,10 @@ struct WorkspaceCardView: View, Identifiable {
     var body: some View {
         ZStack {
             NavigationLink(destination: ProjectView().environmentObject(projectViewModel), label: {
-                RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
+                RoundedRectangle(cornerRadius: 10).foregroundColor(isHovered ? Color.theme.grayBackground : .white)
+                    .onHover(perform: { _ in
+                        isHovered.toggle()
+                    })
                     .frame(width: 488, height: 283.96)
                     .shadow(radius: 10, x: 0, y: 4)
             })

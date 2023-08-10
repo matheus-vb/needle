@@ -17,4 +17,20 @@ enum TaskType: String, CaseIterable, Codable{
     case SALES = "SALES"
     case MARKETING = "MARKETING"
     case QA = "QA"
+    
+    var displayName: String {
+<<<<<<< HEAD
+        if rawValue == "DEV" { return "Desenvolvimento" }
+        if rawValue == "DESIGN" { return "Design" }
+        if rawValue == "PM" { return "Product Manager" }
+        if rawValue == "GENERAL" { return "Geral" }
+        if rawValue == "BUSINESS" { return "Negócios" }
+        if rawValue == "DEVOPS" { return "Devops" }
+        if rawValue == "SALES" { return "Vendas" }
+        if rawValue == "MARKETING" { return "Marketing" }
+=======
+>>>>>>> develop
+        if rawValue == "QA" { return "QA" }
+        return formatUpperCase(rawValue)
+    }
 }

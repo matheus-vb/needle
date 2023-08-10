@@ -12,16 +12,23 @@ struct JoinWorkspaceButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
         
-            .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
-            .padding(.horizontal, 200)
+            .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
+            .padding(.horizontal, 130)
                 .padding(.top, 6)
                 .padding(.bottom, 5)
         
                 .background(Color.theme.greenMain)
                 .foregroundStyle(.black)
-                .frame(width: 488, height: 30)
-                .cornerRadius(24)
+                .cornerRadius(4)
+                .shadow(radius: 10)
         }
     
     
+}
+
+struct JoinWorkspaceButton_Previews: PreviewProvider {
+    static var previews: some View {
+        Button("Criar") {}
+            .buttonStyle(JoinWorkspaceButton())
+    }
 }

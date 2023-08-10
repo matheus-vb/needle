@@ -27,6 +27,9 @@ struct KanbanView: View {
             }
             Spacer()
         }
+        .onAppear {
+            projectViewModel.presentCard()
+        }
     }
     
     func addItem(currentlyDragging: String, status: TaskStatus) {
@@ -65,12 +68,12 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.TODO.rawValue
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -102,12 +105,12 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.IN_PROGRESS.rawValue
                     }){task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -139,12 +142,12 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.PENDING.rawValue
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -176,12 +179,12 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.DONE.rawValue
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }

@@ -13,15 +13,16 @@ struct AddWorkspaceButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
             configuration.label
         
-            .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
-            .padding(.horizontal, 200)
+            .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
+            .padding(.horizontal, 150)
                 .padding(.top, 6)
                 .padding(.bottom, 5)
         
                 .background(Color.theme.blackMain)
                 .foregroundStyle(.white)
-                .frame(width: 488, height: 30)
-                .cornerRadius(12)
+                .cornerRadius(4)
+                .shadow(radius: 10)
+
         }
     
     
