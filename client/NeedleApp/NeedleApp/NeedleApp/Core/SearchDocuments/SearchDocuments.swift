@@ -131,9 +131,9 @@ struct SearchDocuments: View {
                 Spacer()
                 
                 Group {
-                    TextField("Search", text: $searchDocumentsViewModel.query ?? "")
+                    TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(width: 280)
+                        .frame(width: 320)
                     Button(action: {
                         searchDocumentsViewModel.query = nil
                     }, label: {
