@@ -16,6 +16,13 @@ struct EditTaskPopUP: View {
             topSection
             contentStack
         }
+        .popover(isPresented: $editTaskViewModel.isDeleting, content: {
+            SheetView(type: .deleteTask)
+                .environmentObject(projectViewModel)
+                .environmentObject(editTaskViewModel)
+                .foregroundColor(Color.theme.grayHover)
+                .background(.white)
+        })
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
