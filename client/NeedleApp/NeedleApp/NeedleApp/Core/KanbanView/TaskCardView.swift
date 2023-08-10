@@ -17,34 +17,38 @@ extension KanbanView {
                 HStack{
                     Text("Prazo: \(HandleDate.handleDate(date: task.endDate))")
                         .font(Font.custom("SF Pro", size: 12))
-                        .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
+                        .foregroundColor(Color.theme.grayPressed)
                     Spacer()
-//                    Text("􀋊")
-//                        .font(Font.custom("SF Pro", size: 12))
-//                        .foregroundColor(Color(red: 0.94, green: 0.27, blue: 0.27))
-//                    foi de base pois a taskmodel n tem prioridade
+                    Text("􀋊")
+                    .font(Font.custom("SF Pro", size: 12))
+                    .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
                 }
                 Text(task.user?.name ?? "Sem nome")
                     .font(Font.custom("SF Pro", size: 12))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.theme.blackMain)
                 Text(task.title)
                     .font(Font.custom("SF Pro", size: 14))
-                    .foregroundColor(.black)
+                    .foregroundColor(Color.theme.blackMain)
             }
             Spacer()
                 .frame(height: 16)
-            ScrollView(.vertical) {
-                Text(task.description)
-                    .font(Font.custom("SF Pro", size: 12))
-                    .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            HStack {
+                KanbanTagView(taskType: task.type)
+                Spacer()
+                Button {
+                    deleteTask(task: task)
+                } label: {
+                    Text("􀈑")
+                    .font(Font.custom("SF Pro", size: 14))
+                    .foregroundColor(.black)
+                }
+                .buttonStyle(PlainButtonStyle())
+
             }
-            KanbanTagView(taskType: task.type)
-            Spacer()
-                .frame(height: 10)
+
         }
         .padding(16)
-        .frame(width: 256, height: 244, alignment: .topLeading)
+        .frame(minWidth: 128)
         .background(.white)
         .cornerRadius(6)
         .overlay(
@@ -54,9 +58,6 @@ extension KanbanView {
         )
         .draggable(task.id ?? "")
         .dropDestination(for: String.self) { items, location in
-//            print(items)
-//            print(task.id)
-//            print(location)
             currentlyDragging = items.first
             //                print("drop destination!")
             withAnimation(.easeIn) {
@@ -67,6 +68,23 @@ extension KanbanView {
         }
         
         
+    }
+    
+    func deleteTask(task: TaskModel) {
+        // código de deletar task
+    }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return Color.theme.redMain
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
     }
     
     

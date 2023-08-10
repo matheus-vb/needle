@@ -25,39 +25,10 @@ extension KanbanView {
                 )
                 .foregroundColor(.black)
             Spacer()
-            Button {
-                trashButtonKanban(rowName: rowName)
-            } label: {
-                Image(systemName: "trash")
-            }
-            .buttonStyle(PlainButtonStyle())
-            
         }
-        .frame(width: 264, height: 32)
+        .frame(minWidth: 132)
+        .frame(height: 32)
         .cornerRadius(5)
         
-    }
-    
-    func trashButtonKanban(rowName: String) {
-        switch rowName {
-        case "A fazer":
-            kanbanViewModel.localTasks.removeAll { task in
-                task.status == TaskStatus.TODO.rawValue
-            }
-        case "Fazendo":
-            kanbanViewModel.localTasks.removeAll { task in
-                task.status == TaskStatus.IN_PROGRESS.rawValue
-            }
-        case "Feito":
-            kanbanViewModel.localTasks.removeAll { task in
-                task.status == TaskStatus.DONE.rawValue
-            }
-        case "Em revisão":
-            kanbanViewModel.localTasks.removeAll { task in
-                task.status ==  TaskStatus.PENDING.rawValue
-            }
-        default:
-            return
-        }
     }
 }
