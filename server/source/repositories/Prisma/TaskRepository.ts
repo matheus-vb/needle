@@ -104,6 +104,11 @@ export class TaskRepository implements ITaskRepository {
                             },
                         },
                     },
+                    {
+                        description: {
+                            contains: query,
+                        }
+                    },
                 ],
             };
         }
