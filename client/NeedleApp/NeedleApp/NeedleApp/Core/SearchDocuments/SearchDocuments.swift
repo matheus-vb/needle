@@ -55,25 +55,37 @@ struct SearchDocuments: View {
                 Spacer()
             }
             
-            HStack {
-                Group{
-                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
-                        ForEach(TaskStatus.allCases, id: \.self) { status in
-                            Text(status.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(status as TaskStatus?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedStatus = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
+            HStack(spacing: 16) {
+//                Group{
+//                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
+//                        ForEach(TaskStatus.allCases, id: \.self) { status in
+//                            Text(status.displayName)
+//                                .foregroundColor(Color.theme.blackMain)
+//                                .tag(status as TaskStatus?)
+//                        }
+//                    }
+//                    .pickerStyle(.menu)
+//                    .frame(width: 160)
+//                    Button(action: {
+//                        searchDocumentsViewModel.selectedStatus = nil
+//                    }, label: {
+//                        Image(systemName: "arrow.counterclockwise")
+//                    })
+//                    .buttonStyle(.plain)
+//                }
                
+                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
+
+                }
+                
+                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
+                    
+                }
+                
+                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
+                    
+                }
+
                 Spacer()
                 //TODO: Add date to query
 //                VStack {
@@ -85,45 +97,6 @@ struct SearchDocuments: View {
 //                        .frame(width: 100)
 //                }
 //                .padding(.horizontal)
-                Group {
-                    Picker("Área", selection: $searchDocumentsViewModel.selectedArea) {
-                        ForEach(TaskType.allCases, id: \.self) { area in
-                            Text(area.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(area as TaskType?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedArea = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
-                
-                Spacer()
-                
-                Group{
-                    Picker("Prioridade", selection: $searchDocumentsViewModel.selectedPriority) {
-                        ForEach(TaskPriority.allCases, id: \.self) { priority in
-                            Text(priority.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(priority as TaskPriority?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedPriority = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
-                
-                Spacer()
                 
                 Group {
                     TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
@@ -137,7 +110,6 @@ struct SearchDocuments: View {
                     .buttonStyle(.plain)
                 }
             }
-//            .padding(.horizontal)
             .padding(.top, 10)
             
             Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){
