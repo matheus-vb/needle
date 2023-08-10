@@ -11,7 +11,7 @@ import Foundation
 
 class HandleDate {
     
-    static let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+    static let months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"]
     
     static let numberOfDaysPerMonth: [Int: Int] = [
         1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31
@@ -22,7 +22,7 @@ class HandleDate {
         let day = splittedDate[2].prefix(2)
         guard let monthNumber = Int(splittedDate[1]) else { return "" }
         let month = months[monthNumber - 1]
-        let ret = "\(month) \(day)"
+        let ret = "\(day) \(month)"
         return String(ret)
     }
 }
