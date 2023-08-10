@@ -5,7 +5,7 @@ import { makeUpdateTask } from "../../../useCases/factories/task/make-update-tas
 export async function updateTask(request: FastifyRequest, response: FastifyReply){
     
     const updateTaskBodySchema = z.object({
-        userId: z.string(),
+        userId: z.string().nullish(),
         taskId: z.string(),
         documentId: z.string(),
         title: z.string(),
@@ -23,7 +23,7 @@ export async function updateTask(request: FastifyRequest, response: FastifyReply
     try {
         const updateTaskUseCase = makeUpdateTask()
         const { task } = await updateTaskUseCase.handle({
-            userId,
+            userId: userId ? userId : null, 
             taskId,
             documentId,
             title,

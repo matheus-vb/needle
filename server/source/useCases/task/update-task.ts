@@ -10,7 +10,7 @@ import { UserNotFound } from "../errors/UserNotFound"
 import { apnProvider } from "../../notification/provider"
 
 interface IUpdateTaskRequest {
-    userId: string
+    userId: string | null
     taskId: string
     documentId: string
     title: string
@@ -50,7 +50,9 @@ export class UpdateTaskUseCase {
         }
 
         //Update no assign
-        await this.taskRespository.updateAssignee(taskId, userId)
+        if(userId){
+            await this.taskRespository.updateAssignee(taskId, userId)
+        }
 
         //Edit tasks
         const parseStatus = z.nativeEnum(TaskStatus)
