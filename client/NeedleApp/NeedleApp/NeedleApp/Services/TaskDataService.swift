@@ -123,7 +123,7 @@ class TaskDataService: ObservableObject {
                 }
             }, receiveValue: { [weak self] _ in
                 self?.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
-l                self?.createTaskSubscription?.cancel()
+                self?.createTaskSubscription?.cancel()
             })
     }
 }
