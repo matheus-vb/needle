@@ -12,6 +12,8 @@ struct KanbanView: View {
     @EnvironmentObject var kanbanViewModel: KanbanViewModel
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
+    @State var isDeleting = false
+    
     var body: some View {
         HStack(alignment: .center) {
             Spacer()
@@ -20,8 +22,8 @@ struct KanbanView: View {
                 DoingView()
                 InReviewView()
                 doneView()
-                Spacer()
-                    .frame(minWidth: 60)
+//                Spacer()
+//                    .frame(width: 60)
             }
             Spacer()
         }
@@ -75,6 +77,7 @@ struct KanbanView: View {
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -92,7 +95,11 @@ struct KanbanView: View {
     func DoingView() -> some View {
         NavigationStack {
             VStack {
+<<<<<<< HEAD
                 KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.orangeKanban)
+=======
+                KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.blueKanban)
+>>>>>>> develop
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.IN_PROGRESS)
@@ -102,16 +109,16 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.IN_PROGRESS.rawValue
                     }){task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                                .padding(.bottom, 20)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -129,7 +136,11 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
+<<<<<<< HEAD
                 KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.blueKanban)
+=======
+                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.orangeKanban)
+>>>>>>> develop
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.PENDING)
@@ -139,16 +150,16 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.PENDING.rawValue
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                                .padding(.bottom, 20)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -176,16 +187,16 @@ struct KanbanView: View {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.DONE.rawValue
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                                .padding(.bottom, 20)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -229,8 +240,10 @@ struct KanbanView: View {
                 )
                 .foregroundColor(.black)
             }
-            .padding(0)
-            .frame(width: 256, height: 48, alignment: .center)
+            .padding(5)
+            .frame(minWidth: 128, maxWidth: 1000)
+            .frame(height: 48)
+//            .frame(width: 256, height: 48, alignment: .center)
             .background(Color(red: 0.88, green: 1, blue: 0.74))
             .cornerRadius(6)
             .overlay(

@@ -42,7 +42,7 @@ struct RootView: View {
                             }
                             .onTapGesture { notificationIsPresented.toggle() }
                         
-                        Text("Laura Brito \(userLogoutIsPresented ? "􀄥" : "􀰇")")
+                        Text("\(authManager.user?.name ?? "") \(userLogoutIsPresented ? "􀄥" : "􀰇")")
                             .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                             .onTapGesture{
                                 userLogoutIsPresented.toggle()

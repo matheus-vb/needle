@@ -50,7 +50,7 @@ extension CreateTaskPopUp{
             LabelComponent(imageName: "shippingbox", label:"Área")
             Picker("Área",selection: $createTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
-                   Text(type.rawValue)
+                   Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain)
                }
            }
@@ -65,7 +65,7 @@ extension CreateTaskPopUp{
             LabelComponent(imageName: "flag.fill", label: "Prioridade")
             Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
-                    Text(priority.rawValue)
+                    Text(priority.displayName)
                         .foregroundColor(Color.theme.blackMain)
                 }
             }
@@ -80,11 +80,20 @@ extension CreateTaskPopUp{
             Text("Descrição")
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.blackMain)
-            TextEditor(text: $createTaskViewModel.taskDescription)
-                .scrollContentBackground(.hidden)
-                .background(Color.clear)
-                .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.grayPressed)
+            ZStack {
+                if createTaskViewModel.taskDescription == "" {
+                    TextEditor(text:$createTaskViewModel.taskDescriptionPlaceHolder)
+                        .scrollContentBackground(.hidden)
+                        .background(Color.clear)
+                        .font(.system(size: 20, weight: .regular))
+                        .foregroundColor(Color.theme.grayPressed)
+                }
+                TextEditor(text: $createTaskViewModel.taskDescription)
+                    .scrollContentBackground(.hidden)
+                    .background(Color.clear)
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundColor(Color.theme.grayPressed)
+            }
         }
         .frame(minHeight: geometry.size.height - 420)
     }
