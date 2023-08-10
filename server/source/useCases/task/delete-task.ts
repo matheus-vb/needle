@@ -1,8 +1,14 @@
+import { Task, Document } from "@prisma/client";
 import { DocumentRepository } from "../../repositories/Prisma/DocumentRepository";
 import { TaskRepository } from "../../repositories/Prisma/TaskRepository";
 
 interface IDeleteTaskRequest {
     taskId: string;
+}
+
+interface IDeleteTaskResponse {
+    task: Task;
+    doc: Document;
 }
 
 export class DeleteTaskUseCase {
@@ -18,6 +24,11 @@ export class DeleteTaskUseCase {
         }
 
         const docId = task.documentId
-        await this.documentRepository.deleteDocumen(docId);
+        const doc = await this.documentRepository.deleteDocument(docId);
+
+        return {
+            task,
+            doc
+        }
     }
 }

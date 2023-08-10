@@ -12,9 +12,9 @@ export async function deleteTask(request: FastifyRequest, response: FastifyReply
     try{
         const deleteTaskUseCase = makeDeleteTask();
 
-        deleteTaskUseCase.handle({ taskId })
+        const {task, doc} = await deleteTaskUseCase.handle({ taskId })
 
-        return response.status(204);
+        return response.status(200).send({task, doc});
     }catch(e){
         throw(e)
     }

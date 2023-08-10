@@ -8,5 +8,5 @@ export interface IDocumentRepository {
     queryDocumentByTaskTag(tag: string, accessCode: string): Promise<Document[]>;
     queryDocumentByType(type: TaskType, accessCode: string): Promise<Document[]>;
     getWorkspaceDocuments(workspaceId: string): Promise<Document[]>;
-    deleteDocumen(id : string): Promise<void>;
+    deleteDocument(id : string): Promise<Document>;
 }
