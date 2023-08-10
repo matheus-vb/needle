@@ -28,7 +28,7 @@ struct DropdownStatusButton: View {
                 Text(isClicked ? "􀄥" : "􀄧")
                     .padding(.trailing, 10)
             }
-            .frame(width: 120, height: 32)
+            .frame(width: 140, height: 32)
             .background(Color.theme.greenMain)
             .overlay(
               RoundedRectangle(cornerRadius: 6)
@@ -74,7 +74,7 @@ struct DropdownPriorityButton: View {
                 Text(isClicked ? "􀄥" : "􀄧")
                     .padding(.trailing, 10)
             }
-            .frame(width: 120, height: 32)
+            .frame(width: 140, height: 32)
             .background(Color.theme.greenMain)
             .overlay(
               RoundedRectangle(cornerRadius: 6)
@@ -120,7 +120,7 @@ struct DropdownTypeButton: View {
                 Text(isClicked ? "􀄥" : "􀄧")
                     .padding(.trailing, 10)
             }
-            .frame(width: 120, height: 32)
+            .frame(width: 140, height: 32)
             .background(Color.theme.greenMain)
             .overlay(
               RoundedRectangle(cornerRadius: 6)
@@ -156,7 +156,7 @@ struct SecondaryDropdownEnumButton: View {
         }, label:{
             Text(text)
                 .padding([.top, .bottom], 9)
-                .frame(width: 104)
+                .frame(width: 140)
                 .background(onHover ? Color.theme.greenTertiary : Color.theme.greenMain)
                 .foregroundColor(Color.theme.blackMain)
                 .onHover { Bool in
