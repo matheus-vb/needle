@@ -80,11 +80,20 @@ extension CreateTaskPopUp{
             Text("Descrição")
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.blackMain)
-            TextEditor(text: $createTaskViewModel.taskDescription)
-                .scrollContentBackground(.hidden)
-                .background(Color.clear)
-                .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.grayPressed)
+            ZStack {
+                if createTaskViewModel.taskDescription == "" {
+                    TextEditor(text:$createTaskViewModel.taskDescriptionPlaceHolder)
+                        .scrollContentBackground(.hidden)
+                        .background(Color.clear)
+                        .font(.system(size: 20, weight: .regular))
+                        .foregroundColor(Color.theme.grayPressed)
+                }
+                TextEditor(text: $createTaskViewModel.taskDescription)
+                    .scrollContentBackground(.hidden)
+                    .background(Color.clear)
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundColor(Color.theme.grayPressed)
+            }
         }
         .frame(minHeight: geometry.size.height - 420)
     }
