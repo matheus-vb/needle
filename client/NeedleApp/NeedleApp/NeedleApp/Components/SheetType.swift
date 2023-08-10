@@ -31,7 +31,7 @@ enum SheetType {
         case .shareCode: return ""
         case .documentNotFound: return "Documento não encontrado"
         case .deleteTask: return "Remover task do kanban?"
-        case .loginError: return "Erro de login"
+        case .loginError: return ""
         }
     }
     
