@@ -14,6 +14,8 @@ struct KanbanView: View {
     
     @State var isDeleting = false
     
+    @State var isArchiving = false
+    
     var body: some View {
         ZStack {
             Image("icon-bg")
@@ -38,7 +40,9 @@ struct KanbanView: View {
             .onAppear {
                 projectViewModel.presentCard()
             }
-        }
+        }.sheet(isPresented: $isArchiving, content: {
+            SheetView(type: .archiveTask)
+        })
     }
     
     func addItem(currentlyDragging: String, status: TaskStatus) {
@@ -101,9 +105,6 @@ struct KanbanView: View {
     func DoingView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.blueKanban)
-                Spacer()
-                    .frame(height: 24)
                 addTaskButton(status: TaskStatus.IN_PROGRESS)
                 Spacer()
                     .frame(height: 24)
@@ -138,7 +139,6 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.orangeKanban)
                 addTaskButton(status: TaskStatus.PENDING)
                 Spacer()
                     .frame(height: 24)

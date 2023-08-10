@@ -77,7 +77,6 @@ class ProjectViewModel: ObservableObject{
     func deleteTask(){
         tasksDS.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask!.id ?? "1"), userId: userID, workspaceId: selectedProject.id)
     }
-    
     func presentCard() {
         DispatchQueue.main.async {
             Task {

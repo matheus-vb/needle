@@ -11,7 +11,7 @@ import SwiftUI
 
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: WorkspaceHomeViewModel
+    @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel
     @EnvironmentObject var projectViewModel: ProjectViewModel
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
     
@@ -24,6 +24,8 @@ struct SheetView: View {
     
     @State var showMain = true
     @State var isAnimating = false
+    
+    @State var action: () -> () = {}
     
     @State var accessCode = ""
     
@@ -42,7 +44,7 @@ struct SheetView: View {
             dismiss()
             
         }
-        case .deleteWorkspace: return {                     WorkspaceDataService.shared.deleteWorkspace(accessCode: viewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
+        case .deleteWorkspace: return {                     WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
             dismiss()
             
         }
@@ -63,12 +65,16 @@ struct SheetView: View {
             projectViewModel.showEditTaskPopUP.toggle()
         }
         case .loginError: return {dismiss()}
+        case .archiveTask: return {
+            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id ?? "1", status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedProject.id)
+            dismiss()
+        }
 
         }
     }
         
     var buttonBlock: some View {
-      HStack(spacing: 16) {
+      HStack(spacing: 8) {
           if type.twoButtons && type != .joinCode {
                     Button("Cancelar", action: {
                         if(type == .deleteTask){
@@ -242,6 +248,12 @@ struct SheetView_Previews: PreviewProvider {
                 .background(.white)
 
             SheetView(type: .shareCode)
+                .background(.white)
+            
+            SheetView(type: .archiveTask)
+                .background(.white)
+            
+            SheetView(type: .deleteTask)
                 .background(.white)
 
 
