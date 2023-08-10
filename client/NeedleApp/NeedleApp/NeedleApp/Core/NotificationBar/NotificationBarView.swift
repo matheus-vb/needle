@@ -8,26 +8,18 @@
 import Foundation
 import SwiftUI
 
-class NotificationList: ObservableObject {
-    @Published var list: [AppNotification] = [
-        AppNotification(username: "Fulano de Tal", type: .accepted, task: "Criar backlog", projectName: "Marketing", timeAgo: "23 minutos"),
-        AppNotification(username: "Fulano de Tal", type: .accepted, task: "Rever personas", projectName: "Design", timeAgo: "2 dias")
-    ]
-}
-
 struct NavigationBarView: View {
-//    @StateObject var mock = NotificationList()
-    @StateObject var mock : NotificationList
-    
+    @EnvironmentObject var notificationViewModel: NotificationBarViewModel
+
     var header: some View {
         HStack {
             Image("simbolo")
             Spacer()
-            Text("\(mock.list.count) notificações")
+            Text("\(notificationViewModel.notifications.count) notificações")
                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
             Spacer()
             Button {
-                self.mock.list.removeAll()
+                NotificationDataService.shared.deleteUserNotifications(userId: AuthenticationManager.shared.user!.id)
             } label: {
                 Text("Limpar")
                     .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
@@ -41,24 +33,15 @@ struct NavigationBarView: View {
     var notificationStack: some View {
         VStack(alignment: .leading, spacing: 24) {
             List{
-                ForEach(mock.list.indices, id: \.self){ index in
-                    NotificationCardView(notificationInfo: AppNotification(
-                        username: mock.list[index].username,
-                        type: mock.list[index].type,
-                        task: mock.list[index].task,
-                        projectName: mock.list[index].projectName,
-                        timeAgo: mock.list[index].timeAgo))
+                ForEach(notificationViewModel.notifications){ notification in
+                    NotificationCardView(notificationInfo: notification, userName: AuthenticationManager.shared.user!.name)
                     .contextMenu {
                         Button(action: {
-                            mock.list.remove(at: index)
-                            // delete item in items array
+                            // TODO: delete item in items array
                         }){
                             Text("Delete")
                         }
                     }
-                }
-                .onDelete { indexSet in
-                    mock.list.remove(atOffsets: indexSet)
                 }
             }
         }
@@ -81,12 +64,9 @@ struct NavigationBarView: View {
             .foregroundColor(.black)
             .frame(width: 244)
         }
+        .onAppear {
+            NotificationDataService.shared.getUserNotifications(userId: AuthenticationManager.shared.user!.id)
+        }
         .cornerRadius(10)
-    }
-}
-
-struct NavigationBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationBarView(mock: NotificationList())
     }
 }

@@ -14,7 +14,8 @@ struct RootView: View {
     
     @State var showErrorSheet: Bool = false
     
-    @StateObject var mock : NotificationList = NotificationList()
+    @StateObject var notificationViewModel = NotificationBarViewModel()
+    
     var body: some View {
         mainView
             .sheet(isPresented: $showErrorSheet, content: {
@@ -36,11 +37,15 @@ struct RootView: View {
                             .resizable()
                             .scaledToFit()
                         Spacer()
-                        Image(systemName: mock.list.isEmpty ? "bell" : "bell.badge")
+                        Image(systemName: notificationViewModel.notifications.isEmpty ? "bell" : "bell.badge")
                             .popover(isPresented: $notificationIsPresented, arrowEdge: .bottom) {
-                                NavigationBarView(mock: mock)
+                                NavigationBarView()
+                                    .environmentObject(notificationViewModel)
                             }
-                            .onTapGesture { notificationIsPresented.toggle() }
+                            .onTapGesture {
+                                NotificationDataService.shared.getUserNotifications(userId: AuthenticationManager.shared.user!.id)
+                                notificationIsPresented.toggle()
+                            }
                         
                         Text("\(authManager.user?.name ?? "") \(userLogoutIsPresented ? "􀄥" : "􀰇")")
                             .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
