@@ -32,6 +32,7 @@ struct ProjectsViewRightSideComponent: View {
             }else if projectViewModel.selectedTab == .Documentation{
                 SearchDocuments()
                     .environmentObject(SearchDocumentsViewModel(tasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? [], workspaceId: projectViewModel.selectedProject.id))
+                    .environmentObject(projectViewModel)
             }
         }
     }
