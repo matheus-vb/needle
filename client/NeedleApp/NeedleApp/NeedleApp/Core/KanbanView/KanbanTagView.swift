@@ -25,11 +25,11 @@ struct KanbanTagView: View {
     func tagColor(tagName: String) -> Color {
         switch tagName {
         case TaskType.DEV.rawValue:
-            return Color(red: 0, green: 0.48, blue: 0.9)
+            return Color.theme.blueMain
         case TaskType.DESIGN.rawValue:
-            return Color(red: 1, green: 0.68, blue: 0.38)
+            return Color.theme.orangeMain
         default:
-            return Color(red: 0.94, green: 0.27, blue: 0.27)
+            return Color.theme.redMain
         }
     }
     
@@ -42,11 +42,5 @@ struct KanbanTagView: View {
         default:
             return "Outros"
         }
-    }
-}
-
-struct KanbanTagView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanTagView(taskType: "Dev")
     }
 }

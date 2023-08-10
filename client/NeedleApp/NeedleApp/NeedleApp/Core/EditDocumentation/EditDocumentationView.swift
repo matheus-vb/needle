@@ -32,7 +32,7 @@ struct EditDocumentationView: View {
         }
         .frame(minHeight: 600)
         .background(Color.theme.grayBackground)
-        .padding(2)
+        .border(Color.theme.blackMain, width: 2)
     }
 }
 
