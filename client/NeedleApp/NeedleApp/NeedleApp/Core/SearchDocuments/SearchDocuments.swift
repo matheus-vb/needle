@@ -12,6 +12,8 @@ struct SearchDocuments: View {
     
     @EnvironmentObject var searchDocumentsViewModel: SearchDocumentsViewModel
     
+    @EnvironmentObject var projectViewModel: ProjectViewModel
+    
     @State private var searchText = ""
     @State private var sortOrder = [KeyPathComparator(\TaskModel.title)]
     @State private var sortByStatus = false
@@ -96,7 +98,7 @@ struct SearchDocuments: View {
             }
             .padding(.top, 10)
             
-            Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){
+            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTask, sortOrder: $sortOrder){
                 TableColumn("Nome da Task 􀄬", value: \.title)
                 TableColumn("Prioridade 􀄬", value: \.taskPriority.order ){
                     switch $0.taskPriority{
@@ -123,6 +125,11 @@ struct SearchDocuments: View {
                     Text($0.user?.name ?? "Sem responsável.")
                 }
                 TableColumn("Atualização 􀄬", value: \.endDate)
+            }
+            .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
+                guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }
+                projectViewModel.selectedTask = task
+                projectViewModel.showEditTaskPopUP = true
             }
             .onChange(of: sortOrder){
                 searchDocumentsViewModel.tasks.sort(using: $0)
