@@ -12,19 +12,21 @@ struct SearchDocuments: View {
     
     @EnvironmentObject var searchDocumentsViewModel: SearchDocumentsViewModel
     
+    @EnvironmentObject var projectViewModel: ProjectViewModel
+    
     @State private var searchText = ""
     @State private var sortOrder = [KeyPathComparator(\TaskModel.title)]
     @State private var sortByStatus = false
     @State private var startDate = Date()
     @State private var endDate = Date()
-    @State private var filteredType = ""
-    @State private var filteredStatus = ""
-    @State private var filteredPriority = ""
     @State private var sortByTaskName = true
     @State private var sortByPriority = false
     @State private var sortByUpdate = false
     @State private var sortByUserName = false
     @State private var sortByType = false
+    @State private var dateIsPresented = false
+    
+    @State private var mydate = "Data"
     
     private func dateIsInRange(_ dateString: String) -> Bool {
         let dateFormatter = DateFormatter()
@@ -34,51 +36,42 @@ struct SearchDocuments: View {
         }
         return false
     }
-    
-    let options: [OptionItem] = [
-        OptionItem(title: "Option 1", color: .blue),
-        OptionItem(title: "Option 2", color: .green),
-        OptionItem(title: "Option 3", color: .purple),
-    ]
-    
-    @State private var selectedOption: OptionItem = OptionItem(title: "Option 1", color: .blue)
-    
+
     
     var body: some View {
         VStack {
-            HStack(){
-                Circle()
-                    .fill(Color.red)
-                    .frame(width: 12, height: 12)
-                Text("Pendente")
-                    .font(.system(size: 18, weight: .regular))
-                Circle()
-                    .fill(Color.green)
-                    .frame(width: 12, height: 12)
-                Text("Revisado")
-                    .font(.system(size: 18, weight: .regular))
-                Spacer()
-            }
             
-            HStack {
-                Group{
-                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
-                        ForEach(TaskStatus.allCases, id: \.self) { status in
-                            Text(status.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(status as TaskStatus?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedStatus = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
+            HStack(spacing: 16) {
+//                Group{
+//                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
+//                        ForEach(TaskStatus.allCases, id: \.self) { status in
+//                            Text(status.displayName)
+//                                .foregroundColor(Color.theme.blackMain)
+//                                .tag(status as TaskStatus?)
+//                        }
+//                    }
+//                    .pickerStyle(.menu)
+//                    .frame(width: 160)
+//                    Button(action: {
+//                        searchDocumentsViewModel.selectedStatus = nil
+//                    }, label: {
+//                        Image(systemName: "arrow.counterclockwise")
+//                    })
+//                    .buttonStyle(.plain)
+//                }
                
+                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
+
+                }
+                
+                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
+                    
+                }
+                
+                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
+                    
+                }
+
                 Spacer()
                 //TODO: Add date to query
 //                VStack {
@@ -90,50 +83,11 @@ struct SearchDocuments: View {
 //                        .frame(width: 100)
 //                }
 //                .padding(.horizontal)
-                Group {
-                    Picker("Área", selection: $searchDocumentsViewModel.selectedArea) {
-                        ForEach(TaskType.allCases, id: \.self) { area in
-                            Text(area.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(area as TaskType?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedArea = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
-                
-                Spacer()
-                
-                Group{
-                    Picker("Prioridade", selection: $searchDocumentsViewModel.selectedPriority) {
-                        ForEach(TaskPriority.allCases, id: \.self) { priority in
-                            Text(priority.displayName)
-                                .foregroundColor(Color.theme.blackMain)
-                                .tag(priority as TaskPriority?)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                    .frame(width: 160)
-                    Button(action: {
-                        searchDocumentsViewModel.selectedPriority = nil
-                    }, label: {
-                        Image(systemName: "arrow.counterclockwise")
-                    })
-                    .buttonStyle(.plain)
-                }
-                
-                Spacer()
                 
                 Group {
                     TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
+                        .frame(width: 320, height: 32)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(width: 320)
                     Button(action: {
                         searchDocumentsViewModel.query = nil
                     }, label: {
@@ -142,22 +96,40 @@ struct SearchDocuments: View {
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal)
             .padding(.top, 10)
             
-            Table(searchDocumentsViewModel.tasks, sortOrder: $sortOrder){
+            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTask, sortOrder: $sortOrder){
                 TableColumn("Nome da Task 􀄬", value: \.title)
-                TableColumn("Prioridade 􀄬", value: \.taskPriority.codingKey.stringValue )
-                TableColumn("Status 􀄬"){
-                    Circle()
-                        .fill($0.status == TaskStatus.DONE.rawValue ? Color.green : Color.red)
-                        .frame(width: 12, height: 12)
+                TableColumn("Prioridade 􀄬", value: \.taskPriority.order ){
+                    switch $0.taskPriority{
+                    case .LOW:
+                        Text("􀋊 \($0.taskPriority.displayName)")
+                            .foregroundColor(Color.theme.greenKanban)
+                    case .MEDIUM:
+                        Text("􀋊 \($0.taskPriority.displayName)")
+                            .foregroundColor(Color.theme.orangeKanban)
+                    case .HIGH:
+                        Text("􀋊 \($0.taskPriority.displayName)")
+                            .foregroundColor(Color.theme.redMain)
+                    case .VERY_HIGH:
+                        Text("􀋊 \($0.taskPriority.displayName)")
+                            .foregroundColor(Color.theme.redMain)
+                    }
                 }
-                TableColumn("Área 􀄬", value: \.type)
+                TableColumn("Status 􀄬", value: \.status.order){
+                    Text("􀀁 \($0.status.displayName)")
+                        .foregroundColor(getColor(task: $0))
+                }
+                TableColumn("Área 􀄬", value: \.type.displayName)
                 TableColumn("Responsável") {
                     Text($0.user?.name ?? "Sem responsável.")
                 }
                 TableColumn("Atualização 􀄬", value: \.endDate)
+            }
+            .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
+                guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }
+                projectViewModel.selectedTask = task
+                projectViewModel.showEditTaskPopUP = true
             }
             .onChange(of: sortOrder){
                 searchDocumentsViewModel.tasks.sort(using: $0)
@@ -171,5 +143,41 @@ struct SearchDocuments: View {
         .padding(.top, 32)
         .padding(.leading, 64)
         .padding(.trailing, 64)
+    }
+}
+
+extension SearchDocuments {
+    @ViewBuilder
+    func SearchTitleLabel(rowName: String, color: Color) -> some View {
+        
+        HStack{
+            Circle()
+                .frame(width: 10)
+                .foregroundColor(color)
+                .cornerRadius(5)
+            Spacer()
+                .frame(width: 8)
+            Text(rowName)
+                .font(
+                    Font.custom("SF Pro", size: 18)
+                        .weight(.medium)
+                )
+                .foregroundColor(.black)
+            Spacer()
+        }
+        .frame(minWidth: 132)
+        .frame(height: 32)
+        .cornerRadius(5)
+        
+    }
+    
+    func getColor(task: TaskModel) -> Color {
+        switch task.status {
+        case TaskStatus.DONE: return Color.theme.greenKanban
+        case TaskStatus.IN_PROGRESS: return Color.theme.blueKanban
+        case TaskStatus.TODO: return Color.theme.redMain
+        case TaskStatus.PENDING: return Color.theme.orangeKanban
+        default: return Color.theme.blackMain
+        }
     }
 }

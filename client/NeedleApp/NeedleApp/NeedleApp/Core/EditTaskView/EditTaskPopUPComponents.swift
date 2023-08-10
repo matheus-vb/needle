@@ -100,6 +100,28 @@ extension EditTaskPopUP{
     
     var topSection: some View{
         HStack{
+            HStack(spacing: 24){
+                Button(action: {
+                    print("deletar task")
+                }, label: {
+                    Image(systemName: "trash")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color.theme.redMain)
+                })
+                Button(action: {
+                    if(projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE){
+                        editTaskViewModel.unarchiveTask(task: projectViewModel.selectedTask!)
+                    }else{
+                        editTaskViewModel.archiveTask(task: projectViewModel.selectedTask!)
+                    }
+                }, label: {
+                    Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color.theme.orangeKanban)
+                })
+            }
             Spacer()
             Button(action: {
                 projectViewModel.showEditTaskPopUP.toggle()

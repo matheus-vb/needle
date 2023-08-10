@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension KanbanView {
-    
     @ViewBuilder
     func TaskCardView(task: TaskModel) -> some View {
         
@@ -36,11 +35,11 @@ extension KanbanView {
                 KanbanTagView(taskType: task.type)
                 Spacer()
                 Button {
-                    deleteTask(task: task)
+                    archiveTask(task: task)
                 } label: {
-                    Text("􀈑")
-                    .font(Font.custom("SF Pro", size: 14))
-                    .foregroundColor(.black)
+                    Image(systemName: "archivebox")
+                        .resizable()
+                        .frame(width: 20, height: 20)
                 }
                 .buttonStyle(PlainButtonStyle())
 
@@ -60,9 +59,18 @@ extension KanbanView {
         .dropDestination(for: String.self) { items, location in
             currentlyDragging = items.first
             //                print("drop destination!")
-            withAnimation(.easeIn) {
-                swapItem(droppingTask: task, currentlyDragging: currentlyDragging ?? "")
+            guard let temp = kanbanViewModel.localTasks.first(where: { $0.id == currentlyDragging }) else { return false }
+            
+            if temp.status != task.status {
+                withAnimation {
+                    addItem(currentlyDragging: currentlyDragging!, status: task.status)                    
+                }
+            } else {
+                withAnimation(.easeIn) {
+                    swapItem(droppingTask: task, currentlyDragging: currentlyDragging ?? "")
+                }
             }
+            
             return false
         } isTargeted: { status in
         }
@@ -70,8 +78,8 @@ extension KanbanView {
         
     }
     
-    func deleteTask(task: TaskModel) {
-        // código de deletar task
+    func archiveTask(task: TaskModel) {
+        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedProject.id)
     }
     
     func getPriorityFlagColor(priority: TaskPriority) -> Color {
