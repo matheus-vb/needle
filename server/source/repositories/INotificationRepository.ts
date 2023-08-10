@@ -5,4 +5,5 @@ export interface INotificationRepository {
     findById(id: string): Promise<Notification | null>
     getUserNotifications(userId: string): Promise<Notification[]>
     deleteNotification(id: string): Promise<Notification>
+    deleteUserNotifications(userId: string): Promise<void>
 }

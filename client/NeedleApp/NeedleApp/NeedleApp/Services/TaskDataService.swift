@@ -43,8 +43,8 @@ class TaskDataService: ObservableObject {
     
     func createTask(dto: CreateTaskDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "task/create") else { return }
+        
         let parameters = convertToDictionary(dto)
-        print(parameters)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
         
         createTaskSubscription = NetworkingManager.post(url: url, body: jsonData)

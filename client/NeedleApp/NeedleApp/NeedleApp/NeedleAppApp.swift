@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
         //print("Device token: \(token)")
-        NotificationService.shared.token = token
+        NotificationDataService.shared.token = token
     }
     
     func application(_ application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

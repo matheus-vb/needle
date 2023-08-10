@@ -25,6 +25,9 @@ export class NotificationRepository implements INotificationRepository {
         const notifications = await prisma.notification.findMany({
             where: {
                 userId,
+            },
+            include: {
+                workspace: true,
             }
         })
 
@@ -41,4 +44,13 @@ export class NotificationRepository implements INotificationRepository {
         return notification
     }
 
+    async deleteUserNotifications(userId: string) {
+        await prisma.notification.deleteMany({
+            where: {
+                userId,
+            }
+        })
+
+        return
+    }
 }
