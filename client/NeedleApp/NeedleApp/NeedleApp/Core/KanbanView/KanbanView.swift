@@ -15,23 +15,29 @@ struct KanbanView: View {
     @State var isDeleting = false
     
     var body: some View {
-        HStack(alignment: .center) {
-            Spacer()
-            HStack(spacing: 30) {
-                TodoView()
-                DoingView()
-                InReviewView()
-                doneView()
-//                Spacer()
-//                    .frame(width: 60)
+        ZStack {
+            Image("icon-bg")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: 2000, alignment: .bottomTrailing)
+            HStack(alignment: .center) {
+                Spacer()
+                HStack(spacing: 30) {
+                    TodoView()
+                    DoingView()
+                    InReviewView()
+                    doneView()
+                    //                Spacer()
+                    //                    .frame(width: 60)
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        .padding(.top, 32)
-        .padding(.leading, 64)
-        .padding(.trailing, 64)
-        .onAppear {
-            projectViewModel.presentCard()
+            .padding(.top, 32)
+            .padding(.leading, 64)
+            .padding(.trailing, 64)
+            .onAppear {
+                projectViewModel.presentCard()
+            }
         }
     }
     
@@ -132,16 +138,7 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.blueKanban)
-=======
                 KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.orangeKanban)
->>>>>>> develop
-                Spacer()
-                    .frame(height: 24)
->>>>>>> client/feature/workspaceStyling
                 addTaskButton(status: TaskStatus.PENDING)
                 Spacer()
                     .frame(height: 24)
@@ -252,3 +249,5 @@ struct KanbanView: View {
     }
     
 }
+
+

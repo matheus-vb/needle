@@ -53,7 +53,8 @@ struct SheetView: View {
         }
         case .documentNotFound: return { dismiss() }
         case .deleteTask: return { dismiss() } // pegar rota c matheus
-        case .loginError: return {dismiss()}
+        case .loginError: return {
+            dismiss()}
 
         }
     }
