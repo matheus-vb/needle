@@ -7,7 +7,7 @@ export async function deleteTask(request: FastifyRequest, response: FastifyReply
         taskId: z.string()
     })
 
-    const { taskId } = deleteTaskBodySchema.parse(request.body)
+    const { taskId } = deleteTaskBodySchema.parse(request.params)
 
     try{
         const deleteTaskUseCase = makeDeleteTask();
