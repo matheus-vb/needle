@@ -8,10 +8,10 @@
 import Foundation
 import Combine
 
-class NotificationService: ObservableObject {
+class NotificationDataService: ObservableObject {
     private init(){}
     
-    static let shared = NotificationService()
+    static let shared = NotificationDataService()
     
     var token: String?
     
