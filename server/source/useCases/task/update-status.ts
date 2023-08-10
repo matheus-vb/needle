@@ -3,6 +3,8 @@ import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { z } from "zod"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
+import { INotificationRepository } from "../../repositories/INotificationRepository"
+import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
 
 interface IUpdateTaskStatusUseCaseRequest {
     taskId: string
@@ -14,7 +16,11 @@ interface IUpdateTaskStatusUseCaseReply {
 }
 
 export class UpdateTaskStatusUseCase {
-    constructor(private taskRepository: ITaskRepository, private userRepository: IUserRepository) {}
+    constructor(
+        private taskRepository: ITaskRepository, 
+        private userRepository: IUserRepository, 
+        private notificationRepository: INotificationRepository,
+    ) {}
 
     async handle({
         status,
@@ -40,11 +46,21 @@ export class UpdateTaskStatusUseCase {
         }
 
         if(originalTask.status === TaskStatus.PENDING && status === TaskStatus.DONE) {
-            sendNotification(user.deviceToken, `Sua submissão da task ${task.title} foi aprovada!`)
+            const alert = `Sua submissão da task ${task.title} foi aprovada!`
+            sendNotification(user.deviceToken, alert, {
+                notificationRepository: this.notificationRepository,
+                userId: user.id,
+                workspaceId: task.workId
+            })
         }
 
         if(originalTask.status === TaskStatus.PENDING && status !== TaskStatus.DONE) {
-            sendNotification(user.deviceToken, `Sua submissão da task ${task.title} foi rejeitada!`)
+            const alert = `Sua submissão da task ${task.title} precisa de revisão!`
+            sendNotification(user.deviceToken, alert, {
+                notificationRepository: this.notificationRepository,
+                userId: user.id,
+                workspaceId: task.workId
+            })
         }
 
         return {

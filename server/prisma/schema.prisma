@@ -49,12 +49,13 @@ enum TaskPriority {
 }
 
 model User {
-  id          String           @id @default(uuid())
-  name        String
-  email       String           @unique
-  workspaces  User_Workspace[]
-  tasks       Task[]
-  deviceToken String?
+  id           String           @id @default(uuid())
+  name         String
+  email        String           @unique
+  workspaces   User_Workspace[]
+  tasks        Task[]
+  deviceToken  String?
+  Notification Notification[]
 }
 
 model User_Workspace {
@@ -67,11 +68,12 @@ model User_Workspace {
 }
 
 model Workspace {
-  id         String           @id @default(uuid())
-  accessCode String           @unique
-  name       String
-  tasks      Task[]
-  users      User_Workspace[]
+  id           String           @id @default(uuid())
+  accessCode   String           @unique
+  name         String
+  tasks        Task[]
+  users        User_Workspace[]
+  Notification Notification[]
 }
 
 model Task {
@@ -107,4 +109,13 @@ model Document {
   textString String  @default("")
   author     String?
   type       String
+}
+
+model Notification {
+  id          String    @id @default(uuid())
+  payload     String
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  workspaceId String
 }

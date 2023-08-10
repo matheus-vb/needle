@@ -1,25 +1,20 @@
-import apn from "apn";
-import { env } from "../env";
-import { APNSingleton } from "./provider";
+import { INotificationRepository } from "../repositories/INotificationRepository";
+import { pushAPNS } from "./push-apns";
 
-export function sendNotification(deviceToken: string, alert: string) {
-    if(env.NODE_ENV === "DEV") {
-        return
-    }
-    
-    const provider = APNSingleton.shared().provider
+interface INotificationDTO {
+    userId: string
+    workspaceId: string
+    notificationRepository: INotificationRepository
+}
 
-    var notification = new apn.Notification();
+export function sendNotification(deviceToken: string, alert: string, payload: INotificationDTO) {
+    pushAPNS(deviceToken, alert);
 
-    notification.topic = env.BUNDLE_ID
-    notification.expiry = Math.floor(Date.now() / 1000) + 3600;
-    notification.badge = 3;
-    notification.sound = "default";
-    notification.alert = alert;
-    notification.payload = {'messageFrom': 'Needle App'};
+    const repository = payload.notificationRepository
 
-    provider.send(notification, deviceToken).then((result) => {
-        console.log(result.failed)
-        console.log(result.sent)
+    repository.create({
+        payload: alert,
+        userId: payload.userId,
+        workspaceId: payload.workspaceId,
     })
 }
