@@ -56,7 +56,7 @@ struct KanbanView: View {
     func TodoView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "A fazer", color: Color(red: 0.94, green: 0.27, blue: 0.27))
+                KanbanColumnTitleView(rowName: "A fazer", color: Color.theme.redMain)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.TODO)
@@ -92,7 +92,7 @@ struct KanbanView: View {
     func DoingView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Fazendo", color: Color(red: 0.94, green: 0.27, blue: 0.27))
+                KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.orangeKanban)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.IN_PROGRESS)
@@ -129,7 +129,7 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Em revisão", color: Color(red: 0.23, green: 0.51, blue: 0.96))
+                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.blueKanban)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.PENDING)
@@ -166,7 +166,7 @@ struct KanbanView: View {
     func doneView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Feito", color: Color(red: 0.98, green: 0.45, blue: 0.09))
+                KanbanColumnTitleView(rowName: "Feito", color: Color.theme.greenKanban)
                 Spacer()
                     .frame(height: 24)
                 addTaskButton(status: TaskStatus.DONE)
