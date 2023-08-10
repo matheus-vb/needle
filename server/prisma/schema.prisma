@@ -118,4 +118,5 @@ model Notification {
   userId      String
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
   workspaceId String
+  created_at  DateTime  @default(now())
 }

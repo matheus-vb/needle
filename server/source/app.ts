@@ -5,6 +5,7 @@ import { taskRoutes } from "./http/controllers/task/routes";
 import { documentRoutes } from "./http/controllers/document/routes";
 import { workspaceRoutes } from "./http/controllers/workspace/routes";
 import { userRoutes } from "./http/controllers/user/routes";
+import { notificationRoutes } from "./http/controllers/notification/routes";
 
 export const app = fastify();
 
@@ -17,6 +18,7 @@ app.register(userRoutes)
 app.register(taskRoutes);
 app.register(documentRoutes);
 app.register(workspaceRoutes);
+app.register(notificationRoutes);
 
 app.setErrorHandler((error, _, reply) => {
     if (error instanceof ZodError) {
