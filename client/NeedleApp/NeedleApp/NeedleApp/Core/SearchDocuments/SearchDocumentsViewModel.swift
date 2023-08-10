@@ -13,6 +13,8 @@ class SearchDocumentsViewModel: ObservableObject {
     
     @Published var tasks: [TaskModel]
     
+    @Published var selectedTask: TaskModel.ID?
+    
     @Published var selectedStatus: TaskStatus? = nil
     @Published var selectedArea: TaskType? = nil
     @Published var selectedPriority: TaskPriority? = nil

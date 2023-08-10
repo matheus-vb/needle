@@ -33,7 +33,7 @@ struct WorkspaceCardView: View, Identifiable {
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
-            Text("Click to see more of this workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
+            Text("Clique para ver mais deste workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
         }
     }
     

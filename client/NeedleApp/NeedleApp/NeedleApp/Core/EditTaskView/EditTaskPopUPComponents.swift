@@ -36,6 +36,7 @@ extension EditTaskPopUP{
                 ForEach(editTaskViewModel.members, id: \.self) {membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
+                        .tag(membro as User?)
                 }
             }
             .pickerStyle(.menu)
@@ -49,7 +50,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "shippingbox", label:"Área")
             Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
-                   Text(type.rawValue)
+                   Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain)
                }
            }
@@ -64,7 +65,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "flag.fill", label: "Prioridade")
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
-                    Text(priority.rawValue)
+                    Text(priority.displayName)
                         .foregroundColor(Color.theme.blackMain)
                 }
             }
@@ -99,6 +100,28 @@ extension EditTaskPopUP{
     
     var topSection: some View{
         HStack{
+            HStack(spacing: 24){
+                Button(action: {
+                    print("deletar task")
+                }, label: {
+                    Image(systemName: "trash")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color.theme.redMain)
+                })
+                Button(action: {
+                    if(projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE){
+                        editTaskViewModel.unarchiveTask(task: projectViewModel.selectedTask!)
+                    }else{
+                        editTaskViewModel.archiveTask(task: projectViewModel.selectedTask!)
+                    }
+                }, label: {
+                    Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color.theme.orangeKanban)
+                })
+            }
             Spacer()
             Button(action: {
                 projectViewModel.showEditTaskPopUP.toggle()

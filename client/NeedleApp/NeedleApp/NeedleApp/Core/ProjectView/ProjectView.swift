@@ -22,6 +22,7 @@ struct ProjectView: View {
             VStack {
                 AlertBoxView()
                     .overlay(RoundedRectangle(cornerRadius: 16).stroke(.black, lineWidth: 2))
+                    .padding(.top, 10)
                 Spacer()
             }
             .sheet(isPresented: $projectViewModel.showShareCode, content: {
@@ -35,7 +36,7 @@ struct ProjectView: View {
     var loading: some View {
             Circle()
                 .trim(from: 0, to: 0.8)
-                .stroke(Color.theme.greenMain, lineWidth: 4)
+                .stroke(Color.theme.blackMain, lineWidth: 4)
                 .frame(width: 50, height: 50)
                 .rotationEffect(.degrees(isAnimating ? 360 : 0))
                 .onAppear() {

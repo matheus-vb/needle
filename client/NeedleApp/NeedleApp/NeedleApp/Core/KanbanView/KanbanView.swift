@@ -12,6 +12,8 @@ struct KanbanView: View {
     @EnvironmentObject var kanbanViewModel: KanbanViewModel
     @EnvironmentObject var projectViewModel: ProjectViewModel
     
+    @State var isDeleting = false
+    
     var body: some View {
         ZStack {
             Image("icon-bg")
@@ -42,7 +44,7 @@ struct KanbanView: View {
             $0.id == currentlyDragging
         }){
             var sourceItem = kanbanViewModel.localTasks.remove(at: sourceIndex)
-            sourceItem.status = status.rawValue
+            sourceItem.status = status
             kanbanViewModel.localTasks.append(sourceItem)
             TaskDataService.shared.updateTaskStatus(taskId: currentlyDragging, status: status, userId: AuthenticationManager.shared.user!.id, workspaceId: projectViewModel.selectedProject.id)
         }
@@ -71,7 +73,7 @@ struct KanbanView: View {
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.TODO.rawValue
+                        $0.status == TaskStatus.TODO
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
@@ -82,6 +84,7 @@ struct KanbanView: View {
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -107,18 +110,18 @@ struct KanbanView: View {
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.IN_PROGRESS.rawValue
+                        $0.status == TaskStatus.IN_PROGRESS
                     }){task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                                .padding(.bottom, 20)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -144,18 +147,18 @@ struct KanbanView: View {
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.PENDING.rawValue
+                        $0.status == TaskStatus.PENDING
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                                .padding(.bottom, 20)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -181,18 +184,18 @@ struct KanbanView: View {
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.DONE.rawValue
+                        $0.status == TaskStatus.DONE
                     }) {task in
-                        Button(action: {
-                            projectViewModel.selectedTask = task
-                            projectViewModel.showEditTaskPopUP.toggle()
-                        }, label: {
-                            TaskCardView(task: task)
-                                .padding(.bottom, 20)
-                        })
+                        TaskCardView(task: task)
+                            .padding(.bottom, 20)
+                            .onTapGesture(count: 2) {
+                                projectViewModel.selectedTask = task
+                                projectViewModel.showEditTaskPopUP.toggle()
+                            }
                         .buttonStyle(.plain)
                     }
                 }
+                .scrollIndicators(.never)
             }
         }
         .dropDestination(for: String.self) { items, location in
@@ -236,8 +239,10 @@ struct KanbanView: View {
                 )
                 .foregroundColor(.black)
             }
-            .padding(0)
-            .frame(width: 256, height: 48, alignment: .center)
+            .padding(5)
+            .frame(minWidth: 128, maxWidth: 1000)
+            .frame(height: 48)
+//            .frame(width: 256, height: 48, alignment: .center)
             .background(Color(red: 0.88, green: 1, blue: 0.74))
             .cornerRadius(6)
             .overlay(

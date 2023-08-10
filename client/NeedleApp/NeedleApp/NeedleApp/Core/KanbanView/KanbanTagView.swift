@@ -9,7 +9,7 @@ import SwiftUI
 
 struct KanbanTagView: View {
     
-    let taskType: String
+    let taskType: TaskType
     
     var body: some View {
         Text(tagName(tagName: taskType))
@@ -22,31 +22,25 @@ struct KanbanTagView: View {
             .cornerRadius(6)
     }
     
-    func tagColor(tagName: String) -> Color {
+    func tagColor(tagName: TaskType) -> Color {
         switch tagName {
-        case TaskType.DEV.rawValue:
-            return Color(red: 0, green: 0.48, blue: 0.9)
-        case TaskType.DESIGN.rawValue:
-            return Color(red: 1, green: 0.68, blue: 0.38)
+        case TaskType.DEV:
+            return Color.theme.blueMain
+        case TaskType.DESIGN:
+            return Color.theme.orangeMain
         default:
-            return Color(red: 0.94, green: 0.27, blue: 0.27)
+            return Color.theme.redMain
         }
     }
     
-    func tagName(tagName: String) -> String {
+    func tagName(tagName: TaskType) -> String {
         switch tagName {
-        case TaskType.DEV.rawValue:
+        case TaskType.DEV:
             return "Dev"
-        case TaskType.DESIGN.rawValue:
+        case TaskType.DESIGN:
             return "Design"
         default:
             return "Outros"
         }
-    }
-}
-
-struct KanbanTagView_Previews: PreviewProvider {
-    static var previews: some View {
-        KanbanTagView(taskType: "Dev")
     }
 }

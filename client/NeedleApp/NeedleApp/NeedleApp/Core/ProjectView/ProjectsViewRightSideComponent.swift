@@ -14,7 +14,17 @@ struct ProjectsViewRightSideComponent: View {
             topContainer
                 .padding([.top], 64)
                 .padding([.leading, .trailing], 64)
-            Spacer()
+            HStack {
+                statusTitleLabel(rowName: "A fazer", color: Color.theme.redMain)
+                statusTitleLabel(rowName: "Fazendo", color: Color.theme.blueKanban)
+                statusTitleLabel(rowName: "Em revisão", color: Color.theme.orangeKanban)
+                statusTitleLabel(rowName: "Feito", color: Color.theme.greenKanban)
+            }
+            .padding(.leading, 64)
+            .padding(.trailing, 64)
+            .padding(.top, 24)
+            .offset(x: 12)
+            
             if projectViewModel.selectedTab == .Kanban{
                 KanbanView()
                     .environmentObject(projectViewModel)
@@ -22,6 +32,7 @@ struct ProjectsViewRightSideComponent: View {
             }else if projectViewModel.selectedTab == .Documentation{
                 SearchDocuments()
                     .environmentObject(SearchDocumentsViewModel(tasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? [], workspaceId: projectViewModel.selectedProject.id))
+                    .environmentObject(projectViewModel)
             }
         }
     }
