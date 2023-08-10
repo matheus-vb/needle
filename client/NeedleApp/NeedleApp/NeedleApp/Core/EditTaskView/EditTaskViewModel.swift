@@ -22,6 +22,7 @@ class EditTaskViewModel: ObservableObject{
     @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
+    @Published var isDeleting: Bool = false
     
     init(data: TaskModel, workspaceID: String, members: [User]) {
         let isoDateString = data.endDate

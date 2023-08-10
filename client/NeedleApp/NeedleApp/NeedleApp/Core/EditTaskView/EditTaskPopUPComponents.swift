@@ -102,7 +102,7 @@ extension EditTaskPopUP{
         HStack{
             HStack(spacing: 24){
                 Button(action: {
-                    print("deletar task")
+                    editTaskViewModel.isDeleting.toggle()
                 }, label: {
                     Image(systemName: "trash")
                         .resizable()
