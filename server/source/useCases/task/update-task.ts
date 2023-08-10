@@ -5,6 +5,9 @@ import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { TaskRepository } from "../../repositories/Prisma/TaskRepository"
 import { UserRepository } from "../../repositories/Prisma/UserRepository"
+import { sendNotification } from "../../notification/send-notification"
+import { UserNotFound } from "../errors/UserNotFound"
+import { apnProvider } from "../../notification/provider"
 
 interface IUpdateTaskRequest {
     userId: string
@@ -25,7 +28,7 @@ interface IUpdateTaskResponse {
 }
 
 export class UpdateTaskUseCase {
-    constructor(private taskRespository: ITaskRepository,private docuementRepository: IDocumentRepository){}
+    constructor(private taskRespository: ITaskRepository,private docuementRepository: IDocumentRepository, private userRepository: IUserRepository){}
 
     async handle({
         userId,
@@ -65,6 +68,22 @@ export class UpdateTaskUseCase {
 
         //Pegar a task para retornar
         const task = await this.taskRespository.findById(taskId)
+
+        if(task?.userId !== previousTask.userId && task?.userId) {
+            const user = await this.userRepository.findById(task.userId)
+            if(!user || !user.deviceToken) {
+                throw new Error()
+            }
+            
+            sendNotification(user.deviceToken, apnProvider, `Você foi marcado na task ${task.title}!`)
+        } else if (task?.userId) {
+            const user = await this.userRepository.findById(task.userId)
+            if(!user || !user.deviceToken) {
+                throw new Error()
+            }
+            
+            sendNotification(user.deviceToken, apnProvider, `Sua task ${task.title} foi editada!`)
+        }
 
         if(!task){
             throw new Error('Task not found after update')
