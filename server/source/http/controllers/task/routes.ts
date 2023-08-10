@@ -7,6 +7,7 @@ import { addTag } from "./add-tag";
 import { queryTasks } from "./query-tasks";
 import { editTask } from "./edit-task";
 import { updateTask } from "./update-task";
+import { deleteTask } from "./delete-task";
 
 export async function taskRoutes(app: FastifyInstance) {
     app.post('/task/create', createTask);
