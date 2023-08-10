@@ -33,11 +33,6 @@ struct ProjectView: View {
     }
     
     var loading: some View {
-        ZStack {
-            Image("icon-bg")
-                .offset(x: 200, y: 40)
-                .blur(radius: 8)
-                .frame(width: 400, height: 200)
             Circle()
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.greenMain, lineWidth: 4)
@@ -48,7 +43,6 @@ struct ProjectView: View {
                         self.isAnimating.toggle()
                     }
                 }
-        }
     }
     
     var main: some View {
