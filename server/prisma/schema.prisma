@@ -78,9 +78,9 @@ model Task {
   id           String       @id @default(uuid())
   title        String
   description  String
-  workspace    Workspace    @relation(fields: [workId], references: [id])
+  workspace    Workspace    @relation(fields: [workId], references: [id], onDelete: Cascade)
   user         User?        @relation(fields: [userId], references: [id])
-  document     Document     @relation(fields: [documentId], references: [id])
+  document     Document     @relation(fields: [documentId], references: [id], onDelete: Cascade)
   status       TaskStatus   @default(TODO)
   type         TaskType
   documentId   String       @unique
