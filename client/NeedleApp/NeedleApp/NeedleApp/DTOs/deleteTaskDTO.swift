@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct DeleteTaskDTO{
+    let taskId: String
+}
