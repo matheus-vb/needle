@@ -27,6 +27,9 @@ struct KanbanView: View {
             }
             Spacer()
         }
+        .padding(.top, 32)
+        .padding(.leading, 64)
+        .padding(.trailing, 64)
         .onAppear {
             projectViewModel.presentCard()
         }
@@ -37,7 +40,7 @@ struct KanbanView: View {
             $0.id == currentlyDragging
         }){
             var sourceItem = kanbanViewModel.localTasks.remove(at: sourceIndex)
-            sourceItem.status = status.rawValue
+            sourceItem.status = status
             kanbanViewModel.localTasks.append(sourceItem)
             TaskDataService.shared.updateTaskStatus(taskId: currentlyDragging, status: status, userId: AuthenticationManager.shared.user!.id, workspaceId: projectViewModel.selectedProject.id)
         }
@@ -58,15 +61,12 @@ struct KanbanView: View {
     func TodoView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "A fazer", color: Color.theme.redMain)
-                Spacer()
-                    .frame(height: 24)
                 addTaskButton(status: TaskStatus.TODO)
                 Spacer()
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.TODO.rawValue
+                        $0.status == TaskStatus.TODO
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
@@ -95,15 +95,12 @@ struct KanbanView: View {
     func DoingView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Fazendo", color: Color.theme.blueKanban)
-                Spacer()
-                    .frame(height: 24)
                 addTaskButton(status: TaskStatus.IN_PROGRESS)
                 Spacer()
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.IN_PROGRESS.rawValue
+                        $0.status == TaskStatus.IN_PROGRESS
                     }){task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
@@ -132,15 +129,12 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Em revisão", color: Color.theme.orangeKanban)
-                Spacer()
-                    .frame(height: 24)
                 addTaskButton(status: TaskStatus.PENDING)
                 Spacer()
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.PENDING.rawValue
+                        $0.status == TaskStatus.PENDING
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
@@ -169,15 +163,12 @@ struct KanbanView: View {
     func doneView() -> some View {
         NavigationStack {
             VStack {
-                KanbanColumnTitleView(rowName: "Feito", color: Color.theme.greenKanban)
-                Spacer()
-                    .frame(height: 24)
                 addTaskButton(status: TaskStatus.DONE)
                 Spacer()
                     .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
-                        $0.status == TaskStatus.DONE.rawValue
+                        $0.status == TaskStatus.DONE
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
