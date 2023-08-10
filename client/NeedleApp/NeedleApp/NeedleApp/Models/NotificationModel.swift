@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct NotificationModel: Codable, Identifiable {
+    let id: String
+    let payload: String
+    let userId: String
+    let workspaceId: String
+    let workspace: Workspace
+    let created_at: String
+}
