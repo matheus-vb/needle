@@ -36,6 +36,7 @@ extension EditTaskPopUP{
                 ForEach(editTaskViewModel.members, id: \.self) {membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
+                        .tag(membro as User?)
                 }
             }
             .pickerStyle(.menu)
