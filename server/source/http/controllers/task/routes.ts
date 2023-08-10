@@ -17,4 +17,5 @@ export async function taskRoutes(app: FastifyInstance) {
     app.get('/task/:workspaceId', tasksByWorkspace);
     app.post('/task/tag', addTag);
     app.get('/task/query/:workspaceId', queryTasks)
+    app.delete('task/delete', deleteTask);
 }
