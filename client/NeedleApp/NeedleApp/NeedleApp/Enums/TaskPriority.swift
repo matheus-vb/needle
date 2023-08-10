@@ -12,4 +12,8 @@ enum TaskPriority: String, CaseIterable, Codable, CodingKeyRepresentable {
     case HIGH = "HIGH"
     case MEDIUM = "MEDIUM"
     case LOW = "LOW"
+    
+    var displayName: String {
+        return formatUpperCase(rawValue)
+    }
 }

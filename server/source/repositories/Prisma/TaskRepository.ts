@@ -104,6 +104,11 @@ export class TaskRepository implements ITaskRepository {
                             },
                         },
                     },
+                    {
+                        description: {
+                            contains: query,
+                        }
+                    },
                 ],
             };
         }
@@ -111,7 +116,8 @@ export class TaskRepository implements ITaskRepository {
         const tasks = await prisma.task.findMany({
             where: whereClause,
             include: {
-                document: true
+                document: true,
+                user: true
             }
         });
     
