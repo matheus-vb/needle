@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel
     var geometry: GeometryProxy
     var body: some View {
         VStack(spacing: 24){
@@ -18,7 +19,7 @@ struct EditTaskPopUP: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(width: 4*geometry.size.width/9.0, height: geometry.size.height)
+        .frame(width: 2*geometry.size.width/3, height: geometry.size.height)
         .background(.white)
     }
 }

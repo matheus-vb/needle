@@ -101,7 +101,7 @@ extension EditTaskPopUP{
         HStack{
             Spacer()
             Button(action: {
-                print("Fechar")
+                projectViewModel.showEditTaskPopUP.toggle()
             }, label: {
                 Image(systemName: "xmark")
                     .resizable()
@@ -142,10 +142,18 @@ extension EditTaskPopUP{
     }
     
     func cancelButton(){
-        
+        projectViewModel.showEditTaskPopUP.toggle()
     }
     
     func saveTaskButton(){
-        
+        do {
+            let dado = try editTaskViewModel.documentationString.richTextData(for: .rtf)
+            let encodedData = dado.base64EncodedString(options: .lineLength64Characters)
+            let data = SaveTaskDTO(userId: editTaskViewModel.selectedMember?.id, taskId: projectViewModel.selectedTask!.id ?? "1", documentId: projectViewModel.selectedTask!.documentId ?? "1", title: editTaskViewModel.taskTitle, description: editTaskViewModel.taskDescription, status: editTaskViewModel.statusSelection.rawValue, type: editTaskViewModel.categorySelection.rawValue, endDate: "\(editTaskViewModel.deadLineSelection)", priority: editTaskViewModel.prioritySelection.rawValue, text: encodedData, textString: editTaskViewModel.documentationString.string)
+            TaskDataService.shared.saveTask(dto: data, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+            projectViewModel.showEditTaskPopUP.toggle()
+        }catch{
+            print(error)
+        }
     }
 }
