@@ -50,7 +50,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "shippingbox", label:"Área")
             Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
-                   Text(type.rawValue)
+                   Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain)
                }
            }
@@ -65,7 +65,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "flag.fill", label: "Prioridade")
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
-                    Text(priority.rawValue)
+                    Text(priority.displayName)
                         .foregroundColor(Color.theme.blackMain)
                 }
             }

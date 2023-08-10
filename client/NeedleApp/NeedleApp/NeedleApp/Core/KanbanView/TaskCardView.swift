@@ -15,7 +15,7 @@ extension KanbanView {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack{
-                    Text("Prazo: \(task.endDate)")
+                    Text("Prazo: \(HandleDate.handleDate(date: task.endDate))")
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(Color(red: 0.63, green: 0.63, blue: 0.63))
                     Spacer()
