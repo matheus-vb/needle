@@ -6,6 +6,10 @@
 ```
 DATABASE_URL="postgresql://docker:docker@localhost:5432/needleapi?schema=public"
 PORT=3010
+KEY_ID=VPL79B4BWZ
+TEAM_ID=L3ZW5SA328
+BUNDLE_ID=br.ufpe.cin.academy.Needle
+NODE_ENV=DEV
 ```
 2. Na raiz do servidor, rode o comando `docker compose up -d`
 3. Ainda na raiz do servidor, rode o comando `npm ci && npx prisma generate && npx prisma migrate deploy` para instalar as dependencias
