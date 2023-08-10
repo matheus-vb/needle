@@ -20,4 +20,13 @@ enum TaskPriority: String, CaseIterable, Codable, CodingKeyRepresentable {
         if rawValue == "LOW" { return "Baixa" }
         return formatUpperCase(rawValue)
     }
+    
+    var order: Int {
+        switch self {
+        case .VERY_HIGH: return 3
+        case .HIGH: return 2
+        case .MEDIUM: return 1
+        case .LOW: return 0
+        }
+    }
 }
