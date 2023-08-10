@@ -3,11 +3,7 @@ import { z } from "zod"
 import { IDocumentRepository } from "../../repositories/IDocumentRepository"
 import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IUserRepository } from "../../repositories/IUserRepository"
-import { TaskRepository } from "../../repositories/Prisma/TaskRepository"
-import { UserRepository } from "../../repositories/Prisma/UserRepository"
 import { sendNotification } from "../../notification/send-notification"
-import { UserNotFound } from "../errors/UserNotFound"
-import { apnProvider } from "../../notification/provider"
 
 interface IUpdateTaskRequest {
     userId: string
@@ -75,14 +71,14 @@ export class UpdateTaskUseCase {
                 throw new Error()
             }
             
-            sendNotification(user.deviceToken, apnProvider, `Você foi marcado na task ${task.title}!`)
+            sendNotification(user.deviceToken, `Você foi marcado na task ${task.title}!`)
         } else if (task?.userId) {
             const user = await this.userRepository.findById(task.userId)
             if(!user || !user.deviceToken) {
                 throw new Error()
             }
             
-            sendNotification(user.deviceToken, apnProvider, `Sua task ${task.title} foi editada!`)
+            sendNotification(user.deviceToken, `Sua task ${task.title} foi editada!`)
         }
 
         if(!task){

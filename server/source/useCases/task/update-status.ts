@@ -3,7 +3,6 @@ import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { z } from "zod"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
-import { apnProvider } from "../../notification/provider"
 
 interface IUpdateTaskStatusUseCaseRequest {
     taskId: string
@@ -41,11 +40,11 @@ export class UpdateTaskStatusUseCase {
         }
 
         if(originalTask.status === TaskStatus.PENDING && status === TaskStatus.DONE) {
-            sendNotification(user.deviceToken, apnProvider, `Sua submissão da task ${task.title} foi aprovada!`)
+            sendNotification(user.deviceToken, `Sua submissão da task ${task.title} foi aprovada!`)
         }
 
         if(originalTask.status === TaskStatus.PENDING && status !== TaskStatus.DONE) {
-            sendNotification(user.deviceToken, apnProvider, `Sua submissão da task ${task.title} foi rejeitada!`)
+            sendNotification(user.deviceToken, `Sua submissão da task ${task.title} foi rejeitada!`)
         }
 
         return {
