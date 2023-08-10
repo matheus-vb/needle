@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class DocumentationDataService{
+class DocumentationDataService: ObservableObject {
     static let shared = DocumentationDataService()
     private init() {}
     
