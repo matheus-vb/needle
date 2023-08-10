@@ -5,11 +5,14 @@
 //  Created by jpcm2 on 03/08/23.
 //
 
+
 import SwiftUI
 
 struct ProjectButton: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel
     let project: Workspace
+    @State var onHover = false
+
     var body: some View {
         Button(action: {
             AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
@@ -25,20 +28,29 @@ struct ProjectButton: View {
                     projectViewModel.triggerLoading = false
                 }
             }
-        }, label: {
-            Text("\(project.name)")
-                .font(.system(size: 12, weight: .regular))
+        }, label:{
+            HStack{
+                Text("\(project.name)")
+                .font(
+                Font.custom("SF Pro", size: 12)
+                .weight(.semibold)
+                )
                 .foregroundColor(.black)
-                .padding([.leading, .trailing], 14)
-                .padding([.top, .bottom], 10)
-                .frame(minWidth: 170, maxWidth: 180)
-                .background(projectViewModel.selectedProject.accessCode == project.accessCode ? Color.theme.greenMain : Color.theme.grayBackground)
+            }
+            .frame(width: 168, height: 48, alignment: .center)
+            .background(projectViewModel.selectedProject.accessCode == project.accessCode ? (onHover ? Color.theme.greenSecondary : Color.theme.greenMain) : (onHover ? Color.white : Color.theme.grayBackground))
+//            .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+            .cornerRadius(6)
+            .overlay(
+              RoundedRectangle(cornerRadius: 6)
+                .inset(by: 0.5)
+                .stroke(Color.theme.blackMain, style: StrokeStyle(lineWidth: 1))
+            )
         })
-        .overlay(
-            Rectangle()
-                .stroke(style: StrokeStyle(lineWidth: 1))
-                .foregroundColor(.black)
-        )
         .buttonStyle(.plain)
+        .padding(.horizontal, 10)
+        .onHover { Bool in
+            onHover = Bool
+        }
     }
 }
