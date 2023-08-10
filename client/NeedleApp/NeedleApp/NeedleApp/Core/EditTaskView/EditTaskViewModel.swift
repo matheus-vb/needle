@@ -53,4 +53,12 @@ class EditTaskViewModel: ObservableObject{
     func updateDoc(dataDTO: UpdateDocumentationDTO){
         DocumentationDataService.shared.updateDocumentation(data: dataDTO, userId: userID, workspaceId: self.workspaceID)
     }
+    
+    func archiveTask(task: TaskModel){
+        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: TaskStatus.NOT_VISIBLE, userId: userID, workspaceId: workspaceID)
+    }
+    
+    func unarchiveTask(task: TaskModel){
+        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
+    }
 }
