@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension String {
+    func firstCharacterLowercased() -> String {
+        guard let firstChar = self.first else { return self }
+        return firstChar.lowercased() + dropFirst()
+    }
+}
