@@ -12,4 +12,8 @@ enum TaskStatus: String, CaseIterable, Codable {
     case IN_PROGRESS = "IN_PROGRESS"
     case PENDING = "PENDING"
     case DONE = "DONE"
+    
+    var displayName: String {
+        return formatUpperCase(rawValue)
+    }
 }
