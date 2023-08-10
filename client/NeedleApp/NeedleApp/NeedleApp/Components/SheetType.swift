@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum SheetType {
-    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError
+    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError, archiveTask
     
     var image: Image {
         switch self {
@@ -18,8 +18,10 @@ enum SheetType {
         case .joinCode: return Image("JoinCode")
         case .shareCode: return Image("ShareCode")
         case .documentNotFound: return Image("DocumentNotFound")
-        case .deleteTask: return Image("CleanTask")
+        case .deleteTask: return Image("DeleteWorkspace")
         case .loginError: return Image("LoginError")
+        case .archiveTask: return Image("CleanTask")
+
         }
     }
     
@@ -30,8 +32,10 @@ enum SheetType {
         case .joinCode: return ""
         case .shareCode: return ""
         case .documentNotFound: return "Documento não encontrado"
-        case .deleteTask: return "Remover task do kanban?"
-        case .loginError: return "Error"
+        case .deleteTask: return "Deletar task?"
+        case .loginError: return ""
+        case .archiveTask: return "Arquivar task?"
+
         }
     }
     
@@ -42,8 +46,10 @@ enum SheetType {
         case .joinCode: return ""
         case .shareCode: return "Envie o código do workspace para sua equipe e deixe-a alinhada."
         case .documentNotFound: return "Procure por outras palavras-chave como título da task, área ou data!"
-        case .deleteTask: return "Não se preocupe, a documentação da task irá permanecer na aba de documentos."
+        case .deleteTask: return "Sua task e a documentação serão excluídas para sempre."
         case .loginError: return "Tente novamente."
+        case .archiveTask: return "Sua task será removida do kanban, mas sua documentação continuará acessível."
+
 
         }
     }
@@ -57,6 +63,8 @@ enum SheetType {
         case .documentNotFound: return false
         case .deleteTask: return true
         case .loginError: return false
+        case .archiveTask: return true
+
 
         }
     }
@@ -70,6 +78,8 @@ enum SheetType {
         case .documentNotFound: return "Ok"
         case .deleteTask: return "Remover"
         case .loginError: return "Ok"
+        case .archiveTask: return "Arquivar"
+
 
         }
     }
@@ -83,6 +93,8 @@ enum SheetType {
         case .documentNotFound: return 328
         case .deleteTask: return 328
         case .loginError: return 328
+        case .archiveTask: return 328
+
 
 
         }
@@ -97,6 +109,7 @@ enum SheetType {
         case .documentNotFound: return 264
         case .deleteTask: return 264
         case .loginError: return 264
+        case .archiveTask: return 264
 
 
         }

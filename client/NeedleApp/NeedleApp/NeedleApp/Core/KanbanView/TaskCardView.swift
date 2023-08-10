@@ -35,7 +35,8 @@ extension KanbanView {
                 KanbanTagView(taskType: task.type)
                 Spacer()
                 Button {
-                    archiveTask(task: task)
+                    projectViewModel.selectedTask = task
+                    isArchiving.toggle()
                 } label: {
                     Image(systemName: "archivebox")
                         .resizable()
@@ -77,11 +78,8 @@ extension KanbanView {
         
         
     }
-    
-    func archiveTask(task: TaskModel) {
-        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedProject.id)
-    }
-    
+
+
     func getPriorityFlagColor(priority: TaskPriority) -> Color {
         switch priority {
         case .HIGH:

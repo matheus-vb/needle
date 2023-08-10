@@ -14,25 +14,35 @@ struct KanbanView: View {
     
     @State var isDeleting = false
     
+    @State var isArchiving = false
+    
     var body: some View {
-        HStack(alignment: .center) {
-            Spacer()
-            HStack(spacing: 30) {
-                TodoView()
-                DoingView()
-                InReviewView()
-                doneView()
-//                Spacer()
-//                    .frame(width: 60)
+        ZStack {
+            Image("icon-bg")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: 2000, alignment: .bottomTrailing)
+            HStack(alignment: .center) {
+                Spacer()
+                HStack(spacing: 30) {
+                    TodoView()
+                    DoingView()
+                    InReviewView()
+                    doneView()
+                    //                Spacer()
+                    //                    .frame(width: 60)
+                }
+                Spacer()
             }
-            Spacer()
-        }
-        .padding(.top, 32)
-        .padding(.leading, 64)
-        .padding(.trailing, 64)
-        .onAppear {
-            projectViewModel.presentCard()
-        }
+            .padding(.top, 32)
+            .padding(.leading, 64)
+            .padding(.trailing, 64)
+            .onAppear {
+                projectViewModel.presentCard()
+            }
+        }.sheet(isPresented: $isArchiving, content: {
+            SheetView(type: .archiveTask)
+        })
     }
     
     func addItem(currentlyDragging: String, status: TaskStatus) {
@@ -239,3 +249,5 @@ struct KanbanView: View {
     }
     
 }
+
+
