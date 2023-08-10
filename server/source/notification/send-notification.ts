@@ -1,7 +1,14 @@
 import apn from "apn";
 import { env } from "../env";
+import { APNSingleton } from "./provider";
 
-export function sendNotification(deviceToken: string, provider: apn.Provider, alert: string) {
+export function sendNotification(deviceToken: string, alert: string) {
+    if(env.NODE_ENV === "DEV") {
+        return
+    }
+    
+    const provider = APNSingleton.shared().provider
+
     var notification = new apn.Notification();
 
     notification.topic = env.BUNDLE_ID
