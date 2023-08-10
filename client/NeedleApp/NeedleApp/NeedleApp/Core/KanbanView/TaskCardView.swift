@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension KanbanView {
-    
     @ViewBuilder
     func TaskCardView(task: TaskModel) -> some View {
         
@@ -71,7 +70,7 @@ extension KanbanView {
     }
     
     func archiveTask(task: TaskModel) {
-        // código de deletar task
+        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedProject.id)
     }
     
     func getPriorityFlagColor(priority: TaskPriority) -> Color {
