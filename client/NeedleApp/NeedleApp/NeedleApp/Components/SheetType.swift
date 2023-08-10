@@ -43,7 +43,7 @@ enum SheetType {
         case .shareCode: return "Envie o código do workspace para sua equipe e deixe-a alinhada."
         case .documentNotFound: return "Procure por outras palavras-chave como título da task, área ou data!"
         case .deleteTask: return "Não se preocupe, a documentação da task irá permanecer na aba de documentos."
-        case .loginError: return "Confira o ID registrado ou tente novamente."
+        case .loginError: return "Tente novamente."
 
         }
     }

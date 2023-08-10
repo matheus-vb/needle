@@ -14,7 +14,11 @@ struct SheetView: View {
     @EnvironmentObject var viewModel: WorkspaceHomeViewModel
     @EnvironmentObject var projectViewModel: ProjectViewModel
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
-    @ObservedObject var auth = WorkspaceDataService.shared
+    
+    @ObservedObject var workspaceDataService = WorkspaceDataService.shared
+    @ObservedObject var authManager = AuthenticationManager.shared
+    @ObservedObject var taskDataService = TaskDataService.shared
+    @ObservedObject var documentDataService = DocumentationDataService.shared
     
     @State var isShowingError = false
     
@@ -109,6 +113,7 @@ struct SheetView: View {
                 else   {
                     Spacer()
                     Button("Ok", action: {
+                        buttonAction()
                         showMain.toggle()
                     }).buttonStyle(PrimarySheetActionButton())
                     Spacer()
@@ -197,7 +202,16 @@ struct SheetView: View {
                     }
             }
         }.frame(width: type.width, height: type.height)
-        .onChange(of: auth.errorCount, perform: { _ in
+        .onChange(of: workspaceDataService.errorCount, perform: { _ in
+            isShowingError.toggle()
+        })
+        .onChange(of: taskDataService.errorCount, perform: { _ in
+            isShowingError.toggle()
+        })
+        .onChange(of: authManager.errorCount, perform: { _ in
+            isShowingError.toggle()
+        })
+        .onChange(of: documentDataService.errorCount, perform: { _ in
             isShowingError.toggle()
         })
     }
