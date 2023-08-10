@@ -3,7 +3,6 @@ import { IUserRepository } from "../../repositories/IUserRepository"
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
 import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository"
 import { sendNotification } from "../../notification/send-notification"
-import { apnProvider } from "../../notification/provider"
 
 interface IJoinWorkspaceUseCaseRequest {
     userId: string
@@ -41,7 +40,7 @@ export class JoinWorkspaceUseCase {
 
         for(const u of users) {
             if (u.deviceToken != null) {
-                sendNotification(u.deviceToken, apnProvider, `${user.name} acabou de entrar no workspace ${workspace.name}!`)
+                sendNotification(u.deviceToken, `${user.name} acabou de entrar no workspace ${workspace.name}!`)
             }
         }
 
