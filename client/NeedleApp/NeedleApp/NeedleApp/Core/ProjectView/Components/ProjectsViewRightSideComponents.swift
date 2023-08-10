@@ -55,11 +55,12 @@ extension ProjectsViewRightSideComponent{
     }
     
     var inviteMemberButton: some View {
-        Button("􀈟 Convidar Membro") {
-            projectViewModel.showShareCode.toggle()
-            print("oi")
+        CopyClipboardButton(text: projectViewModel.getCode()) {
+//            projectViewModel.showShareCode.toggle()
+//            print(projectViewModel.getCode())
+            projectViewModel.copyToClipBoard()
         }
-        .buttonStyle(PrimarySheetActionButton())
+
     }
     
     @ViewBuilder

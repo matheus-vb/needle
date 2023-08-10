@@ -29,13 +29,13 @@ class ProjectViewModel: ObservableObject{
     
     @Published var showCard: Bool = false
     
-    @State var showShareCode = false
+    @Published var showShareCode = false
     
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
     private var authMGR = AuthenticationManager.shared
     private var cancellables = Set<AnyCancellable>()
-    
+
     init() {
         addSubscribers()
     }
@@ -87,5 +87,11 @@ class ProjectViewModel: ObservableObject{
                 self.showCard = false
             }
         }
+    }
+    func copyToClipBoard() {
+        let pasteBoard = NSPasteboard.general
+        pasteBoard.clearContents()
+        pasteBoard.setString(self.getCode(), forType: .string)
+
     }
 }
