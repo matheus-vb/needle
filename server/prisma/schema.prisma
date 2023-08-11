@@ -114,7 +114,7 @@ model Document {
 model Notification {
   id          String    @id @default(uuid())
   payload     String
-  user        User      @relation(fields: [userId], references: [id])
+  user        User      @relation(fields: [userId], references: [id],onDelete: Cascade)
   userId      String
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
   workspaceId String
