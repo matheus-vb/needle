@@ -39,7 +39,7 @@ struct WorkspaceCardView: View, Identifiable {
     
     var deleteButton: some View {
         Button(action: action, label: {
-            Text("􀈑")
+            Image(systemName: "trash")
                 .foregroundColor(Color.theme.grayHover)
         })
         .buttonStyle(.borderless)

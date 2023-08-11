@@ -43,9 +43,15 @@ struct WorkspaceHomeView: View {
                 Button("+ Criar novo workspace"){
                     isNaming.toggle()
                 }.buttonStyle(AddWorkspaceButton())
-                Button("􀉤 Participar de workspace"){
+                Button(action: {
                     isJoining.toggle()
-                }.buttonStyle(JoinWorkspaceButton())
+                }, label: {
+                    HStack {
+                        Image(systemName: "personalhotspot")
+                        Text("Participar de workspace")
+                    }
+                })
+                .buttonStyle(JoinWorkspaceButton())
             }
         }
     }

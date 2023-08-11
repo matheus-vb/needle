@@ -18,7 +18,7 @@ extension KanbanView {
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(Color.theme.grayPressed)
                     Spacer()
-                    Text("􀋊")
+                    Image(systemName: "flag.fill")
                     .font(Font.custom("SF Pro", size: 12))
                     .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
                 }
