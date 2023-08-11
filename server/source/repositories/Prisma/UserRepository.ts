@@ -1,4 +1,4 @@
-import { Prisma, Role } from "@prisma/client";
+import { Prisma, Role, User } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IUserRepository } from "../IUserRepository";
 
@@ -82,5 +82,11 @@ export class UserRepository implements IUserRepository {
         }
 
         return userWorkspace.userRole
+    }
+
+    async getAllUsers() {
+        const users = await prisma.user.findMany()
+
+        return users
     }
 }
