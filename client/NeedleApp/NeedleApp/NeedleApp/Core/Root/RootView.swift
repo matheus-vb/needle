@@ -46,9 +46,11 @@ struct RootView: View {
                                 NotificationDataService.shared.getUserNotifications(userId: AuthenticationManager.shared.user!.id)
                                 notificationIsPresented.toggle()
                             }
-                        
-                        Text("\(authManager.user?.name ?? "") \(userLogoutIsPresented ? "􀄥" : "􀰇")")
-                            .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
+                        HStack {
+                            Text("\(authManager.user?.name ?? "")")
+                                .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                            Image(systemName: userLogoutIsPresented ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
+                        }
                             .onTapGesture{
                                 userLogoutIsPresented.toggle()
                             }
@@ -56,8 +58,11 @@ struct RootView: View {
                                 Button {
                                     authManager.user = nil
                                 } label: {
-                                    Text("Sair  􀻵")
-                                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                                    HStack{
+                                        Text("Sair ")
+                                            .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                                    }
                                     
                                 }
                                 .buttonStyle(.plain)

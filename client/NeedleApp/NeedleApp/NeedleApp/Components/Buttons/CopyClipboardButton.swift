@@ -38,7 +38,7 @@ struct CopyClipboardButton: View {
                 )
                 .foregroundColor(.black)
                 Spacer()
-                Text("􀉁")
+                Image(systemName: "doc.on.doc")
                 .font(
                 Font.custom("SF Pro", size:16)
                 .weight(.semibold)

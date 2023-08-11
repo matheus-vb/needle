@@ -99,32 +99,32 @@ struct SearchDocuments: View {
             .padding(.top, 10)
             
             Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTask, sortOrder: $sortOrder){
-                TableColumn("Nome da Task 􀄬", value: \.title)
-                TableColumn("Prioridade 􀄬", value: \.taskPriority.order ){
+                TableColumn("Nome da Task", value: \.title)
+                TableColumn("Prioridade", value: \.taskPriority.order ){
                     switch $0.taskPriority{
                     case .LOW:
-                        Text("􀋊 \($0.taskPriority.displayName)")
+                        Text($0.taskPriority.displayName)
                             .foregroundColor(Color.theme.greenKanban)
                     case .MEDIUM:
-                        Text("􀋊 \($0.taskPriority.displayName)")
+                        Text($0.taskPriority.displayName)
                             .foregroundColor(Color.theme.orangeKanban)
                     case .HIGH:
-                        Text("􀋊 \($0.taskPriority.displayName)")
+                        Text($0.taskPriority.displayName)
                             .foregroundColor(Color.theme.redMain)
                     case .VERY_HIGH:
-                        Text("􀋊 \($0.taskPriority.displayName)")
+                        Text($0.taskPriority.displayName)
                             .foregroundColor(Color.theme.redMain)
                     }
                 }
-                TableColumn("Status 􀄬", value: \.status.order){
-                    Text("􀀁 \($0.status.displayName)")
+                TableColumn("Status", value: \.status.order){
+                    Text($0.status.displayName)
                         .foregroundColor(getColor(task: $0))
                 }
-                TableColumn("Área 􀄬", value: \.type.displayName)
+                TableColumn("Área", value: \.type.displayName)
                 TableColumn("Responsável") {
                     Text($0.user?.name ?? "Sem responsável.")
                 }
-                TableColumn("Atualização 􀄬", value: \.endDate)
+                TableColumn("Atualização", value: \.endDate)
             }
             .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
                 guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }

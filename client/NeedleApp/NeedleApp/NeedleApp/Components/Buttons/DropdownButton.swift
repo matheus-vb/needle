@@ -25,7 +25,7 @@ struct DropdownButton: View {
                 .padding(.leading, 10)
 
                 Spacer()
-                Text(isClicked ? "􀄥" : "􀄧")
+                Image(systemName: isClicked ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
                     .padding(.trailing, 10)
             }
             .frame(width: 104, height: 32)

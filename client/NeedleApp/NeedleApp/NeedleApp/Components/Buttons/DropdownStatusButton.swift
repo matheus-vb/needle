@@ -71,7 +71,7 @@ struct DropdownPriorityButton: View {
                 .padding(.leading, 10)
 
                 Spacer()
-                Text(isClicked ? "􀄥" : "􀄧")
+                Image(systemName: isClicked ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
                     .padding(.trailing, 10)
             }
             .frame(width: 140, height: 32)
@@ -117,7 +117,7 @@ struct DropdownTypeButton: View {
                 .padding(.leading, 10)
 
                 Spacer()
-                Text(isClicked ? "􀄥" : "􀄧")
+                Image(systemName: isClicked ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
                     .padding(.trailing, 10)
             }
             .frame(width: 140, height: 32)
