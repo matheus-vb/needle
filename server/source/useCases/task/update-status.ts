@@ -4,7 +4,7 @@ import { z } from "zod"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
 import { INotificationRepository } from "../../repositories/INotificationRepository"
-import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
+import { UserNotFound } from "../errors/UserNotFound"
 
 interface IUpdateTaskStatusUseCaseRequest {
     taskId: string
@@ -41,8 +41,12 @@ export class UpdateTaskStatusUseCase {
         }
 
         const user = await this.userRepository.findById(task.userId)
-        if(!user || !user.deviceToken) {
-            throw new Error("User not found or device token missing")
+        if(!user) {
+            throw new UserNotFound()
+        }
+
+        if(!user.deviceToken) {
+            return { task }
         }
 
         if(originalTask.status === TaskStatus.PENDING && status === TaskStatus.DONE) {
