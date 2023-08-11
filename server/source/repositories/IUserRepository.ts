@@ -9,4 +9,5 @@ export interface IUserRepository {
     updateDeviceToken(id: string, deviceToken: string): Promise<User>;
     getUserRoleInWorkspace(workspaceId: String, userId: string): Promise<Role | null>;
     deleteUser(userId: string): Promise<User>;
+    getAllUsers(): Promise<User[]>;
 }
