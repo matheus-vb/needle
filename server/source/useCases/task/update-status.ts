@@ -28,7 +28,7 @@ export class UpdateTaskStatusUseCase {
     }: IUpdateTaskStatusUseCaseRequest): Promise<IUpdateTaskStatusUseCaseReply> {
         const originalTask = await this.taskRepository.findById(taskId);
         if(!originalTask) {
-            throw new Error();
+            throw new Error("Original task missing");
         }
 
         const statusEnum = z.nativeEnum(TaskStatus);
@@ -42,7 +42,7 @@ export class UpdateTaskStatusUseCase {
 
         const user = await this.userRepository.findById(task.userId)
         if(!user || !user.deviceToken) {
-            throw new Error()
+            throw new Error("User not found or device token missing")
         }
 
         if(originalTask.status === TaskStatus.PENDING && status === TaskStatus.DONE) {

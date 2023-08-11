@@ -218,7 +218,7 @@ struct KanbanView: View {
             projectViewModel.selectedColumnStatus = status
         } label: {
             HStack(alignment: .center, spacing: 8) {
-                Text("􀅼")
+                Image(systemName: "plus")
                   .font(
                     Font.custom("SF Pro", size: 16)
                       .weight(.medium)

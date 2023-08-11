@@ -89,9 +89,9 @@ struct SheetView: View {
                     }).buttonStyle(PrimarySheetActionButton())
                 }
           else if type == .joinCode {
-                  VStack(spacing: 20) {
-                      
-                      Picker("Selecione uma função: ", selection: $selectedRole) {
+                  VStack(spacing: 10) {
+                      Text("Selecione uma função:")
+                      Picker("", selection: $selectedRole) {
                           ForEach(Role.allCases.filter{ $0 != .PRODUCT_MANAGER }) { role in
                               Text(role.displayName).tag(role)
                           }
