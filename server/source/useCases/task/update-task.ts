@@ -5,6 +5,7 @@ import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
 import { INotificationRepository } from "../../repositories/INotificationRepository"
+import { UserNotFound } from "../errors/UserNotFound"
 
 interface IUpdateTaskRequest {
     userId: string | null
@@ -65,18 +66,19 @@ export class UpdateTaskUseCase {
         const checkedType = parseType.parse(type)
         const checkedPriority = parsePriority.parse(priority)
 
-        await this.taskRespository.updateTask(taskId, title, description, checkedStatus, checkedType, endDate, checkedPriority)
+        const task = await this.taskRespository.updateTask(taskId, title, description, checkedStatus, checkedType, endDate, checkedPriority)
 
         //Update na documentacao
-        await this.docuementRepository.updateDocument(documentId, text, textString)
-
-        //Pegar a task para retornar
-        const task = await this.taskRespository.findById(taskId)
+        await this.docuementRepository.updateDocument(documentId, text, textString)        
 
         if(task?.userId !== previousTask.userId && task?.userId) {
             const user = await this.userRepository.findById(task.userId)
-            if(!user || !user.deviceToken) {
-                throw new Error()
+            if(!user) {
+                throw new UserNotFound()
+            }
+
+            if(!user.deviceToken) {
+                return { task }
             }
             
             const alert = `Você foi marcado na task ${task.title}!`
@@ -88,8 +90,12 @@ export class UpdateTaskUseCase {
 
         } else if (task?.userId) {
             const user = await this.userRepository.findById(task.userId)
-            if(!user || !user.deviceToken) {
-                throw new Error()
+            if(!user) {
+                throw new UserNotFound()
+            }
+
+            if(!user.deviceToken) {
+                return { task }
             }
             
             const alert = `Sua task ${task.title} foi editada!`
@@ -98,10 +104,6 @@ export class UpdateTaskUseCase {
                 userId: user.id,
                 workspaceId: task.workId
             })
-        }
-
-        if(!task){
-            throw new Error('Task not found after update')
         }
 
         return {
