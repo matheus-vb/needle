@@ -84,6 +84,14 @@ export class UserRepository implements IUserRepository {
         return userWorkspace.userRole
     }
 
+    async deleteUser(userId: string){
+        const user = await prisma.user.delete({
+            where: {
+                id: userId,
+            }
+        })
+        return user
+    }
     async getAllUsers() {
         const users = await prisma.user.findMany()
 
