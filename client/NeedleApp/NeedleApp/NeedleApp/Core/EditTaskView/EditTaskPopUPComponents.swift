@@ -112,10 +112,8 @@ extension EditTaskPopUP{
                 Button(action: {
                     if(projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE){
                         editTaskViewModel.unarchiveTask(task: projectViewModel.selectedTask!)
-                        projectViewModel.showEditTaskPopUP.toggle()
                     }else{
                         editTaskViewModel.archiveTask(task: projectViewModel.selectedTask!)
-                        projectViewModel.showEditTaskPopUP.toggle()
                     }
                 }, label: {
                     Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))

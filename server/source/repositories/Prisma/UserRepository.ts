@@ -50,13 +50,6 @@ export class UserRepository implements IUserRepository {
                         workspaceId: workspaceId,
                     },
                 },
-            },
-            include: {
-                workspaces: {
-                    where: {
-                        workspaceId,
-                    },
-                }
             }
         });
 
