@@ -2,6 +2,5 @@
 */.DS_Store
 */client/NeedleApp/NeedleApp/.DS_Store
 Debug.xcconfig
-Release.xcconfig
 # apply-gitignore = git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
 *.p8
