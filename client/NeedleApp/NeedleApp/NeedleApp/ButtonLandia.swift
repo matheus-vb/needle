@@ -37,6 +37,10 @@ struct ButtonLandia: View {
             CopyClipboardButton(text: "Copy") {
                 
             }
+            
+            DropdownDateButton(text: $selectedOption, dropOptions: ["String"]){
+                
+            }
         }
     }
 }
