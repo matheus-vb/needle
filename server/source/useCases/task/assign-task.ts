@@ -2,6 +2,7 @@ import { Task } from "@prisma/client"
 import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IUserRepository } from "../../repositories/IUserRepository"
 import { UserNotFound } from "../errors/UserNotFound"
+import { BadRequest } from "../errors/BadRequest"
 
 interface IAssignTaskUseCaseRequest {
     id: string
@@ -21,7 +22,7 @@ export class AssignTaskUseCase {
     }: IAssignTaskUseCaseRequest): Promise<IAssignTaskUseCaseReply> {
         const originalTask = await this.taskRepository.findById(id);
         if (!originalTask) {
-            throw new Error()
+            throw new BadRequest()
         }
 
         const user = await this.userRepository.findById(userId);

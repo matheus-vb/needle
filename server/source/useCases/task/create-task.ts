@@ -5,6 +5,8 @@ import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository";
 import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository";
 import { IDocumentRepository } from "../../repositories/IDocumentRepository";
 import { z } from "zod";
+import { UserNotFound } from "../errors/UserNotFound";
+import { BadRequest } from "../errors/BadRequest";
 
 interface ICreateTaskUseCaseRequest {
     userId: string | null,
@@ -49,7 +51,7 @@ export class CreateTaskUseCase {
         if(userId) {
             const user = await this.userRepository.findById(userId);
             if(!user) {
-                throw new Error();
+                throw new UserNotFound();
             }
             userExists = true
             author = user.name;
@@ -57,7 +59,7 @@ export class CreateTaskUseCase {
 
         const workspace = await this.workspaceRepository.findByCode(accessCode);
         if (!workspace) {
-            throw new Error();
+            throw new BadRequest();
         }
 
         const document = await this.documentRepository.create({
