@@ -1,4 +1,4 @@
-import { Prisma, Role, Workspace } from "@prisma/client";
+import { Prisma, User_Workspace, Workspace } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IWorkspaceInterface } from "../IWorkspaceRepository";
 
@@ -28,24 +28,14 @@ export class WorkspaceRepository implements IWorkspaceInterface{
         return workspace
     }
 
-    async findWorkspaceList(userId: string): Promise<Workspace[]> {
+    async findWorkspaceList(ids: string[]): Promise<Workspace[]> {
         const elements = await prisma.workspace.findMany({
             where: {
-                users: {
-                    some: {
-                        userId
-                    }
-                }
-            },
-            include: {
-                users: {
-                    where: {
-                        userRole: Role.PRODUCT_MANAGER
-                    }
+                id: {
+                    in: ids,
                 }
             }
         })
-
         return elements
     }
 
