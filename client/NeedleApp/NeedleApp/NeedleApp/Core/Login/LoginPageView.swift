@@ -62,7 +62,8 @@ struct LoginPageView: View {
                         }
                     }
                     .signInWithAppleButtonStyle(.black)
-                    .frame(width: 200, height: 35)
+                    .frame(width: 300, height: 35)
+                    .modifier(Clickable())
                 }
                 .padding(50)
                 Spacer()

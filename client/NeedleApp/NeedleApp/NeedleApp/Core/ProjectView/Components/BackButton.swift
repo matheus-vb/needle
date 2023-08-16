@@ -22,5 +22,6 @@ struct BackButton: View {
             }
         })
         .buttonStyle(.plain)
+        .modifier(Clickable())
     }
 }
