@@ -18,6 +18,6 @@ export async function deleteWorkspace(request: FastifyRequest, reply: FastifyRep
 
         return reply.status(204).send({ data: workspace })
     } catch(err) {
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

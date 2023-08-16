@@ -23,6 +23,6 @@ export async function joinWorkspace(request: FastifyRequest, reply: FastifyReply
 
         return reply.status(200).send({data: userWorkspace})
     }catch(err){
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }
