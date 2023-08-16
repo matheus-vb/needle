@@ -14,6 +14,8 @@ class WorkspaceHomeViewModel: ObservableObject {
     
     @Published var accessCode: String?
     
+    @Published var selectedTab: WorkspaceTab = .myWorkspaces
+    
     private var workspaceDS = WorkspaceDataService.shared
     private var cancellables = Set<AnyCancellable>()
     

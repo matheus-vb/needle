@@ -8,6 +8,24 @@
 import SwiftUI
 import CoreData
 
+enum WorkspaceTab {
+    case myWorkspaces, joinedWorkspaces
+    
+    var headerTitle: String {
+        switch self {
+        case .myWorkspaces: return "Meus workspaces"
+        case .joinedWorkspaces: return "Workspaces que participo"
+        }
+    }
+    var buttonTitle: String {
+        switch self {
+        case .myWorkspaces: return "+ Criar workspace"
+        case .joinedWorkspaces: return "Participar de workspace"
+        }
+    }
+    
+}
+
 class MockWorkspaces: ObservableObject {
     @Published var content: [Workspace] = [
         
@@ -16,7 +34,7 @@ class MockWorkspaces: ObservableObject {
 
 struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
-    @ObservedObject var viewModel = WorkspaceHomeViewModel()
+    @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel()
     
     @StateObject var projectViewModel = ProjectViewModel()
     
@@ -31,51 +49,37 @@ struct WorkspaceHomeView: View {
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
+        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
     let height: CGFloat = 150
     
-    var gridHeader: some View {
-        VStack(alignment: .leading, spacing: 28){
-            Text("Workspaces").font(.custom(SpaceGrotesk.regular.rawValue, size: 40)).foregroundColor(Color.theme.blackMain)
-            HStack(spacing: 32) {
-                Button("+ Criar novo workspace"){
-                    isNaming.toggle()
-                }.buttonStyle(AddWorkspaceButton())
-                Button(action: {
-                    isJoining.toggle()
-                }, label: {
-                    HStack {
-                        Image(systemName: "personalhotspot")
-                        Text("Participar de workspace")
-                    }
-                })
-                .buttonStyle(JoinWorkspaceButton())
-            }
+    var header: some View {
+        HStack(alignment: .center, spacing: 184){
+            DashedButton(text: workspaceViewModel.selectedTab.buttonTitle, isWorkspace: true, onButtonTapped: {
+                workspaceViewModel.selectedTab == .joinedWorkspaces ? isJoining.toggle() : isNaming.toggle()
+            })
+            Text(workspaceViewModel.selectedTab.headerTitle)
+                .font(.system(size: 40, weight: .bold))
+                .foregroundColor(Color.theme.blackMain)
+                .frame(width: 400)
+            RoundedRectangle(cornerRadius: 6)
+                .frame(width: 320, height: 40)
         }
     }
     
     var workspaceGrid: some View {
-        LazyVGrid(columns: columns, spacing: 24) {
-            ForEach(viewModel.workspaces.indices, id: \.self) { index in
-                WorkspaceCardView(workspaceInfo: viewModel.workspaces[index], action: {
-                    viewModel.accessCode = viewModel.workspaces[index].accessCode
+        LazyVGrid(columns: columns, spacing: 48) {
+            ForEach(workspaceViewModel.workspaces.indices, id: \.self) { index in
+                WorkspaceCardView(workspaceInfo: workspaceViewModel.workspaces[index], action: {
+                    workspaceViewModel.accessCode = workspaceViewModel.workspaces[index].accessCode
                     isDeleting.toggle()
                 })
                 .environmentObject(projectViewModel)
             }
         }
         .frame(width: 1000)
-    }
-    
-    
-    var banner: some View {
-        HStack {
-            Image("icon-horizontal")
-            Spacer()
-            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.grayHover)})
-        }.padding(36)
     }
     
     var loading: some View {
@@ -96,22 +100,36 @@ struct WorkspaceHomeView: View {
         }
     }
     
+    var myProjects: some View {
+        VStack {
+            
+        }
+    }
+    
+    var joinedProjects: some View {
+        VStack {
+        }
+    }
+    
     var main: some View {
         ZStack {
             Image("icon-bg")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: 2000, alignment: .bottomTrailing)
-            ScrollView {
-                VStack() {
-                    VStack(alignment: .leading, spacing: 40){
-                        gridHeader
+            VStack(spacing: 84) {
+                pageSelector
+                    .padding([.top], 64)
+                    .padding([.leading, .trailing], 64)
+                ScrollView {
+                    VStack(spacing: 76) {
+                        header
                         workspaceGrid
-                    }.padding(.top, 80)
-                }.padding(.bottom, 120)
+                    }
+                }
+                
             }
-        }
-        .sheet(isPresented: $isJoining) {
+        } .sheet(isPresented: $isJoining) {
             SheetView(type: .joinCode)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
@@ -128,9 +146,42 @@ struct WorkspaceHomeView: View {
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(mock)
-                .environmentObject(viewModel)
+                .environmentObject(workspaceViewModel)
         }
     }
+//        ZStack {
+//            Image("icon-bg")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .frame(maxWidth: 2000, alignment: .bottomTrailing)
+//            ScrollView {
+//                VStack() {
+//                    VStack(alignment: .leading, spacing: 40){
+//                        gridHeader
+//                        workspaceGrid
+//                    }.padding(.top, 80)
+//                }.padding(.bottom, 120)
+//            }
+//        }
+//        .sheet(isPresented: $isJoining) {
+//            SheetView(type: .joinCode)
+//                .foregroundColor(Color.theme.grayHover)
+//                .background(.white)
+//                .environmentObject(mock)
+//        }
+//        .sheet(isPresented: $isNaming) {
+//            SheetView(type: .newWorkspace)
+//                .foregroundColor(Color.theme.grayHover)
+//                .background(.white)
+//                .environmentObject(mock)
+//        }
+//        .sheet(isPresented: $isDeleting) {
+//            SheetView(type: .deleteWorkspace)
+//                .foregroundColor(Color.theme.grayHover)
+//                .background(.white)
+//                .environmentObject(mock)
+//                .environmentObject(viewModel)
+//        }
     
     var body: some View {
         if showMain {
@@ -150,6 +201,44 @@ struct WorkspaceHomeView: View {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         withAnimation {
             showMain = true
+        }
+    }
+}
+
+extension WorkspaceHomeView {
+    var pageSelector: some View {
+        HStack(spacing: 48){
+            Button(action: {
+                workspaceViewModel.selectedTab = .myWorkspaces
+            }, label: {
+                Text("Meus projetos")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 6)
+                            .foregroundColor(workspaceViewModel.selectedTab == .myWorkspaces ? Color.theme.greenMain: Color.theme.grayBackground)
+                            .offset(y: 12)
+                        , alignment: .bottom
+                    )
+            })
+            .buttonStyle(.plain)
+             
+            Button(action: {
+                workspaceViewModel.selectedTab = .joinedWorkspaces
+            }, label: {
+                Text("Projetos que participo")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 6)
+                            .foregroundColor(workspaceViewModel.selectedTab == .joinedWorkspaces ? Color.theme.greenMain: Color.theme.grayBackground)
+                            .offset(y: 12)
+                        , alignment: .bottom
+                    )
+            })
+            .buttonStyle(.plain)
         }
     }
 }

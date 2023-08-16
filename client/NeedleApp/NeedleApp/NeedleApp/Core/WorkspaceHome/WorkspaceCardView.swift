@@ -60,8 +60,8 @@ struct WorkspaceCardView: View, Identifiable {
                     .onHover(perform: { _ in
                         isHovered.toggle()
                     })
-                    .frame(width: 488, height: 283.96)
-                    .shadow(radius: 10, x: 0, y: 4)
+                    .frame(width: 296, height: 192)
+                    .shadow(radius: 4, x: 0, y: 4)
             })
             .simultaneousGesture(TapGesture().onEnded {
                 AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: workspaceId)
