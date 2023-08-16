@@ -22,11 +22,7 @@ extension EditTaskPopUP{
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
                 Text("Select a date")
             }
-            .colorInvert()
-            .colorMultiply(Color.theme.blackMain)
             .labelsHidden()
-            .background(Color.clear)
-            .border(Color.clear)
             Spacer()
         }
         .font(.system(size: 16))

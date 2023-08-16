@@ -22,11 +22,7 @@ extension CreateTaskPopUp{
             DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                 Text("Select a date")
             }
-            .colorInvert()
-            .colorMultiply(Color.theme.blackMain)
             .labelsHidden()
-            .background(Color.clear)
-            .border(Color.clear)
             Spacer()
         }
         .font(.system(size: 16))
