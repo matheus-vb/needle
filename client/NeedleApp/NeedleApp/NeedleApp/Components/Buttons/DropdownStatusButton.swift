@@ -50,6 +50,7 @@ struct DropdownStatusButton: View {
                 }
             }
         }
+        .modifier(Clickable())
     }
 }
 
@@ -96,6 +97,7 @@ struct DropdownPriorityButton: View {
                 }
             }
         }
+        .modifier(Clickable())
     }
 }
 
@@ -142,6 +144,7 @@ struct DropdownTypeButton: View {
                 }
             }
         }
+        .modifier(Clickable())
     }
 }
 

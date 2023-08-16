@@ -11,6 +11,8 @@ extension KanbanView {
     @ViewBuilder
     func TaskCardView(task: TaskModel) -> some View {
         
+        @State var backgroundColor : Color = .white
+        
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack{
@@ -43,13 +45,14 @@ extension KanbanView {
                         .frame(width: 20, height: 20)
                 }
                 .buttonStyle(PlainButtonStyle())
+                .modifier(Clickable())
 
             }
 
         }
         .padding(16)
         .frame(minWidth: 128)
-        .background(.white)
+        .modifier(TaskCardBackground())
         .cornerRadius(6)
         .overlay(
             RoundedRectangle(cornerRadius: 6)
@@ -74,6 +77,10 @@ extension KanbanView {
             
             return false
         } isTargeted: { status in
+        }
+        .onTapGesture(count: 2) {
+            projectViewModel.selectedTask = task
+            projectViewModel.showEditTaskPopUP.toggle()
         }
         
         

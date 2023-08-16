@@ -34,6 +34,7 @@ extension ProjectsViewRightSideComponent{
                     )
             })
             .buttonStyle(.plain)
+            .modifier(Clickable())
             
             Button(action: {
                 print("Documentation Button")
@@ -51,6 +52,7 @@ extension ProjectsViewRightSideComponent{
                     )
             })
             .buttonStyle(.plain)
+            .modifier(Clickable())
         }
     }
     
