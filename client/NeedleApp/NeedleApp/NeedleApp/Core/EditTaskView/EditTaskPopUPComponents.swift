@@ -10,7 +10,11 @@ import SwiftUI
 
 extension EditTaskPopUP{
     var taskTitle: some View {
-        TitleEditableText(text: $editTaskViewModel.taskTitle)
+        TextEditor(text: $editTaskViewModel.taskTitle)
+            .textFieldStyle(.plain)
+            .font(.system(size: 40, weight: .medium))
+            .foregroundColor(.black)
+            .frame(maxHeight: 60)
     }
     var deadLine: some View{
         HStack(spacing: 24){
