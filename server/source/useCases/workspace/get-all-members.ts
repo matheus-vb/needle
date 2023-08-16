@@ -1,6 +1,7 @@
 import { User } from "@prisma/client";
 import { IUserRepository } from "../../repositories/IUserRepository";
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository";
+import { BadRequest } from "../errors/BadRequest";
 
 interface IGetAllMembersUseCaseRequest {
     workspaceId: string
@@ -18,7 +19,7 @@ export class GetAllMembersUseCase {
     }: IGetAllMembersUseCaseRequest): Promise<IGetAllMembersUseCaseReply> {
         const workspace = await this.workspaceRepository.findById(workspaceId)
         if (!workspace) {
-            throw new Error()
+            throw new BadRequest()
         }
 
         const members = await this.userRepository.getUsersInWorkspace(workspaceId);
