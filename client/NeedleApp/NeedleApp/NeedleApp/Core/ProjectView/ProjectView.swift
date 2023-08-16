@@ -80,12 +80,12 @@ struct ProjectView: View {
                 }
             })
             .navigationBarBackButtonHidden(true)
-            .popover(isPresented: $projectViewModel.showEditTaskPopUP, content: {
+            .sheet(isPresented: $projectViewModel.showEditTaskPopUP, content: {
                 EditTaskPopUP(geometry: geometry)
                     .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedProject.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []))
                     .environmentObject(projectViewModel)
             })
-            .popover(isPresented: $projectViewModel.showPopUp, content: {
+            .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(createTaskViewModel: CreateTaskViewModel(members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []), geometry: geometry)
                     .environmentObject(projectViewModel)
             })
