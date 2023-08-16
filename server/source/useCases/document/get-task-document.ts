@@ -1,6 +1,7 @@
 import { Document } from "@prisma/client"
 import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { IDocumentRepository } from "../../repositories/IDocumentRepository";
+import { BadRequest } from "../errors/BadRequest";
 
 interface IGetTaskDocumentationUseCaseRequest {
     taskId: string
@@ -18,12 +19,12 @@ export class GetTaskDocumentationUseCase {
     }: IGetTaskDocumentationUseCaseRequest): Promise<IGetTaskDocumentationUseCaseReply> {
         const task = await this.taskRepository.findById(taskId);
         if (!task) {
-            throw new Error();
+            throw new BadRequest();
         }
 
         const document = await this.documentRepository.findDocumentByTask(task);
         if(!document) {
-            throw new Error()
+            throw new BadRequest()
         }
 
         return {

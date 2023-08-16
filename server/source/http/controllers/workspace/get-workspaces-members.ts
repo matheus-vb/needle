@@ -21,6 +21,6 @@ export async function getWorkspaceMembers(request: FastifyRequest, reply: Fastif
 
         return reply.status(200).send({data: members});
     }catch(err){
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

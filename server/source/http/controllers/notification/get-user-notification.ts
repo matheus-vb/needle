@@ -18,6 +18,6 @@ export async function getUserNotifications(request: FastifyRequest, reply: Fasti
 
         return reply.status(200).send({ data: notifications })
     } catch (err) {
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

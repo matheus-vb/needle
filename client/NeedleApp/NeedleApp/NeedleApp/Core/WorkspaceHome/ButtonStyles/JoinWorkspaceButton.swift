@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct JoinWorkspaceButton: ButtonStyle {
+    
+    @State var onHover = false
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
         
@@ -16,11 +19,14 @@ struct JoinWorkspaceButton: ButtonStyle {
             .padding(.horizontal, 130)
                 .padding(.top, 6)
                 .padding(.bottom, 5)
-        
-                .background(Color.theme.greenMain)
+                .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
                 .foregroundStyle(.black)
                 .cornerRadius(4)
                 .shadow(radius: 10)
+                .onHover { Bool in
+                    onHover = Bool
+                }
+
         }
     
     

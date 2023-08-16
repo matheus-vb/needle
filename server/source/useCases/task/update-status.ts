@@ -5,6 +5,7 @@ import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
 import { INotificationRepository } from "../../repositories/INotificationRepository"
 import { UserNotFound } from "../errors/UserNotFound"
+import { BadRequest } from "../errors/BadRequest"
 
 interface IUpdateTaskStatusUseCaseRequest {
     taskId: string
@@ -28,7 +29,7 @@ export class UpdateTaskStatusUseCase {
     }: IUpdateTaskStatusUseCaseRequest): Promise<IUpdateTaskStatusUseCaseReply> {
         const originalTask = await this.taskRepository.findById(taskId);
         if(!originalTask) {
-            throw new Error("Original task missing");
+            throw new BadRequest();
         }
 
         const statusEnum = z.nativeEnum(TaskStatus);

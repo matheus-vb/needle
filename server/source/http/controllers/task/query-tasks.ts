@@ -32,6 +32,6 @@ export async function queryTasks(request: FastifyRequest, reply: FastifyReply) {
 
         return reply.status(200).send({ data: tasks })
     } catch(err) {
-        return reply.status(400).send({ message: err })
+        throw err
     }
 }

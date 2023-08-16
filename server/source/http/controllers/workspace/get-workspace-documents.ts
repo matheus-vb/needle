@@ -18,6 +18,6 @@ export async function getWorkspaceDocuments(request: FastifyRequest, reply: Fast
 
         return reply.status(200).send({ data: documents });
     } catch(err) {
-        return reply.status(400).send({ error: err });
+        throw err
     }
 }

@@ -39,7 +39,7 @@ struct DropdownStatusButton: View {
         .popover(isPresented: $isClicked, arrowEdge: .bottom) {
             
             VStack(spacing: 0){
-                SecondaryDropdownEnumButton(text: "") {
+                SecondaryDropdownEnumButton(text: "----------") {
                     taskStatus = nil
                 }
                 ForEach(dropOptions, id: \.self) { dropOption in
@@ -86,7 +86,7 @@ struct DropdownPriorityButton: View {
         .popover(isPresented: $isClicked, arrowEdge: .bottom) {
             
             VStack(spacing: 0){
-                SecondaryDropdownEnumButton(text: "") {
+                SecondaryDropdownEnumButton(text: "----------") {
                     taskPriority = nil
                 }
                 ForEach(dropOptions, id: \.self) { dropOption in
@@ -133,7 +133,7 @@ struct DropdownTypeButton: View {
         .popover(isPresented: $isClicked, arrowEdge: .bottom) {
             
             VStack(spacing: 0){
-                SecondaryDropdownEnumButton(text: "") {
+                SecondaryDropdownEnumButton(text: "----------") {
                     taskType = nil
                 }
                 ForEach(dropOptions, id: \.self) { dropOption in

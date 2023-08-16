@@ -110,9 +110,7 @@
 		8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD52A82E6BC0044189B /* DropdownButton.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
-		8AA87FE42A83FC55007DFEB5 /* ButtonLandia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE32A83FC55007DFEB5 /* ButtonLandia.swift */; };
 		8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */; };
-		8AA87FE92A8404A6007DFEB5 /* ProjectGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */; };
 		8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */; };
 		8AC2A2E32A8470FB00C6CCF8 /* DropdownStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */; };
 		D43EB9BB2A8414C900CF0315 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EB9BA2A8414C900CF0315 /* SheetView.swift */; };
@@ -254,9 +252,7 @@
 		8A76DFD52A82E6BC0044189B /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
-		8AA87FE32A83FC55007DFEB5 /* ButtonLandia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLandia.swift; sourceTree = "<group>"; };
 		8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedSmallerButton.swift; sourceTree = "<group>"; };
-		8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectGreenButton.swift; sourceTree = "<group>"; };
 		8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownDateButton.swift; sourceTree = "<group>"; };
 		8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownStatusButton.swift; sourceTree = "<group>"; };
 		D43EB9BA2A8414C900CF0315 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
@@ -662,7 +658,6 @@
 				8A76DFD52A82E6BC0044189B /* DropdownButton.swift */,
 				8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */,
 				8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */,
-				8AA87FE82A8404A6007DFEB5 /* ProjectGreenButton.swift */,
 				8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */,
 			);
 			path = Buttons;
@@ -865,7 +860,6 @@
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				86503D0A2A846092001D26EE /* OperatorOverload.swift in Sources */,
 				27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */,
-				8AA87FE42A83FC55007DFEB5 /* ButtonLandia.swift in Sources */,
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
 				86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */,
 				274A28302A71A0340002CFEA /* Document.swift in Sources */,
@@ -920,7 +914,6 @@
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				86503D172A85604B001D26EE /* String+LowercaseFirstChar.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
-				8AA87FE92A8404A6007DFEB5 /* ProjectGreenButton.swift in Sources */,
 				27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */,
 				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,
 				86503D0F2A855553001D26EE /* NotificationModel.swift in Sources */,
@@ -1121,7 +1114,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QJZZNXUZ63;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1134,7 +1127,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleJP;
+				MARKETING_VERSION = 1.6.2;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1152,7 +1146,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QJZZNXUZ63;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1165,7 +1159,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleJP;
+				MARKETING_VERSION = 1.6.2;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

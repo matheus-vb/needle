@@ -10,6 +10,9 @@ import SwiftUI
 
 
 struct AddWorkspaceButton: ButtonStyle {
+    
+    @State var onHover = false
+    
     func makeBody(configuration: Configuration) -> some View {
             configuration.label
         
@@ -17,11 +20,13 @@ struct AddWorkspaceButton: ButtonStyle {
             .padding(.horizontal, 150)
                 .padding(.top, 6)
                 .padding(.bottom, 5)
-        
-                .background(Color.theme.blackMain)
+                .background(onHover ? Color.theme.grayHover : Color.theme.blackMain)
                 .foregroundStyle(.white)
                 .cornerRadius(4)
                 .shadow(radius: 10)
+                .onHover { Bool in
+                    onHover = Bool
+                }
 
         }
     
