@@ -1,6 +1,7 @@
 import { Task, TaskPriority, TaskStatus, TaskType } from "@prisma/client";
 import { z } from "zod";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
+import { BadRequest } from "../errors/BadRequest";
 
 interface IEditTaskRequest{
     taskId: string
@@ -31,7 +32,7 @@ export class EditTaskUseCase{
         const task = await this.taskRepository.findById(taskId)
 
         if(!task){
-            throw new Error()
+            throw new BadRequest()
         }
 
         const parseStatus = z.nativeEnum(TaskStatus)

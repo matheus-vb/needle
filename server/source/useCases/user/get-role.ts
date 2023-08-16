@@ -1,5 +1,6 @@
 import { Role } from "@prisma/client"
 import { IUserRepository } from "../../repositories/IUserRepository"
+import { BadRequest } from "../errors/BadRequest"
 
 interface IGetRoleInWorkspaceUseCaseRequest {
     userId: string
@@ -20,7 +21,7 @@ export class GetRoleInWorkspaceUseCase {
         const role = await this.userRepository.getUserRoleInWorkspace(workspaceId, userId);
 
         if (!role) {
-            throw new Error()
+            throw new BadRequest()
         }
 
         return { 

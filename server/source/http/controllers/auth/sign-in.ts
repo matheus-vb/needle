@@ -22,6 +22,6 @@ export async function signIn(request: FastifyRequest, reply: FastifyReply) {
 
         return reply.status(200).send({ data: user })
     } catch(err) {
-        return reply.status(500).send({ err: err })
+        throw err
     }
 }

@@ -3,6 +3,16 @@ import { prisma } from "../../lib/prisma";
 import { IDocumentRepository } from "../IDocumentRepository";
 
 export class DocumentRepository implements IDocumentRepository {
+    async findById(id: string) {
+        const document = await prisma.document.findUnique({
+            where: {
+                id,
+            }
+        })
+
+        return document
+    }
+
     async create(data: Prisma.DocumentCreateInput) {
         const document = await prisma.document.create({
             data,

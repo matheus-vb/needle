@@ -18,6 +18,6 @@ export async function getAllMembers(request: FastifyRequest, reply: FastifyReply
 
         return reply.status(200).send({ data: members });
     } catch(err) {
-        return reply.status(400).send({ message: err })
+        throw err
     }
 }

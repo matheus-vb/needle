@@ -1,6 +1,7 @@
 import { TaskTag } from "@prisma/client";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 import { ITagRepository } from "../../repositories/ITagRepository";
+import { BadRequest } from "../errors/BadRequest";
 
 interface IAddTagsToTaskUseCaseRequest {
     taskId: string,
@@ -20,7 +21,7 @@ export class AddTagsToTaskUseCase {
     }: IAddTagsToTaskUseCaseRequest): Promise<IAddTagsToTaskUseCaseReply> {
         const task = await this.taskRepository.findById(taskId);
         if(!task) {
-            throw new Error();
+            throw new BadRequest();
         }
 
         const taskTag = await this.tagRepository.create({
