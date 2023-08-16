@@ -37,7 +37,8 @@ struct ProjectButton: View {
                 )
                 .foregroundColor(.black)
             }
-            .frame(width: 168, height: 48, alignment: .center)
+//            .frame(height: 48, alignment: .center)
+            .frame(maxWidth: .infinity, idealHeight: 48)
             .background(projectViewModel.selectedProject.accessCode == project.accessCode ? (onHover ? Color.theme.greenSecondary : Color.theme.greenMain) : (onHover ? Color.white : Color.theme.grayBackground))
 //            .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
             .cornerRadius(6)

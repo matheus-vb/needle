@@ -33,6 +33,10 @@ struct ButtonLandia: View {
             ProjectGreenButton(text: "Project"){
                 
             }
+            
+            CopyClipboardButton(text: "Copy") {
+                
+            }
         }
     }
 }
