@@ -121,7 +121,7 @@ extension EditTaskPopUP{
                     Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(Color.theme.orangeKanban)
+                        .foregroundColor(Color.theme.blackMain)
                 })
             }
             Spacer()
