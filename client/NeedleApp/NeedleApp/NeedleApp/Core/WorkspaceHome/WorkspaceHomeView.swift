@@ -8,24 +8,6 @@
 import SwiftUI
 import CoreData
 
-enum WorkspaceTab {
-    case myWorkspaces, joinedWorkspaces
-    
-    var headerTitle: String {
-        switch self {
-        case .myWorkspaces: return "Meus workspaces"
-        case .joinedWorkspaces: return "Workspaces que participo"
-        }
-    }
-    var buttonTitle: String {
-        switch self {
-        case .myWorkspaces: return "+ Criar workspace"
-        case .joinedWorkspaces: return "Participar de workspace"
-        }
-    }
-    
-}
-
 class MockWorkspaces: ObservableObject {
     @Published var content: [Workspace] = [
         
@@ -119,8 +101,6 @@ struct WorkspaceHomeView: View {
                 .frame(maxWidth: 2000, alignment: .bottomTrailing)
             VStack(spacing: 84) {
                 pageSelector
-                    .padding([.top], 64)
-                    .padding([.leading, .trailing], 64)
                 ScrollView {
                     VStack(spacing: 76) {
                         header
@@ -201,44 +181,6 @@ struct WorkspaceHomeView: View {
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         withAnimation {
             showMain = true
-        }
-    }
-}
-
-extension WorkspaceHomeView {
-    var pageSelector: some View {
-        HStack(spacing: 48){
-            Button(action: {
-                workspaceViewModel.selectedTab = .myWorkspaces
-            }, label: {
-                Text("Meus projetos")
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.black)
-                    .overlay(
-                        Rectangle()
-                            .frame(height: 6)
-                            .foregroundColor(workspaceViewModel.selectedTab == .myWorkspaces ? Color.theme.greenMain: Color.theme.grayBackground)
-                            .offset(y: 12)
-                        , alignment: .bottom
-                    )
-            })
-            .buttonStyle(.plain)
-             
-            Button(action: {
-                workspaceViewModel.selectedTab = .joinedWorkspaces
-            }, label: {
-                Text("Projetos que participo")
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundColor(.black)
-                    .overlay(
-                        Rectangle()
-                            .frame(height: 6)
-                            .foregroundColor(workspaceViewModel.selectedTab == .joinedWorkspaces ? Color.theme.greenMain: Color.theme.grayBackground)
-                            .offset(y: 12)
-                        , alignment: .bottom
-                    )
-            })
-            .buttonStyle(.plain)
         }
     }
 }
