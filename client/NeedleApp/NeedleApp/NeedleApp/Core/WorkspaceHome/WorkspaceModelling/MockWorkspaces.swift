@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class MockWorkspaces: ObservableObject {
+    @Published var content: [Workspace] = [
+        
+    ]
+}

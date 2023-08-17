@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftUI
+import Combine
+
 
 
 struct SheetView: View {
@@ -28,9 +30,7 @@ struct SheetView: View {
     @State var action: () -> () = {}
     
     @State var accessCode = ""
-    
-//    let pasteboard = Pasteboard()
-    
+        
     @State var textfieldInput: String = ""
     @State var selectedRole: Role = .DEVELOPER
     
@@ -56,7 +56,6 @@ struct SheetView: View {
         }
         case .shareCode: return {
             dismiss()
-            //            pasteboard.string = textfieldInput
         }
         case .documentNotFound: return { dismiss() }
         case .deleteTask: return {
@@ -131,10 +130,19 @@ struct SheetView: View {
         HStack {
             Text("#").opacity(type == .joinCode ? 1.0 : 0.0).font(.title)
             TextField(type == .newWorkspace ? "Insira o nome do novo workspace" : "_ _ _ _ _ _", text: $textfieldInput)
+                .onReceive(Just(textfieldInput)) { _ in
+                    limitText(6)
+                }
                 .foregroundColor(.black)
                 .frame(width: type == .joinCode ? 100 : 260)
 
         }
+    }
+    
+    func limitText(_ upper: Int) {
+            if textfieldInput.count > upper {
+                textfieldInput = String(textfieldInput.prefix(upper))
+            }
     }
     
     var errorMessage: some View {

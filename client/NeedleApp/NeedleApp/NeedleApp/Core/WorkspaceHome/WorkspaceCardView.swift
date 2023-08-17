@@ -13,27 +13,30 @@ struct WorkspaceCardView: View, Identifiable {
     
     @State var isHovered = false
     
+    @State private var filteredOwner: [String] = []
+    
     var id = UUID()
     var action: () -> Void
     var title: String
     var code: String
-    var owner: String
+    var owner: [String]
     var workspaceId: String
     let workspace: Workspace
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
+        self.code = workspaceInfo.accessCode
         self.title = workspaceInfo.name
         self.action = action
-        self.owner = "quem"
-        self.code = workspaceInfo.accessCode
+        self.owner = [""] // criar rota pra pegar owner
         self.workspaceId = workspaceInfo.id
         self.workspace = workspaceInfo
     }
     
     var basicInfo: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
-            Text("Clique para ver mais deste workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
+        VStack(alignment: .leading, spacing: 16) {
+            Text(title).font(.system(size: 24, weight: .medium))
+            Text("PM: \(filteredOwner.joined())").font(.system(size: 14, weight: .regular))
+            Text("Participantes: ").font(.system(size: 14, weight: .regular))
         }
     }
     
@@ -54,7 +57,7 @@ struct WorkspaceCardView: View, Identifiable {
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .leading) {
             NavigationLink(destination: ProjectView().environmentObject(projectViewModel), label: {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(isHovered ? Color.theme.grayBackground : .white)
                     .onHover(perform: { _ in
@@ -71,15 +74,23 @@ struct WorkspaceCardView: View, Identifiable {
             })
             .buttonStyle(.plain)
             VStack(alignment: .trailing) {
-                HStack {
+                HStack(spacing: 32) {
                     basicInfo
+                        .foregroundColor(Color.theme.blackMain)
                     Spacer()
-                    deleteButton
                 }
                 Spacer()
-                accessCode
+                HStack{
+                    Text("Código para convite:")
+                    Spacer()
+                    accessCode
+                }
                 
-            }.padding(24)
+            }.padding(.leading, 16)
+            .frame(width: 259, height: 155)
+            .onAppear {
+                    filteredOwner = projectViewModel.filterMembersByRole(role: "PRODUCT_MANAGER")
+                        }
         }
     }
 }

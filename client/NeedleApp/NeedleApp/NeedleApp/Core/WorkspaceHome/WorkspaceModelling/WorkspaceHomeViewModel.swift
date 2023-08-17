@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 class WorkspaceHomeViewModel: ObservableObject {
     @Published var workspaces: [Workspace] = []
     
