@@ -36,7 +36,7 @@ struct WorkspaceCardView: View, Identifiable {
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
             Text("PM: \(owner)").font(.system(size: 14, weight: .regular))
-            Text("Participantes: \(workspace.users[0].userRole)").font(.system(size: 14, weight: .regular))
+            Text("Participantes: \(owner)").font(.system(size: 14, weight: .regular))
         }
     }
     
@@ -73,15 +73,14 @@ struct WorkspaceCardView: View, Identifiable {
                 projectViewModel.selectedProject = workspace
             })
             .buttonStyle(.plain)
-            VStack(alignment: .trailing, spacing: 32) {
+            VStack(alignment: .leading, spacing: 32) {
                 basicInfo
                  .foregroundColor(Color.theme.blackMain)
                 HStack {
-                    Text("Código para convite:")
+                    Text("Código para convite:").font(.system(size: 12, weight: .medium))
                     Spacer()
                     accessCode
-                    deleteButton
-                }
+                }.frame(width: 227)
                 
             }.padding(.leading, 16)
             .frame(width: 259, height: 155)

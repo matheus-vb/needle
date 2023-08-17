@@ -127,7 +127,8 @@
 		D468EC972A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */; };
 		D468EC992A8D6B38004AE74F /* MockWorkspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */; };
 		D468EC9B2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */; };
-		D4F6CFDA2A8E564C00DA945B /* SearchWorkspaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6CFD92A8E564C00DA945B /* SearchWorkspaceViewModel.swift */; };
+		D4F6CFDC2A8EA38600DA945B /* SearchWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6CFDB2A8EA38600DA945B /* SearchWorkspaceView.swift */; };
+		D4F6CFDE2A8EAE6E00DA945B /* SearchWorkspaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6CFDD2A8EAE6E00DA945B /* SearchWorkspaceModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,7 +276,8 @@
 		D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Grid.swift"; sourceTree = "<group>"; };
 		D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkspaces.swift; sourceTree = "<group>"; };
 		D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Loading.swift"; sourceTree = "<group>"; };
-		D4F6CFD92A8E564C00DA945B /* SearchWorkspaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkspaceViewModel.swift; sourceTree = "<group>"; };
+		D4F6CFDB2A8EA38600DA945B /* SearchWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkspaceView.swift; sourceTree = "<group>"; };
+		D4F6CFDD2A8EAE6E00DA945B /* SearchWorkspaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkspaceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -707,10 +709,10 @@
 		D468EC8F2A8D6A4D004AE74F /* WorkspaceModelling */ = {
 			isa = PBXGroup;
 			children = (
-				D4F6CFD92A8E564C00DA945B /* SearchWorkspaceViewModel.swift */,
-				868604F12A7C3665001D9213 /* WorkspaceHomeViewModel.swift */,
 				D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */,
 				D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */,
+				868604F12A7C3665001D9213 /* WorkspaceHomeViewModel.swift */,
+				D4F6CFDD2A8EAE6E00DA945B /* SearchWorkspaceModel.swift */,
 			);
 			path = WorkspaceModelling;
 			sourceTree = "<group>";
@@ -718,10 +720,11 @@
 		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
 			isa = PBXGroup;
 			children = (
+				D468EC8E2A8D6A42004AE74F /* WorkspaceComponents */,
+				D468EC8F2A8D6A4D004AE74F /* WorkspaceModelling */,
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
 				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
-				D468EC8F2A8D6A4D004AE74F /* WorkspaceModelling */,
-				D468EC8E2A8D6A42004AE74F /* WorkspaceComponents */,
+				D4F6CFDB2A8EA38600DA945B /* SearchWorkspaceView.swift */,
 			);
 			path = WorkspaceHome;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				86503D0F2A855553001D26EE /* NotificationModel.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
+				D4F6CFDE2A8EAE6E00DA945B /* SearchWorkspaceModel.swift in Sources */,
 				8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */,
 				86E6FF122A830AA300BB5D9F /* QueryTasksDTO.swift in Sources */,
 				D468EC972A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift in Sources */,
@@ -957,7 +961,6 @@
 				27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */,
 				27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */,
 				8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */,
-				D4F6CFDA2A8E564C00DA945B /* SearchWorkspaceViewModel.swift in Sources */,
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
@@ -970,6 +973,7 @@
 				D468EC952A8D6AE8004AE74F /* WorkspaceHomeView+Header.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
 				279F09BF2A82A0870016B12E /* EditTaskViewModel.swift in Sources */,
+				D4F6CFDC2A8EA38600DA945B /* SearchWorkspaceView.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				44FE06332A82E71800386ADE /* PickerApp.swift in Sources */,

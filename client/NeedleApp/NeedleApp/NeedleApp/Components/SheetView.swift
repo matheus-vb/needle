@@ -131,7 +131,9 @@ struct SheetView: View {
             Text("#").opacity(type == .joinCode ? 1.0 : 0.0).font(.title)
             TextField(type == .newWorkspace ? "Insira o nome do novo workspace" : "_ _ _ _ _ _", text: $textfieldInput)
                 .onReceive(Just(textfieldInput)) { _ in
-                    limitText(6)
+                    if type == .joinCode {
+                        limitText(6)
+                    }
                 }
                 .foregroundColor(.black)
                 .frame(width: type == .joinCode ? 100 : 260)

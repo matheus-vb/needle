@@ -19,8 +19,9 @@ extension WorkspaceHomeView {
                 .foregroundColor(Color.theme.blackMain)
                 .frame(width: 400)
             
-            RoundedRectangle(cornerRadius: 6)
-                .frame(width: 320, height: 40)
+            TextField("Procurar por nome do projeto...", text: $searchViewModel.query)
+                .frame(width: 320, height: 32)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
         }
     }
 }

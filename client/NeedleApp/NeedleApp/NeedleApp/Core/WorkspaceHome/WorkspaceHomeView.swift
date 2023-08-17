@@ -11,24 +11,28 @@ import CoreData
 struct WorkspaceHomeView: View {
     @StateObject var mock = MockWorkspaces()
     @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel()
-    
+    @ObservedObject var searchViewModel = SearchWorkspaceModel()
+
     @StateObject var projectViewModel = ProjectViewModel()
     
+    // sheets
     @State var isDeleting = false
     @State var isNaming = false
     @State var isJoining = false
     
+    // code
     @State var accessCode: String?
     
+    // loading
     @State var isAnimating = false
     @State var showMain = false
     
     let height: CGFloat = 150
-
-    
+        
     var columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), spacing: 24),
+        GridItem(.flexible(), spacing: 24),
+        GridItem(.flexible(), spacing: 24)
     ]
     
     var main: some View {
@@ -42,7 +46,9 @@ struct WorkspaceHomeView: View {
                     pageSelector
                         .frame(height: geometry.size.height * 0.12)
                     header
-                    workspaceGrid.padding(.horizontal, geometry.size.width * 0.17)
+                    workspaceGrid
+                        .frame(maxWidth: 984)
+                    
                     
                 }
             } .sheet(isPresented: $isJoining) {
