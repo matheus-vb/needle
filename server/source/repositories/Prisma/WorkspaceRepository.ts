@@ -1,4 +1,4 @@
-import { Prisma, Role, Workspace } from "@prisma/client";
+import { Prisma, User_Workspace, Workspace } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IWorkspaceInterface } from "../IWorkspaceRepository";
 
