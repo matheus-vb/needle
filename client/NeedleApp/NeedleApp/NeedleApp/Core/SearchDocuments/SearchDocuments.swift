@@ -42,52 +42,19 @@ struct SearchDocuments: View {
         VStack {
             
             HStack(spacing: 16) {
-//                Group{
-//                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
-//                        ForEach(TaskStatus.allCases, id: \.self) { status in
-//                            Text(status.displayName)
-//                                .foregroundColor(Color.theme.blackMain)
-//                                .tag(status as TaskStatus?)
-//                        }
-//                    }
-//                    .pickerStyle(.menu)
-//                    .frame(width: 160)
-//                    Button(action: {
-//                        searchDocumentsViewModel.selectedStatus = nil
-//                    }, label: {
-//                        Image(systemName: "arrow.counterclockwise")
-//                    })
-//                    .buttonStyle(.plain)
-//                }
-               
-                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
-
-                }
-                
-                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
-                    
-                }
-                
-                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
-                    
-                }
+                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){}
+                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {}
+                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {}
 
                 Spacer()
-                //TODO: Add date to query
-//                VStack {
-//                    DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
-//                        .labelsHidden()
-//                        .frame(width: 100)
-//                    DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
-//                        .labelsHidden()
-//                        .frame(width: 100)
-//                }
-//                .padding(.horizontal)
                 
                 Group {
                     TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
                         .frame(width: 320, height: 32)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onSubmit {
+                            searchDocumentsViewModel.query = nil
+                        }
                     Button(action: {
                         searchDocumentsViewModel.query = nil
                     }, label: {
