@@ -20,4 +20,6 @@ struct TaskModel: Codable, Identifiable {
     let taskPriority: TaskPriority
     let document: Document?
     let user: User?
+    let created_at: String
+    let updated_at: String
 }
