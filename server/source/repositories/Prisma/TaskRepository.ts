@@ -65,8 +65,8 @@ export class TaskRepository implements ITaskRepository {
             },
             include: {
                 document: true,
-                user: true
-            }
+                user: true,
+            },
         })
 
         return tasks;
