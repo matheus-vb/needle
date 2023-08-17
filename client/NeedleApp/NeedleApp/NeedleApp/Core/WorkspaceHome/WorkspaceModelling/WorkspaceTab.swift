@@ -12,14 +12,14 @@ enum WorkspaceTab {
     
     var headerTitle: String {
         switch self {
-        case .myWorkspaces: return "Meus workspaces"
-        case .joinedWorkspaces: return "Workspaces que participo"
+        case .myWorkspaces: return "Meus projetos"
+        case .joinedWorkspaces: return "Projetos que participo"
         }
     }
     var buttonTitle: String {
         switch self {
-        case .myWorkspaces: return "+ Criar workspace"
-        case .joinedWorkspaces: return "Participar de workspace"
+        case .myWorkspaces: return "+ Criar projeto"
+        case .joinedWorkspaces: return "# Entrar num projeto"
         }
     }
     

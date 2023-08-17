@@ -11,4 +11,9 @@ struct Workspace: Identifiable, Equatable, Codable, Hashable {
     var id: String
     var accessCode: String
     var name: String
+    var users: [UserRole]
+}
+
+struct UserRole: Equatable, Codable, Hashable {
+    let userRole: String
 }

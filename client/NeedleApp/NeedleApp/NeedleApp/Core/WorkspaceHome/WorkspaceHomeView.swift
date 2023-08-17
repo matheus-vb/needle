@@ -28,20 +28,8 @@ struct WorkspaceHomeView: View {
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
-        GridItem(.flexible()),
         GridItem(.flexible())
     ]
-    
-    var myProjects: some View {
-        VStack {
-            
-        }
-    }
-    
-    var joinedProjects: some View {
-        VStack {
-        }
-    }
     
     var main: some View {
         GeometryReader { geometry in
@@ -50,12 +38,12 @@ struct WorkspaceHomeView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: 2000, alignment: .bottomTrailing)
-                VStack(spacing: geometry.size.height * 0.094) {
+                VStack(alignment: .center, spacing: geometry.size.height * 0.094) {
                     pageSelector
                         .frame(height: geometry.size.height * 0.12)
                     header
-                    workspaceGrid
-                    Spacer()
+                    workspaceGrid.padding(.horizontal, geometry.size.width * 0.17)
+                    
                 }
             } .sheet(isPresented: $isJoining) {
                 SheetView(type: .joinCode)

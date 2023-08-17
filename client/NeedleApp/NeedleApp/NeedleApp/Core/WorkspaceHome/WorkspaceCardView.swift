@@ -19,7 +19,7 @@ struct WorkspaceCardView: View, Identifiable {
     var action: () -> Void
     var title: String
     var code: String
-    var owner: [String]
+    var owner: String
     var workspaceId: String
     let workspace: Workspace
 
@@ -27,7 +27,7 @@ struct WorkspaceCardView: View, Identifiable {
         self.code = workspaceInfo.accessCode
         self.title = workspaceInfo.name
         self.action = action
-        self.owner = [""] // criar rota pra pegar owner
+        self.owner = workspaceInfo.users[0].userRole // criar rota pra pegar owner
         self.workspaceId = workspaceInfo.id
         self.workspace = workspaceInfo
     }
@@ -35,8 +35,8 @@ struct WorkspaceCardView: View, Identifiable {
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
-            Text("PM: \(filteredOwner.joined())").font(.system(size: 14, weight: .regular))
-            Text("Participantes: ").font(.system(size: 14, weight: .regular))
+            Text("PM: \(owner)").font(.system(size: 14, weight: .regular))
+            Text("Participantes: \(workspace.users[0].userRole)").font(.system(size: 14, weight: .regular))
         }
     }
     
@@ -73,17 +73,14 @@ struct WorkspaceCardView: View, Identifiable {
                 projectViewModel.selectedProject = workspace
             })
             .buttonStyle(.plain)
-            VStack(alignment: .trailing) {
-                HStack(spacing: 32) {
-                    basicInfo
-                        .foregroundColor(Color.theme.blackMain)
-                    Spacer()
-                }
-                Spacer()
-                HStack{
+            VStack(alignment: .trailing, spacing: 32) {
+                basicInfo
+                 .foregroundColor(Color.theme.blackMain)
+                HStack {
                     Text("Código para convite:")
                     Spacer()
                     accessCode
+                    deleteButton
                 }
                 
             }.padding(.leading, 16)

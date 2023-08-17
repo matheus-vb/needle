@@ -45,8 +45,8 @@ extension WorkspaceHomeView {
                     .buttonStyle(.plain)
                     Spacer()
                 }.padding(.leading, geometry.size.width * 0.17)
-                .padding(.top, geometry.size.width * 0.06)
-                .padding(.bottom, geometry.size.width * 0.03)
+                .padding(.top, geometry.size.width * 0.03)
+                .padding(.bottom, geometry.size.width * 0.02)
                 .background(.white)
         }
     }
