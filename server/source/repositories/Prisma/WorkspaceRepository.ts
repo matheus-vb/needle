@@ -53,7 +53,7 @@ export class WorkspaceRepository implements IWorkspaceInterface{
             }
         })
 
-        return elements
+        return elements;
     }
 
     async deleteWorkspace(id: string) {
