@@ -93,6 +93,7 @@ model Task {
   taskPriority TaskPriority
   TaskTag      TaskTag[]
   created_at   DateTime     @default(now())
+  updated_at   DateTime     @updatedAt
   User_Task    User_Task[]
 }
 
