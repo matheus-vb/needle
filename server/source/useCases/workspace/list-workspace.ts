@@ -1,6 +1,8 @@
 import { Workspace } from "@prisma/client"
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
+import { promises } from "dns"
 import { IUserRepository } from "../../repositories/IUserRepository"
+import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository"
 import { UserNotFound } from "../errors/UserNotFound"
 
 interface IListWorkspaceUseCaseRequest {
@@ -12,21 +14,25 @@ interface IListWorkspaceUseCaseReply {
 }
 
 export class ListWorkspaceUseCase {
-    constructor(private workspaceRepository: IWorkspaceInterface, private  userRepository: IUserRepository) {}
+    constructor(private workspaceRepository: IWorkspaceInterface, private  userRepository: IUserRepository, private userWorkspaceRepository: IUserWorkspaceRepository) {}
 
     async handle({
         id
     }:IListWorkspaceUseCaseRequest): Promise<IListWorkspaceUseCaseReply> {
         const user = await this.userRepository.findById(id)
         if(!user) {
-            console.log(id)
             throw new UserNotFound()
         }
-        
-        const workspaces = await this.workspaceRepository.findWorkspaceList(id)
+        const listUserWorkspace = await this.userWorkspaceRepository.findByUserId(id)
+        var workspacesList: Workspace[] | null = []
 
-        return {
-            workspaces,
+        if(!listUserWorkspace){
+            return {workspaces: workspacesList}
         }
+        
+        const workspaceIds = listUserWorkspace.map(obj => obj.workspaceId)
+        workspacesList = await this.workspaceRepository.findWorkspaceList(workspaceIds)
+
+        return {workspaces: workspacesList}
     }
 }
