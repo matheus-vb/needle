@@ -7,7 +7,7 @@ export function makeListWorkspaceUseCase() {
     const userRepository = new UserRepository();
     const userWorkspaceRepository = new UserWorkspaceRepository();
     const workspaceRepository = new WorkspaceRepository();
-    const useCase = new ListWorkspaceUseCase(workspaceRepository, userRepository, userWorkspaceRepository);
+    const useCase = new ListWorkspaceUseCase(workspaceRepository, userRepository);
 
     return useCase;
 }
