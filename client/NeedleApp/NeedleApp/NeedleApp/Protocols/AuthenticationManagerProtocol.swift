@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol AuthenticationServiceProtocol: ObservableObject {
-    
+protocol AuthenticationManagerProtocol: ObservableObject {
+    func singIn(userId: String, email: String?, name: String?)
+    func getRoleInWorkspace(userId: String, workspaceId: String)
 }
