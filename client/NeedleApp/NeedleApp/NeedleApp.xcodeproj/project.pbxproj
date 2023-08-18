@@ -98,6 +98,7 @@
 		86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
 		86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */; };
 		86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */; };
+		86EFD0832A8FF9F600F8168A /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0822A8FF9F600F8168A /* RootViewModel.swift */; };
 		8A1D725F2A8565FC005D93B4 /* CopyClipboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */; };
 		8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F08552A81C8B70059F848 /* CustomFonts.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
@@ -240,6 +241,7 @@
 		86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
 		86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskStatusDTO.swift; sourceTree = "<group>"; };
 		86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Placeholder.xcconfig; sourceTree = "<group>"; };
+		86EFD0822A8FF9F600F8168A /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyClipboardButton.swift; sourceTree = "<group>"; };
 		8A2F08552A81C8B70059F848 /* CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				868604E92A7C2AB4001D9213 /* RootView.swift */,
+				86EFD0822A8FF9F600F8168A /* RootViewModel.swift */,
 				86E6FF152A840B3E00BB5D9F /* AppView.swift */,
 			);
 			path = Root;
@@ -842,6 +845,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */,
+				86EFD0832A8FF9F600F8168A /* RootViewModel.swift in Sources */,
 				27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */,
 				868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */,
 				272E15872A8512870014A70E /* deleteTaskDTO.swift in Sources */,
