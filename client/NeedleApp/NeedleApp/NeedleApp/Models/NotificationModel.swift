@@ -12,6 +12,12 @@ struct NotificationModel: Codable, Identifiable {
     let payload: String
     let userId: String
     let workspaceId: String
-    let workspace: Workspace
+    let workspace: NotificationWorkspace
     let created_at: String
+}
+
+struct NotificationWorkspace: Codable {
+    let id: String
+    let accessCode: String
+    let name: String
 }
