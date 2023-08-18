@@ -95,7 +95,7 @@ class TaskDataService: ObservableObject {
             })
     }
     
-    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String){
+    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "update/task") else { return }
         
         let parameters = convertToDictionary(dto)
@@ -113,7 +113,7 @@ class TaskDataService: ObservableObject {
             })
     }
     
-    func deleteTask(dto: DeleteTaskDTO, userId: String, workspaceId: String){
+    func deleteTask(dto: DeleteTaskDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "task/delete/\(dto.taskId)") else { return }
        saveTaskSubscription = NetworkingManager.delete(url: url)
             .sink(receiveCompletion: {

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class WorkspaceDataService: ObservableObject {
+class WorkspaceDataService: WorkspaceDataServiceProtocol {
     static let shared = WorkspaceDataService()
     private init() {}
     
