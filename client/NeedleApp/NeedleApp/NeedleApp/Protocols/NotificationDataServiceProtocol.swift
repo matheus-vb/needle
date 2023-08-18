@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol NotificationDataServiceProtocol: ObservableObject {
+    func updateDeviceToken(userId: String)
+    func getUserNotifications(userId: String)
+    func deleteUserNotifications(userId: String)
+    
+}
