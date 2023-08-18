@@ -99,6 +99,11 @@
 		86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */; };
 		86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */; };
 		86EFD0832A8FF9F600F8168A /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0822A8FF9F600F8168A /* RootViewModel.swift */; };
+		86EFD0862A901F3000F8168A /* AuthenticationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0852A901F3000F8168A /* AuthenticationManagerProtocol.swift */; };
+		86EFD0882A90203600F8168A /* NotificationDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */; };
+		86EFD08A2A90213A00F8168A /* TaskDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */; };
+		86EFD08C2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */; };
+		86EFD08E2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08D2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift */; };
 		8A1D725F2A8565FC005D93B4 /* CopyClipboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */; };
 		8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F08552A81C8B70059F848 /* CustomFonts.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
@@ -242,6 +247,11 @@
 		86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskStatusDTO.swift; sourceTree = "<group>"; };
 		86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Placeholder.xcconfig; sourceTree = "<group>"; };
 		86EFD0822A8FF9F600F8168A /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
+		86EFD0852A901F3000F8168A /* AuthenticationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerProtocol.swift; sourceTree = "<group>"; };
+		86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataServiceProtocol.swift; sourceTree = "<group>"; };
+		86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataServiceProtocol.swift; sourceTree = "<group>"; };
+		86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDataServiceProtocol.swift; sourceTree = "<group>"; };
+		86EFD08D2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationDataServiceProtocol.swift; sourceTree = "<group>"; };
 		8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyClipboardButton.swift; sourceTree = "<group>"; };
 		8A2F08552A81C8B70059F848 /* CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -329,24 +339,25 @@
 		274A27F62A719F6C0002CFEA /* NeedleApp */ = {
 			isa = PBXGroup;
 			children = (
-				8A0841AE2A7D3E57006F9D67 /* Resources */,
-				864D69AA2A787DBA00EB256A /* Info.plist */,
-				864D69A32A787BE000EB256A /* Config */,
+				274A27FB2A719F6E0002CFEA /* Assets.xcassets */,
 				274A28402A71A0DD0002CFEA /* Components */,
+				864D69A32A787BE000EB256A /* Config */,
 				274A283D2A71A0C00002CFEA /* Coordinator */,
 				274A283A2A71A0B40002CFEA /* Core */,
 				274A28372A71A0A70002CFEA /* DTOs */,
 				270912D02A7AE99A00CB91FA /* Enums */,
 				274A28342A71A0870002CFEA /* Extensions */,
+				864D69AA2A787DBA00EB256A /* Info.plist */,
 				274A28312A71A0710002CFEA /* Managers */,
 				274A28282A71A0090002CFEA /* Models */,
+				64C0021A2A8D4D3B0058D72E /* Modifiers.swift */,
+				274A28002A719F6E0002CFEA /* NeedleApp.entitlements */,
+				274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */,
+				274A27FD2A719F6E0002CFEA /* Preview Content */,
+				86EFD0842A901F0C00F8168A /* Protocols */,
+				8A0841AE2A7D3E57006F9D67 /* Resources */,
 				274A28252A719FEF0002CFEA /* Services */,
 				274A28222A719FD50002CFEA /* Utilities */,
-				274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */,
-				274A27FB2A719F6E0002CFEA /* Assets.xcassets */,
-				274A28002A719F6E0002CFEA /* NeedleApp.entitlements */,
-				274A27FD2A719F6E0002CFEA /* Preview Content */,
-				64C0021A2A8D4D3B0058D72E /* Modifiers.swift */,
 			);
 			path = NeedleApp;
 			sourceTree = "<group>";
@@ -614,6 +625,18 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		86EFD0842A901F0C00F8168A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				86EFD0852A901F3000F8168A /* AuthenticationManagerProtocol.swift */,
+				86EFD08D2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift */,
+				86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */,
+				86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */,
+				86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		8A0841AE2A7D3E57006F9D67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,7 +895,9 @@
 				44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */,
 				86503D132A855A1E001D26EE /* NotificationBarViewModel.swift in Sources */,
 				86E7BCEE2A7DE15D00CDCCB2 /* KanbanViewModel.swift in Sources */,
+				86EFD08E2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift in Sources */,
 				270515812A8430D2005FF0EE /* BackButton.swift in Sources */,
+				86EFD08C2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
@@ -900,6 +925,7 @@
 				270912D22A7AE9B000CB91FA /* TaskStatus.swift in Sources */,
 				D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
+				86EFD08A2A90213A00F8168A /* TaskDataServiceProtocol.swift in Sources */,
 				8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */,
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				86503D112A85559D001D26EE /* NotificationResponse.swift in Sources */,
@@ -917,6 +943,7 @@
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				86503D172A85604B001D26EE /* String+LowercaseFirstChar.swift in Sources */,
 				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
+				86EFD0862A901F3000F8168A /* AuthenticationManagerProtocol.swift in Sources */,
 				27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */,
 				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,
 				86503D0F2A855553001D26EE /* NotificationModel.swift in Sources */,
@@ -954,6 +981,7 @@
 				86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */,
 				86E6FF1B2A842E1C00BB5D9F /* AlertBoxView.swift in Sources */,
 				86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */,
+				86EFD0882A90203600F8168A /* NotificationDataServiceProtocol.swift in Sources */,
 				D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
