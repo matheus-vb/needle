@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol DocumentationDataServiceProtocol: ObservableObject {
+    func updateDocumentation(data: UpdateDocumentationDTO, userId: String, workspaceId: String)
+}
