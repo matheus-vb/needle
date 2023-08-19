@@ -11,7 +11,7 @@ import AuthenticationServices
 struct LoginPageView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @ObservedObject var viewModel = LoginPageViewModel()
+    @ObservedObject var loginPageViewModel = LoginPageViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, workpaceDS: WorkspaceDataService.shared)
     
     var body: some View {
         VStack {
@@ -24,7 +24,7 @@ struct LoginPageView: View {
                     SignInWithAppleButton(.continue) { request in
                         request.requestedScopes = [.email, .fullName]
                     } onCompletion: { result in
-                        viewModel.handleResult(result)
+                        loginPageViewModel.handleResult(result)
                     }
                     .signInWithAppleButtonStyle(.black)
                     .frame(width: 300, height: 35)
