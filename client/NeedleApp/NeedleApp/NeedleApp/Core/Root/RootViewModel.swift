@@ -8,16 +8,26 @@
 import Foundation
 import SwiftUI
 
-class RootViewModel: ObservableObject {
-    @ObservedObject var authManager = AuthenticationManager.shared
+class RootViewModel<A: AuthenticationManagerProtocol & ObservableObject, N: NotificationDataServiceProtocol & ObservableObject>: ObservableObject {
+    @ObservedObject var authManager: A
+    @ObservedObject var notificationDS: N
     @Published var notificationIsPresented : Bool = false
     @Published var userLogoutIsPresented : Bool = false
     @Published var showErrorSheet: Bool = false
     @ObservedObject var notificationViewModel = NotificationBarViewModel()
     
+    init(manager: A, notificationDS: N) {
+        self.authManager = manager
+        self.notificationDS = notificationDS
+    }
+    
     func presentNotifications() {
-        NotificationDataService.shared.getUserNotifications(userId: AuthenticationManager.shared.user!.id)
+        self.fetchNotifications()
         self.notificationIsPresented.toggle()
+    }
+    
+    func fetchNotifications() {
+        notificationDS.getUserNotifications(userId: authManager.user!.id)
     }
     
     func logout() {
