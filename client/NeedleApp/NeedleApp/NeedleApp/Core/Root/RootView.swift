@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootView: View {
 
-    @StateObject var rootViewModel = RootViewModel()
+    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared)
     @ObservedObject var authManager = AuthenticationManager.shared
     
     var body: some View {
@@ -67,6 +67,9 @@ struct RootView: View {
                             }
                             .padding(.trailing, 30)
                             .padding(.leading, 10)
+                    }
+                    .onAppear {
+                        rootViewModel.fetchNotifications()
                     }
             }
         }
