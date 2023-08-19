@@ -8,5 +8,7 @@
 import Foundation
 
 protocol DocumentationDataServiceProtocol: ObservableObject {
+    var currError: NetworkingManager.NetworkingError? { get set }
+    
     func updateDocumentation(data: UpdateDocumentationDTO, userId: String, workspaceId: String)
 }

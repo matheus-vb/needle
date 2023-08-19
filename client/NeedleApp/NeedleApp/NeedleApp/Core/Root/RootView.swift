@@ -9,22 +9,21 @@ import SwiftUI
 
 struct RootView: View {
 
-    @StateObject var rootViewModel = RootViewModel()
-    @ObservedObject var authManager = AuthenticationManager.shared
+    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared)
     
     var body: some View {
         mainView
             .sheet(isPresented: $rootViewModel.showErrorSheet, content: {
                 SheetView(type: .loginError)
             })
-            .onChange(of: authManager.errorCount, perform: {_ in
+            .onChange(of: rootViewModel.authManager.errorCount, perform: {_ in
                 rootViewModel.showErrorSheet.toggle()
             })
     }
     
     var mainView: some View {
         ZStack {
-            if authManager.user == nil {
+            if rootViewModel.authManager.user == nil {
                 LoginPageView()
             } else {
                 AppView()
@@ -33,10 +32,10 @@ struct RootView: View {
                             .resizable()
                             .scaledToFit()
                         Spacer()
-                        Image(systemName: rootViewModel.notificationViewModel.notifications.isEmpty ? "bell" : "bell.badge")
+                        Image(systemName: rootViewModel.notifications.isEmpty ? "bell" : "bell.badge")
                             .popover(isPresented: $rootViewModel.notificationIsPresented, arrowEdge: .bottom) {
                                 NavigationBarView()
-                                    .environmentObject(rootViewModel.notificationViewModel)
+                                    .environmentObject(NotificationBarViewModel())
                             }
                             .onTapGesture {
                                 rootViewModel.presentNotifications()
@@ -48,6 +47,7 @@ struct RootView: View {
                         }
                             .onTapGesture{
                                 rootViewModel.userLogoutIsPresented.toggle()
+                                rootViewModel.fetchNotifications()
                             }
                             .popover(isPresented: $rootViewModel.userLogoutIsPresented, arrowEdge: .bottom) {
                                 Button {
