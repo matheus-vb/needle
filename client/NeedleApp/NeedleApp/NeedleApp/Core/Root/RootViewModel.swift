@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class RootViewModel<A: AuthenticationManagerProtocol & ObservableObject, N: NotificationDataServiceProtocol & ObservableObject>: ObservableObject {
     @ObservedObject var authManager: A
@@ -14,11 +15,15 @@ class RootViewModel<A: AuthenticationManagerProtocol & ObservableObject, N: Noti
     @Published var notificationIsPresented : Bool = false
     @Published var userLogoutIsPresented : Bool = false
     @Published var showErrorSheet: Bool = false
-    @ObservedObject var notificationViewModel = NotificationBarViewModel()
+    
+    @Published var notifications: [NotificationModel] = []
+    
+    private var cancellables = Set<AnyCancellable>()
     
     init(manager: A, notificationDS: N) {
         self.authManager = manager
         self.notificationDS = notificationDS
+        self.addSubscibers()
     }
     
     func presentNotifications() {
@@ -32,5 +37,13 @@ class RootViewModel<A: AuthenticationManagerProtocol & ObservableObject, N: Noti
     
     func logout() {
         self.authManager.user = nil
+    }
+    
+    func addSubscibers() {
+        notificationDS.objectWillChange
+            .sink(receiveValue: { [weak self] _ in
+                self?.notifications = self?.notificationDS.usersNotifications ?? []
+            })
+            .store(in: &cancellables)
     }
 }
