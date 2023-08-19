@@ -8,21 +8,31 @@
 import Foundation
 import Combine
 import AuthenticationServices
+import SwiftUI
 
-class LoginPageViewModel: ObservableObject {
-    private var authManager = AuthenticationManager.shared
-    private var cancellablels = Set<AnyCancellable>()
+class LoginPageViewModel<A: AuthenticationManagerProtocol & ObservableObject, N: NotificationDataServiceProtocol & ObservableObject, W: WorkspaceDataServiceProtocol & ObservableObject>: ObservableObject {
     
+    @ObservedObject var authManager: A
+    @ObservedObject var notificationDS: N
+    @ObservedObject var workspaceDS: W
+
     @Published var user: User?
     
-    init() {
+    private var cancellablels = Set<AnyCancellable>()
+    
+    
+    init(manager: A, notificationDS: N, workpaceDS: W) {
+        self.authManager = manager
+        self.notificationDS = notificationDS
+        self.workspaceDS = workpaceDS
+        
         addSubscribers()
     }
     
     func addSubscribers() {
-        authManager.$user
+        authManager.objectWillChange
             .sink(receiveValue: {[weak self] returnedUser in
-                self?.user = returnedUser
+                self?.user = returnedUser as? User
             })
             .store(in: &cancellablels)
     }
@@ -36,15 +46,15 @@ class LoginPageViewModel: ObservableObject {
                 let userID = authCredential.user
                 let email = authCredential.email
                 let firstName = authCredential.fullName?.givenName
-                let lastName = authCredential.fullName?.familyName
+                //let lastName = authCredential.fullName?.familyName
                 
-                AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
+                authManager.singIn(userId: userID, email: email, name: firstName)
 
-                NotificationDataService.shared.updateDeviceToken(userId: userID)
+                notificationDS.updateDeviceToken(userId: userID)
                 
-                WorkspaceDataService.shared.getUsersWorkspaces(userId: userID)
+                workspaceDS.getUsersWorkspaces(userId: userID)
                 
-                NotificationDataService.shared.getUserNotifications(userId: userID)
+                notificationDS.getUserNotifications(userId: userID)
                 
             default:
                 break
