@@ -8,6 +8,10 @@
 import Foundation
 
 protocol TaskDataServiceProtocol: ObservableObject {
+    var allUsersTasks: [String: [TaskModel]] { get set }
+    var queriedTasks: [TaskModel] { get set }
+    var currError: NetworkingManager.NetworkingError? { get set }
+    
     func getWorkspaceTasks(userId: String, workspaceId: String)
     func createTask(dto: CreateTaskDTO, userId: String, workspaceId: String)
     func updateTaskStatus(taskId: String, status: TaskStatus, userId: String, workspaceId: String)
