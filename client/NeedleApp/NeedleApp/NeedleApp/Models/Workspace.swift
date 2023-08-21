@@ -11,13 +11,6 @@ struct Workspace: Identifiable, Equatable, Codable, Hashable {
     var id: String
     var accessCode: String
     var name: String
-<<<<<<< HEAD
-    var users: [UserRole]
-}
-
-struct UserRole: Equatable, Codable, Hashable {
-    let userRole: String
-=======
     var users: [PmMember]
 }
     
@@ -31,5 +24,4 @@ struct PmMember: Equatable, Codable, Hashable{
 
 struct UserInfo:Codable, Hashable{
     var name: String
->>>>>>> develop
 }

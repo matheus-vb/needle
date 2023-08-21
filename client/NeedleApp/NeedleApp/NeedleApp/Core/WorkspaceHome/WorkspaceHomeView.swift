@@ -46,6 +46,7 @@ struct WorkspaceHomeView: View {
                     pageSelector
                         .frame(height: geometry.size.height * 0.12)
                     header
+                        .frame(width: 984)
                     workspaceGrid
                         .frame(maxWidth: 984)
                     

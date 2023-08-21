@@ -11,6 +11,11 @@ import SwiftUI
 extension WorkspaceHomeView {
     var pageSelector: some View {
         GeometryReader {geometry in
+            ZStack {
+                Rectangle()
+                    .frame(height: 120)
+                    .foregroundColor(.white)
+                    .shadow(radius: 4)
                 HStack(spacing: 48) {
                     Button(action: {
                         workspaceViewModel.selectedTab = .myWorkspaces
@@ -45,9 +50,10 @@ extension WorkspaceHomeView {
                     .buttonStyle(.plain)
                     Spacer()
                 }.padding(.leading, geometry.size.width * 0.17)
-                .padding(.top, geometry.size.width * 0.03)
-                .padding(.bottom, geometry.size.width * 0.02)
-                .background(.white)
+                    .padding(.top, geometry.size.width * 0.03)
+                    .padding(.bottom, geometry.size.width * 0.02)
+//                    .background(.white)
+            }
         }
     }
 }
