@@ -20,6 +20,6 @@ export async function getRole(request: FastifyRequest, reply: FastifyReply) {
 
         return reply.status(200).send({ data: role })
     } catch(err) {
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

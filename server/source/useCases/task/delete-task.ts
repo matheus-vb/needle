@@ -1,6 +1,7 @@
 import { Task, Document } from "@prisma/client";
 import { DocumentRepository } from "../../repositories/Prisma/DocumentRepository";
 import { TaskRepository } from "../../repositories/Prisma/TaskRepository";
+import { BadRequest } from "../errors/BadRequest";
 
 interface IDeleteTaskRequest {
     taskId: string;
@@ -20,7 +21,7 @@ export class DeleteTaskUseCase {
         const task = await this.taskRepository.findById(taskId);
 
         if(!task){
-            throw new Error();
+            throw new BadRequest();
         }
 
         const docId = task.documentId

@@ -124,7 +124,9 @@ struct SearchDocuments: View {
                 TableColumn("Responsável") {
                     Text($0.user?.name ?? "Sem responsável.")
                 }
-                TableColumn("Atualização", value: \.endDate)
+                TableColumn("Atualização", value: \.updated_at) {
+                    Text(HandleDate.formatDateWithTime(dateInput: $0.updated_at))
+                }
             }
             .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
                 guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }

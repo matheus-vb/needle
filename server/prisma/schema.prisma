@@ -56,6 +56,7 @@ model User {
   tasks        Task[]
   deviceToken  String?
   Notification Notification[]
+  User_Task    User_Task[]
 }
 
 model User_Workspace {
@@ -92,6 +93,8 @@ model Task {
   taskPriority TaskPriority
   TaskTag      TaskTag[]
   created_at   DateTime     @default(now())
+  updated_at   DateTime     @updatedAt
+  User_Task    User_Task[]
 }
 
 model TaskTag {
@@ -114,9 +117,18 @@ model Document {
 model Notification {
   id          String    @id @default(uuid())
   payload     String
-  user        User      @relation(fields: [userId], references: [id],onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
   workspace   Workspace @relation(fields: [workspaceId], references: [id])
   workspaceId String
   created_at  DateTime  @default(now())
+}
+
+model User_Task {
+  user   User   @relation(fields: [userId], references: [id])
+  Task   Task   @relation(fields: [taskId], references: [id])
+  userId String
+  taskId String
+
+  @@id([userId, taskId])
 }

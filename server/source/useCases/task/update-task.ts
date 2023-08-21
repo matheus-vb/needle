@@ -6,6 +6,7 @@ import { IUserRepository } from "../../repositories/IUserRepository"
 import { sendNotification } from "../../notification/send-notification"
 import { INotificationRepository } from "../../repositories/INotificationRepository"
 import { UserNotFound } from "../errors/UserNotFound"
+import { BadRequest } from "../errors/BadRequest"
 
 interface IUpdateTaskRequest {
     userId: string | null
@@ -49,7 +50,7 @@ export class UpdateTaskUseCase {
         const previousTask = await this.taskRespository.findById(taskId);
 
         if(!previousTask) {
-            throw new Error()
+            throw new BadRequest()
         }
 
         //Update no assign

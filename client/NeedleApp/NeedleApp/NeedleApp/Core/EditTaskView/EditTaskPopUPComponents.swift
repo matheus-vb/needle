@@ -10,7 +10,11 @@ import SwiftUI
 
 extension EditTaskPopUP{
     var taskTitle: some View {
-        TitleEditableText(text: $editTaskViewModel.taskTitle)
+        TextEditor(text: $editTaskViewModel.taskTitle)
+            .textFieldStyle(.plain)
+            .font(.system(size: 40, weight: .medium))
+            .foregroundColor(.black)
+            .frame(maxHeight: 60)
     }
     var deadLine: some View{
         HStack(spacing: 24){
@@ -18,11 +22,7 @@ extension EditTaskPopUP{
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
                 Text("Select a date")
             }
-            .colorInvert()
-            .colorMultiply(Color.theme.blackMain)
             .labelsHidden()
-            .background(Color.clear)
-            .border(Color.clear)
             Spacer()
         }
         .font(.system(size: 16))
@@ -121,7 +121,7 @@ extension EditTaskPopUP{
                     Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(Color.theme.orangeKanban)
+                        .foregroundColor(Color.theme.blackMain)
                 })
             }
             Spacer()

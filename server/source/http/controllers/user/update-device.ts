@@ -20,6 +20,6 @@ export async function updateDeviceToken(request: FastifyRequest, reply: FastifyR
 
         return reply.status(200).send({ data: user });
     } catch(err) {
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

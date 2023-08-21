@@ -5,5 +5,5 @@ export interface IWorkspaceInterface {
     findById(id: string): Promise<Workspace | null>;
     findByCode(code: string): Promise<Workspace | null>;
     findWorkspaceList(userId: string): Promise<Workspace[]>; 
-    deleteWorkspace(id: string): Promise<Workspace>;
+    deleteWorkspace(id: string): Promise<Workspace>
 }

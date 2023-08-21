@@ -80,10 +80,6 @@ struct KanbanView: View {
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
-                            .onTapGesture(count: 2) {
-                                projectViewModel.selectedTask = task
-                                projectViewModel.showEditTaskPopUP.toggle()
-                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -114,10 +110,6 @@ struct KanbanView: View {
                     }){task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
-                            .onTapGesture(count: 2) {
-                                projectViewModel.selectedTask = task
-                                projectViewModel.showEditTaskPopUP.toggle()
-                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -148,10 +140,6 @@ struct KanbanView: View {
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
-                            .onTapGesture(count: 2) {
-                                projectViewModel.selectedTask = task
-                                projectViewModel.showEditTaskPopUP.toggle()
-                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -182,10 +170,6 @@ struct KanbanView: View {
                     }) {task in
                         TaskCardView(task: task)
                             .padding(.bottom, 20)
-                            .onTapGesture(count: 2) {
-                                projectViewModel.selectedTask = task
-                                projectViewModel.showEditTaskPopUP.toggle()
-                            }
                         .buttonStyle(.plain)
                     }
                 }
@@ -236,8 +220,7 @@ struct KanbanView: View {
             .padding(5)
             .frame(minWidth: 128, maxWidth: 1000)
             .frame(height: 48)
-//            .frame(width: 256, height: 48, alignment: .center)
-            .background(Color(red: 0.88, green: 1, blue: 0.74))
+            .modifier(AddTaskButtonBackground())
             .cornerRadius(6)
             .overlay(
               RoundedRectangle(cornerRadius: 6)

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class NotificationDataService: ObservableObject {
+class NotificationDataService: NotificationDataServiceProtocol {
     private init(){}
     
     static let shared = NotificationDataService()
@@ -18,7 +18,7 @@ class NotificationDataService: ObservableObject {
     var updateDeviceTokenSubscription: AnyCancellable?
     var getUserNotificationSubscription: AnyCancellable?
     var deleteUserNotificationSubscription: AnyCancellable?
-    
+
     @Published var currError: NetworkingManager.NetworkingError?
     @Published var errorCount: Int = 0
     

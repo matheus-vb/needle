@@ -11,14 +11,7 @@ import AuthenticationServices
 struct LoginPageView: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @AppStorage("email") var email: String = ""
-    @AppStorage("firstName") var firstName: String = ""
-    @AppStorage("lastName") var lastName: String = ""
-    @AppStorage("userID") var userID: String = ""
-    
-    @ObservedObject var viewModel = LoginPageViewModel()
-    
-    @EnvironmentObject var authService: AuthenticationManager
+    @ObservedObject var loginPageViewModel = LoginPageViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, workpaceDS: WorkspaceDataService.shared)
     
     var body: some View {
         VStack {
@@ -31,38 +24,11 @@ struct LoginPageView: View {
                     SignInWithAppleButton(.continue) { request in
                         request.requestedScopes = [.email, .fullName]
                     } onCompletion: { result in
-                        switch result {
-                        case .success(let auth):
-                            switch auth.credential {
-                            case let authCredential as ASAuthorizationAppleIDCredential:
-                                //print(authCredential)
-                                let userID = authCredential.user
-                                let email = authCredential.email
-                                let firstName = authCredential.fullName?.givenName
-                                let lastName = authCredential.fullName?.familyName
-                                self.email = email ?? ""
-                                self.firstName = firstName ?? ""
-                                self.lastName = lastName ?? ""
-                                self.userID = userID
-                                
-                                AuthenticationManager.shared.singIn(userId: userID, email: email, name: firstName)
-            
-                                NotificationDataService.shared.updateDeviceToken(userId: userID)
-                                
-                                WorkspaceDataService.shared.getUsersWorkspaces(userId: userID)
-                                
-                                NotificationDataService.shared.getUserNotifications(userId: userID)
-                                
-                            default:
-                                break
-                            }
-                            
-                        case .failure(let error):
-                            print(error)
-                        }
+                        loginPageViewModel.handleResult(result)
                     }
                     .signInWithAppleButtonStyle(.black)
-                    .frame(width: 200, height: 35)
+                    .frame(width: 300, height: 35)
+                    .modifier(Clickable())
                 }
                 .padding(50)
                 Spacer()

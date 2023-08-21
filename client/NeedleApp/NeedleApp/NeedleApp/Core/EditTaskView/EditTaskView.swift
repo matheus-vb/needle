@@ -26,7 +26,7 @@ struct EditTaskPopUP: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(width: 2*geometry.size.width/3, height: geometry.size.height)
+        .frame(width: 2*geometry.size.width/3, height: 19*geometry.size.height/20)
         .background(.white)
     }
 }

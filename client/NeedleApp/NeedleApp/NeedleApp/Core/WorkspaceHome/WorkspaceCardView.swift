@@ -43,6 +43,7 @@ struct WorkspaceCardView: View, Identifiable {
                 .foregroundColor(Color.theme.grayHover)
         })
         .buttonStyle(.borderless)
+        .modifier(Clickable())
     }
     
     var accessCode: some View {

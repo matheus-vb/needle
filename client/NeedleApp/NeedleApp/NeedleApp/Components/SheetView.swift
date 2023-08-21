@@ -87,6 +87,7 @@ struct SheetView: View {
                     Button(type.primaryAction, action: {
                         buttonAction()
                     }).buttonStyle(PrimarySheetActionButton())
+                  .keyboardShortcut(.defaultAction)
                 }
           else if type == .joinCode {
                   VStack(spacing: 10) {
@@ -110,7 +111,7 @@ struct SheetView: View {
                               showMain.toggle()
 
                           }.buttonStyle(PrimarySheetActionButton())
-                          
+                              .keyboardShortcut(.defaultAction)
                       }
                   }
                   .offset(y: -20)

@@ -18,6 +18,6 @@ export async function deleteUserNotifications(request: FastifyRequest, reply: Fa
 
         return reply.status(200).send({ data: done })
     } catch (err) {
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

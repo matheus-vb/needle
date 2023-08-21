@@ -40,13 +40,20 @@ export class WorkspaceRepository implements IWorkspaceInterface{
             include: {
                 users: {
                     where: {
-                        userRole: Role.PRODUCT_MANAGER
+                        userRole: Role.PRODUCT_MANAGER,
+                    },
+                    include:{
+                        user:{
+                            select:{
+                                name: true
+                            }
+                        }
                     }
                 }
             }
         })
 
-        return elements
+        return elements;
     }
 
     async deleteWorkspace(id: string) {

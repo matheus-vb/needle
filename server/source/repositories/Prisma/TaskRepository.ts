@@ -65,8 +65,8 @@ export class TaskRepository implements ITaskRepository {
             },
             include: {
                 document: true,
-                user: true
-            }
+                user: true,
+            },
         })
 
         return tasks;
@@ -95,18 +95,21 @@ export class TaskRepository implements ITaskRepository {
                     {
                         title: {
                             contains: query,
+                            mode: "insensitive",
                         },
                     },
                     {
                         user: {
                             name: {
                                 contains: query,
+                                mode: "insensitive",
                             },
                         },
                     },
                     {
                         description: {
                             contains: query,
+                            mode: "insensitive",
                         }
                     },
                 ],

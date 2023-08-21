@@ -4,6 +4,9 @@ import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
 import { IUserWorkspaceRepository } from "../../repositories/IUserWorkspaceRepository"
 import { sendNotification } from "../../notification/send-notification"
 import { INotificationRepository } from "../../repositories/INotificationRepository"
+import { UserNotFound } from "../errors/UserNotFound"
+import { BadRequest } from "../errors/BadRequest"
+import { UserHasAlreadyEnteredTheWorkspace } from "../errors/UserHasAlreadyEnteredTheWorkspace"
 
 interface IJoinWorkspaceUseCaseRequest {
     userId: string
@@ -30,12 +33,17 @@ export class JoinWorkspaceUseCase {
     }: IJoinWorkspaceUseCaseRequest): Promise<IJoinWorkspaceUseCaseReply> {
         const user = await this.userRepository.findById(userId);
         if(!user) {
-            throw new Error();
+            throw new UserNotFound();
         }
 
         const workspace = await this.workspaceRepository.findByCode(accessCode);
         if(!workspace) {
-            throw new Error();
+            throw new BadRequest();
+        }
+
+        const checksIfAUserHasAlreadyEnteredTheWorkspace = await this.userWorkRepository.checksIfAUserHasAlreadyEnteredTheWorkspace(userId, accessCode)
+        if(checksIfAUserHasAlreadyEnteredTheWorkspace){
+            throw new UserHasAlreadyEnteredTheWorkspace()
         }
 
         const users = await this.userRepository.getUsersInWorkspace(workspace.id)

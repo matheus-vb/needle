@@ -1,6 +1,7 @@
 import { Task, TaskPriority, TaskStatus, TaskType } from "@prisma/client";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository";
+import { BadRequest } from "../errors/BadRequest";
 
 interface IQueryTasksUseCaseRequest {
     workspaceId: string
@@ -26,7 +27,7 @@ export class QueryTasksUseCase {
     }: IQueryTasksUseCaseRequest): Promise<IQueryTasksUseCaseReply> {
         const workspace = await this.workspaceRepository.findById(workspaceId);
         if (!workspace) {
-            throw new Error()
+            throw new BadRequest()
         }
 
         const tasks = await this.tasksRepository.queryTasks(
