@@ -8,27 +8,22 @@
 import SwiftUI
 
 struct RootView: View {
-    @ObservedObject var authManager = AuthenticationManager.shared
-    @State var notificationIsPresented : Bool = false
-    @State var userLogoutIsPresented : Bool = false
-    
-    @State var showErrorSheet: Bool = false
-    
-    @StateObject var notificationViewModel = NotificationBarViewModel()
+
+    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared)
     
     var body: some View {
         mainView
-            .sheet(isPresented: $showErrorSheet, content: {
+            .sheet(isPresented: $rootViewModel.showErrorSheet, content: {
                 SheetView(type: .loginError)
             })
-            .onChange(of: authManager.errorCount, perform: {_ in
-                showErrorSheet.toggle()
+            .onChange(of: rootViewModel.authManager.errorCount, perform: {_ in
+                rootViewModel.showErrorSheet.toggle()
             })
     }
     
     var mainView: some View {
         ZStack {
-            if authManager.user == nil {
+            if rootViewModel.authManager.user == nil {
                 LoginPageView()
             } else {
                 AppView()
@@ -37,33 +32,32 @@ struct RootView: View {
                             .resizable()
                             .scaledToFit()
                         Spacer()
-                        Image(systemName: notificationViewModel.notifications.isEmpty ? "bell" : "bell.badge")
-                            .popover(isPresented: $notificationIsPresented, arrowEdge: .bottom) {
+                        Image(systemName: rootViewModel.notifications.isEmpty ? "bell" : "bell.badge")
+                            .popover(isPresented: $rootViewModel.notificationIsPresented, arrowEdge: .bottom) {
                                 NavigationBarView()
-                                    .environmentObject(notificationViewModel)
+                                    .environmentObject(NotificationBarViewModel())
                             }
                             .onTapGesture {
-                                NotificationDataService.shared.getUserNotifications(userId: AuthenticationManager.shared.user!.id)
-                                notificationIsPresented.toggle()
+                                rootViewModel.presentNotifications()
                             }
                         HStack {
-                            Text("\(authManager.user?.name ?? "")")
+                            Text("\(rootViewModel.authManager.user?.name ?? "")")
                                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
-                            Image(systemName: userLogoutIsPresented ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
+                            Image(systemName: rootViewModel.userLogoutIsPresented ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
                         }
                             .onTapGesture{
-                                userLogoutIsPresented.toggle()
+                                rootViewModel.userLogoutIsPresented.toggle()
+                                rootViewModel.fetchNotifications()
                             }
-                            .popover(isPresented: $userLogoutIsPresented, arrowEdge: .bottom) {
+                            .popover(isPresented: $rootViewModel.userLogoutIsPresented, arrowEdge: .bottom) {
                                 Button {
-                                    authManager.user = nil
+                                    rootViewModel.logout()
                                 } label: {
                                     HStack{
                                         Text("Sair ")
                                             .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
                                         Image(systemName: "rectangle.portrait.and.arrow.right")
                                     }
-                                    
                                 }
                                 .buttonStyle(.plain)
                                 .padding(.horizontal, 20)

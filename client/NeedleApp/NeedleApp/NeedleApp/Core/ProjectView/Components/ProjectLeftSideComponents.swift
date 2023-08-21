@@ -24,7 +24,7 @@ extension ProjectLeftSideComponent{
             VStack(spacing: 24){
                 ForEach(projectViewModel.projects, id: \.self){project in
                     ProjectButton(project: project)
-                        .frame(width: 180)
+//                        .frame(width: 180)
                 }
             }
         }

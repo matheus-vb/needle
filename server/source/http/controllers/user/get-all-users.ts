@@ -9,6 +9,6 @@ export async function getAllUsers(request: FastifyRequest, reply: FastifyReply) 
 
         return reply.status(200).send({ data: users })
     } catch(err) {
-        return reply.status(400).send({ err: err })
+        throw err
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class AuthenticationManager: ObservableObject {
+class AuthenticationManager: AuthenticationManagerProtocol {
     static let shared = AuthenticationManager()
     
     private init() {}

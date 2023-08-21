@@ -15,7 +15,11 @@ class ProjectViewModel: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
     @Published var selectedTab: SelectedTab = .Kanban 
     @Published var selectedProject: Workspace = Workspace(id: "id1", accessCode: "", name: "", users: [])
+<<<<<<< HEAD
     @Published var projects: [Workspace] = [Workspace(id: "1", accessCode: "123", name: "Projeto", users: []), Workspace(id: "id1", accessCode: "", name: "", users: []),Workspace(id: "id1", accessCode: "", name: "", users: []),Workspace(id: "id1", accessCode: "", name: "", users: [])]
+=======
+    @Published var projects: [Workspace] = [Workspace(id: "1", accessCode: "123", name: "Projeto", users: [])]
+>>>>>>> develop
     
     @Published var tasks: [String:[TaskModel]] = [:]
     @Published var workspaceMembers: [String:[User]] = [:]

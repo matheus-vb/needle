@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class DocumentationDataService: ObservableObject {
+class DocumentationDataService: DocumentationDataServiceProtocol {
     static let shared = DocumentationDataService()
     private init() {}
     
@@ -17,7 +17,7 @@ class DocumentationDataService: ObservableObject {
     
     var updateDocumentationTaskSubscription: AnyCancellable?
     
-    func updateDocumentation(data: UpdateDocumentationDTO, userId: String, workspaceId: String){
+    func updateDocumentation(data: UpdateDocumentationDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "document") else { return }
         
         let parameters = convertToDictionary(data)

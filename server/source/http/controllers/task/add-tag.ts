@@ -20,6 +20,6 @@ export async function addTag(request: FastifyRequest, reply: FastifyReply) {
 
         return reply.status(201).send({ data: taskTag });
     } catch(err) {
-        return reply.send(400).send({ error: err });
+        throw err
     }
 }

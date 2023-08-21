@@ -25,4 +25,20 @@ class HandleDate {
         let ret = "\(day) \(month)"
         return String(ret)
     }
+    
+    static func formatDateWithTime(dateInput: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        if let date = dateFormatter.date(from: dateInput) {
+            dateFormatter.dateFormat = "dd/MM/yyyy - HH:mm:ss"
+            dateFormatter.timeZone = TimeZone.current
+            
+            let returnTimeString = dateFormatter.string(from: date)
+            return returnTimeString
+        } else {
+            return "-"
+        }
+    }
 }

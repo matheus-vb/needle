@@ -1,5 +1,6 @@
 import { User } from "@prisma/client"
 import { IUserRepository } from "../../repositories/IUserRepository"
+import { InvalidCredentials } from "../errors/InvalidCredentials"
 
 interface ISignInUseCaseRequest {
     userId: string
@@ -26,7 +27,7 @@ export class SignInUseCase {
         }
 
         if (!name || !email) {
-            throw new Error()
+            throw new InvalidCredentials()
         }
 
         const newUser = await this.userRepository.create({

@@ -6,6 +6,9 @@ import { documentRoutes } from "./http/controllers/document/routes";
 import { workspaceRoutes } from "./http/controllers/workspace/routes";
 import { userRoutes } from "./http/controllers/user/routes";
 import { notificationRoutes } from "./http/controllers/notification/routes";
+import { InvalidCredentials } from "./useCases/errors/InvalidCredentials";
+import { BadRequest } from "./useCases/errors/BadRequest";
+import { UserNotFound } from "./useCases/errors/UserNotFound";
 
 export const app = fastify();
 
@@ -30,6 +33,18 @@ app.setErrorHandler((error, _, reply) => {
 
     console.log(error);
 
+    if(error instanceof InvalidCredentials) {
+        return reply.status(401).send({ message: error.message })
+    }
+
+    if(error instanceof BadRequest) {
+        return reply.status(404).send({ message: error.message })
+    }
+
+    if(error instanceof UserNotFound) {
+        return reply.status(404).send({ message: error.message })
+    }
+   
     return reply.status(500).send({
         message: "Internal server error.",
     })
