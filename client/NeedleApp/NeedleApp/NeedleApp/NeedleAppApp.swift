@@ -16,6 +16,7 @@ struct NeedleAppApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+//            CopyClipboardButton(text: "99999"){}
                 .frame(minWidth: 1100, minHeight: 600)
                 .preferredColorScheme(.light)
                 .ignoresSafeArea(.all)

@@ -11,7 +11,7 @@ extension KanbanView {
     @ViewBuilder
     func TaskCardView(task: TaskModel) -> some View {
         
-        @State var backgroundColor : Color = .white
+//        @State var backgroundColor : Color = .white
         
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
