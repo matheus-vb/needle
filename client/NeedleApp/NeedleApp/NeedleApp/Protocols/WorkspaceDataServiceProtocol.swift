@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 protocol WorkspaceDataServiceProtocol: ObservableObject {
     var workspaces: [Workspace] { get set }
+    var workspacePublisher: Published<[Workspace]>.Publisher { get }
+    
     var members: [String: [User]] { get set }
     var currError: NetworkingManager.NetworkingError? { get set }
     
