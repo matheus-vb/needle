@@ -8,26 +8,9 @@
 import SwiftUI
 import CoreData
 
-class MockWorkspaces: ObservableObject {
-    @Published var content: [Workspace] = [
-        
-    ]
-}
-
 struct WorkspaceHomeView: View {
-    @StateObject var mock = MockWorkspaces()
-    @ObservedObject var viewModel = WorkspaceHomeViewModel()
-    
+    @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
     @StateObject var projectViewModel = ProjectViewModel()
-    
-    @State var isDeleting = false
-    @State var isNaming = false
-    @State var isJoining = false
-    
-    @State var accessCode: String?
-    
-    @State var isAnimating = false
-    @State var showMain = false
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -41,10 +24,10 @@ struct WorkspaceHomeView: View {
             Text("Workspaces").font(.custom(SpaceGrotesk.regular.rawValue, size: 40)).foregroundColor(Color.theme.blackMain)
             HStack(spacing: 32) {
                 Button("+ Criar novo workspace"){
-                    isNaming.toggle()
+                    workspaceViewModel.isNaming.toggle()
                 }.buttonStyle(AddWorkspaceButton())
                 Button(action: {
-                    isJoining.toggle()
+                    workspaceViewModel.isJoining.toggle()
                 }, label: {
                     HStack {
                         Image(systemName: "personalhotspot")
@@ -58,10 +41,10 @@ struct WorkspaceHomeView: View {
     
     var workspaceGrid: some View {
         LazyVGrid(columns: columns, spacing: 24) {
-            ForEach(viewModel.workspaces.indices, id: \.self) { index in
-                WorkspaceCardView(workspaceInfo: viewModel.workspaces[index], action: {
-                    viewModel.accessCode = viewModel.workspaces[index].accessCode
-                    isDeleting.toggle()
+            ForEach(workspaceViewModel.workspaces.indices, id: \.self) { index in
+                WorkspaceCardView(workspace: workspaceViewModel.workspaces[index], action: {
+                    workspaceViewModel.accessCode = workspaceViewModel.workspaces[index].accessCode
+                    workspaceViewModel.isDeleting.toggle()
                 })
                 .environmentObject(projectViewModel)
             }
@@ -87,10 +70,10 @@ struct WorkspaceHomeView: View {
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)
                 .frame(width: 50, height: 50)
-                .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                .rotationEffect(.degrees(workspaceViewModel.isAnimating ? 360 : 0))
                 .onAppear() {
                     withAnimation (.linear(duration: 1).repeatForever(autoreverses: false)) {
-                        self.isAnimating.toggle()
+                        workspaceViewModel.isAnimating.toggle()
                     }
                 }
         }
@@ -111,45 +94,35 @@ struct WorkspaceHomeView: View {
                 }.padding(.bottom, 120)
             }
         }
-        .sheet(isPresented: $isJoining) {
+        .sheet(isPresented: $workspaceViewModel.isJoining) {
             SheetView(type: .joinCode)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
-                .environmentObject(mock)
         }
-        .sheet(isPresented: $isNaming) {
+        .sheet(isPresented: $workspaceViewModel.isNaming) {
             SheetView(type: .newWorkspace)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
-                .environmentObject(mock)
         }
-        .sheet(isPresented: $isDeleting) {
+        .sheet(isPresented: $workspaceViewModel.isDeleting) {
             SheetView(type: .deleteWorkspace)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
-                .environmentObject(mock)
-                .environmentObject(viewModel)
+                .environmentObject(workspaceViewModel)
         }
     }
     
     var body: some View {
-        if showMain {
+        if workspaceViewModel.showMain {
             main
 
         } else {
             loading
                 .onAppear {
                     Task {
-                        await loadData()
+                        await workspaceViewModel.loadData()
                     }
                 }
-        }
-    }
-    
-    func loadData() async {
-        try? await Task.sleep(nanoseconds: 1_000_000_000)
-        withAnimation {
-            showMain = true
         }
     }
 }

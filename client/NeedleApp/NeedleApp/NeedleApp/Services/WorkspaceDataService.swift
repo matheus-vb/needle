@@ -25,6 +25,8 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
     var deleteWorkspaceSubscription: AnyCancellable?
     var getMembersSubscription: AnyCancellable?
     
+    var workspacePublisher: Published<[Workspace]>.Publisher { $workspaces }
+    
     func getUsersWorkspaces(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "workspace/list/\(userId)") else { return }
         

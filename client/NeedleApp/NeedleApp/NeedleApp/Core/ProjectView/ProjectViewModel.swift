@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 class ProjectViewModel: ObservableObject{
-    @EnvironmentObject var workspaceModel: WorkspaceHomeViewModel
+    @EnvironmentObject var workspaceModel: WorkspaceHomeViewModel<WorkspaceDataService>
 
     @AppStorage("userID") var userID: String = "Default User"
     @Published var selectedTab: SelectedTab = .Kanban 
@@ -77,6 +77,7 @@ class ProjectViewModel: ObservableObject{
     func deleteTask(){
         tasksDS.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask!.id ?? "1"), userId: userID, workspaceId: selectedProject.id)
     }
+    
     func presentCard() {
         DispatchQueue.main.async {
             Task {
@@ -88,6 +89,7 @@ class ProjectViewModel: ObservableObject{
             }
         }
     }
+    
     func copyToClipBoard() {
         let pasteBoard = NSPasteboard.general
         pasteBoard.clearContents()

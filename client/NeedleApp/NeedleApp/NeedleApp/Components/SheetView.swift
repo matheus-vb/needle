@@ -11,7 +11,7 @@ import SwiftUI
 
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel
+    @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
     @EnvironmentObject var projectViewModel: ProjectViewModel
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
     

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class TaskDataService: ObservableObject {
+class TaskDataService: TaskDataServiceProtocol {
     static let shared = TaskDataService()
     private init() {}
     
