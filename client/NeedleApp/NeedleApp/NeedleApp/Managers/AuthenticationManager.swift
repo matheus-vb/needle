@@ -15,6 +15,7 @@ class AuthenticationManager: AuthenticationManagerProtocol {
     
     @Published var user: User?
     @Published var roles: [String: Role] = [:]
+    var rolesPublihser: Published<[String : Role]>.Publisher { $roles }
     
     var signInSubscription: AnyCancellable?
     var getRolesSubscription: AnyCancellable?

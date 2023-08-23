@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ProjectView: View {
     
-    @ObservedObject var projectViewModel: ProjectViewModel
+    @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     @State var isAnimating = false
     @State var initalLoading = true
     
     init(selectedWorkspace: Workspace) {
-        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace)
+        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
     }
     
     var body: some View {

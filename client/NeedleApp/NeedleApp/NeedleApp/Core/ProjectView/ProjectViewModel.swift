@@ -9,7 +9,11 @@ import Foundation
 import Combine
 import SwiftUI
 
-class ProjectViewModel: ObservableObject{
+class ProjectViewModel<
+    A: AuthenticationManagerProtocol & ObservableObject,
+    T: TaskDataServiceProtocol & ObservableObject,
+    W: WorkspaceDataServiceProtocol & ObservableObject
+>: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
     @Published var selectedTab: SelectedTab = .Kanban 
     @Published var selectedWorkspace: Workspace
@@ -32,12 +36,16 @@ class ProjectViewModel: ObservableObject{
     @Published var isAnimating = false
     @Published var initalLoading = true
     
-    private var worskpaceDS = WorkspaceDataService.shared
-    private var tasksDS = TaskDataService.shared
-    private var authMGR = AuthenticationManager.shared
+    private var worskpaceDS: W
+    private var tasksDS: T
+    private var authMGR: A
     private var cancellables = Set<AnyCancellable>()
 
-    init(selectedWorkspace: Workspace) {
+    init(selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
+        self.authMGR = manager
+        self.tasksDS = taskDS
+        self.worskpaceDS = workspaceDS
+        
         self.selectedWorkspace = selectedWorkspace
         
         addSubscribers()
@@ -48,25 +56,25 @@ class ProjectViewModel: ObservableObject{
     }
     
     func addSubscribers() {
-        worskpaceDS.$workspaces
+        worskpaceDS.workspacePublisher
             .sink(receiveValue: { [weak self] returnedWorkspaces in
                 self?.projects = returnedWorkspaces
             })
             .store(in: &cancellables)
         
-        tasksDS.$allUsersTasks
+        tasksDS.allUsersTasksPublisher
             .sink(receiveValue: { [weak self] returnedTasks in
                 self?.tasks = returnedTasks
             })
             .store(in: &cancellables)
         
-        worskpaceDS.$members
+        worskpaceDS.membersPublisher
             .sink(receiveValue: { [weak self] returnedUsers in
                 self?.workspaceMembers = returnedUsers
             })
             .store(in: &cancellables)
         
-        authMGR.$roles
+        authMGR.rolesPublihser
             .sink(receiveValue: { [weak self] returnedRoles in
                 self?.roles = returnedRoles
             })
@@ -79,6 +87,18 @@ class ProjectViewModel: ObservableObject{
     
     func deleteTask(){
         tasksDS.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask!.id), userId: userID, workspaceId: selectedWorkspace.id)
+    }
+    
+    func getRoleInWorkspace(workspaceId: String) {
+        authMGR.getRoleInWorkspace(userId: userID, workspaceId: workspaceId)
+    }
+    
+    func getWorkspaceTasks(workspaceId: String) {
+        tasksDS.getWorkspaceTasks(userId: userID, workspaceId: workspaceId)
+    }
+    
+    func getWorkspaceMembers(workspaceId: String) {
+        worskpaceDS.getWorkspaceMembers(workspaceId: workspaceId)
     }
     
     func presentCard() {

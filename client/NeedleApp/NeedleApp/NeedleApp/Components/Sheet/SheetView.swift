@@ -12,7 +12,7 @@ import SwiftUI
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
     
     @ObservedObject var workspaceDataService = WorkspaceDataService.shared
