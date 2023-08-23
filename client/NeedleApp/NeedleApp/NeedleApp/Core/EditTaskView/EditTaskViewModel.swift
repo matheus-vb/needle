@@ -50,7 +50,7 @@ class EditTaskViewModel: ObservableObject{
         self.prioritySelection = data.taskPriority
         self.deadLineSelection = date!
         self.categorySelection = data.type
-        self.selectedMember = data.user ?? nil
+        self.selectedMember = data.user
         self.documentationString = NSAttributedString(string: data.document?.text ?? "")
         self.documentationID = data.document?.id ?? "0"
         self.members = members
@@ -65,7 +65,7 @@ class EditTaskViewModel: ObservableObject{
         }
         
         self.dto = SaveTaskDTO(
-            userId: AuthenticationManager.shared.user!.id,
+            userId: nil,
             taskId: data.id,
             documentId: data.documentId ?? "",
             title: data.title,

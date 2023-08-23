@@ -32,11 +32,11 @@ extension EditTaskPopUP{
     var responsible: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "person.fill", label: "Responsável")
-            Picker("Área",selection: $editTaskViewModel.selectedMember){
-                ForEach(editTaskViewModel.members, id: \.self) {membro in
+            Picker("Área",selection: $editTaskViewModel.dto.userId){
+                ForEach(editTaskViewModel.members) {membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
-                        .tag(membro as User?)
+                        .tag(membro.id as String?)
                 }
             }
             .pickerStyle(.menu)
