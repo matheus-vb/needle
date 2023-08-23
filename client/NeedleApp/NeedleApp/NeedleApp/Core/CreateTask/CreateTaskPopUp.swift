@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct CreateTaskPopUp: View {
-    @StateObject var createTaskViewModel: CreateTaskViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
+    @ObservedObject var createTaskViewModel: CreateTaskViewModel
     
     var geometry: GeometryProxy
     var body: some View {
