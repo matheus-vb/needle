@@ -10,9 +10,6 @@ import SwiftUI
 extension KanbanView {
     @ViewBuilder
     func TaskCardView(task: TaskModel) -> some View {
-        
-//        @State var backgroundColor : Color = .white
-        
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack{
@@ -37,8 +34,8 @@ extension KanbanView {
                 KanbanTagView(taskType: task.type)
                 Spacer()
                 Button {
-                    projectViewModel.selectedTask = task
-                    isArchiving.toggle()
+                    kanbanViewModel.selectedTask = task
+                    kanbanViewModel.isArchiving.toggle()
                 } label: {
                     Image(systemName: "archivebox")
                         .resizable()
@@ -59,19 +56,19 @@ extension KanbanView {
                 .inset(by: 0.5)
                 .stroke(.black, lineWidth: 1)
         )
-        .draggable(task.id ?? "")
+        .draggable(task.id)
         .dropDestination(for: String.self) { items, location in
-            currentlyDragging = items.first
-            //                print("drop destination!")
-            guard let temp = kanbanViewModel.localTasks.first(where: { $0.id == currentlyDragging }) else { return false }
+            kanbanViewModel.currentlyDragging = items.first
+
+            guard let temp = kanbanViewModel.localTasks.first(where: { $0.id == kanbanViewModel.currentlyDragging }) else { return false }
             
             if temp.status != task.status {
                 withAnimation {
-                    addItem(currentlyDragging: currentlyDragging!, status: task.status)                    
+                    addItem(currentlyDragging: kanbanViewModel.currentlyDragging!, status: task.status)
                 }
             } else {
                 withAnimation(.easeIn) {
-                    swapItem(droppingTask: task, currentlyDragging: currentlyDragging ?? "")
+                    swapItem(droppingTask: task, currentlyDragging: kanbanViewModel.currentlyDragging ?? "")
                 }
             }
             
@@ -79,11 +76,9 @@ extension KanbanView {
         } isTargeted: { status in
         }
         .onTapGesture(count: 2) {
-            projectViewModel.selectedTask = task
-            projectViewModel.showEditTaskPopUP.toggle()
+            kanbanViewModel.selectedTask = task
+            kanbanViewModel.isEditing.toggle()
         }
-        
-        
     }
 
 

@@ -66,7 +66,7 @@ struct SheetView: View {
         }
         case .loginError: return {dismiss()}
         case .archiveTask: return {
-            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id ?? "1", status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedProject.id)
+            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
             dismiss()
         }
 

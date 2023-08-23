@@ -10,16 +10,14 @@ import Combine
 import SwiftUI
 
 class ProjectViewModel: ObservableObject{
-    @EnvironmentObject var workspaceModel: WorkspaceHomeViewModel<WorkspaceDataService>
-
     @AppStorage("userID") var userID: String = "Default User"
     @Published var selectedTab: SelectedTab = .Kanban 
-    @Published var selectedProject: Workspace = Workspace(id: "id1", accessCode: "", name: "", users: [])
-    @Published var projects: [Workspace] = [Workspace(id: "1", accessCode: "123", name: "Projeto", users: [])]
+    @Published var selectedWorkspace: Workspace
+    @Published var projects: [Workspace] = []
     
     @Published var tasks: [String:[TaskModel]] = [:]
     @Published var workspaceMembers: [String:[User]] = [:]
-    @Published var roles: [String: String] = [:]
+    @Published var roles: [String: Role] = [:]
     
     @Published var showPopUp: Bool = false
     @Published var showEditTaskPopUP: Bool = false
@@ -31,17 +29,22 @@ class ProjectViewModel: ObservableObject{
     
     @Published var showShareCode = false
     
+    @Published var isAnimating = false
+    @Published var initalLoading = true
+    
     private var worskpaceDS = WorkspaceDataService.shared
     private var tasksDS = TaskDataService.shared
     private var authMGR = AuthenticationManager.shared
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
+    init(selectedWorkspace: Workspace) {
+        self.selectedWorkspace = selectedWorkspace
+        
         addSubscribers()
     }
     
     func getCode() -> String {
-        return selectedProject.accessCode
+        return selectedWorkspace.accessCode
     }
     
     func addSubscribers() {
@@ -71,11 +74,11 @@ class ProjectViewModel: ObservableObject{
     }
     
     func createTask(dto: CreateTaskDTO){
-        tasksDS.createTask(dto: dto, userId: userID, workspaceId: selectedProject.id)
+        tasksDS.createTask(dto: dto, userId: userID, workspaceId: selectedWorkspace.id)
     }
     
     func deleteTask(){
-        tasksDS.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask!.id ?? "1"), userId: userID, workspaceId: selectedProject.id)
+        tasksDS.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask!.id), userId: userID, workspaceId: selectedWorkspace.id)
     }
     
     func presentCard() {

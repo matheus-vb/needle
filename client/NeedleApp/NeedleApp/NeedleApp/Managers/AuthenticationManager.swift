@@ -14,7 +14,7 @@ class AuthenticationManager: AuthenticationManagerProtocol {
     private init() {}
     
     @Published var user: User?
-    @Published var roles: [String: String] = [:]
+    @Published var roles: [String: Role] = [:]
     
     var signInSubscription: AnyCancellable?
     var getRolesSubscription: AnyCancellable?
@@ -50,7 +50,7 @@ class AuthenticationManager: AuthenticationManagerProtocol {
         guard let url = URL(string: Bundle.baseURL + "user/\(workspaceId)/\(userId)") else { return }
         
         getRolesSubscription = NetworkingManager.download(url: url)
-            .decode(type: StringResponse.self, decoder: JSONDecoder())
+            .decode(type: RoleReponse.self, decoder: JSONDecoder())
             .sink(receiveCompletion: {
                 completion in NetworkingManager.handleCompletion(completion: completion) { error in
                     self.currError = error as? NetworkingManager.NetworkingError

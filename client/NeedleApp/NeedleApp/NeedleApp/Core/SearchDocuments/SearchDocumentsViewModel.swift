@@ -7,13 +7,17 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class SearchDocumentsViewModel: ObservableObject {
     let workspaceId: String
     
     @Published var tasks: [TaskModel]
     
-    @Published var selectedTask: TaskModel.ID?
+    @Published var selectedTaskID: TaskModel.ID?
+    
+    @Binding var selectedTask: TaskModel?
+    @Binding var isEditing: Bool
     
     @Published var selectedStatus: TaskStatus? = nil
     @Published var selectedArea: TaskType? = nil
@@ -22,10 +26,12 @@ class SearchDocumentsViewModel: ObservableObject {
     
     @Published var currDTO: QueryTasksDTO
     
+    @Published var sortOrder = [KeyPathComparator(\TaskModel.title)]
+    
     private var tasksDS = TaskDataService.shared
     private var cancellables = Set<AnyCancellable>()
     
-    init(tasks: [TaskModel], workspaceId: String) {
+    init(tasks: [TaskModel], workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         self.tasks = tasks
         self.workspaceId = workspaceId
         
@@ -36,6 +42,9 @@ class SearchDocumentsViewModel: ObservableObject {
             area: nil,
             priority: nil
         )
+        
+        self._selectedTask = selectedTask
+        self._isEditing = isEditing
         
         addSubscribers()
         setupBindings()

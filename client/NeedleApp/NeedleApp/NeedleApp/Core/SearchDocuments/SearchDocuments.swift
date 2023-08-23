@@ -10,56 +10,22 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @EnvironmentObject var searchDocumentsViewModel: SearchDocumentsViewModel
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel
     
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    
-    @State private var searchText = ""
-    @State private var sortOrder = [KeyPathComparator(\TaskModel.title)]
-    @State private var sortByStatus = false
-    @State private var startDate = Date()
-    @State private var endDate = Date()
-    @State private var sortByTaskName = true
-    @State private var sortByPriority = false
-    @State private var sortByUpdate = false
-    @State private var sortByUserName = false
-    @State private var sortByType = false
-    @State private var dateIsPresented = false
-    
-    @State private var mydate = "Data"
-    
-    private func dateIsInRange(_ dateString: String) -> Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = dateFormatter.date(from: dateString) {
-            return date >= startDate && date <= endDate
-        }
-        return false
+    init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
+        
+        self.searchDocumentsViewModel = SearchDocumentsViewModel(
+            tasks: tasks ?? [],
+            workspaceId: workspaceId,
+            selectedTask: selectedTask,
+            isEditing: isEditing
+        )
     }
-
     
     var body: some View {
         VStack {
             
             HStack(spacing: 16) {
-//                Group{
-//                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
-//                        ForEach(TaskStatus.allCases, id: \.self) { status in
-//                            Text(status.displayName)
-//                                .foregroundColor(Color.theme.blackMain)
-//                                .tag(status as TaskStatus?)
-//                        }
-//                    }
-//                    .pickerStyle(.menu)
-//                    .frame(width: 160)
-//                    Button(action: {
-//                        searchDocumentsViewModel.selectedStatus = nil
-//                    }, label: {
-//                        Image(systemName: "arrow.counterclockwise")
-//                    })
-//                    .buttonStyle(.plain)
-//                }
-               
                 DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
 
                 }
@@ -74,15 +40,6 @@ struct SearchDocuments: View {
 
                 Spacer()
                 //TODO: Add date to query
-//                VStack {
-//                    DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
-//                        .labelsHidden()
-//                        .frame(width: 100)
-//                    DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
-//                        .labelsHidden()
-//                        .frame(width: 100)
-//                }
-//                .padding(.horizontal)
                 
                 Group {
                     TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
@@ -98,7 +55,7 @@ struct SearchDocuments: View {
             }
             .padding(.top, 10)
             
-            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTask, sortOrder: $sortOrder){
+            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTaskID, sortOrder: $searchDocumentsViewModel.sortOrder){
                 TableColumn("Nome da Task", value: \.title)
                 TableColumn("Prioridade", value: \.taskPriority.order ){
                     switch $0.taskPriority{
@@ -130,10 +87,10 @@ struct SearchDocuments: View {
             }
             .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
                 guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }
-                projectViewModel.selectedTask = task
-                projectViewModel.showEditTaskPopUP = true
+                searchDocumentsViewModel.selectedTask = task
+                searchDocumentsViewModel.isEditing = true
             }
-            .onChange(of: sortOrder){
+            .onChange(of: searchDocumentsViewModel.sortOrder){
                 searchDocumentsViewModel.tasks.sort(using: $0)
             }
             .cornerRadius(6)
