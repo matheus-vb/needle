@@ -8,15 +8,15 @@
 import Foundation
 
 struct SaveTaskDTO{
-    let userId: String?
-    let taskId: String
-    let documentId: String
-    let title: String
-    let description: String
-    let status: String
-    let type: String
-    let endDate: String
-    let priority: String
-    let text: String
-    let textString: String
+    var userId: String?
+    var taskId: String
+    var documentId: String
+    var title: String
+    var description: String
+    var status: String
+    var type: String
+    var endDate: String
+    var priority: String
+    var text: String
+    var textString: String
 }

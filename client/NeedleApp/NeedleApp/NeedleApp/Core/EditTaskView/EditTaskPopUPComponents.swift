@@ -155,7 +155,6 @@ extension EditTaskPopUP{
     
     var textEditor: some View {
         EditDocumentationView(documentation: $editTaskViewModel.documentationString)
-            .environmentObject(editTaskViewModel)
             .foregroundColor(.white)
             .background(.black)
     }
@@ -170,29 +169,13 @@ extension EditTaskPopUP{
         editTaskViewModel.isEditing.toggle()
     }
     
+    
+    
     func saveTaskButton(){
-        do {
-            let dado = try editTaskViewModel.documentationString.richTextData(for: .rtf)
-            let encodedData = dado.base64EncodedString(options: .lineLength64Characters)
-            
-            let data = SaveTaskDTO(
-                userId: editTaskViewModel.selectedMember?.id,
-                taskId: editTaskViewModel.selectedTask.id,
-                documentId: editTaskViewModel.selectedTask.documentId ?? "-1",
-                title: editTaskViewModel.taskTitle,
-                description: editTaskViewModel.taskDescription,
-                status: editTaskViewModel.statusSelection.rawValue,
-                type: editTaskViewModel.categorySelection.rawValue,
-                endDate: "\(editTaskViewModel.deadLineSelection)",
-                priority: editTaskViewModel.prioritySelection.rawValue,
-                text: encodedData,
-                textString: editTaskViewModel.documentationString.string
-            )
-            
-            TaskDataService.shared.saveTask(dto: data, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
-            editTaskViewModel.isEditing.toggle()
-        }catch{
-            print(error)
-        }
+        let currDto = editTaskViewModel.dto
+        print(editTaskViewModel.dto)
+        
+        TaskDataService.shared.saveTask(dto: currDto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+        editTaskViewModel.isEditing.toggle()
     }
 }
