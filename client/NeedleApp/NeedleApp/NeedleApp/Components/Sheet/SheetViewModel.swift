@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class SheetViewModel: ObservableObject {
+    //TODO: refactor manager and data service calls
+}
