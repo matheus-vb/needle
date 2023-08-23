@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ProjectView: View {
     
-    @ObservedObject var projectViewModel: ProjectViewModel
+    @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     @State var isAnimating = false
     @State var initalLoading = true
     
     init(selectedWorkspace: Workspace) {
-        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace)
+        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
     }
     
     var body: some View {
@@ -87,8 +87,7 @@ struct ProjectView: View {
                     .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, documentationDS: DocumentationDataService.shared, taskDS: TaskDataService.shared))
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
-                CreateTaskPopUp(createTaskViewModel: CreateTaskViewModel(members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? []), geometry: geometry)
-                    .environmentObject(projectViewModel)
+                CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
             })
             .onAppear{
                 if projectViewModel.selectedWorkspace.accessCode == ""{

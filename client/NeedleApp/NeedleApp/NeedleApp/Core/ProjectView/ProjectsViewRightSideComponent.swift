@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectsViewRightSideComponent: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     var body: some View {
         VStack{
             topContainer
