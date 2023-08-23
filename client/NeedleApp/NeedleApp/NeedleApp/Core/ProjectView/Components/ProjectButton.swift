@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct ProjectButton: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     let project: Workspace
     @State var onHover = false
 
     var body: some View {
         Button(action: {
-            AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
-            TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
-            WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: project.id)
+            projectViewModel.getRoleInWorkspace(workspaceId: project.id)
+            projectViewModel.getWorkspaceTasks(workspaceId: project.id)
+            projectViewModel.getWorkspaceMembers(workspaceId: project.id)
+            
             Task {
                 withAnimation {
                     projectViewModel.triggerLoading = true
