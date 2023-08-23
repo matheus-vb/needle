@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct KanbanView: View {
-    @State var currentlyDragging : String?
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @ObservedObject var kanbanViewModel: KanbanViewModel
     
-    @State var isDeleting = false
-    
-    @State var isArchiving = false
+    init(tasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
+        
+        self.kanbanViewModel = KanbanViewModel(
+            localTasks: tasks,
+            role: role,
+            selectedColumn: selectedColumn,
+            showPopUp: showPopUp,
+            showCard: showCard,
+            selectedWorkspace: selectedWorkspace,
+            selectedTask: selectedTask,
+            isEditing: isEditing
+        )
+    }
     
     var body: some View {
         ZStack {
@@ -29,8 +37,6 @@ struct KanbanView: View {
                     DoingView()
                     InReviewView()
                     doneView()
-                    //                Spacer()
-                    //                    .frame(width: 60)
                 }
                 Spacer()
             }
@@ -38,9 +44,9 @@ struct KanbanView: View {
             .padding(.leading, 64)
             .padding(.trailing, 64)
             .onAppear {
-                projectViewModel.presentCard()
+                kanbanViewModel.presentCard()
             }
-        }.sheet(isPresented: $isArchiving, content: {
+        }.sheet(isPresented: $kanbanViewModel.isArchiving, content: {
             SheetView(type: .archiveTask)
         })
     }
@@ -52,7 +58,7 @@ struct KanbanView: View {
             var sourceItem = kanbanViewModel.localTasks.remove(at: sourceIndex)
             sourceItem.status = status
             kanbanViewModel.localTasks.append(sourceItem)
-            TaskDataService.shared.updateTaskStatus(taskId: currentlyDragging, status: status, userId: AuthenticationManager.shared.user!.id, workspaceId: projectViewModel.selectedProject.id)
+            TaskDataService.shared.updateTaskStatus(taskId: currentlyDragging, status: status, userId: AuthenticationManager.shared.user!.id, workspaceId: kanbanViewModel.selectedWorkspace.id)
         }
     }
     func swapItem(droppingTask: TaskModel, currentlyDragging: String) {
@@ -87,10 +93,10 @@ struct KanbanView: View {
             }
         }
         .dropDestination(for: String.self) { items, location in
-            currentlyDragging = items.first
-//                print("drop destination!")
+            kanbanViewModel.currentlyDragging = items.first
+            
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.TODO)
+                addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.TODO)
             }
             return false
         } isTargeted: { status in
@@ -117,10 +123,10 @@ struct KanbanView: View {
             }
         }
         .dropDestination(for: String.self) { items, location in
-            currentlyDragging = items.first
+            kanbanViewModel.currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.IN_PROGRESS)
+                addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.IN_PROGRESS)
             }
             return false
         } isTargeted: { status in
@@ -147,10 +153,10 @@ struct KanbanView: View {
             }
         }
         .dropDestination(for: String.self) { items, location in
-            currentlyDragging = items.first
+            kanbanViewModel.currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.PENDING)
+                addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.PENDING)
             }
             return false
         } isTargeted: { status in
@@ -177,14 +183,14 @@ struct KanbanView: View {
             }
         }
         .dropDestination(for: String.self) { items, location in
-            if projectViewModel.roles[projectViewModel.selectedProject.id]! != Role.PRODUCT_MANAGER.rawValue {
+            if kanbanViewModel.role != Role.PRODUCT_MANAGER {
                 return false
             }
             
-            currentlyDragging = items.first
+            kanbanViewModel.currentlyDragging = items.first
 //                print("drop destination!")
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: currentlyDragging ?? "", status: TaskStatus.DONE)
+                addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.DONE)
             }
             return false
         } isTargeted: { status in
@@ -194,12 +200,12 @@ struct KanbanView: View {
     @ViewBuilder
     func addTaskButton(status : TaskStatus) -> some View {
         Button {
-            if status == .DONE && projectViewModel.roles[projectViewModel.selectedProject.id]! != Role.PRODUCT_MANAGER.rawValue {
+            if status == .DONE && kanbanViewModel.role != Role.PRODUCT_MANAGER {
                 return
             }
             
-            projectViewModel.showPopUp.toggle()
-            projectViewModel.selectedColumnStatus = status
+            kanbanViewModel.showPopUp.toggle()
+            kanbanViewModel.selectedColumn = status
         } label: {
             HStack(alignment: .center, spacing: 8) {
                 Image(systemName: "plus")
