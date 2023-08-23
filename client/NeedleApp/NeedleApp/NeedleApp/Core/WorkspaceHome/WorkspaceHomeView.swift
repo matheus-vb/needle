@@ -10,7 +10,6 @@ import CoreData
 
 struct WorkspaceHomeView: View {
     @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
-    @StateObject var projectViewModel = ProjectViewModel()
     
     var columns: [GridItem] = [
         GridItem(.flexible()),
@@ -46,7 +45,6 @@ struct WorkspaceHomeView: View {
                     workspaceViewModel.accessCode = workspaceViewModel.workspaces[index].accessCode
                     workspaceViewModel.isDeleting.toggle()
                 })
-                .environmentObject(projectViewModel)
             }
         }
         .frame(width: 1000)

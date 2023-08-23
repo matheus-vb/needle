@@ -11,23 +11,21 @@ import SwiftUI
 struct WorkspaceCardView: View, Identifiable {
     var id = UUID()
     
-    @ObservedObject var workspaceViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     init(workspace: Workspace, action: @escaping () -> Void) {
-        self.workspaceViewModel = WorkspaceCardViewModel(manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, action: action, workspace: workspace)
+        self.workspaceCardViewModel = WorkspaceCardViewModel(manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, action: action, workspace: workspace)
     }
     
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(workspaceViewModel.workspace.name).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
+            Text(workspaceCardViewModel.workspace.name).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
             Text("Clique para ver mais deste workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
         }
     }
     
     var deleteButton: some View {
-        Button(action: workspaceViewModel.action, label: {
+        Button(action: workspaceCardViewModel.action, label: {
             Image(systemName: "trash")
                 .foregroundColor(Color.theme.grayHover)
         })
@@ -39,23 +37,22 @@ struct WorkspaceCardView: View, Identifiable {
         ZStack {
             RoundedRectangle(cornerRadius: 3.83)
                 .foregroundColor(Color.theme.greenMain)
-            Text(workspaceViewModel.workspace.accessCode)
+            Text(workspaceCardViewModel.workspace.accessCode)
         }.frame(width: 88, height: 29)
     }
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: ProjectView().environmentObject(projectViewModel), label: {
-                RoundedRectangle(cornerRadius: 10).foregroundColor(workspaceViewModel.isHovered ? Color.theme.grayBackground : .white)
+            NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace), label: {
+                RoundedRectangle(cornerRadius: 10).foregroundColor(workspaceCardViewModel.isHovered ? Color.theme.grayBackground : .white)
                     .onHover(perform: { _ in
-                        workspaceViewModel.isHovered.toggle()
+                        workspaceCardViewModel.isHovered.toggle()
                     })
                     .frame(width: 488, height: 283.96)
                     .shadow(radius: 10, x: 0, y: 4)
             })
             .simultaneousGesture(TapGesture().onEnded {
-                workspaceViewModel.selectWorkspace(workspaceId: workspaceViewModel.workspace.id)
-                projectViewModel.selectedProject = workspaceViewModel.workspace
+                workspaceCardViewModel.selectWorkspace(workspaceId: workspaceCardViewModel.workspace.id)
             })
             .buttonStyle(.plain)
             VStack(alignment: .trailing) {
