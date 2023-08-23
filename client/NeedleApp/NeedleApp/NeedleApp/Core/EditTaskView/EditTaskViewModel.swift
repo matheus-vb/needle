@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 
-class EditTaskViewModel: ObservableObject{
+class EditTaskViewModel<D: DocumentationDataServiceProtocol & ObservableObject, T: TaskDataServiceProtocol & ObservableObject>: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
     
+    private var documentationDS: D
+    private var taskDS: T
+    
     let selectedTask: TaskModel
-    
     @Binding var isEditing: Bool
-    
     @Published var documentationID: String
     @Published var workspaceID: String
     @Published var taskId: String
@@ -29,11 +30,9 @@ class EditTaskViewModel: ObservableObject{
     @Published var members: [User]
     @Published var isDeleting: Bool = false
     
-    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>) {
+    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, documentationDS: D, taskDS: T) {
         self.selectedTask = data
-        
         self._isEditing = isEditing
-        
         let isoDateString = data.endDate
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
@@ -50,6 +49,8 @@ class EditTaskViewModel: ObservableObject{
         self.documentationString = NSAttributedString(string: data.document?.text ?? "")
         self.documentationID = data.document?.id ?? "0"
         self.members = members
+        self.documentationDS = documentationDS
+        self.taskDS = taskDS
         
         //Pegar a documentacao
         let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
@@ -61,15 +62,20 @@ class EditTaskViewModel: ObservableObject{
         }
     }
     
+    func saveTask(dataDTO: SaveTaskDTO){
+        taskDS.saveTask(dto: dataDTO, userId: userID, workspaceId: self.workspaceID)
+    }
+    
     func updateDoc(dataDTO: UpdateDocumentationDTO){
-        DocumentationDataService.shared.updateDocumentation(data: dataDTO, userId: userID, workspaceId: self.workspaceID)
+        print("oooi")
+        documentationDS.updateDocumentation(data: dataDTO, userId: userID, workspaceId: self.workspaceID)
     }
     
     func archiveTask(task: TaskModel){
-        TaskDataService.shared.updateTaskStatus(taskId: task.id, status: TaskStatus.NOT_VISIBLE, userId: userID, workspaceId: workspaceID)
+        taskDS.updateTaskStatus(taskId: task.id, status: TaskStatus.NOT_VISIBLE, userId: userID, workspaceId: workspaceID)
     }
     
     func unarchiveTask(task: TaskModel){
-        TaskDataService.shared.updateTaskStatus(taskId: task.id, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
+        taskDS.updateTaskStatus(taskId: task.id, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
     }
 }
