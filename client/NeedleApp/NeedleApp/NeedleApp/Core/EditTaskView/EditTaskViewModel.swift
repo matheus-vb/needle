@@ -13,9 +13,10 @@ class EditTaskViewModel<D: DocumentationDataServiceProtocol & ObservableObject, 
     @AppStorage("userID") var userID: String = "Default User"
     private var cancellables = Set<AnyCancellable>()
     
+    private var documentationDS: D
+    private var taskDS: T
     let selectedTask: TaskModel
     
-    let selectedTask: TaskModel
     @Binding var isEditing: Bool
     @Published var documentationID: String
     @Published var workspaceID: String
