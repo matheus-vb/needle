@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    
     var geometry: GeometryProxy
     var body: some View {
         VStack(spacing: 24){
@@ -18,8 +18,6 @@ struct EditTaskPopUP: View {
         }
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
-                .environmentObject(projectViewModel)
-                .environmentObject(editTaskViewModel)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
         })
