@@ -22,7 +22,7 @@ struct Clickable: ViewModifier {
 
 struct TaskCardBackground: ViewModifier {
     @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     func body(content: Content) -> some View {
         content
@@ -44,7 +44,7 @@ struct TaskCardBackground: ViewModifier {
 
 struct AddTaskButtonBackground: ViewModifier {
     @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     func body(content: Content) -> some View {
         content
@@ -68,7 +68,7 @@ struct GenericButtonBackground: ViewModifier {
     let standardColor : Color
     let hoveredColor : Color
     @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     func body(content: Content) -> some View {
         content
