@@ -16,16 +16,16 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
     @Published var errorCount: Int = 0
     
     @Published var workspaces: [Workspace] = []
+    var workspacePublisher: Published<[Workspace]>.Publisher { $workspaces }
     
     @Published var members: [String: [User]] = [:]
+    var membersPublisher: Published<[String : [User]]>.Publisher { $members }
     
     var workspaceSubscription: AnyCancellable?
     var createWorkspaceSubscription: AnyCancellable?
     var joinWorkspaceSubscription: AnyCancellable?
     var deleteWorkspaceSubscription: AnyCancellable?
     var getMembersSubscription: AnyCancellable?
-    
-    var workspacePublisher: Published<[Workspace]>.Publisher { $workspaces }
     
     func getUsersWorkspaces(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "workspace/list/\(userId)") else { return }
