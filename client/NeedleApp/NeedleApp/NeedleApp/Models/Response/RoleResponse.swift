@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct RoleReponse: Codable {
+    let data: Role
+}
