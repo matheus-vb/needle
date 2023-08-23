@@ -10,6 +10,11 @@ import SwiftUI
 
 class EditTaskViewModel: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
+    
+    let selectedTask: TaskModel
+    
+    @Binding var isEditing: Bool
+    
     @Published var documentationID: String
     @Published var workspaceID: String
     @Published var taskId: String
@@ -24,13 +29,17 @@ class EditTaskViewModel: ObservableObject{
     @Published var members: [User]
     @Published var isDeleting: Bool = false
     
-    init(data: TaskModel, workspaceID: String, members: [User]) {
+    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>) {
+        self.selectedTask = data
+        
+        self._isEditing = isEditing
+        
         let isoDateString = data.endDate
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
         let date = formatter.date(from: isoDateString)
         self.workspaceID = workspaceID
-        self.taskId = data.id ?? "1"
+        self.taskId = data.id
         self.taskDescription = data.description
         self.taskTitle = data.title
         self.statusSelection = data.status
@@ -41,6 +50,7 @@ class EditTaskViewModel: ObservableObject{
         self.documentationString = NSAttributedString(string: data.document?.text ?? "")
         self.documentationID = data.document?.id ?? "0"
         self.members = members
+        
         //Pegar a documentacao
         let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
         do{
@@ -56,10 +66,10 @@ class EditTaskViewModel: ObservableObject{
     }
     
     func archiveTask(task: TaskModel){
-        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: TaskStatus.NOT_VISIBLE, userId: userID, workspaceId: workspaceID)
+        TaskDataService.shared.updateTaskStatus(taskId: task.id, status: TaskStatus.NOT_VISIBLE, userId: userID, workspaceId: workspaceID)
     }
     
     func unarchiveTask(task: TaskModel){
-        TaskDataService.shared.updateTaskStatus(taskId: task.id!, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
+        TaskDataService.shared.updateTaskStatus(taskId: task.id, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
     }
 }
