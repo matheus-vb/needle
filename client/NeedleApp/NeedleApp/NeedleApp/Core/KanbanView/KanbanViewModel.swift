@@ -11,7 +11,9 @@ import SwiftUI
 class KanbanViewModel: ObservableObject {
     @Published var localTasks: [TaskModel]
     
+    @Published var somethingBeingDragged = false
     @Published var currentlyDragging : String?
+    @Published var currentlyTarget: String?
     @Published var isDeleting = false
     @Published var isArchiving = false
     

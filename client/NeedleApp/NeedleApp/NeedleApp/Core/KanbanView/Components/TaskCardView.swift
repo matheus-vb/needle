@@ -18,8 +18,8 @@ extension KanbanView {
                         .foregroundColor(Color.theme.grayPressed)
                     Spacer()
                     Image(systemName: "flag.fill")
-                    .font(Font.custom("SF Pro", size: 12))
-                    .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
+                        .font(Font.custom("SF Pro", size: 12))
+                        .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
                 }
                 Text(task.user?.name ?? "Sem nome")
                     .font(Font.custom("SF Pro", size: 12))
@@ -43,9 +43,9 @@ extension KanbanView {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .modifier(Clickable())
-
+                
             }
-
+            
         }
         .padding(16)
         .frame(minWidth: 128)
@@ -59,50 +59,38 @@ extension KanbanView {
         .draggable(task.id)
         .dropDestination(for: String.self) { items, location in
             kanbanViewModel.currentlyDragging = items.first
-
-            guard let temp = kanbanViewModel.localTasks.first(where: { $0.id == kanbanViewModel.currentlyDragging }) else { return false }
             
-            if temp.status != task.status {
-                withAnimation {
-                    addItem(currentlyDragging: kanbanViewModel.currentlyDragging!, status: task.status)
-                }
-            } else {
+            if kanbanViewModel.localTasks.first(where: { $0.id == kanbanViewModel.currentlyDragging }) != nil {
                 withAnimation(.easeIn) {
                     swapItem(droppingTask: task, currentlyDragging: kanbanViewModel.currentlyDragging ?? "")
                 }
             }
             
+            kanbanViewModel.currentlyDragging = ""
+            
             return false
         } isTargeted: { status in
+            if status {
+                kanbanViewModel.somethingBeingDragged = true
+                kanbanViewModel.currentlyTarget = task.id
+            } else {
+                kanbanViewModel.somethingBeingDragged = false
+                kanbanViewModel.currentlyTarget = task.id
+            }
         }
-        .onTapGesture(count: 2) {
+        .simultaneousGesture(LongPressGesture().onChanged({ _ in
+            kanbanViewModel.currentlyDragging = task.id
+        }))
+        .simultaneousGesture(TapGesture(count: 2).onEnded({ _ in
             kanbanViewModel.selectedTask = task
             kanbanViewModel.isEditing.toggle()
-        }
-    }
-
-
-    func getPriorityFlagColor(priority: TaskPriority) -> Color {
-        switch priority {
-        case .HIGH:
-            return Color.theme.redMain
-        case .VERY_HIGH:
-            return Color.theme.redMain
-        case .MEDIUM:
-            return Color.theme.orangeKanban
-        case .LOW:
-            return Color.theme.greenKanban
-        }
+        }))
+        //        .onTapGesture(count: 2) {
+        //            kanbanViewModel.selectedTask = task
+        //            kanbanViewModel.isEditing.toggle()
+        //        }
     }
     
-    
-    
-    func convertDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        dateFormatter.timeZone = .autoupdatingCurrent
-        return dateFormatter.string(from: date)
-    }
     
 }
 
