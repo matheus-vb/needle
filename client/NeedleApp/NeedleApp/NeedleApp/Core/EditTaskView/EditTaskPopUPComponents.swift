@@ -110,15 +110,15 @@ extension EditTaskPopUP{
                         .foregroundColor(Color.theme.redMain)
                 })
                 Button(action: {
-                    if(projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE){
-                        editTaskViewModel.unarchiveTask(task: projectViewModel.selectedTask!)
-                        projectViewModel.showEditTaskPopUP.toggle()
+                    if(editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE){
+                        editTaskViewModel.unarchiveTask(task: editTaskViewModel.selectedTask)
+                        editTaskViewModel.isEditing.toggle()
                     }else{
-                        editTaskViewModel.archiveTask(task: projectViewModel.selectedTask!)
-                        projectViewModel.showEditTaskPopUP.toggle()
+                        editTaskViewModel.archiveTask(task: editTaskViewModel.selectedTask)
+                        editTaskViewModel.isEditing.toggle()
                     }
                 }, label: {
-                    Image(systemName: (projectViewModel.selectedTask?.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
+                    Image(systemName: (editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
                         .resizable()
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color.theme.blackMain)
@@ -126,7 +126,7 @@ extension EditTaskPopUP{
             }
             Spacer()
             Button(action: {
-                projectViewModel.showEditTaskPopUP.toggle()
+                editTaskViewModel.isEditing.toggle()
             }, label: {
                 Image(systemName: "xmark")
                     .resizable()
@@ -167,16 +167,30 @@ extension EditTaskPopUP{
     }
     
     func cancelButton(){
-        projectViewModel.showEditTaskPopUP.toggle()
+        editTaskViewModel.isEditing.toggle()
     }
     
     func saveTaskButton(){
         do {
             let dado = try editTaskViewModel.documentationString.richTextData(for: .rtf)
             let encodedData = dado.base64EncodedString(options: .lineLength64Characters)
-            let data = SaveTaskDTO(userId: editTaskViewModel.selectedMember?.id, taskId: projectViewModel.selectedTask!.id ?? "1", documentId: projectViewModel.selectedTask!.documentId ?? "1", title: editTaskViewModel.taskTitle, description: editTaskViewModel.taskDescription, status: editTaskViewModel.statusSelection.rawValue, type: editTaskViewModel.categorySelection.rawValue, endDate: "\(editTaskViewModel.deadLineSelection)", priority: editTaskViewModel.prioritySelection.rawValue, text: encodedData, textString: editTaskViewModel.documentationString.string)
+            
+            let data = SaveTaskDTO(
+                userId: editTaskViewModel.selectedMember?.id,
+                taskId: editTaskViewModel.selectedTask.id,
+                documentId: editTaskViewModel.selectedTask.documentId ?? "-1",
+                title: editTaskViewModel.taskTitle,
+                description: editTaskViewModel.taskDescription,
+                status: editTaskViewModel.statusSelection.rawValue,
+                type: editTaskViewModel.categorySelection.rawValue,
+                endDate: "\(editTaskViewModel.deadLineSelection)",
+                priority: editTaskViewModel.prioritySelection.rawValue,
+                text: encodedData,
+                textString: editTaskViewModel.documentationString.string
+            )
+            
             TaskDataService.shared.saveTask(dto: data, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
-            projectViewModel.showEditTaskPopUP.toggle()
+            editTaskViewModel.isEditing.toggle()
         }catch{
             print(error)
         }
