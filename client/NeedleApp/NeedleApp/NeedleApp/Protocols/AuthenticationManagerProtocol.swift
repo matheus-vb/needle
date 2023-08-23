@@ -9,7 +9,7 @@ import Foundation
 
 protocol AuthenticationManagerProtocol: ObservableObject {
     var user: User? { get set }
-    var roles : [String: String] { get set }
+    var roles : [String: Role] { get set }
     var currError: NetworkingManager.NetworkingError? { get set }
     
     func singIn(userId: String, email: String?, name: String?)

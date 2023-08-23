@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 protocol WorkspaceDataServiceProtocol: ObservableObject {
     var workspaces: [Workspace] { get set }
