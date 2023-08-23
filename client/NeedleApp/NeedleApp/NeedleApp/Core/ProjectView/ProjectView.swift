@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ProjectView: View {
     
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @ObservedObject var projectViewModel: ProjectViewModel
     
     @State var isAnimating = false
-    
     @State var initalLoading = true
     
+    init(selectedWorkspace: Workspace) {
+        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace)
+    }
     
     var body: some View {
         ZStack {
@@ -82,24 +84,17 @@ struct ProjectView: View {
             .navigationBarBackButtonHidden(true)
             .sheet(isPresented: $projectViewModel.showEditTaskPopUP, content: {
                 EditTaskPopUP(geometry: geometry)
-                    .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedProject.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []))
-                    .environmentObject(projectViewModel)
+                    .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP))
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
-                CreateTaskPopUp(createTaskViewModel: CreateTaskViewModel(members: projectViewModel.workspaceMembers[projectViewModel.selectedProject.id] ?? []), geometry: geometry)
+                CreateTaskPopUp(createTaskViewModel: CreateTaskViewModel(members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? []), geometry: geometry)
                     .environmentObject(projectViewModel)
             })
             .onAppear{
-                if projectViewModel.selectedProject.accessCode == ""{
-                    projectViewModel.selectedProject = projectViewModel.projects[0]
+                if projectViewModel.selectedWorkspace.accessCode == ""{
+                    projectViewModel.selectedWorkspace = projectViewModel.projects[0]
                 }
             }
         }
-    }
-}
-
-struct ProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectView()
     }
 }
