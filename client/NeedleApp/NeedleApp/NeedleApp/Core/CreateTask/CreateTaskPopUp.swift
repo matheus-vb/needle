@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct CreateTaskPopUp: View {
-    @StateObject var createTaskViewModel: CreateTaskViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
-    
+    @ObservedObject var createTaskViewModel: CreateTaskViewModel
     var geometry: GeometryProxy
+    
+    init(geometry: GeometryProxy, members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus) {
+        
+        self.createTaskViewModel = CreateTaskViewModel(
+            members: members,
+            showPopUp: showPopUp,
+            selectedWorkspace: selectedWorkspace,
+            selectedStatus: selectedStatus
+        )
+        
+        self.geometry = geometry
+    }
+    
     var body: some View {
         VStack(spacing: 24){
             topSection
