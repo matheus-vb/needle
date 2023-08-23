@@ -13,7 +13,7 @@ struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
+    @EnvironmentObject var editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>
     
     @ObservedObject var workspaceDataService = WorkspaceDataService.shared
     @ObservedObject var authManager = AuthenticationManager.shared
