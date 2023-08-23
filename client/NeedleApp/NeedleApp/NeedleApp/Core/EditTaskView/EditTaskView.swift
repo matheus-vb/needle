@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct EditTaskPopUP: View {
-    @ObservedObject var editTaskViewModel: EditTaskViewModel
+    @ObservedObject var editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>
     var geometry: GeometryProxy
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
-        self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing)
+        self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, documentationDS: DocumentationDataService.shared, taskDS: TaskDataService.shared)
         self.geometry = geometry
     }
     
