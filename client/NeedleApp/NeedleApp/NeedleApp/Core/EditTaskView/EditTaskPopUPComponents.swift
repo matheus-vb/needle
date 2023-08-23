@@ -155,7 +155,6 @@ extension EditTaskPopUP{
     
     var textEditor: some View {
         EditDocumentationView(documentation: $editTaskViewModel.documentationString)
-            .environmentObject(editTaskViewModel)
             .foregroundColor(.white)
             .background(.black)
     }
@@ -188,8 +187,8 @@ extension EditTaskPopUP{
                 text: encodedData,
                 textString: editTaskViewModel.documentationString.string
             )
-            
-            TaskDataService.shared.saveTask(dto: data, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+
+            editTaskViewModel.saveTask(dataDTO: data)
             editTaskViewModel.isEditing.toggle()
         }catch{
             print(error)

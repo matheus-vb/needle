@@ -84,7 +84,7 @@ struct ProjectView: View {
             .navigationBarBackButtonHidden(true)
             .sheet(isPresented: $projectViewModel.showEditTaskPopUP, content: {
                 EditTaskPopUP(geometry: geometry)
-                    .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP))
+                    .environmentObject(EditTaskViewModel(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, documentationDS: DocumentationDataService.shared, taskDS: TaskDataService.shared))
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(createTaskViewModel: CreateTaskViewModel(members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? []), geometry: geometry)

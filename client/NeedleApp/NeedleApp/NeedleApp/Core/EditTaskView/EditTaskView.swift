@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EditTaskPopUP: View {
-    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
+    @EnvironmentObject var editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>
     
     var geometry: GeometryProxy
     var body: some View {
