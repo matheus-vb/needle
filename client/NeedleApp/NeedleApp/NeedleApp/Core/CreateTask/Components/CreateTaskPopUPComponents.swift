@@ -158,7 +158,7 @@ extension CreateTaskPopUp{
         
         let dto = CreateTaskDTO(
             userId: selectedMemberId,
-            accessCode: projectViewModel.selectedProject.accessCode,
+            accessCode: projectViewModel.selectedWorkspace.accessCode,
             title: createTaskViewModel.taskTitle,
             description: createTaskViewModel.taskDescription,
             stats: projectViewModel.selectedColumnStatus.rawValue,
