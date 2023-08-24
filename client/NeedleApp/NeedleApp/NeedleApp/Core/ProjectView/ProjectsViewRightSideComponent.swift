@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectsViewRightSideComponent: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     var body: some View {
         VStack{
             topContainer
@@ -26,13 +26,9 @@ struct ProjectsViewRightSideComponent: View {
             .offset(x: 12)
             
             if projectViewModel.selectedTab == .Kanban{
-                KanbanView()
-                    .environmentObject(projectViewModel)
-                    .environmentObject(KanbanViewModel(localTasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? []))
+                KanbanView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], role: projectViewModel.roles[projectViewModel.selectedWorkspace.id] ?? .DEVELOPER, selectedColumn: $projectViewModel.selectedColumnStatus, showPopUp: $projectViewModel.showPopUp, showCard: $projectViewModel.showCard, selectedWorkspace: projectViewModel.selectedWorkspace, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
             }else if projectViewModel.selectedTab == .Documentation{
-                SearchDocuments()
-                    .environmentObject(SearchDocumentsViewModel(tasks: projectViewModel.tasks[projectViewModel.selectedProject.id] ?? [], workspaceId: projectViewModel.selectedProject.id))
-                    .environmentObject(projectViewModel)
+                SearchDocuments(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], workspaceId: projectViewModel.selectedWorkspace.id, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
             }
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class TaskDataService: ObservableObject {
+class TaskDataService: TaskDataServiceProtocol {
     static let shared = TaskDataService()
     private init() {}
     
@@ -16,7 +16,10 @@ class TaskDataService: ObservableObject {
     @Published var errorCount: Int = 0
     
     @Published var allUsersTasks: [String: [TaskModel]] = [:]
+    var allUsersTasksPublisher: Published<[String : [TaskModel]]>.Publisher { $allUsersTasks }
+
     @Published var queriedTasks: [TaskModel] = []
+    var queriedTasksPublihser: Published<[TaskModel]>.Publisher { $queriedTasks }
     
     var getWorkspaceTasksSubscription: AnyCancellable?
     var getAllUsersTasksSubscription: AnyCancellable?

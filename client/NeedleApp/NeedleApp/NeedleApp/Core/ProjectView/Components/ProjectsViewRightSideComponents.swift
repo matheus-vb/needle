@@ -58,9 +58,6 @@ extension ProjectsViewRightSideComponent{
     
     var inviteMemberButton: some View {
         CopyClipboardButton(text: projectViewModel.getCode()) {
-//            projectViewModel.showShareCode.toggle()
-//            print(projectViewModel.getCode())
-            projectViewModel.copyToClipBoard()
         }
 
     }

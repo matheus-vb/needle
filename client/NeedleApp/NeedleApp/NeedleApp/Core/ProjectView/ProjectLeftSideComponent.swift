@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProjectLeftSideComponent: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack(spacing: 75){
@@ -23,11 +23,5 @@ struct ProjectLeftSideComponent: View {
     
     func backButton(){
         dismiss()
-    }
-}
-
-struct LeftSideComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectLeftSideComponent()
     }
 }

@@ -16,8 +16,10 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
     @Published var errorCount: Int = 0
     
     @Published var workspaces: [Workspace] = []
+    var workspacePublisher: Published<[Workspace]>.Publisher { $workspaces }
     
     @Published var members: [String: [User]] = [:]
+    var membersPublisher: Published<[String : [User]]>.Publisher { $members }
     
     var workspaceSubscription: AnyCancellable?
     var createWorkspaceSubscription: AnyCancellable?

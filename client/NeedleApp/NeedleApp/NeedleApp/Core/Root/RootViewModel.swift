@@ -40,9 +40,9 @@ class RootViewModel<A: AuthenticationManagerProtocol & ObservableObject, N: Noti
     }
     
     func addSubscibers() {
-        notificationDS.objectWillChange
-            .sink(receiveValue: { [weak self] _ in
-                self?.notifications = self?.notificationDS.usersNotifications ?? []
+        notificationDS.usersNotificationsPublisher
+            .sink(receiveValue: { [weak self] receviedNotifications in
+                self?.notifications = receviedNotifications
             })
             .store(in: &cancellables)
     }
