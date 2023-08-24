@@ -20,7 +20,6 @@ struct WorkspaceCardView: View, Identifiable {
     var title: String
     var code: String
     var owner: String
-    //var members: [String]
     var workspaceId: String
     let workspace: Workspace
 
@@ -30,26 +29,22 @@ struct WorkspaceCardView: View, Identifiable {
         self.code = workspaceInfo.accessCode
         self.title = workspaceInfo.name
         self.action = action
-        self.owner = workspaceInfo.users[0].user.name.filter {_ in
-            workspaceInfo.users[0].userRole == "PRODUCT_MANAGER"
-        }
+        self.owner = workspaceInfo.users[0].user.name
     }
     
-    var members: String {
-        var membersList: [String] = []
-        for user in workspace.users {
-            if user.userRole != "PRODUCT_MANAGER" {
-                membersList.append(user.user.name)
-            }
-        }
-        return membersList.joined(separator: ", ")
-    }
+//    var members: String {
+//        var membersList: [String] = []
+//        for user in projectViewModel.workspaceMembers.values {
+//
+//        }
+//        return membersList.joined(separator: ", ")
+//    }
     
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
             Text("PM: \(owner)").font(.system(size: 14, weight: .regular))
-            Text("Participantes: \(members)").font(.system(size: 14, weight: .regular))
+            //Text("Participantes: \(members)").font(.system(size: 14, weight: .regular))
         }
     }
     
