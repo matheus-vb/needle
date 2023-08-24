@@ -70,7 +70,7 @@ export class UpdateTaskUseCase {
         const task = await this.taskRespository.updateTask(taskId, title, description, checkedStatus, checkedType, endDate, checkedPriority)
 
         //Update na documentacao
-        await this.docuementRepository.updateDocument(documentId, text, textString)        
+        //await this.docuementRepository.updateDocument(documentId, text, textString)        
 
         if(task?.userId !== previousTask.userId && task?.userId) {
             const user = await this.userRepository.findById(task.userId)
