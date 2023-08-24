@@ -9,7 +9,11 @@ import Foundation
 
 protocol WorkspaceDataServiceProtocol: ObservableObject {
     var workspaces: [Workspace] { get set }
+    var workspacePublisher: Published<[Workspace]>.Publisher { get }
+    
     var members: [String: [User]] { get set }
+    var membersPublisher: Published<[String: [User]]>.Publisher { get }
+    
     var currError: NetworkingManager.NetworkingError? { get set }
     
     func getUsersWorkspaces(userId: String)

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class NotificationDataService: NotificationDataServiceProtocol {
+    
     private init(){}
     
     static let shared = NotificationDataService()
@@ -23,6 +24,7 @@ class NotificationDataService: NotificationDataServiceProtocol {
     @Published var errorCount: Int = 0
     
     @Published var usersNotifications: [NotificationModel] = []
+    var usersNotificationsPublisher: Published<[NotificationModel]>.Publisher { $usersNotifications }
     
     func updateDeviceToken(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "user/device") else { return }

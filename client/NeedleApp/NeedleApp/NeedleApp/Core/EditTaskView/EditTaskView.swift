@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct EditTaskPopUP: View {
-    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @ObservedObject var editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>
     var geometry: GeometryProxy
+    
+    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
+        self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, documentationDS: DocumentationDataService.shared, taskDS: TaskDataService.shared)
+        self.geometry = geometry
+    }
+    
     var body: some View {
         VStack(spacing: 24){
             topSection
@@ -18,8 +23,6 @@ struct EditTaskPopUP: View {
         }
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
-                .environmentObject(projectViewModel)
-                .environmentObject(editTaskViewModel)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
         })
@@ -28,14 +31,5 @@ struct EditTaskPopUP: View {
         .padding([.top, .bottom],32)
         .frame(width: 2*geometry.size.width/3, height: 19*geometry.size.height/20)
         .background(.white)
-    }
-}
-
-struct EditTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        GeometryReader{ geometry in
-            EditTaskPopUP(geometry: geometry)
-        }
-       
     }
 }

@@ -31,7 +31,7 @@ class NetworkingManager{
         //                .eraseToAnyPublisher()
         //        }
         
-        var request = URLRequest(url: url)
+        let request = URLRequest(url: url)
         //request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         return URLSession.shared.dataTaskPublisher(for: request)
