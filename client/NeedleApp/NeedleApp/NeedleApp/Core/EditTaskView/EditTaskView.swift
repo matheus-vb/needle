@@ -21,6 +21,9 @@ struct EditTaskPopUP: View {
             topSection
             contentStack
         }
+        .sheet(isPresented: $editTaskViewModel.seeDocumentation, content: {
+            DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString)
+        })
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
                 .foregroundColor(Color.theme.grayHover)
