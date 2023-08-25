@@ -68,6 +68,7 @@
 		64FE76112A9938D600DF620D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 64FE76102A9938D600DF620D /* FirebaseAnalytics */; };
 		64FE76132A993D0200DF620D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64FE76122A993D0200DF620D /* GoogleService-Info.plist */; };
 		64FE76162A993E9E00DF620D /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64FE76152A993E9E00DF620D /* AdSupport.framework */; };
+		64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationDataService.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
@@ -220,6 +221,7 @@
 		64FE760D2A96869800DF620D /* KanbanFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanFunctions.swift; sourceTree = "<group>"; };
 		64FE76122A993D0200DF620D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Needle/Needle/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		64FE76152A993E9E00DF620D /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		64FE76172A99443100DF620D /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataService.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				270912D32A7AEACF00CB91FA /* TaskPriority.swift */,
 				270912D52A7AEB8F00CB91FA /* TaskType.swift */,
 				27B796072A7C37EB00FDA10F /* SelectedTab.swift */,
+				64FE76172A99443100DF620D /* FirebaseConstants.swift */,
 				86E6FF012A82932D00BB5D9F /* Role.swift */,
 			);
 			path = Enums;
@@ -958,6 +961,7 @@
 				276877D72A84147200CE70C4 /* UpdateTaskDTO.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
+				64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */,
 				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
 				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
 				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,

@@ -13,11 +13,11 @@ extension KanbanView {
     @ViewBuilder
     func addTaskButton(status : TaskStatus) -> some View {
         Button {
+            Analytics.logEvent(K.tapAddTask.rawValue, parameters: nil)
+            
             if status == .DONE && kanbanViewModel.role != Role.PRODUCT_MANAGER {
                 return
             }
-            
-            Analytics.logEvent("userAddedTask", parameters: nil)
             
             kanbanViewModel.showPopUp.toggle()
             kanbanViewModel.selectedColumn = status
