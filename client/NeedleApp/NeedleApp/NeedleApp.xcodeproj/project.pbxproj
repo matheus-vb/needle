@@ -87,6 +87,8 @@
 		868604F22A7C3665001D9213 /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
 		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
 		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
+		86BE497F2A97EB4A008A7F7F /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */; };
+		86BE49812A97EB63008A7F7F /* DocumentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */; };
 		86E6FF022A82932D00BB5D9F /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF012A82932D00BB5D9F /* Role.swift */; };
 		86E6FF042A8297F900BB5D9F /* UpperCaseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */; };
 		86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */; };
@@ -236,6 +238,8 @@
 		868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspacHomeViewModel.swift; sourceTree = "<group>"; };
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
+		86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewModel.swift; sourceTree = "<group>"; };
 		86E6FF012A82932D00BB5D9F /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperCaseFormatter.swift; sourceTree = "<group>"; };
 		86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
@@ -696,6 +700,8 @@
 			isa = PBXGroup;
 			children = (
 				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
+				86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */,
+				86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */,
 			);
 			path = EditDocumentation;
 			sourceTree = "<group>";
@@ -917,6 +923,7 @@
 				64FE760C2A96840300DF620D /* AddTaskButton.swift in Sources */,
 				86EFD08C2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
+				86BE497F2A97EB4A008A7F7F /* DocumentationView.swift in Sources */,
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
 				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				270515852A84635E005FF0EE /* HandleDate.swift in Sources */,
@@ -990,6 +997,7 @@
 				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				44FE06332A82E71800386ADE /* PickerApp.swift in Sources */,
 				279F09C12A82ACA80016B12E /* EditTaskPopUPComponents.swift in Sources */,
+				86BE49812A97EB63008A7F7F /* DocumentationViewModel.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				86EFD0902A952AF200F8168A /* WorkspaceCardViewModel.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
@@ -1165,7 +1173,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QJZZNXUZ63;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1179,7 +1187,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleJP;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1197,7 +1205,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QJZZNXUZ63;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1211,7 +1219,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleJP;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
