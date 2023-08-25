@@ -165,14 +165,12 @@ extension EditTaskPopUP{
     
     
     func saveTaskButton(){
-        let currDto = editTaskViewModel.dto
-        print(editTaskViewModel.dto)
-        
-        TaskDataService.shared.saveTask(dto: currDto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+        let currDto = editTaskViewModel.dto        
+        TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
         editTaskViewModel.isEditing.toggle()
     }
     
     func openDocumentation(){
-        print("Vai para a documentation view")
+        editTaskViewModel.seeDocumentation.toggle()
     }
 }
