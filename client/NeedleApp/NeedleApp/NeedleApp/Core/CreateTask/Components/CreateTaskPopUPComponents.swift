@@ -127,7 +127,7 @@ extension CreateTaskPopUp{
         HStack{
             Spacer()
             Button(action: {
-                projectViewModel.showPopUp.toggle()
+                createTaskViewModel.showPopUp.toggle()
             }, label: {
                 Image(systemName: "xmark")
                     .resizable()
@@ -146,7 +146,7 @@ extension CreateTaskPopUp{
     }
     
     func cancelButton(){
-        projectViewModel.showPopUp.toggle()
+        createTaskViewModel.showPopUp.toggle()
     }
     
     func createTaskButton(){
@@ -158,17 +158,17 @@ extension CreateTaskPopUp{
         
         let dto = CreateTaskDTO(
             userId: selectedMemberId,
-            accessCode: projectViewModel.selectedProject.accessCode,
+            accessCode: createTaskViewModel.seletectedWorkspace.accessCode,
             title: createTaskViewModel.taskTitle,
             description: createTaskViewModel.taskDescription,
-            stats: projectViewModel.selectedColumnStatus.rawValue,
+            stats: createTaskViewModel.selectedStatus.rawValue,
             type: createTaskViewModel.categorySelection.rawValue,
             endDate: "\(createTaskViewModel.deadLineSelection)",
             priority: createTaskViewModel.prioritySelection.rawValue,
             docTemplate: template.devTemplate
         )
         
-        projectViewModel.createTask(dto: dto)
-        projectViewModel.showPopUp.toggle()
+        TaskDataService.shared.createTask(dto: dto, userId: AuthenticationManager.shared.user!.id, workspaceId: createTaskViewModel.seletectedWorkspace.id)
+        createTaskViewModel.showPopUp.toggle()
     }
 }

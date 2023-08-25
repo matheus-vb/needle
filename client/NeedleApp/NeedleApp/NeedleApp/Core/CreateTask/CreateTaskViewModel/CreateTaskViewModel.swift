@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CreateTaskViewModel: ObservableObject{
     @Published var taskDescription: String = ""
@@ -19,9 +20,17 @@ class CreateTaskViewModel: ObservableObject{
     @Published var selectedMemberId: String = ""
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
     
+    @Binding var showPopUp: Bool
+    
+    let seletectedWorkspace: Workspace
+    let selectedStatus: TaskStatus
+    
     @Published var members: [User]
     
-    init(members: [User]) {
+    init(members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus) {
         self.members = members
+        self._showPopUp = showPopUp
+        self.seletectedWorkspace = selectedWorkspace
+        self.selectedStatus = selectedStatus
     }
 }

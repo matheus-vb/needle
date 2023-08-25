@@ -9,21 +9,22 @@
 import SwiftUI
 
 struct ProjectButton: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     let project: Workspace
     @State var onHover = false
 
     var body: some View {
         Button(action: {
-            AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
-            TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: project.id)
-            WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: project.id)
+            projectViewModel.getRoleInWorkspace(workspaceId: project.id)
+            projectViewModel.getWorkspaceTasks(workspaceId: project.id)
+            projectViewModel.getWorkspaceMembers(workspaceId: project.id)
+            
             Task {
                 withAnimation {
                     projectViewModel.triggerLoading = true
                 }
                 try? await Task.sleep(nanoseconds: 600_000_000)
-                projectViewModel.selectedProject = project
+                projectViewModel.selectedWorkspace = project
                 withAnimation {
                     projectViewModel.triggerLoading = false
                 }
@@ -39,7 +40,7 @@ struct ProjectButton: View {
             }
 //            .frame(height: 48, alignment: .center)
             .frame(maxWidth: .infinity, idealHeight: 48)
-            .background(projectViewModel.selectedProject.accessCode == project.accessCode ? (onHover ? Color.theme.greenSecondary : Color.theme.greenMain) : (onHover ? Color.white : Color.theme.grayBackground))
+            .background(projectViewModel.selectedWorkspace.accessCode == project.accessCode ? (onHover ? Color.theme.greenSecondary : Color.theme.greenMain) : (onHover ? Color.white : Color.theme.grayBackground))
 //            .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
             .cornerRadius(6)
             .overlay(

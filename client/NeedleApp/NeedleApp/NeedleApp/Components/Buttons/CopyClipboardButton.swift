@@ -24,6 +24,10 @@ struct CopyClipboardButton: View {
         Button(action: {
             onButtonTapped()
             
+            let pasteBoard = NSPasteboard.general
+            pasteBoard.clearContents()
+            pasteBoard.setString(self.text, forType: .string)
+            
             Task{
                 await setTimer()
 
@@ -33,22 +37,27 @@ struct CopyClipboardButton: View {
                 Spacer()
                 Text("\(text)")
                 .font(
-                Font.custom("SF Pro", size: 12)
+                Font.custom("SF Pro", size: 14)
                 .weight(.semibold)
                 )
                 .foregroundColor(.black)
                 Spacer()
-                Image(systemName: "doc.on.doc")
+                Image(systemName: onTap ? "checkmark" : "doc.on.doc")
+                    .frame(width: 35, height: 35)
+                    .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+                    .cornerRadius(6)
+
                 .font(
-                Font.custom("SF Pro", size:16)
+                Font.custom("SF Pro", size: 16)
                 .weight(.semibold)
                 )
                 .foregroundColor(.black)
                 
             }
             .padding()
-            .frame(width: 168, height: 48, alignment: .center)
-            .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+//            .frame(maxWidth: 168, idealHeight: 48)
+            .frame(width: 140, height: 48)
+            .background(Color.theme.greenMain)
             .cornerRadius(6)
             .overlay(
               RoundedRectangle(cornerRadius: 6)
