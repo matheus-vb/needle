@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 extension KanbanView {
     
@@ -15,6 +16,8 @@ extension KanbanView {
             if status == .DONE && kanbanViewModel.role != Role.PRODUCT_MANAGER {
                 return
             }
+            
+            Analytics.logEvent("userAddedTask", parameters: nil)
             
             kanbanViewModel.showPopUp.toggle()
             kanbanViewModel.selectedColumn = status
