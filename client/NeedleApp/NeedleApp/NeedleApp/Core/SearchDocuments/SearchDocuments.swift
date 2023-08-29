@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService>
     
     init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -18,7 +18,8 @@ struct SearchDocuments: View {
             tasks: tasks ?? [],
             workspaceId: workspaceId,
             selectedTask: selectedTask,
-            isEditing: isEditing
+            isEditing: isEditing,
+            taskDS: TaskDataService.shared
         )
     }
     
