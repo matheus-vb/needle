@@ -35,7 +35,6 @@ struct RootView: View {
                         Image(systemName: rootViewModel.notifications.isEmpty ? "bell" : "bell.badge")
                             .popover(isPresented: $rootViewModel.notificationIsPresented, arrowEdge: .bottom) {
                                 NavigationBarView()
-                                    .environmentObject(NotificationBarViewModel())
                             }
                             .onTapGesture {
                                 rootViewModel.presentNotifications()
