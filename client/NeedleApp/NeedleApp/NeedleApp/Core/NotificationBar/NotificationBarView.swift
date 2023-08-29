@@ -9,8 +9,11 @@ import Foundation
 import SwiftUI
 
 struct NavigationBarView: View {
-    @EnvironmentObject var notificationViewModel: NotificationBarViewModel
-
+    @ObservedObject var notificationViewModel: NotificationBarViewModel<NotificationDataService>
+    
+    init() {
+        self.notificationViewModel = NotificationBarViewModel(notificationDS: NotificationDataService.shared)
+    }
     var header: some View {
         HStack {
             Image("simbolo")
@@ -25,8 +28,6 @@ struct NavigationBarView: View {
                     .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                     .foregroundColor(Color.theme.blueKanban)
             }.buttonStyle(PlainButtonStyle())
-//            Spacer()
-//            Text("􀝖")
         }
     }
     

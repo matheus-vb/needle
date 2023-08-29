@@ -8,19 +8,18 @@
 import Foundation
 import Combine
 
-class NotificationBarViewModel: ObservableObject {
+class NotificationBarViewModel<N: NotificationDataServiceProtocol & ObservableObject>: ObservableObject {
     @Published var notifications: [NotificationModel] = []
-    
-    private var notificationDS = NotificationDataService.shared
-    
+    private var notificationDS: N
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
+    init(notificationDS: N) {
+        self.notificationDS = notificationDS
         addSubscibers()
     }
     
     func addSubscibers() {
-        notificationDS.$usersNotifications
+        notificationDS.usersNotificationsPublisher
             .sink(receiveValue: { [weak self] returnedNotifications in
                 self?.notifications = returnedNotifications
             })
