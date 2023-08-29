@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct NavigationBarView: View {
-    @ObservedObject var notificationViewModel: NotificationBarViewModel<NotificationDataService>
+    @ObservedObject var notificationViewModel: NotificationBarViewModel<NotificationDataService, AuthenticationManager>
     
     init() {
-        self.notificationViewModel = NotificationBarViewModel(notificationDS: NotificationDataService.shared)
+        self.notificationViewModel = NotificationBarViewModel(notificationDS: NotificationDataService.shared, authManager: AuthenticationManager.shared)
     }
     var header: some View {
         HStack {
@@ -22,7 +22,7 @@ struct NavigationBarView: View {
                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
             Spacer()
             Button {
-                NotificationDataService.shared.deleteUserNotifications(userId: AuthenticationManager.shared.user!.id)
+                notificationViewModel.deleteUserNotification()
             } label: {
                 Text("Limpar")
                     .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
@@ -66,7 +66,7 @@ struct NavigationBarView: View {
             .frame(width: 244)
         }
         .onAppear {
-            NotificationDataService.shared.getUserNotifications(userId: AuthenticationManager.shared.user!.id)
+            notificationViewModel.getUserNotifications()
         }
         .cornerRadius(10)
     }
