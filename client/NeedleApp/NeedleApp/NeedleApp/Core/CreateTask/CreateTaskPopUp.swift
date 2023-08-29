@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateTaskPopUp: View {
-    @ObservedObject var createTaskViewModel: CreateTaskViewModel
+    @ObservedObject var createTaskViewModel: CreateTaskViewModel<TaskDataService>
     var geometry: GeometryProxy
     
     init(geometry: GeometryProxy, members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus) {
@@ -17,7 +17,8 @@ struct CreateTaskPopUp: View {
             members: members,
             showPopUp: showPopUp,
             selectedWorkspace: selectedWorkspace,
-            selectedStatus: selectedStatus
+            selectedStatus: selectedStatus,
+            taskDS: .shared
         )
         
         self.geometry = geometry
