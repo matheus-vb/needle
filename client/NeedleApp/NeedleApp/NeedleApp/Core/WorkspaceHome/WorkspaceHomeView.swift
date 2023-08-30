@@ -9,33 +9,14 @@ import SwiftUI
 import CoreData
 
 struct WorkspaceHomeView: View {
-    @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
+    @ObservedObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
+//    @ObservedObject var searchViewModel: SearchWorkspaceModel
     
-    var columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    @State var isAnimating = true
     
-    let height: CGFloat = 150
-    
-    var gridHeader: some View {
-        VStack(alignment: .leading, spacing: 28){
-            Text("Workspaces").font(.custom(SpaceGrotesk.regular.rawValue, size: 40)).foregroundColor(Color.theme.blackMain)
-            HStack(spacing: 32) {
-                Button("+ Criar novo workspace"){
-                    workspaceViewModel.isNaming.toggle()
-                }.buttonStyle(AddWorkspaceButton())
-                Button(action: {
-                    workspaceViewModel.isJoining.toggle()
-                }, label: {
-                    HStack {
-                        Image(systemName: "personalhotspot")
-                        Text("Participar de workspace")
-                    }
-                })
-                .buttonStyle(JoinWorkspaceButton())
-            }
-        }
+    init() {
+        self.workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
+//        self.searchViewModel = SearchWorkspaceModel(workspaceViewModel: workspaceViewModel)
     }
     
     var workspaceGrid: some View {
@@ -114,13 +95,75 @@ struct WorkspaceHomeView: View {
         if workspaceViewModel.showMain {
             main
 
-        } else {
-            loading
-                .onAppear {
-                    Task {
-                        await workspaceViewModel.loadData()
-                    }
+    let height: CGFloat = 150
+        
+    var columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 24),
+        GridItem(.flexible(), spacing: 24),
+        GridItem(.flexible(), spacing: 24)
+    ]
+
+            
+            var myProjects: some View {
+                VStack {
+                    
                 }
+            }
+            
+            var joinedProjects: some View {
+                VStack {
+                }
+            }
+            
+    var main: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Image("icon-bg")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: 2000, alignment: .bottomTrailing)
+                VStack(alignment: .center, spacing: geometry.size.height * 0.094) {
+                    pageSelector
+                        .frame(height: geometry.size.height * 0.12)
+                    header
+                        .frame(width: 984)
+                    workspaceGrid
+                        .frame(maxWidth: 984)
+                    
+                    
+                }
+            } .sheet(isPresented: $workspaceViewModel.isJoining) {
+                SheetView(type: .joinCode)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+            }
+            .sheet(isPresented: $workspaceViewModel.isNaming) {
+                SheetView(type: .newWorkspace)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+            }
+            .sheet(isPresented: $workspaceViewModel.isDeleting) {
+                SheetView(type: .deleteWorkspace)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+                    .environmentObject(workspaceViewModel)
+            }
+            
         }
     }
-}
+            
+            var body: some View {
+                if workspaceViewModel.showMain {
+                    main
+                    
+                }
+                else {
+                    loading
+                        .onAppear {
+                            Task {
+                                await workspaceViewModel.loadData()
+                            }
+                        }
+                }
+            }
+    }

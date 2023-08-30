@@ -22,8 +22,8 @@ extension ProjectLeftSideComponent{
     var projectsList: some View {
         ScrollView{
             VStack(spacing: 24){
-                ForEach(projectViewModel.projects, id: \.self){project in
-                    ProjectButton(project: project)
+                ForEach($projectViewModel.projects, id: \.self){project in
+                    ProjectButton(project: project.wrappedValue)
 //                        .frame(width: 180)
                 }
             }
