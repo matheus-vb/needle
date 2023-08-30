@@ -12,7 +12,7 @@ extension WorkspaceHomeView {
     var header: some View {
         HStack(alignment: .center){
             DashedButton(text: workspaceViewModel.selectedTab.buttonTitle, isWorkspace: true, onButtonTapped: {
-                workspaceViewModel.selectedTab == .joinedWorkspaces ? isJoining.toggle() : isNaming.toggle()
+                workspaceViewModel.selectedTab == .joinedWorkspaces ? workspaceViewModel.isJoining.toggle() :  workspaceViewModel.isNaming.toggle()
             })
             Spacer()
             Text(workspaceViewModel.selectedTab.headerTitle)
@@ -20,7 +20,7 @@ extension WorkspaceHomeView {
                 .foregroundColor(Color.theme.blackMain)
                 //.frame(width: 400)
             Spacer()
-            TextField("Procurar por nome do projeto...", text: $searchViewModel.query)
+            TextField("Procurar por nome do projeto...", text: $workspaceViewModel.query)
                 .frame(width: 320, height: 32)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
         }

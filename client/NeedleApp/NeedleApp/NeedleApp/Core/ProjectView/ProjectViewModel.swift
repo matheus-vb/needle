@@ -119,21 +119,4 @@ class ProjectViewModel<
         pasteBoard.setString(self.getCode(), forType: .string)
 
     }
-    
-    func filterMembersByRole(role: String) -> [String] {
-        guard let roleId = roles[role] else {
-            return []
-        }
-
-        let filteredMembers = workspaceMembers.compactMap { (_, members) -> [String]? in
-            let filtered = members.filter { user in
-                return user.id == roleId
-            }.map { user in
-                return user.name
-            }
-            return filtered.isEmpty ? nil : filtered
-        }
-
-        return Array(filteredMembers.joined())
-    }
 }

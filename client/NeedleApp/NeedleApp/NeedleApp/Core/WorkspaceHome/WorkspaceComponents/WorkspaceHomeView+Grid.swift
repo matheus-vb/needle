@@ -10,43 +10,30 @@ import SwiftUI
 
 extension WorkspaceHomeView {
     
-    func returnWorkspaces() -> [Workspace] {
-        var returnedArray: [Workspace] = []
-        if workspaceViewModel.selectedTab == .myWorkspaces {
-            for item in searchViewModel.searchResults {
-                if item.users[0].userId == projectViewModel.userID {
-                    returnedArray.append(item)
-                }
-            }
-        }
-        else {
-            returnedArray = searchViewModel.searchResults.filter { !returnedArray.contains($0) }
-        }
-        return returnedArray
-    }
-    
     var workspaceGrid: some View {
         GeometryReader { geometry in
             ScrollView {
                 NavigationStack {
                     LazyVGrid(columns: columns, spacing: geometry.size.height * 0.04) {
-                        ForEach(returnWorkspaces().indices, id: \.self) { index in
-                            WorkspaceCardView(workspaceInfo: returnWorkspaces()[index], action: {
+                        ForEach(workspaceViewModel.searchResults.indices, id: \.self) { index in
+                            WorkspaceCardView(workspaceInfo: workspaceViewModel.searchResults[index], action: {
                                 print(index)
                                 workspaceViewModel.accessCode = workspaceViewModel.workspaces[index].accessCode
-                                isDeleting.toggle()
+                                workspaceViewModel.isDeleting.toggle()
                             })
-                            .environmentObject(projectViewModel)
                         }
                     }.padding(.top, 4)
                     Spacer()
                         .frame(height: 60)
                 }
             }.onAppear {
-                searchViewModel.updateQuery()
+                workspaceViewModel.updateQuery()
             }
-            .onChange(of: searchViewModel.query, perform: { _ in
-                searchViewModel.updateQuery()
+            .onChange(of: workspaceViewModel.query, perform: { _ in
+                workspaceViewModel.updateQuery()
+            })
+            .onChange(of: workspaceViewModel.selectedTab, perform: { _ in
+                workspaceViewModel.updateQuery()
             })
         }
     }

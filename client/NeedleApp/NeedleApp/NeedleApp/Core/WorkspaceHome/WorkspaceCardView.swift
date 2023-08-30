@@ -9,9 +9,8 @@ import Foundation
 import SwiftUI
 
 struct WorkspaceCardView: View, Identifiable {
-<<<<<<< HEAD
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    
+    @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
+
     @State var isHovered = false
     
     @State private var filteredOwner: [String] = []
@@ -31,35 +30,15 @@ struct WorkspaceCardView: View, Identifiable {
         self.title = workspaceInfo.name
         self.action = action
         self.owner = workspaceInfo.users[0].user.name
-=======
-    var id = UUID()
-    
-    @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    
-    init(workspace: Workspace, action: @escaping () -> Void) {
         self.workspaceCardViewModel = WorkspaceCardViewModel(manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, action: action, workspace: workspace)
->>>>>>> develop
     }
     
-//    var members: String {
-//        var membersList: [String] = []
-//        for user in projectViewModel.workspaceMembers.values {
-//
-//        }
-//        return membersList.joined(separator: ", ")
-//    }
     
     var basicInfo: some View {
-<<<<<<< HEAD
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
             Text("PM: \(owner)").font(.system(size: 14, weight: .regular))
             //Text("Participantes: \(members)").font(.system(size: 14, weight: .regular))
-=======
-        VStack(alignment: .leading, spacing: 8) {
-            Text(workspaceCardViewModel.workspace.name).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
-            Text("Clique para ver mais deste workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
->>>>>>> develop
         }
     }
     
@@ -81,15 +60,9 @@ struct WorkspaceCardView: View, Identifiable {
     }
     
     var body: some View {
-<<<<<<< HEAD
-        ZStack(alignment: .leading) {
-            NavigationLink(destination: ProjectView().environmentObject(projectViewModel), label: {
-                RoundedRectangle(cornerRadius: 10).foregroundColor(isHovered ? Color.theme.grayBackground : .white)
-=======
         ZStack {
             NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace), label: {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(workspaceCardViewModel.isHovered ? Color.theme.grayBackground : .white)
->>>>>>> develop
                     .onHover(perform: { _ in
                         workspaceCardViewModel.isHovered.toggle()
                     })
@@ -111,9 +84,6 @@ struct WorkspaceCardView: View, Identifiable {
                 
             }.padding(.leading, 16)
             .frame(width: 259, height: 155)
-            .onAppear {
-                    filteredOwner = projectViewModel.filterMembersByRole(role: "PRODUCT_MANAGER")
-                        }
         }
     }
 }

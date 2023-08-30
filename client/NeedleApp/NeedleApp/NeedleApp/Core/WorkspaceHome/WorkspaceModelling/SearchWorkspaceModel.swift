@@ -1,35 +1,56 @@
+////
+////  SearchWorkspaceModel.swift
+////  NeedleApp
+////
+////  Created by Bof on 17/08/23.
+////
 //
-//  SearchWorkspaceModel.swift
-//  NeedleApp
+//import Foundation
+//import SwiftUI
 //
-//  Created by Bof on 17/08/23.
+//class SearchWorkspaceModel: ObservableObject {
+//    @AppStorage("userID") var userID: String = "Default User"
 //
-
-import Foundation
-import SwiftUI
-
-class SearchWorkspaceModel: ObservableObject {
-    @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel()
-
-    @Published var query: String = ""
-    @Published var searchResults: [Workspace] = []
-    
-    init() {
-        updateQuery()
-    }
-    
-    func updateQuery() {
-        if query == "" {
-            searchResults = workspaceViewModel.workspaces
-        }
-        else {
-            var newSearchResults: [Workspace] = []
-            newSearchResults = searchResults.filter {
-                $0.name.contains(query)
-                
-            }
-            searchResults = newSearchResults
-            print(searchResults)
-        }
-    }
-}
+//    @ObservedObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
+//
+//    @Published var query: String = ""
+//    @Published var searchResults: [Workspace] = []
+//
+//    init(workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>) {
+//        self.workspaceViewModel = workspaceViewModel
+//        updateTab()
+//        updateQuery()
+//    }
+//
+//    func updateTab() {
+//        print("\(workspaceViewModel.selectedTab)")
+//        var newTabResults: [Workspace] {
+//            if workspaceViewModel.selectedTab == .myWorkspaces {
+//                return workspaceViewModel.workspaces.filter {
+//                    userID == $0.users[0].userId
+//                }
+//            }
+//            else {
+//                print("entrei")
+//                return workspaceViewModel.workspaces.filter {
+//                    userID != $0.users[0].userId
+//                }
+//            }
+//        }
+//        searchResults = newTabResults
+//    }
+//
+//    func updateQuery() {
+//        if query == "" {
+//            self.updateTab()
+//        }
+//        else {
+//            var newSearchResults: [Workspace] = []
+//            newSearchResults = searchResults.filter {
+//                $0.name.contains(query)
+//            }
+//            searchResults = newSearchResults
+//        }
+//    }
+//
+//}

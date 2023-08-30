@@ -138,7 +138,6 @@
 		D468EC972A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */; };
 		D468EC992A8D6B38004AE74F /* MockWorkspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */; };
 		D468EC9B2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */; };
-		D4F6CFDC2A8EA38600DA945B /* SearchWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6CFDB2A8EA38600DA945B /* SearchWorkspaceView.swift */; };
 		D4F6CFDE2A8EAE6E00DA945B /* SearchWorkspaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F6CFDD2A8EAE6E00DA945B /* SearchWorkspaceModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -298,7 +297,6 @@
 		D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Grid.swift"; sourceTree = "<group>"; };
 		D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkspaces.swift; sourceTree = "<group>"; };
 		D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Loading.swift"; sourceTree = "<group>"; };
-		D4F6CFDB2A8EA38600DA945B /* SearchWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkspaceView.swift; sourceTree = "<group>"; };
 		D4F6CFDD2A8EAE6E00DA945B /* SearchWorkspaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorkspaceModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -781,7 +779,6 @@
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
 				86EFD08F2A952AF200F8168A /* WorkspaceCardViewModel.swift */,
 				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
-				D4F6CFDB2A8EA38600DA945B /* SearchWorkspaceView.swift */,
 			);
 			path = WorkspaceHome;
 			sourceTree = "<group>";
@@ -1037,7 +1034,6 @@
 				D468EC952A8D6AE8004AE74F /* WorkspaceHomeView+Header.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
 				279F09BF2A82A0870016B12E /* EditTaskViewModel.swift in Sources */,
-				D4F6CFDC2A8EA38600DA945B /* SearchWorkspaceView.swift in Sources */,
 				274A283C2A71A0BD0002CFEA /* CorePlaceHolder.swift in Sources */,
 				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				44FE06332A82E71800386ADE /* PickerApp.swift in Sources */,
@@ -1217,7 +1213,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
