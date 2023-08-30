@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-
 class WorkspaceHomeViewModel<
     W: WorkspaceDataServiceProtocol & ObservableObject
 >: ObservableObject {
