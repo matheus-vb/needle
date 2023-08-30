@@ -10,8 +10,8 @@ import SwiftUI
 
 class CreateTaskViewModel: ObservableObject{
     @Published var taskDescription: String = ""
-    @Published var taskDescriptionPlaceHolder: String = "Adicione uma breve descrição da tarefa"
-    @Published var taskTitle: String = "Nome da Task"
+    @Published var taskDescriptionPlaceHolder: String = NSLocalizedString( "Adicione uma breve descrição da tarefa", comment: "")
+    @Published var taskTitle: String = NSLocalizedString( "Nome da Task", comment: "")
     
     @Published var statusSelection: TaskStatus = .TODO
     @Published var prioritySelection: TaskPriority = .LOW

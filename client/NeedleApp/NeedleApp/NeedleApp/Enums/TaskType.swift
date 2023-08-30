@@ -19,15 +19,15 @@ enum TaskType: String, CaseIterable, Codable{
     case QA = "QA"
     
     var displayName: String {
-        if rawValue == "DEV" { return "Desenvolvimento" }
-        if rawValue == "DESIGN" { return "Design" }
-        if rawValue == "PM" { return "Product Manager" }
-        if rawValue == "GENERAL" { return "Geral" }
-        if rawValue == "BUSINESS" { return "Negócios" }
-        if rawValue == "DEVOPS" { return "Devops" }
-        if rawValue == "SALES" { return "Vendas" }
-        if rawValue == "MARKETING" { return "Marketing" }
-        if rawValue == "QA" { return "QA" }
+        if rawValue == "DEV" { return NSLocalizedString("Desenvolvimento", comment: "")}
+        if rawValue == "DESIGN" { return NSLocalizedString("Design", comment: "") }
+        if rawValue == "PM" { return NSLocalizedString("Product Manager", comment: "") }
+        if rawValue == "GENERAL" { return NSLocalizedString("Geral", comment: "") }
+        if rawValue == "BUSINESS" { return NSLocalizedString("Negócios", comment: "") }
+        if rawValue == "DEVOPS" { return NSLocalizedString("DevOps", comment: "") }
+        if rawValue == "SALES" { return NSLocalizedString("Vendas", comment: "") }
+        if rawValue == "MARKETING" { return NSLocalizedString("Marketing", comment: "") }
+        if rawValue == "QA" { return NSLocalizedString("QA", comment: "") }
         return formatUpperCase(rawValue)
     }
 }
