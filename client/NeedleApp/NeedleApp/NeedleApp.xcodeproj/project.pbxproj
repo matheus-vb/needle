@@ -14,6 +14,7 @@
 		270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D52A7AEB8F00CB91FA /* TaskType.swift */; };
 		270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */; };
 		2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2721B0D92A7C414F0085F42E /* ProjectButton.swift */; };
+		272B4D402A9FBA5100DC2CFE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 272B4D422A9FBA5100DC2CFE /* Localizable.strings */; };
 		272E15872A8512870014A70E /* deleteTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272E15862A8512870014A70E /* deleteTaskDTO.swift */; };
 		273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */; };
 		274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A27F72A719F6C0002CFEA /* NeedleAppApp.swift */; };
@@ -195,6 +196,8 @@
 		270912D52A7AEB8F00CB91FA /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceUser.swift; sourceTree = "<group>"; };
 		2721B0D92A7C414F0085F42E /* ProjectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectButton.swift; sourceTree = "<group>"; };
+		272B4D412A9FBA5100DC2CFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		272B4D432A9FBA5400DC2CFE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		272E15862A8512870014A70E /* deleteTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteTaskDTO.swift; sourceTree = "<group>"; };
 		273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskDTO.swift; sourceTree = "<group>"; };
 		274A27F42A719F6C0002CFEA /* NeedleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeedleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +372,7 @@
 		274A27EB2A719F6C0002CFEA = {
 			isa = PBXGroup;
 			children = (
+				272B4D422A9FBA5100DC2CFE /* Localizable.strings */,
 				274A27F62A719F6C0002CFEA /* NeedleApp */,
 				274A28082A719F6E0002CFEA /* NeedleAppTests */,
 				274A28122A719F6E0002CFEA /* NeedleAppUITests */,
@@ -915,6 +919,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 274A27EB2A719F6C0002CFEA;
 			packageReferences = (
@@ -941,6 +946,7 @@
 				8A76DFD22A8281A30044189B /* SpaceGrotesk-Regular.ttf in Resources */,
 				8A76DFD12A8281A30044189B /* SpaceGrotesk-Medium.ttf in Resources */,
 				8A76DFD02A8281A30044189B /* SpaceGrotesk-Light.ttf in Resources */,
+				272B4D402A9FBA5100DC2CFE /* Localizable.strings in Resources */,
 				8A76DFCF2A8281A30044189B /* SpaceGrotesk-Bold.ttf in Resources */,
 				8A76DFCE2A8281A30044189B /* SpaceGrotesk-SemiBold.ttf in Resources */,
 			);
@@ -1158,6 +1164,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		272B4D422A9FBA5100DC2CFE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				272B4D412A9FBA5100DC2CFE /* en */,
+				272B4D432A9FBA5400DC2CFE /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		274A28172A719F6E0002CFEA /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1285,7 +1303,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1299,7 +1317,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1317,7 +1335,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

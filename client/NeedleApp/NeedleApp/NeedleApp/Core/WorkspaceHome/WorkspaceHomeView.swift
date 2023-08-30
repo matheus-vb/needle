@@ -55,7 +55,7 @@ struct WorkspaceHomeView: View {
         HStack {
             Image("icon-horizontal")
             Spacer()
-            Button(action: {}, label: {Text("logout").foregroundColor(Color.theme.grayHover)})
+            Button(action: {}, label: {Text("Sair").foregroundColor(Color.theme.grayHover)})
         }.padding(36)
     }
     

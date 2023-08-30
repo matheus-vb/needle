@@ -18,9 +18,9 @@ extension EditTaskPopUP{
     }
     var deadLine: some View{
         HStack(spacing: 24){
-            LabelComponent(imageName: "calendar", label: "Prazo")
-            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
-                Text("Select a date")
+            LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
+            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
+                Text("Selecione uma data")
             }
             .labelsHidden()
             Spacer()
@@ -31,7 +31,7 @@ extension EditTaskPopUP{
     
     var responsible: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "person.fill", label: "Responsável")
+            LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
             Picker("Área",selection: $editTaskViewModel.dto.userId){
                 ForEach(editTaskViewModel.members) {membro in
                     Text(membro.name)
@@ -47,7 +47,7 @@ extension EditTaskPopUP{
         
     var type: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "shippingbox", label:"Área")
+            LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
             Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
@@ -62,7 +62,7 @@ extension EditTaskPopUP{
     
     var priority: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "flag.fill", label: "Prioridade")
+            LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
@@ -143,7 +143,7 @@ extension EditTaskPopUP{
             attributesStack
             description
             Spacer()
-            DashedButton(text: "Visualizar documentação", onButtonTapped: openDocumentation)
+            DashedButton(text: NSLocalizedString("Visualizar documentação", comment: ""), onButtonTapped: openDocumentation)
             Spacer()
             HStack{
                 Spacer()
@@ -154,8 +154,8 @@ extension EditTaskPopUP{
     }
     var saveTask: some View{
         HStack{
-            PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)
-            PopUpButton(text: "Salvar", onButtonTapped: saveTaskButton)
+            PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: cancelButton)
+            PopUpButton(text: NSLocalizedString("Salvar", comment: ""), onButtonTapped: saveTaskButton)
         }
     }
     

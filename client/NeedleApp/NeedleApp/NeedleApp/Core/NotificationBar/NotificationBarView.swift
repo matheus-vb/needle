@@ -40,7 +40,7 @@ struct NavigationBarView: View {
                         Button(action: {
                             // TODO: delete item in items array
                         }){
-                            Text("Delete")
+                            Text("Apagar")
                         }
                     }
                 }

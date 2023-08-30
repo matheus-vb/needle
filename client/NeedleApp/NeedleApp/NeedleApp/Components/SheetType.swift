@@ -28,27 +28,27 @@ enum SheetType {
     var title: String {
         switch self {
         case .newWorkspace: return ""
-        case .deleteWorkspace:return "Excluir projeto?"
+        case .deleteWorkspace:return NSLocalizedString("Excluir projeto?", comment: "")
         case .joinCode: return ""
         case .shareCode: return ""
-        case .documentNotFound: return "Documento não encontrado"
-        case .deleteTask: return "Deletar task?"
+        case .documentNotFound: return NSLocalizedString("Documento não encontrado", comment: "")
+        case .deleteTask: return NSLocalizedString("Deletar task?", comment: "")
         case .loginError: return ""
-        case .archiveTask: return "Arquivar task?"
+        case .archiveTask: return NSLocalizedString("Arquivar task?", comment: "")
 
         }
     }
     
     var text: String {
         switch self {
-        case .newWorkspace: return "Nomeie seu novo workspace:"
-        case .deleteWorkspace: return "Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos."
+        case .newWorkspace: return NSLocalizedString("Nomeie seu novo workspace:", comment: "")
+        case .deleteWorkspace: return NSLocalizedString("Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos.", comment: "")
         case .joinCode: return ""
-        case .shareCode: return "Envie o código do workspace para sua equipe e deixe-a alinhada."
-        case .documentNotFound: return "Procure por outras palavras-chave como título da task, área ou data!"
-        case .deleteTask: return "Sua task e a documentação serão excluídas para sempre."
-        case .loginError: return "Tente novamente."
-        case .archiveTask: return "Sua task será removida do kanban, mas sua documentação continuará acessível."
+        case .shareCode: return NSLocalizedString("Envie o código do workspace para sua equipe e deixe-a alinhada.", comment: "")
+        case .documentNotFound: return NSLocalizedString("Procure por outras palavras-chave como título da task, área ou data!", comment: "")
+        case .deleteTask: return NSLocalizedString("Sua task e a documentação serão excluídas para sempre.", comment: "")
+        case .loginError: return NSLocalizedString("Tente novamente.", comment: "")
+        case .archiveTask: return NSLocalizedString("Tente novamente.", comment: "")
 
 
         }
@@ -71,14 +71,14 @@ enum SheetType {
     
     var primaryAction: String {
         switch self {
-        case .newWorkspace: return "Criar"
-        case .deleteWorkspace: return "Excluir"
-        case .joinCode: return "Entrar"
-        case .shareCode: return "Copiar"
+        case .newWorkspace: return NSLocalizedString("Criar", comment: "")
+        case .deleteWorkspace: return NSLocalizedString("Excluir", comment: "")
+        case .joinCode: return NSLocalizedString("Entrar", comment: "")
+        case .shareCode: return NSLocalizedString("Copiar", comment: "")
         case .documentNotFound: return "Ok"
-        case .deleteTask: return "Remover"
+        case .deleteTask: return NSLocalizedString("Remover", comment: "")
         case .loginError: return "Ok"
-        case .archiveTask: return "Arquivar"
+        case .archiveTask: return NSLocalizedString("Arquivar", comment: "")
 
 
         }

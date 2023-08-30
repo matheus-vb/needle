@@ -14,10 +14,10 @@ enum TaskPriority: String, CaseIterable, Codable, CodingKeyRepresentable {
     case LOW = "LOW"
     
     var displayName: String {
-        if rawValue == "VERY_HIGH" { return "Urgente" }
-        if rawValue == "HIGH" { return "Alta" }
-        if rawValue == "MEDIUM" { return "Moderada" }
-        if rawValue == "LOW" { return "Baixa" }
+        if rawValue == "VERY_HIGH" { return NSLocalizedString("Urgente", comment: "") }
+        if rawValue == "HIGH" { return  NSLocalizedString("Alta", comment: "") }
+        if rawValue == "MEDIUM" { return  NSLocalizedString("Moderada", comment: "") }
+        if rawValue == "LOW" { return  NSLocalizedString("Baixa", comment: "") }
         return formatUpperCase(rawValue)
     }
     

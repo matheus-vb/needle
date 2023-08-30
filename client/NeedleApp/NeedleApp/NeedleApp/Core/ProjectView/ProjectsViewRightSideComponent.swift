@@ -15,10 +15,10 @@ struct ProjectsViewRightSideComponent: View {
                 .padding([.top], 64)
                 .padding([.leading, .trailing], 64)
             HStack {
-                statusTitleLabel(rowName: "A fazer", color: Color.theme.redMain)
-                statusTitleLabel(rowName: "Fazendo", color: Color.theme.blueKanban)
-                statusTitleLabel(rowName: "Em revisão", color: Color.theme.orangeKanban)
-                statusTitleLabel(rowName: "Feito", color: Color.theme.greenKanban)
+                statusTitleLabel(rowName: NSLocalizedString("A fazer", comment: ""), color: Color.theme.redMain)
+                statusTitleLabel(rowName: NSLocalizedString("Fazendo", comment: ""), color: Color.theme.blueKanban)
+                statusTitleLabel(rowName: NSLocalizedString("Em revisão", comment: ""), color: Color.theme.orangeKanban)
+                statusTitleLabel(rowName: NSLocalizedString("Feito", comment: ""), color: Color.theme.greenKanban)
             }
             .padding(.leading, 64)
             .padding(.trailing, 64)

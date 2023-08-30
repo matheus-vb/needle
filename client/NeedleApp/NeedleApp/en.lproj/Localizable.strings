@@ -1,0 +1,153 @@
+/* 
+  Localizable.strings
+  NeedleApp
+
+  Created by jpcm2 on 30/08/23.
+  
+*/
+
+"Não deixe uma\nponta solta" = "No loose ends";
+
+"A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "The documentation culture allows each project to be skillfully tailored, avoiding tangles and confusion. That's why Needle has come to encourage the recording and retrieval of its activities.";
+
+
+"Projetos e Tarefas" = "Projects and Tasks";
+
+"Descrição" = "Description";
+
+"Área" = "Field";
+
+"Selecione uma data" = "Select a date";
+
+"Responsável" = "Responsible";
+
+"Prazo" = "Deadline";
+
+"Prioridade" = "Priority";
+
+"Cancelar" = "Cancel";
+
+"Criar" = "Create";
+
+"Nome da Task" = "Task Name";
+
+"Adicione uma breve descrição da tarefa" = "Add a brief description of the task";
+
+"A fazer" = "To do";
+
+"Fazendo" = "Doing";
+
+"Em revisão" = "Under review";
+
+"Feito" = "Done";
+
+"Voltar" = "Back";
+
+"Projetos" = "Projects";
+
+"Documentação" = "Documentation";
+
+"Participar de workspace" = "Join a Workspace";
+
+"+ Criar novo workspace" = "+ Create a new Workspace";
+
+"Sair " = "Logout ";
+
+"Sair" = "Logout";
+
+"Clique para ver mais deste workspace" = "Click to see more of this workspace";
+
+"Projeto " = "Project ";
+
+"simbolo" = "symbol";
+
+"notificações" = "notification";
+
+"Limpar" = "Clear";
+
+"Apagar" =  "Delete";
+
+"Outros" = "Others";
+
+"Adicionar Task" = "Create Task";
+
+"Prazo" = "Deadline";
+
+"Prioridade" = "Priority";
+
+"Visualizar documentação" = "View documentation";
+
+"Procurar por nome, descrição, responsável..." = "Search by name, description, responsible...";
+
+"Nome da Task" = "Task name";
+
+"Prioridade" = "Priority";
+
+"Área" = "Field";
+
+"Sem responsável." = "No one responsible.";
+
+"Atualização" = "Updates";
+
+"Alta" = "High";
+
+"Clique duas vezes em uma task para expandir!" = "Double-click on a task to expand it!";
+
+"Excluir projeto?" = "Delete Project?";
+
+"Documento não encontrado" = "Document not found";
+
+"Deletar task?" = "Delete task?";
+
+"Arquivar task?" = "Archiving tasks?";
+
+"Nomeie seu novo workspace:" = "Name your new workspace:";
+
+"Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos." = "Remember, when you delete a workspace\nyour tasks and documents will be lost.";
+
+"Envie o código do workspace para sua equipe e deixe-a alinhada." = "Send the workspace code to your team and get them aligned.";
+
+"Procure por outras palavras-chave como título da task, área ou data!" = "Search for other keywords such as task title, area or date!";
+
+"Sua task e a documentação serão excluídas para sempre." = "Your task and documentation will be deleted forever.";
+
+"Sua task será removida do kanban, mas sua documentação continuará acessível." = "Your task will be removed from the kanban, but your documentation will still be accessible.";
+
+"Criar" = "Create";
+
+"Excluir" = "Delete";
+
+"Entrar" = "Join";
+
+"Copiar" = "Copy";
+
+"Remover" = "Remove";
+
+"Urgente" = "Urgent";
+
+"Moderada" = "Moderate";
+
+"Baixa" = "Low";
+
+"Desenvolvimento" = "Development";
+
+"Geral" = "General";
+
+"Negócios" = "Business";
+
+"Vendas" = "Sales";
+
+"Sem nome" = "Without responsible";
+
+"Salvar" = "Save";
+
+"Código de compartilhamento copiado!" = "Sharing code copied!";
+
+
+"Copie o código do projeto para a área de transferência" = "Copy the project code to the clipboard.";
+
+"Tente novamente" = "Try again";
+
+"Arquivar" = "Archive";
+
+
