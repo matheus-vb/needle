@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct KanbanView: View {
-    @ObservedObject var kanbanViewModel: KanbanViewModel
+    @ObservedObject var kanbanViewModel: KanbanViewModel<TaskDataService>
     
     init(tasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -20,7 +20,8 @@ struct KanbanView: View {
             showCard: showCard,
             selectedWorkspace: selectedWorkspace,
             selectedTask: selectedTask,
-            isEditing: isEditing
+            isEditing: isEditing,
+            taskDS: .shared
         )
     }
     
