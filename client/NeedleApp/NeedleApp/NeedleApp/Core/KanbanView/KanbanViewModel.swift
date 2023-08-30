@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 
-class KanbanViewModel: ObservableObject {
+class KanbanViewModel<
+    T: TaskDataServiceProtocol & ObservableObject
+>: ObservableObject {
+    @AppStorage("userID") var userID: String = "Default User"
     @Published var localTasks: [TaskModel]
     
     @Published var somethingBeingDragged = false
@@ -28,7 +31,9 @@ class KanbanViewModel: ObservableObject {
     
     let selectedWorkspace: Workspace
     
-    init(localTasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
+    private var taskDS: T
+    
+    init(localTasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, taskDS: T) {
         self.localTasks = localTasks
         self.role = role
         self._selectedColumn = selectedColumn
@@ -37,6 +42,7 @@ class KanbanViewModel: ObservableObject {
         self.selectedWorkspace = selectedWorkspace
         self._selectedTask = selectedTask
         self._isEditing = isEditing
+        self.taskDS = taskDS
     }
     
     func presentCard() {
@@ -49,5 +55,9 @@ class KanbanViewModel: ObservableObject {
                 self.showCard = false
             }
         }
+    }
+    
+    func updateTaskStatus(taskId: String, status: TaskStatus) {
+        taskDS.updateTaskStatus(taskId: taskId, status: status, userId: userID, workspaceId: selectedWorkspace.id)
     }
 }
