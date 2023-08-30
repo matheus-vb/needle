@@ -88,6 +88,40 @@
 		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
 		86BE497F2A97EB4A008A7F7F /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */; };
 		86BE49812A97EB63008A7F7F /* DocumentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */; };
+		86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0822A8FF9F600F8168A /* RootViewModel.swift */; };
+		86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */; };
+		86BE49882A9FBC4D008A7F7F /* AuthenticationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0852A901F3000F8168A /* AuthenticationManagerProtocol.swift */; };
+		86BE49892A9FBC50008A7F7F /* DocumentationDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08D2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift */; };
+		86BE498A2A9FBC54008A7F7F /* NotificationDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */; };
+		86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */; };
+		86BE498C2A9FBC5A008A7F7F /* WorkspaceDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */; };
+		86BE498E2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE498D2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift */; };
+		86BE498F2A9FBD32008A7F7F /* WorkspaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */; };
+		86BE49902A9FBD32008A7F7F /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282B2A71A0240002CFEA /* TaskModel.swift */; };
+		86BE49912A9FBD32008A7F7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282D2A71A0290002CFEA /* User.swift */; };
+		86BE49922A9FBD32008A7F7F /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28292A71A01B0002CFEA /* Workspace.swift */; };
+		86BE49932A9FBD32008A7F7F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282F2A71A0340002CFEA /* Document.swift */; };
+		86BE49942A9FBD32008A7F7F /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D0E2A855553001D26EE /* NotificationModel.swift */; };
+		86BE49952A9FBD88008A7F7F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
+		86BE49962A9FBD88008A7F7F /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF012A82932D00BB5D9F /* Role.swift */; };
+		86BE49972A9FBD88008A7F7F /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D32A7AEACF00CB91FA /* TaskPriority.swift */; };
+		86BE49982A9FBD88008A7F7F /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D12A7AE9AF00CB91FA /* TaskStatus.swift */; };
+		86BE49992A9FBD88008A7F7F /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D52A7AEB8F00CB91FA /* TaskType.swift */; };
+		86BE499C2A9FBED4008A7F7F /* DBMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE499B2A9FBED4008A7F7F /* DBMock.swift */; };
+		86BE499E2A9FC333008A7F7F /* NotificationDataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE499D2A9FC333008A7F7F /* NotificationDataServiceMock.swift */; };
+		86BE499F2A9FC9D2008A7F7F /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
+		86BE49A02A9FC9DB008A7F7F /* UpdateTaskStatusDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */; };
+		86BE49A12A9FC9DB008A7F7F /* CreateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BD1CF2A744339005733E9 /* CreateTaskDTO.swift */; };
+		86BE49A22A9FC9DB008A7F7F /* UpdateDeviceTokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */; };
+		86BE49A32A9FC9DB008A7F7F /* SignInDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E12A7C2286001D9213 /* SignInDTO.swift */; };
+		86BE49A42A9FC9DB008A7F7F /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
+		86BE49A52A9FC9DB008A7F7F /* CreateWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */; };
+		86BE49A62A9FC9DB008A7F7F /* UpdateDocDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */; };
+		86BE49A72A9FC9DB008A7F7F /* QueryTasksDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */; };
+		86BE49A82A9FC9DB008A7F7F /* deleteTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272E15862A8512870014A70E /* deleteTaskDTO.swift */; };
+		86BE49A92A9FC9DB008A7F7F /* UpdateDocumentationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275FAF9E2A784E4100372DFE /* UpdateDocumentationDTO.swift */; };
+		86BE49AA2A9FC9DB008A7F7F /* UpdateTaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276877D62A84147200CE70C4 /* UpdateTaskDTO.swift */; };
+		86BE49AB2A9FC9EF008A7F7F /* UpperCaseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */; };
 		86E6FF022A82932D00BB5D9F /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF012A82932D00BB5D9F /* Role.swift */; };
 		86E6FF042A8297F900BB5D9F /* UpperCaseFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */; };
 		86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */; };
@@ -240,6 +274,10 @@
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
 		86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewModel.swift; sourceTree = "<group>"; };
+		86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
+		86BE498D2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerMock.swift; sourceTree = "<group>"; };
+		86BE499B2A9FBED4008A7F7F /* DBMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMock.swift; sourceTree = "<group>"; };
+		86BE499D2A9FC333008A7F7F /* NotificationDataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataServiceMock.swift; sourceTree = "<group>"; };
 		86E6FF012A82932D00BB5D9F /* Role.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
 		86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperCaseFormatter.swift; sourceTree = "<group>"; };
 		86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
@@ -385,6 +423,9 @@
 		274A28082A719F6E0002CFEA /* NeedleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				86BE499A2A9FBE4F008A7F7F /* DB */,
+				86BE49872A9FBC41008A7F7F /* Services */,
+				86BE49842A9FBB8F008A7F7F /* ViewModelTests */,
 				274A28092A719F6E0002CFEA /* NeedleAppTests.swift */,
 			);
 			path = NeedleAppTests;
@@ -645,6 +686,31 @@
 				86E6FF152A840B3E00BB5D9F /* AppView.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		86BE49842A9FBB8F008A7F7F /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */,
+			);
+			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		86BE49872A9FBC41008A7F7F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				86BE498D2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift */,
+				86BE499D2A9FC333008A7F7F /* NotificationDataServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		86BE499A2A9FBE4F008A7F7F /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				86BE499B2A9FBED4008A7F7F /* DBMock.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 		86EFD0842A901F0C00F8168A /* Protocols */ = {
@@ -1030,7 +1096,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86BE499C2A9FBED4008A7F7F /* DBMock.swift in Sources */,
+				86BE498A2A9FBC54008A7F7F /* NotificationDataServiceProtocol.swift in Sources */,
+				86BE49892A9FBC50008A7F7F /* DocumentationDataServiceProtocol.swift in Sources */,
+				86BE49AB2A9FC9EF008A7F7F /* UpperCaseFormatter.swift in Sources */,
+				86BE49992A9FBD88008A7F7F /* TaskType.swift in Sources */,
+				86BE49962A9FBD88008A7F7F /* Role.swift in Sources */,
+				86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */,
+				86BE49A32A9FC9DB008A7F7F /* SignInDTO.swift in Sources */,
+				86BE49A22A9FC9DB008A7F7F /* UpdateDeviceTokenDTO.swift in Sources */,
+				86BE49942A9FBD32008A7F7F /* NotificationModel.swift in Sources */,
 				274A280A2A719F6E0002CFEA /* NeedleAppTests.swift in Sources */,
+				86BE49902A9FBD32008A7F7F /* TaskModel.swift in Sources */,
+				86BE49A52A9FC9DB008A7F7F /* CreateWorkspaceDTO.swift in Sources */,
+				86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */,
+				86BE49A92A9FC9DB008A7F7F /* UpdateDocumentationDTO.swift in Sources */,
+				86BE498C2A9FBC5A008A7F7F /* WorkspaceDataServiceProtocol.swift in Sources */,
+				86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */,
+				86BE49A62A9FC9DB008A7F7F /* UpdateDocDTO.swift in Sources */,
+				86BE49A72A9FC9DB008A7F7F /* QueryTasksDTO.swift in Sources */,
+				86BE49972A9FBD88008A7F7F /* TaskPriority.swift in Sources */,
+				86BE49A42A9FC9DB008A7F7F /* JoinWorkspaceDTO.swift in Sources */,
+				86BE49912A9FBD32008A7F7F /* User.swift in Sources */,
+				86BE49882A9FBC4D008A7F7F /* AuthenticationManagerProtocol.swift in Sources */,
+				86BE498F2A9FBD32008A7F7F /* WorkspaceUser.swift in Sources */,
+				86BE49952A9FBD88008A7F7F /* SelectedTab.swift in Sources */,
+				86BE498E2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift in Sources */,
+				86BE499E2A9FC333008A7F7F /* NotificationDataServiceMock.swift in Sources */,
+				86BE499F2A9FC9D2008A7F7F /* NetworkingManager.swift in Sources */,
+				86BE49A12A9FC9DB008A7F7F /* CreateTaskDTO.swift in Sources */,
+				86BE49A82A9FC9DB008A7F7F /* deleteTaskDTO.swift in Sources */,
+				86BE49932A9FBD32008A7F7F /* Document.swift in Sources */,
+				86BE49A02A9FC9DB008A7F7F /* UpdateTaskStatusDTO.swift in Sources */,
+				86BE49982A9FBD88008A7F7F /* TaskStatus.swift in Sources */,
+				86BE49922A9FBD32008A7F7F /* Workspace.swift in Sources */,
+				86BE49AA2A9FC9DB008A7F7F /* UpdateTaskDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,7 +1347,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L3ZW5SA328;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1266,7 +1366,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L3ZW5SA328;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
