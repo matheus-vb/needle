@@ -64,7 +64,6 @@
 		64C0021B2A8D4D3B0058D72E /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0021A2A8D4D3B0058D72E /* Modifiers.swift */; };
 		64FE76092A96814900DF620D /* KanbanColumnViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76082A96814900DF620D /* KanbanColumnViews.swift */; };
 		64FE760C2A96840300DF620D /* AddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE760B2A96840300DF620D /* AddTaskButton.swift */; };
-		64FE760E2A96869800DF620D /* KanbanFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE760D2A96869800DF620D /* KanbanFunctions.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationDataService.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
@@ -214,7 +213,6 @@
 		64C0021A2A8D4D3B0058D72E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		64FE76082A96814900DF620D /* KanbanColumnViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnViews.swift; sourceTree = "<group>"; };
 		64FE760B2A96840300DF620D /* AddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskButton.swift; sourceTree = "<group>"; };
-		64FE760D2A96869800DF620D /* KanbanFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanFunctions.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataService.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -585,7 +583,6 @@
 			children = (
 				64FE760A2A9683B100DF620D /* Components */,
 				649B45422A7D79DB00F8F54B /* KanbanView.swift */,
-				64FE760D2A96869800DF620D /* KanbanFunctions.swift */,
 				86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */,
 			);
 			path = KanbanView;
@@ -1005,7 +1002,6 @@
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 				86EFD0932A958B8B00F8168A /* SheetViewModel.swift in Sources */,
-				64FE760E2A96869800DF620D /* KanbanFunctions.swift in Sources */,
 				86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */,
 				86E6FF1B2A842E1C00BB5D9F /* AlertBoxView.swift in Sources */,
 				86E6FF062A82AF4F00BB5D9F /* UsersResponse.swift in Sources */,

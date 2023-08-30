@@ -150,25 +150,7 @@ extension CreateTaskPopUp{
     }
     
     func createTaskButton(){
-        var selectedMemberId: String? = createTaskViewModel.selectedMemberId
-        
-        if createTaskViewModel.selectedMemberId == "" {
-            selectedMemberId = nil
-        }
-        
-        let dto = CreateTaskDTO(
-            userId: selectedMemberId,
-            accessCode: createTaskViewModel.seletectedWorkspace.accessCode,
-            title: createTaskViewModel.taskTitle,
-            description: createTaskViewModel.taskDescription,
-            stats: createTaskViewModel.selectedStatus.rawValue,
-            type: createTaskViewModel.categorySelection.rawValue,
-            endDate: "\(createTaskViewModel.deadLineSelection)",
-            priority: createTaskViewModel.prioritySelection.rawValue,
-            docTemplate: template.devTemplate
-        )
-        
-        TaskDataService.shared.createTask(dto: dto, userId: AuthenticationManager.shared.user!.id, workspaceId: createTaskViewModel.seletectedWorkspace.id)
+        createTaskViewModel.createTask()
         createTaskViewModel.showPopUp.toggle()
     }
 }

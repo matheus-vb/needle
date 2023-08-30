@@ -19,7 +19,7 @@ extension EditTaskPopUP{
     var deadLine: some View{
         HStack(spacing: 24){
             LabelComponent(imageName: "calendar", label: "Prazo")
-            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
+            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                 Text("Select a date")
             }
             .labelsHidden()
@@ -85,7 +85,7 @@ extension EditTaskPopUP{
                 .background(Color.clear)
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-                .frame(minHeight: 120)
+                .frame(minHeight: 20)
         }
     }
     
@@ -141,22 +141,16 @@ extension EditTaskPopUP{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            ScrollView{
-                description
-                textEditor
-                HStack{
-                    Spacer()
-                    saveTask
-                }
+            description
+            Spacer()
+            DashedButton(text: "Visualizar documentação", onButtonTapped: openDocumentation)
+            Spacer()
+            HStack{
+                Spacer()
+                saveTask
             }
         }
         .frame(minHeight: geometry.size.height - 128)
-    }
-    
-    var textEditor: some View {
-        EditDocumentationView(documentation: $editTaskViewModel.documentationString)
-            .foregroundColor(.white)
-            .background(.black)
     }
     var saveTask: some View{
         HStack{
@@ -170,12 +164,13 @@ extension EditTaskPopUP{
     }
     
     
-    
     func saveTaskButton(){
-        let currDto = editTaskViewModel.dto
-        print(editTaskViewModel.dto)
-        
-        TaskDataService.shared.saveTask(dto: currDto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+        let currDto = editTaskViewModel.dto        
+        TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
         editTaskViewModel.isEditing.toggle()
+    }
+    
+    func openDocumentation(){
+        editTaskViewModel.seeDocumentation.toggle()
     }
 }

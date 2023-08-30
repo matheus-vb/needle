@@ -31,6 +31,7 @@ class EditTaskViewModel<D: DocumentationDataServiceProtocol & ObservableObject, 
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
     @Published var isDeleting: Bool = false
+    @Published var seeDocumentation: Bool = false
     var dto: SaveTaskDTO
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, documentationDS: D, taskDS: T) {
@@ -97,12 +98,6 @@ class EditTaskViewModel<D: DocumentationDataServiceProtocol & ObservableObject, 
                 self?.dto.endDate = "\(deadLineSelection)"
                 self?.dto.priority = prioritySelection.rawValue
                 print(documentationString.string)
-                print(self?.dto.textString)
-                
-                if (documentationString.string == self?.dto.textString) {
-                    return
-                }
-                
                 do {
                     self?.dto.textString = documentationString.string
                     let data = try documentationString.richTextData(for: .rtf)

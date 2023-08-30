@@ -13,8 +13,11 @@ struct DocumentationView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    init(workspaceId: String, documentId: String, documentationData: String) {
-        self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, documentationData: documentationData, docDS: DocumentationDataService.shared)
+    @Binding var documentationNS: NSAttributedString
+    
+    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>) {
+        self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
+        self._documentationNS = documentationNS
     }
     
     var body: some View {
@@ -31,7 +34,7 @@ struct DocumentationView: View {
     }
     
     var editor: some View {
-        RichTextEditor(text: $documentationViewModel.documentationNS, context: documentationViewModel.context) {
+        RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
                 $0.textContentInset = CGSize(width: 10, height: 20)
             }
         .focusedValue(\.richTextContext, documentationViewModel.context)
@@ -42,12 +45,6 @@ struct DocumentationView: View {
                 RichTextFormatSidebar(context: documentationViewModel.context)
                     .layoutPriority(-1)
                     .foregroundColor(Color.theme.blackMain)
-                Button(action: {
-                    documentationViewModel.updateDoc()
-                    dismiss()
-                }, label: {
-                    Text("Atualizar")
-                })
             }
         }
         
