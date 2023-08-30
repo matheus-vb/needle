@@ -60,4 +60,41 @@ class KanbanViewModel<
     func updateTaskStatus(taskId: String, status: TaskStatus) {
         taskDS.updateTaskStatus(taskId: taskId, status: status, userId: userID, workspaceId: selectedWorkspace.id)
     }
+    
+    func addItem(currentlyDragging: String, status: TaskStatus) {
+        if let sourceIndex = self.localTasks.firstIndex(where: {
+            $0.id == currentlyDragging
+        }){
+            var sourceItem = self.localTasks.remove(at: sourceIndex)
+            sourceItem.status = status
+            self.localTasks.append(sourceItem)
+            self.updateTaskStatus(taskId: currentlyDragging, status: status)
+        }
+    }
+    
+    func swapItem(droppingTask: TaskModel, currentlyDragging: String) {
+        if let sourceIndex = self.localTasks.firstIndex(where: {
+            $0.id == currentlyDragging
+        }), let destinationIndex = self.localTasks.firstIndex(where: {
+            $0.id == droppingTask.id
+        }) {
+            var sourceItem = self.localTasks.remove(at: sourceIndex)
+            sourceItem.status = droppingTask.status
+            self.localTasks.insert(sourceItem, at: destinationIndex)
+            self.updateTaskStatus(taskId: currentlyDragging, status: droppingTask.status)
+        }
+    }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return Color.theme.redMain
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
+    }
 }
