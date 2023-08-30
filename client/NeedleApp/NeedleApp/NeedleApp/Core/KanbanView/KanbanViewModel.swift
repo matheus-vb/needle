@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 
-class KanbanViewModel: ObservableObject {
+class KanbanViewModel<
+    T: TaskDataServiceProtocol & ObservableObject
+>: ObservableObject {
+    @AppStorage("userID") var userID: String = "Default User"
     @Published var localTasks: [TaskModel]
     
     @Published var somethingBeingDragged = false
@@ -28,7 +31,9 @@ class KanbanViewModel: ObservableObject {
     
     let selectedWorkspace: Workspace
     
-    init(localTasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
+    private var taskDS: T
+    
+    init(localTasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, taskDS: T) {
         self.localTasks = localTasks
         self.role = role
         self._selectedColumn = selectedColumn
@@ -37,6 +42,7 @@ class KanbanViewModel: ObservableObject {
         self.selectedWorkspace = selectedWorkspace
         self._selectedTask = selectedTask
         self._isEditing = isEditing
+        self.taskDS = taskDS
     }
     
     func presentCard() {
@@ -48,6 +54,47 @@ class KanbanViewModel: ObservableObject {
                 
                 self.showCard = false
             }
+        }
+    }
+    
+    func updateTaskStatus(taskId: String, status: TaskStatus) {
+        taskDS.updateTaskStatus(taskId: taskId, status: status, userId: userID, workspaceId: selectedWorkspace.id)
+    }
+    
+    func addItem(currentlyDragging: String, status: TaskStatus) {
+        if let sourceIndex = self.localTasks.firstIndex(where: {
+            $0.id == currentlyDragging
+        }){
+            var sourceItem = self.localTasks.remove(at: sourceIndex)
+            sourceItem.status = status
+            self.localTasks.append(sourceItem)
+            self.updateTaskStatus(taskId: currentlyDragging, status: status)
+        }
+    }
+    
+    func swapItem(droppingTask: TaskModel, currentlyDragging: String) {
+        if let sourceIndex = self.localTasks.firstIndex(where: {
+            $0.id == currentlyDragging
+        }), let destinationIndex = self.localTasks.firstIndex(where: {
+            $0.id == droppingTask.id
+        }) {
+            var sourceItem = self.localTasks.remove(at: sourceIndex)
+            sourceItem.status = droppingTask.status
+            self.localTasks.insert(sourceItem, at: destinationIndex)
+            self.updateTaskStatus(taskId: currentlyDragging, status: droppingTask.status)
+        }
+    }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return Color.theme.redMain
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
         }
     }
 }

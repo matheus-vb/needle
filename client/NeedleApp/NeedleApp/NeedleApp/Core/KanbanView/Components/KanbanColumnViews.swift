@@ -47,7 +47,7 @@ extension KanbanView {
             kanbanViewModel.currentlyDragging = items.first
             
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: status)
+                kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: status)
             }
             return false
         } isTargeted: { status in
