@@ -19,7 +19,7 @@ extension EditTaskPopUP{
     var deadLine: some View{
         HStack(spacing: 24){
             LabelComponent(imageName: "calendar", label: "Prazo")
-            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
+            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                 Text("Select a date")
             }
             .labelsHidden()
