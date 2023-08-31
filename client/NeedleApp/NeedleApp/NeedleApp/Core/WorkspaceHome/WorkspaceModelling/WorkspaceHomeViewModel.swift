@@ -81,7 +81,7 @@ class WorkspaceHomeViewModel<
         else {
             var newSearchResults: [Workspace] = []
             newSearchResults = searchResults.filter {
-                $0.name.contains(query)
+                $0.name.lowercased().contains(query.lowercased())
             }
             searchResults = newSearchResults
         }
