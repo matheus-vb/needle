@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Firebase
 
 struct WorkspaceHomeView: View {
     @ObservedObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
@@ -24,6 +25,7 @@ struct WorkspaceHomeView: View {
         GridItem(.flexible(), spacing: 24),
         GridItem(.flexible(), spacing: 24)
     ]
+
 
             
             var myProjects: some View {
