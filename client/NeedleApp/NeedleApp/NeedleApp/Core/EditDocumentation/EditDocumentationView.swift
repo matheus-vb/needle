@@ -16,8 +16,7 @@ struct EditDocumentationView: View {
     @State var data = Data()
     @State var saved : String = ""
     
-    @State var selectedOption = "Descrição"
-        
+    @State var selectedOption = NSLocalizedString("Descrição", comment: "")
     var body: some View {
         
         VStack(alignment: .leading){

@@ -31,6 +31,7 @@ class EditTaskViewModel<D: DocumentationDataServiceProtocol & ObservableObject, 
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
     @Published var isDeleting: Bool = false
+    @Published var seeDocumentation: Bool = false
     var dto: SaveTaskDTO
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, documentationDS: D, taskDS: T) {
@@ -96,10 +97,9 @@ class EditTaskViewModel<D: DocumentationDataServiceProtocol & ObservableObject, 
                 self?.dto.type = categorySelection.rawValue
                 self?.dto.endDate = "\(deadLineSelection)"
                 self?.dto.priority = prioritySelection.rawValue
-                self?.dto.textString = documentationString.string
                 print(documentationString.string)
-                print(self?.dto.textString)
                 do {
+                    self?.dto.textString = documentationString.string
                     let data = try documentationString.richTextData(for: .rtf)
                     let encodedData = data.base64EncodedString(options: .lineLength64Characters)
                     self?.dto.text = encodedData

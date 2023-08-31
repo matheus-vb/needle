@@ -18,9 +18,9 @@ extension CreateTaskPopUp{
     }
     var deadLine: some View{
         HStack(spacing: 24){
-            LabelComponent(imageName: "calendar", label: "Prazo")
+            LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
             DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
-                Text("Select a date")
+                Text("Selecione uma data")
             }
             .labelsHidden()
             Spacer()
@@ -31,7 +31,7 @@ extension CreateTaskPopUp{
     
     var responsible: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "person.fill", label: "Responsável")
+            LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
             Picker("Área",selection: $createTaskViewModel.selectedMemberId){
                 ForEach(createTaskViewModel.members) { membro in
                     Text(membro.name)
@@ -47,8 +47,8 @@ extension CreateTaskPopUp{
         
     var type: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "shippingbox", label:"Área")
-            Picker("Área",selection: $createTaskViewModel.categorySelection){
+            LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
+            Picker(NSLocalizedString("Área", comment: ""),selection: $createTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain)
@@ -62,8 +62,8 @@ extension CreateTaskPopUp{
     
     var priority: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "flag.fill", label: "Prioridade")
-            Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
+            LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
+            Picker(NSLocalizedString("Prioridade", comment: ""),selection: $createTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
                         .foregroundColor(Color.theme.blackMain)
@@ -150,25 +150,7 @@ extension CreateTaskPopUp{
     }
     
     func createTaskButton(){
-        var selectedMemberId: String? = createTaskViewModel.selectedMemberId
-        
-        if createTaskViewModel.selectedMemberId == "" {
-            selectedMemberId = nil
-        }
-        
-        let dto = CreateTaskDTO(
-            userId: selectedMemberId,
-            accessCode: createTaskViewModel.seletectedWorkspace.accessCode,
-            title: createTaskViewModel.taskTitle,
-            description: createTaskViewModel.taskDescription,
-            stats: createTaskViewModel.selectedStatus.rawValue,
-            type: createTaskViewModel.categorySelection.rawValue,
-            endDate: "\(createTaskViewModel.deadLineSelection)",
-            priority: createTaskViewModel.prioritySelection.rawValue,
-            docTemplate: template.devTemplate
-        )
-        
-        TaskDataService.shared.createTask(dto: dto, userId: AuthenticationManager.shared.user!.id, workspaceId: createTaskViewModel.seletectedWorkspace.id)
+        createTaskViewModel.createTask()
         createTaskViewModel.showPopUp.toggle()
     }
 }

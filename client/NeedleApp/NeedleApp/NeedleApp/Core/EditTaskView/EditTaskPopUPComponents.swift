@@ -18,9 +18,9 @@ extension EditTaskPopUP{
     }
     var deadLine: some View{
         HStack(spacing: 24){
-            LabelComponent(imageName: "calendar", label: "Prazo")
+            LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
-                Text("Select a date")
+                Text("Selecione uma data")
             }
             .labelsHidden()
             Spacer()
@@ -31,7 +31,7 @@ extension EditTaskPopUP{
     
     var responsible: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "person.fill", label: "Responsável")
+            LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
             Picker("Área",selection: $editTaskViewModel.dto.userId){
                 ForEach(editTaskViewModel.members) {membro in
                     Text(membro.name)
@@ -47,7 +47,7 @@ extension EditTaskPopUP{
         
     var type: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "shippingbox", label:"Área")
+            LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
             Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
@@ -62,7 +62,7 @@ extension EditTaskPopUP{
     
     var priority: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "flag.fill", label: "Prioridade")
+            LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
@@ -85,7 +85,7 @@ extension EditTaskPopUP{
                 .background(Color.clear)
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-                .frame(minHeight: 120)
+                .frame(minHeight: 20)
         }
     }
     
@@ -141,27 +141,21 @@ extension EditTaskPopUP{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            ScrollView{
-                description
-                textEditor
-                HStack{
-                    Spacer()
-                    saveTask
-                }
+            description
+            Spacer()
+            DashedButton(text: NSLocalizedString("Visualizar documentação", comment: ""), onButtonTapped: openDocumentation)
+            Spacer()
+            HStack{
+                Spacer()
+                saveTask
             }
         }
         .frame(minHeight: geometry.size.height - 128)
     }
-    
-    var textEditor: some View {
-        EditDocumentationView(documentation: $editTaskViewModel.documentationString)
-            .foregroundColor(.white)
-            .background(.black)
-    }
     var saveTask: some View{
         HStack{
-            PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)
-            PopUpButton(text: "Salvar", onButtonTapped: saveTaskButton)
+            PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: cancelButton)
+            PopUpButton(text: NSLocalizedString("Salvar", comment: ""), onButtonTapped: saveTaskButton)
         }
     }
     
@@ -170,12 +164,13 @@ extension EditTaskPopUP{
     }
     
     
-    
     func saveTaskButton(){
-        let currDto = editTaskViewModel.dto
-        print(editTaskViewModel.dto)
-        
-        TaskDataService.shared.saveTask(dto: currDto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+        let currDto = editTaskViewModel.dto        
+        TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
         editTaskViewModel.isEditing.toggle()
+    }
+    
+    func openDocumentation(){
+        editTaskViewModel.seeDocumentation.toggle()
     }
 }

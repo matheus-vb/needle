@@ -20,7 +20,7 @@ extension KanbanView {
                     Spacer()
                     Image(systemName: "flag.fill")
                         .font(Font.custom("SF Pro", size: 12))
-                        .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
+                        .foregroundColor(kanbanViewModel.getPriorityFlagColor(priority: task.taskPriority))
                 }
                 Text(task.user?.name ?? "Sem nome")
                     .font(Font.custom("SF Pro", size: 12))
@@ -63,7 +63,7 @@ extension KanbanView {
             
             if kanbanViewModel.localTasks.first(where: { $0.id == kanbanViewModel.currentlyDragging }) != nil {
                 withAnimation(.easeIn) {
-                    swapItem(droppingTask: task, currentlyDragging: kanbanViewModel.currentlyDragging ?? "")
+                    kanbanViewModel.swapItem(droppingTask: task, currentlyDragging: kanbanViewModel.currentlyDragging ?? "")
                 }
             }
             

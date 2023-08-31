@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService>
     
     init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -18,7 +18,8 @@ struct SearchDocuments: View {
             tasks: tasks ?? [],
             workspaceId: workspaceId,
             selectedTask: selectedTask,
-            isEditing: isEditing
+            isEditing: isEditing,
+            taskDS: TaskDataService.shared
         )
     }
     
@@ -42,7 +43,7 @@ struct SearchDocuments: View {
                 //TODO: Add date to query
                 
                 Group {
-                    TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
+                    TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
                         .frame(width: 320, height: 32)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: {
@@ -56,8 +57,8 @@ struct SearchDocuments: View {
             .padding(.top, 10)
             
             Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTaskID, sortOrder: $searchDocumentsViewModel.sortOrder){
-                TableColumn("Nome da Task", value: \.title)
-                TableColumn("Prioridade", value: \.taskPriority.order ){
+                TableColumn(NSLocalizedString("Nome da Task", comment: ""), value: \.title)
+                TableColumn(NSLocalizedString("Prioridade", comment: ""), value: \.taskPriority.order ){
                     switch $0.taskPriority{
                     case .LOW:
                         Text($0.taskPriority.displayName)

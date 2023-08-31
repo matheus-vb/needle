@@ -48,7 +48,7 @@ extension KanbanView {
             kanbanViewModel.currentlyDragging = items.first
             
             withAnimation(.easeIn) {
-                addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: status)
+                kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: status)
             }
             Analytics.logEvent(K.movedTask.rawValue, parameters: nil)
             return false
