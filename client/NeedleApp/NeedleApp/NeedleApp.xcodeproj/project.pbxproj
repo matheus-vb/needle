@@ -57,6 +57,7 @@
 		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
 		27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */; };
 		27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F32F9D2A81729D0046CB62 /* PopUpButton.swift */; };
+		446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */; };
 		44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06302A82E69200386ADE /* SearchDocuments.swift */; };
 		44FE06332A82E71800386ADE /* PickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06322A82E71800386ADE /* PickerApp.swift */; };
 		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
@@ -257,6 +258,7 @@
 		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUPComponents.swift; sourceTree = "<group>"; };
 		27F32F9D2A81729D0046CB62 /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
+		446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMembersButton.swift; sourceTree = "<group>"; };
 		44FE06302A82E69200386ADE /* SearchDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocuments.swift; sourceTree = "<group>"; };
 		44FE06322A82E71800386ADE /* PickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerApp.swift; sourceTree = "<group>"; };
 		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
@@ -825,6 +827,7 @@
 				8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */,
 				8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */,
 				8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */,
+				446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1146,6 +1149,8 @@
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
 				86E6FF162A840B3E00BB5D9F /* AppView.swift in Sources */,
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
+				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
+				446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 				86EFD0932A958B8B00F8168A /* SheetViewModel.swift in Sources */,
 				86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */,
