@@ -90,7 +90,7 @@ class KanbanViewModel<
         case .HIGH:
             return Color.theme.redMain
         case .VERY_HIGH:
-            return Color.theme.redMain
+            return .purple
         case .MEDIUM:
             return Color.theme.orangeKanban
         case .LOW:

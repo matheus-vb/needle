@@ -15,7 +15,12 @@ enum TaskStatus: String, CaseIterable, Codable {
     case NOT_VISIBLE = "NOT_VISIBLE"
     
     var displayName: String {
-        return formatUpperCase(rawValue)
+            if self == .TODO {
+                return "To Do"
+            }
+            else {
+                return formatUpperCase(rawValue)
+            }
     }
     
     var order: Int {

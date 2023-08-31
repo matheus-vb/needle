@@ -10,6 +10,7 @@ import SwiftUI
 struct DashedButton: View {
     let text: String
     @State var onHover = false
+    var isWorkspace: Bool = false
     var onButtonTapped: () -> Void
     var body: some View {
         Button(action: {
@@ -23,7 +24,7 @@ struct DashedButton: View {
                 )
                 .foregroundColor(.black)
             }
-            .frame(width: 256, height: 48, alignment: .center)
+            .frame(width: isWorkspace ? 168 : 256, height: 48, alignment: .center)
             .background(onHover ?  Color.theme.greenTertiary :  Color.theme.greenSecondary)
             .cornerRadius(6)
             .overlay(

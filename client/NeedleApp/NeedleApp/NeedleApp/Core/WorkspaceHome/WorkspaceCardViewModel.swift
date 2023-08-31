@@ -36,4 +36,5 @@ class WorkspaceCardViewModel<
         taskDS.getWorkspaceTasks(userId: authManager.user!.id, workspaceId: self.workspace.id)
         workspaceDS.getWorkspaceMembers(workspaceId: self.workspace.id)
     }
+    
 }
