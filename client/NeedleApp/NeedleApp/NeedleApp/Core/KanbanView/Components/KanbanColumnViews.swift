@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 extension KanbanView {
     
@@ -49,6 +50,7 @@ extension KanbanView {
             withAnimation(.easeIn) {
                 kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: status)
             }
+            Analytics.logEvent(K.movedTask.rawValue, parameters: nil)
             return false
         } isTargeted: { status in
         }

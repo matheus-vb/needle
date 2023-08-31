@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import Firebase
 
 @main
 struct NeedleAppApp: App {
@@ -37,6 +38,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
     }
     
     func application(_ application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
