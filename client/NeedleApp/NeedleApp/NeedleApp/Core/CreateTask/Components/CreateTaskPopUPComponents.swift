@@ -79,14 +79,15 @@ extension CreateTaskPopUp{
         VStack(alignment: .leading ,spacing: 12){
             Text("Descrição")
                 .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.blackMain)
+                .foregroundColor(Color.theme.grayPressed)
+                .offset(x: 4)
             ZStack {
                 if createTaskViewModel.taskDescription == "" {
                     TextEditor(text:$createTaskViewModel.taskDescriptionPlaceHolder)
                         .scrollContentBackground(.hidden)
                         .background(Color.clear)
                         .font(.system(size: 20, weight: .regular))
-                        .foregroundColor(Color.theme.grayPressed)
+                        .foregroundColor(Color.theme.blackMain)
                 }
                 TextEditor(text: $createTaskViewModel.taskDescription)
                     .scrollContentBackground(.hidden)
