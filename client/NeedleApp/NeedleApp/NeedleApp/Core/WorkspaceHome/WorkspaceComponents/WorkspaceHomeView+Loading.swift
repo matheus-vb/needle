@@ -18,10 +18,10 @@ extension WorkspaceHomeView {
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)
                 .frame(width: 50, height: 50)
-                .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                .rotationEffect(.degrees(workspaceViewModel.isAnimating ? 360 : 0))
                 .onAppear() {
                     withAnimation (.linear(duration: 1).repeatForever(autoreverses: false)) {
-                        self.isAnimating.toggle()
+                        workspaceViewModel.isAnimating.toggle()
                     }
                 }
         }

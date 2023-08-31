@@ -11,9 +11,7 @@ import CoreData
 struct WorkspaceHomeView: View {
     @ObservedObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
 //    @ObservedObject var searchViewModel: SearchWorkspaceModel
-    
-    @State var isAnimating = true
-    
+        
     init() {
         self.workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
 //        self.searchViewModel = SearchWorkspaceModel(workspaceViewModel: workspaceViewModel)

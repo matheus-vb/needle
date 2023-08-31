@@ -16,7 +16,7 @@ enum TaskStatus: String, CaseIterable, Codable {
     
     var displayName: String {
             if self == .TODO {
-                return "TO-DO"
+                return "To Do"
             }
             else {
                 return formatUpperCase(rawValue)
