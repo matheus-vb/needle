@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Firebase
 
 struct WorkspaceHomeView: View {
     @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
@@ -24,9 +25,11 @@ struct WorkspaceHomeView: View {
             HStack(spacing: 32) {
                 Button("+ Criar novo workspace"){
                     workspaceViewModel.isNaming.toggle()
+                    Analytics.logEvent(K.createWorkspaceTapped.rawValue, parameters: nil)
                 }.buttonStyle(AddWorkspaceButton())
                 Button(action: {
                     workspaceViewModel.isJoining.toggle()
+                    Analytics.logEvent(K.joinWorkspaceTapped.rawValue, parameters: nil)
                 }, label: {
                     HStack {
                         Image(systemName: "personalhotspot")

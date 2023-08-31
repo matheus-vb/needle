@@ -16,6 +16,7 @@ extension KanbanView {
             Analytics.logEvent(K.tapAddTask.rawValue, parameters: nil)
             
             if status == .DONE && kanbanViewModel.role != Role.PRODUCT_MANAGER {
+                Analytics.logEvent(K.nonPMTriedToAddConcluded.rawValue, parameters: nil)
                 return
             }
             

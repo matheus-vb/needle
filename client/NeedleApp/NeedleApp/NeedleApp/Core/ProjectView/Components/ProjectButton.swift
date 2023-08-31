@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import Firebase
 
 struct ProjectButton: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
@@ -29,6 +30,7 @@ struct ProjectButton: View {
                     projectViewModel.triggerLoading = false
                 }
             }
+            Analytics.logEvent(K.changeWorkspace.rawValue, parameters: nil)
         }, label:{
             HStack{
                 Text("\(project.name)")

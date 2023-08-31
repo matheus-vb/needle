@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct CopyClipboardButton: View {
     
@@ -32,6 +33,7 @@ struct CopyClipboardButton: View {
                 await setTimer()
 
             }
+            Analytics.logEvent(K.copiedJoinCode.rawValue, parameters: nil)
         }, label:{
             HStack{
                 Spacer()

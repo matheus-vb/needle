@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 class KanbanViewModel<
     T: TaskDataServiceProtocol & ObservableObject
@@ -79,6 +80,11 @@ class KanbanViewModel<
             $0.id == droppingTask.id
         }) {
             var sourceItem = self.localTasks.remove(at: sourceIndex)
+            if sourceItem.status != droppingTask.status {
+                Analytics.logEvent(K.changedTaskStatus.rawValue, parameters: ["From" : sourceItem.status.rawValue, "To" : droppingTask.status.rawValue])
+            } else {
+                Analytics.logEvent(K.movedTask.rawValue, parameters: nil)
+            }
             sourceItem.status = droppingTask.status
             self.localTasks.insert(sourceItem, at: destinationIndex)
             self.updateTaskStatus(taskId: currentlyDragging, status: droppingTask.status)

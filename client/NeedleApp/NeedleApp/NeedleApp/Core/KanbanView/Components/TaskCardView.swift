@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 
 extension KanbanView {
     @ViewBuilder
@@ -66,8 +65,6 @@ extension KanbanView {
                     kanbanViewModel.swapItem(droppingTask: task, currentlyDragging: kanbanViewModel.currentlyDragging ?? "")
                 }
             }
-            
-            Analytics.logEvent(K.movedTask.rawValue, parameters: nil)
             
             kanbanViewModel.currentlyDragging = ""
             
