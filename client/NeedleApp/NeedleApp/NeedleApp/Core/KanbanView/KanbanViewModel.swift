@@ -20,6 +20,12 @@ class KanbanViewModel<
     @Published var currentlyTarget: String?
     @Published var isDeleting = false
     @Published var isArchiving = false
+    @Published var showEditTaskPopUP: Bool = false
+    
+    @Published var taskType: TaskType? = nil
+    @Published var taskPriority: TaskPriority? = nil
+    @Published var searchText: String? = nil
+
     
     @Binding var selectedTask: TaskModel?
     
