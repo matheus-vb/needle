@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct KanbanView: View {
-<<<<<<< HEAD
     @ObservedObject var kanbanViewModel: KanbanViewModel<TaskDataService>
     
     init(tasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
@@ -25,14 +24,6 @@ struct KanbanView: View {
             taskDS: .shared
         )
     }
-=======
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    
-    @State var currentlyDragging : String?
-    @State var isDeleting = false
-    @State var isArchiving = false
->>>>>>> ef5e5dc4b23e2ae42ac4e2dbc9c17140fca65abe
     
     @State var taskType: TaskType? = nil
     @State var taskPriority: TaskPriority? = nil
@@ -46,19 +37,11 @@ struct KanbanView: View {
                 .frame(maxWidth: 2000, alignment: .bottomTrailing)
             VStack{
                 HStack{
-<<<<<<< HEAD
                     DropdownTypeButton(taskType: $kanbanViewModel.taskType, dropOptions: TaskType.allCases) {}
                     DropdownPriorityButton(taskPriority: $kanbanViewModel.taskPriority, dropOptions: TaskPriority.allCases) {}
                     Spacer()
                     Group {
                         TextField("Procurar por nome, descrição, responsável...", text: $kanbanViewModel.searchText ?? "")
-=======
-                    DropdownTypeButton(taskType: $taskType, dropOptions: TaskType.allCases) {}
-                    DropdownPriorityButton(taskPriority: $taskPriority, dropOptions: TaskPriority.allCases) {}
-                    Spacer()
-                    Group {
-                        TextField("Procurar por nome, descrição, responsável...", text: $searchText ?? "")
->>>>>>> ef5e5dc4b23e2ae42ac4e2dbc9c17140fca65abe
                             .frame(width: 320, height: 32)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .onSubmit {
