@@ -27,7 +27,6 @@ struct SearchDocuments: View {
         VStack {
             
             HStack(spacing: 16) {
-<<<<<<< HEAD
                 DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
 
                 }
@@ -42,13 +41,6 @@ struct SearchDocuments: View {
 
                 Spacer()
                 //TODO: Add date to query
-=======
-                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){}
-                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {}
-                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {}
-
-                Spacer()
->>>>>>> ef5e5dc4b23e2ae42ac4e2dbc9c17140fca65abe
                 
                 Group {
                     TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
