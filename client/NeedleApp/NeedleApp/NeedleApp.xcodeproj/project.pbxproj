@@ -282,6 +282,7 @@
 		86503D162A85604B001D26EE /* String+LowercaseFirstChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LowercaseFirstChar.swift"; sourceTree = "<group>"; };
 		867E70D62A9FCE8A0028989F /* TaskDataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataServiceMock.swift; sourceTree = "<group>"; };
 		867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModelTests.swift; sourceTree = "<group>"; };
+		867E70E12AA136530028989F /* NeedleApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NeedleApp.xctestplan; sourceTree = "<group>"; };
 		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
 		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
@@ -398,6 +399,7 @@
 		274A27EB2A719F6C0002CFEA = {
 			isa = PBXGroup;
 			children = (
+				867E70E12AA136530028989F /* NeedleApp.xctestplan */,
 				272B4D422A9FBA5100DC2CFE /* Localizable.strings */,
 				274A27F62A719F6C0002CFEA /* NeedleApp */,
 				274A28082A719F6E0002CFEA /* NeedleAppTests */,
@@ -1368,7 +1370,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1382,7 +1384,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1400,7 +1402,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QJZZNXUZ63;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
