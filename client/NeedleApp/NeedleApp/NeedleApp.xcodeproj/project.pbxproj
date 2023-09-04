@@ -155,6 +155,7 @@
 		86EFD0952A959E3800F8168A /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0942A959E3800F8168A /* RoleResponse.swift */; };
 		8A1D725F2A8565FC005D93B4 /* CopyClipboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */; };
 		8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F08552A81C8B70059F848 /* CustomFonts.swift */; };
+		8A63FE002AA66A0200512E1D /* InformationPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A63FDFF2AA66A0200512E1D /* InformationPageViewModel.swift */; };
 		8A7259B82A7AEE2800F2CF74 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */; };
 		8A76DFCE2A8281A30044189B /* SpaceGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A76DFC92A8281A20044189B /* SpaceGrotesk-SemiBold.ttf */; };
 		8A76DFCF2A8281A30044189B /* SpaceGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A76DFCA2A8281A20044189B /* SpaceGrotesk-Bold.ttf */; };
@@ -165,6 +166,7 @@
 		8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD52A82E6BC0044189B /* DropdownButton.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
+		8AA46EC22AA267380001BE9D /* InformationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA46EC12AA267380001BE9D /* InformationPageView.swift */; };
 		8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */; };
 		8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */; };
 		8AC2A2E32A8470FB00C6CCF8 /* DropdownStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */; };
@@ -324,6 +326,7 @@
 		86EFD0942A959E3800F8168A /* RoleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleResponse.swift; sourceTree = "<group>"; };
 		8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyClipboardButton.swift; sourceTree = "<group>"; };
 		8A2F08552A81C8B70059F848 /* CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		8A63FDFF2AA66A0200512E1D /* InformationPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPageViewModel.swift; sourceTree = "<group>"; };
 		8A7259B72A7AEE2800F2CF74 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		8A76DFC92A8281A20044189B /* SpaceGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		8A76DFCA2A8281A20044189B /* SpaceGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpaceGrotesk-Bold.ttf"; sourceTree = "<group>"; };
@@ -334,6 +337,7 @@
 		8A76DFD52A82E6BC0044189B /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
+		8AA46EC12AA267380001BE9D /* InformationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPageView.swift; sourceTree = "<group>"; };
 		8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedSmallerButton.swift; sourceTree = "<group>"; };
 		8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownDateButton.swift; sourceTree = "<group>"; };
 		8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownStatusButton.swift; sourceTree = "<group>"; };
@@ -559,6 +563,7 @@
 				649B45412A7D79C300F8F54B /* KanbanView */,
 				D445C8CE2A7AF3C60089481D /* NotificationBar */,
 				D4E40A792A72EBC300B47A07 /* WorkspaceHome */,
+				8AA46EC02AA2671B0001BE9D /* InformationView */,
 				27B795F52A7C2D1400FDA10F /* ProjectView */,
 				868604E82A7C2AAA001D9213 /* Root */,
 				8AD0B4282A7C1FEE00F24296 /* OnboardingView */,
@@ -813,6 +818,15 @@
 			path = EditDocumentation;
 			sourceTree = "<group>";
 		};
+		8AA46EC02AA2671B0001BE9D /* InformationView */ = {
+			isa = PBXGroup;
+			children = (
+				8AA46EC12AA267380001BE9D /* InformationPageView.swift */,
+				8A63FDFF2AA66A0200512E1D /* InformationPageViewModel.swift */,
+			);
+			path = InformationView;
+			sourceTree = "<group>";
+		};
 		8AA87FE52A83FE32007DFEB5 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,6 +1056,7 @@
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
+				8AA46EC22AA267380001BE9D /* InformationPageView.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				86503D0A2A846092001D26EE /* OperatorOverload.swift in Sources */,
 				27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */,
@@ -1078,6 +1093,7 @@
 				868604EE2A7C3191001D9213 /* WorkspacesResponse.swift in Sources */,
 				64C0021B2A8D4D3B0058D72E /* Modifiers.swift in Sources */,
 				868604EC2A7C3053001D9213 /* WorkspaceDataService.swift in Sources */,
+				8A63FE002AA66A0200512E1D /* InformationPageViewModel.swift in Sources */,
 				274A27F82A719F6C0002CFEA /* NeedleAppApp.swift in Sources */,
 				27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */,
 				8A1D725F2A8565FC005D93B4 /* CopyClipboardButton.swift in Sources */,
@@ -1363,7 +1379,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1377,7 +1393,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
