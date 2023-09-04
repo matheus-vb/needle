@@ -12,7 +12,7 @@ struct Information: Identifiable {
     let name : String
     let area: String
     let last_access: String
-    let status: String
+    let status: Bool
 }
 
 struct RoleCardInformationPageView: View {
@@ -73,25 +73,25 @@ struct OtherCardInformationPageView: View {
 
 struct InformationPageView: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService>
-
-    init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
-
-        self.searchDocumentsViewModel = SearchDocumentsViewModel(
-            tasks: tasks ?? [],
-            workspaceId: workspaceId,
-            selectedTask: selectedTask,
-            isEditing: isEditing,
-            taskDS: TaskDataService.shared
-        )
-    }
+//    @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService>
+//
+//    init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
+//
+//        self.informationPageViewModel = InformationPageViewModel(
+//            tasks: tasks ?? [],
+//            workspaceId: workspaceId,
+//            selectedTask: selectedTask,
+//            isEditing: isEditing,
+//            taskDS: TaskDataService.shared
+//        )
+//    }
     
     
     @State private var informations :  [Information] = [
-        Information(name: "A", area: "A", last_access: "A", status: "A"),
-        Information(name: "D", area: "B", last_access: "B", status: "B"),
-        Information(name: "C", area: "C", last_access: "C", status: "C"),
-        Information(name: "D", area: "D", last_access: "D", status: "D")
+        Information(name: "A", area: "A", last_access: "A", status: true),
+        Information(name: "D", area: "B", last_access: "B", status: false),
+        Information(name: "C", area: "C", last_access: "C", status: false),
+        Information(name: "D", area: "D", last_access: "D", status: true)
     ]
     
     @State var showOn : Bool = true
@@ -101,7 +101,7 @@ struct InformationPageView: View {
         
         VStack(alignment: .leading){
             HStack{
-                Text("Projeto \(9)")
+                Text("Projeto Algum Projeto")
                     .font(.system(size: 40))
                     .fontWeight(.bold)
                     .padding(.vertical, 40)
@@ -139,12 +139,19 @@ struct InformationPageView: View {
                 TableColumn("Nome", value: \.name)
                 TableColumn("Área", value: \.area)
                 TableColumn("Último acesso", value: \.last_access)
-                TableColumn("Status"){
-                    Text("\($0.status)")
+                TableColumn("Enabled") { mod in
+                   Toggle("", isOn: Binding<Bool>(
+                      get: {
+                         return mod.isEnabled
+                      },
+                      set: {
+//                         mod.isEnabled = $0 <-- ERROR HERE
+                      }
+                   ))
                 }
             }
             
-        }
+        }.padding()
     }
 }
 

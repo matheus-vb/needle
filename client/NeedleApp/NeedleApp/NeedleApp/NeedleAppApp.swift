@@ -16,7 +16,7 @@ struct NeedleAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
+            InformationPageView()
                 .frame(minWidth: 1100, minHeight: 600)
                 .preferredColorScheme(.light)
                 .ignoresSafeArea(.all)
