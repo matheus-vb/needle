@@ -32,6 +32,7 @@ extension WorkspaceHomeView {
                             )
                     })
                     .buttonStyle(.plain)
+                    .keyboardShortcut(workspaceViewModel.selectedTab == .myWorkspaces ? nil : KeyboardShortcut(.tab, modifiers: .control))
                     
                     Button(action: {
                         workspaceViewModel.selectedTab = .joinedWorkspaces
@@ -48,6 +49,7 @@ extension WorkspaceHomeView {
                             )
                     })
                     .buttonStyle(.plain)
+                    .keyboardShortcut(workspaceViewModel.selectedTab == .joinedWorkspaces ? nil : KeyboardShortcut(.tab, modifiers: .control))
                     Spacer()
                 }.padding(.leading, geometry.size.width * 0.17)
                     .padding(.top, geometry.size.width * 0.03)

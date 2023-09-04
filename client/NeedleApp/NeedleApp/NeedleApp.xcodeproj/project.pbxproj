@@ -1149,7 +1149,6 @@
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
 				86E6FF162A840B3E00BB5D9F /* AppView.swift in Sources */,
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
-				D45037A62A7AD3FA005B33A3 /* JoinWorkspaceButton.swift in Sources */,
 				446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 				86EFD0932A958B8B00F8168A /* SheetViewModel.swift in Sources */,

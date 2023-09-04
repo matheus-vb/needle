@@ -83,6 +83,7 @@ struct KanbanView: View {
         NavigationStack {
             VStack {
                 addTaskButton(status: TaskStatus.TODO)
+                    .keyboardShortcut("n", modifiers: .command)
                 Spacer()
                     .frame(height: 24)
                 ScrollView(.vertical) {
