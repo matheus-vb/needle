@@ -64,7 +64,7 @@ struct AddTaskButtonBackground: ViewModifier {
     }
 }
 
-struct GenericButtonBackground: ViewModifier {
+struct workspaceCardModifier: ViewModifier {
     let standardColor : Color
     let hoveredColor : Color
     @State var isHovered = false
@@ -79,6 +79,6 @@ struct GenericButtonBackground: ViewModifier {
                     isHovered = false
                 }
             }
-            .background(isHovered ? hoveredColor : standardColor)
+            .foregroundColor(isHovered ? hoveredColor : standardColor)
     }
 }
