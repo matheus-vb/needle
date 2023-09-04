@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "90C90F6C-972C-48FC-ABB6-EAB5C5ADF57B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:NeedleApp.xcodeproj",
+      "identifier" : "274A27F32A719F6C0002CFEA",
+      "name" : "NeedleApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NeedleApp.xcodeproj",
+        "identifier" : "274A28042A719F6E0002CFEA",
+        "name" : "NeedleAppTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NeedleApp.xcodeproj",
+        "identifier" : "274A280E2A719F6E0002CFEA",
+        "name" : "NeedleAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
