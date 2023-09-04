@@ -12,7 +12,7 @@ struct Information: Identifiable {
     let name : String
     let area: String
     let last_access: String
-    let status: Bool
+    var status: Bool
 }
 
 struct RoleCardInformationPageView: View {
@@ -139,15 +139,16 @@ struct InformationPageView: View {
                 TableColumn("Nome", value: \.name)
                 TableColumn("Área", value: \.area)
                 TableColumn("Último acesso", value: \.last_access)
-                TableColumn("Enabled") { mod in
-                   Toggle("", isOn: Binding<Bool>(
-                      get: {
-                         return mod.isEnabled
-                      },
-                      set: {
-//                         mod.isEnabled = $0 <-- ERROR HERE
-                      }
-                   ))
+                TableColumn("Ativo") { info in
+                    Toggle("", isOn: Binding<Bool>(
+                       get: {
+                          return info.status
+                       }, set: {
+                          if let index = informations.firstIndex(where: { $0.id == info.id }) {
+                             informations[index].status = $0
+                          }
+                       }
+                    )).toggleStyle(SwitchToggleStyle(tint: .green))
                 }
             }
             
