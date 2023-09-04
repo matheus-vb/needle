@@ -76,6 +76,7 @@ struct KanbanView: View {
         }.sheet(isPresented: $kanbanViewModel.isArchiving, content: {
             SheetView(type: .archiveTask)
         })
+        
     }
     
     @ViewBuilder
