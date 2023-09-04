@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 class CreateTaskViewModel<
     T: TaskDataServiceProtocol & ObservableObject
@@ -62,5 +63,6 @@ class CreateTaskViewModel<
         )
         
         taskDS.createTask(dto: dto, userId: userID, workspaceId: seletectedWorkspace.id)
+        Analytics.logEvent(K.addedTask.rawValue, parameters: nil)
     }
 }

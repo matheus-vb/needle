@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import Firebase
 
 @main
 struct NeedleAppApp: App {
@@ -16,7 +17,6 @@ struct NeedleAppApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-//            CopyClipboardButton(text: "99999"){}
                 .frame(minWidth: 1100, minHeight: 600)
                 .preferredColorScheme(.light)
                 .ignoresSafeArea(.all)
@@ -37,6 +37,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
     }
     
     func application(_ application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

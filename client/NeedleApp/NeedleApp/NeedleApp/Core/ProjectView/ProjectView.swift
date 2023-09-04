@@ -11,9 +11,6 @@ struct ProjectView: View {
     
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
-    @State var isAnimating = false
-    @State var initalLoading = true
-    
     init(selectedWorkspace: Workspace) {
         self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
     }
@@ -45,10 +42,10 @@ struct ProjectView: View {
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)
                 .frame(width: 50, height: 50)
-                .rotationEffect(.degrees(isAnimating ? 360 : 0))
+                .rotationEffect(.degrees(projectViewModel.isAnimating ? 360 : 0))
                 .onAppear() {
                     withAnimation (.linear(duration: 1).repeatForever(autoreverses: false)) {
-                        self.isAnimating.toggle()
+                        projectViewModel.isAnimating.toggle()
                     }
                 }
         }
@@ -63,13 +60,13 @@ struct ProjectView: View {
                     .environmentObject(projectViewModel)
             }, detail: {
                 ZStack {
-                    if projectViewModel.triggerLoading || initalLoading {
+                    if projectViewModel.triggerLoading || projectViewModel.initalLoading {
                         loading
                             .onAppear {
                                 Task {
                                     try? await Task.sleep(nanoseconds: 1_000_000_000)
                                     withAnimation {
-                                        initalLoading = false
+                                        projectViewModel.initalLoading = false
                                         projectViewModel.triggerLoading = false
                                     }
                                 }

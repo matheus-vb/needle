@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 class KanbanViewModel<
     T: TaskDataServiceProtocol & ObservableObject
@@ -19,6 +20,12 @@ class KanbanViewModel<
     @Published var currentlyTarget: String?
     @Published var isDeleting = false
     @Published var isArchiving = false
+    @Published var showEditTaskPopUP: Bool = false
+    
+    @Published var taskType: TaskType? = nil
+    @Published var taskPriority: TaskPriority? = nil
+    @Published var searchText: String? = nil
+
     
     @Binding var selectedTask: TaskModel?
     
@@ -79,6 +86,11 @@ class KanbanViewModel<
             $0.id == droppingTask.id
         }) {
             var sourceItem = self.localTasks.remove(at: sourceIndex)
+            if sourceItem.status != droppingTask.status {
+                Analytics.logEvent(K.changedTaskStatus.rawValue, parameters: ["From" : sourceItem.status.rawValue, "To" : droppingTask.status.rawValue])
+            } else {
+                Analytics.logEvent(K.movedTask.rawValue, parameters: nil)
+            }
             sourceItem.status = droppingTask.status
             self.localTasks.insert(sourceItem, at: destinationIndex)
             self.updateTaskStatus(taskId: currentlyDragging, status: droppingTask.status)
@@ -90,7 +102,7 @@ class KanbanViewModel<
         case .HIGH:
             return Color.theme.redMain
         case .VERY_HIGH:
-            return Color.theme.redMain
+            return .purple
         case .MEDIUM:
             return Color.theme.orangeKanban
         case .LOW:
