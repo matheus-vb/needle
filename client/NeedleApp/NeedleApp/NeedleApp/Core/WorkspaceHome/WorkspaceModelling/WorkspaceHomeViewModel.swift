@@ -29,7 +29,7 @@ class WorkspaceHomeViewModel<
     @Published var isAnimating = false
     @Published var showMain = false
     
-    private var workspaceDS: W
+    var workspaceDS: W
     
     private var cancellables = Set<AnyCancellable>()
     
