@@ -56,6 +56,29 @@ final class WorkspaceHomeViewModelTests: XCTestCase {
         }
     }
     
+    func test_updateQuery(){
+        let mockWorkspace = Workspace(id: "2", accessCode: "321", name: "Workspace que sou PM", users: [PmMember(id: "2", userRole: "PRODUCT_MANAGER", userId: "1", workspaceId: "1", user: UserInfo(name: "Medeiros"))])
+        let searchWorkspace = Workspace(id: "2", accessCode: "321", name: "teste que sou PM", users: [PmMember(id: "2", userRole: "PRODUCT_MANAGER", userId: "1", workspaceId: "1", user: UserInfo(name: "Medeiros"))])
+        self.sut.workspaces = [mockWorkspace, mockWorkspace, mockWorkspace, searchWorkspace, searchWorkspace]
+        self.sut.searchResults = self.sut.workspaces
+        
+        //Testar a busca com a query "teste"
+        self.sut.query = "teste"
+        self.sut.updateQuery()
+        var searchWorkspacesCounter = self.sut.searchResults.count
+        var expectedSearchWorkspacesCouter = 2
+        XCTAssertEqual(searchWorkspacesCounter, expectedSearchWorkspacesCouter)
+        
+        //Testar quando a query está vazia
+        self.sut.query = ""
+        self.sut.updateQuery()
+        searchWorkspacesCounter = self.sut.searchResults.count
+        expectedSearchWorkspacesCouter = 5
+        XCTAssertEqual(searchWorkspacesCounter, expectedSearchWorkspacesCouter)
+    }
+    
+    
+    
   func testPerformanceExample() throws {
     // This is an example of a performance test case.
     self.measure {
