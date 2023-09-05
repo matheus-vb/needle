@@ -111,10 +111,10 @@ extension EditTaskPopUP{
                 })
                 Button(action: {
                     if(editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE){
-                        editTaskViewModel.unarchiveTask(task: editTaskViewModel.selectedTask)
+                        editTaskViewModel.unarchiveTask()
                         editTaskViewModel.isEditing.toggle()
                     }else{
-                        editTaskViewModel.archiveTask(task: editTaskViewModel.selectedTask)
+                        editTaskViewModel.archiveTask()
                         editTaskViewModel.isEditing.toggle()
                     }
                 }, label: {
@@ -165,8 +165,7 @@ extension EditTaskPopUP{
     
     
     func saveTaskButton(){
-        let currDto = editTaskViewModel.dto        
-        TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+        editTaskViewModel.saveTask()
         editTaskViewModel.isEditing.toggle()
     }
     

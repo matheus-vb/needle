@@ -81,10 +81,6 @@ class ProjectViewModel<
             .store(in: &cancellables)
     }
     
-    func createTask(dto: CreateTaskDTO){
-        tasksDS.createTask(dto: dto, userId: userID, workspaceId: selectedWorkspace.id)
-    }
-    
     func deleteTask(){
         tasksDS.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask!.id), userId: userID, workspaceId: selectedWorkspace.id)
     }

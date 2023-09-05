@@ -84,6 +84,22 @@
 		867E70D92A9FDD740028989F /* CreateTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */; };
 		867E70DA2A9FDE1C0028989F /* CreateTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E63C12A71A2EB00FACCC5 /* CreateTaskViewModel.swift */; };
 		867E70DB2A9FE2610028989F /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7DD2A82D8BE0026F381 /* Templates.swift */; };
+		867E71072AA66C9B0028989F /* TaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCE92A7CA88300CDCCB2 /* TaskResponse.swift */; };
+		867E71082AA66C9B0028989F /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282B2A71A0240002CFEA /* TaskModel.swift */; };
+		867E71092AA66C9B0028989F /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D0E2A855553001D26EE /* NotificationModel.swift */; };
+		867E710A2AA66C9B0028989F /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF052A82AF4F00BB5D9F /* UsersResponse.swift */; };
+		867E710B2AA66C9B0028989F /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E42A7C243A001D9213 /* UserResponse.swift */; };
+		867E710C2AA66C9B0028989F /* NotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D102A85559D001D26EE /* NotificationResponse.swift */; };
+		867E710D2AA66C9B0028989F /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28292A71A01B0002CFEA /* Workspace.swift */; };
+		867E710E2AA66C9B0028989F /* WorkspacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604ED2A7C3191001D9213 /* WorkspacesResponse.swift */; };
+		867E710F2AA66C9B0028989F /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0942A959E3800F8168A /* RoleResponse.swift */; };
+		867E71102AA66C9B0028989F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282F2A71A0340002CFEA /* Document.swift */; };
+		867E71112AA66C9B0028989F /* StringResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF132A83373000BB5D9F /* StringResponse.swift */; };
+		867E71122AA66C9B0028989F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282D2A71A0290002CFEA /* User.swift */; };
+		867E71132AA66C9B0028989F /* WorkspaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */; };
+		867E71142AA66CDC0028989F /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
+		867E71162AA66F0C0028989F /* EditTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */; };
+		867E71172AA66F4F0028989F /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */; };
 		868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DD2A7C211B001D9213 /* AuthenticationManager.swift */; };
 		868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DF2A7C225D001D9213 /* ConvertToDict.swift */; };
 		868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E12A7C2286001D9213 /* SignInDTO.swift */; };
@@ -106,12 +122,6 @@
 		86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */; };
 		86BE498C2A9FBC5A008A7F7F /* WorkspaceDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */; };
 		86BE498E2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE498D2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift */; };
-		86BE498F2A9FBD32008A7F7F /* WorkspaceUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D72A7AEDB700CB91FA /* WorkspaceUser.swift */; };
-		86BE49902A9FBD32008A7F7F /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282B2A71A0240002CFEA /* TaskModel.swift */; };
-		86BE49912A9FBD32008A7F7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282D2A71A0290002CFEA /* User.swift */; };
-		86BE49922A9FBD32008A7F7F /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28292A71A01B0002CFEA /* Workspace.swift */; };
-		86BE49932A9FBD32008A7F7F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282F2A71A0340002CFEA /* Document.swift */; };
-		86BE49942A9FBD32008A7F7F /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D0E2A855553001D26EE /* NotificationModel.swift */; };
 		86BE49952A9FBD88008A7F7F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
 		86BE49962A9FBD88008A7F7F /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF012A82932D00BB5D9F /* Role.swift */; };
 		86BE49972A9FBD88008A7F7F /* TaskPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270912D32A7AEACF00CB91FA /* TaskPriority.swift */; };
@@ -283,6 +293,7 @@
 		867E70D62A9FCE8A0028989F /* TaskDataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDataServiceMock.swift; sourceTree = "<group>"; };
 		867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModelTests.swift; sourceTree = "<group>"; };
 		867E70E12AA136530028989F /* NeedleApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NeedleApp.xctestplan; sourceTree = "<group>"; };
+		867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModelTests.swift; sourceTree = "<group>"; };
 		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
 		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
@@ -735,6 +746,7 @@
 			children = (
 				86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */,
 				867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */,
+				867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -1165,44 +1177,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				86BE499C2A9FBED4008A7F7F /* DBMock.swift in Sources */,
+				867E710C2AA66C9B0028989F /* NotificationResponse.swift in Sources */,
 				86BE498A2A9FBC54008A7F7F /* NotificationDataServiceProtocol.swift in Sources */,
 				86BE49892A9FBC50008A7F7F /* DocumentationDataServiceProtocol.swift in Sources */,
 				86BE49AB2A9FC9EF008A7F7F /* UpperCaseFormatter.swift in Sources */,
 				86BE49992A9FBD88008A7F7F /* TaskType.swift in Sources */,
+				867E710D2AA66C9B0028989F /* Workspace.swift in Sources */,
 				86BE49962A9FBD88008A7F7F /* Role.swift in Sources */,
+				867E71072AA66C9B0028989F /* TaskResponse.swift in Sources */,
 				86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */,
 				86BE49A32A9FC9DB008A7F7F /* SignInDTO.swift in Sources */,
+				867E71142AA66CDC0028989F /* WorkspacHomeViewModel.swift in Sources */,
+				867E71092AA66C9B0028989F /* NotificationModel.swift in Sources */,
+				867E71102AA66C9B0028989F /* Document.swift in Sources */,
 				86BE49A22A9FC9DB008A7F7F /* UpdateDeviceTokenDTO.swift in Sources */,
-				86BE49942A9FBD32008A7F7F /* NotificationModel.swift in Sources */,
 				867E70D92A9FDD740028989F /* CreateTaskViewModelTests.swift in Sources */,
 				274A280A2A719F6E0002CFEA /* NeedleAppTests.swift in Sources */,
-				86BE49902A9FBD32008A7F7F /* TaskModel.swift in Sources */,
 				86BE49A52A9FC9DB008A7F7F /* CreateWorkspaceDTO.swift in Sources */,
 				86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */,
 				86BE49A92A9FC9DB008A7F7F /* UpdateDocumentationDTO.swift in Sources */,
 				86BE498C2A9FBC5A008A7F7F /* WorkspaceDataServiceProtocol.swift in Sources */,
+				867E71122AA66C9B0028989F /* User.swift in Sources */,
+				867E710E2AA66C9B0028989F /* WorkspacesResponse.swift in Sources */,
 				867E70D72A9FCE8A0028989F /* TaskDataServiceMock.swift in Sources */,
 				86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */,
 				86BE49A62A9FC9DB008A7F7F /* UpdateDocDTO.swift in Sources */,
 				86BE49A72A9FC9DB008A7F7F /* QueryTasksDTO.swift in Sources */,
+				867E710B2AA66C9B0028989F /* UserResponse.swift in Sources */,
 				86BE49972A9FBD88008A7F7F /* TaskPriority.swift in Sources */,
 				86BE49A42A9FC9DB008A7F7F /* JoinWorkspaceDTO.swift in Sources */,
 				867E70DA2A9FDE1C0028989F /* CreateTaskViewModel.swift in Sources */,
-				86BE49912A9FBD32008A7F7F /* User.swift in Sources */,
+				867E71082AA66C9B0028989F /* TaskModel.swift in Sources */,
+				867E71112AA66C9B0028989F /* StringResponse.swift in Sources */,
 				86BE49882A9FBC4D008A7F7F /* AuthenticationManagerProtocol.swift in Sources */,
-				86BE498F2A9FBD32008A7F7F /* WorkspaceUser.swift in Sources */,
 				86BE49952A9FBD88008A7F7F /* SelectedTab.swift in Sources */,
 				86BE498E2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift in Sources */,
 				86BE499E2A9FC333008A7F7F /* NotificationDataServiceMock.swift in Sources */,
 				86BE499F2A9FC9D2008A7F7F /* NetworkingManager.swift in Sources */,
+				867E71172AA66F4F0028989F /* EditTaskViewModel.swift in Sources */,
+				867E710A2AA66C9B0028989F /* UsersResponse.swift in Sources */,
+				867E710F2AA66C9B0028989F /* RoleResponse.swift in Sources */,
 				86BE49A12A9FC9DB008A7F7F /* CreateTaskDTO.swift in Sources */,
 				86BE49A82A9FC9DB008A7F7F /* deleteTaskDTO.swift in Sources */,
-				86BE49932A9FBD32008A7F7F /* Document.swift in Sources */,
 				86BE49A02A9FC9DB008A7F7F /* UpdateTaskStatusDTO.swift in Sources */,
 				867E70DB2A9FE2610028989F /* Templates.swift in Sources */,
 				86BE49982A9FBD88008A7F7F /* TaskStatus.swift in Sources */,
-				86BE49922A9FBD32008A7F7F /* Workspace.swift in Sources */,
+				867E71132AA66C9B0028989F /* WorkspaceUser.swift in Sources */,
 				86BE49AA2A9FC9DB008A7F7F /* UpdateTaskDTO.swift in Sources */,
+				867E71162AA66F0C0028989F /* EditTaskViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
