@@ -95,6 +95,9 @@
 		867E71142AA66CDC0028989F /* WorkspacHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F12A7C3665001D9213 /* WorkspacHomeViewModel.swift */; };
 		867E71162AA66F0C0028989F /* EditTaskViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */; };
 		867E71172AA66F4F0028989F /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279F09BE2A82A0870016B12E /* EditTaskViewModel.swift */; };
+		867E71192AA7BFCD0028989F /* KanbanViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867E71182AA7BFCD0028989F /* KanbanViewModelTests.swift */; };
+		867E711A2AA7C0D40028989F /* KanbanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */; };
+		867E711B2AA7C4020028989F /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
 		868604DE2A7C211B001D9213 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DD2A7C211B001D9213 /* AuthenticationManager.swift */; };
 		868604E02A7C225D001D9213 /* ConvertToDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604DF2A7C225D001D9213 /* ConvertToDict.swift */; };
 		868604E22A7C2286001D9213 /* SignInDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604E12A7C2286001D9213 /* SignInDTO.swift */; };
@@ -281,6 +284,7 @@
 		867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewModelTests.swift; sourceTree = "<group>"; };
 		867E70E12AA136530028989F /* NeedleApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NeedleApp.xctestplan; sourceTree = "<group>"; };
 		867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModelTests.swift; sourceTree = "<group>"; };
+		867E71182AA7BFCD0028989F /* KanbanViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModelTests.swift; sourceTree = "<group>"; };
 		868604DD2A7C211B001D9213 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		868604DF2A7C225D001D9213 /* ConvertToDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToDict.swift; sourceTree = "<group>"; };
 		868604E12A7C2286001D9213 /* SignInDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInDTO.swift; sourceTree = "<group>"; };
@@ -717,6 +721,7 @@
 				86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */,
 				867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */,
 				867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */,
+				867E71182AA7BFCD0028989F /* KanbanViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -1149,6 +1154,7 @@
 				867E710E2AA66C9B0028989F /* WorkspacesResponse.swift in Sources */,
 				867E70D72A9FCE8A0028989F /* TaskDataServiceMock.swift in Sources */,
 				86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */,
+				867E711B2AA7C4020028989F /* Color+Theme.swift in Sources */,
 				86BE49A62A9FC9DB008A7F7F /* UpdateDocDTO.swift in Sources */,
 				86BE49A72A9FC9DB008A7F7F /* QueryTasksDTO.swift in Sources */,
 				867E710B2AA66C9B0028989F /* UserResponse.swift in Sources */,
@@ -1158,6 +1164,7 @@
 				867E71082AA66C9B0028989F /* TaskModel.swift in Sources */,
 				867E71112AA66C9B0028989F /* StringResponse.swift in Sources */,
 				86BE49882A9FBC4D008A7F7F /* AuthenticationManagerProtocol.swift in Sources */,
+				867E711A2AA7C0D40028989F /* KanbanViewModel.swift in Sources */,
 				86BE49952A9FBD88008A7F7F /* SelectedTab.swift in Sources */,
 				86BE498E2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift in Sources */,
 				86BE499E2A9FC333008A7F7F /* NotificationDataServiceMock.swift in Sources */,
@@ -1169,6 +1176,7 @@
 				86BE49A82A9FC9DB008A7F7F /* deleteTaskDTO.swift in Sources */,
 				86BE49A02A9FC9DB008A7F7F /* UpdateTaskStatusDTO.swift in Sources */,
 				867E70DB2A9FE2610028989F /* Templates.swift in Sources */,
+				867E71192AA7BFCD0028989F /* KanbanViewModelTests.swift in Sources */,
 				86BE49982A9FBD88008A7F7F /* TaskStatus.swift in Sources */,
 				867E71132AA66C9B0028989F /* WorkspaceUser.swift in Sources */,
 				86BE49AA2A9FC9DB008A7F7F /* UpdateTaskDTO.swift in Sources */,
