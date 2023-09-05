@@ -70,7 +70,7 @@ class KanbanViewModel<
             self.localTasks.append(sourceItem)
             self.updateTaskStatus(taskId: currentlyDragging, status: status)
         }
-    }
+    } 
     
     func swapItem(droppingTask: TaskModel, currentlyDragging: String) {
         if let sourceIndex = self.localTasks.firstIndex(where: {
