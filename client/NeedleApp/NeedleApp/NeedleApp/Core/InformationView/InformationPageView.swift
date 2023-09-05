@@ -28,24 +28,21 @@ struct RoleCardInformationPageView: View {
             .background(Color.theme.greenSecondary)
             
             Spacer()
+            
             VStack{
                 Text("Minha função")
                     .font(.system(size: 16))
                 Text("PM")
                     .font(.system(size: 24))
                     .fontWeight(.bold)
-                
             }
             Spacer()
-            
         }
         .frame(width: 216, height: 104)
         .background(Color.white)
         .cornerRadius(6)
-        
     }
 }
-
 
 struct OtherCardInformationPageView: View {
     let cardname : String
@@ -67,29 +64,14 @@ struct OtherCardInformationPageView: View {
         .frame(width: 216, height: 104)
         .background(Color.white)
         .cornerRadius(6)
-        
     }
 }
 
 struct InformationPageView: View {
     
-//    @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService>
-//
-//    init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
-//
-//        self.informationPageViewModel = InformationPageViewModel(
-//            tasks: tasks ?? [],
-//            workspaceId: workspaceId,
-//            selectedTask: selectedTask,
-//            isEditing: isEditing,
-//            taskDS: TaskDataService.shared
-//        )
-//    }
-    
-    
     @State private var informations :  [Information] = [
         Information(name: "A", area: "A", last_access: "A", status: true),
-        Information(name: "D", area: "B", last_access: "B", status: false),
+        Information(name: "B", area: "B", last_access: "B", status: false),
         Information(name: "C", area: "C", last_access: "C", status: false),
         Information(name: "D", area: "D", last_access: "D", status: true)
     ]
@@ -135,12 +117,12 @@ struct InformationPageView: View {
                 .padding(.top, 54)
                 .padding(.bottom, 24)
 
-            Table(informations) {
+            Table(informations, sortOrder: $sortOrder) {
                 TableColumn("Nome", value: \.name)
                 TableColumn("Área", value: \.area)
                 TableColumn("Último acesso", value: \.last_access)
-                TableColumn("Ativo") { info in
-                    Toggle("", isOn: Binding<Bool>(
+                TableColumn("Acesso", value: \.status.description) { info in
+                    Toggle((info.status ? "Ativo:   " : "Inativo:"), isOn: Binding<Bool>(
                        get: {
                           return info.status
                        }, set: {
@@ -151,14 +133,9 @@ struct InformationPageView: View {
                     )).toggleStyle(SwitchToggleStyle(tint: .green))
                 }
             }
-            
+            .onChange(of: sortOrder) { newValue in
+                informations.sort(using: newValue)
+            }
         }.padding()
     }
 }
-
-//struct InformationPageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InformationPageView()
-//            .frame(minWidth: 1100, minHeight: 600)
-//    }
-//}
