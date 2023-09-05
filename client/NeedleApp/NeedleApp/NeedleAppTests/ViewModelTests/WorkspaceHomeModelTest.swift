@@ -34,8 +34,26 @@ final class WorkspaceHomeViewModelTests: XCTestCase {
         XCTAssertEqual(userWorkspaces, expected)
     }
     
-    func test() throws {
-        XCTAssertEqual(2, 2)
+    func test_updateTab(){
+        let loggedUser = User(id: "1", name: "Medeiros", email: "medeiros@email.com", workspaces: [UserWorkspace(userRole: Role.DEVELOPER), UserWorkspace(userRole: Role.PRODUCT_MANAGER)])
+        let memberWorkspace = Workspace(id: "1", accessCode: "123", name: "Workspace que sou membro", users: [PmMember(id: "1", userRole: "PRODUCT_MANAGER", userId: "2", workspaceId: "1", user: UserInfo(name: "PM")), PmMember(id: "2", userRole: "DEVELOPER", userId: "1", workspaceId: "1", user: UserInfo(name: "Medeiros"))])
+        let PMWorkspace = Workspace(id: "2", accessCode: "321", name: "Workspace que sou PM", users: [PmMember(id: "2", userRole: "PRODUCT_MANAGER", userId: "1", workspaceId: "1", user: UserInfo(name: "Medeiros"))])
+        self.sut.workspaces = [PMWorkspace, memberWorkspace]
+        self.sut.userID = loggedUser.id
+        
+        //Testar se selecionar myWorkspaces
+        self.sut.selectedTab = .myWorkspaces
+        self.sut.updateTab()
+        for workspaces in self.sut.searchResults{
+            XCTAssertEqual(workspaces.users[0].userId, loggedUser.id)
+        }
+        
+        //Testar se selecionar "Projetos que participo"
+        self.sut.selectedTab = .joinedWorkspaces
+        self.sut.updateTab()
+        for workspaces in self.sut.searchResults{
+            XCTAssertNotEqual(workspaces.users[0].userId, loggedUser.id)
+        }
     }
     
   func testPerformanceExample() throws {
