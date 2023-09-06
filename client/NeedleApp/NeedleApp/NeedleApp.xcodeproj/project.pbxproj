@@ -80,6 +80,8 @@
 		864A56582AA8F36A006C8398 /* WorkspaceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */; };
 		864A56592AA8F47D006C8398 /* NotificationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D122A855A1E001D26EE /* NotificationBarViewModel.swift */; };
 		864A565B2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */; };
+		864A565D2AA8FD9D006C8398 /* SearchDocumentsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A565C2AA8FD9D006C8398 /* SearchDocumentsViewModelTests.swift */; };
+		864A565E2AA8FDE2006C8398 /* SearchDocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E6FF0F2A83086900BB5D9F /* SearchDocumentsViewModel.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
 		864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */; };
@@ -186,7 +188,6 @@
 		8A76DFD42A82E2AC0044189B /* DashedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD32A82E2AC0044189B /* DashedButton.swift */; };
 		8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD52A82E6BC0044189B /* DropdownButton.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
-		8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */; };
 		8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */; };
 		8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */; };
 		8AC2A2E32A8470FB00C6CCF8 /* DropdownStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */; };
@@ -296,6 +297,7 @@
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataService.swift; sourceTree = "<group>"; };
 		864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBarViewModelTests.swift; sourceTree = "<group>"; };
+		864A565C2AA8FD9D006C8398 /* SearchDocumentsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocumentsViewModelTests.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -363,7 +365,6 @@
 		8A76DFD32A82E2AC0044189B /* DashedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedButton.swift; sourceTree = "<group>"; };
 		8A76DFD52A82E6BC0044189B /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
-		8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentationView.swift; sourceTree = "<group>"; };
 		8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedSmallerButton.swift; sourceTree = "<group>"; };
 		8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownDateButton.swift; sourceTree = "<group>"; };
 		8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownStatusButton.swift; sourceTree = "<group>"; };
@@ -764,6 +765,7 @@
 				2771ECB22AA8EAD000057667 /* WorkspaceHomeModelTest.swift */,
 				864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */,
 				86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */,
+				864A565C2AA8FD9D006C8398 /* SearchDocumentsViewModelTests.swift */,
 				867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */,
 				867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */,
 				867E71182AA7BFCD0028989F /* KanbanViewModelTests.swift */,
@@ -843,7 +845,6 @@
 		8A9BC3672A7314B700A070FC /* EditDocumentation */ = {
 			isa = PBXGroup;
 			children = (
-				8A9BC3652A72F03D00A070FC /* EditDocumentationView.swift */,
 				86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */,
 				86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */,
 			);
@@ -1078,7 +1079,6 @@
 				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
 				D43EB9BD2A84184400CF0315 /* SheetType.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
-				8A9BC3662A72F03D00A070FC /* EditDocumentationView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
 				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				86503D0A2A846092001D26EE /* OperatorOverload.swift in Sources */,
@@ -1206,6 +1206,7 @@
 				867E710D2AA66C9B0028989F /* Workspace.swift in Sources */,
 				864A56582AA8F36A006C8398 /* WorkspaceTab.swift in Sources */,
 				86BE49962A9FBD88008A7F7F /* Role.swift in Sources */,
+				864A565E2AA8FDE2006C8398 /* SearchDocumentsViewModel.swift in Sources */,
 				867E71072AA66C9B0028989F /* TaskResponse.swift in Sources */,
 				86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */,
 				86BE49A32A9FC9DB008A7F7F /* SignInDTO.swift in Sources */,
@@ -1245,6 +1246,7 @@
 				2771ECB32AA8EAD000057667 /* WorkspaceCardViewModelTests.swift in Sources */,
 				86BE499F2A9FC9D2008A7F7F /* NetworkingManager.swift in Sources */,
 				867E71172AA66F4F0028989F /* EditTaskViewModel.swift in Sources */,
+				864A565D2AA8FD9D006C8398 /* SearchDocumentsViewModelTests.swift in Sources */,
 				867E710A2AA66C9B0028989F /* UsersResponse.swift in Sources */,
 				867E710F2AA66C9B0028989F /* RoleResponse.swift in Sources */,
 				86BE49A12A9FC9DB008A7F7F /* CreateTaskDTO.swift in Sources */,
