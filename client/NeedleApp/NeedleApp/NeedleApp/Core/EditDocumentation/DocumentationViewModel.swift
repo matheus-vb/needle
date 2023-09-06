@@ -27,4 +27,17 @@ class DocumentationViewModel<
         self.documentId = documentId
         self.workspaceId = workspaceId
     }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return .purple
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
+    }
 }

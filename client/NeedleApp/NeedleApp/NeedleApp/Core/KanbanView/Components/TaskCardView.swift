@@ -85,10 +85,6 @@ extension KanbanView {
             kanbanViewModel.selectedTask = task
             kanbanViewModel.isEditing.toggle()
         }))
-        //        .onTapGesture(count: 2) {
-        //            kanbanViewModel.selectedTask = task
-        //            kanbanViewModel.isEditing.toggle()
-        //        }
     }
     
     
