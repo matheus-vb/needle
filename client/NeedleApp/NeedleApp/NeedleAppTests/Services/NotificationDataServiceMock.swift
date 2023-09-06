@@ -35,5 +35,6 @@ class NotificationDataServiceMock: NotificationDataServiceProtocol {
     
     func deleteUserNotifications(userId: String) {
         self.db.notifications[userId] = []
+        self.getUserNotifications(userId: userId)
     }
 }
