@@ -75,6 +75,9 @@
 		64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationDataService.swift */; };
+		864A56562AA8F31E006C8398 /* WorkspaceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08F2A952AF200F8168A /* WorkspaceCardViewModel.swift */; };
+		864A56572AA8F360006C8398 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
+		864A56582AA8F36A006C8398 /* WorkspaceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
 		864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */; };
@@ -1197,6 +1200,7 @@
 				86BE49AB2A9FC9EF008A7F7F /* UpperCaseFormatter.swift in Sources */,
 				86BE49992A9FBD88008A7F7F /* TaskType.swift in Sources */,
 				867E710D2AA66C9B0028989F /* Workspace.swift in Sources */,
+				864A56582AA8F36A006C8398 /* WorkspaceTab.swift in Sources */,
 				86BE49962A9FBD88008A7F7F /* Role.swift in Sources */,
 				867E71072AA66C9B0028989F /* TaskResponse.swift in Sources */,
 				86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */,
@@ -1210,11 +1214,13 @@
 				86BE49A52A9FC9DB008A7F7F /* CreateWorkspaceDTO.swift in Sources */,
 				86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */,
 				86BE49A92A9FC9DB008A7F7F /* UpdateDocumentationDTO.swift in Sources */,
+				864A56562AA8F31E006C8398 /* WorkspaceCardViewModel.swift in Sources */,
 				86BE498C2A9FBC5A008A7F7F /* WorkspaceDataServiceProtocol.swift in Sources */,
 				867E71122AA66C9B0028989F /* User.swift in Sources */,
 				867E710E2AA66C9B0028989F /* WorkspacesResponse.swift in Sources */,
 				867E70D72A9FCE8A0028989F /* TaskDataServiceMock.swift in Sources */,
 				86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */,
+				864A56572AA8F360006C8398 /* FirebaseConstants.swift in Sources */,
 				867E711B2AA7C4020028989F /* Color+Theme.swift in Sources */,
 				86BE49A62A9FC9DB008A7F7F /* UpdateDocDTO.swift in Sources */,
 				2771ECB02AA8EAC100057667 /* WorkspaceDataServiceMock.swift in Sources */,
