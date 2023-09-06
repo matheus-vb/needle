@@ -41,4 +41,20 @@ class HandleDate {
             return "-"
         }
     }
+    
+    static func formatDateWithoutTime(dateInput: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        if let date = dateFormatter.date(from: dateInput) {
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            dateFormatter.timeZone = TimeZone.current
+            
+            let returnTimeString = dateFormatter.string(from: date)
+            return returnTimeString
+        } else {
+            return "-"
+        }
+    }
 }

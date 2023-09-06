@@ -22,13 +22,18 @@ struct EditTaskPopUP: View {
             topSection
             contentStack
         }
-        .sheet(isPresented: $seeDocumentation, content: {
-            DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString)
+        .overlay(content: {
+            if seeDocumentation {
+                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, seeDocumentation: $seeDocumentation)
+                    .environmentObject(editTaskViewModel)
+                    .background(.white)
+            }
         })
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
+                .environmentObject(editTaskViewModel)
         })
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
