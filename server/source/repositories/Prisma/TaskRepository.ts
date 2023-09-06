@@ -4,6 +4,16 @@ import { ITaskRepository } from "../ITaskRepository";
 
 export class TaskRepository implements ITaskRepository {
 
+    async findNumOfTasksByWorkspaceIdAndStatus(workspaceId: string, status: TaskStatus): Promise<number> {
+        const tasks = await prisma.task.findMany({ 
+            where: {
+                workId: workspaceId,
+                status: status
+            }
+        })
+        return tasks.length;
+    }
+
     async create(data: Prisma.TaskUncheckedCreateInput) {
         const task = await prisma.task.create({
             data,

@@ -17,4 +17,5 @@ export interface ITaskRepository {
         area: string | null,
         priority: string | null
         ): Promise<Task[]>;
+    findNumOfTasksByWorkspaceIdAndStatus(workspaceId: string, status: TaskStatus): Promise<number>;
 }
