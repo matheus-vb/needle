@@ -78,6 +78,8 @@
 		864A56562AA8F31E006C8398 /* WorkspaceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08F2A952AF200F8168A /* WorkspaceCardViewModel.swift */; };
 		864A56572AA8F360006C8398 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
 		864A56582AA8F36A006C8398 /* WorkspaceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */; };
+		864A56592AA8F47D006C8398 /* NotificationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D122A855A1E001D26EE /* NotificationBarViewModel.swift */; };
+		864A565B2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */; };
 		864D69A02A7878AF00EB256A /* RichTextKit in Frameworks */ = {isa = PBXBuildFile; productRef = 864D699F2A7878AF00EB256A /* RichTextKit */; };
 		864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A12A787B0700EB256A /* NetworkingManager.swift */; };
 		864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */; };
@@ -293,6 +295,7 @@
 		64FE76172A99443100DF620D /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		863789822A745BC1004EEB9B /* KeychainSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		863789842A745D70004EEB9B /* NotificationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataService.swift; sourceTree = "<group>"; };
+		864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBarViewModelTests.swift; sourceTree = "<group>"; };
 		864D69A12A787B0700EB256A /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+baseURL.swift"; sourceTree = "<group>"; };
 		864D69AA2A787DBA00EB256A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -759,6 +762,7 @@
 			children = (
 				2771ECB12AA8EAD000057667 /* WorkspaceCardViewModelTests.swift */,
 				2771ECB22AA8EAD000057667 /* WorkspaceHomeModelTest.swift */,
+				864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */,
 				86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */,
 				867E70D82A9FDD740028989F /* CreateTaskViewModelTests.swift */,
 				867E71152AA66F0C0028989F /* EditTaskViewModelTests.swift */,
@@ -1210,6 +1214,7 @@
 				867E71102AA66C9B0028989F /* Document.swift in Sources */,
 				86BE49A22A9FC9DB008A7F7F /* UpdateDeviceTokenDTO.swift in Sources */,
 				867E70D92A9FDD740028989F /* CreateTaskViewModelTests.swift in Sources */,
+				864A565B2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift in Sources */,
 				274A280A2A719F6E0002CFEA /* NeedleAppTests.swift in Sources */,
 				86BE49A52A9FC9DB008A7F7F /* CreateWorkspaceDTO.swift in Sources */,
 				86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */,
@@ -1244,6 +1249,7 @@
 				867E710F2AA66C9B0028989F /* RoleResponse.swift in Sources */,
 				86BE49A12A9FC9DB008A7F7F /* CreateTaskDTO.swift in Sources */,
 				86BE49A82A9FC9DB008A7F7F /* deleteTaskDTO.swift in Sources */,
+				864A56592AA8F47D006C8398 /* NotificationBarViewModel.swift in Sources */,
 				86BE49A02A9FC9DB008A7F7F /* UpdateTaskStatusDTO.swift in Sources */,
 				867E70DB2A9FE2610028989F /* Templates.swift in Sources */,
 				867E71192AA7BFCD0028989F /* KanbanViewModelTests.swift in Sources */,
