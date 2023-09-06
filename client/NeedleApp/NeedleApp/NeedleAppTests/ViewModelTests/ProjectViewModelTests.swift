@@ -68,11 +68,6 @@ final class ProjectViewModelTests: XCTestCase {
     }
         
     func test_getWorkspaceTasks() throws {
-        self.dbMock.workspaces[userId] = [self.sut.selectedWorkspace]
-        self.dbMock.usersInWorkspace[stubWorksapce.id] = [User(id: userId, name: "Medeiros", email: "medeiros@email.com", workspaces: [UserWorkspace(userRole: .PRODUCT_MANAGER)])]
-        self.dbMock.tasksInWorkspace[stubWorksapce.id] = [stubSelectedTask]
-        self.dbMock.roles[stubWorksapce.id] = .PRODUCT_MANAGER
-        
         self.sut.getWorkspaceTasks(workspaceId: stubWorksapce.id)
         
         let numberOfTasks = self.sut.tasksDS.allUsersTasks[stubWorksapce.id]!.count
@@ -81,6 +76,9 @@ final class ProjectViewModelTests: XCTestCase {
         XCTAssertEqual(numberOfTasks, expectedValue)
     }
     
+    func test_getWorkspaceMembers() throws{
+        
+    }
     
     func testPerformanceExample() throws {
     // This is an example of a performance test case.
