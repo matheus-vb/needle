@@ -11,7 +11,7 @@ import RichTextKit
 struct DocumentationView: View {
     @ObservedObject var documentationViewModel: DocumentationViewModel<DocumentationDataService>
     @ObservedObject var editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>
-
+    
     @Environment(\.dismiss) var dismiss
     
     @Binding var documentationNS: NSAttributedString
@@ -24,68 +24,75 @@ struct DocumentationView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            taskDataHeader
-            Spacer()
+                taskDataHeader
+                Spacer()
                 HStack {
                     editor
                     leftBorder
                     toolbar
                 }.background(Color.theme.grayBackground)
-            Spacer()
-            saveTask
-            Spacer()
-        }
-    
-    }
-        
-    var taskDataHeader: some View {
-        VStack(alignment: .center, spacing: 32) {
-            Text("\(editTaskViewModel.taskTitle)")
-                .font(.system(size: 40, weight: .medium))
-                .foregroundColor(.black)
-
-            HStack(spacing: 48) {
                 Spacer()
-                HStack(spacing: 16) {
-                    LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
-                    Text("\(editTaskViewModel.selectedTask.endDate)")
-                        .font(.system(size: 16, weight: .regular))
-
-                }
-                HStack(spacing: 16) {
-                    LabelComponent(imageName: "person.fill", label:NSLocalizedString("Área", comment: ""))
-                    Text("chato")
-                        .font(.system(size: 16, weight: .regular))
-
-                    //Text("\(editTaskViewModel.selectedTask.user?.name)")
-                }
-                HStack(spacing: 16) {
-                    LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
-                        .font(.system(size: 16, weight: .regular))
-
-                    KanbanTagView(taskType: editTaskViewModel.selectedTask.type)
-                    
-                }
-                HStack(spacing: 16) {
-                    LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
-                        .font(.system(size: 16, weight: .regular))
-
-                    Image(systemName: "flag.fill")
-                        .font(Font.custom("SF Pro", size: 12))
-                        .foregroundColor(documentationViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
-                    
-                }
+                saveTask
                 Spacer()
             }
             
         }
-    }
-    
-    var editor: some View {
-        RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
+        
+        var taskDataHeader: some View {
+            VStack(alignment: .center, spacing: 32) {
+                HStack {
+                    Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
+                        LabelComponent(imageName: "xmark", label: NSLocalizedString("", comment: ""))
+                    }).buttonStyle(.borderless)
+                    Spacer()
+                    Text("\(editTaskViewModel.taskTitle)")
+                        .font(.system(size: 40, weight: .medium))
+                        .foregroundColor(.black)
+                    Spacer()
+                }
+                
+                HStack(spacing: 48) {
+                    HStack(spacing: 12) {
+                        LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
+                        Text("\(HandleDate.formatDateWithoutTime(dateInput: editTaskViewModel.selectedTask.endDate))")
+                            .font(.system(size: 16, weight: .regular))
+                        
+                    }
+                    HStack(spacing: 12) {
+                        LabelComponent(imageName: "person.fill", label:NSLocalizedString("Área", comment: ""))
+                        Text("chato")
+                            .font(.system(size: 16, weight: .regular))
+                        
+                        //Text("\(editTaskViewModel.selectedTask.user?.name)")
+                    }
+                    HStack(spacing: 12) {
+                        LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Responsável", comment: ""))
+                            .font(.system(size: 16, weight: .regular))
+                        
+                        KanbanTagView(taskType: editTaskViewModel.selectedTask.type)
+                        
+                    }
+                    HStack(spacing: 12) {
+                        LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
+                            .font(.system(size: 16, weight: .regular))
+                        
+                        Image(systemName: "flag.fill")
+                            .font(Font.custom("SF Pro", size: 12))
+                            .foregroundColor(documentationViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
+                        
+                    }
+
+
+                }
+                
+            }
+        }
+        
+        var editor: some View {
+            RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
                 $0.textContentInset = CGSize(width: 20, height: 40)
             }
-        .focusedValue(\.richTextContext, documentationViewModel.context)
+            .focusedValue(\.richTextContext, documentationViewModel.context)
         }
         
         var toolbar: some View {
@@ -98,24 +105,24 @@ struct DocumentationView: View {
         
         var leftBorder: some View {
             HStack {
-               Rectangle()
-                   .frame(width: 2)
-                   .foregroundColor(Color.theme.blackMain)
-           }
+                Rectangle()
+                    .frame(width: 2)
+                    .foregroundColor(Color.theme.blackMain)
+            }
         }
-    
-    var saveTask: some View{
-        HStack{
-            PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: {
-                editTaskViewModel.isEditing.toggle()
-            })
-            PopUpButton(text: NSLocalizedString("Salvar", comment: ""), onButtonTapped: saveTaskButton)
+        
+        var saveTask: some View{
+            HStack{
+                PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: {
+                    editTaskViewModel.isEditing.toggle()
+                })
+                PopUpButton(text: NSLocalizedString("Salvar", comment: ""), onButtonTapped: saveTaskButton)
+            }
         }
-    }
-    
-    func saveTaskButton(){
-        let currDto = editTaskViewModel.dto
-        TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
-        editTaskViewModel.isEditing.toggle()
-    }
+        
+        func saveTaskButton() {
+            let currDto = editTaskViewModel.dto
+            TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+            editTaskViewModel.isEditing.toggle()
+        }
 }

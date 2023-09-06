@@ -32,6 +32,7 @@ struct EditTaskPopUP: View {
             SheetView(type: .deleteTask)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
+                .environmentObject(editTaskViewModel)
         })
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)

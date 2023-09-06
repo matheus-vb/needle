@@ -17,6 +17,7 @@ struct CopyClipboardButton: View {
     }
     
     let text: String
+    let isOnCard: Bool
     @State var onHover = false
     @State var onTap = false
     
@@ -39,26 +40,26 @@ struct CopyClipboardButton: View {
                 Spacer()
                 Text("\(text)")
                 .font(
-                Font.custom("SF Pro", size: 14)
+                    Font.custom("SF Pro", size: isOnCard ? 10 : 14)
                 .weight(.semibold)
                 )
                 .foregroundColor(.black)
                 Spacer()
                 Image(systemName: onTap ? "checkmark" : "doc.on.doc")
-                    .frame(width: 35, height: 35)
+                    .frame(width: isOnCard ? 24 : 35, height: isOnCard ? 24 : 35)
                     .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
                     .cornerRadius(6)
 
                 .font(
-                Font.custom("SF Pro", size: 16)
+                    Font.custom("SF Pro", size: isOnCard ? 12 : 16)
                 .weight(.semibold)
                 )
                 .foregroundColor(.black)
                 
             }
-            .padding()
+            .padding(isOnCard ? 0 : 4)
 //            .frame(maxWidth: 168, idealHeight: 48)
-            .frame(width: 140, height: 48)
+            .frame(width: isOnCard ? 100 : 140, height: isOnCard ? 36 : 48)
             .background(Color.theme.greenMain)
             .cornerRadius(6)
             .overlay(
@@ -83,6 +84,6 @@ struct CopyClipboardButton: View {
 
 struct CopyClipboardButton_Previews: PreviewProvider {
     static var previews: some View {
-        CopyClipboardButton(text: "98889"){}
+        CopyClipboardButton(text: "98889", isOnCard: false){}
     }
 }

@@ -79,7 +79,8 @@ struct WorkspaceCardView: View, Identifiable {
                 HStack {
                     Text("Código para convite:").font(.system(size: 12, weight: .medium))
                     Spacer()
-                    accessCode
+                    CopyClipboardButton(text: code, isOnCard: true) {
+                    }
                 }.frame(width: 227)
                 
             }.padding(.leading, 16)
