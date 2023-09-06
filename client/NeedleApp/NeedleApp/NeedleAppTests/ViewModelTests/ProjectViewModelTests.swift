@@ -29,6 +29,10 @@ final class ProjectViewModelTests: XCTestCase {
         self.sut = ProjectViewModel(selectedWorkspace: stubWorksapce, manager: authDS, taskDS: taskDS, workspaceDS: workspaceDS)
         self.sut.userID = userId
         self.sut.selectedTask = stubSelectedTask
+        self.dbMock.workspaces[userId] = [self.sut.selectedWorkspace]
+        self.dbMock.usersInWorkspace[stubWorksapce.id] = [User(id: userId, name: "Medeiros", email: "medeiros@email.com", workspaces: [UserWorkspace(userRole: .PRODUCT_MANAGER)])]
+        self.dbMock.tasksInWorkspace[stubWorksapce.id] = [stubSelectedTask]
+        self.dbMock.roles[stubWorksapce.id] = .PRODUCT_MANAGER
     }
 
     override func tearDownWithError() throws {
@@ -47,17 +51,37 @@ final class ProjectViewModelTests: XCTestCase {
     }
     
     func test_deleteTask() throws {
-        self.dbMock.workspaces[userId] = [self.sut.selectedWorkspace]
-        self.dbMock.usersInWorkspace[stubWorksapce.id] = [User(id: userId, name: "Medeiros", email: "medeiros@email.com", workspaces: [UserWorkspace(userRole: .PRODUCT_MANAGER)])]
-        self.dbMock.tasksInWorkspace[stubWorksapce.id] = [stubSelectedTask]
-        
         self.sut.deleteTask()
         
         let tasksInWorkspaceCounter = self.dbMock.tasksInWorkspace[stubWorksapce.id]!.count
         let expectedValue = 0
         XCTAssertEqual(tasksInWorkspaceCounter, expectedValue)
     }
-
+    
+    func test_getRoleInWorkspace() throws {
+        self.sut.getRoleInWorkspace(workspaceId: stubWorksapce.id)
+        
+        let roleInWorkspace = self.sut.authMGR.roles[stubWorksapce.id]
+        let expectedValue = Role.PRODUCT_MANAGER
+        
+        XCTAssertEqual(roleInWorkspace, expectedValue)
+    }
+        
+    func test_getWorkspaceTasks() throws {
+        self.dbMock.workspaces[userId] = [self.sut.selectedWorkspace]
+        self.dbMock.usersInWorkspace[stubWorksapce.id] = [User(id: userId, name: "Medeiros", email: "medeiros@email.com", workspaces: [UserWorkspace(userRole: .PRODUCT_MANAGER)])]
+        self.dbMock.tasksInWorkspace[stubWorksapce.id] = [stubSelectedTask]
+        self.dbMock.roles[stubWorksapce.id] = .PRODUCT_MANAGER
+        
+        self.sut.getWorkspaceTasks(workspaceId: stubWorksapce.id)
+        
+        let numberOfTasks = self.sut.tasksDS.allUsersTasks[stubWorksapce.id]!.count
+        let expectedValue = 1
+        
+        XCTAssertEqual(numberOfTasks, expectedValue)
+    }
+    
+    
     func testPerformanceExample() throws {
     // This is an example of a performance test case.
     self.measure {

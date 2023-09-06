@@ -36,10 +36,10 @@ class ProjectViewModel<
     @Published var isAnimating = false
     @Published var initalLoading = true
     
-    private var worskpaceDS: W
-    private var tasksDS: T
-    private var authMGR: A
-    private var cancellables = Set<AnyCancellable>()
+    var worskpaceDS: W
+    var tasksDS: T
+    var authMGR: A
+    var cancellables = Set<AnyCancellable>()
 
     init(selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
         self.authMGR = manager
