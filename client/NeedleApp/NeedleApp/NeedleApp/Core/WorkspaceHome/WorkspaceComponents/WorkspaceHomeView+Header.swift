@@ -14,6 +14,7 @@ extension WorkspaceHomeView {
             DashedButton(text: workspaceViewModel.selectedTab.buttonTitle, isWorkspace: true, onButtonTapped: {
                 workspaceViewModel.selectedTab == .joinedWorkspaces ? workspaceViewModel.isJoining.toggle() :  workspaceViewModel.isNaming.toggle()
             })
+            .keyboardShortcut("n", modifiers: .command)
             Spacer()
             Text(workspaceViewModel.selectedTab.headerTitle)
                 .font(.system(size: 32, weight: .bold))

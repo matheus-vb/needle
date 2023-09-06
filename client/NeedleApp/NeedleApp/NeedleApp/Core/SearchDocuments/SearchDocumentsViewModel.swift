@@ -42,7 +42,7 @@ class SearchDocumentsViewModel<T: TaskDataServiceProtocol & ObservableObject>: O
         addSubscribers()
         setupBindings()
         
-        TaskDataService.shared.queryTasks(dto: currDTO)
+        taskDS.queryTasks(dto: currDTO)
     }
     
     private func addSubscribers() {
@@ -64,7 +64,7 @@ class SearchDocumentsViewModel<T: TaskDataServiceProtocol & ObservableObject>: O
                     priority: selectedPriority?.rawValue
                 )
                 
-                TaskDataService.shared.queryTasks(dto: self!.currDTO)
+                self?.taskDS.queryTasks(dto: self!.currDTO)
             })
             .store(in: &cancellables)
     }

@@ -40,7 +40,9 @@ class TaskDataServiceMock: TaskDataServiceProtocol {
     }
     
     func updateTaskStatus(taskId: String, status: TaskStatus, userId: String, workspaceId: String) {
-        self.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
+        guard let taskIdx = db.tasksInWorkspace[workspaceId]?.firstIndex(where: { $0.id == taskId }) else { return }
+        
+        db.tasksInWorkspace[workspaceId]?[taskIdx].status = status
     }
     
     func queryTasks(dto: QueryTasksDTO) {
@@ -64,6 +66,12 @@ class TaskDataServiceMock: TaskDataServiceProtocol {
     func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String) {
         guard let taskIdx = db.tasksInWorkspace[workspaceId]?.firstIndex(where: { $0.id == dto.taskId }) else { return }
         
+        var user: User?
+        
+        if let userId = dto.userId {
+            user = db.users.first(where: { $0.id == userId })
+        }
+        
         db.tasksInWorkspace[workspaceId]![taskIdx] = TaskModel(
             id: dto.taskId,
             title: dto.title,
@@ -75,7 +83,7 @@ class TaskDataServiceMock: TaskDataServiceProtocol {
             workId: workspaceId,
             taskPriority: TaskPriority(rawValue: dto.priority)!,
             document: nil,
-            user: nil,
+            user: user,
             created_at: "",
             updated_at: ""
         )

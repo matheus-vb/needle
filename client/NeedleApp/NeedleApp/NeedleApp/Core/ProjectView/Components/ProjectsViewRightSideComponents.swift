@@ -35,6 +35,7 @@ extension ProjectsViewRightSideComponent{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
+            .keyboardShortcut(projectViewModel.selectedTab == .Kanban ? nil : KeyboardShortcut(.tab, modifiers: .control))
             
             Button(action: {
                 print("Documentation Button")
@@ -53,6 +54,7 @@ extension ProjectsViewRightSideComponent{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
+            .keyboardShortcut(projectViewModel.selectedTab == .Documentation ? nil : KeyboardShortcut(.tab, modifiers: .control))
         }
     }
     
