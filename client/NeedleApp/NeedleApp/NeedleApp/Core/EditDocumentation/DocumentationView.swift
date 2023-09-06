@@ -10,16 +10,17 @@ import RichTextKit
 
 struct DocumentationView: View {
     @ObservedObject var documentationViewModel: DocumentationViewModel<DocumentationDataService>
-    @ObservedObject var editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>
-    
+    @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @Binding var seeDocumentation: Bool
     @Environment(\.dismiss) var dismiss
     
     @Binding var documentationNS: NSAttributedString
     
-    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<DocumentationDataService, TaskDataService>) {
+    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>, seeDocumentation: Binding<Bool>) {
         self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
         self.editTaskViewModel = editTaskViewModel
         self._documentationNS = documentationNS
+        self._seeDocumentation = seeDocumentation
     }
     
     var body: some View {
@@ -41,7 +42,7 @@ struct DocumentationView: View {
         var taskDataHeader: some View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
-                    Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
+                    Button(action: {seeDocumentation.toggle()}, label: {
                         LabelComponent(imageName: "xmark", label: NSLocalizedString("", comment: ""))
                     }).buttonStyle(.borderless)
                     Spacer()

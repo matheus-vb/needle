@@ -170,6 +170,6 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        editTaskViewModel.seeDocumentation.toggle()
+        seeDocumentation.toggle()
     }
 }
