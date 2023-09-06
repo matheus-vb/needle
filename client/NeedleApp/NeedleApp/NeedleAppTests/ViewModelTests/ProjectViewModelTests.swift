@@ -77,7 +77,21 @@ final class ProjectViewModelTests: XCTestCase {
     }
     
     func test_getWorkspaceMembers() throws{
+        self.sut.getWorkspaceMembers(workspaceId: stubWorksapce.id)
         
+        let numberOfMembers = self.sut.worskpaceDS.members[stubWorksapce.id]!.count
+        let expectedValue = 1
+        
+        XCTAssertEqual(expectedValue, numberOfMembers)
+    }
+    
+    func test_copyToClipBoard() throws {
+        self.sut.copyToClipBoard()
+        
+        let pasteBoard = NSPasteboard.general.string(forType: .string)
+        let expectedValue = self.sut.selectedWorkspace.accessCode
+        
+        XCTAssertEqual(pasteBoard, expectedValue)
     }
     
     func testPerformanceExample() throws {
