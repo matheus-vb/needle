@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @State var seeDocumentation = false
     var geometry: GeometryProxy
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
@@ -21,7 +22,7 @@ struct EditTaskPopUP: View {
             topSection
             contentStack
         }
-        .sheet(isPresented: $editTaskViewModel.seeDocumentation, content: {
+        .sheet(isPresented: $seeDocumentation, content: {
             DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString)
         })
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
