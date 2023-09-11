@@ -10,7 +10,8 @@ import SwiftUI
 
 struct WorkspaceCardView: View, Identifiable {
     @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-
+    @State var triggerLoading = false
+    @State var initialLoading = false
 //    @State var isHovered = false
     
     @State private var filteredOwner: [String] = []
@@ -61,7 +62,7 @@ struct WorkspaceCardView: View, Identifiable {
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace), label: {
+            NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace, triggerLoading: $triggerLoading, initalLoading: $initialLoading), label: {
                 RoundedRectangle(cornerRadius: 10)
                     .modifier(workspaceCardModifier(standardColor: .white, hoveredColor: Color.theme.grayBackground))
                     .frame(width: 296, height: 192)

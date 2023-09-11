@@ -10,9 +10,12 @@ import SwiftUI
 struct ProjectView: View {
     
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    
-    init(selectedWorkspace: Workspace) {
+    @Binding var triggerLoading: Bool
+    @Binding var initalLoading: Bool
+    init(selectedWorkspace: Workspace, triggerLoading: Binding<Bool>, initalLoading: Binding<Bool>) {
         self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
+        self._triggerLoading = triggerLoading
+        self._initalLoading = initalLoading
     }
     
     var body: some View {
@@ -54,20 +57,20 @@ struct ProjectView: View {
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
-                ProjectLeftSideComponent()
+                ProjectLeftSideComponent(triggerLoading: $triggerLoading)
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
                     .environmentObject(projectViewModel)
             }, detail: {
                 ZStack {
-                    if projectViewModel.triggerLoading || projectViewModel.initalLoading {
+                    if triggerLoading || initalLoading {
                         loading
                             .onAppear {
                                 Task {
                                     try? await Task.sleep(nanoseconds: 1_000_000_000)
                                     withAnimation {
-                                        projectViewModel.initalLoading = false
-                                        projectViewModel.triggerLoading = false
+                                        initalLoading = false
+                                        triggerLoading = false
                                     }
                                 }
                             }

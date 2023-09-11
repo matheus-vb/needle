@@ -13,7 +13,13 @@ struct ProjectButton: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     let project: Workspace
     @State var onHover = false
-
+    @Binding var triggerLoading: Bool
+    
+    init(project: Workspace, triggerLoading: Binding<Bool>){
+        self._triggerLoading = triggerLoading
+        self.project = project
+    }
+    
     var body: some View {
         Button(action: {
             projectViewModel.getRoleInWorkspace(workspaceId: project.id)
@@ -22,12 +28,12 @@ struct ProjectButton: View {
             
             Task {
                 withAnimation {
-                    projectViewModel.triggerLoading = true
+                    triggerLoading = true
                 }
                 try? await Task.sleep(nanoseconds: 600_000_000)
                 projectViewModel.selectedWorkspace = project
                 withAnimation {
-                    projectViewModel.triggerLoading = false
+                    triggerLoading = false
                 }
             }
             Analytics.logEvent(K.changeWorkspace.rawValue, parameters: nil)
