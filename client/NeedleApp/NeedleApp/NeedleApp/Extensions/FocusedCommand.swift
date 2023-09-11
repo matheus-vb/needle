@@ -13,8 +13,8 @@ public extension View {
             .background(Button("") {
                 condition.wrappedValue = true
             }
-            .keyboardShortcut(key, modifiers: modifiers)
-            .hidden()
+                .keyboardShortcut(key, modifiers: modifiers)
+                .hidden()
             )
     }
 }
