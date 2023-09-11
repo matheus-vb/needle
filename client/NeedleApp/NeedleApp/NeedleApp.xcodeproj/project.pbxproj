@@ -907,7 +907,6 @@
 			children = (
 				D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */,
 				D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */,
-				868604F12A7C3665001D9213 /* WorkspaceHomeViewModel.swift */,
 			);
 			path = WorkspaceModelling;
 			sourceTree = "<group>";
@@ -915,11 +914,12 @@
 		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
 			isa = PBXGroup;
 			children = (
-				D468EC8E2A8D6A42004AE74F /* WorkspaceComponents */,
-				D468EC8F2A8D6A4D004AE74F /* WorkspaceModelling */,
 				D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */,
 				86EFD08F2A952AF200F8168A /* WorkspaceCardViewModel.swift */,
 				274A27F92A719F6C0002CFEA /* WorkspaceHomeView.swift */,
+				868604F12A7C3665001D9213 /* WorkspaceHomeViewModel.swift */,
+				D468EC8E2A8D6A42004AE74F /* WorkspaceComponents */,
+				D468EC8F2A8D6A4D004AE74F /* WorkspaceModelling */,
 			);
 			path = WorkspaceHome;
 			sourceTree = "<group>";
