@@ -82,3 +82,12 @@ struct workspaceCardModifier: ViewModifier {
             .foregroundColor(isHovered ? hoveredColor : standardColor)
     }
 }
+
+struct searchFieldModifier: ViewModifier {
+    @FocusState var isFocused : Bool
+
+    func body(content: Content) -> some View {
+        content
+            .focused($isFocused, key: "f")
+    }
+}

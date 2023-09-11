@@ -71,6 +71,7 @@
 		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
 		649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45442A7D7B8200F8F54B /* TaskCardView.swift */; };
 		649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */; };
+		649D6D0D2AAF9B1400632F5D /* FocusedCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649D6D0C2AAF9B1400632F5D /* FocusedCommand.swift */; };
 		64C0021B2A8D4D3B0058D72E /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C0021A2A8D4D3B0058D72E /* Modifiers.swift */; };
 		64FE76092A96814900DF620D /* KanbanColumnViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76082A96814900DF620D /* KanbanColumnViews.swift */; };
 		64FE760C2A96840300DF620D /* AddTaskButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE760B2A96840300DF620D /* AddTaskButton.swift */; };
@@ -294,6 +295,7 @@
 		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 		649B45442A7D7B8200F8F54B /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTagView.swift; sourceTree = "<group>"; };
+		649D6D0C2AAF9B1400632F5D /* FocusedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedCommand.swift; sourceTree = "<group>"; };
 		64C0021A2A8D4D3B0058D72E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		64FE76082A96814900DF620D /* KanbanColumnViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnViews.swift; sourceTree = "<group>"; };
 		64FE760B2A96840300DF620D /* AddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskButton.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				274A28352A71A0920002CFEA /* ExtensionPlaceHolder.swift */,
+				649D6D0C2AAF9B1400632F5D /* FocusedCommand.swift */,
 				864D69A62A787C7C00EB256A /* Bundle+baseURL.swift */,
 				8A2F08552A81C8B70059F848 /* CustomFonts.swift */,
 				86503D162A85604B001D26EE /* String+LowercaseFirstChar.swift */,
@@ -1189,6 +1192,7 @@
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
 				86E6FF162A840B3E00BB5D9F /* AppView.swift in Sources */,
 				2721B0DA2A7C414F0085F42E /* ProjectButton.swift in Sources */,
+				649D6D0D2AAF9B1400632F5D /* FocusedCommand.swift in Sources */,
 				446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
 				86EFD0932A958B8B00F8168A /* SheetViewModel.swift in Sources */,
@@ -1437,7 +1441,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = QJZZNXUZ63;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1451,7 +1455,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleJP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
