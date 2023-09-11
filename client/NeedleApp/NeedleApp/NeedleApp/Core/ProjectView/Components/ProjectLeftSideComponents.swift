@@ -23,7 +23,7 @@ extension ProjectLeftSideComponent{
         ScrollView{
             VStack(spacing: 24){
                 ForEach($projectViewModel.projects, id: \.self){project in
-                    ProjectButton(project: project.wrappedValue)
+                    ProjectButton(project: project.wrappedValue, triggerLoading: $triggerLoading)
 //                        .frame(width: 180)
                 }
             }
