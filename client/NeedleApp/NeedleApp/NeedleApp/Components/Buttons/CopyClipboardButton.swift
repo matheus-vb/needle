@@ -69,7 +69,7 @@ struct CopyClipboardButton: View {
             )
         })
         .buttonStyle(.plain)
-        .help(NSLocalizedString("Copy the project code to the clipboard.", comment: ""))
+        .help(NSLocalizedString("Copie o código do projeto para a área de transferência", comment: ""))
         .onHover { Bool in
             onHover = Bool
         }

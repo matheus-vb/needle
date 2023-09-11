@@ -1,0 +1,161 @@
+/*
+  Localizable.strings
+  NeedleApp
+
+  Created by jpcm2 on 30/08/23.
+  
+*/
+
+"Não deixe uma\nponta solta" = "No dejes cabos sueltos";
+
+"A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "La cultura de documentación permite que cada proyecto sea confeccionado con maestría, evitando enredos y confusiones. Por eso, Needle ha llegado para fomentar el registro y la consulta de sus actividades.";
+
+"Projetos e Tarefas" = "Proyectos y Tareas";
+
+"Descrição" = "Descripción";
+
+"Área" = "Área";
+
+"Selecione uma data" = "Selecciona una fecha";
+
+"Responsável" = "Responsable";
+
+"Prazo" = "Plazo";
+
+"Prioridade" = "Prioridad";
+
+"Cancelar" = "Cancelar";
+
+"Criar" = "Crear";
+
+"Nome da Task" = "Nombre de la Tarea";
+
+"Adicione uma breve descrição da tarefa" = "Añade una breve descripción de la tarea";
+
+"A fazer" = "Por hacer";
+
+"Fazendo" = "Haciendo";
+
+"Em revisão" = "En revisión";
+
+"Feito" = "Hecho";
+
+"Voltar" = "Volver";
+
+"Projetos" = "Proyectos";
+
+"Documentação" = "Documentación";
+
+"Participar de workspace" = "Unirse a un Espacio de Trabajo";
+
+"+ Criar novo workspace" = "+ Crear un Nuevo Espacio de Trabajo";
+
+"Sair " = "Cerrar sesión ";
+
+"Sair" = "Cerrar sesión";
+
+"Clique para ver mais deste workspace" = "Haz clic para ver más de este Espacio de Trabajo";
+
+"Projeto " = "Proyecto ";
+
+"simbolo" = "símbolo";
+
+"notificações" = "notificaciones";
+
+"Limpar" = "Limpiar";
+
+"Apagar" = "Eliminar";
+
+"Outros" = "Otros";
+
+"Adicionar Task" = "Crear Tarea";
+
+"Prazo" = "Plazo";
+
+"Prioridade" = "Prioridad";
+
+"Visualizar documentação" = "Ver documentación";
+
+"Procurar por nome, descrição, responsável..." = "Buscar por nombre, descripción, responsable...";
+
+"Nome da Task" = "Nombre de la Tarea";
+
+"Prioridade" = "Prioridad";
+
+"Área" = "Área";
+
+"Sem responsável" = "Sin responsable";
+
+"Atualização" = "Actualizaciones";
+
+"Alta" = "Alta";
+
+"Clique duas vezes em uma task para expandir!" = "Haz doble clic en una tarea para expandirla!";
+
+"Excluir projeto?" = "¿Eliminar Proyecto?";
+
+"Documento não encontrado" = "Documento no encontrado";
+
+"Deletar task?" = "¿Eliminar Tarea?";
+
+"Arquivar task?" = "Archivar Tareas?";
+
+"Nomeie seu novo workspace:" = "Nombre de tu Nuevo Espacio de Trabajo:";
+
+"Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos." = "Recuerda, al eliminar un Espacio de Trabajo,\ntus tareas y documentos se perderán.";
+
+"Envie o código do workspace para sua equipe e deixe-a alinhada." = "Envía el código del Espacio de Trabajo a tu equipo y alinéalos.";
+
+"Procure por outras palavras-chave como título da task, área ou data!" = "Busca otras palabras clave como título de tarea, área o fecha.";
+
+"Sua task e a documentação serão excluídas para sempre." = "Tu tarea y documentación se eliminarán para siempre.";
+
+"Sua task será removida do kanban, mas sua documentação continuará acessível." = "Tu tarea se quitará del kanban, pero tu documentación seguirá siendo accesible.";
+
+"Criar" = "Crear";
+
+"Excluir" = "Eliminar";
+
+"Entrar" = "Unirse";
+
+"Copiar" = "Copiar";
+
+"Remover" = "Eliminar";
+
+"Urgente" = "Urgente";
+
+"Moderada" = "Moderada";
+
+"Baixa" = "Baja";
+
+"Desenvolvimento" = "Desarrollo";
+
+"Geral" = "General";
+
+"Negócios" = "Negocios";
+
+"Vendas" = "Ventas";
+
+"Sem nome" = "Sin responsable";
+
+"Salvar" = "Guardar";
+
+"Código de compartilhamento copiado!" = "Código de Compartir Copiado!";
+
+"Copie o código do projeto para a área de transferência" = "Copia el código del proyecto al portapapeles";
+
+"Tente novamente" = "Inténtalo de nuevo";
+
+"Arquivar" = "Archivar";
+
+"Meus projetos" = "Mis proyectos";
+
+"Projetos que participo" = "Proyectos en los que participo";
+
+"Código para convite:" = "Código para invitación:";
+
+"Procurar por nome do projeto..." = "Buscar por nombre de proyecto...";
+
+"# Entrar num projeto" = "# Unirse a un proyecto";
+
+"Selecione uma função:" = "Seleccione una función:";
