@@ -57,6 +57,8 @@ final class WorkspaceHomeViewModelTests: XCTestCase {
     }
     
     func test_updateQuery(){
+        sut.selectedTab = .joinedWorkspaces
+        
         let mockWorkspace = Workspace(id: "2", accessCode: "321", name: "Workspace que sou PM", users: [PmMember(id: "2", userRole: "PRODUCT_MANAGER", userId: "1", workspaceId: "1", user: UserInfo(name: "Medeiros"))])
         let searchWorkspace = Workspace(id: "2", accessCode: "321", name: "teste que sou PM", users: [PmMember(id: "2", userRole: "PRODUCT_MANAGER", userId: "1", workspaceId: "1", user: UserInfo(name: "Medeiros"))])
         self.sut.workspaces = [mockWorkspace, mockWorkspace, mockWorkspace, searchWorkspace, searchWorkspace]
