@@ -296,6 +296,8 @@
 		649B45442A7D7B8200F8F54B /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTagView.swift; sourceTree = "<group>"; };
 		649D6D0C2AAF9B1400632F5D /* FocusedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedCommand.swift; sourceTree = "<group>"; };
+		649D6D102AAFA01500632F5D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		649D6D112AAFA04500632F5D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		64C0021A2A8D4D3B0058D72E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		64FE76082A96814900DF620D /* KanbanColumnViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnViews.swift; sourceTree = "<group>"; };
 		64FE760B2A96840300DF620D /* AddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskButton.swift; sourceTree = "<group>"; };
@@ -1018,6 +1020,8 @@
 				en,
 				Base,
 				"pt-BR",
+				es,
+				fr,
 			);
 			mainGroup = 274A27EB2A719F6C0002CFEA;
 			packageReferences = (
@@ -1308,6 +1312,8 @@
 			children = (
 				272B4D412A9FBA5100DC2CFE /* en */,
 				272B4D432A9FBA5400DC2CFE /* pt-BR */,
+				649D6D102AAFA01500632F5D /* es */,
+				649D6D112AAFA04500632F5D /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1441,7 +1447,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1455,7 +1461,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1473,7 +1479,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1487,7 +1493,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
