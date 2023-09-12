@@ -9,12 +9,28 @@ import Foundation
 import SwiftUI
 
 extension EditTaskPopUP{
+    
+    var contentStack: some View{
+        VStack(alignment: .leading, spacing: 20){
+            taskTitle.padding(.top, 8)
+            attributesStack
+            description
+            documentationArea.padding(.bottom, 96)
+            HStack{
+                archiveDeleteStack
+                Spacer()
+                saveTask
+            }
+        }
+    }
+    
     var taskTitle: some View {
         TextEditor(text: $editTaskViewModel.taskTitle)
             .textFieldStyle(.plain)
             .font(.system(size: 40, weight: .medium))
             .foregroundColor(.black)
             .frame(maxHeight: 60)
+            .scrollIndicators(.hidden)
     }
     var deadLine: some View{
         HStack(spacing: 24){
@@ -75,17 +91,30 @@ extension EditTaskPopUP{
         }
     }
     
+    var placeholder: String {
+        return NSLocalizedString("Descrição curta da task", comment: "") 
+    }
+    
     var description: some View{
-        VStack(alignment: .leading ,spacing: 12){
-            Text("Descrição")
-                .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.blackMain)
-            TextEditor(text: $editTaskViewModel.taskDescription)
-                .scrollContentBackground(.hidden)
-                .background(Color.clear)
-                .font(.system(size: 20, weight: .regular))
+        VStack(alignment: .leading, spacing: 12) {
+            Text(NSLocalizedString("Descrição", comment: ""))
+                .font(.system(size: 16, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-                .frame(minHeight: 20)
+                ZStack(alignment: .topLeading) {
+                    Color.gray
+                        .opacity(0.3)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                    
+                    Text(editTaskViewModel.taskDescription)
+                        .padding()
+                    TextEditor(text: Binding(projectedValue: $editTaskViewModel.taskDescription))
+                        .font(.custom("SF Pro", size: 16))
+                        .frame(minHeight: 30, alignment: .leading)
+                        .cornerRadius(6.0)
+                        .background(.clear)
+                        .multilineTextAlignment(.leading)
+                        .padding(9)
+                }
         }
     }
     
@@ -98,7 +127,7 @@ extension EditTaskPopUP{
         }
     }
     
-    var topSection: some View{
+    var archiveDeleteStack: some View{
         HStack{
             HStack(spacing: 24){
                 Button(action: {
@@ -123,39 +152,34 @@ extension EditTaskPopUP{
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color.theme.blackMain)
                 })
-            }
-            Spacer()
-            Button(action: {
-                editTaskViewModel.isEditing.toggle()
-            }, label: {
-                Image(systemName: "xmark")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(.black)
-            })
-        }
+            }        }
         .buttonStyle(.plain)
     }
     
-    var contentStack: some View{
-        VStack(spacing: 30){
-            taskTitle
-            attributesStack
-            description
-            Spacer()
-            DashedButton(text: NSLocalizedString("Visualizar documentação", comment: ""), onButtonTapped: openDocumentation)
-            Spacer()
-            HStack{
-                Spacer()
-                saveTask
-            }
-        }
-        .frame(minHeight: geometry.size.height - 128)
+    var seeDocumentationButton: some View {
+        DashedButton(text: editTaskViewModel.selectedTask.document?.text == template.devTemplate ? NSLocalizedString("Iniciar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
     }
+    
+    var documentationArea: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(NSLocalizedString("Documentação", comment: ""))
+                .font(.system(size: 16, weight: .regular))
+                .foregroundColor(Color.theme.grayPressed)
+            DashedButton(text: NSLocalizedString("Visualizar documentação", comment: ""), onButtonTapped: openDocumentation)
+
+        }
+    }
+    
     var saveTask: some View{
         HStack{
-            PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: cancelButton)
-            PopUpButton(text: NSLocalizedString("Salvar", comment: ""), onButtonTapped: saveTaskButton)
+            Button(action: {cancelButton()}, label: {
+                Text(NSLocalizedString("Cancelar", comment: ""))
+                     })
+                .buttonStyle(PrimarySheetActionButton())
+            Button(action: {saveTaskButton()}, label: {
+                Text(NSLocalizedString("Salvar", comment: ""))
+                     })
+                .buttonStyle(SecondarySheetActionButton())
         }
     }
     

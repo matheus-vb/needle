@@ -65,7 +65,7 @@ struct DropdownPriorityButton: View {
             isClicked.toggle()
         }, label:{
             HStack{
-                Text("\(taskPriority?.displayName ?? "Prioridade")")
+                Text("\(taskPriority?.displayName ?? NSLocalizedString("Priority", comment: ""))")
                 .font(.custom("SF Pro", size: 12)
                     .weight(.regular))
                 .foregroundColor(.black)
@@ -112,7 +112,7 @@ struct DropdownTypeButton: View {
             isClicked.toggle()
         }, label:{
             HStack{
-                Text("\(taskType?.displayName ?? "Área")")
+                Text("\(taskType?.displayName ?? NSLocalizedString("Área", comment: ""))")
                 .font(.custom("SF Pro", size: 12)
                     .weight(.regular))
                 .foregroundColor(.black)

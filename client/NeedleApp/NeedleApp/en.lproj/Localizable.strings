@@ -19,7 +19,7 @@
 
 "Selecione uma data" = "Select a date";
 
-"Responsável" = "Responsible";
+"Responsável" = "Assigned to";
 
 "Prazo" = "Deadline";
 
@@ -85,7 +85,7 @@
 
 "Área" = "Field";
 
-"Sem responsável" = "No one responsible.";
+"Sem responsável." = "Not assigned.";
 
 "Atualização" = "Updates";
 
@@ -137,12 +137,13 @@
 
 "Vendas" = "Sales";
 
-"Sem nome" = "Without responsible";
+"Sem responsável" = "Not Assigned";
 
 "Salvar" = "Save";
 
 "Código de compartilhamento copiado!" = "Sharing code copied!";
 
+"Código para convite:" = "Sharing code:";
 
 "Copie o código do projeto para a área de transferência" = "Copy the project code to the clipboard.";
 
@@ -150,4 +151,14 @@
 
 "Arquivar" = "Archive";
 
+"Meus projetos" = "My workspaces";
 
+"Projetos que participo" = "Workspaces joined";
+
+"# Entrar num projeto" = "Join new workspace";
+
+"+ Criar projeto" = "Create workspace";
+
+"Procurar por nome do projeto..." = "Search by workspace name...";
+
+"Selecione uma função:" = "Pick a role:";

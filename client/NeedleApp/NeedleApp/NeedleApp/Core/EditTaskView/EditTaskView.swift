@@ -11,6 +11,7 @@ struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
     var geometry: GeometryProxy
     
+    
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
         self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, taskDS: TaskDataService.shared)
         self.geometry = geometry
@@ -18,13 +19,12 @@ struct EditTaskPopUP: View {
     
     var body: some View {
         VStack(spacing: 24){
-            topSection
             contentStack
+                .frame(height: editTaskViewModel.seeDocumentation ? geometry.size.height - 128 : geometry.size.height - 256)
         }
         .overlay(content: {
             if editTaskViewModel.seeDocumentation {
                 DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel)
-                    .environmentObject(editTaskViewModel)
                     .background(.white)
             }
         })
@@ -37,7 +37,7 @@ struct EditTaskPopUP: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(width: 2*geometry.size.width/3, height: 19*geometry.size.height/20)
+        .frame(minWidth: 2*geometry.size.width/3, maxHeight: 19*geometry.size.height/20)
         .background(.white)
     }
 }

@@ -13,7 +13,7 @@ extension KanbanView {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack{
-                    Text("Prazo: \(HandleDate.handleDate(date: task.endDate))")
+                    Text("\(NSLocalizedString("Prazo", comment: "")): \(HandleDate.handleDate(date: task.endDate))")
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(Color.theme.grayPressed)
                     Spacer()
@@ -21,7 +21,7 @@ extension KanbanView {
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(kanbanViewModel.getPriorityFlagColor(priority: task.taskPriority))
                 }
-                Text(task.user?.name ?? "Sem nome")
+                Text(task.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
                     .font(Font.custom("SF Pro", size: 12))
                     .foregroundColor(Color.theme.blackMain)
                 Text(task.title)

@@ -48,7 +48,7 @@ struct KanbanView: View {
                                 
                             }
                         Button(action: {
-                            //                            searchDocumentsViewModel.query = nil
+                            kanbanViewModel.searchText = ""
                         }, label: {
                             Image(systemName: "arrow.counterclockwise")
                         })

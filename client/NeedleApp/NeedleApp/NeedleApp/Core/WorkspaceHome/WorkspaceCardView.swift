@@ -37,7 +37,7 @@ struct WorkspaceCardView: View, Identifiable {
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
-            Text("PM: \(owner)").font(.system(size: 14, weight: .regular))
+            Text("Product Manager: \(owner)").font(.system(size: 14, weight: .regular))
             //Text("Participantes: \(members)").font(.system(size: 14, weight: .regular))
         }
     }
@@ -75,7 +75,7 @@ struct WorkspaceCardView: View, Identifiable {
                 basicInfo
                  .foregroundColor(Color.theme.blackMain)
                 HStack {
-                    Text("Código para convite:").font(.system(size: 12, weight: .medium))
+                    Text(NSLocalizedString("Código para convite:", comment: "")).font(.system(size: 12, weight: .medium))
                     Spacer()
                     CopyClipboardButton(text: code, isOnCard: true) {
                     }

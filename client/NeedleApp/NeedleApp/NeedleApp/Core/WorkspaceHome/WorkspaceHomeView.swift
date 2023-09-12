@@ -50,11 +50,10 @@ struct WorkspaceHomeView: View {
                     pageSelector
                         .frame(height: geometry.size.height * 0.12)
                     header
-                        .frame(width: 984)
+                        .frame(width: geometry.size.width * 0.83)
                     workspaceGrid
                         .frame(maxWidth: 984)
-                    
-                    
+                
                 }
             } .sheet(isPresented: $workspaceViewModel.isJoining) {
                 SheetView(type: .joinCode)

@@ -623,8 +623,6 @@
 				274A28412A71A0E90002CFEA /* ComponentsPlaceHolder.swift */,
 				44FE06322A82E71800386ADE /* PickerApp.swift */,
 				86E6FF1A2A842E1C00BB5D9F /* AlertBoxView.swift */,
-				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
-				D43EB9BC2A84184400CF0315 /* SheetType.swift */,
 				8AA87FE52A83FE32007DFEB5 /* Buttons */,
 			);
 			path = Components;
@@ -814,6 +812,8 @@
 		86EFD0912A958B7B00F8168A /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
+				D43EB9BC2A84184400CF0315 /* SheetType.swift */,
+				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
 				D43EB9BA2A8414C900CF0315 /* SheetView.swift */,
 				86EFD0922A958B8B00F8168A /* SheetViewModel.swift */,
 			);
@@ -1437,7 +1437,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = V8K8MHSNH4;
+				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1451,7 +1451,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
