@@ -24,13 +24,14 @@ struct ProjectLeftSideComponent: View {
         VStack(alignment: .leading){
             
             leftSideTitle
+            projectsList
             
-            List($projectViewModel.projects, id: \.self) {project in
-                ProjectButton(project: project.wrappedValue)
-                    .listRowInsets(EdgeInsets())
-            }
-            .frame(height: $projectViewModel.projects.count <= 1 ? 66 : ($projectViewModel.projects.count == 2 ? 132 : 198))
-            
+            Rectangle()
+                .foregroundColor(Color.theme.grayPressed)
+                .frame(height: 1)
+                .padding(.horizontal, 20)
+                .opacity(0.5)
+
             newProject
             
             Spacer()
@@ -74,6 +75,6 @@ struct FeedbackSheetView: View {
         .padding(.vertical, 20)
         .padding(.horizontal, 35.5)
         
-        .foregroundColor(.black)
+        .foregroundColor(Color.theme.blackMain)
     }
 }

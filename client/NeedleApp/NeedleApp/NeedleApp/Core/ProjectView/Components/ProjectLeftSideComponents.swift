@@ -11,9 +11,13 @@ extension ProjectLeftSideComponent{
     
     var leftSideTitle: some View {
         HStack{
-            Image(systemName: "square.grid.2x2")
+            Image(systemName: "chevron.backward")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 10)
             Text("Projetos")
-                .font(Font.custom("SF Pro", size: 14).weight(.regular))
+                .foregroundColor(Color.theme.blackMain)
+                .font(Font.custom("SF Pro", size: 16).weight(.semibold))
 
         }
         .padding(15)
@@ -32,10 +36,9 @@ extension ProjectLeftSideComponent{
     
     var newProject: some View {
         Text("+ Novo projeto")
-            .font(Font.custom("SF Pro", size: 14).weight(.regular))
+            .foregroundColor(Color.theme.blackMain)
+            .font(Font.custom("SF Pro", size: 16).weight(.regular))
             .padding(.vertical, 10)
-//            .background(onHoverNewProject ? Color.theme.greenTertiary.blur(radius: 8, opaque: false) : Color.theme.grayBackground.blur(radius: 8, opaque: false))
-//            .cornerRadius(6)
             .padding(.leading, 20)
             .scaleEffect(onHoverNewProject ? 1.1 : 0.98)
             .animation(.spring(), value: onHoverNewProject)
@@ -51,4 +54,14 @@ extension ProjectLeftSideComponent{
                     .background(.white)
             }
     }
+    
+    var projectsList: some View {
+        List($projectViewModel.projects, id: \.self) {project in
+            ProjectButton(project: project.wrappedValue)
+                .listRowInsets(EdgeInsets())
+        }
+        .frame(height: $projectViewModel.projects.count >= 5 ? 330 : (66 * CGFloat($projectViewModel.projects.count)))
+    }
+    
 }
+
