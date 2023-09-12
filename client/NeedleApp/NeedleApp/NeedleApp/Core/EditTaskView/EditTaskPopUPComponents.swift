@@ -15,7 +15,10 @@ extension EditTaskPopUP{
             taskTitle.padding(.top, 8)
             attributesStack
             description
-            documentationArea.padding(.bottom, 96)
+                .cornerRadius(6)
+            Spacer()
+                .frame(height: 10)
+            documentationArea.padding(.bottom, 40)
             HStack{
                 archiveDeleteStack
                 Spacer()
@@ -48,7 +51,7 @@ extension EditTaskPopUP{
     var responsible: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
-            Picker("Área",selection: $editTaskViewModel.dto.userId){
+            Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.dto.userId){
                 ForEach(editTaskViewModel.members) {membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
@@ -100,21 +103,14 @@ extension EditTaskPopUP{
             Text(NSLocalizedString("Descrição", comment: ""))
                 .font(.system(size: 16, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-                ZStack(alignment: .topLeading) {
-                    Color.gray
-                        .opacity(0.3)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                    
-                    Text(editTaskViewModel.taskDescription)
-                        .padding()
-                    TextEditor(text: Binding(projectedValue: $editTaskViewModel.taskDescription))
-                        .font(.custom("SF Pro", size: 16))
-                        .frame(minHeight: 30, alignment: .leading)
-                        .cornerRadius(6.0)
-                        .background(.clear)
-                        .multilineTextAlignment(.leading)
-                        .padding(9)
-                }
+            
+                TextEditor(text: Binding(projectedValue: $editTaskViewModel.taskDescription))
+                    .frame(minHeight: geometry.size.height*0.042, maxHeight: geometry.size.height*0.065)
+                    .font(.custom("SF Pro", size: 16))
+                    .lineSpacing(1)
+                    .multilineTextAlignment(.leading)
+                    .padding(2)
+                    .colorMultiply(Color.theme.grayBackground)
         }
     }
     
@@ -157,7 +153,7 @@ extension EditTaskPopUP{
     }
     
     var seeDocumentationButton: some View {
-        DashedButton(text: editTaskViewModel.selectedTask.document?.text == template.devTemplate ? NSLocalizedString("Iniciar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
+        DashedButton(text: editTaskViewModel.selectedTask.document?.text == template.devTemplate ? NSLocalizedString("Criar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
     }
     
     var documentationArea: some View {
@@ -165,7 +161,11 @@ extension EditTaskPopUP{
             Text(NSLocalizedString("Documentação", comment: ""))
                 .font(.system(size: 16, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-            DashedButton(text: NSLocalizedString("Visualizar documentação", comment: ""), onButtonTapped: openDocumentation)
+            seeDocumentationButton
+            Text(NSLocalizedString("Ninguém documentou nada ainda. Seja o primeiro!", comment: ""))
+                .opacity(editTaskViewModel.selectedTask.document?.text == template.devTemplate ? 1 : 0)
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(Color.theme.grayHover)
 
         }
     }

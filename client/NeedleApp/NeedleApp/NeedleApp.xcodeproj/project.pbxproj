@@ -42,7 +42,6 @@
 		2771ECB32AA8EAD000057667 /* WorkspaceCardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771ECB12AA8EAD000057667 /* WorkspaceCardViewModelTests.swift */; };
 		2771ECB42AA8EAD000057667 /* WorkspaceHomeModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771ECB22AA8EAD000057667 /* WorkspaceHomeModelTest.swift */; };
 		2771ECB52AA8EBAB00057667 /* WorkspaceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08F2A952AF200F8168A /* WorkspaceCardViewModel.swift */; };
-		2771ECB62AA8EBBA00057667 /* WorkspaceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */; };
 		2771ECB92AA8EE1700057667 /* ProjectViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2771ECB82AA8EE1700057667 /* ProjectViewModelTests.swift */; };
 		2771ECBA2AA8EEBA00057667 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796002A7C348A00FDA10F /* ProjectViewModel.swift */; };
 		2771ECBB2AA8F7BE00057667 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
@@ -80,8 +79,6 @@
 		64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
 		863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789822A745BC1004EEB9B /* KeychainSwift.swift */; };
 		863789852A745D70004EEB9B /* NotificationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863789842A745D70004EEB9B /* NotificationDataService.swift */; };
-		864A56562AA8F31E006C8398 /* WorkspaceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD08F2A952AF200F8168A /* WorkspaceCardViewModel.swift */; };
-		864A56572AA8F360006C8398 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FE76172A99443100DF620D /* FirebaseConstants.swift */; };
 		864A56582AA8F36A006C8398 /* WorkspaceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */; };
 		864A56592AA8F47D006C8398 /* NotificationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86503D122A855A1E001D26EE /* NotificationBarViewModel.swift */; };
 		864A565B2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A565A2AA8F4A1006C8398 /* NotificationBarViewModelTests.swift */; };
@@ -1092,7 +1089,6 @@
 				27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */,
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
 				86E7BCE82A7CA76700CDCCB2 /* TaskDataService.swift in Sources */,
-				274A28302A71A0340002CFEA /* Document.swift in Sources */,
 				8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */,
 				270912D42A7AEACF00CB91FA /* TaskPriority.swift in Sources */,
 				44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */,
@@ -1106,7 +1102,6 @@
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
 				86BE497F2A97EB4A008A7F7F /* DocumentationView.swift in Sources */,
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
-				274A28422A71A0E90002CFEA /* ComponentsPlaceHolder.swift in Sources */,
 				270515852A84635E005FF0EE /* HandleDate.swift in Sources */,
 				D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */,
 				276877D72A84147200CE70C4 /* UpdateTaskDTO.swift in Sources */,
@@ -1115,7 +1110,6 @@
 				64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */,
 				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
 				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
-				274A27FA2A719F6C0002CFEA /* WorkspaceHomeView.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationDataService.swift in Sources */,
 				D468EC912A8D6A5E004AE74F /* WorkspaceTab.swift in Sources */,
 				86E6FF022A82932D00BB5D9F /* Role.swift in Sources */,
@@ -1151,12 +1145,10 @@
 				279F09BD2A82A0670016B12E /* EditTaskView.swift in Sources */,
 				274E63C22A71A2EB00FACCC5 /* CreateTaskViewModel.swift in Sources */,
 				86503D172A85604B001D26EE /* String+LowercaseFirstChar.swift in Sources */,
-				274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */,
 				86EFD0862A901F3000F8168A /* AuthenticationManagerProtocol.swift in Sources */,
 				27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */,
 				D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */,
 				86503D0F2A855553001D26EE /* NotificationModel.swift in Sources */,
-				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */,
 				8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */,
 				86E6FF122A830AA300BB5D9F /* QueryTasksDTO.swift in Sources */,
@@ -1168,7 +1160,6 @@
 				27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */,
 				8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */,
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
-				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
 				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */,
 				27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */,
@@ -1220,7 +1211,6 @@
 				86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */,
 				86BE49A32A9FC9DB008A7F7F /* SignInDTO.swift in Sources */,
 				867E71142AA66CDC0028989F /* WorkspaceHomeViewModel.swift in Sources */,
-				2771ECB62AA8EBBA00057667 /* WorkspaceTab.swift in Sources */,
 				867E71092AA66C9B0028989F /* NotificationModel.swift in Sources */,
 				867E71102AA66C9B0028989F /* Document.swift in Sources */,
 				86BE49A22A9FC9DB008A7F7F /* UpdateDeviceTokenDTO.swift in Sources */,
@@ -1231,13 +1221,11 @@
 				86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */,
 				86BE49A92A9FC9DB008A7F7F /* UpdateDocumentationDTO.swift in Sources */,
 				2771ECB52AA8EBAB00057667 /* WorkspaceCardViewModel.swift in Sources */,
-				864A56562AA8F31E006C8398 /* WorkspaceCardViewModel.swift in Sources */,
 				86BE498C2A9FBC5A008A7F7F /* WorkspaceDataServiceProtocol.swift in Sources */,
 				867E71122AA66C9B0028989F /* User.swift in Sources */,
 				867E710E2AA66C9B0028989F /* WorkspacesResponse.swift in Sources */,
 				867E70D72A9FCE8A0028989F /* TaskDataServiceMock.swift in Sources */,
 				86BE498B2A9FBC57008A7F7F /* TaskDataServiceProtocol.swift in Sources */,
-				864A56572AA8F360006C8398 /* FirebaseConstants.swift in Sources */,
 				867E711B2AA7C4020028989F /* Color+Theme.swift in Sources */,
 				86BE49A62A9FC9DB008A7F7F /* UpdateDocDTO.swift in Sources */,
 				2771ECB92AA8EE1700057667 /* ProjectViewModelTests.swift in Sources */,
@@ -1316,6 +1304,7 @@
 			baseConfigurationReference = 86E6FF0E2A83075700BB5D9F /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1345,6 +1334,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1377,6 +1367,7 @@
 			baseConfigurationReference = 86503D0B2A84A262001D26EE /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1406,6 +1397,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1436,6 +1428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = Y8H4LWMZZ8;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1468,6 +1461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 4;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
 				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1497,6 +1491,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -1516,6 +1511,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -1534,6 +1530,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -1551,6 +1548,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = V8K8MHSNH4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;

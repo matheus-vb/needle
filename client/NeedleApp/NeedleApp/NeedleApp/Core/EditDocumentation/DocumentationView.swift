@@ -31,8 +31,16 @@ struct DocumentationView: View {
                     leftBorder
                     toolbar
                 }.background(Color.theme.grayBackground)
+            HStack {
                 Spacer()
+                LabelComponent(imageName: "checkmark.icloud", label: NSLocalizedString("Alterações salvas automaticamente", comment: ""))
+                    .foregroundColor(Color.theme.grayPressed)
+                    .font(.system(size: 10))
             }
+                Spacer()
+        }.onDisappear(perform: {
+//            documentationViewModel.getUpdate(data: UpdateDocumentationDTO(id: documentationViewModel.documentId, text: editTaskViewModel.selectedTask.document!.text, textString: editTaskViewModel.selectedTask.document!.textString), userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+        })
             
         }
         
@@ -44,9 +52,9 @@ struct DocumentationView: View {
                             .font(.system(size: 20, weight: .medium))
                     }).buttonStyle(.borderless)
                     Spacer()
-                    Text("\(editTaskViewModel.taskTitle)")
-                        .font(.system(size: 40, weight: .medium))
-                        .foregroundColor(.black)
+                        Text("\(editTaskViewModel.taskTitle)")
+                            .font(.system(size: 38, weight: .medium))
+                            .foregroundColor(.black)
                     Spacer()
                 }
                 

@@ -159,6 +159,10 @@
 
 "+ Criar projeto" = "Create workspace";
 
+"Editar documentação" = "Edit documentation";
+
+"Criar documentação" = "Create documentation";
+
 "Procurar por nome do projeto..." = "Search by workspace name...";
 
 "Selecione uma função:" = "Pick a role:";

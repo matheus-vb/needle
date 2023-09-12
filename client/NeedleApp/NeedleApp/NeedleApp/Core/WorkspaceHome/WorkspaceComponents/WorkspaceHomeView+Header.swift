@@ -26,6 +26,7 @@ extension WorkspaceHomeView {
                     .frame(maxWidth: 360)
                 TextField("Procurar por nome do projeto...", text: $workspaceViewModel.query)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxWidth: 320)
                 Spacer()
             }
     }
