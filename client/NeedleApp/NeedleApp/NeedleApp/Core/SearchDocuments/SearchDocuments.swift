@@ -49,6 +49,7 @@ struct SearchDocuments: View {
                         .onSubmit {
                             searchDocumentsViewModel.query = nil
                         }
+                        .modifier(searchFieldModifier())
                     Button(action: {
                         searchDocumentsViewModel.query = nil
                     }, label: {

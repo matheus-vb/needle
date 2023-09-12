@@ -47,6 +47,7 @@ struct KanbanView: View {
                             .onSubmit {
                                 
                             }
+                            .modifier(searchFieldModifier())
                         Button(action: {
                             //                            searchDocumentsViewModel.query = nil
                         }, label: {

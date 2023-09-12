@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ProjectLeftSideComponent: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    @ObservedObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
-    
-    init() {
-        self.workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
+    @State var isNaming = false
+
+    init(triggerLoading: Binding<Bool>) {
+        self._triggerLoading = triggerLoading
     }
     
+    @Binding var triggerLoading: Bool
     @Environment(\.dismiss) var dismiss
     @State var onHoverProject = false
     @State var onHoverNewProject = false
@@ -44,7 +45,6 @@ struct ProjectLeftSideComponent: View {
                         .foregroundColor(Color.theme.grayHover)
                         .background(.white)
                 }
-            
         }
     }
     
@@ -74,7 +74,6 @@ struct FeedbackSheetView: View {
         }
         .padding(.vertical, 20)
         .padding(.horizontal, 35.5)
-        
         .foregroundColor(Color.theme.blackMain)
     }
 }

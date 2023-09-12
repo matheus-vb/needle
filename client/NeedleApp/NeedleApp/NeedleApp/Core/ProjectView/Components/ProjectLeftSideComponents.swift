@@ -21,8 +21,6 @@ extension ProjectLeftSideComponent{
 
         }
         .padding(15)
-//        .background(onHoverProject ? Color.white.blur(radius: 8, opaque: false) : Color.theme.grayBackground.blur(radius: 8, opaque: false))
-//        .cornerRadius(6)
         .scaleEffect(onHoverProject ? 1.1 : 0.98)
         .animation(.spring(), value: onHoverProject)
         .onTapGesture {
@@ -43,12 +41,12 @@ extension ProjectLeftSideComponent{
             .scaleEffect(onHoverNewProject ? 1.1 : 0.98)
             .animation(.spring(), value: onHoverNewProject)
             .onTapGesture {
-                workspaceViewModel.isNaming.toggle()
+                isNaming.toggle()
             }
             .onHover { Bool in
                 onHoverNewProject = Bool
             }
-            .sheet(isPresented: $workspaceViewModel.isNaming) {
+            .sheet(isPresented: $isNaming) {
                 SheetView(type: .newWorkspace)
                     .foregroundColor(Color.theme.grayHover)
                     .background(.white)
@@ -57,11 +55,11 @@ extension ProjectLeftSideComponent{
     
     var projectsList: some View {
         List($projectViewModel.projects, id: \.self) {project in
-            ProjectButton(project: project.wrappedValue)
+            ProjectButton(project: project.wrappedValue, triggerLoading: $triggerLoading)
                 .listRowInsets(EdgeInsets())
         }
         .frame(height: $projectViewModel.projects.count >= 5 ? 330 : (66 * CGFloat($projectViewModel.projects.count)))
+
     }
-    
 }
 
