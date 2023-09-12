@@ -298,8 +298,6 @@
 		649D6D0C2AAF9B1400632F5D /* FocusedCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedCommand.swift; sourceTree = "<group>"; };
 		649D6D102AAFA01500632F5D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		649D6D112AAFA04500632F5D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		649D6D122AAFA44700632F5D /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		649D6D132AAFA46600632F5D /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		64C0021A2A8D4D3B0058D72E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		64FE76082A96814900DF620D /* KanbanColumnViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanColumnViews.swift; sourceTree = "<group>"; };
 		64FE760B2A96840300DF620D /* AddTaskButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskButton.swift; sourceTree = "<group>"; };
@@ -1024,8 +1022,6 @@
 				"pt-BR",
 				es,
 				fr,
-				"es-419",
-				"fr-CA",
 			);
 			mainGroup = 274A27EB2A719F6C0002CFEA;
 			packageReferences = (
@@ -1318,8 +1314,6 @@
 				272B4D432A9FBA5400DC2CFE /* pt-BR */,
 				649D6D102AAFA01500632F5D /* es */,
 				649D6D112AAFA04500632F5D /* fr */,
-				649D6D122AAFA44700632F5D /* es-419 */,
-				649D6D132AAFA46600632F5D /* fr-CA */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
