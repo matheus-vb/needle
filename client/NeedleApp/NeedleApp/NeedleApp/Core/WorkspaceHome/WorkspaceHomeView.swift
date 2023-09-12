@@ -61,7 +61,6 @@ struct WorkspaceHomeView: View {
     var body: some View {
         if workspaceViewModel.showMain {
             main
-            
         }
         else {
             loading

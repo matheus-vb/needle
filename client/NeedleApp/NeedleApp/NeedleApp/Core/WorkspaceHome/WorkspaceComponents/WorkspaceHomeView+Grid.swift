@@ -17,7 +17,6 @@ extension WorkspaceHomeView {
                     LazyVGrid(columns: columns, spacing: geometry.size.height * 0.04) {
                         ForEach(workspaceViewModel.searchResults.indices, id: \.self) { index in
                             WorkspaceCardView(workspaceInfo: workspaceViewModel.searchResults[index], action: {
-                                print(index)
                                 workspaceViewModel.accessCode = workspaceViewModel.workspaces[index].accessCode
                                 workspaceViewModel.isDeleting.toggle()
                             })

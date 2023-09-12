@@ -10,12 +10,12 @@ import SwiftUI
 struct ProjectView: View {
     
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    @Binding var triggerLoading: Bool
-    @Binding var initalLoading: Bool
-    init(selectedWorkspace: Workspace, triggerLoading: Binding<Bool>, initalLoading: Binding<Bool>) {
+    @State var triggerLoading: Bool = true
+    @State var initalLoading: Bool = true
+    init(selectedWorkspace: Workspace) {
         self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
-        self._triggerLoading = triggerLoading
-        self._initalLoading = initalLoading
+        self.triggerLoading = true
+        self.initalLoading = true
     }
     
     var body: some View {
