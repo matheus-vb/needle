@@ -19,7 +19,7 @@ struct ProjectButton: View {
         self._triggerLoading = triggerLoading
         self.project = project
     }
-    
+
     var body: some View {
         Button(action: {
             projectViewModel.getRoleInWorkspace(workspaceId: project.id)
@@ -38,27 +38,26 @@ struct ProjectButton: View {
             }
             Analytics.logEvent(K.changeWorkspace.rawValue, parameters: nil)
         }, label:{
-            HStack{
+            VStack (alignment: .leading){
                 Text("\(project.name)")
-                .font(
-                Font.custom("SF Pro", size: 12)
-                .weight(.semibold)
-                )
-                .foregroundColor(.black)
+                    .font(Font.custom("SF Pro", size: 15).weight(.regular))
+                    .foregroundColor(Color.theme.blackMain)
+                    .padding(.bottom, 5)
+                    .scaleEffect(onHover ? 1.0 : 0.95)
+                    .animation(.spring(), value: onHover)
+                Text("  \(project.users.count) \(project.users.count > 1 ? "membros" : "membro")")
+                    .font(Font.custom("SF Pro", size: 10).weight(.regular))
+                    .foregroundColor(Color.theme.grayPressed)
             }
-//            .frame(height: 48, alignment: .center)
-            .frame(maxWidth: .infinity, idealHeight: 48)
-            .background(projectViewModel.selectedWorkspace.accessCode == project.accessCode ? (onHover ? Color.theme.greenSecondary : Color.theme.greenMain) : (onHover ? Color.white : Color.theme.grayBackground))
-//            .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+            .frame(height: 56)
+            .padding(.vertical, 5)
+            .padding(.leading, 5)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(projectViewModel.selectedWorkspace.accessCode == project.accessCode ? Color.white.blur(radius: 8, opaque: false)
+ : Color.theme.grayBackground.blur(radius: 15, opaque: false))
             .cornerRadius(6)
-            .overlay(
-              RoundedRectangle(cornerRadius: 6)
-                .inset(by: 0.5)
-                .stroke(Color.theme.blackMain, style: StrokeStyle(lineWidth: 1))
-            )
         })
         .buttonStyle(.plain)
-        .padding(.horizontal, 10)
         .onHover { Bool in
             onHover = Bool
         }

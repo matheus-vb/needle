@@ -51,7 +51,7 @@ struct KanbanView: View {
                         Button(action: {
                             //                            searchDocumentsViewModel.query = nil
                         }, label: {
-                            Image(systemName: "arrow.counterclockwise")
+                            Image(systemName: "delete.left")
                         })
                         .buttonStyle(.plain)
                     }
