@@ -8,25 +8,47 @@
 import SwiftUI
 
 extension ProjectLeftSideComponent{
+    
     var leftSideTitle: some View {
-        HStack(spacing: 8){
-            Image("needleLogo")
-                .resizable()
-                .frame(width: 22, height: 22)
+        HStack{
+            Image(systemName: "square.grid.2x2")
             Text("Projetos")
-                .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.black)
+                .font(Font.custom("SF Pro", size: 14).weight(.regular))
+
         }
+        .padding(15)
+//        .background(onHoverProject ? Color.white.blur(radius: 8, opaque: false) : Color.theme.grayBackground.blur(radius: 8, opaque: false))
+//        .cornerRadius(6)
+        .scaleEffect(onHoverProject ? 1.1 : 0.98)
+        .animation(.spring(), value: onHoverProject)
+        .onTapGesture {
+            dismiss()
+        }
+        .onHover { Bool in
+            onHoverProject = Bool
+        }
+        
     }
     
-    var projectsList: some View {
-        ScrollView{
-            VStack(spacing: 24){
-                ForEach($projectViewModel.projects, id: \.self){project in
-                    ProjectButton(project: project.wrappedValue)
-//                        .frame(width: 180)
-                }
+    var newProject: some View {
+        Text("+ Novo projeto")
+            .font(Font.custom("SF Pro", size: 14).weight(.regular))
+            .padding(.vertical, 10)
+//            .background(onHoverNewProject ? Color.theme.greenTertiary.blur(radius: 8, opaque: false) : Color.theme.grayBackground.blur(radius: 8, opaque: false))
+//            .cornerRadius(6)
+            .padding(.leading, 20)
+            .scaleEffect(onHoverNewProject ? 1.1 : 0.98)
+            .animation(.spring(), value: onHoverNewProject)
+            .onTapGesture {
+                workspaceViewModel.isNaming.toggle()
             }
-        }
+            .onHover { Bool in
+                onHoverNewProject = Bool
+            }
+            .sheet(isPresented: $workspaceViewModel.isNaming) {
+                SheetView(type: .newWorkspace)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+            }
     }
 }

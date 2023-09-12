@@ -34,10 +34,12 @@ struct ProjectButton: View {
         }, label:{
             VStack (alignment: .leading){
                 Text("\(project.name)")
-                    .font(Font.custom("SF Pro", size: 12).weight(.regular))
+                    .font(Font.custom("SF Pro", size: 15).weight(.regular))
                     .foregroundColor(Color.theme.blackMain)
                     .padding(.bottom, 5)
-                Text("Você tem tasks")
+                    .scaleEffect(onHover ? 1.0 : 0.95)
+                    .animation(.spring(), value: onHover)
+                Text("  \(project.users.count) \(project.users.count > 1 ? "membros" : "membro")")
                     .font(Font.custom("SF Pro", size: 10).weight(.regular))
                     .foregroundColor(Color.theme.grayPressed)
             }
@@ -45,18 +47,11 @@ struct ProjectButton: View {
             .padding(.vertical, 5)
             .padding(.leading, 5)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(projectViewModel.selectedWorkspace.accessCode == project.accessCode ? Color.theme.greenSecondary.blur(radius: 15, opaque: false)
- : (onHover ? Color.white.blur(radius: 15, opaque: false) : Color.theme.grayBackground.blur(radius: 15, opaque: false)))
-//            .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+            .background(projectViewModel.selectedWorkspace.accessCode == project.accessCode ? Color.white.blur(radius: 8, opaque: false)
+ : Color.theme.grayBackground.blur(radius: 15, opaque: false))
             .cornerRadius(6)
-//            .overlay(
-//              RoundedRectangle(cornerRadius: 6)
-//                .inset(by: 0.5)
-//                .stroke(Color.theme.blackMain, style: StrokeStyle(lineWidth: 1))
-//            )
         })
         .buttonStyle(.plain)
-//        .padding(.horizontal, 10)
         .onHover { Bool in
             onHover = Bool
         }

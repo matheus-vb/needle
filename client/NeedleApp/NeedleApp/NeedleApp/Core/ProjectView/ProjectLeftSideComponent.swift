@@ -10,7 +10,7 @@ import SwiftUI
 struct ProjectLeftSideComponent: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @ObservedObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
-        
+    
     init() {
         self.workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
     }
@@ -18,57 +18,62 @@ struct ProjectLeftSideComponent: View {
     @Environment(\.dismiss) var dismiss
     @State var onHoverProject = false
     @State var onHoverNewProject = false
-
+    @State var feedbackSheet = false
+    
     var body: some View {
         VStack(alignment: .leading){
             
-            HStack{
-                Image(systemName: "square.grid.2x2")
-                Text("Projetos  ")
-                    .font(Font.custom("SF Pro", size: 14).weight(.regular))
-
-            }
-            .padding(.vertical, 10)
-            .background(onHoverProject ? Color.white.blur(radius: 8, opaque: false) : Color.theme.grayBackground.blur(radius: 8, opaque: false))
-            .cornerRadius(6)
-            .onTapGesture {
-                dismiss()
-            }
-            .onHover { Bool in
-                onHoverProject = Bool
-            }
+            leftSideTitle
             
             List($projectViewModel.projects, id: \.self) {project in
-                    ProjectButton(project: project.wrappedValue)
-                        .listRowInsets(EdgeInsets())
+                ProjectButton(project: project.wrappedValue)
+                    .listRowInsets(EdgeInsets())
             }
-            .frame(height: 200)
+            .frame(height: $projectViewModel.projects.count <= 1 ? 66 : ($projectViewModel.projects.count == 2 ? 132 : 198))
             
-            Text("+ Novo projeto  ")
-                .font(Font.custom("SF Pro", size: 14).weight(.regular))
-                .padding(.vertical, 10)
-                .background(onHoverNewProject ? Color.theme.greenTertiary.blur(radius: 8, opaque: false) : Color.theme.grayBackground.blur(radius: 8, opaque: false))
-                .cornerRadius(6)
-                .padding(.leading, 20)
-                .onTapGesture {
-                    workspaceViewModel.isNaming.toggle()
-                }
-                .onHover { Bool in
-                    onHoverNewProject = Bool
-                }
-                .sheet(isPresented: $workspaceViewModel.isNaming) {
-                    SheetView(type: .newWorkspace)
+            newProject
+            
+            Spacer()
+            
+            DashedSmallerButton(text: "Deixe um feedback"){
+                feedbackSheet.toggle()
+            }.padding(20)
+                .sheet(isPresented: $feedbackSheet) {
+                    FeedbackSheetView()
                         .foregroundColor(Color.theme.grayHover)
                         .background(.white)
                 }
-            Spacer()
             
         }
-        .padding(.leading, 10)
-        
     }
     
     func backButton(){
         dismiss()
+    }
+}
+
+struct FeedbackSheetView: View {
+    @Environment(\.dismiss) var dismiss
+    @State var comment : String = ""
+    var body: some View {
+        VStack(spacing: 4) {
+            VStack(spacing: 12) {
+                Text("Diga-nos o que está achando do Needle!")
+                    .font(.custom("SF Pro", size: 16))
+                    .bold()
+                    .padding(.vertical, 8)
+            }
+            
+            TextField("", text: $comment)
+            
+            Button("Enviar", action: {
+                dismiss()
+            }).buttonStyle(PrimarySheetActionButton())
+                .padding(.top, 20)
+        }
+        .padding(.vertical, 20)
+        .padding(.horizontal, 35.5)
+        
+        .foregroundColor(.black)
     }
 }
