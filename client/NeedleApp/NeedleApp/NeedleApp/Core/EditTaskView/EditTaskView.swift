@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @State var seeDocumentation = false
     var geometry: GeometryProxy
     
     

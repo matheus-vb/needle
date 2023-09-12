@@ -47,10 +47,11 @@ struct KanbanView: View {
                             .onSubmit {
                                 
                             }
+                            .modifier(searchFieldModifier())
                         Button(action: {
                             kanbanViewModel.searchText = ""
                         }, label: {
-                            Image(systemName: "arrow.counterclockwise")
+                            Image(systemName: "delete.left")
                         })
                         .buttonStyle(.plain)
                     }

@@ -26,7 +26,6 @@ class ProjectViewModel<
     @Published var showPopUp: Bool = false
     @Published var showEditTaskPopUP: Bool = false
     @Published var selectedColumnStatus: TaskStatus = .TODO
-    @Published var triggerLoading = false
     @Published var selectedTask: TaskModel?
     
     @Published var showCard: Bool = false
@@ -34,7 +33,6 @@ class ProjectViewModel<
     @Published var showShareCode = false
     
     @Published var isAnimating = false
-    @Published var initalLoading = true
     
     var worskpaceDS: W
     var tasksDS: T

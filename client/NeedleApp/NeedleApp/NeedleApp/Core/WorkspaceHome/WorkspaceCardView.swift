@@ -10,9 +10,6 @@ import SwiftUI
 
 struct WorkspaceCardView: View, Identifiable {
     @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-
-//    @State var isHovered = false
-    
     @State private var filteredOwner: [String] = []
     
     var id = UUID()

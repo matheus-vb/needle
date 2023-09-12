@@ -43,6 +43,12 @@ class WorkspaceHomeViewModel<
         workspaceDS.workspacePublisher
             .sink(receiveValue: { [weak self] returnedWorkspaces in
                 self?.workspaces = returnedWorkspaces
+                
+                if self?.selectedTab == .joinedWorkspaces {
+                    self?.searchResults = returnedWorkspaces.filter({ $0.users[0].userId != self?.userID })
+                } else {
+                    self?.searchResults = returnedWorkspaces.filter({ $0.users[0].userId == self?.userID })
+                }
             })
             .store(in: &cancellables)
     }

@@ -1,0 +1,166 @@
+/* 
+  Localizable.strings
+  NeedleApp
+
+  Created by jpcm2 on 30/08/23.
+  
+*/
+
+"Não deixe uma\nponta solta" = "Ne laissez pas de fils lâches";
+
+"A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "La culture de la documentation permet à chaque projet d'être habilement adapté, évitant les enchevêtrements et les confusions. C'est pourquoi Needle est venu encourager l'enregistrement et la récupération de ses activités.";
+
+"Projetos e Tarefas" = "Projets et Tâches";
+
+"Descrição" = "Description";
+
+"Área" = "Champ";
+
+"Selecione uma data" = "Sélectionnez une date";
+
+"Responsável" = "Responsable";
+
+"Prazo" = "Date limite";
+
+"Prioridade" = "Priorité";
+
+"Cancelar" = "Annuler";
+
+"Criar" = "Créer";
+
+"Nome da Task" = "Nom de la Tâche";
+
+"Adicione uma breve descrição da tarefa" = "Ajoutez une brève description de la tâche";
+
+"A fazer" = "À faire";
+
+"Fazendo" = "En cours";
+
+"Em revisão" = "En révision";
+
+"Feito" = "Terminé";
+
+"Voltar" = "Retour";
+
+"Projetos" = "Projets";
+
+"Documentação" = "Documentation";
+
+"Participar de workspace" = "Rejoindre un Espace de Travail";
+
+"+ Criar novo workspace" = "+ Créer un nouvel Espace de Travail";
+
+"Sair " = "Déconnexion ";
+
+"Sair" = "Déconnexion";
+
+"Clique para ver mais deste workspace" = "Cliquez pour voir plus de cet espace de travail";
+
+"Projeto " = "Projet ";
+
+"simbolo" = "symbole";
+
+"notificações" = "notifications";
+
+"Limpar" = "Effacer";
+
+"Apagar" = "Supprimer";
+
+"Outros" = "Autres";
+
+"Adicionar Task" = "Créer une Tâche";
+
+"Prazo" = "Date limite";
+
+"Prioridade" = "Priorité";
+
+"Visualizar documentação" = "Voir la documentation";
+
+"Procurar por nome, descrição, responsável..." = "Rechercher par nom, description, responsable...";
+
+"Nome da Task" = "Nom de la tâche";
+
+"Prioridade" = "Priorité";
+
+"Área" = "Champ";
+
+"Sem responsável" = "Aucun responsable.";
+
+"Atualização" = "Mises à jour";
+
+"Alta" = "Élevée";
+
+"Clique duas vezes em uma task para expandir!" = "Double-cliquez sur une tâche pour l'agrandir !";
+
+"Excluir projeto?" = "Supprimer le Projet ?";
+
+"Documento não encontrado" = "Document non trouvé";
+
+"Deletar task?" = "Supprimer la Tâche ?";
+
+"Arquivar task?" = "Archiver les tâches ?";
+
+"Nomeie seu novo workspace:" = "Nommez votre nouvel espace de travail :";
+
+"Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos." = "N'oubliez pas, en supprimant un espace de travail,\nvos tâches et documents seront perdus.";
+
+"Envie o código do workspace para sua equipe e deixe-a alinhada." = "Envoyez le code de l'espace de travail à votre équipe et mettez-les en accord.";
+
+"Procure por outras palavras-chave como título da task, área ou data!" = "Recherchez d'autres mots-clés tels que le titre de la tâche, la zone ou la date !";
+
+"Sua task e a documentação serão excluídas para sempre." = "Votre tâche et la documentation seront supprimées définitivement.";
+
+"Sua task será removida do kanban, mas sua documentação continuará acessível." = "Votre tâche sera retirée du kanban, mais votre documentation restera accessible.";
+
+"Criar" = "Créer";
+
+"Excluir" = "Supprimer";
+
+"Entrar" = "Rejoindre";
+
+"Copiar" = "Copier";
+
+"Remover" = "Supprimer";
+
+"Urgente" = "Urgent";
+
+"Moderada" = "Modérée";
+
+"Baixa" = "Faible";
+
+"Desenvolvimento" = "Développement";
+
+"Geral" = "Général";
+
+"Negócios" = "Affaires";
+
+"Vendas" = "Ventes";
+
+"Sem nome" = "Sans responsable";
+
+"Salvar" = "Enregistrer";
+
+"Código de compartilhamento copiado!" = "Code de partage copié !";
+
+"Copie o código do projeto para a área de transferência" = "Copiez le code du projet dans le presse-papiers";
+
+"Tente novamente" = "Réessayez";
+
+"Arquivar" = "Archiver";
+
+"Meus projetos" = "Mes projets";
+
+"Projetos que participo" = "Projets auxquels je participe";
+
+"Código para convite:" = "Code d'invitation :";
+
+"Procurar por nome do projeto..." = "Rechercher par nom de projet...";
+
+"# Entrar num projeto" = "# Rejoindre un projet";
+
+"Selecione uma função:" = "Sélectionnez une fonction :";
+
+
+//Templates:
+
+"devTemplate" = "e1xydGYxXGFuc2lcYW5zaWNwZzEyNTJcY29jb2FydGYyNzA5Clxjb2NvYXRleHRz\r\nY2FsaW5nMFxjb2NvYXBsYXRmb3JtMHtcZm9udHRibFxmMFxmbmlsXGZjaGFyc2V0\r\nMCBIZWx2ZXRpY2FOZXVlO30Ke1xjb2xvcnRibDtccmVkMjU1XGdyZWVuMjU1XGJs\r\ndWUyNTU7XHJlZDBcZ3JlZW4wXGJsdWUwO30Ke1wqXGV4cGFuZGVkY29sb3J0Ymw7\r\nO1xjc3NyZ2JcYzBcYzBcYzBcY25hbWUgdGV4dENvbG9yO30KXHBhcmRcdHg1NjBc\r\ndHgxMTIwXHR4MTY4MFx0eDIyNDBcdHgyODAwXHR4MzM2MFx0eDM5MjBcdHg0NDgw\r\nXHR4NTA0MFx0eDU2MDBcdHg2MTYwXHR4NjcyMFxwYXJkaXJuYXR1cmFsXHBhcnRp\r\nZ2h0ZW5mYWN0b3IwCgpcZjBcZnMzMiBcY2YyIDEuIERlc2NyaXB0aW9uIGRlIGxh\r\nIHRcJ2UyY2hlIChtYXhpbXVtIDIgbGlnbmVzKVwKLSBBcGVyXCdlN3Ugc3VjY2lu\r\nY3QgZGUgbGEgdFwnZTJjaGVcCi0gT2JqZWN0aWYgZGUgbGEgdFwnZTJjaGUgKENv\r\nbW1lbnQgY29udHJpYnVlLXQtZWxsZSBhdSBwcm9qZXQgZ2xvYmFsID8gUXVlbGxl\r\nIGhpc3RvaXJlIHV0aWxpc2F0ZXVyL2V4aWdlbmNlIHNhdGlzZmFpdC1lbGxlID8p\r\nXApcCjIuIERcJ2U5dGFpbHMgZGUgbGEgbWlzZSBlbiBcJzljdXZyZVwKXAotIFF1\r\nZWxzIGNoYW5nZW1lbnRzIG9udCBcJ2U5dFwnZTkgYXBwb3J0XCdlOXMgZGFucyBs\r\nZSBjb2RlIHBvdXIgaW1wbFwnZTltZW50ZXIgbGEgdFwnZTJjaGUgP1wKLSBEZXMg\r\nZFwnZTljaXNpb25zIGFyY2hpdGVjdHVyYWxlcyBvbnQtZWxsZXMgXCdlOXRcJ2U5\r\nIHByaXNlcyA/IExlc3F1ZWxsZXMgZXQgcG91cnF1b2kgP1wKLSBEaXNjdXRleiBk\r\nZXMgYWxnb3JpdGhtZXMsIGRlcyBzdHJ1Y3R1cmVzIGRlIGRvbm5cJ2U5ZXMsIGRl\r\ncyBtb2RcJ2U4bGVzIG91IGRlcyBtXCdlOXRob2RvbG9naWVzIHV0aWxpc1wnZTlz\r\nLlwKLSBQb2ludHMgZCdpbnRcJ2U5Z3JhdGlvbiBhdmVjIGQnYXV0cmVzIHByb2pl\r\ndHMgZXh0ZXJuZXMuXAotIFNlcnZpY2VzIG91IGJpYmxpb3RoXCdlOHF1ZXMgdGll\r\ncmNlcyB1dGlsaXNcJ2U5cy5cClwKMy4gUlwnZTlmXCdlOXJlbmNlcyBkZSBjb2Rl\r\nXAotIExpZW5zIHZlcnMgbGVzIFBSIChQdWxsIFJlcXVlc3RzKSBwZXJ0aW5lbnRz\r\nIGRhbnMgbGEgZ2VzdGlvbiBkZSB2ZXJzaW9uLlwKLSBTaSBwb3NzaWJsZSwgZGUg\r\nY291cnRzIGV4dHJhaXRzIGRlIGNvZGUgcG91ciBpbGx1c3RyZXIgbGVzIHBvaW50\r\ncyBjbFwnZTlzLlwKXAo0LiBUZXN0c1wKLSBDb21tZW50IHZhbGlkZXIgbGEgdFwn\r\nZTJjaGUuXAotIENvbmRpdGlvbnMgZCdhY2NlcHRhdGlvbiwgc2NcJ2U5bmFyaW9z\r\nLCBldGMuXApcCjUuIERcJ2U5ZmlzIGV0IHNvbHV0aW9uc1wKXAotIExlcyBkXCdl\r\nOWZpcyByZW5jb250clwnZTlzIGxvcnMgZGUgbGEgbWlzZSBlbiBcJzljdXZyZS5c\r\nCi0gQ29tbWVudCBjZXMgZFwnZTlmaXMgb250IFwnZTl0XCdlOSByXCdlOXNvbHVz\r\nLlwKXAo2LiBSXCdlOWZcJ2U5cmVuY2VzXApcCi0gUmVzc291cmNlcyBleHRlcm5l\r\ncyBjcnVjaWFsZXMgKHNpdGVzIHdlYiwgYXJ0aWNsZXMsIGV0Yy4pIHJcJ2U5Zlwn\r\nZTlyZW5jXCdlOWVzIGxvcnMgZGUgbGEgbWlzZSBlbiBcJzljdXZyZS59";

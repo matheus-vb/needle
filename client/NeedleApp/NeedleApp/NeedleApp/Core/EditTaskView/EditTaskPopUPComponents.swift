@@ -38,7 +38,7 @@ extension EditTaskPopUP{
     var deadLine: some View{
         HStack(spacing: 24){
             LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
-            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: editTaskViewModel.deadLineSelection..., displayedComponents: .date) {
+            DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date()..., displayedComponents: .date) {
                 Text("Selecione uma data")
             }
             .labelsHidden()
@@ -194,6 +194,6 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        editTaskViewModel.seeDocumentation.toggle()
+        seeDocumentation.toggle()
     }
 }
