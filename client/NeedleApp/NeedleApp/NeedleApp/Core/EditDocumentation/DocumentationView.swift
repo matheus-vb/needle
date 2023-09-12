@@ -11,15 +11,24 @@ import RichTextKit
 struct DocumentationView: View {
     @ObservedObject var documentationViewModel: DocumentationViewModel<DocumentationDataService>
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+<<<<<<< HEAD
     
+=======
+    @Binding var seeDocumentation: Bool
+>>>>>>> develop
     @Environment(\.dismiss) var dismiss
     
     @Binding var documentationNS: NSAttributedString
     
+<<<<<<< HEAD
     init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>) {
+=======
+    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>, seeDocumentation: Binding<Bool>) {
+>>>>>>> develop
         self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
         self.editTaskViewModel = editTaskViewModel
         self._documentationNS = documentationNS
+        self._seeDocumentation = seeDocumentation
     }
     
     var body: some View {
@@ -47,9 +56,14 @@ struct DocumentationView: View {
         var taskDataHeader: some View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
+<<<<<<< HEAD
                     Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
                         LabelComponent(imageName: "arrow.backward", label: NSLocalizedString("", comment: ""))
                             .font(.system(size: 20, weight: .medium))
+=======
+                    Button(action: {seeDocumentation.toggle()}, label: {
+                        LabelComponent(imageName: "xmark", label: NSLocalizedString("", comment: ""))
+>>>>>>> develop
                     }).buttonStyle(.borderless)
                     Spacer()
                         Text("\(editTaskViewModel.taskTitle)")

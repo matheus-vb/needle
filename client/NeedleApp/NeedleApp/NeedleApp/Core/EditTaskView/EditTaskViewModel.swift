@@ -32,7 +32,6 @@ class EditTaskViewModel<
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
     @Published var isDeleting: Bool = false
-    @Published var seeDocumentation: Bool = false
     var dto: SaveTaskDTO
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, taskDS: T) {
