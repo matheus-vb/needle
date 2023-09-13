@@ -28,6 +28,8 @@ class EditTaskViewModel<
     @Published var prioritySelection: TaskPriority
     @Published var deadLineSelection: Date
     @Published var categorySelection: TaskType
+    @Published var seeDocumentation: Bool = false
+
     @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]

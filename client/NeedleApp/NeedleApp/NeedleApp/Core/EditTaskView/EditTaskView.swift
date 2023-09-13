@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
-    @State var seeDocumentation = false
     var geometry: GeometryProxy
     
     
@@ -21,7 +20,7 @@ struct EditTaskPopUP: View {
     var body: some View {
         VStack(spacing: 24){
             contentStack
-                .frame(maxWidth: geometry.size.width*0.29)
+                //.frame(maxWidth: geometry.size.width*0.29)
                 .padding(2)
         }
         .overlay(content: {
@@ -40,7 +39,7 @@ struct EditTaskPopUP: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(minWidth: 2*geometry.size.width/3, maxHeight: 19*geometry.size.height/20)
+        .frame(minWidth: 2*geometry.size.width/5, maxHeight: 19.5*geometry.size.height/20)
         .background(.white)
     }
 }

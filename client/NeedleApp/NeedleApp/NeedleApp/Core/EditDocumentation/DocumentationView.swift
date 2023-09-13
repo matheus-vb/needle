@@ -19,7 +19,6 @@ struct DocumentationView: View {
         self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
         self.editTaskViewModel = editTaskViewModel
         self._documentationNS = documentationNS
-        self._seeDocumentation = seeDocumentation
     }
     
     var body: some View {
