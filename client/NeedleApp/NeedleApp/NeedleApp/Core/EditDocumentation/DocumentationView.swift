@@ -15,6 +15,8 @@ struct DocumentationView: View {
     
     @Binding var documentationNS: NSAttributedString
     
+    @State var backButtonHovered: Bool = false
+    
     init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>) {
         self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
         self.editTaskViewModel = editTaskViewModel
@@ -42,9 +44,17 @@ struct DocumentationView: View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
                     Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
-                        LabelComponent(imageName: "chevron.backward", label: NSLocalizedString("", comment: ""))
-                            .font(.system(size: 20, weight: .medium))
-                    }).buttonStyle(.borderless)
+                        Image(systemName: "chevron.backward")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 10)
+                            .foregroundColor(backButtonHovered ? Color.theme.blackMain : Color.theme.grayHover)
+                    }).onHover(perform: { hover in
+                        backButtonHovered.toggle()
+                    })
+                    .scaleEffect(backButtonHovered ? 1.1 : 0.98)
+                    .animation(.spring(), value: backButtonHovered)
+                    .buttonStyle(.borderless)
                     Spacer()
                         Text("\(editTaskViewModel.taskTitle)")
                             .font(.system(size: 38, weight: .medium))
