@@ -58,7 +58,6 @@ struct CopyClipboardButton: View {
                 
             }
             .padding(isOnCard ? 0 : 4)
-//            .frame(maxWidth: 168, idealHeight: 48)
             .frame(width: isOnCard ? 100 : 140, height: isOnCard ? 36 : 48)
             .background(Color.theme.greenMain)
             .cornerRadius(6)
@@ -74,7 +73,7 @@ struct CopyClipboardButton: View {
             onHover = Bool
         }
         .popover(isPresented: $onTap, arrowEdge: .bottom) {
-            Text("Código de compartilhamento copiado!")
+            Text(NSLocalizedString("Código de compartilhamento copiado!", comment: ""))
                 .padding()
         }
 

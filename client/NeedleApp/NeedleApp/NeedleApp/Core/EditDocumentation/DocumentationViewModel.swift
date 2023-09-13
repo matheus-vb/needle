@@ -40,4 +40,8 @@ class DocumentationViewModel<
             return Color.theme.greenKanban
         }
     }
+    
+//    func getUpdate(data: UpdateDocumentationDTO, userId: String, workspaceId: String) {
+//        self.docDS.updateDocumentation(data: data, userId: userId, workspaceId: workspaceId)
+//    }
 }

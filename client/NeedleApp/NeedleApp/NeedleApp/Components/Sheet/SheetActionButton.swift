@@ -16,9 +16,8 @@ struct PrimarySheetActionButton: ButtonStyle {
                     .padding(.horizontal, 36)
                     .font(.custom("SF Pro", size: 12))
             
-                    .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
-            //.background(text == "Cancelar" || text == "Próximo" || text == "Começar" ? (onHover ? Color.theme.grayHover : Color.theme.blackMain) : (onHover ? Color.theme.greenSecondary : Color.theme.greenMain))
-                    .foregroundStyle(.black)
+                    .background(onHover ? Color.theme.grayHover : Color.theme.blackMain)
+                    .foregroundStyle(.white)
                     .cornerRadius(4.23)
                     .frame(height: 32)
         }
@@ -32,9 +31,8 @@ struct SecondarySheetActionButton: ButtonStyle {
                 .padding(.horizontal, 36)
                 .font(.custom("SF Pro", size: 12))
 
-            
-                .background(onHover ? Color.theme.grayHover : Color.theme.blackMain)
-                    .foregroundStyle(.white)
+                .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+                    .foregroundStyle(.black)
                     .cornerRadius(4.23)
                     .frame(height: 32)
 

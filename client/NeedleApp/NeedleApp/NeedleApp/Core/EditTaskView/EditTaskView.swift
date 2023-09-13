@@ -12,6 +12,7 @@ struct EditTaskPopUP: View {
     @State var seeDocumentation = false
     var geometry: GeometryProxy
     
+    
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
         self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, taskDS: TaskDataService.shared)
         self.geometry = geometry
@@ -19,13 +20,13 @@ struct EditTaskPopUP: View {
     
     var body: some View {
         VStack(spacing: 24){
-            topSection
             contentStack
+                .frame(maxWidth: geometry.size.width*0.29)
+                .padding(2)
         }
         .overlay(content: {
-            if seeDocumentation {
-                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, seeDocumentation: $seeDocumentation)
-                    .environmentObject(editTaskViewModel)
+            if editTaskViewModel.seeDocumentation {
+                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel)
                     .background(.white)
             }
         })
@@ -38,7 +39,7 @@ struct EditTaskPopUP: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(width: 2*geometry.size.width/3, height: 19*geometry.size.height/20)
+        .frame(minWidth: 2*geometry.size.width/3, maxHeight: 19*geometry.size.height/20)
         .background(.white)
     }
 }

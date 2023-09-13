@@ -78,15 +78,15 @@ struct SearchDocuments: View {
                             .foregroundColor(Color.theme.redMain)
                     }
                 }
-                TableColumn("Status", value: \.status.order){
+                TableColumn( NSLocalizedString("Status", comment: ""), value: \.status.order){
                     Text($0.status.displayName)
                         .foregroundColor(getColor(task: $0))
                 }
-                TableColumn("Área", value: \.type.displayName)
-                TableColumn("Responsável") {
-                    Text($0.user?.name ?? "Sem responsável.")
+                TableColumn( NSLocalizedString("Área", comment: ""), value: \.type.displayName)
+                TableColumn( NSLocalizedString("Responsável", comment: "")) {
+                    Text($0.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
                 }
-                TableColumn("Atualização", value: \.updated_at) {
+                TableColumn( NSLocalizedString("Atualização", comment: ""), value: \.updated_at) {
                     Text(HandleDate.formatDateWithTime(dateInput: $0.updated_at))
                 }
             }

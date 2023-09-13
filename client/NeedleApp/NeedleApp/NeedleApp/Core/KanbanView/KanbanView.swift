@@ -49,7 +49,7 @@ struct KanbanView: View {
                             }
                             .modifier(searchFieldModifier())
                         Button(action: {
-                            //                            searchDocumentsViewModel.query = nil
+                            kanbanViewModel.searchText = ""
                         }, label: {
                             Image(systemName: "delete.left")
                         })

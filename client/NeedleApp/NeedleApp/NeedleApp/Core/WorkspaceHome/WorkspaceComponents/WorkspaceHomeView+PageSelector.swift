@@ -20,7 +20,7 @@ extension WorkspaceHomeView {
                     Button(action: {
                         workspaceViewModel.selectedTab = .myWorkspaces
                     }, label: {
-                        Text("Meus projetos")
+                        Text(NSLocalizedString("Meus projetos", comment: ""))
                             .font(.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                             .overlay(
