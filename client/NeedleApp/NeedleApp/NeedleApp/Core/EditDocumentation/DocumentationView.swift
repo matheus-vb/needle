@@ -30,13 +30,8 @@ struct DocumentationView: View {
                     leftBorder
                     toolbar
                 }.background(Color.theme.grayBackground)
-            HStack {
                 Spacer()
-                LabelComponent(imageName: "checkmark.icloud", label: NSLocalizedString("Alterações salvas automaticamente", comment: ""))
-                    .foregroundColor(Color.theme.grayPressed)
-                    .font(.system(size: 10))
-            }
-                Spacer()
+            saveTask
         }.onDisappear(perform: {
 //            documentationViewModel.getUpdate(data: UpdateDocumentationDTO(id: documentationViewModel.documentId, text: editTaskViewModel.selectedTask.document!.text, textString: editTaskViewModel.selectedTask.document!.textString), userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
         })
@@ -47,7 +42,7 @@ struct DocumentationView: View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
                     Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
-                        LabelComponent(imageName: "arrow.backward", label: NSLocalizedString("", comment: ""))
+                        LabelComponent(imageName: "chevron.backward", label: NSLocalizedString("", comment: ""))
                             .font(.system(size: 20, weight: .medium))
                     }).buttonStyle(.borderless)
                     Spacer()
@@ -57,29 +52,33 @@ struct DocumentationView: View {
                     Spacer()
                 }
                 
-                HStack(spacing: 48) {
+                HStack(spacing: 24) {
                     HStack(spacing: 12) {
                         LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
+                            .font(.system(size: 14, weight: .regular))
+
                         Text("\(HandleDate.formatDateWithoutTime(dateInput: editTaskViewModel.selectedTask.endDate))")
-                            .font(.system(size: 16, weight: .regular))
-                        
+                            .font(.system(size: 14, weight: .regular))
+
                     }
                     HStack(spacing: 12) {
                         LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
+                            .font(.system(size: 14, weight: .regular))
+
                         KanbanTagView(taskType: editTaskViewModel.selectedTask.type)
                     }
                     HStack(spacing: 12) {
                         LabelComponent(imageName: "person.fill", label:NSLocalizedString("Responsável", comment: ""))
-                            .font(.system(size: 16, weight: .regular))
+                            .font(.system(size: 14, weight: .regular))
                         
                         Text(editTaskViewModel.selectedTask.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
-                            .font(.system(size: 16, weight: .regular))
-                        
+                            .font(.system(size: 14, weight: .regular))
+
                     }
                     HStack(spacing: 12) {
                         LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
-                            .font(.system(size: 16, weight: .regular))
-                        
+                            .font(.system(size: 14, weight: .regular))
+
                             switch editTaskViewModel.selectedTask.taskPriority {
                             case .LOW:
                                 Text(NSLocalizedString("Baixa", comment: ""))
@@ -128,10 +127,16 @@ struct DocumentationView: View {
         
         var saveTask: some View{
             HStack{
-//                PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: {
-//                    editTaskViewModel.isEditing.toggle()
-//                })
-                PopUpButton(text: NSLocalizedString("Salvar", comment: ""), onButtonTapped: saveTaskButton)
+                Button(action: {
+                    editTaskViewModel.isEditing.toggle()
+                }, label: {
+                   Text(NSLocalizedString("Cancelar", comment: ""))
+                }).buttonStyle(SecondarySheetActionButton())
+                Button(action: {
+                    saveTaskButton()
+                }, label: {
+                   Text(NSLocalizedString("Salvar", comment: ""))
+                }).buttonStyle(PrimarySheetActionButton())
             }
         }
         
