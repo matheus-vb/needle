@@ -86,13 +86,12 @@ extension CreateTaskPopUp{
                 .foregroundColor(Color.theme.grayPressed)
             
                 TextEditor(text: Binding(projectedValue: $createTaskViewModel.taskDescription))
-                    .frame(minHeight: geometry.size.height*0.042, maxHeight: geometry.size.height*0.2)
-                    .font(.custom("SF Pro", size: 16))
-                    .lineSpacing(1)
-                    .multilineTextAlignment(.leading)
-                    .padding(2)
-                    .colorMultiply(Color.theme.grayBackground)
-        }
+                .font(.custom("SF Pro", size: 16))
+                .lineSpacing(1)
+                .cornerRadius(12)
+                .multilineTextAlignment(.leading)
+                .colorMultiply(Color.theme.grayBackground)
+        }.frame(minHeight: 100)
     }
     
     var attributesStack: some View {
