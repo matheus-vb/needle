@@ -22,6 +22,7 @@ extension CreateTaskPopUp{
             DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                 Text("Selecione uma data")
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .labelsHidden()
             Spacer()
         }
@@ -39,6 +40,7 @@ extension CreateTaskPopUp{
                         .tag(membro.id)
                 }
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .pickerStyle(.menu)
             .labelsHidden()
             Spacer()
@@ -54,6 +56,7 @@ extension CreateTaskPopUp{
                        .foregroundColor(Color.theme.blackMain)
                }
            }
+            .frame(maxWidth: geometry.size.width*0.26)
            .pickerStyle(.menu)
            .labelsHidden()
             Spacer()
@@ -69,6 +72,7 @@ extension CreateTaskPopUp{
                         .foregroundColor(Color.theme.blackMain)
                 }
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .pickerStyle(.menu)
             .labelsHidden()
             Spacer()
@@ -76,27 +80,19 @@ extension CreateTaskPopUp{
     }
     
     var description: some View{
-        VStack(alignment: .leading ,spacing: 12){
-            Text("Descrição")
-                .font(.system(size: 20, weight: .regular))
+        VStack(alignment: .leading, spacing: 12) {
+            Text(NSLocalizedString("Descrição", comment: ""))
+                .font(.system(size: 16, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-                .offset(x: 4)
-            ZStack {
-                if createTaskViewModel.taskDescription == "" {
-                    TextEditor(text:$createTaskViewModel.taskDescriptionPlaceHolder)
-                        .scrollContentBackground(.hidden)
-                        .background(Color.clear)
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundColor(Color.theme.blackMain)
-                }
-                TextEditor(text: $createTaskViewModel.taskDescription)
-                    .scrollContentBackground(.hidden)
-                    .background(Color.clear)
-                    .font(.system(size: 20, weight: .regular))
-                    .foregroundColor(Color.theme.grayPressed)
-            }
+            
+                TextEditor(text: Binding(projectedValue: $createTaskViewModel.taskDescription))
+                    .frame(minHeight: geometry.size.height*0.042, maxHeight: geometry.size.height*0.065)
+                    .font(.custom("SF Pro", size: 16))
+                    .lineSpacing(1)
+                    .multilineTextAlignment(.leading)
+                    .padding(2)
+                    .colorMultiply(Color.theme.grayBackground)
         }
-        .frame(minHeight: geometry.size.height - 420)
     }
     
     var attributesStack: some View {
