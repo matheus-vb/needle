@@ -24,7 +24,8 @@ struct RootView: View {
     var mainView: some View {
         ZStack {
             if rootViewModel.authManager.user == nil {
-                LoginPageView()
+                OnboardingView()
+//                LoginPageView()
             } else {
                 AppView()
                     .toolbar{
