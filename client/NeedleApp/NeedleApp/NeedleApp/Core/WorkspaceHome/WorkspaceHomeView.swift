@@ -38,10 +38,6 @@ struct WorkspaceHomeView: View {
                         .frame(width: geometry.size.width * 0.83)
                     workspaceGrid
                         .frame(maxWidth: 984)
-<<<<<<< HEAD
-                
-=======
->>>>>>> develop
                 }
             } .sheet(isPresented: $workspaceViewModel.isJoining) {
                 SheetView(type: .joinCode)

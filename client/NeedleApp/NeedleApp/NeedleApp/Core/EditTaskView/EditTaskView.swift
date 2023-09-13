@@ -25,14 +25,9 @@ struct EditTaskPopUP: View {
                 .padding(2)
         }
         .overlay(content: {
-<<<<<<< HEAD
             if editTaskViewModel.seeDocumentation {
                 DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel)
-=======
-            if seeDocumentation {
-                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, seeDocumentation: $seeDocumentation)
-                    .environmentObject(editTaskViewModel)
->>>>>>> develop
+
                     .background(.white)
             }
         })
