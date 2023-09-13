@@ -163,3 +163,21 @@
 // Templates:
 
 "devTemplate" = "e1xydGYxXGFuc2lcYW5zaWNwZzEyNTJcY29jb2FydGYyNzA5Clxjb2NvYXRleHRz\r\nY2FsaW5nMFxjb2NvYXBsYXRmb3JtMHtcZm9udHRibFxmMFxmbmlsXGZjaGFyc2V0\r\nMCBIZWx2ZXRpY2FOZXVlO30Ke1xjb2xvcnRibDtccmVkMjU1XGdyZWVuMjU1XGJs\r\ndWUyNTU7XHJlZDBcZ3JlZW4wXGJsdWUwO30Ke1wqXGV4cGFuZGVkY29sb3J0Ymw7\r\nO1xjc3NyZ2JcYzBcYzBcYzBcY25hbWUgdGV4dENvbG9yO30KXHBhcmRcdHg1NjBc\r\ndHgxMTIwXHR4MTY4MFx0eDIyNDBcdHgyODAwXHR4MzM2MFx0eDM5MjBcdHg0NDgw\r\nXHR4NTA0MFx0eDU2MDBcdHg2MTYwXHR4NjcyMFxwYXJkaXJuYXR1cmFsXHBhcnRp\r\nZ2h0ZW5mYWN0b3IwCgpcZjBcZnMzMiBcY2YyIDEuIERlc2NyaXBjaVwnZjNuIGRl\r\nIGxhIFRhcmVhIChtXCdlMXhpbW8gMiBsXCdlZG5lYXMpXApcCi0gUmVzdW1lbiBi\r\ncmV2ZSBkZSBsYSB0YXJlYVwKLSBPYmpldGl2byBkZSBsYSB0YXJlYSAoXCdiZkNc\r\nJ2YzbW8gY29udHJpYnV5ZSBhbCBwcm95ZWN0byBlbiBnZW5lcmFsPyBcJ2JmUXVc\r\nJ2U5IGhpc3RvcmlhIGRlIHVzdWFyaW8gbyByZXF1aXNpdG8gc2F0aXNmYWNlPylc\r\nClwKMi4gRGV0YWxsZXMgZGUgSW1wbGVtZW50YWNpXCdmM25cClwKLSBcJ2JmUXVc\r\nJ2U5IGNhbWJpb3Mgc2UgcmVhbGl6YXJvbiBlbiBlbCBjXCdmM2RpZ28gYmFzZSBw\r\nYXJhIGltcGxlbWVudGFyIGxhIHRhcmVhP1wKLSBcJ2JmU2UgdG9tYXJvbiBkZWNp\r\nc2lvbmVzIGFycXVpdGVjdFwnZjNuaWNhcz8gXCdiZkN1XCdlMWxlcyB5IHBvciBx\r\ndVwnZTk/XAotIERpc2N1dGlyIGN1YWxxdWllciBhbGdvcml0bW8sIGVzdHJ1Y3R1\r\ncmEgZGUgZGF0b3MsIHBhdHJcJ2YzbiBvIG1ldG9kb2xvZ1wnZWRhIHV0aWxpemFk\r\nYS5cCi0gUHVudG9zIGRlIGludGVncmFjaVwnZjNuIGNvbiBvdHJvcyBwcm95ZWN0\r\nb3MgZXh0ZXJub3MuXAotIFNlcnZpY2lvcyBvIGJpYmxpb3RlY2FzIGRlIHRlcmNl\r\ncm9zIHV0aWxpemFkb3MuXApcCjMuIFJlZmVyZW5jaWFzIGRlIENcJ2YzZGlnb1wK\r\nXAotIEVubGFjZXMgYSBsYXMgc29saWNpdHVkZXMgZGUgZXh0cmFjY2lcJ2YzbiAo\r\nUFIpIHJlbGV2YW50ZXMgZW4gZWwgY29udHJvbCBkZSB2ZXJzaW9uZXMuXAotIFNp\r\nIGVzIHBvc2libGUsIGZyYWdtZW50b3MgZGUgY1wnZjNkaWdvIGNvcnRvcyBwYXJh\r\nIGlsdXN0cmFyIHB1bnRvcyBjbGF2ZS5cClwKNC4gUHJ1ZWJhc1wKLSBDXCdmM21v\r\nIHZhbGlkYXIgbGEgdGFyZWEuXAotIENvbmRpY2lvbmVzIGRlIGFjZXB0YWNpXCdm\r\nM24sIGVzY2VuYXJpb3MsIGV0Yy5cClwKNS4gRGVzYWZcJ2Vkb3MgeSBTb2x1Y2lv\r\nbmVzXApcCi0gRGVzYWZcJ2Vkb3MgZW5jb250cmFkb3MgZHVyYW50ZSBsYSBpbXBs\r\nZW1lbnRhY2lcJ2Yzbi5cCi0gQ1wnZjNtbyBzZSBhYm9yZGFyb24gZXN0b3MgZGVz\r\nYWZcJ2Vkb3MuXApcCjYuIFJlZmVyZW5jaWFzXApcCi0gUmVjdXJzb3MgZXh0ZXJu\r\nb3MgY3J1Y2lhbGVzIChzaXRpb3Mgd2ViLCBkb2N1bWVudG9zLCBldGMuKSByZWZl\r\ncmVuY2lhZG9zIGR1cmFudGUgbGEgaW1wbGVtZW50YWNpXCdmM24ufQ==";
+
+"Task concluída é\ntask documentada." = "La tarea está hecha\ny documentada.";
+
+"Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace." = "Utiliza el clásico **kanban** de una manera nueva: cada tarea requiere documentación para ser completada, aprobada por el **creador** del espacio de trabajo.";
+
+"Documente sem\nperder tempo." = "Documenta sin\nperder tiempo.";
+
+"Use os templates pra documentação de **desenvolvimento**, **design** ou **gerência** pra integrar o processo de forma fluida ao seu trabalho." = "Utiliza las plantillas para la documentación de **desarrollo**, **diseño** o **gestión** para integrar el proceso de manera fluida en tu trabajo.";
+
+"Toda informação na\npalma da sua mão." = "Toda la información en\nla palma de tu mano.";
+
+"Pesquise como quiser por todas as documentações feitas pelo time, seja de tasks antigas ou atuais.\n**Ficar alinhado nunca foi tão fácil.**" = "Busca como desees en toda la documentación creada por el equipo, ya sea para tareas antiguas o actuales.\n**Mantenerse alineado nunca fue tan fácil.**";
+
+"Voltar" = "Volver";
+
+"Próximo" = "Siguiente";
+
+"Começar" = "Comenzar";

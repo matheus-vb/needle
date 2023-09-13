@@ -171,7 +171,7 @@
 
 "Selecione uma função:" = "Pick a role:";
 
-"Task concluída é\ntask documentada." = "Task done is\ntask documented.";
+"Task concluída é\ntask documentada." = "A done task is\na documented task.";
 
 "Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace." = "Use classic **kanban** in a new way: every task requires documentation to be completed, approved by the workspace **creator**.";
 

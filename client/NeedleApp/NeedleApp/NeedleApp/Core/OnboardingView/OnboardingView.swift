@@ -25,7 +25,7 @@ struct OnboardingPage : Identifiable, Equatable {
     
     static var samplePages : [OnboardingPage] =  [
         OnboardingPage(
-            title: String(NSLocalizedString("Task concluída é\n task documentada.", comment: "")),
+            title: String(NSLocalizedString("Task concluída é\ntask documentada.", comment: "")),
             message: String(NSLocalizedString("Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace.", comment: "")),
             image: "onboarding_image1",
             num: 0),
@@ -72,7 +72,6 @@ struct OnboardingPageView: View{
     
     var onboardingPage : OnboardingPage
     @Binding var pageIndex : Int
-    @AppStorage("onboard") var isOnboard : Bool = false
     
     var body: some View{
         VStack(alignment: .center){
@@ -89,34 +88,39 @@ struct OnboardingPageView: View{
                             .scaledToFit()
                             .ignoresSafeArea()
                             .layoutPriority(2)
+                            .frame(maxWidth: 1000, maxHeight: 350)
                         BoldText(text: onboardingPage.message)
                             .padding(.leading, 50)
                             .multilineTextAlignment(.center)
+                            .padding(.top, 50)
                         VStack(alignment: .center){
-                            if onboardingPage.num == 0{
-                                PopUpButton(text: String(NSLocalizedString("Próximo",comment: "")), onButtonTapped: incrementPage)
-                                    .padding(.leading, 50)
-                                
-                            }
-                            
-                            if onboardingPage.num == 1{
-                                HStack{
-                                    PopUpButton(text: String(NSLocalizedString("Voltar",comment: "")), onButtonTapped: decrementPage)
+                            HStack(alignment: .center){
+                                Spacer()
+                                if onboardingPage.num == 0{
                                     PopUpButton(text: String(NSLocalizedString("Próximo",comment: "")), onButtonTapped: incrementPage)
+                                        
                                     
                                 }
-                                .padding(.leading, 50)
                                 
-                            }
-                            
-                            if onboardingPage.num == 2{
-                                HStack{
-                                    PopUpButton(text: String(NSLocalizedString("Voltar",comment: "")), onButtonTapped: decrementPage)
-                                    PopUpButton(text: String(NSLocalizedString("Começar",comment: "")), onButtonTapped: setOnboardingToFalse)
+                                if onboardingPage.num == 1{
+                                    Group{
+                                        PopUpButton(text: String(NSLocalizedString("Voltar",comment: "")), onButtonTapped: decrementPage)
+                                        PopUpButton(text: String(NSLocalizedString("Próximo",comment: "")), onButtonTapped: incrementPage)
+                                    }
+                                    
                                 }
-                                .padding(.leading, 50)
                                 
+                                if onboardingPage.num == 2{
+                                    Group{
+                                        PopUpButton(text: String(NSLocalizedString("Voltar",comment: "")), onButtonTapped: decrementPage)
+                                        PopUpButton(text: String(NSLocalizedString("Começar",comment: "")), onButtonTapped: setOnboardingToFalse)
+                                    }
+                                    
+                                }
+                                Spacer()
                             }
+                            .padding(.top, 50)
+                            .padding(.bottom, 50)
                         }
                     }
                     .frame(maxWidth: 1050, minHeight: 150, alignment: .center)
@@ -130,7 +134,7 @@ struct OnboardingPageView: View{
         self.pageIndex-=1
     }
     func setOnboardingToFalse(){
-        self.isOnboard = false
+        UserDefaults.standard.set(false, forKey: "onboard")
     }
 }
 
