@@ -10,7 +10,7 @@ interface IGetWorkspaceTasksFinishedReply{
     finished: number
 }
 
-export class GetWorkspaceMembersByRoleUseCase{
+export class GetWorkspaceTasksFinished{
     constructor(private taskRepository: ITaskRepository){}
     
     async handle({
