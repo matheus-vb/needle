@@ -10,6 +10,8 @@ import SwiftUI
 struct RootView: View {
 
     @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared)
+    @AppStorage("onboard") var isOnboard : Bool = false
+
     
     var body: some View {
         mainView
@@ -24,7 +26,11 @@ struct RootView: View {
     var mainView: some View {
         ZStack {
             if rootViewModel.authManager.user == nil {
-                LoginPageView()
+                if(isOnboard){
+                    OnboardingView()
+                } else {
+                    LoginPageView()
+                }
             } else {
                 AppView()
                     .toolbar{
