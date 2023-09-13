@@ -33,7 +33,7 @@ extension CreateTaskPopUp{
     var responsible: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
-            Picker("Área",selection: $createTaskViewModel.selectedMemberId){
+            Picker(NSLocalizedString("Área", comment: ""),selection: $createTaskViewModel.selectedMemberId){
                 ForEach(createTaskViewModel.members) { membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
@@ -86,7 +86,7 @@ extension CreateTaskPopUp{
                 .foregroundColor(Color.theme.grayPressed)
             
                 TextEditor(text: Binding(projectedValue: $createTaskViewModel.taskDescription))
-                    .frame(minHeight: geometry.size.height*0.042, maxHeight: geometry.size.height*0.065)
+                    .frame(minHeight: geometry.size.height*0.042, maxHeight: geometry.size.height*0.2)
                     .font(.custom("SF Pro", size: 16))
                     .lineSpacing(1)
                     .multilineTextAlignment(.leading)
@@ -108,16 +108,12 @@ extension CreateTaskPopUp{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            ScrollView{
                 description
+            HStack{
                 Spacer()
-                HStack{
-                    Spacer()
-                    createTask
-                }
+                createTask
             }
         }
-        .frame(minHeight: geometry.size.height - 128)
     }
     
     var topSection: some View{

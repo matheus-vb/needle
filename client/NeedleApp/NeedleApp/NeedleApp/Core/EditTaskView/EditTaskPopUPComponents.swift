@@ -15,9 +15,6 @@ extension EditTaskPopUP{
             taskTitle.padding(.top, 8)
             attributesStack
             description
-                .cornerRadius(6)
-            Spacer()
-                .frame(height: 10)
             documentationArea.padding(.bottom, 40)
             HStack{
                 archiveDeleteStack
@@ -105,13 +102,12 @@ extension EditTaskPopUP{
                 .foregroundColor(Color.theme.grayPressed)
             
                 TextEditor(text: Binding(projectedValue: $editTaskViewModel.taskDescription))
-                    .frame(minHeight: geometry.size.height*0.042, maxHeight: geometry.size.height*0.065)
                     .font(.custom("SF Pro", size: 16))
                     .lineSpacing(1)
+                    .cornerRadius(12)
                     .multilineTextAlignment(.leading)
-                    .padding(2)
                     .colorMultiply(Color.theme.grayBackground)
-        }
+        }.frame(minHeight: 100)
     }
     
     var attributesStack: some View {
