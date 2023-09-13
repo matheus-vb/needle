@@ -11,7 +11,6 @@ import RichTextKit
 struct DocumentationView: View {
     @ObservedObject var documentationViewModel: DocumentationViewModel<DocumentationDataService>
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
-    @Binding var seeDocumentation: Bool
     @Environment(\.dismiss) var dismiss
     
     @Binding var documentationNS: NSAttributedString

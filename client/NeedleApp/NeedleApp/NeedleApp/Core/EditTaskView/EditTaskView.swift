@@ -27,6 +27,7 @@ struct EditTaskPopUP: View {
         .overlay(content: {
             if editTaskViewModel.seeDocumentation {
                 DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel)
+
                     .background(.white)
             }
         })
