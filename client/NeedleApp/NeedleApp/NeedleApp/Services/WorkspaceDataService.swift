@@ -13,7 +13,9 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
     private init() {}
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     @Published var workspaces: [Workspace] = []
     var workspacePublisher: Published<[Workspace]>.Publisher { $workspaces }

@@ -13,7 +13,9 @@ class TaskDataService: TaskDataServiceProtocol {
     private init() {}
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     @Published var allUsersTasks: [String: [TaskModel]] = [:]
     var allUsersTasksPublisher: Published<[String : [TaskModel]]>.Publisher { $allUsersTasks }

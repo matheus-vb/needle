@@ -21,7 +21,9 @@ class NotificationDataService: NotificationDataServiceProtocol {
     var deleteUserNotificationSubscription: AnyCancellable?
 
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     @Published var usersNotifications: [NotificationModel] = []
     var usersNotificationsPublisher: Published<[NotificationModel]>.Publisher { $usersNotifications }
