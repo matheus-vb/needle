@@ -35,7 +35,7 @@ class WorkspaceHomeViewModel<
     
     init(workspaceDS: W) {
         self.workspaceDS = workspaceDS
-        
+        print("Workspace -> ", userID)
         addSubscribers()
     }
     
@@ -44,10 +44,15 @@ class WorkspaceHomeViewModel<
             .sink(receiveValue: { [weak self] returnedWorkspaces in
                 self?.workspaces = returnedWorkspaces
                 
-                if self?.selectedTab == .joinedWorkspaces {
+                switch(self?.selectedTab) {
+                case .joinedWorkspaces:
                     self?.searchResults = returnedWorkspaces.filter({ $0.users[0].userId != self?.userID })
-                } else {
+                    
+                case .myWorkspaces:
                     self?.searchResults = returnedWorkspaces.filter({ $0.users[0].userId == self?.userID })
+                    
+                case .none:
+                    break
                 }
             })
             .store(in: &cancellables)
@@ -63,21 +68,20 @@ class WorkspaceHomeViewModel<
     }
     
     func updateTab() {
-        print("\(selectedTab)")
-        var newTabResults: [Workspace] {
-            if selectedTab == .myWorkspaces {
-                return workspaces.filter {
-                    userID == $0.users[0].userId
-                }
-            }
-            else {
-                print("entrei")
-                return workspaces.filter {
-                    userID != $0.users[0].userId
-                }
-            }
+        searchResults = triageWorkspaces(tab: selectedTab)
+    }
+    
+    func triageWorkspaces(tab: WorkspaceTab) -> [Workspace] {
+        switch(tab) {
+        case .joinedWorkspaces:
+            return workspaces.filter({
+                $0.users[0].userId != userID
+            })
+        case .myWorkspaces:
+            return workspaces.filter({
+                $0.users[0].userId == userID
+            })
         }
-        searchResults = newTabResults
     }
     
     func updateQuery() {
