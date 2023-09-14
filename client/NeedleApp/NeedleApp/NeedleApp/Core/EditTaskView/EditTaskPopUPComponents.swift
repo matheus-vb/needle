@@ -38,7 +38,7 @@ extension EditTaskPopUP{
                 .font(.system(size: 14))
 
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date()..., displayedComponents: .date) {
-                Text("Selecione uma data")
+                Text("Selecione uma data").tag("")
             }
             .labelsHidden()
         }
@@ -53,7 +53,7 @@ extension EditTaskPopUP{
 
             Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.dto.userId){
                 ForEach(editTaskViewModel.members) {membro in
-                    Text(membro.name)
+                    Text(membro.name).tag("")
                         .foregroundColor(Color.theme.blackMain)
                         .tag(membro.id as String?)
                 }
@@ -72,7 +72,7 @@ extension EditTaskPopUP{
             Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
-                       .foregroundColor(Color.theme.blackMain)
+                       .foregroundColor(Color.theme.blackMain).tag("")
                }
            }
             .font(.system(size: 14))
@@ -88,7 +88,7 @@ extension EditTaskPopUP{
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
-                        .foregroundColor(Color.theme.blackMain)
+                        .foregroundColor(Color.theme.blackMain).tag("")
                 }
             }
             .font(.system(size: 14))
@@ -113,6 +113,7 @@ extension EditTaskPopUP{
                     .cornerRadius(8)
                     .multilineTextAlignment(.leading)
                     .colorMultiply(Color.theme.grayBackground)
+        
         }.frame(minHeight: 100)
     }
     

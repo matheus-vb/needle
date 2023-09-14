@@ -71,7 +71,6 @@ class WorkspaceHomeViewModel<
                 }
             }
             else {
-                print("entrei")
                 return workspaces.filter {
                     userID != $0.users[0].userId
                 }

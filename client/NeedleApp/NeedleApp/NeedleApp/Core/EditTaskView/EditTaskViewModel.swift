@@ -98,7 +98,6 @@ class EditTaskViewModel<
                 self?.dto.type = categorySelection.rawValue
                 self?.dto.endDate = "\(deadLineSelection)"
                 self?.dto.priority = prioritySelection.rawValue
-                print(documentationString.string)
                 do {
                     self?.dto.textString = documentationString.string
                     let data = try documentationString.richTextData(for: .rtf)

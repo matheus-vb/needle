@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "needleLogo.png",
+      "filename" : "Needle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "needleLogo@2x.png",
+      "filename" : "Needle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "needleLogo@3x.png",
+      "filename" : "Needle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

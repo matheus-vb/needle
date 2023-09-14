@@ -44,7 +44,8 @@ struct DocumentationView: View {
         var taskDataHeader: some View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
-                    Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
+                    Button(action: {print("fechei pelo <")
+                        editTaskViewModel.seeDocumentation.toggle()}, label: {
                         Image(systemName: "chevron.backward")
                             .resizable()
                             .scaledToFit()
