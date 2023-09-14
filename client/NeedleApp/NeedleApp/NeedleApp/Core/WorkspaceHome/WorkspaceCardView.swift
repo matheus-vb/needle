@@ -11,6 +11,7 @@ import SwiftUI
 struct WorkspaceCardView: View, Identifiable {
     @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @State private var filteredOwner: [String] = []
+    @State var isHovered: Bool = false
     
     var id = UUID()
     var action: () -> Void
@@ -35,7 +36,6 @@ struct WorkspaceCardView: View, Identifiable {
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
             Text("Product Manager: \(owner)").font(.system(size: 14, weight: .regular))
-            //Text("Participantes: \(members)").font(.system(size: 14, weight: .regular))
         }
     }
     
@@ -60,7 +60,6 @@ struct WorkspaceCardView: View, Identifiable {
         ZStack {
             NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace), label: {
                 RoundedRectangle(cornerRadius: 10)
-                    .modifier(workspaceCardModifier(standardColor: .white, hoveredColor: Color.theme.grayBackground))
                     .frame(width: 296, height: 192)
                     .shadow(radius: 4, x: 0, y: 4)
             })
@@ -80,6 +79,6 @@ struct WorkspaceCardView: View, Identifiable {
                 
             }.padding(.leading, 16)
             .frame(width: 259, height: 155)
-        }
+        }.modifier(workspaceCardModifier(standardColor: .white, hoveredColor: Color.theme.grayBackground))
     }
 }

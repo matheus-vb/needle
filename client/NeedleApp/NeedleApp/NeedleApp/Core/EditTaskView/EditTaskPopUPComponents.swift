@@ -110,7 +110,7 @@ extension EditTaskPopUP{
                 TextEditor(text: Binding(projectedValue: $editTaskViewModel.taskDescription))
                     .font(.custom("SF Pro", size: 16))
                     .lineSpacing(1)
-                    .cornerRadius(12)
+                    .cornerRadius(8)
                     .multilineTextAlignment(.leading)
                     .colorMultiply(Color.theme.grayBackground)
         }.frame(minHeight: 100)
@@ -196,6 +196,6 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        editTaskViewModel.seeDocumentation.toggle()
+        editTaskViewModel.seeDocumentation = true
     }
 }
