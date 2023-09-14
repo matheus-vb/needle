@@ -15,6 +15,9 @@ protocol NotificationDataServiceProtocol: ObservableObject {
     
     var currError: NetworkingManager.NetworkingError? { get set }
     
+    var errorCount: Int { get set }
+    var errorCountPublisher: Published<Int>.Publisher { get }
+    
     func updateDeviceToken(userId: String)
     func getUserNotifications(userId: String)
     func deleteUserNotifications(userId: String)
