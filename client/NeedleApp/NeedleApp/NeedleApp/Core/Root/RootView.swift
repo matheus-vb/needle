@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootView: View {
 
-    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared)
+    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
     @AppStorage("onboard") var isOnboard : Bool = false
 
     
@@ -17,9 +17,6 @@ struct RootView: View {
         mainView
             .sheet(isPresented: $rootViewModel.showErrorSheet, content: {
                 SheetView(type: .loginError)
-            })
-            .onChange(of: rootViewModel.authManager.errorCount, perform: {_ in
-                rootViewModel.showErrorSheet.toggle()
             })
     }
     
@@ -75,11 +72,5 @@ struct RootView: View {
                     }
             }
         }
-    }
-}
-
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
     }
 }
