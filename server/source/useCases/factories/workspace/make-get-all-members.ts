@@ -4,8 +4,9 @@ import { WorkspaceRepository } from "../../../repositories/Prisma/WorkspaceRepos
 import { GetAllMembersUseCase } from "../../workspace/get-all-members";
 
 export function makeGetAllMembersUseCase() {
-    const taskRepository = new TaskRepository()
-    const useCase = new GetAllMembersUseCase(taskRepository)
+    const userRepository = new UserRepository()
+    const workspaceRepository = new WorkspaceRepository()
+    const useCase = new GetAllMembersUseCase(userRepository, workspaceRepository)
 
     return useCase
 }

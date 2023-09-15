@@ -27,9 +27,6 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
         self.taskDS = taskDS
         
         addSubscribers()
-//        setupBindings()
-        
-//        TaskDataService.shared.queryTasks(dto: currDTO)
     }
     
     

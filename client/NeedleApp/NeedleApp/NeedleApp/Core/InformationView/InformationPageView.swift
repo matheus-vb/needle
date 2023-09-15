@@ -116,13 +116,18 @@ struct InformationPageView: View {
 
             HStack{
                 RoleCardInformationPageView()
-                    .padding(.trailing, 88)
+//                    .padding(.trailing, 88)
                 Spacer()
-                OtherCardInformationPageView(cardname: "Tasks no Kanban", taskNum: 20)
-                    .padding(.trailing, 32)
-                OtherCardInformationPageView(cardname: "Tasks Documentadas", taskNum: 15)
-                    .padding(.trailing, 32)
-                OtherCardInformationPageView(cardname: "Tasks Pendentes", taskNum: 5)
+                Spacer()
+                OtherCardInformationPageView(cardname: "Tasks no Kanban", taskNum: informationPageViewModel.tasks.count)
+//                    .padding(.trailing, 25)
+                Spacer()
+
+                OtherCardInformationPageView(cardname: "Tasks Documentadas", taskNum: informationPageViewModel.tasks.filter{$0.status == .DONE}.count)
+//                    .padding(.trailing, 25)
+                Spacer()
+
+                OtherCardInformationPageView(cardname: "Tasks Pendentes", taskNum: informationPageViewModel.tasks.filter{$0.status != .DONE}.count)
                     
             }
                         
