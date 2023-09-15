@@ -16,6 +16,9 @@ protocol WorkspaceDataServiceProtocol: ObservableObject {
     
     var currError: NetworkingManager.NetworkingError? { get set }
     
+    var errorCount: Int { get set }
+    var errorCountPublisher: Published<Int>.Publisher { get }
+    
     func getUsersWorkspaces(userId: String)
     func createWorkspace(userId: String, name: String)
     func joinWorkspace(userId: String, accessCode: String, role: Role)
