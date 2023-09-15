@@ -37,7 +37,7 @@ extension WorkspaceHomeView {
                     Button(action: {
                         workspaceViewModel.selectedTab = .joinedWorkspaces
                     }, label: {
-                        Text("Projetos que participo")
+                        Text(NSLocalizedString("Projetos que participo", comment: ""))
                             .font(.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                             .overlay(

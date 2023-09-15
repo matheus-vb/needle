@@ -9,6 +9,7 @@ import SwiftUI
 
 struct KanbanView: View {
     @ObservedObject var kanbanViewModel: KanbanViewModel<TaskDataService>
+    @State var disableTap : Bool = false
     
     init(tasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -111,6 +112,10 @@ struct KanbanView: View {
         }
         .dropDestination(for: String.self) { items, location in
             kanbanViewModel.currentlyDragging = items.first
+            self.disableTap = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.disableTap = false
+            }
             withAnimation(.easeIn) {
                 kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.TODO)
             }
@@ -147,6 +152,10 @@ struct KanbanView: View {
         }
         .dropDestination(for: String.self) { items, location in
             kanbanViewModel.currentlyDragging = items.first
+            self.disableTap = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.disableTap = false
+            }
             withAnimation(.easeIn) {
                 kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.IN_PROGRESS)
             }
@@ -183,6 +192,10 @@ struct KanbanView: View {
         }
         .dropDestination(for: String.self) { items, location in
             kanbanViewModel.currentlyDragging = items.first
+            self.disableTap = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.disableTap = false
+            }
             withAnimation(.easeIn) {
                 kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.PENDING)
             }
@@ -218,7 +231,11 @@ struct KanbanView: View {
             }
         }
         .dropDestination(for: String.self) { items, location in
-            if kanbanViewModel.role.displayName != Role.PRODUCT_MANAGER.rawValue {
+            self.disableTap = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.disableTap = false
+            }
+            if kanbanViewModel.role != Role.PRODUCT_MANAGER {
                 return false
             }
             

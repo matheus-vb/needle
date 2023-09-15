@@ -90,7 +90,7 @@ struct SheetView: View {
                 }
           else if type == .joinCode {
                   VStack(spacing: 10) {
-                      Text("Selecione uma função:")
+                      Text(NSLocalizedString("Selecione uma função:", comment: ""))
                       Picker("", selection: $selectedRole) {
                           ForEach(Role.allCases.filter{ $0 != .PRODUCT_MANAGER }) { role in
                               Text(role.displayName).tag(role)
@@ -130,7 +130,7 @@ struct SheetView: View {
     var textField: some View {
         HStack {
             Text("#").opacity(type == .joinCode ? 1.0 : 0.0).font(.title)
-            TextField(type == .newWorkspace ? "Insira o nome do novo workspace" : "_ _ _ _ _ _", text: $textfieldInput)
+            TextField(type == .newWorkspace ? NSLocalizedString("Insira o nome do novo workspace", comment: "") : "_ _ _ _ _ _", text: $textfieldInput)
                 .onReceive(Just(textfieldInput)) { _ in
                     if type == .joinCode {
                         limitText(6)
@@ -149,7 +149,7 @@ struct SheetView: View {
     }
     
     var errorMessage: some View {
-        Text("Algo deu errado. Tente novamente.")
+        Text(NSLocalizedString("Algo deu errado. Tente novamente.", comment: ""))
             .font(.custom(SpaceGrotesk.regular.rawValue, size: 10)).foregroundColor(.red)
             .foregroundColor(.red)
     }

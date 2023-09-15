@@ -17,7 +17,7 @@ struct BackButton: View {
                 Image(systemName: "chevron.backward.2")
                     .resizable()
                     .frame(width: 20, height: 20)
-                Text("Voltar")
+                Text(NSLocalizedString("Voltar", comment: ""))
                     .font(.system(size: 16, weight: .regular))
             }
         })

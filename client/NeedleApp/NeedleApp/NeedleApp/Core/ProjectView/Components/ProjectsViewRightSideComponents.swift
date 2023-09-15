@@ -41,7 +41,7 @@ extension ProjectsViewRightSideComponent{
                 print("Documentation Button")
                 projectViewModel.selectedTab = .Documentation
             }, label: {
-                Text("Documentação")
+                Text(NSLocalizedString("Documentação", comment: ""))
                     .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.black)
                     .overlay(

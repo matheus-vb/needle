@@ -38,7 +38,7 @@ extension EditTaskPopUP{
                 .font(.system(size: 14))
 
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date()..., displayedComponents: .date) {
-                Text("Selecione uma data").tag("")
+                Text(NSLocalizedString("Selecione uma data", comment: ""))
             }
             .labelsHidden()
         }
