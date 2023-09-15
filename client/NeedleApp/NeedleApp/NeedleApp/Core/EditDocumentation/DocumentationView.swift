@@ -13,14 +13,17 @@ struct DocumentationView: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
     @Environment(\.dismiss) var dismiss
     
+    var geometry: GeometryProxy
+    
     @Binding var documentationNS: NSAttributedString
     
     @State var backButtonHovered: Bool = false
     
-    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>) {
+    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>, geometry: GeometryProxy) {
         self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
         self.editTaskViewModel = editTaskViewModel
         self._documentationNS = documentationNS
+        self.geometry = geometry
     }
     
     var body: some View {
@@ -34,16 +37,15 @@ struct DocumentationView: View {
                 }.background(Color.theme.grayBackground)
                 Spacer()
             saveTask
-        }.onDisappear(perform: {
-//            documentationViewModel.getUpdate(data: UpdateDocumentationDTO(id: documentationViewModel.documentId, text: editTaskViewModel.selectedTask.document!.text, textString: editTaskViewModel.selectedTask.document!.textString), userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
-        })
+        }
             
         }
         
         var taskDataHeader: some View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
-                    Button(action: {editTaskViewModel.seeDocumentation.toggle()}, label: {
+                    Button(action: {print("fechei pelo <")
+                        editTaskViewModel.seeDocumentation.toggle()}, label: {
                         Image(systemName: "chevron.backward")
                             .resizable()
                             .scaledToFit()
@@ -62,9 +64,9 @@ struct DocumentationView: View {
                     Spacer()
                 }
                 
-                HStack(spacing: 24) {
-                    HStack(spacing: 12) {
-                        LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
+                HStack(spacing: 20) {
+                    HStack(spacing: 8) {
+                        LabelComponent(imageName: "calendar", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Prazo", comment: ""))
                             .font(.system(size: 14, weight: .regular))
 
                         Text("\(HandleDate.formatDateWithoutTime(dateInput: editTaskViewModel.selectedTask.endDate))")
@@ -72,21 +74,21 @@ struct DocumentationView: View {
 
                     }
                     HStack(spacing: 12) {
-                        LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
+                        LabelComponent(imageName: "shippingbox", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Área", comment: ""))
                             .font(.system(size: 14, weight: .regular))
 
                         KanbanTagView(taskType: editTaskViewModel.selectedTask.type)
                     }
                     HStack(spacing: 12) {
-                        LabelComponent(imageName: "person.fill", label:NSLocalizedString("Responsável", comment: ""))
-                            .font(.system(size: 14, weight: .regular))
+                        LabelComponent(imageName: "person.fill", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Responsável", comment: ""))
+                            .font(.system(size: 12, weight: .regular))
                         
                         Text(editTaskViewModel.selectedTask.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
                             .font(.system(size: 14, weight: .regular))
 
                     }
                     HStack(spacing: 12) {
-                        LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
+                        LabelComponent(imageName: "flag.fill", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Prioridade", comment: ""))
                             .font(.system(size: 14, weight: .regular))
 
                             switch editTaskViewModel.selectedTask.taskPriority {
@@ -116,6 +118,7 @@ struct DocumentationView: View {
             RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
                 $0.textContentInset = CGSize(width: 20, height: 40)
             }
+            .cornerRadius(8)
             .focusedValue(\.richTextContext, documentationViewModel.context)
         }
         
@@ -139,6 +142,7 @@ struct DocumentationView: View {
             HStack{
                 Button(action: {
                     editTaskViewModel.isEditing.toggle()
+                    print("fechei pelo cancelar")
                 }, label: {
                    Text(NSLocalizedString("Cancelar", comment: ""))
                 }).buttonStyle(SecondarySheetActionButton())
