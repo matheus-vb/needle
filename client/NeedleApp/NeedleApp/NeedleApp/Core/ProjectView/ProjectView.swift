@@ -21,16 +21,9 @@ struct ProjectView: View {
     var body: some View {
         ZStack {
             main
-            VStack {
-                //AlertBoxView()
-                  //  .overlay(RoundedRectangle(cornerRadius: 16).stroke(.black, lineWidth: 2))
-                   // .padding(.top, 10)
-                Spacer()
-            }
             .sheet(isPresented: $projectViewModel.showShareCode, content: {
                 SheetView(accessCode: projectViewModel.getCode(), type: .shareCode)
             })
-            .offset(y: projectViewModel.showCard ? 0 : -500)
         }
     }
     
