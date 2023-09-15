@@ -15,6 +15,9 @@ protocol AuthenticationManagerProtocol: ObservableObject {
     
     var currError: NetworkingManager.NetworkingError? { get set }
     
+    var errorCount: Int { get set }
+    var errorCountPublisher: Published<Int>.Publisher { get }
+    
     func singIn(userId: String, email: String?, name: String?)
     func getRoleInWorkspace(userId: String, workspaceId: String)
 }

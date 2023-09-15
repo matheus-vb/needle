@@ -42,13 +42,15 @@ struct KanbanView: View {
                     DropdownPriorityButton(taskPriority: $kanbanViewModel.taskPriority, dropOptions: TaskPriority.allCases) {}
                     Spacer()
                     Group {
-                        TextField("Procurar por nome, descrição, responsável...", text: $kanbanViewModel.searchText ?? "")
-                            .frame(width: 320, height: 32)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onSubmit {
-                                
-                            }
-                            .modifier(searchFieldModifier())
+                        HStack {
+                            TextField("Procurar por nome, descrição, responsável...", text: $kanbanViewModel.searchText ?? "")
+                                .frame(width: 320, height: 32)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .onSubmit {
+                                    
+                                }
+                                .modifier(searchFieldModifier())
+                        }
                         Button(action: {
                             kanbanViewModel.searchText = ""
                         }, label: {

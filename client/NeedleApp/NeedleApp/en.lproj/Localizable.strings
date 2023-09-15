@@ -161,6 +161,24 @@
 
 "Selecione uma função:" = "Pick a role:";
 
+"Task concluída é\ntask documentada." = "A done task is\na documented task.";
+
+"Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace." = "Use classic **kanban** in a new way: every task requires documentation to be completed, approved by the workspace **creator**.";
+
+"Documente sem\nperder tempo." = "Document without\nwasting time.";
+
+"Use os templates pra documentação de **desenvolvimento**, **design** ou **gerência** pra integrar o processo de forma fluida ao seu trabalho." = "Use the templates for **development**, **design** or **management** documentation to integrate the process fluidly into your work.";
+
+"Toda informação na\npalma da sua mão." = "All information in\nthe palm of your hand.";
+
+"Pesquise como quiser por todas as documentações feitas pelo time, seja de tasks antigas ou atuais.\n**Ficar alinhado nunca foi tão fácil.**" = "Search as you wish for all the documentation created by the team, whether for old or current tasks.\n**Staying aligned has never been easier.**";
+
+"Voltar" = "Return";
+
+"Próximo" = "Next";
+
+"Começar" = "Start";
+
 "Meus projetos" = "My workspaces";
 
 "+ Novo projeto" = "+ New project";

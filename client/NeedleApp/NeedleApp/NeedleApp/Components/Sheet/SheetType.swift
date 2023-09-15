@@ -22,6 +22,7 @@ enum SheetType {
         case .loginError: return Image("LoginError")
         case .archiveTask: return Image("CleanTask")
 
+
         }
     }
     
@@ -51,6 +52,7 @@ enum SheetType {
         case .archiveTask: return NSLocalizedString("Tente novamente.", comment: "")
 
 
+
         }
     }
     
@@ -65,7 +67,6 @@ enum SheetType {
         case .loginError: return false
         case .archiveTask: return true
 
-
         }
     }
     
@@ -79,7 +80,6 @@ enum SheetType {
         case .deleteTask: return NSLocalizedString("Remover", comment: "")
         case .loginError: return "Ok"
         case .archiveTask: return NSLocalizedString("Arquivar", comment: "")
-
 
         }
     }

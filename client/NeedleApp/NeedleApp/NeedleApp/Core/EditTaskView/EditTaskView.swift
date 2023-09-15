@@ -25,8 +25,8 @@ struct EditTaskPopUP: View {
         }
         .overlay(content: {
             if editTaskViewModel.seeDocumentation {
-                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel)
-
+                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, geometry: geometry)
+                
                     .background(.white)
             }
         })
@@ -39,7 +39,7 @@ struct EditTaskPopUP: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(minWidth: 2*geometry.size.width/5, maxHeight: 19.5*geometry.size.height/20)
+        .frame(minWidth: 3*geometry.size.width/5, maxHeight: 19.5*geometry.size.height/20)
         .background(.white)
     }
 }

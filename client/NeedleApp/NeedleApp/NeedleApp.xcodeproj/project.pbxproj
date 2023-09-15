@@ -25,7 +25,6 @@
 		274A28142A719F6E0002CFEA /* NeedleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28132A719F6E0002CFEA /* NeedleAppUITests.swift */; };
 		274A28162A719F6E0002CFEA /* NeedleAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28152A719F6E0002CFEA /* NeedleAppUITestsLaunchTests.swift */; };
 		274A28242A719FE60002CFEA /* UtilitiesPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */; };
-		274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */; };
 		274A282A2A71A01B0002CFEA /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A28292A71A01B0002CFEA /* Workspace.swift */; };
 		274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282B2A71A0240002CFEA /* TaskModel.swift */; };
 		274A282E2A71A0290002CFEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A282D2A71A0290002CFEA /* User.swift */; };
@@ -54,7 +53,6 @@
 		27B795FD2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */; };
 		27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */; };
 		27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796002A7C348A00FDA10F /* ProjectViewModel.swift */; };
-		27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796032A7C35F500FDA10F /* DummyKanbanView.swift */; };
 		27B796082A7C37EB00FDA10F /* SelectedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B796072A7C37EB00FDA10F /* SelectedTab.swift */; };
 		27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7D92A82C12F0026F381 /* DocumentationDataService.swift */; };
 		27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */; };
@@ -64,7 +62,9 @@
 		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
 		27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */; };
 		27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F32F9D2A81729D0046CB62 /* PopUpButton.swift */; };
+		446767462AB10476006083C2 /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446767452AB10476006083C2 /* BoldText.swift */; };
 		446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */; };
+		44E80C812AB223FE00ED0326 /* HighlightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E80C802AB223FE00ED0326 /* HighlightText.swift */; };
 		44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06302A82E69200386ADE /* SearchDocuments.swift */; };
 		44FE06332A82E71800386ADE /* PickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06322A82E71800386ADE /* PickerApp.swift */; };
 		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
@@ -250,7 +250,6 @@
 		274A28132A719F6E0002CFEA /* NeedleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleAppUITests.swift; sourceTree = "<group>"; };
 		274A28152A719F6E0002CFEA /* NeedleAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedleAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		274A28232A719FE60002CFEA /* UtilitiesPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesPlaceHolder.swift; sourceTree = "<group>"; };
-		274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPlaceholder.swift; sourceTree = "<group>"; };
 		274A28292A71A01B0002CFEA /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 		274A282B2A71A0240002CFEA /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		274A282D2A71A0290002CFEA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 		27B795FC2A7C30BC00FDA10F /* ProjectsViewRightSideComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRightSideComponent.swift; sourceTree = "<group>"; };
 		27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewRightSideComponents.swift; sourceTree = "<group>"; };
 		27B796002A7C348A00FDA10F /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
-		27B796032A7C35F500FDA10F /* DummyKanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyKanbanView.swift; sourceTree = "<group>"; };
 		27B796072A7C37EB00FDA10F /* SelectedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTab.swift; sourceTree = "<group>"; };
 		27BCF7D92A82C12F0026F381 /* DocumentationDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationDataService.swift; sourceTree = "<group>"; };
 		27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDocDTO.swift; sourceTree = "<group>"; };
@@ -286,7 +284,10 @@
 		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUPComponents.swift; sourceTree = "<group>"; };
 		27F32F9D2A81729D0046CB62 /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
+		446767452AB10476006083C2 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMembersButton.swift; sourceTree = "<group>"; };
+		44E80C802AB223FE00ED0326 /* HighlightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightText.swift; sourceTree = "<group>"; };
+		44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		44FE06302A82E69200386ADE /* SearchDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocuments.swift; sourceTree = "<group>"; };
 		44FE06322A82E71800386ADE /* PickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerApp.swift; sourceTree = "<group>"; };
 		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
@@ -351,7 +352,6 @@
 		86E7BCEB2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDeviceTokenDTO.swift; sourceTree = "<group>"; };
 		86E7BCED2A7DE15D00CDCCB2 /* KanbanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanViewModel.swift; sourceTree = "<group>"; };
 		86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskStatusDTO.swift; sourceTree = "<group>"; };
-		86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Placeholder.xcconfig; sourceTree = "<group>"; };
 		86EFD0822A8FF9F600F8168A /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		86EFD0852A901F3000F8168A /* AuthenticationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerProtocol.swift; sourceTree = "<group>"; };
 		86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataServiceProtocol.swift; sourceTree = "<group>"; };
@@ -519,6 +519,8 @@
 				86E6FF032A8297F900BB5D9F /* UpperCaseFormatter.swift */,
 				27BCF7DD2A82D8BE0026F381 /* Templates.swift */,
 				270515842A84635E005FF0EE /* HandleDate.swift */,
+				446767452AB10476006083C2 /* BoldText.swift */,
+				44E80C802AB223FE00ED0326 /* HighlightText.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -526,7 +528,6 @@
 		274A28252A719FEF0002CFEA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				274A28262A719FFE0002CFEA /* ServicesPlaceholder.swift */,
 				863789842A745D70004EEB9B /* NotificationDataService.swift */,
 				86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */,
 				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
@@ -675,7 +676,6 @@
 			children = (
 				27B795FE2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift */,
 				27B795FA2A7C2E6B00FDA10F /* ProjectLeftSideComponents.swift */,
-				27B796032A7C35F500FDA10F /* DummyKanbanView.swift */,
 				2721B0D92A7C414F0085F42E /* ProjectButton.swift */,
 				270515802A8430D2005FF0EE /* BackButton.swift */,
 			);
@@ -733,9 +733,8 @@
 		864D69A32A787BE000EB256A /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				86E7BCF12A81373200CDCCB2 /* Placeholder.xcconfig */,
 				86503D0B2A84A262001D26EE /* Release.xcconfig */,
-				649D6D172AB2345100632F5D /* Debug.xcconfig */,
+				44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1091,7 +1090,6 @@
 				D43EB9BD2A84184400CF0315 /* SheetType.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
-				27B796042A7C35F500FDA10F /* DummyKanbanView.swift in Sources */,
 				86503D0A2A846092001D26EE /* OperatorOverload.swift in Sources */,
 				27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */,
 				86E7BCEA2A7CA88300CDCCB2 /* TaskResponse.swift in Sources */,
@@ -1167,10 +1165,10 @@
 				27B795FF2A7C317800FDA10F /* ProjectsViewRightSideComponents.swift in Sources */,
 				8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */,
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
-				274A28272A719FFE0002CFEA /* ServicesPlaceholder.swift in Sources */,
 				270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */,
 				27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
+				446767462AB10476006083C2 /* BoldText.swift in Sources */,
 				D43EB9BB2A8414C900CF0315 /* SheetView.swift in Sources */,
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
@@ -1190,6 +1188,7 @@
 				649D6D0D2AAF9B1400632F5D /* FocusedCommand.swift in Sources */,
 				446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */,
 				273BD1D02A744339005733E9 /* CreateTaskDTO.swift in Sources */,
+				44E80C812AB223FE00ED0326 /* HighlightText.swift in Sources */,
 				86EFD0932A958B8B00F8168A /* SheetViewModel.swift in Sources */,
 				86E6FF142A83373000BB5D9F /* StringResponse.swift in Sources */,
 				86E6FF1B2A842E1C00BB5D9F /* AlertBoxView.swift in Sources */,
@@ -1311,7 +1310,7 @@
 /* Begin XCBuildConfiguration section */
 		274A28172A719F6E0002CFEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 649D6D172AB2345100632F5D /* Debug.xcconfig */;
+			baseConfigurationReference = 44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1439,7 +1438,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QJZZNXUZ63;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1453,7 +1452,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.6.4;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAppJP;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

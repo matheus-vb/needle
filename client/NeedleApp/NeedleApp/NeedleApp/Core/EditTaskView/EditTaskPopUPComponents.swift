@@ -33,61 +33,67 @@ extension EditTaskPopUP{
             .scrollIndicators(.hidden)
     }
     var deadLine: some View{
-        HStack(spacing: 24){
+        HStack(spacing: 12){
             LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
+                .font(.system(size: 14))
+
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date()..., displayedComponents: .date) {
                 Text(NSLocalizedString("Selecione uma data", comment: ""))
             }
             .labelsHidden()
-            Spacer()
         }
-        .font(.system(size: 16))
+        .font(.system(size: 14))
         .foregroundColor(Color.theme.grayPressed)
     }
     
     var responsible: some View {
-        HStack(spacing: 24){
+        HStack(spacing: 12){
             LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
+                .font(.system(size: 14))
+
             Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.dto.userId){
                 ForEach(editTaskViewModel.members) {membro in
-                    Text(membro.name)
+                    Text(membro.name).tag("")
                         .foregroundColor(Color.theme.blackMain)
                         .tag(membro.id as String?)
                 }
             }
+            .font(.system(size: 14))
             .pickerStyle(.menu)
             .labelsHidden()
-            Spacer()
         }
     }
         
     var type: some View {
-        HStack(spacing: 24){
+        HStack(spacing: 12){
             LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
+                .font(.system(size: 14))
+
             Picker("Área",selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
-                       .foregroundColor(Color.theme.blackMain)
+                       .foregroundColor(Color.theme.blackMain).tag("")
                }
            }
+            .font(.system(size: 14))
            .pickerStyle(.menu)
            .labelsHidden()
-            Spacer()
         }
     }
     
     var priority: some View {
-        HStack(spacing: 24){
+        HStack(spacing: 12){
             LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
+
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
-                        .foregroundColor(Color.theme.blackMain)
+                        .foregroundColor(Color.theme.blackMain).tag("")
                 }
             }
+            .font(.system(size: 14))
             .pickerStyle(.menu)
             .labelsHidden()
-            Spacer()
         }
     }
     
@@ -104,14 +110,15 @@ extension EditTaskPopUP{
                 TextEditor(text: Binding(projectedValue: $editTaskViewModel.taskDescription))
                     .font(.custom("SF Pro", size: 16))
                     .lineSpacing(1)
-                    .cornerRadius(12)
+                    .cornerRadius(8)
                     .multilineTextAlignment(.leading)
                     .colorMultiply(Color.theme.grayBackground)
+        
         }.frame(minHeight: 100)
     }
     
     var attributesStack: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading, spacing: 8){
             deadLine
             responsible
             type
@@ -171,11 +178,11 @@ extension EditTaskPopUP{
             Button(action: {cancelButton()}, label: {
                 Text(NSLocalizedString("Cancelar", comment: ""))
                      })
-                .buttonStyle(PrimarySheetActionButton())
+                .buttonStyle(SecondarySheetActionButton())
             Button(action: {saveTaskButton()}, label: {
                 Text(NSLocalizedString("Salvar", comment: ""))
                      })
-                .buttonStyle(SecondarySheetActionButton())
+                .buttonStyle(PrimarySheetActionButton())
         }
     }
     
@@ -190,6 +197,6 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        editTaskViewModel.seeDocumentation.toggle()
+        editTaskViewModel.seeDocumentation = true
     }
 }

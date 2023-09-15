@@ -15,6 +15,8 @@ class LoginPageViewModel<A: AuthenticationManagerProtocol & ObservableObject, N:
     @ObservedObject var authManager: A
     @ObservedObject var notificationDS: N
     @ObservedObject var workspaceDS: W
+    
+    @AppStorage("userID") var userID: String = "Default User"
 
     @Published var user: User?
     
@@ -43,11 +45,11 @@ class LoginPageViewModel<A: AuthenticationManagerProtocol & ObservableObject, N:
             switch auth.credential {
             case let authCredential as ASAuthorizationAppleIDCredential:
                 //print(authCredential)
-                let userID = authCredential.user
+                userID = authCredential.user
                 let email = authCredential.email
                 let firstName = authCredential.fullName?.givenName
                 //let lastName = authCredential.fullName?.familyName
-                
+                print("Login ->", userID)
                 authManager.singIn(userId: userID, email: email, name: firstName)
 
                 notificationDS.updateDeviceToken(userId: userID)

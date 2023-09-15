@@ -13,7 +13,9 @@ class DocumentationDataService: DocumentationDataServiceProtocol {
     private init() {}
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     var updateDocumentationTaskSubscription: AnyCancellable?
     
