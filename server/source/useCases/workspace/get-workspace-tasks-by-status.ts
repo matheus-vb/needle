@@ -1,23 +1,23 @@
 import { Workspace, TaskStatus } from "@prisma/client";
 import { ITaskRepository } from "../../repositories/ITaskRepository";
 
-interface IGetWorkspaceTasksFinishedRequest{
+interface IGetWorkspaceTasksByStatusRequest{
     workspaceId: string
     status: TaskStatus
 }
 
-interface IGetWorkspaceTasksFinishedReply{
+interface IGetWorkspaceTasksByStatusReply{
     finished: number
 }
 
-export class GetWorkspaceTasksFinished{
+export class GetWorkspaceTasksByStatusUseCase{
     constructor(private taskRepository: ITaskRepository){}
     
     async handle({
         workspaceId,
         status
-    }: IGetWorkspaceTasksFinishedRequest): Promise<IGetWorkspaceTasksFinishedReply>{        
-        const finishedTasks = await this.taskRepository.findNumOfTasksByWorkspaceIdAndStatus(workspaceId, status);
+    }: IGetWorkspaceTasksByStatusRequest): Promise<IGetWorkspaceTasksByStatusReply>{        
+        const finishedTasks = await this.taskRepository.findTasksByWorkspaceIdAndStatus(workspaceId, status);
 
         return {
             finished: finishedTasks

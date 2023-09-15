@@ -53,6 +53,25 @@ extension ProjectsViewRightSideComponent{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
+            
+            
+            Button(action: {
+                print("Information Button")
+                projectViewModel.selectedTab = .Information
+            }, label: {
+                Text("Informação")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(.black)
+                    .overlay(
+                        Rectangle()
+                            .frame(height: 6)
+                            .foregroundColor(projectViewModel.selectedTab == .Information ? Color.theme.greenMain: Color.theme.grayBackground)
+                            .offset(y: 12)
+                        , alignment: .bottom
+                    )
+            })
+            .buttonStyle(.plain)
+            .modifier(Clickable())
         }
     }
     

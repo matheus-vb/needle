@@ -76,8 +76,22 @@ struct InformationPageView: View {
         Information(name: "D", area: "D", last_access: "D", status: true)
     ]
     
-    @State var showOn : Bool = true
+    @State var isPM : Bool = false
+    @State var isActive : Bool = false
     @State private var sortOrder = [KeyPathComparator(\Information.name)]
+    
+    @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService>
+    
+    init(tasks: [TaskModel]?, workspaceMembers: [String:[User]]?, workspaceId: String) {
+        
+        self.informationPageViewModel = InformationPageViewModel(
+            tasks: tasks  ?? [],
+            workspaceMembers: workspaceMembers ?? [:],
+            workspaceId: workspaceId,
+            workspaceDS: WorkspaceDataService.shared,
+            taskDS: TaskDataService.shared)
+    }
+    
     
     var body: some View {
         
@@ -112,7 +126,7 @@ struct InformationPageView: View {
                     
             }
                         
-            Text("Total de membros: \(informations.count)" )
+            Text("Total de membros: \(informationPageViewModel.workspaceMembers.count)" )
                 .font(.system(size: 24))
                 .padding(.top, 54)
                 .padding(.bottom, 24)
@@ -122,15 +136,21 @@ struct InformationPageView: View {
                 TableColumn("Área", value: \.area)
                 TableColumn("Último acesso", value: \.last_access)
                 TableColumn("Acesso", value: \.status.description) { info in
-                    Toggle((info.status ? "Ativo:   " : "Inativo:"), isOn: Binding<Bool>(
-                       get: {
-                          return info.status
-                       }, set: {
-                          if let index = informations.firstIndex(where: { $0.id == info.id }) {
-                             informations[index].status = $0
-                          }
-                       }
-                    )).toggleStyle(SwitchToggleStyle(tint: .green))
+                    
+                    if isPM {
+                        Toggle((info.status ? "Ativo:   " : "Inativo:"), isOn: Binding<Bool>(
+                            get: {
+                                return info.status
+                            }, set: {
+                                if let index = informations.firstIndex(where: { $0.id == info.id }) {
+                                    informations[index].status = $0
+                                }
+                            }
+                        )).toggleStyle(SwitchToggleStyle(tint: .green))
+                    } else {
+                        Image(systemName: "flag.fill")
+                            .foregroundColor(isActive ? Color.theme.greenKanban : Color.theme.redMain)
+                    }
                 }
             }
             .onChange(of: sortOrder) { newValue in
