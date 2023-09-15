@@ -17,7 +17,7 @@ struct NotificationCardView: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(userName + ", " + notificationInfo.payload.firstCharacterLowercased())
             HStack {
-                Text("Projeto " + notificationInfo.workspace.name + "  ·  " + notificationInfo.created_at.prefix(10)).font(.footnote)
+                Text(NSLocalizedString("Projeto", comment: "") + " " + notificationInfo.workspace.name + "  ·  " + notificationInfo.created_at.prefix(10)).font(.footnote)
                     .opacity(0.5)
             }
         }

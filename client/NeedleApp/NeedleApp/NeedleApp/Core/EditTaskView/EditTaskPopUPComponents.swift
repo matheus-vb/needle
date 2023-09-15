@@ -36,7 +36,7 @@ extension EditTaskPopUP{
         HStack(spacing: 24){
             LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
             DatePicker(selection: $editTaskViewModel.deadLineSelection, in: Date()..., displayedComponents: .date) {
-                Text("Selecione uma data")
+                Text(NSLocalizedString("Selecione uma data", comment: ""))
             }
             .labelsHidden()
             Spacer()

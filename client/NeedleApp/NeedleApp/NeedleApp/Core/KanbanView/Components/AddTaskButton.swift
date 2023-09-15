@@ -32,7 +32,7 @@ extension KanbanView {
                     .foregroundColor(.black)
                 Spacer()
                     .frame(width: 8)
-                Text("Adicionar Task")
+                Text(NSLocalizedString("Adicionar Task", comment: ""))
                     .font(
                         Font.custom("SF Pro", size: 12)
                             .weight(.semibold)

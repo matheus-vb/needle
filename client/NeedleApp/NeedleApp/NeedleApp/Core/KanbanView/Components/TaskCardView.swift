@@ -58,6 +58,15 @@ extension KanbanView {
         )
         .draggable(task.id)
         .dropDestination(for: String.self) { items, location in
+            self.disableTap = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.disableTap = false
+            }
+            if task.status == .DONE {
+                if kanbanViewModel.role != Role.PRODUCT_MANAGER {
+                    return false
+                }
+            }
             kanbanViewModel.currentlyDragging = items.first
             
             if kanbanViewModel.localTasks.first(where: { $0.id == kanbanViewModel.currentlyDragging }) != nil {
@@ -78,13 +87,15 @@ extension KanbanView {
                 kanbanViewModel.currentlyTarget = task.id
             }
         }
-        .simultaneousGesture(LongPressGesture().onChanged({ _ in
+        .onTapGesture {
+            if disableTap == false {
+                kanbanViewModel.selectedTask = task
+                kanbanViewModel.isEditing.toggle()
+            }
+        }
+        .onLongPressGesture(minimumDuration: 0.25) {
             kanbanViewModel.currentlyDragging = task.id
-        }))
-        .simultaneousGesture(TapGesture(count: 2).onEnded({ _ in
-            kanbanViewModel.selectedTask = task
-            kanbanViewModel.isEditing.toggle()
-        }))
+        }
     }
     
     

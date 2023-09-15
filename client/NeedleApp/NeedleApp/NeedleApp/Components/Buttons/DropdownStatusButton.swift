@@ -65,7 +65,7 @@ struct DropdownPriorityButton: View {
             isClicked.toggle()
         }, label:{
             HStack{
-                Text("\(taskPriority?.displayName ?? NSLocalizedString("Priority", comment: ""))")
+                Text("\(taskPriority?.displayName ?? NSLocalizedString("Prioridade", comment: ""))")
                 .font(.custom("SF Pro", size: 12)
                     .weight(.regular))
                 .foregroundColor(.black)

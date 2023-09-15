@@ -37,7 +37,7 @@ struct ProjectLeftSideComponent: View {
             
             Spacer()
             
-            DashedSmallerButton(text: "Deixe um feedback"){
+            DashedSmallerButton(text: NSLocalizedString("Deixe um feedback", comment: "")){
                 feedbackSheet.toggle()
             }.padding(20)
                 .sheet(isPresented: $feedbackSheet) {

@@ -15,7 +15,7 @@ extension ProjectLeftSideComponent{
                 .resizable()
                 .scaledToFit()
                 .frame(width: 10)
-            Text("Projetos")
+            Text(NSLocalizedString("Projetos", comment: ""))
                 .foregroundColor(Color.theme.blackMain)
                 .font(Font.custom("SF Pro", size: 16).weight(.semibold))
 
@@ -33,7 +33,7 @@ extension ProjectLeftSideComponent{
     }
     
     var newProject: some View {
-        Text("+ Novo projeto")
+        Text(NSLocalizedString("+ Novo projeto", comment: ""))
             .foregroundColor(Color.theme.blackMain)
             .font(Font.custom("SF Pro", size: 16).weight(.regular))
             .padding(.vertical, 10)
