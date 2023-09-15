@@ -18,10 +18,11 @@ extension CreateTaskPopUp{
     }
     var deadLine: some View{
         HStack(spacing: 24){
-            LabelComponent(imageName: "calendar", label: "Prazo")
+            LabelComponent(imageName: "calendar", label: NSLocalizedString("Prazo", comment: ""))
             DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
-                Text("Select a date")
+                Text("Selecione uma data")
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .labelsHidden()
             Spacer()
         }
@@ -31,14 +32,15 @@ extension CreateTaskPopUp{
     
     var responsible: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "person.fill", label: "Responsável")
-            Picker("Área",selection: $createTaskViewModel.selectedMemberId){
+            LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
+            Picker(NSLocalizedString("Área", comment: ""),selection: $createTaskViewModel.selectedMemberId){
                 ForEach(createTaskViewModel.members) { membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
                         .tag(membro.id)
                 }
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .pickerStyle(.menu)
             .labelsHidden()
             Spacer()
@@ -47,13 +49,14 @@ extension CreateTaskPopUp{
         
     var type: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "shippingbox", label:"Área")
-            Picker("Área",selection: $createTaskViewModel.categorySelection){
+            LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
+            Picker(NSLocalizedString("Área", comment: ""),selection: $createTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain)
                }
            }
+            .frame(maxWidth: geometry.size.width*0.26)
            .pickerStyle(.menu)
            .labelsHidden()
             Spacer()
@@ -62,13 +65,14 @@ extension CreateTaskPopUp{
     
     var priority: some View {
         HStack(spacing: 24){
-            LabelComponent(imageName: "flag.fill", label: "Prioridade")
-            Picker("Prioridade",selection: $createTaskViewModel.prioritySelection){
+            LabelComponent(imageName: "flag.fill", label: NSLocalizedString("Prioridade", comment: ""))
+            Picker(NSLocalizedString("Prioridade", comment: ""),selection: $createTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
                         .foregroundColor(Color.theme.blackMain)
                 }
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .pickerStyle(.menu)
             .labelsHidden()
             Spacer()
@@ -76,26 +80,18 @@ extension CreateTaskPopUp{
     }
     
     var description: some View{
-        VStack(alignment: .leading ,spacing: 12){
-            Text("Descrição")
-                .font(.system(size: 20, weight: .regular))
-                .foregroundColor(Color.theme.blackMain)
-            ZStack {
-                if createTaskViewModel.taskDescription == "" {
-                    TextEditor(text:$createTaskViewModel.taskDescriptionPlaceHolder)
-                        .scrollContentBackground(.hidden)
-                        .background(Color.clear)
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundColor(Color.theme.grayPressed)
-                }
-                TextEditor(text: $createTaskViewModel.taskDescription)
-                    .scrollContentBackground(.hidden)
-                    .background(Color.clear)
-                    .font(.system(size: 20, weight: .regular))
-                    .foregroundColor(Color.theme.grayPressed)
-            }
-        }
-        .frame(minHeight: geometry.size.height - 420)
+        VStack(alignment: .leading, spacing: 12) {
+            Text(NSLocalizedString("Descrição", comment: ""))
+                .font(.system(size: 16, weight: .regular))
+                .foregroundColor(Color.theme.grayPressed)
+            
+                TextEditor(text: Binding(projectedValue: $createTaskViewModel.taskDescription))
+                .font(.custom("SF Pro", size: 16))
+                .lineSpacing(1)
+                .cornerRadius(12)
+                .multilineTextAlignment(.leading)
+                .colorMultiply(Color.theme.grayBackground)
+        }.frame(minHeight: 100)
     }
     
     var attributesStack: some View {
@@ -111,23 +107,19 @@ extension CreateTaskPopUp{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            ScrollView{
                 description
+            HStack{
                 Spacer()
-                HStack{
-                    Spacer()
-                    createTask
-                }
+                createTask
             }
         }
-        .frame(minHeight: geometry.size.height - 128)
     }
     
     var topSection: some View{
         HStack{
             Spacer()
             Button(action: {
-                projectViewModel.showPopUp.toggle()
+                createTaskViewModel.showPopUp.toggle()
             }, label: {
                 Image(systemName: "xmark")
                     .resizable()
@@ -146,29 +138,11 @@ extension CreateTaskPopUp{
     }
     
     func cancelButton(){
-        projectViewModel.showPopUp.toggle()
+        createTaskViewModel.showPopUp.toggle()
     }
     
     func createTaskButton(){
-        var selectedMemberId: String? = createTaskViewModel.selectedMemberId
-        
-        if createTaskViewModel.selectedMemberId == "" {
-            selectedMemberId = nil
-        }
-        
-        let dto = CreateTaskDTO(
-            userId: selectedMemberId,
-            accessCode: projectViewModel.selectedProject.accessCode,
-            title: createTaskViewModel.taskTitle,
-            description: createTaskViewModel.taskDescription,
-            stats: projectViewModel.selectedColumnStatus.rawValue,
-            type: createTaskViewModel.categorySelection.rawValue,
-            endDate: "\(createTaskViewModel.deadLineSelection)",
-            priority: createTaskViewModel.prioritySelection.rawValue,
-            docTemplate: template.devTemplate
-        )
-        
-        projectViewModel.createTask(dto: dto)
-        projectViewModel.showPopUp.toggle()
+        createTaskViewModel.createTask()
+        createTaskViewModel.showPopUp.toggle()
     }
 }

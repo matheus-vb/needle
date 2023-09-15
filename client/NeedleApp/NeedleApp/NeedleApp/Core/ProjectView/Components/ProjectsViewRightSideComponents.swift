@@ -35,12 +35,13 @@ extension ProjectsViewRightSideComponent{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
+            .keyboardShortcut(projectViewModel.selectedTab == .Kanban ? nil : KeyboardShortcut(.tab, modifiers: .control))
             
             Button(action: {
                 print("Documentation Button")
                 projectViewModel.selectedTab = .Documentation
             }, label: {
-                Text("Documentação")
+                Text(NSLocalizedString("Documentação", comment: ""))
                     .font(.system(size: 16, weight: .regular))
                     .foregroundColor(.black)
                     .overlay(
@@ -53,14 +54,12 @@ extension ProjectsViewRightSideComponent{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
+            .keyboardShortcut(projectViewModel.selectedTab == .Documentation ? nil : KeyboardShortcut(.tab, modifiers: .control))
         }
     }
     
     var inviteMemberButton: some View {
-        CopyClipboardButton(text: projectViewModel.getCode()) {
-//            projectViewModel.showShareCode.toggle()
-//            print(projectViewModel.getCode())
-            projectViewModel.copyToClipBoard()
+        CopyClipboardButton(text: projectViewModel.getCode(), isOnCard: false) {
         }
 
     }

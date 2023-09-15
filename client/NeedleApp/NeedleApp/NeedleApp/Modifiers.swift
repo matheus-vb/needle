@@ -22,7 +22,7 @@ struct Clickable: ViewModifier {
 
 struct TaskCardBackground: ViewModifier {
     @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     func body(content: Content) -> some View {
         content
@@ -44,7 +44,7 @@ struct TaskCardBackground: ViewModifier {
 
 struct AddTaskButtonBackground: ViewModifier {
     @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     func body(content: Content) -> some View {
         content
@@ -64,11 +64,11 @@ struct AddTaskButtonBackground: ViewModifier {
     }
 }
 
-struct GenericButtonBackground: ViewModifier {
+struct workspaceCardModifier: ViewModifier {
     let standardColor : Color
     let hoveredColor : Color
     @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel
+    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     
     func body(content: Content) -> some View {
         content
@@ -79,6 +79,15 @@ struct GenericButtonBackground: ViewModifier {
                     isHovered = false
                 }
             }
-            .background(isHovered ? hoveredColor : standardColor)
+            .foregroundColor(isHovered ? hoveredColor : standardColor)
+    }
+}
+
+struct searchFieldModifier: ViewModifier {
+    @FocusState var isFocused : Bool
+
+    func body(content: Content) -> some View {
+        content
+            .focused($isFocused, key: "f")
     }
 }

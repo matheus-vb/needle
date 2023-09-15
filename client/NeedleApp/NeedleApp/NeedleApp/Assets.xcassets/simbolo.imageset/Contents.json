@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "simbolo@1x.png",
+      "filename" : "Needle.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "simbolo@2x.png",
+      "filename" : "Needle@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "simbolo@3x.png",
+      "filename" : "Needle@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

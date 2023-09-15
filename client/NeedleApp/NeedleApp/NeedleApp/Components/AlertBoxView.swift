@@ -14,7 +14,7 @@ struct AlertBoxView: View {
             HStack {
                 Image(systemName: "exclamationmark.bubble.fill")
                     .padding()
-                Text("Clique duas vezes em uma task para expandir!")
+                Text(NSLocalizedString("Clique duas vezes em uma task para expandir!", comment: ""))
             }
         }
         .frame(width: 240, height: 60)

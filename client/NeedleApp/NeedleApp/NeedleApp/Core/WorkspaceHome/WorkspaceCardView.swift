@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 struct WorkspaceCardView: View, Identifiable {
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    
-    @State var isHovered = false
+    @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
+    @State private var filteredOwner: [String] = []
+    @State var isHovered: Bool = false
     
     var id = UUID()
     var action: () -> Void
@@ -22,23 +22,25 @@ struct WorkspaceCardView: View, Identifiable {
     let workspace: Workspace
 
     init(workspaceInfo: Workspace, action: @escaping () -> Void) {
-        self.title = workspaceInfo.name
-        self.action = action
-        self.owner = "quem"
-        self.code = workspaceInfo.accessCode
         self.workspaceId = workspaceInfo.id
         self.workspace = workspaceInfo
+        self.code = workspaceInfo.accessCode
+        self.title = workspaceInfo.name
+        self.action = action
+        self.owner = workspaceInfo.users[0].user.name
+        self.workspaceCardViewModel = WorkspaceCardViewModel(manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, action: action, workspace: workspace)
     }
     
+    
     var basicInfo: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(title).font(.custom(SpaceGrotesk.semiBold.rawValue, size: 32)).foregroundColor(Color.theme.blackMain)
-            Text("Clique para ver mais deste workspace").font(.custom(SpaceGrotesk.regular.rawValue, size: 12)).foregroundColor(Color.theme.blackMain)
+        VStack(alignment: .leading, spacing: 16) {
+            Text(title).font(.system(size: 24, weight: .medium))
+            Text("Product Manager: \(owner)").font(.system(size: 14, weight: .regular))
         }
     }
     
     var deleteButton: some View {
-        Button(action: action, label: {
+        Button(action: workspaceCardViewModel.action, label: {
             Image(systemName: "trash")
                 .foregroundColor(Color.theme.grayHover)
         })
@@ -50,37 +52,33 @@ struct WorkspaceCardView: View, Identifiable {
         ZStack {
             RoundedRectangle(cornerRadius: 3.83)
                 .foregroundColor(Color.theme.greenMain)
-            Text(code)
+            Text(workspaceCardViewModel.workspace.accessCode)
         }.frame(width: 88, height: 29)
     }
     
     var body: some View {
         ZStack {
-            NavigationLink(destination: ProjectView().environmentObject(projectViewModel), label: {
-                RoundedRectangle(cornerRadius: 10).foregroundColor(isHovered ? Color.theme.grayBackground : .white)
-                    .onHover(perform: { _ in
-                        isHovered.toggle()
-                    })
-                    .frame(width: 488, height: 283.96)
-                    .shadow(radius: 10, x: 0, y: 4)
+            NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace), label: {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: 296, height: 192)
+                    .shadow(radius: 4, x: 0, y: 4)
             })
             .simultaneousGesture(TapGesture().onEnded {
-                AuthenticationManager.shared.getRoleInWorkspace(userId: AuthenticationManager.shared.user!.id, workspaceId: workspaceId)
-                TaskDataService.shared.getWorkspaceTasks(userId: AuthenticationManager.shared.user!.id, workspaceId: workspace.id)
-                WorkspaceDataService.shared.getWorkspaceMembers(workspaceId: workspaceId)
-                projectViewModel.selectedProject = workspace
+                workspaceCardViewModel.selectWorkspace(workspaceId: workspaceCardViewModel.workspace.id)
             })
             .buttonStyle(.plain)
-            VStack(alignment: .trailing) {
+            VStack(alignment: .leading, spacing: 32) {
+                basicInfo
+                 .foregroundColor(Color.theme.blackMain)
                 HStack {
-                    basicInfo
+                    Text(NSLocalizedString("Código para convite:", comment: "")).font(.system(size: 12, weight: .medium))
                     Spacer()
-                    deleteButton
-                }
-                Spacer()
-                accessCode
+                    CopyClipboardButton(text: code, isOnCard: true) {
+                    }
+                }.frame(width: 227)
                 
-            }.padding(24)
-        }
+            }.padding(.leading, 16)
+            .frame(width: 259, height: 155)
+        }.modifier(workspaceCardModifier(standardColor: .white, hoveredColor: Color.theme.grayBackground))
     }
 }

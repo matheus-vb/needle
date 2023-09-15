@@ -1,0 +1,191 @@
+/*
+  Localizable.strings
+  NeedleApp
+
+  Created by jpcm2 on 30/08/23.
+  
+*/
+
+"Não deixe uma\nponta solta" = "No dejes cabos sueltos";
+
+"A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "La cultura de documentación permite que cada proyecto sea confeccionado con maestría, evitando enredos y confusiones. Por eso, Needle ha llegado para fomentar el registro y la consulta de sus actividades.";
+
+"Projetos e Tarefas" = "Proyectos y Tareas";
+
+"Descrição" = "Descripción";
+
+"Área" = "Área";
+
+"Selecione uma data" = "Selecciona una fecha";
+
+"Responsável" = "Responsable";
+
+"Prazo" = "Plazo";
+
+"Prioridade" = "Prioridad";
+
+"Cancelar" = "Cancelar";
+
+"Criar" = "Crear";
+
+"Nome da Task" = "Nombre de la Tarea";
+
+"Adicione uma breve descrição da tarefa" = "Añade una breve descripción de la tarea";
+
+"A fazer" = "Por hacer";
+
+"Fazendo" = "Haciendo";
+
+"Em revisão" = "En revisión";
+
+"Feito" = "Hecho";
+
+"Voltar" = "Volver";
+
+"Projetos" = "Proyectos";
+
+"Documentação" = "Documentación";
+
+"Participar de workspace" = "Unirse a un Espacio de Trabajo";
+
+"+ Criar novo workspace" = "+ Crear un Nuevo Espacio de Trabajo";
+
+"Sair " = "Cerrar sesión ";
+
+"Sair" = "Cerrar sesión";
+
+"Clique para ver mais deste workspace" = "Haz clic para ver más de este Espacio de Trabajo";
+
+"Projeto " = "Proyecto ";
+
+"simbolo" = "símbolo";
+
+"notificações" = "notificaciones";
+
+"Limpar" = "Limpiar";
+
+"Apagar" = "Eliminar";
+
+"Outros" = "Otros";
+
+"Adicionar Task" = "Crear Tarea";
+
+"Prazo" = "Plazo";
+
+"Prioridade" = "Prioridad";
+
+"Visualizar documentação" = "Ver documentación";
+
+"Procurar por nome, descrição, responsável..." = "Buscar por nombre, descripción, responsable...";
+
+"Nome da Task" = "Nombre de la Tarea";
+
+"Prioridade" = "Prioridad";
+
+"Área" = "Área";
+
+"Sem responsável" = "Sin responsable";
+
+"Atualização" = "Actualizaciones";
+
+"Alta" = "Alta";
+
+"Clique duas vezes em uma task para expandir!" = "Haz doble clic en una tarea para expandirla!";
+
+"Excluir projeto?" = "¿Eliminar Proyecto?";
+
+"Documento não encontrado" = "Documento no encontrado";
+
+"Deletar task?" = "¿Eliminar Tarea?";
+
+"Arquivar task?" = "Archivar Tareas?";
+
+"Nomeie seu novo workspace:" = "Nombre de tu Nuevo Espacio de Trabajo:";
+
+"Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos." = "Recuerda, al eliminar un Espacio de Trabajo,\ntus tareas y documentos se perderán.";
+
+"Envie o código do workspace para sua equipe e deixe-a alinhada." = "Envía el código del Espacio de Trabajo a tu equipo y alinéalos.";
+
+"Procure por outras palavras-chave como título da task, área ou data!" = "Busca otras palabras clave como título de tarea, área o fecha.";
+
+"Sua task e a documentação serão excluídas para sempre." = "Tu tarea y documentación se eliminarán para siempre.";
+
+"Sua task será removida do kanban, mas sua documentação continuará acessível." = "Tu tarea se quitará del kanban, pero tu documentación seguirá siendo accesible.";
+
+"Criar" = "Crear";
+
+"Excluir" = "Eliminar";
+
+"Entrar" = "Unirse";
+
+"Copiar" = "Copiar";
+
+"Remover" = "Eliminar";
+
+"Urgente" = "Urgente";
+
+"Moderada" = "Moderada";
+
+"Baixa" = "Baja";
+
+"Desenvolvimento" = "Desarrollo";
+
+"Geral" = "General";
+
+"Negócios" = "Negocios";
+
+"Vendas" = "Ventas";
+
+"Sem nome" = "Sin responsable";
+
+"Salvar" = "Guardar";
+
+"Código de compartilhamento copiado!" = "Código de Compartir Copiado!";
+
+"Copie o código do projeto para a área de transferência" = "Copia el código del proyecto al portapapeles";
+
+"Tente novamente" = "Inténtalo de nuevo";
+
+"Arquivar" = "Archivar";
+
+"Meus projetos" = "Mis proyectos";
+
+"Projetos que participo" = "Proyectos en los que participo";
+
+"Código para convite:" = "Código para invitación:";
+
+"Procurar por nome do projeto..." = "Buscar por nombre de proyecto...";
+
+"# Entrar num projeto" = "# Unirse a un proyecto";
+
+"Selecione uma função:" = "Seleccione una función:";
+
+"+ Novo projeto" = "+ Nuevo proyecto";
+
+"Deixe um feedback" = "Deja un comentario";
+
+"Ninguém documentou nada ainda. Seja o primeiro!" = "Nadie ha documentado nada todavía. ¡Sé el primero!";
+
+"Insira o nome do novo workspace" = "Ingrese el nombre del nuevo espacio de trabajo.";
+
+// Templates:
+
+"devTemplate" = "e1xydGYxXGFuc2lcYW5zaWNwZzEyNTJcY29jb2FydGYyNzA5Clxjb2NvYXRleHRz\r\nY2FsaW5nMFxjb2NvYXBsYXRmb3JtMHtcZm9udHRibFxmMFxmbmlsXGZjaGFyc2V0\r\nMCBIZWx2ZXRpY2FOZXVlO30Ke1xjb2xvcnRibDtccmVkMjU1XGdyZWVuMjU1XGJs\r\ndWUyNTU7XHJlZDBcZ3JlZW4wXGJsdWUwO30Ke1wqXGV4cGFuZGVkY29sb3J0Ymw7\r\nO1xjc3NyZ2JcYzBcYzBcYzBcY25hbWUgdGV4dENvbG9yO30KXHBhcmRcdHg1NjBc\r\ndHgxMTIwXHR4MTY4MFx0eDIyNDBcdHgyODAwXHR4MzM2MFx0eDM5MjBcdHg0NDgw\r\nXHR4NTA0MFx0eDU2MDBcdHg2MTYwXHR4NjcyMFxwYXJkaXJuYXR1cmFsXHBhcnRp\r\nZ2h0ZW5mYWN0b3IwCgpcZjBcZnMzMiBcY2YyIDEuIERlc2NyaXBjaVwnZjNuIGRl\r\nIGxhIFRhcmVhIChtXCdlMXhpbW8gMiBsXCdlZG5lYXMpXApcCi0gUmVzdW1lbiBi\r\ncmV2ZSBkZSBsYSB0YXJlYVwKLSBPYmpldGl2byBkZSBsYSB0YXJlYSAoXCdiZkNc\r\nJ2YzbW8gY29udHJpYnV5ZSBhbCBwcm95ZWN0byBlbiBnZW5lcmFsPyBcJ2JmUXVc\r\nJ2U5IGhpc3RvcmlhIGRlIHVzdWFyaW8gbyByZXF1aXNpdG8gc2F0aXNmYWNlPylc\r\nClwKMi4gRGV0YWxsZXMgZGUgSW1wbGVtZW50YWNpXCdmM25cClwKLSBcJ2JmUXVc\r\nJ2U5IGNhbWJpb3Mgc2UgcmVhbGl6YXJvbiBlbiBlbCBjXCdmM2RpZ28gYmFzZSBw\r\nYXJhIGltcGxlbWVudGFyIGxhIHRhcmVhP1wKLSBcJ2JmU2UgdG9tYXJvbiBkZWNp\r\nc2lvbmVzIGFycXVpdGVjdFwnZjNuaWNhcz8gXCdiZkN1XCdlMWxlcyB5IHBvciBx\r\ndVwnZTk/XAotIERpc2N1dGlyIGN1YWxxdWllciBhbGdvcml0bW8sIGVzdHJ1Y3R1\r\ncmEgZGUgZGF0b3MsIHBhdHJcJ2YzbiBvIG1ldG9kb2xvZ1wnZWRhIHV0aWxpemFk\r\nYS5cCi0gUHVudG9zIGRlIGludGVncmFjaVwnZjNuIGNvbiBvdHJvcyBwcm95ZWN0\r\nb3MgZXh0ZXJub3MuXAotIFNlcnZpY2lvcyBvIGJpYmxpb3RlY2FzIGRlIHRlcmNl\r\ncm9zIHV0aWxpemFkb3MuXApcCjMuIFJlZmVyZW5jaWFzIGRlIENcJ2YzZGlnb1wK\r\nXAotIEVubGFjZXMgYSBsYXMgc29saWNpdHVkZXMgZGUgZXh0cmFjY2lcJ2YzbiAo\r\nUFIpIHJlbGV2YW50ZXMgZW4gZWwgY29udHJvbCBkZSB2ZXJzaW9uZXMuXAotIFNp\r\nIGVzIHBvc2libGUsIGZyYWdtZW50b3MgZGUgY1wnZjNkaWdvIGNvcnRvcyBwYXJh\r\nIGlsdXN0cmFyIHB1bnRvcyBjbGF2ZS5cClwKNC4gUHJ1ZWJhc1wKLSBDXCdmM21v\r\nIHZhbGlkYXIgbGEgdGFyZWEuXAotIENvbmRpY2lvbmVzIGRlIGFjZXB0YWNpXCdm\r\nM24sIGVzY2VuYXJpb3MsIGV0Yy5cClwKNS4gRGVzYWZcJ2Vkb3MgeSBTb2x1Y2lv\r\nbmVzXApcCi0gRGVzYWZcJ2Vkb3MgZW5jb250cmFkb3MgZHVyYW50ZSBsYSBpbXBs\r\nZW1lbnRhY2lcJ2Yzbi5cCi0gQ1wnZjNtbyBzZSBhYm9yZGFyb24gZXN0b3MgZGVz\r\nYWZcJ2Vkb3MuXApcCjYuIFJlZmVyZW5jaWFzXApcCi0gUmVjdXJzb3MgZXh0ZXJu\r\nb3MgY3J1Y2lhbGVzIChzaXRpb3Mgd2ViLCBkb2N1bWVudG9zLCBldGMuKSByZWZl\r\ncmVuY2lhZG9zIGR1cmFudGUgbGEgaW1wbGVtZW50YWNpXCdmM24ufQ==";
+
+"Task concluída é\ntask documentada." = "La tarea está hecha\ny documentada.";
+
+"Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace." = "Utiliza el clásico **kanban** de una manera nueva: cada tarea requiere documentación para ser completada, aprobada por el **creador** del espacio de trabajo.";
+
+"Documente sem\nperder tempo." = "Documenta sin\nperder tiempo.";
+
+"Use os templates pra documentação de **desenvolvimento**, **design** ou **gerência** pra integrar o processo de forma fluida ao seu trabalho." = "Utiliza las plantillas para la documentación de **desarrollo**, **diseño** o **gestión** para integrar el proceso de manera fluida en tu trabajo.";
+
+"Toda informação na\npalma da sua mão." = "Toda la información en\nla palma de tu mano.";
+
+"Pesquise como quiser por todas as documentações feitas pelo time, seja de tasks antigas ou atuais.\n**Ficar alinhado nunca foi tão fácil.**" = "Busca como desees en toda la documentación creada por el equipo, ya sea para tareas antiguas o actuales.\n**Mantenerse alineado nunca fue tan fácil.**";
+
+"Voltar" = "Volver";
+
+"Próximo" = "Siguiente";
+
+"Começar" = "Comenzar";

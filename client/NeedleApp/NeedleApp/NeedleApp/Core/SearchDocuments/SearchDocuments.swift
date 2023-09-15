@@ -10,56 +10,23 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @EnvironmentObject var searchDocumentsViewModel: SearchDocumentsViewModel
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService>
     
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    
-    @State private var searchText = ""
-    @State private var sortOrder = [KeyPathComparator(\TaskModel.title)]
-    @State private var sortByStatus = false
-    @State private var startDate = Date()
-    @State private var endDate = Date()
-    @State private var sortByTaskName = true
-    @State private var sortByPriority = false
-    @State private var sortByUpdate = false
-    @State private var sortByUserName = false
-    @State private var sortByType = false
-    @State private var dateIsPresented = false
-    
-    @State private var mydate = "Data"
-    
-    private func dateIsInRange(_ dateString: String) -> Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = dateFormatter.date(from: dateString) {
-            return date >= startDate && date <= endDate
-        }
-        return false
+    init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
+        
+        self.searchDocumentsViewModel = SearchDocumentsViewModel(
+            tasks: tasks ?? [],
+            workspaceId: workspaceId,
+            selectedTask: selectedTask,
+            isEditing: isEditing,
+            taskDS: TaskDataService.shared
+        )
     }
-
     
     var body: some View {
         VStack {
             
             HStack(spacing: 16) {
-//                Group{
-//                    Picker("Status", selection: $searchDocumentsViewModel.selectedStatus) {
-//                        ForEach(TaskStatus.allCases, id: \.self) { status in
-//                            Text(status.displayName)
-//                                .foregroundColor(Color.theme.blackMain)
-//                                .tag(status as TaskStatus?)
-//                        }
-//                    }
-//                    .pickerStyle(.menu)
-//                    .frame(width: 160)
-//                    Button(action: {
-//                        searchDocumentsViewModel.selectedStatus = nil
-//                    }, label: {
-//                        Image(systemName: "arrow.counterclockwise")
-//                    })
-//                    .buttonStyle(.plain)
-//                }
-               
                 DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
 
                 }
@@ -74,33 +41,28 @@ struct SearchDocuments: View {
 
                 Spacer()
                 //TODO: Add date to query
-//                VStack {
-//                    DatePicker("Start Date", selection: $startDate, in: ...endDate, displayedComponents: .date)
-//                        .labelsHidden()
-//                        .frame(width: 100)
-//                    DatePicker("End Date", selection: $endDate, in: startDate...Date(), displayedComponents: .date)
-//                        .labelsHidden()
-//                        .frame(width: 100)
-//                }
-//                .padding(.horizontal)
                 
                 Group {
-                    TextField("Procurar por nome, descrição, responsável...", text: $searchDocumentsViewModel.query ?? "")
+                    TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
                         .frame(width: 320, height: 32)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onSubmit {
+                            searchDocumentsViewModel.query = nil
+                        }
+                        .modifier(searchFieldModifier())
                     Button(action: {
                         searchDocumentsViewModel.query = nil
                     }, label: {
-                        Image(systemName: "arrow.counterclockwise")
+                        Image(systemName: "delete.left")
                     })
                     .buttonStyle(.plain)
                 }
             }
             .padding(.top, 10)
             
-            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTask, sortOrder: $sortOrder){
-                TableColumn("Nome da Task", value: \.title)
-                TableColumn("Prioridade", value: \.taskPriority.order ){
+            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTaskID, sortOrder: $searchDocumentsViewModel.sortOrder){
+                TableColumn(NSLocalizedString("Nome da Task", comment: ""), value: \.title)
+                TableColumn(NSLocalizedString("Prioridade", comment: ""), value: \.taskPriority.order ){
                     switch $0.taskPriority{
                     case .LOW:
                         Text($0.taskPriority.displayName)
@@ -116,24 +78,24 @@ struct SearchDocuments: View {
                             .foregroundColor(Color.theme.redMain)
                     }
                 }
-                TableColumn("Status", value: \.status.order){
+                TableColumn( NSLocalizedString("Status", comment: ""), value: \.status.order){
                     Text($0.status.displayName)
                         .foregroundColor(getColor(task: $0))
                 }
-                TableColumn("Área", value: \.type.displayName)
-                TableColumn("Responsável") {
-                    Text($0.user?.name ?? "Sem responsável.")
+                TableColumn( NSLocalizedString("Área", comment: ""), value: \.type.displayName)
+                TableColumn( NSLocalizedString("Responsável", comment: "")) {
+                    Text($0.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
                 }
-                TableColumn("Atualização", value: \.updated_at) {
+                TableColumn( NSLocalizedString("Atualização", comment: ""), value: \.updated_at) {
                     Text(HandleDate.formatDateWithTime(dateInput: $0.updated_at))
                 }
             }
             .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
                 guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }
-                projectViewModel.selectedTask = task
-                projectViewModel.showEditTaskPopUP = true
+                searchDocumentsViewModel.selectedTask = task
+                searchDocumentsViewModel.isEditing = true
             }
-            .onChange(of: sortOrder){
+            .onChange(of: searchDocumentsViewModel.sortOrder){
                 searchDocumentsViewModel.tasks.sort(using: $0)
             }
             .cornerRadius(6)

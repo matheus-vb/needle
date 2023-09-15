@@ -8,16 +8,20 @@
 import Foundation
 import Combine
 
-class WorkspaceDataService: ObservableObject {
+class WorkspaceDataService: WorkspaceDataServiceProtocol {
     static let shared = WorkspaceDataService()
     private init() {}
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     @Published var workspaces: [Workspace] = []
+    var workspacePublisher: Published<[Workspace]>.Publisher { $workspaces }
     
     @Published var members: [String: [User]] = [:]
+    var membersPublisher: Published<[String : [User]]>.Publisher { $members }
     
     var workspaceSubscription: AnyCancellable?
     var createWorkspaceSubscription: AnyCancellable?

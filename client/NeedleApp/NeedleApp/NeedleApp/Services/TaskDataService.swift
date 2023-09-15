@@ -8,15 +8,20 @@
 import Foundation
 import Combine
 
-class TaskDataService: ObservableObject {
+class TaskDataService: TaskDataServiceProtocol {
     static let shared = TaskDataService()
     private init() {}
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     @Published var allUsersTasks: [String: [TaskModel]] = [:]
+    var allUsersTasksPublisher: Published<[String : [TaskModel]]>.Publisher { $allUsersTasks }
+
     @Published var queriedTasks: [TaskModel] = []
+    var queriedTasksPublihser: Published<[TaskModel]>.Publisher { $queriedTasks }
     
     var getWorkspaceTasksSubscription: AnyCancellable?
     var getAllUsersTasksSubscription: AnyCancellable?
@@ -95,7 +100,7 @@ class TaskDataService: ObservableObject {
             })
     }
     
-    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String){
+    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "update/task") else { return }
         
         let parameters = convertToDictionary(dto)
@@ -113,7 +118,7 @@ class TaskDataService: ObservableObject {
             })
     }
     
-    func deleteTask(dto: DeleteTaskDTO, userId: String, workspaceId: String){
+    func deleteTask(dto: DeleteTaskDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "task/delete/\(dto.taskId)") else { return }
        saveTaskSubscription = NetworkingManager.delete(url: url)
             .sink(receiveCompletion: {

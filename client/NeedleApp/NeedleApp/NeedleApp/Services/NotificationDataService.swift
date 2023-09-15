@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class NotificationDataService: ObservableObject {
+class NotificationDataService: NotificationDataServiceProtocol {
+    
     private init(){}
     
     static let shared = NotificationDataService()
@@ -18,11 +19,14 @@ class NotificationDataService: ObservableObject {
     var updateDeviceTokenSubscription: AnyCancellable?
     var getUserNotificationSubscription: AnyCancellable?
     var deleteUserNotificationSubscription: AnyCancellable?
-    
+
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     @Published var usersNotifications: [NotificationModel] = []
+    var usersNotificationsPublisher: Published<[NotificationModel]>.Publisher { $usersNotifications }
     
     func updateDeviceToken(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "user/device") else { return }

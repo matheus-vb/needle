@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct CreateTaskPopUp: View {
-    @StateObject var createTaskViewModel: CreateTaskViewModel
-    @EnvironmentObject var projectViewModel: ProjectViewModel
-    @EnvironmentObject var kanbanViewModel: KanbanViewModel
-    
+    @ObservedObject var createTaskViewModel: CreateTaskViewModel<TaskDataService>
     var geometry: GeometryProxy
+    
+    init(geometry: GeometryProxy, members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus) {
+        
+        self.createTaskViewModel = CreateTaskViewModel(
+            members: members,
+            showPopUp: showPopUp,
+            selectedWorkspace: selectedWorkspace,
+            selectedStatus: selectedStatus,
+            taskDS: .shared
+        )
+        
+        self.geometry = geometry
+    }
+    
     var body: some View {
         VStack(spacing: 24){
             topSection
@@ -21,7 +32,7 @@ struct CreateTaskPopUp: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(width: 4*geometry.size.width/9.0, height: 19*geometry.size.height/20)
+        .frame(minWidth: 2*geometry.size.width/5, maxHeight: 19*geometry.size.height/20)
         .background(.white)
     }
 }

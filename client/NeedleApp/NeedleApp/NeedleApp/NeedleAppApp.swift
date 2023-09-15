@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import Firebase
 
 @main
 struct NeedleAppApp: App {
@@ -14,7 +15,7 @@ struct NeedleAppApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup {
+        Window("NeedleView", id: "main") {
             RootView()
                 .frame(minWidth: 1100, minHeight: 600)
                 .preferredColorScheme(.light)
@@ -36,6 +37,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
         }
+        
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
     }
     
     func application(_ application: NSApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

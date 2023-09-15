@@ -8,16 +8,18 @@
 import Foundation
 import Combine
 
-class DocumentationDataService: ObservableObject {
+class DocumentationDataService: DocumentationDataServiceProtocol {
     static let shared = DocumentationDataService()
     private init() {}
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     var updateDocumentationTaskSubscription: AnyCancellable?
     
-    func updateDocumentation(data: UpdateDocumentationDTO, userId: String, workspaceId: String){
+    func updateDocumentation(data: UpdateDocumentationDTO, userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "document") else { return }
         
         let parameters = convertToDictionary(data)

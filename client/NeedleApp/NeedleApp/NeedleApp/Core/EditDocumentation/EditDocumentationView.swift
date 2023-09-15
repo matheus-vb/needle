@@ -11,29 +11,28 @@ import RichTextKit
 struct EditDocumentationView: View {
     
     @Binding var documentation : NSAttributedString
-    @EnvironmentObject var editTaskViewModel: EditTaskViewModel
-    
-    
     @StateObject var context = RichTextContext()
     
     @State var data = Data()
     @State var saved : String = ""
     
-    @State var selectedOption = "Descrição"
-        
+    @State var selectedOption = NSLocalizedString("Descrição", comment: "")
     var body: some View {
-        
-        VStack(alignment: .leading){
-            HStack{
-                editor
-                leftBorder
-                toolbar
+        GeometryReader { newGeometry in
+            
+            VStack(alignment: .leading){
+                HStack{
+                    editor
+                    leftBorder
+                    toolbar
+                }
             }
+            .frame(width: newGeometry.size.width, height: newGeometry.size.height)
+            .background(Color.theme.grayBackground)
+            .border(Color.theme.blackMain, width: 2)
         }
-        .frame(minHeight: 600)
-        .background(Color.theme.grayBackground)
-        .border(Color.theme.blackMain, width: 2)
     }
+        
 }
 
 private extension EditDocumentationView {

@@ -44,4 +44,19 @@ export class UserWorkspaceRepository implements IUserWorkspaceRepository{
         
         return (relationUserWorkspace ? relationUserWorkspace : null)
     }
+
+    async checksIfAUserHasAlreadyEnteredTheWorkspace(userId: string, accessCode: string): Promise<boolean> {
+        const relation = await prisma.user_Workspace.findFirst({
+            where:{
+                userId: userId,
+                workspace:{
+                    accessCode: accessCode
+                }
+            }
+        })
+        if(!relation){
+            return false;
+        }
+        return true;
+    }
 }

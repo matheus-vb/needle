@@ -18,8 +18,8 @@ struct PopUpButton: View {
             Text(text)
                 .padding([.top, .bottom], 9)
                 .frame(width: 104)
-                .background(text == "Cancelar" || text == "Próximo" || text == "Começar" ? (onHover ? Color.theme.grayHover : Color.theme.blackMain) : (onHover ? Color.theme.greenSecondary : Color.theme.greenMain))
-                .foregroundColor(text == "Cancelar"  || text == "Próximo" || text == "Começar"  ? Color.white : Color.theme.blackMain)
+                .background(text == String(NSLocalizedString("Cancelar", comment: "")) || text == String(NSLocalizedString("Próximo", comment: "")) || text == String(NSLocalizedString("Começar", comment: "")) ? (onHover ? Color.theme.grayHover : Color.theme.blackMain) : (onHover ? Color.theme.greenSecondary : Color.theme.greenMain))
+                .foregroundColor(text == String(NSLocalizedString("Cancelar", comment: "")) || text == String(NSLocalizedString("Próximo", comment: "")) || text == String(NSLocalizedString("Começar", comment: ""))  ? Color.white : Color.theme.blackMain)
                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                 .cornerRadius(8)
                 
