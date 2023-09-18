@@ -14,13 +14,14 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     let workspaceName: String
     @Published var tasks: [TaskModel]
     @Published var workspaceMembers: [User]
-//    @Published var sortOrder = [KeyPathComparator(\User.name)]
+
+    //    @Published var sortOrder = [KeyPathComparator(\User.name)]
     
     @ObservedObject var authManager: A
     @ObservedObject var workspaceDS: W
     private var taskDS: T
     private var cancellables = Set<AnyCancellable>()
-
+    
     init(tasks: [TaskModel], workspaceMembers: [User], workspaceId: String, workspaceName: String, workspaceDS: W, taskDS: T, authManager: A) {
         self.workspaceId = workspaceId
         self.workspaceName = workspaceName
@@ -47,18 +48,8 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
             })
             .store(in: &cancellables)
         
+        print("jpmoreira\(workspaceMembers)")
+        
     }
-    
-    // USER ROLE IN WORKSPACE *
-    
-    // TOTAL NUMBER OF TASKS *
-    
-    // DONE TASKS IN WORKSPACE *
-    
-    // MEMBERS IN WORKSPACE *
-        // NAME
-        // ROLE
-        // LAST ACCESS
-        // STATUS
     
 }
