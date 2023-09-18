@@ -100,7 +100,7 @@ model Task {
 model TaskTag {
   id     String @id @default(uuid())
   tag    String
-  task   Task   @relation(fields: [taskId], references: [id])
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
   taskId String
 }
 
@@ -119,14 +119,14 @@ model Notification {
   payload     String
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
-  workspace   Workspace @relation(fields: [workspaceId], references: [id])
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
   workspaceId String
   created_at  DateTime  @default(now())
 }
 
 model User_Task {
-  user   User   @relation(fields: [userId], references: [id])
-  Task   Task   @relation(fields: [taskId], references: [id])
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
   userId String
   taskId String
 
