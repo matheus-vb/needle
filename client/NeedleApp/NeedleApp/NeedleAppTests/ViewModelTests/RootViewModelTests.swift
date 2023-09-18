@@ -12,14 +12,16 @@ final class RootViewModelTests: XCTestCase {
     var dbMock: DBMock!
     var authManagerMock: AuthenticationManagerMock!
     var notifiactionDSMock: NotificationDataServiceMock!
+    var taskDSMock: TaskDataServiceMock!
+    var workspaceDS: WorkspaceDataServiceMock!
     
-    var sut: RootViewModel<AuthenticationManagerMock, NotificationDataServiceMock>!
+    var sut: RootViewModel<AuthenticationManagerMock, NotificationDataServiceMock, TaskDataServiceMock, WorkspaceDataServiceMock>!
         
     override func setUpWithError() throws {
         self.dbMock = DBMock()
         self.authManagerMock = AuthenticationManagerMock(db: dbMock)
         self.notifiactionDSMock = NotificationDataServiceMock(db: dbMock)
-        self.sut = RootViewModel(manager: authManagerMock, notificationDS: notifiactionDSMock)
+        self.sut =  RootViewModel(manager: authManagerMock, notificationDS: notifiactionDSMock, taskDS: taskDSMock, workspaceDS: workspaceDS)
     }
 
     override func tearDownWithError() throws {
