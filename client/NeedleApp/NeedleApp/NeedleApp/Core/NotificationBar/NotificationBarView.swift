@@ -16,7 +16,9 @@ struct NavigationBarView: View {
     }
     var header: some View {
         HStack {
-            Image("simbolo")
+            Image("simbolo").resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
             Spacer()
             Text("\(notificationViewModel.notifications.count) \(NSLocalizedString("notificações", comment: ""))")
                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))

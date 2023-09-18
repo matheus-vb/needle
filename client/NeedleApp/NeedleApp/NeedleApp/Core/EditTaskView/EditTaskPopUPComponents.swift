@@ -52,11 +52,12 @@ extension EditTaskPopUP{
                 .font(.system(size: 14))
 
             Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.dto.userId){
-                ForEach(editTaskViewModel.members) {membro in
-                    Text(membro.name).tag("")
-                        .foregroundColor(Color.theme.blackMain)
-                        .tag(membro.id as String?)
-                }
+                    ForEach(editTaskViewModel.members) {membro in
+                        Text(membro.name)
+                            .foregroundColor(Color.theme.blackMain)
+                            .tag(editTaskViewModel.dto.userId == nil ? editTaskViewModel.members[0].id :
+                                membro.id as String?)
+                    }
             }
             .font(.system(size: 14))
             .pickerStyle(.menu)
@@ -88,7 +89,7 @@ extension EditTaskPopUP{
             Picker("Prioridade",selection: $editTaskViewModel.prioritySelection){
                 ForEach(TaskPriority.allCases, id: \.self) { priority in
                     Text(priority.displayName)
-                        .foregroundColor(Color.theme.blackMain).tag("")
+                        .foregroundColor(Color.theme.blackMain)
                 }
             }
             .font(.system(size: 14))

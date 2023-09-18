@@ -56,7 +56,7 @@ class EditTaskViewModel<
         self.documentationID = data.document?.id ?? "0"
         self.members = members
         self.taskDS = taskDS
-        
+                
         //Pegar a documentacao
         let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
         do{
@@ -81,7 +81,9 @@ class EditTaskViewModel<
         )
         
         self.setupBindings()
+
     }
+    
     
     func setupBindings() {
         Publishers.CombineLatest4($selectedMember, $taskTitle, $taskDescription, $statusSelection)

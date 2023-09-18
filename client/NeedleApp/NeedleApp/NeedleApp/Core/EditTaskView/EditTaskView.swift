@@ -22,11 +22,18 @@ struct EditTaskPopUP: View {
             contentStack
                 //.frame(maxWidth: geometry.size.width*0.29)
                 .padding(2)
-        }
+        }.onChange(of: editTaskViewModel.seeDocumentation, perform: { _ in
+            if editTaskViewModel.seeDocumentation {
+                print("ta true")
+            }
+            else {
+                print("ta false")
+            }
+        })
         .overlay(content: {
             if editTaskViewModel.seeDocumentation {
                 DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, geometry: geometry)
-                
+
                     .background(.white)
             }
         })

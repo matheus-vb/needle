@@ -89,6 +89,7 @@ struct ProjectView: View {
                     //.frame(height: geometry.size.width*0.33)
             })
             .onAppear{
+                projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id]?.append(User(id: "", name: "---", email: "", workspaces: []))
                 if projectViewModel.selectedWorkspace.accessCode == ""{
                     projectViewModel.selectedWorkspace = projectViewModel.projects[0]
                 }

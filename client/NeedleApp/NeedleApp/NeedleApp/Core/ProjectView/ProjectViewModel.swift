@@ -69,6 +69,7 @@ class ProjectViewModel<
         worskpaceDS.membersPublisher
             .sink(receiveValue: { [weak self] returnedUsers in
                 self?.workspaceMembers = returnedUsers
+                self?.$workspaceMembers.append(["":[User(id: "", name: "---", email: "", workspaces: [])]])
             })
             .store(in: &cancellables)
         

@@ -29,6 +29,7 @@ class CreateTaskViewModel<
     let seletectedWorkspace: Workspace
     let selectedStatus: TaskStatus
     
+    
     @Published var members: [User]
     
     private var taskDS: T
@@ -41,11 +42,12 @@ class CreateTaskViewModel<
         self.taskDS = taskDS
     }
     
+        
     func createTask() {
         var selectedId: String?
         
         if selectedMemberId == "" {
-            selectedId = nil
+            selectedId = ""
         } else {
             selectedId = selectedMemberId
         }
