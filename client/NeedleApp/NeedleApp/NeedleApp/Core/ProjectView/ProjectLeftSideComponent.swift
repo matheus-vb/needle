@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ProjectLeftSideComponent: View {
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
@@ -68,6 +69,9 @@ struct FeedbackSheetView: View {
             TextField("", text: $comment)
             
             Button("Enviar", action: {
+                if comment != "" {
+                    Analytics.logEvent(K.feedback.rawValue, parameters: ["feedback" : comment])
+                }
                 dismiss()
             }).buttonStyle(PrimarySheetActionButton())
                 .padding(.top, 20)
