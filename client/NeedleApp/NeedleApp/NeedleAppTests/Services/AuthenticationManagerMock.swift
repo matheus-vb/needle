@@ -9,6 +9,10 @@ import Foundation
 import Combine
 
 class AuthenticationManagerMock: AuthenticationManagerProtocol {
+    
+    @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher {$errorCount}
+    
     var currError: NetworkingManager.NetworkingError?
     
     let db: DBMock

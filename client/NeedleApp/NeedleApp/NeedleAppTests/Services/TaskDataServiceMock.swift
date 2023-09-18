@@ -9,6 +9,10 @@ import Foundation
 import Combine
 
 class TaskDataServiceMock: TaskDataServiceProtocol {
+    @Published var errorCount: Int = 0
+    
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount}
+    
     let db: DBMock
     
     @Published var allUsersTasks: [String : [TaskModel]] = [:]
