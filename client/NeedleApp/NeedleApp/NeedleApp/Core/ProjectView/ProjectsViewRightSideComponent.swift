@@ -32,7 +32,7 @@ struct ProjectsViewRightSideComponent: View {
             }else if projectViewModel.selectedTab == .Documentation{
                 SearchDocuments(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], workspaceId: projectViewModel.selectedWorkspace.id, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
             } else if projectViewModel.selectedTab == .Information{
-                InformationPageView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id], workspaceMembers: projectViewModel.workspaceMembers, workspaceId: projectViewModel.selectedWorkspace.id)
+                InformationPageView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], workspaceMembers: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id], workspaceId: projectViewModel.selectedWorkspace.id, workspaceName: projectViewModel.selectedWorkspace.name)
             }
         }
     }

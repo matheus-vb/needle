@@ -9,21 +9,25 @@ import Foundation
 import Combine
 import SwiftUI
 
-class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W: WorkspaceDataServiceProtocol & ObservableObject >: ObservableObject{
+class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W: WorkspaceDataServiceProtocol & ObservableObject, A: AuthenticationManagerProtocol & ObservableObject >: ObservableObject{
     let workspaceId: String
+    let workspaceName: String
     @Published var tasks: [TaskModel]
-    @Published var workspaceMembers: [String:[User]]
+    @Published var workspaceMembers: [User]
 //    @Published var sortOrder = [KeyPathComparator(\User.name)]
-
-    private var workspaceDS: W
+    
+    @ObservedObject var authManager: A
+    @ObservedObject var workspaceDS: W
     private var taskDS: T
     private var cancellables = Set<AnyCancellable>()
 
-    init(tasks: [TaskModel], workspaceMembers: [String:[User]], workspaceId: String, workspaceDS: W, taskDS: T) {
+    init(tasks: [TaskModel], workspaceMembers: [User], workspaceId: String, workspaceName: String, workspaceDS: W, taskDS: T, authManager: A) {
         self.workspaceId = workspaceId
+        self.workspaceName = workspaceName
         self.tasks = tasks
         self.workspaceMembers = workspaceMembers
         self.workspaceDS = workspaceDS
+        self.authManager = authManager
         self.taskDS = taskDS
         
         addSubscribers()
@@ -31,15 +35,15 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     
     
     private func addSubscribers() {
-        taskDS.queriedTasksPublihser
+        taskDS.allUsersTasksPublisher
             .sink(receiveValue: { [weak self] returnedTasks in
-                self?.tasks = returnedTasks
+                self?.tasks = returnedTasks[self!.workspaceId] ?? []
             })
             .store(in: &cancellables)
         
         workspaceDS.membersPublisher
             .sink(receiveValue: { [weak self] returnedUsers in
-                self?.workspaceMembers = returnedUsers
+                self?.workspaceMembers = returnedUsers[self!.workspaceId] ?? []
             })
             .store(in: &cancellables)
         
