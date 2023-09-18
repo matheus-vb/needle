@@ -21,6 +21,8 @@ final class RootViewModelTests: XCTestCase {
         self.dbMock = DBMock()
         self.authManagerMock = AuthenticationManagerMock(db: dbMock)
         self.notifiactionDSMock = NotificationDataServiceMock(db: dbMock)
+        self.taskDSMock = TaskDataServiceMock(db: dbMock)
+        self.workspaceDS = WorkspaceDataServiceMock(db: dbMock)
         self.sut =  RootViewModel(manager: authManagerMock, notificationDS: notifiactionDSMock, taskDS: taskDSMock, workspaceDS: workspaceDS)
     }
 
