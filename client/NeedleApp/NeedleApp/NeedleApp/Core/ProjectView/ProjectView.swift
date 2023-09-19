@@ -29,7 +29,6 @@ struct ProjectView: View {
             .sheet(isPresented: $projectViewModel.showShareCode, content: {
                 SheetView(accessCode: projectViewModel.getCode(), type: .shareCode)
             })
-            .offset(y: projectViewModel.showCard ? 0 : -500)
         }
     }
     
