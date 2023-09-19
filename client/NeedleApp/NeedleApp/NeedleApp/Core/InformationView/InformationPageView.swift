@@ -23,7 +23,7 @@ struct RoleCardInformationPageView: View {
             Spacer()
             
             VStack (alignment: .leading){
-                Text("Minha função")
+                Text(NSLocalizedString("Minha função", comment: ""))
                     .font(.system(size: 16))
                 Text(role)
                     .font(.system(size: 20))
@@ -98,7 +98,7 @@ struct InformationPageView: View {
 //                }
             }
             
-            Text("Informações Gerais")
+            Text(NSLocalizedString("Informações Gerais",comment:""))
                 .font(.system(size: 24))
                 .padding(.bottom, 32)
             
@@ -108,27 +108,27 @@ struct InformationPageView: View {
                 Spacer()
                 Spacer()
                 
-                OtherCardInformationPageView(cardname: "Tasks no Kanban", taskNum: informationPageViewModel.tasks.count)
+                OtherCardInformationPageView(cardname: NSLocalizedString("Tasks no Kanban", comment:""), taskNum: informationPageViewModel.tasks.count)
                 //                    .padding(.trailing, 25)
                 Spacer()
                 
-                OtherCardInformationPageView(cardname: "Tasks Documentadas", taskNum: informationPageViewModel.tasks.filter{$0.status == .DONE}.count)
+                OtherCardInformationPageView(cardname: NSLocalizedString("Tasks Documentadas",comment:""), taskNum: informationPageViewModel.tasks.filter{$0.status == .DONE}.count)
                 //                    .padding(.trailing, 25)
                 Spacer()
                 
-                OtherCardInformationPageView(cardname: "Tasks Pendentes", taskNum: informationPageViewModel.tasks.filter{$0.status != .DONE}.count)
+                OtherCardInformationPageView(cardname: NSLocalizedString("Tasks Pendentes",comment:""), taskNum: informationPageViewModel.tasks.filter{$0.status != .DONE}.count)
                 
             }
             
-            Text("Total de membros: \(informationPageViewModel.workspaceMembers.count)" )
+            Text(NSLocalizedString("Total de membros: ", comment: "") + "\(informationPageViewModel.workspaceMembers.count)")
                 .font(.system(size: 24))
                 .padding(.top, 54)
                 .padding(.bottom, 24)
             
             Table(informationPageViewModel.workspaceMembers, sortOrder: $informationPageViewModel.sortOrder) {
-                TableColumn("Nome", value: \.name)
-                TableColumn("Email", value: \.email)
-                TableColumn("Área", value: \.workspaces![0].userRole.displayName)
+                TableColumn(NSLocalizedString("Nome", comment: ""), value: \.name)
+                TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
+                TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
             }
             .onChange(of: informationPageViewModel.sortOrder) { newValue in
                 informationPageViewModel.workspaceMembers.sort(using: newValue)

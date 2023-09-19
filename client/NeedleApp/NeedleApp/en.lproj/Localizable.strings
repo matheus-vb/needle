@@ -161,6 +161,10 @@
 
 "Selecione uma função:" = "Pick a role:";
 
+"Função"= "Role";
+
+"Nome"= "Name";
+
 "Task concluída é\ntask documentada." = "A done task is\na documented task.";
 
 "Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace." = "Use classic **kanban** in a new way: every task requires documentation to be completed, approved by the workspace **creator**.";
@@ -188,6 +192,36 @@
 "Ninguém documentou nada ainda. Seja o primeiro!" = "No one has documented anything yet. Be the first!";
 
 "Insira o nome do novo workspace" = "Enter the name of the new workspace.";
+
+"Informações Gerais" = "Overview";
+
+"Minha Função" = "My role";
+
+"Tasks no Kanban" = "Total tasks";
+
+"Tasks Documentadas"= "Documented tasks";
+
+"Tasks Pendentes" = "Pending tasks";
+
+"Excluir Projeto" = "Delete workspace";
+
+"Total de Membros: "= "Member count: ";
+
+"Minha função" = "My role";
+
+"Tasks no Kanban" = "Tasks in the kanban";
+
+"Tasks Documentadas"= "Documented tasks";
+
+"Tasks Pendentes" = "Pending tasks";
+
+"Excluir Projeto" = "Delete workspace";
+
+"Total de membros: "= "Member count: ";
+
+"Informação" = "Information";
+
+
 
 //Templates:
 
