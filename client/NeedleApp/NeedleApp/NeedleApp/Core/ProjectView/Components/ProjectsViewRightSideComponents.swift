@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension ProjectsViewRightSideComponent{
+extension ProjectView{
     
     var topContainer: some View {
         HStack{

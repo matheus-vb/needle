@@ -10,21 +10,20 @@ import SwiftUI
 struct ProjectView: View {
     
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
+    @Environment(\.dismiss) var dismiss
     @State var triggerLoading: Bool = true
     @State var initalLoading: Bool = true
+    
     init(selectedWorkspace: Workspace) {
-        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
-        self.triggerLoading = true
-        self.initalLoading = true
+        self.projectViewModel = ProjectViewModel(selectedTab: .Kanban, selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
+        triggerLoading = true
+        initalLoading = true
     }
     
     var body: some View {
         ZStack {
             main
             VStack {
-                //AlertBoxView()
-                  //  .overlay(RoundedRectangle(cornerRadius: 16).stroke(.black, lineWidth: 2))
-                   // .padding(.top, 10)
                 Spacer()
             }
             .sheet(isPresented: $projectViewModel.showShareCode, content: {
@@ -53,10 +52,35 @@ struct ProjectView: View {
         }
     }
     
+    var ProjectsViewRightSideComponent: some View {
+        VStack{
+            topContainer
+                .padding([.top], 64)
+                .padding([.leading, .trailing], 64)
+            HStack {
+                statusTitleLabel(rowName: NSLocalizedString("A fazer", comment: ""), color: Color.theme.redMain)
+                statusTitleLabel(rowName: NSLocalizedString("Fazendo", comment: ""), color: Color.theme.blueKanban)
+                statusTitleLabel(rowName: NSLocalizedString("Em revisão", comment: ""), color: Color.theme.orangeKanban)
+                statusTitleLabel(rowName: NSLocalizedString("Feito", comment: ""), color: Color.theme.greenKanban)
+            }
+            .padding(.leading, 64)
+            .padding(.trailing, 64)
+            .padding(.top, 24)
+            .offset(x: 12)
+            
+            if projectViewModel.selectedTab == .Kanban{
+                KanbanView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], role: projectViewModel.roles[projectViewModel.selectedWorkspace.id] ?? .DEVELOPER, selectedColumn: $projectViewModel.selectedColumnStatus, showPopUp: $projectViewModel.showPopUp, showCard: $projectViewModel.showCard, selectedWorkspace: projectViewModel.selectedWorkspace, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
+            }else if projectViewModel.selectedTab == .Documentation{
+                SearchDocuments(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], workspaceId: projectViewModel.selectedWorkspace.id, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
+            }
+        }
+    }
+        
+    
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
-                ProjectLeftSideComponent(triggerLoading: $triggerLoading)
+                ProjectLeftSideComponent
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
                     .environmentObject(projectViewModel)
@@ -74,7 +98,7 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
-                        ProjectsViewRightSideComponent()
+                        ProjectsViewRightSideComponent
                             .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
@@ -86,7 +110,6 @@ struct ProjectView: View {
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
-                    //.frame(height: geometry.size.width*0.33)
             })
             .onAppear{
                 projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id]?.append(User(id: "", name: "---", email: "", workspaces: []))
@@ -94,6 +117,7 @@ struct ProjectView: View {
                     projectViewModel.selectedWorkspace = projectViewModel.projects[0]
                 }
             }
+    
         }
     }
 }

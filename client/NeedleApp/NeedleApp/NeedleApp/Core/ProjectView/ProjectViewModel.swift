@@ -15,7 +15,7 @@ class ProjectViewModel<
     W: WorkspaceDataServiceProtocol & ObservableObject
 >: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
-    @Published var selectedTab: SelectedTab = .Kanban 
+    @Published var selectedTab: SelectedTab
     @Published var selectedWorkspace: Workspace
     @Published var projects: [Workspace] = []
     
@@ -28,22 +28,26 @@ class ProjectViewModel<
     @Published var selectedColumnStatus: TaskStatus = .TODO
     @Published var selectedTask: TaskModel?
     
+    @Published var triggerLoading: Bool = false
+    @Published var onHoverProject = false
+    @Published var onHoverNewProject = false
+    @Published var feedbackSheet = false
+
     @Published var showCard: Bool = false
-    
     @Published var showShareCode = false
-    
     @Published var isAnimating = false
-    
+    @Published var isNaming: Bool = false
+
     var worskpaceDS: W
     var tasksDS: T
     var authMGR: A
     var cancellables = Set<AnyCancellable>()
 
-    init(selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
+    init(selectedTab: SelectedTab, selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
+        self.selectedTab = selectedTab
         self.authMGR = manager
         self.tasksDS = taskDS
         self.worskpaceDS = workspaceDS
-        
         self.selectedWorkspace = selectedWorkspace
         
         addSubscribers()

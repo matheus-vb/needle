@@ -7,21 +7,9 @@
 
 import SwiftUI
 
-struct ProjectLeftSideComponent: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    @State var isNaming = false
-
-    init(triggerLoading: Binding<Bool>) {
-        self._triggerLoading = triggerLoading
-    }
+extension ProjectView {
     
-    @Binding var triggerLoading: Bool
-    @Environment(\.dismiss) var dismiss
-    @State var onHoverProject = false
-    @State var onHoverNewProject = false
-    @State var feedbackSheet = false
-    
-    var body: some View {
+    var ProjectLeftSideComponent: some View {
         VStack(alignment: .leading){
             
             leftSideTitle
@@ -38,9 +26,9 @@ struct ProjectLeftSideComponent: View {
             Spacer()
             
             DashedSmallerButton(text: NSLocalizedString("Deixe um feedback", comment: "")){
-                feedbackSheet.toggle()
+                projectViewModel.feedbackSheet.toggle()
             }.padding(20)
-                .sheet(isPresented: $feedbackSheet) {
+                .sheet(isPresented: $projectViewModel.feedbackSheet) {
                     FeedbackSheetView()
                         .foregroundColor(Color.theme.grayHover)
                         .background(.white)

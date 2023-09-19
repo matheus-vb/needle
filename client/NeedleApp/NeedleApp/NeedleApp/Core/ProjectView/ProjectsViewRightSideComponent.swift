@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ProjectsViewRightSideComponent: View {
-    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    var body: some View {
+extension ProjectView {
+    var ProjectViewRightSideComponent: some View {
         VStack{
             topContainer
                 .padding([.top], 64)
