@@ -52,7 +52,7 @@ struct ProjectView: View {
         }
     }
     
-    var ProjectsViewRightSideComponent: some View {
+    var ProjectsViewRightSide: some View {
         VStack{
             topContainer
                 .padding([.top], 64)
@@ -80,7 +80,7 @@ struct ProjectView: View {
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
-                ProjectLeftSideComponent
+                ProjectSideBar
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
                     .environmentObject(projectViewModel)
@@ -98,7 +98,7 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
-                        ProjectsViewRightSideComponent
+                        ProjectsViewRightSide
                             .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }

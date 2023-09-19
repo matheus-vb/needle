@@ -9,7 +9,7 @@ import SwiftUI
 
 extension ProjectView {
     
-    var ProjectLeftSideComponent: some View {
+    var ProjectSideBar: some View {
         VStack(alignment: .leading){
             
             leftSideTitle

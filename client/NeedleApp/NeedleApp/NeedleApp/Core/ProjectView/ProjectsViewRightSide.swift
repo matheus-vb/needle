@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension ProjectView {
-    var ProjectViewRightSideComponent: some View {
+    var ProjectViewRightSide: some View {
         VStack{
             topContainer
                 .padding([.top], 64)
