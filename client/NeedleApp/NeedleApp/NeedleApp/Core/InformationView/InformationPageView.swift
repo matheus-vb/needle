@@ -64,7 +64,6 @@ struct InformationPageView: View {
     
     @State var isPM : Bool = true
     @State var isActive : Bool = false
-    //    @State private var sortOrder = [KeyPathComparator(\Information.name)]
     
     @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
