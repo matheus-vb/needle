@@ -198,6 +198,6 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        editTaskViewModel.seeDocumentation = true
+        seeDocumentation = true
     }
 }

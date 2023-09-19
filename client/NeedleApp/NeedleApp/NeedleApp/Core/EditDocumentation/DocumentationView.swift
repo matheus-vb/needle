@@ -15,11 +15,14 @@ struct DocumentationView: View {
     
     var geometry: GeometryProxy
     
+    var action: () -> ()
+    
     @Binding var documentationNS: NSAttributedString
     
     @State var backButtonHovered: Bool = false
     
-    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>, geometry: GeometryProxy) {
+    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>,  action: @escaping () -> (), geometry: GeometryProxy) {
+        self.action = action
         self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
         self.editTaskViewModel = editTaskViewModel
         self._documentationNS = documentationNS
@@ -44,8 +47,10 @@ struct DocumentationView: View {
         var taskDataHeader: some View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
-                    Button(action: {print("fechei pelo <")
-                        editTaskViewModel.seeDocumentation.toggle()}, label: {
+                    Button(action: {
+                        action()
+                        
+                    }, label: {
                         Image(systemName: "chevron.backward")
                             .resizable()
                             .scaledToFit()
