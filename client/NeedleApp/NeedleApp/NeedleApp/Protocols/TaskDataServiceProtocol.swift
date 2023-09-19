@@ -16,6 +16,9 @@ protocol TaskDataServiceProtocol: ObservableObject {
     
     var currError: NetworkingManager.NetworkingError? { get set }
     
+    var errorCount: Int { get set }
+    var errorCountPublisher: Published<Int>.Publisher { get }
+    
     func getWorkspaceTasks(userId: String, workspaceId: String)
     func createTask(dto: CreateTaskDTO, userId: String, workspaceId: String)
     func updateTaskStatus(taskId: String, status: TaskStatus, userId: String, workspaceId: String)

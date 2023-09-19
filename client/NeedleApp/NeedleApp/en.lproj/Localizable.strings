@@ -19,7 +19,7 @@
 
 "Selecione uma data" = "Select a date";
 
-"Responsável" = "Responsible";
+"Responsável" = "Assigned to";
 
 "Prazo" = "Deadline";
 
@@ -73,19 +73,15 @@
 
 "Prazo" = "Deadline";
 
-"Prioridade" = "Priority";
-
 "Visualizar documentação" = "View documentation";
 
 "Procurar por nome, descrição, responsável..." = "Search by name, description, responsible...";
 
 "Nome da Task" = "Task name";
 
-"Prioridade" = "Priority";
-
 "Área" = "Field";
 
-"Sem responsável" = "No one responsible.";
+"Sem responsável." = "Not assigned.";
 
 "Atualização" = "Updates";
 
@@ -137,12 +133,13 @@
 
 "Vendas" = "Sales";
 
-"Sem nome" = "Without responsible";
+"Sem responsável" = "Not Assigned";
 
 "Salvar" = "Save";
 
 "Código de compartilhamento copiado!" = "Sharing code copied!";
 
+"Código para convite:" = "Sharing code:";
 
 "Copie o código do projeto para a área de transferência" = "Copy the project code to the clipboard.";
 
@@ -150,4 +147,48 @@
 
 "Arquivar" = "Archive";
 
+"Projetos que participo" = "Workspaces joined";
 
+"# Entrar num projeto" = "Join new workspace";
+
+"+ Criar projeto" = "Create workspace";
+
+"Editar documentação" = "Edit documentation";
+
+"Criar documentação" = "Create documentation";
+
+"Procurar por nome do projeto..." = "Search by workspace name...";
+
+"Selecione uma função:" = "Pick a role:";
+
+"Task concluída é\ntask documentada." = "A done task is\na documented task.";
+
+"Use o clássico **kanban** de um modo novo: toda task requer documentação para ser concluída, aprovada pelo **criador** do workspace." = "Use classic **kanban** in a new way: every task requires documentation to be completed, approved by the workspace **creator**.";
+
+"Documente sem\nperder tempo." = "Document without\nwasting time.";
+
+"Use os templates pra documentação de **desenvolvimento**, **design** ou **gerência** pra integrar o processo de forma fluida ao seu trabalho." = "Use the templates for **development**, **design** or **management** documentation to integrate the process fluidly into your work.";
+
+"Toda informação na\npalma da sua mão." = "All information in\nthe palm of your hand.";
+
+"Pesquise como quiser por todas as documentações feitas pelo time, seja de tasks antigas ou atuais.\n**Ficar alinhado nunca foi tão fácil.**" = "Search as you wish for all the documentation created by the team, whether for old or current tasks.\n**Staying aligned has never been easier.**";
+
+"Voltar" = "Return";
+
+"Próximo" = "Next";
+
+"Começar" = "Start";
+
+"Meus projetos" = "My workspaces";
+
+"+ Novo projeto" = "+ New project";
+
+"Deixe um feedback" = "Leave feedback";
+
+"Ninguém documentou nada ainda. Seja o primeiro!" = "No one has documented anything yet. Be the first!";
+
+"Insira o nome do novo workspace" = "Enter the name of the new workspace.";
+
+//Templates:
+
+"devTemplate" = "e1xydGYxXGFuc2lcYW5zaWNwZzEyNTJcY29jb2FydGYyNzA5Clxjb2NvYXRleHRz\r\nY2FsaW5nMFxjb2NvYXBsYXRmb3JtMHtcZm9udHRibFxmMFxmbmlsXGZjaGFyc2V0\r\nMCBIZWx2ZXRpY2FOZXVlO30Ke1xjb2xvcnRibDtccmVkMjU1XGdyZWVuMjU1XGJs\r\ndWUyNTU7XHJlZDBcZ3JlZW4wXGJsdWUwO30Ke1wqXGV4cGFuZGVkY29sb3J0Ymw7\r\nO1xjc3NyZ2JcYzBcYzBcYzBcY25hbWUgdGV4dENvbG9yO30KXHBhcmRcdHg1NjBc\r\ndHgxMTIwXHR4MTY4MFx0eDIyNDBcdHgyODAwXHR4MzM2MFx0eDM5MjBcdHg0NDgw\r\nXHR4NTA0MFx0eDU2MDBcdHg2MTYwXHR4NjcyMFxwYXJkaXJuYXR1cmFsXHBhcnRp\r\nZ2h0ZW5mYWN0b3IwCgpcZjBcZnMzMiBcY2YyIDEuIFRhc2sgRGVzY3JpcHRpb24g\r\nKDIgbGluZXMgbWF4aW11bSlcClwKLSBCcmllZiBvdmVydmlldyBvZiB0aGUgdGFz\r\na1wKLSBPYmplY3RpdmUgb2YgdGhlIHRhc2sgKEhvdyBkb2VzIGl0IGNvbnRyaWJ1\r\ndGUgdG8gdGhlIG92ZXJhbGwgcHJvamVjdD8gV2hhdCB1c2VyIHN0b3J5L3JlcXVp\r\ncmVtZW50IGRvZXMgaXQgZnVsZmlsbD8pXApcCjIuIEltcGxlbWVudGF0aW9uIERl\r\ndGFpbHNcClwKLSBXaGF0IGNoYW5nZXMgd2VyZSBtYWRlIGluIHRoZSBjb2RlYmFz\r\nZSB0byBpbXBsZW1lbnQgdGhlIHRhc2s/XAotIFdlcmUgYXJjaGl0ZWN0dXJhbCBk\r\nZWNpc2lvbnMgbWFkZT8gV2hpY2ggb25lcyBhbmQgd2h5P1wKLSBEaXNjdXNzIGFu\r\neSBhbGdvcml0aG1zLCBkYXRhIHN0cnVjdHVyZXMsIHBhdHRlcm5zIG9yIG1ldGhv\r\nZG9sb2dpZXMgdXNlZC5cCi0gQW55IGludGVncmF0aW9uIHBvaW50cyB3aXRoIG90\r\naGVyIGV4dGVybmFsIHByb2plY3RzLlwKLSBBbnkgdGhpcmQtcGFydHkgc2Vydmlj\r\nZXMgb3IgbGlicmFyaWVzIHVzZWQuXApcCjMuIENvZGUgUmVmZXJlbmNlc1wKXAot\r\nIExpbmtzIHRvIHRoZSByZWxldmFudCBQUiBpbiB2ZXJzaW9uIGNvbnRyb2wuXAot\r\nIElmIHBvc3NpYmxlLCBzaG9ydCBjb2RlIHNuaXBwZXRzIHRvIGlsbHVzdHJhdGUg\r\na2V5IHBvaW50cy5cClwKNC4gVGVzdGluZ1wKXAotIEhvdyB0byB2YWxpZGF0ZSB0\r\naGUgdGFzay5cCi0gQWNjZXB0YW5jZSBjb25kaXRpb25zLCBzY2VuYXJpb3MsIGV0\r\nY1wnODVcClwKNS4gQ2hhbGxlbmdlcyBhbmQgU29sdXRpb25zXApcCi0gQW55IGNo\r\nYWxsZW5nZXMgZW5jb3VudGVyZWQgZHVyaW5nIHRoZSBpbXBsZW1lbnRhdGlvbi5c\r\nCi0gSG93IHRoZXNlIGNoYWxsZW5nZXMgd2VyZSBhZGRyZXNzZWQuXApcCjYuIFJl\r\nZmVyZW5jZXNcClwKLSBDcnVjaWFsIGV4dGVybmFsIHJlc291cmNlcyAod2Vic2l0\r\nZXMsIHBhcGVycywgZXRjLikgcmVmZXJlbmNlZCBkdXJpbmcgdGhlIGltcGxlbWVu\r\ndGF0aW9uLn0=";

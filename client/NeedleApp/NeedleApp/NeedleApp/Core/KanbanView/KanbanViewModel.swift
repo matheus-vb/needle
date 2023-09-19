@@ -20,6 +20,12 @@ class KanbanViewModel<
     @Published var currentlyTarget: String?
     @Published var isDeleting = false
     @Published var isArchiving = false
+    @Published var showEditTaskPopUP: Bool = false
+    
+    @Published var taskType: TaskType? = nil
+    @Published var taskPriority: TaskPriority? = nil
+    @Published var searchText: String? = nil
+
     
     @Binding var selectedTask: TaskModel?
     
@@ -71,7 +77,7 @@ class KanbanViewModel<
             self.localTasks.append(sourceItem)
             self.updateTaskStatus(taskId: currentlyDragging, status: status)
         }
-    }
+    } 
     
     func swapItem(droppingTask: TaskModel, currentlyDragging: String) {
         if let sourceIndex = self.localTasks.firstIndex(where: {

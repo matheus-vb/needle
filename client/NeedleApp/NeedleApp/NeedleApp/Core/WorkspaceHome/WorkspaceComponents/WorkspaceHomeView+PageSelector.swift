@@ -20,7 +20,7 @@ extension WorkspaceHomeView {
                     Button(action: {
                         workspaceViewModel.selectedTab = .myWorkspaces
                     }, label: {
-                        Text("Meus projetos")
+                        Text(NSLocalizedString("Meus projetos", comment: ""))
                             .font(.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                             .overlay(
@@ -32,11 +32,12 @@ extension WorkspaceHomeView {
                             )
                     })
                     .buttonStyle(.plain)
+                    .keyboardShortcut(workspaceViewModel.selectedTab == .myWorkspaces ? nil : KeyboardShortcut(.tab, modifiers: .control))
                     
                     Button(action: {
                         workspaceViewModel.selectedTab = .joinedWorkspaces
                     }, label: {
-                        Text("Projetos que participo")
+                        Text(NSLocalizedString("Projetos que participo", comment: ""))
                             .font(.system(size: 16, weight: .regular))
                             .foregroundColor(.black)
                             .overlay(
@@ -48,6 +49,7 @@ extension WorkspaceHomeView {
                             )
                     })
                     .buttonStyle(.plain)
+                    .keyboardShortcut(workspaceViewModel.selectedTab == .joinedWorkspaces ? nil : KeyboardShortcut(.tab, modifiers: .control))
                     Spacer()
                 }.padding(.leading, geometry.size.width * 0.17)
                     .padding(.top, geometry.size.width * 0.03)

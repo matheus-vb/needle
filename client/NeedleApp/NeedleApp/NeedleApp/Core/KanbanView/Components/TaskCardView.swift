@@ -13,7 +13,7 @@ extension KanbanView {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 8) {
                 HStack{
-                    Text("Prazo: \(HandleDate.handleDate(date: task.endDate))")
+                    Text("\(NSLocalizedString("Prazo", comment: "")): \(HandleDate.handleDate(date: task.endDate))")
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(Color.theme.grayPressed)
                     Spacer()
@@ -21,7 +21,7 @@ extension KanbanView {
                         .font(Font.custom("SF Pro", size: 12))
                         .foregroundColor(kanbanViewModel.getPriorityFlagColor(priority: task.taskPriority))
                 }
-                Text(task.user?.name ?? "Sem nome")
+                Text(task.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
                     .font(Font.custom("SF Pro", size: 12))
                     .foregroundColor(Color.theme.blackMain)
                 Text(task.title)
@@ -58,6 +58,15 @@ extension KanbanView {
         )
         .draggable(task.id)
         .dropDestination(for: String.self) { items, location in
+            self.disableTap = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.disableTap = false
+            }
+            if task.status == .DONE {
+                if kanbanViewModel.role != Role.PRODUCT_MANAGER {
+                    return false
+                }
+            }
             kanbanViewModel.currentlyDragging = items.first
             
             if kanbanViewModel.localTasks.first(where: { $0.id == kanbanViewModel.currentlyDragging }) != nil {
@@ -78,17 +87,15 @@ extension KanbanView {
                 kanbanViewModel.currentlyTarget = task.id
             }
         }
-        .simultaneousGesture(LongPressGesture().onChanged({ _ in
+        .onTapGesture {
+            if disableTap == false {
+                kanbanViewModel.selectedTask = task
+                kanbanViewModel.isEditing.toggle()
+            }
+        }
+        .onLongPressGesture(minimumDuration: 0.25) {
             kanbanViewModel.currentlyDragging = task.id
-        }))
-        .simultaneousGesture(TapGesture(count: 2).onEnded({ _ in
-            kanbanViewModel.selectedTask = task
-            kanbanViewModel.isEditing.toggle()
-        }))
-        //        .onTapGesture(count: 2) {
-        //            kanbanViewModel.selectedTask = task
-        //            kanbanViewModel.isEditing.toggle()
-        //        }
+        }
     }
     
     

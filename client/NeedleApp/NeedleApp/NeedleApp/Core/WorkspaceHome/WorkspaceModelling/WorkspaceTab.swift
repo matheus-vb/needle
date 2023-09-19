@@ -12,14 +12,14 @@ enum WorkspaceTab {
     
     var headerTitle: String {
         switch self {
-        case .myWorkspaces: return "Meus projetos"
-        case .joinedWorkspaces: return "Projetos que participo"
+        case .myWorkspaces: return NSLocalizedString("Meus projetos", comment: "")
+        case .joinedWorkspaces: return NSLocalizedString("Projetos que participo", comment: "")
         }
     }
     var buttonTitle: String {
         switch self {
-        case .myWorkspaces: return "+ Criar projeto"
-        case .joinedWorkspaces: return "# Entrar num projeto"
+        case .myWorkspaces: return NSLocalizedString("+ Criar projeto", comment: "")
+        case .joinedWorkspaces: return NSLocalizedString("# Entrar num projeto", comment: "")
         }
     }
     

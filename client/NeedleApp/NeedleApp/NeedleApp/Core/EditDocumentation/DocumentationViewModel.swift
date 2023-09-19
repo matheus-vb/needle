@@ -14,17 +14,34 @@ class DocumentationViewModel<
     D: DocumentationDataServiceProtocol & ObservableObject
 >: ObservableObject {
     @AppStorage("userID") var userID: String = "Default User"
-    
+
     let context = RichTextContext()
-        
+
     let documentId: String
     let workspaceId: String
-    
+
     private var docDS: D
-    
+
     init(workspaceId: String, documentId: String, docDS: D) {
         self.docDS = docDS
         self.documentId = documentId
         self.workspaceId = workspaceId
     }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return .purple
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
+    }
+    
+//    func getUpdate(data: UpdateDocumentationDTO, userId: String, workspaceId: String) {
+//        self.docDS.updateDocumentation(data: data, userId: userId, workspaceId: workspaceId)
+//    }
 }

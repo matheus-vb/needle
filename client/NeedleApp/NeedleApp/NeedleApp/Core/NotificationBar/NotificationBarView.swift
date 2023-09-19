@@ -18,13 +18,13 @@ struct NavigationBarView: View {
         HStack {
             Image("simbolo")
             Spacer()
-            Text("\(notificationViewModel.notifications.count) notificações")
+            Text("\(notificationViewModel.notifications.count) \(NSLocalizedString("notificações", comment: ""))")
                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 16))
             Spacer()
             Button {
                 notificationViewModel.deleteUserNotification()
             } label: {
-                Text("Limpar")
+                Text(NSLocalizedString("Limpar", comment: ""))
                     .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
                     .foregroundColor(Color.theme.blueKanban)
             }.buttonStyle(PlainButtonStyle())
@@ -40,7 +40,7 @@ struct NavigationBarView: View {
                         Button(action: {
                             // TODO: delete item in items array
                         }){
-                            Text("Apagar")
+                            Text(NSLocalizedString("Apagar", comment: ""))
                         }
                     }
                 }

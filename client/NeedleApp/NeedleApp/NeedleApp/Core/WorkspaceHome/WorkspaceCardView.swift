@@ -10,10 +10,8 @@ import SwiftUI
 
 struct WorkspaceCardView: View, Identifiable {
     @ObservedObject var workspaceCardViewModel: WorkspaceCardViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-
-    @State var isHovered = false
-    
     @State private var filteredOwner: [String] = []
+    @State var isHovered: Bool = false
     
     var id = UUID()
     var action: () -> Void
@@ -37,8 +35,7 @@ struct WorkspaceCardView: View, Identifiable {
     var basicInfo: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(title).font(.system(size: 24, weight: .medium))
-            Text("PM: \(owner)").font(.system(size: 14, weight: .regular))
-            //Text("Participantes: \(members)").font(.system(size: 14, weight: .regular))
+            Text("Product Manager: \(owner)").font(.system(size: 14, weight: .regular))
         }
     }
     
@@ -62,10 +59,7 @@ struct WorkspaceCardView: View, Identifiable {
     var body: some View {
         ZStack {
             NavigationLink(destination: ProjectView(selectedWorkspace: workspaceCardViewModel.workspace), label: {
-                RoundedRectangle(cornerRadius: 10).foregroundColor(workspaceCardViewModel.isHovered ? Color.theme.grayBackground : .white)
-                    .onHover(perform: { _ in
-                        workspaceCardViewModel.isHovered.toggle()
-                    })
+                RoundedRectangle(cornerRadius: 10)
                     .frame(width: 296, height: 192)
                     .shadow(radius: 4, x: 0, y: 4)
             })
@@ -77,13 +71,14 @@ struct WorkspaceCardView: View, Identifiable {
                 basicInfo
                  .foregroundColor(Color.theme.blackMain)
                 HStack {
-                    Text("Código para convite:").font(.system(size: 12, weight: .medium))
+                    Text(NSLocalizedString("Código para convite:", comment: "")).font(.system(size: 12, weight: .medium))
                     Spacer()
-                    accessCode
+                    CopyClipboardButton(text: code, isOnCard: true) {
+                    }
                 }.frame(width: 227)
                 
             }.padding(.leading, 16)
             .frame(width: 259, height: 155)
-        }
+        }.modifier(workspaceCardModifier(standardColor: .white, hoveredColor: Color.theme.grayBackground))
     }
 }

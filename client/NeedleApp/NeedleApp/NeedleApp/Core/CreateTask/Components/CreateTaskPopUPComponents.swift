@@ -22,6 +22,7 @@ extension CreateTaskPopUp{
             DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                 Text("Selecione uma data")
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .labelsHidden()
             Spacer()
         }
@@ -32,13 +33,14 @@ extension CreateTaskPopUp{
     var responsible: some View {
         HStack(spacing: 24){
             LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
-            Picker("Área",selection: $createTaskViewModel.selectedMemberId){
+            Picker(NSLocalizedString("Área", comment: ""),selection: $createTaskViewModel.selectedMemberId){
                 ForEach(createTaskViewModel.members) { membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
                         .tag(membro.id)
                 }
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .pickerStyle(.menu)
             .labelsHidden()
             Spacer()
@@ -54,6 +56,7 @@ extension CreateTaskPopUp{
                        .foregroundColor(Color.theme.blackMain)
                }
            }
+            .frame(maxWidth: geometry.size.width*0.26)
            .pickerStyle(.menu)
            .labelsHidden()
             Spacer()
@@ -69,6 +72,7 @@ extension CreateTaskPopUp{
                         .foregroundColor(Color.theme.blackMain)
                 }
             }
+            .frame(maxWidth: geometry.size.width*0.26)
             .pickerStyle(.menu)
             .labelsHidden()
             Spacer()
@@ -76,27 +80,18 @@ extension CreateTaskPopUp{
     }
     
     var description: some View{
-        VStack(alignment: .leading ,spacing: 12){
-            Text("Descrição")
-                .font(.system(size: 20, weight: .regular))
+        VStack(alignment: .leading, spacing: 12) {
+            Text(NSLocalizedString("Descrição", comment: ""))
+                .font(.system(size: 16, weight: .regular))
                 .foregroundColor(Color.theme.grayPressed)
-                .offset(x: 4)
-            ZStack {
-                if createTaskViewModel.taskDescription == "" {
-                    TextEditor(text:$createTaskViewModel.taskDescriptionPlaceHolder)
-                        .scrollContentBackground(.hidden)
-                        .background(Color.clear)
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundColor(Color.theme.blackMain)
-                }
-                TextEditor(text: $createTaskViewModel.taskDescription)
-                    .scrollContentBackground(.hidden)
-                    .background(Color.clear)
-                    .font(.system(size: 20, weight: .regular))
-                    .foregroundColor(Color.theme.grayPressed)
-            }
-        }
-        .frame(minHeight: geometry.size.height - 420)
+            
+                TextEditor(text: Binding(projectedValue: $createTaskViewModel.taskDescription))
+                .font(.custom("SF Pro", size: 16))
+                .lineSpacing(1)
+                .cornerRadius(12)
+                .multilineTextAlignment(.leading)
+                .colorMultiply(Color.theme.grayBackground)
+        }.frame(minHeight: 100)
     }
     
     var attributesStack: some View {
@@ -112,16 +107,12 @@ extension CreateTaskPopUp{
         VStack(spacing: 30){
             taskTitle
             attributesStack
-            ScrollView{
                 description
+            HStack{
                 Spacer()
-                HStack{
-                    Spacer()
-                    createTask
-                }
+                createTask
             }
         }
-        .frame(minHeight: geometry.size.height - 128)
     }
     
     var topSection: some View{

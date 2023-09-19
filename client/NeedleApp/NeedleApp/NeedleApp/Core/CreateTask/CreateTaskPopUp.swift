@@ -32,7 +32,7 @@ struct CreateTaskPopUp: View {
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)
-        .frame(width: 4*geometry.size.width/9.0, height: 19*geometry.size.height/20)
+        .frame(minWidth: 2*geometry.size.width/5, maxHeight: 19*geometry.size.height/20)
         .background(.white)
     }
 }

@@ -21,7 +21,9 @@ class AuthenticationManager: AuthenticationManagerProtocol {
     var getRolesSubscription: AnyCancellable?
     
     @Published var currError: NetworkingManager.NetworkingError?
+    
     @Published var errorCount: Int = 0
+    var errorCountPublisher: Published<Int>.Publisher { $errorCount }
     
     func singIn(userId: String, email: String? = nil, name: String? = nil) {
         guard let url = URL(string: Bundle.baseURL + "signin") else { return }

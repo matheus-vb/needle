@@ -46,10 +46,14 @@ struct SearchDocuments: View {
                     TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
                         .frame(width: 320, height: 32)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onSubmit {
+                            searchDocumentsViewModel.query = nil
+                        }
+                        .modifier(searchFieldModifier())
                     Button(action: {
                         searchDocumentsViewModel.query = nil
                     }, label: {
-                        Image(systemName: "arrow.counterclockwise")
+                        Image(systemName: "delete.left")
                     })
                     .buttonStyle(.plain)
                 }
@@ -74,15 +78,15 @@ struct SearchDocuments: View {
                             .foregroundColor(Color.theme.redMain)
                     }
                 }
-                TableColumn("Status", value: \.status.order){
+                TableColumn( NSLocalizedString("Status", comment: ""), value: \.status.order){
                     Text($0.status.displayName)
                         .foregroundColor(getColor(task: $0))
                 }
-                TableColumn("Área", value: \.type.displayName)
-                TableColumn("Responsável") {
-                    Text($0.user?.name ?? "Sem responsável.")
+                TableColumn( NSLocalizedString("Área", comment: ""), value: \.type.displayName)
+                TableColumn( NSLocalizedString("Responsável", comment: "")) {
+                    Text($0.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
                 }
-                TableColumn("Atualização", value: \.updated_at) {
+                TableColumn( NSLocalizedString("Atualização", comment: ""), value: \.updated_at) {
                     Text(HandleDate.formatDateWithTime(dateInput: $0.updated_at))
                 }
             }

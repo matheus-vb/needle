@@ -26,7 +26,6 @@ class ProjectViewModel<
     @Published var showPopUp: Bool = false
     @Published var showEditTaskPopUP: Bool = false
     @Published var selectedColumnStatus: TaskStatus = .TODO
-    @Published var triggerLoading = false
     @Published var selectedTask: TaskModel?
     
     @Published var showCard: Bool = false
@@ -34,12 +33,11 @@ class ProjectViewModel<
     @Published var showShareCode = false
     
     @Published var isAnimating = false
-    @Published var initalLoading = true
     
-    private var worskpaceDS: W
-    private var tasksDS: T
-    private var authMGR: A
-    private var cancellables = Set<AnyCancellable>()
+    var worskpaceDS: W
+    var tasksDS: T
+    var authMGR: A
+    var cancellables = Set<AnyCancellable>()
 
     init(selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
         self.authMGR = manager
@@ -79,10 +77,6 @@ class ProjectViewModel<
                 self?.roles = returnedRoles
             })
             .store(in: &cancellables)
-    }
-    
-    func createTask(dto: CreateTaskDTO){
-        tasksDS.createTask(dto: dto, userId: userID, workspaceId: selectedWorkspace.id)
     }
     
     func deleteTask(){

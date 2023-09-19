@@ -9,22 +9,25 @@ import SwiftUI
 
 struct RootView: View {
 
-    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared)
+    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
+    @AppStorage("onboard") var isOnboard : Bool = false
+
     
     var body: some View {
         mainView
             .sheet(isPresented: $rootViewModel.showErrorSheet, content: {
                 SheetView(type: .loginError)
             })
-            .onChange(of: rootViewModel.authManager.errorCount, perform: {_ in
-                rootViewModel.showErrorSheet.toggle()
-            })
     }
     
     var mainView: some View {
         ZStack {
             if rootViewModel.authManager.user == nil {
-                LoginPageView()
+                if(isOnboard){
+                    OnboardingView()
+                } else {
+                    LoginPageView()
+                }
             } else {
                 AppView()
                     .toolbar{
@@ -69,11 +72,5 @@ struct RootView: View {
                     }
             }
         }
-    }
-}
-
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
     }
 }

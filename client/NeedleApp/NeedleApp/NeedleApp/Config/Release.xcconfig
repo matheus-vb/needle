@@ -9,4 +9,3 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 SLASH = /
 API_URL = https:$(SLASH)/needle-api-scz1.onrender.com/
-VERSION = 1.5

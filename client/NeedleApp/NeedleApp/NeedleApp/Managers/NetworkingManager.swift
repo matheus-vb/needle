@@ -112,6 +112,7 @@ class NetworkingManager{
         case .failure(let error):
             if let networkingError = error as? NetworkingError {
                 print(networkingError.localizedDescription)
+                print(error)
                 onError(networkingError)
             } else {
                 print(error)
