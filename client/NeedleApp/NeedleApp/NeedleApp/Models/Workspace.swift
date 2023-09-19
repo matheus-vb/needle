@@ -14,7 +14,7 @@ struct Workspace: Identifiable, Equatable, Codable, Hashable {
     var users: [PmMember]
 }
     
-struct PmMember: Equatable, Codable, Hashable{
+struct PmMember: Equatable, Codable, Hashable, Identifiable{
     let id: String
     let userRole: String
     let userId: String

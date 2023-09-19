@@ -10,4 +10,5 @@ import Foundation
 enum SelectedTab{
     case Kanban
     case Documentation
+    case Information
 }
