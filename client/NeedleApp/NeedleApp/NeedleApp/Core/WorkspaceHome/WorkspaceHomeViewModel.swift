@@ -11,7 +11,7 @@ import SwiftUI
 
 class WorkspaceHomeViewModel<
     W: WorkspaceDataServiceProtocol & ObservableObject
->: ObservableObject {
+>:WorkspaceHomeViewModelProtocol, ObservableObject {
     @AppStorage("userID") var userID: String = "Default User"
 
     @Published var query: String = ""

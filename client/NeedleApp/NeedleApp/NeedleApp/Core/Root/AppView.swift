@@ -10,7 +10,7 @@ import SwiftUI
 struct AppView: View {
     var body: some View {
         NavigationStack {
-            WorkspaceHomeView()
+            WorkspaceHomeView(workspaceViewModel: WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared))
         }
     }
 }

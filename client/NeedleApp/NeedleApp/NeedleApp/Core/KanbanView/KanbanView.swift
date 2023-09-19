@@ -49,7 +49,7 @@ struct KanbanView: View {
                                 .onSubmit {
                                     
                                 }
-                                .modifier(searchFieldModifier())
+                               // .modifier(searchFieldModifier())
                         }
                         Button(action: {
                             kanbanViewModel.searchText = ""

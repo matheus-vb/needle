@@ -83,11 +83,3 @@ struct workspaceCardModifier: ViewModifier {
     }
 }
 
-struct searchFieldModifier: ViewModifier {
-    @FocusState var isFocused : Bool
-
-    func body(content: Content) -> some View {
-        content
-            .focused($isFocused, key: "f")
-    }
-}

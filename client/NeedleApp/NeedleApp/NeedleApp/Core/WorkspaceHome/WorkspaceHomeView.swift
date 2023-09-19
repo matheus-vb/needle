@@ -9,8 +9,8 @@ import SwiftUI
 import CoreData
 import Firebase
 
-struct WorkspaceHomeView: View {
-    @ObservedObject var workspaceViewModel = WorkspaceHomeViewModel(workspaceDS: WorkspaceDataService.shared)
+struct WorkspaceHomeView<ViewModel: WorkspaceHomeViewModelProtocol>: View {
+    @ObservedObject var workspaceViewModel: ViewModel
     
     let height: CGFloat = 150
     

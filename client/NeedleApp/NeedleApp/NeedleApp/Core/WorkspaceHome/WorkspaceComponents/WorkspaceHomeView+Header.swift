@@ -25,7 +25,7 @@ extension WorkspaceHomeView {
                 TextField("Procurar por nome do projeto...", text: $workspaceViewModel.query)
                     .frame(width: 320, height: 32)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .modifier(searchFieldModifier())
+                    //.modifier(searchFieldModifier())
                 Button(action: {
                     workspaceViewModel.query = ""
                 }, label: {
