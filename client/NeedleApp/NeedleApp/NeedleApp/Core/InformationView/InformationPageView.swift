@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RoleCardInformationPageView: View {
+    var role : String
     var body: some View{
         HStack{
             Group{
@@ -21,11 +22,11 @@ struct RoleCardInformationPageView: View {
             
             Spacer()
             
-            VStack{
+            VStack (alignment: .leading){
                 Text("Minha função")
                     .font(.system(size: 16))
-                Text("PM")
-                    .font(.system(size: 24))
+                Text(role)
+                    .font(.system(size: 20))
                     .fontWeight(.bold)
             }
             Spacer()
@@ -63,7 +64,7 @@ struct InformationPageView: View {
     
     @State var isPM : Bool = true
     @State var isActive : Bool = false
-//    @State private var sortOrder = [KeyPathComparator(\Information.name)]
+    //    @State private var sortOrder = [KeyPathComparator(\Information.name)]
     
     @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
@@ -91,11 +92,11 @@ struct InformationPageView: View {
                     .padding(.vertical, 40)
                 Spacer()
                 
-                HStack{
-                    Text("Excluir projeto")
-                        .font(.system(size: 16))
-                    Image(systemName: "trash")
-                }
+//                HStack{
+//                    Text("Excluir projeto")
+//                        .font(.system(size: 16))
+//                    Image(systemName: "trash")
+//                }
             }
             
             Text("Informações Gerais")
@@ -103,7 +104,7 @@ struct InformationPageView: View {
                 .padding(.bottom, 32)
             
             HStack{
-                RoleCardInformationPageView()
+                RoleCardInformationPageView(role: getRole())
                 //                    .padding(.trailing, 88)
                 Spacer()
                 Spacer()
@@ -125,15 +126,30 @@ struct InformationPageView: View {
                 .padding(.top, 54)
                 .padding(.bottom, 24)
             
-            Table(informationPageViewModel.workspaceMembers) {
+            Table(informationPageViewModel.workspaceMembers, sortOrder: $informationPageViewModel.sortOrder) {
                 TableColumn("Nome", value: \.name)
                 TableColumn("Email", value: \.email)
                 TableColumn("Área", value: \.workspaces![0].userRole.displayName)
             }
-            //            .onChange(of: sortOrder) { newValue in
-            //                informations.sort(using: newValue)
-            //            }
+            .onChange(of: informationPageViewModel.sortOrder) { newValue in
+                informationPageViewModel.workspaceMembers.sort(using: newValue)
+            }
         }.padding()
+    }
+    
+    func getRole() -> String{
+        
+        var elementByIdentifier: [String: User] {
+            Dictionary(uniqueKeysWithValues: informationPageViewModel.workspaceMembers.map { ($0.id, $0) })
+        }
+        
+        if let role = elementByIdentifier[informationPageViewModel.authManager.user!.id] {
+            // Do something with the element
+            return role.workspaces![0].userRole.displayName
+        } else {
+            return "NO ROLE"
+        }
+            
     }
     
 }

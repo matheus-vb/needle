@@ -14,8 +14,7 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     let workspaceName: String
     @Published var tasks: [TaskModel]
     @Published var workspaceMembers: [User]
-
-    //    @Published var sortOrder = [KeyPathComparator(\User.name)]
+    @Published var sortOrder = [KeyPathComparator(\User.name)]
     
     @ObservedObject var authManager: A
     @ObservedObject var workspaceDS: W
