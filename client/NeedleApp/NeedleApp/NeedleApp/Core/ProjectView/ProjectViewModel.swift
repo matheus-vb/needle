@@ -15,7 +15,6 @@ class ProjectViewModel<
     W: WorkspaceDataServiceProtocol & ObservableObject
 >: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
-    @Published var selectedTab: SelectedTab = .Kanban 
     @Published var selectedWorkspace: Workspace
     @Published var projects: [Workspace] = []
     
@@ -28,12 +27,16 @@ class ProjectViewModel<
     @Published var selectedColumnStatus: TaskStatus = .TODO
     @Published var selectedTask: TaskModel?
     
+    @Published var triggerLoading: Bool = false
+    @Published var onHoverProject = false
+    @Published var onHoverNewProject = false
+    @Published var feedbackSheet = false
+
     @Published var showCard: Bool = false
-    
     @Published var showShareCode = false
-    
     @Published var isAnimating = false
-    
+    @Published var isNaming: Bool = false
+
     var worskpaceDS: W
     var tasksDS: T
     var authMGR: A
@@ -43,7 +46,6 @@ class ProjectViewModel<
         self.authMGR = manager
         self.tasksDS = taskDS
         self.worskpaceDS = workspaceDS
-        
         self.selectedWorkspace = selectedWorkspace
         
         addSubscribers()
@@ -69,6 +71,7 @@ class ProjectViewModel<
         worskpaceDS.membersPublisher
             .sink(receiveValue: { [weak self] returnedUsers in
                 self?.workspaceMembers = returnedUsers
+                self?.$workspaceMembers.append(["":[User(id: "", name: "---", email: "", workspaces: [])]])
             })
             .store(in: &cancellables)
         

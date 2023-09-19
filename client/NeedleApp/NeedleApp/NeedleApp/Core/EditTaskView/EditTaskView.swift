@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @State var seeDocumentation: Bool = false
+
     var geometry: GeometryProxy
     
     
@@ -24,9 +26,9 @@ struct EditTaskPopUP: View {
                 .padding(2)
         }
         .overlay(content: {
-            if editTaskViewModel.seeDocumentation {
-                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, geometry: geometry)
-                
+            if seeDocumentation {
+                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, action: { seeDocumentation.toggle() }, geometry: geometry)
+
                     .background(.white)
             }
         })

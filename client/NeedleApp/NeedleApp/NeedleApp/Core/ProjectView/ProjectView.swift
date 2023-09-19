@@ -10,17 +10,23 @@ import SwiftUI
 struct ProjectView: View {
     
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
+    @Environment(\.dismiss) var dismiss
     @State var triggerLoading: Bool = true
     @State var initalLoading: Bool = true
+    @State var selectedTab: SelectedTab = .Kanban
+    
     init(selectedWorkspace: Workspace) {
         self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
-        self.triggerLoading = true
-        self.initalLoading = true
+        triggerLoading = true
+        initalLoading = true
     }
     
     var body: some View {
         ZStack {
             main
+            VStack {
+                Spacer()
+            }
             .sheet(isPresented: $projectViewModel.showShareCode, content: {
                 SheetView(accessCode: projectViewModel.getCode(), type: .shareCode)
             })
@@ -45,11 +51,12 @@ struct ProjectView: View {
                 }
         }
     }
+        
     
     var main: some View {
         GeometryReader{geometry in
             NavigationSplitView(sidebar: {
-                ProjectLeftSideComponent(triggerLoading: $triggerLoading)
+                ProjectSideBar
                     .padding(.top, 62)
                     .background(Color.theme.grayBackground)
                     .environmentObject(projectViewModel)
@@ -67,7 +74,7 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
-                        ProjectsViewRightSideComponent()
+                        ProjectsViewRightSide
                             .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
@@ -79,13 +86,14 @@ struct ProjectView: View {
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
-                    //.frame(height: geometry.size.width*0.33)
             })
             .onAppear{
+                projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id]?.append(User(id: "", name: "---", email: "", workspaces: []))
                 if projectViewModel.selectedWorkspace.accessCode == ""{
                     projectViewModel.selectedWorkspace = projectViewModel.projects[0]
                 }
             }
+    
         }
     }
 }

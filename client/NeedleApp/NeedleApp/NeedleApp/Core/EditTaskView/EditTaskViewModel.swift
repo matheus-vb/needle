@@ -28,8 +28,6 @@ class EditTaskViewModel<
     @Published var prioritySelection: TaskPriority
     @Published var deadLineSelection: Date
     @Published var categorySelection: TaskType
-    @Published var seeDocumentation: Bool = false
-
     @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
@@ -56,7 +54,7 @@ class EditTaskViewModel<
         self.documentationID = data.document?.id ?? "0"
         self.members = members
         self.taskDS = taskDS
-        
+                
         //Pegar a documentacao
         let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
         do{
@@ -81,7 +79,9 @@ class EditTaskViewModel<
         )
         
         self.setupBindings()
+
     }
+    
     
     func setupBindings() {
         Publishers.CombineLatest4($selectedMember, $taskTitle, $taskDescription, $statusSelection)
