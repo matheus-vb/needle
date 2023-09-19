@@ -15,7 +15,6 @@ class ProjectViewModel<
     W: WorkspaceDataServiceProtocol & ObservableObject
 >: ObservableObject{
     @AppStorage("userID") var userID: String = "Default User"
-    @Published var selectedTab: SelectedTab
     @Published var selectedWorkspace: Workspace
     @Published var projects: [Workspace] = []
     
@@ -43,8 +42,7 @@ class ProjectViewModel<
     var authMGR: A
     var cancellables = Set<AnyCancellable>()
 
-    init(selectedTab: SelectedTab, selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
-        self.selectedTab = selectedTab
+    init(selectedWorkspace: Workspace, manager: A, taskDS: T, workspaceDS: W) {
         self.authMGR = manager
         self.tasksDS = taskDS
         self.worskpaceDS = workspaceDS

@@ -13,9 +13,10 @@ struct ProjectView: View {
     @Environment(\.dismiss) var dismiss
     @State var triggerLoading: Bool = true
     @State var initalLoading: Bool = true
+    @State var selectedTab: SelectedTab = .Kanban
     
     init(selectedWorkspace: Workspace) {
-        self.projectViewModel = ProjectViewModel(selectedTab: .Kanban, selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
+        self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
         triggerLoading = true
         initalLoading = true
     }
@@ -48,20 +49,6 @@ struct ProjectView: View {
                         projectViewModel.isAnimating.toggle()
                     }
                 }
-        }
-    }
-    
-    var ProjectsViewRightSide: some View {
-        VStack{
-            topContainer
-                .padding([.top], 64)
-                .padding([.leading, .trailing], 64)
-            
-            if projectViewModel.selectedTab == .Kanban{
-                KanbanView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], role: projectViewModel.roles[projectViewModel.selectedWorkspace.id] ?? .DEVELOPER, selectedColumn: $projectViewModel.selectedColumnStatus, showPopUp: $projectViewModel.showPopUp, showCard: $projectViewModel.showCard, selectedWorkspace: projectViewModel.selectedWorkspace, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
-            }else if projectViewModel.selectedTab == .Documentation{
-                SearchDocuments(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], workspaceId: projectViewModel.selectedWorkspace.id, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
-            }
         }
     }
         
