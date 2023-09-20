@@ -35,7 +35,7 @@ extension ProjectView{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
-            .keyboardShortcut(selectedTab == .Kanban ? nil : KeyboardShortcut(.tab, modifiers: .control))
+            .keyboardShortcut(selectedTab == .Information ? KeyboardShortcut(.tab, modifiers: .control) : nil)
             
             Button(action: {
                 print("Documentation Button")
@@ -54,7 +54,7 @@ extension ProjectView{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
-            .keyboardShortcut(selectedTab == .Documentation ? nil : KeyboardShortcut(.tab, modifiers: .control))
+            .keyboardShortcut(selectedTab == .Kanban ? KeyboardShortcut(.tab, modifiers: .control) : nil)
             
             Button(action: {
                 print("Information Button")
@@ -73,7 +73,8 @@ extension ProjectView{
             })
             .buttonStyle(.plain)
             .modifier(Clickable())
-            .keyboardShortcut(selectedTab == .Information ? nil : KeyboardShortcut(.tab, modifiers: .control))
+            .keyboardShortcut(selectedTab == .Documentation ? KeyboardShortcut(.tab, modifiers: .control) : nil)
+
         }
     }
     

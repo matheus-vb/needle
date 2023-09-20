@@ -32,10 +32,6 @@ struct KanbanView: View {
     
     var body: some View {
         ZStack {
-            Image("icon-bg")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 2000, alignment: .bottomTrailing)
             VStack{
                 HStack(spacing: 44) {
                     statusTitleLabel(rowName: NSLocalizedString("A fazer", comment: ""), color: Color.theme.redMain)
@@ -179,9 +175,9 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-                addTaskButton(status: TaskStatus.PENDING)
-                Spacer()
-                    .frame(height: 24)
+//                addTaskButton(status: TaskStatus.PENDING)
+//                Spacer()
+//                    .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.PENDING &&
@@ -201,6 +197,7 @@ struct KanbanView: View {
                 .scrollIndicators(.never)
             }
         }
+        .frame(minWidth: 128, maxWidth: 1000)
         .dropDestination(for: String.self) { items, location in
             kanbanViewModel.currentlyDragging = items.first
             self.disableTap = true
@@ -219,9 +216,9 @@ struct KanbanView: View {
     func DoneView() -> some View {
         NavigationStack {
             VStack {
-                addTaskButton(status: TaskStatus.DONE)
-                Spacer()
-                    .frame(height: 24)
+//                addTaskButton(status: TaskStatus.DONE)
+//                Spacer()
+//                    .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.DONE  &&
@@ -241,6 +238,7 @@ struct KanbanView: View {
                 .scrollIndicators(.never)
             }
         }
+        .frame(minWidth: 128, maxWidth: 1000)
         .dropDestination(for: String.self) { items, location in
             self.disableTap = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
