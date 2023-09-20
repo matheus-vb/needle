@@ -33,9 +33,20 @@ struct KanbanView: View {
     var body: some View {
         ZStack {
             VStack{
+                HStack(spacing: 44) {
+                    statusTitleLabel(rowName: NSLocalizedString("A fazer", comment: ""), color: Color.theme.redMain)
+                    statusTitleLabel(rowName: NSLocalizedString("Fazendo", comment: ""), color: Color.theme.blueKanban)
+                    statusTitleLabel(rowName: NSLocalizedString("Em revisão", comment: ""), color: Color.theme.orangeKanban)
+                    statusTitleLabel(rowName: NSLocalizedString("Feito", comment: ""), color: Color.theme.greenKanban)
+                }
+                .padding(.leading, 8)
+                //.padding(.trailing, 64)
+                .padding(.top, 24)
                 HStack{
-                    DropdownTypeButton(taskType: $kanbanViewModel.taskType, dropOptions: TaskType.allCases) {}
-                    DropdownPriorityButton(taskPriority: $kanbanViewModel.taskPriority, dropOptions: TaskPriority.allCases) {}
+                    HStack {
+                        DropdownTypeButton(taskType: $kanbanViewModel.taskType, dropOptions: TaskType.allCases) {}
+                        DropdownPriorityButton(taskPriority: $kanbanViewModel.taskPriority, dropOptions: TaskPriority.allCases) {}
+                    }.padding(.leading, 8)
                     Spacer()
                     Group {
                         HStack {
@@ -244,6 +255,31 @@ struct KanbanView: View {
             return false
         } isTargeted: { status in
         }
+    }
+    
+    
+    @ViewBuilder
+    func statusTitleLabel(rowName: String, color: Color) -> some View {
+        
+        HStack{
+            Circle()
+                .frame(width: 10)
+                .foregroundColor(color)
+                .cornerRadius(5)
+            Spacer()
+                .frame(width: 8)
+            Text(rowName)
+                .font(
+                    Font.custom("SF Pro", size: 18)
+                        .weight(.medium)
+                )
+                .foregroundColor(.black)
+            Spacer()
+        }
+        .frame(minWidth: 132)
+        .frame(height: 32)
+        .cornerRadius(5)
+        
     }
 }
 
