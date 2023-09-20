@@ -20,6 +20,15 @@ struct ProjectView: View {
     
     var body: some View {
         ZStack {
+            HStack {
+                Spacer()
+                    .frame(maxWidth: .infinity)
+                Image("Bg_Arte")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, alignment: .bottomTrailing)
+            }
+            .frame(width: .infinity, height: .infinity)
             main
             .sheet(isPresented: $projectViewModel.showShareCode, content: {
                 SheetView(accessCode: projectViewModel.getCode(), type: .shareCode)
@@ -29,10 +38,6 @@ struct ProjectView: View {
     
     var loading: some View {
         ZStack {
-            Image("icon-bg")
-                .offset(x: 200, y: 40)
-                .blur(radius: 8)
-                .frame(width: 400, height: 200)
             Circle()
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)
@@ -68,7 +73,7 @@ struct ProjectView: View {
                             }
                     } else {
                         ProjectsViewRightSideComponent()
-                            .background(Color.theme.grayBackground)
+//                            .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
                 }

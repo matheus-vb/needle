@@ -11,9 +11,15 @@ import SwiftUI
 extension WorkspaceHomeView {
     var loading: some View {
         ZStack {
-            Image("icon-bg")
-                .offset(x: 200, y: 40)
-                .blur(radius: 8)
+            HStack {
+                Spacer()
+                    .frame(maxWidth: .infinity)
+                Image("Bg_Arte")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, alignment: .bottomTrailing)
+            }
+            .frame(width: .infinity, height: .infinity)
             Circle()
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)
