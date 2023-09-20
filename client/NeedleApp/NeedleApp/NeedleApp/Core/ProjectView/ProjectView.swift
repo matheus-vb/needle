@@ -79,7 +79,7 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
-                        ProjectsViewRightSideComponent()
+                        ProjectsViewRightSide
 //                            .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
