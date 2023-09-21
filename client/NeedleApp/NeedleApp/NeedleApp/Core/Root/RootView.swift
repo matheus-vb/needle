@@ -13,11 +13,20 @@ struct RootView: View {
     @AppStorage("onboard") var isOnboard : Bool = false
 
     
+    init(){
+        if (UserDefaults.standard.object(forKey: "onboard") != nil){
+            self.isOnboard = false
+        }else{
+            self.isOnboard = true
+            UserDefaults.standard.set(false, forKey: "onboard")
+        }
+    }
+    
     var body: some View {
         mainView
             .sheet(isPresented: $rootViewModel.showErrorSheet, content: {
                 SheetView(type: .loginError)
-            })
+            }) 
     }
     
     var mainView: some View {

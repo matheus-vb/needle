@@ -23,10 +23,15 @@ struct WorkspaceHomeView: View {
     var main: some View {
         GeometryReader { geometry in
             ZStack {
-                Image("icon-bg")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 2000, alignment: .bottomTrailing)
+                HStack {
+                    Spacer()
+                        .frame(maxWidth: .infinity)
+                    Image("Bg_Arte")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity, alignment: .bottomTrailing)
+                }
+                .frame(width: .infinity, height: .infinity)
                 VStack(alignment: .center, spacing: geometry.size.height * 0.094) {
                     pageSelector
                         .frame(height: geometry.size.height * 0.12)
