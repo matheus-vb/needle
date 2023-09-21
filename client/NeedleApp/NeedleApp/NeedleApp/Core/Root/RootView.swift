@@ -15,10 +15,10 @@ struct RootView: View {
     
     init(){
         if (UserDefaults.standard.object(forKey: "onboard") != nil){
-            print(UserDefaults.standard.object(forKey: "onboard")!)
             self.isOnboard = false
         }else{
             self.isOnboard = true
+            UserDefaults.standard.set(false, forKey: "onboard")
         }
     }
     
