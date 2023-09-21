@@ -10,8 +10,17 @@ import SwiftUI
 struct RootView: View {
 
     @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
-    @AppStorage("onboard") var isOnboard : Bool = true
+    @AppStorage("onboard") var isOnboard : Bool = false
 
+    
+    init(){
+        if (UserDefaults.standard.object(forKey: "onboard") != nil){
+            print(UserDefaults.standard.object(forKey: "onboard")!)
+            self.isOnboard = false
+        }else{
+            self.isOnboard = true
+        }
+    }
     
     var body: some View {
         mainView
