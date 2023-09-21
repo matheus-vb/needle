@@ -40,7 +40,7 @@ struct KanbanTagView: View {
         case TaskType.DESIGN:
             return "Design"
         default:
-            return NSLocalizedString("Outros", comment: "")
+            return NSLocalizedString(tagName.displayName, comment: "")
         }
     }
 }
