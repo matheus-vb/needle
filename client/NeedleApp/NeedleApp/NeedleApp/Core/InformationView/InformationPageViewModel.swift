@@ -47,8 +47,10 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
             })
             .store(in: &cancellables)
         
-        print("jpmoreira\(workspaceMembers)")
-        
+    }
+    
+    func removeMember(memberId : String){
+        print("removed \(memberId)")
     }
     
 }

@@ -7,6 +7,7 @@ import { getWorkspaceDocuments } from "./get-workspace-documents";
 import { getAllMembers } from "./get-all-members";
 import { deleteWorkspace } from "./delete-workspace";
 import { getWorkspaceTasksByStatus } from "./get-workspace-tasks-by-status";
+import { deleteWorkspaceMember } from "./delete-workspace-member";
 
 export async function workspaceRoutes(app: FastifyInstance) {
     app.post('/workspace', createWorkspace);
@@ -17,5 +18,6 @@ export async function workspaceRoutes(app: FastifyInstance) {
     app.get('/members/:workspaceId', getAllMembers)
     app.delete('/workspace/delete/:accessCode', deleteWorkspace);
     app.get('/task/:workspaceId/:status', getWorkspaceTasksByStatus)
+    app.delete('/members/:userId/:workspaceId', deleteWorkspaceMember);
 
 }

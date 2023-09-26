@@ -91,11 +91,11 @@ struct InformationPageView: View {
                     .padding(.vertical, 40)
                 Spacer()
                 
-//                HStack{
-//                    Text("Excluir projeto")
-//                        .font(.system(size: 16))
-//                    Image(systemName: "trash")
-//                }
+                //                HStack{
+                //                    Text("Excluir projeto")
+                //                        .font(.system(size: 16))
+                //                    Image(systemName: "trash")
+                //                }
             }
             
             Text(NSLocalizedString("Informações Gerais",comment:""))
@@ -129,6 +129,15 @@ struct InformationPageView: View {
                 TableColumn(NSLocalizedString("Nome", comment: ""), value: \.name)
                 TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
                 TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
+                TableColumn(NSLocalizedString("Permanência", comment: "")) { member in
+                    HStack{
+                        Text("Excluir membro: ")
+                        Image(systemName: "trash")
+                    }
+                    .onTapGesture {
+                        informationPageViewModel.removeMember(memberId: member.id)
+                    }
+                }
             }
             .onChange(of: informationPageViewModel.sortOrder) { newValue in
                 informationPageViewModel.workspaceMembers.sort(using: newValue)
@@ -148,7 +157,7 @@ struct InformationPageView: View {
         } else {
             return "NO ROLE"
         }
-            
+        
     }
     
 }
