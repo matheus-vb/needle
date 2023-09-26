@@ -5,10 +5,10 @@ import { makeDeleteWorkspaceMemberUseCase } from "../../../useCases/factories/wo
 export async function deleteWorkspaceMember(request: FastifyRequest, reply: FastifyReply){
     const deleteWorkspaceMemberBodySchema = z.object({
         userId: z.string(),
-        workspaceId : z.string(),
+        workspaceId : z.string()
     })
 
-    const { userId, workspaceId } = deleteWorkspaceMemberBodySchema.parse(request.body);
+    const { userId, workspaceId } = deleteWorkspaceMemberBodySchema.parse(request.params);
 
     try{
         const deleteWorkspaceMemberUseCase = makeDeleteWorkspaceMemberUseCase();

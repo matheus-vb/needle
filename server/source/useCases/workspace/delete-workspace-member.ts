@@ -12,7 +12,6 @@ interface IDeleteWorkspaceMemberUseCaseReply {
     done: boolean
 }
 
-
 export class DeleteWorkspaceMemberUseCase {
     constructor(
         private userWorkspaceRepository: IUserWorkspaceRepository, private userRepository: IUserRepository ) {}
