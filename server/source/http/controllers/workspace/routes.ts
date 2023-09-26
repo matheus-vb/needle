@@ -18,6 +18,6 @@ export async function workspaceRoutes(app: FastifyInstance) {
     app.get('/members/:workspaceId', getAllMembers)
     app.delete('/workspace/delete/:accessCode', deleteWorkspace);
     app.get('/task/:workspaceId/:status', getWorkspaceTasksByStatus)
-    app.delete('/members/:userId/:workspaceId', deleteWorkspaceMember);
+    app.delete('/members/delete/:userId/:workspaceId', deleteWorkspaceMember);
 
 }

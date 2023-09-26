@@ -17,7 +17,7 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     @Published var sortOrder = [KeyPathComparator(\User.name)]
     
     @ObservedObject var authManager: A
-    @ObservedObject var workspaceDS: W
+    var workspaceDS: W
     private var taskDS: T
     private var cancellables = Set<AnyCancellable>()
     
@@ -50,7 +50,7 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     }
     
     func removeMember(memberId : String){
-        print("removed \(memberId)")
+        workspaceDS.deleteWorkspaceMember(userId: memberId, workspaceId: self.workspaceId)
     }
     
 }
