@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum SheetType {
-    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError, archiveTask
+    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError, archiveTask, deleteWorkspaceMember
     
     var image: Image {
         switch self {
@@ -21,6 +21,7 @@ enum SheetType {
         case .deleteTask: return Image("DeleteWorkspace")
         case .loginError: return Image("LoginError")
         case .archiveTask: return Image("CleanTask")
+        case .deleteWorkspaceMember: return Image("DeleteWorkspaceMember")
 
 
         }
@@ -36,6 +37,7 @@ enum SheetType {
         case .deleteTask: return NSLocalizedString("Deletar task?", comment: "")
         case .loginError: return ""
         case .archiveTask: return NSLocalizedString("Arquivar task?", comment: "")
+        case .deleteWorkspaceMember: return NSLocalizedString("Excluir usuário?", comment: "")
 
         }
     }
@@ -50,6 +52,7 @@ enum SheetType {
         case .deleteTask: return NSLocalizedString("Sua task e a documentação serão excluídas para sempre.", comment: "")
         case .loginError: return NSLocalizedString("Tente novamente.", comment: "")
         case .archiveTask: return NSLocalizedString("Tente novamente.", comment: "")
+        case .deleteWorkspaceMember: return NSLocalizedString("Esse usuário não irá mais estar disponível neste workspace.", comment: "")
 
 
 
@@ -66,6 +69,7 @@ enum SheetType {
         case .deleteTask: return true
         case .loginError: return false
         case .archiveTask: return true
+        case .deleteWorkspaceMember: return true
 
         }
     }
@@ -80,6 +84,7 @@ enum SheetType {
         case .deleteTask: return NSLocalizedString("Remover", comment: "")
         case .loginError: return "Ok"
         case .archiveTask: return NSLocalizedString("Arquivar", comment: "")
+        case .deleteWorkspaceMember: return NSLocalizedString("Excluir", comment: "")
 
         }
     }
@@ -94,6 +99,7 @@ enum SheetType {
         case .deleteTask: return 328
         case .loginError: return 328
         case .archiveTask: return 328
+        case .deleteWorkspaceMember: return 328
 
 
 
@@ -110,6 +116,7 @@ enum SheetType {
         case .deleteTask: return 264
         case .loginError: return 264
         case .archiveTask: return 264
+        case .deleteWorkspaceMember: return 264
 
 
         }

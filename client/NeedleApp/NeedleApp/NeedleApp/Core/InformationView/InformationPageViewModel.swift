@@ -15,6 +15,7 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     @Published var tasks: [TaskModel]
     @Published var workspaceMembers: [User]
     @Published var sortOrder = [KeyPathComparator(\User.name)]
+    @Published var selectedMemberId: String = ""
     
     @ObservedObject var authManager: A
     var workspaceDS: W
@@ -49,8 +50,11 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
         
     }
     
-    func removeMember(memberId : String){
-        workspaceDS.deleteWorkspaceMember(userId: memberId, workspaceId: self.workspaceId)
+    func removeMember(){
+        
+//        print(selectedMemberId)
+        print("jpistheman \(selectedMemberId)")
+        workspaceDS.deleteWorkspaceMember(userId: self.selectedMemberId, workspaceId: self.workspaceId)
     }
     
 }

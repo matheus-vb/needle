@@ -64,12 +64,13 @@ struct InformationPageView: View {
     
     @State var isPM : Bool = true
     @State var isActive : Bool = false
+    @State var sheetOpened : Bool = false
     
-    @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
+    @StateObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
     init(tasks: [TaskModel]?, workspaceMembers: [User]?, workspaceId: String, workspaceName: String) {
         
-        self.informationPageViewModel = InformationPageViewModel(
+        self._informationPageViewModel = StateObject(wrappedValue: InformationPageViewModel(
             tasks: tasks  ?? [],
             workspaceMembers: workspaceMembers ?? [],
             workspaceId: workspaceId,
@@ -77,6 +78,7 @@ struct InformationPageView: View {
             workspaceDS: WorkspaceDataService.shared,
             taskDS: TaskDataService.shared,
             authManager: AuthenticationManager.shared
+            )
         )
     }
     
@@ -120,6 +122,8 @@ struct InformationPageView: View {
                 
             }
             
+            
+            
             Text(NSLocalizedString("Total de membros: ", comment: "") + "\(informationPageViewModel.workspaceMembers.count)")
                 .font(.system(size: 24))
                 .padding(.top, 54)
@@ -135,13 +139,21 @@ struct InformationPageView: View {
                         Image(systemName: "trash")
                     }
                     .onTapGesture {
-                        informationPageViewModel.removeMember(memberId: member.id)
+                        print("jpisnottheman \(member.id)")
+                        informationPageViewModel.selectedMemberId =  member.id
+                        sheetOpened.toggle()
                     }
                 }
             }
             .onChange(of: informationPageViewModel.sortOrder) { newValue in
                 informationPageViewModel.workspaceMembers.sort(using: newValue)
             }
+            .sheet(isPresented: $sheetOpened, content: {
+                SheetView(type: .deleteWorkspaceMember)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+                    .environmentObject(informationPageViewModel)
+            })
         }.padding()
     }
     
