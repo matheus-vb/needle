@@ -44,7 +44,8 @@ struct OtherCardInformationPageView: View {
         VStack{
             Text(cardname)
                 .font(.system(size: 16))
-                .frame(width: 216, height: 32)
+                .frame(minWidth: 100, maxWidth: 216)
+                .frame(height: 32)
                 .background(Color.theme.greenSecondary)
             
             Spacer()
@@ -54,7 +55,8 @@ struct OtherCardInformationPageView: View {
             Spacer()
             
         }
-        .frame(width: 216, height: 104)
+        .frame(maxWidth: 216)
+        .frame(height: 104)
         .background(Color.white)
         .cornerRadius(6)
     }
@@ -89,7 +91,8 @@ struct InformationPageView: View {
                 Text(informationPageViewModel.workspaceName)
                     .font(.system(size: 40))
                     .fontWeight(.bold)
-                    .padding(.vertical, 40)
+                    .padding(.top, 20)
+                    .padding(.bottom, 40)
                 Spacer()
                 
                 //                HStack{
@@ -131,7 +134,7 @@ struct InformationPageView: View {
                 TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
                 TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
                 TableColumn(NSLocalizedString("Permanência", comment: "")) { member in
-                        if member.id != informationPageViewModel.authManager.user?.id{
+                    if member.workspaces![0].userRole != Role.PRODUCT_MANAGER {
                             HStack{
                                 Text("Excluir membro: ")
                                 Image(systemName: "trash")
@@ -141,7 +144,7 @@ struct InformationPageView: View {
                                 sheetOpened.toggle()
                             }
                         } else {
-                            Text("Você")
+                            Text(Role.PRODUCT_MANAGER.displayName)
                         }
 
                 }
