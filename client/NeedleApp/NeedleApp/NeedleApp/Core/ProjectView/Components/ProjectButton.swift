@@ -25,13 +25,13 @@ struct ProjectButton: View {
             projectViewModel.getRoleInWorkspace(workspaceId: project.id)
             projectViewModel.getWorkspaceTasks(workspaceId: project.id)
             projectViewModel.getWorkspaceMembers(workspaceId: project.id)
-            
             Task {
                 withAnimation {
                     triggerLoading = true
                 }
                 try? await Task.sleep(nanoseconds: 600_000_000)
                 projectViewModel.selectedWorkspace = project
+                print("newproject: \(projectViewModel.selectedWorkspace.name)")
                 withAnimation {
                     triggerLoading = false
                 }

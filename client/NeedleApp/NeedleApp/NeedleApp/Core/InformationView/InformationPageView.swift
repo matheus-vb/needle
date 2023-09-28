@@ -66,11 +66,11 @@ struct InformationPageView: View {
     @State var isActive : Bool = false
     @State var sheetOpened : Bool = false
     
-    @StateObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
+    @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
     init(tasks: [TaskModel]?, workspaceMembers: [User]?, workspaceId: String, workspaceName: String) {
         
-        self._informationPageViewModel = StateObject(wrappedValue: InformationPageViewModel(
+        self.informationPageViewModel = InformationPageViewModel(
             tasks: tasks  ?? [],
             workspaceMembers: workspaceMembers ?? [],
             workspaceId: workspaceId,
@@ -78,7 +78,6 @@ struct InformationPageView: View {
             workspaceDS: WorkspaceDataService.shared,
             taskDS: TaskDataService.shared,
             authManager: AuthenticationManager.shared
-            )
         )
     }
     
@@ -122,8 +121,6 @@ struct InformationPageView: View {
                 
             }
             
-            
-            
             Text(NSLocalizedString("Total de membros: ", comment: "") + "\(informationPageViewModel.workspaceMembers.count)")
                 .font(.system(size: 24))
                 .padding(.top, 54)
@@ -134,15 +131,19 @@ struct InformationPageView: View {
                 TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
                 TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
                 TableColumn(NSLocalizedString("Permanência", comment: "")) { member in
-                    HStack{
-                        Text("Excluir membro: ")
-                        Image(systemName: "trash")
-                    }
-                    .onTapGesture {
-                        print("jpisnottheman \(member.id)")
-                        informationPageViewModel.selectedMemberId =  member.id
-                        sheetOpened.toggle()
-                    }
+                        if member.id != informationPageViewModel.authManager.user?.id{
+                            HStack{
+                                Text("Excluir membro: ")
+                                Image(systemName: "trash")
+                            }.onTapGesture {
+                                informationPageViewModel.updateSelectedMemberId(memberId: member.id)
+                                print("memberId: \(member.id)")
+                                sheetOpened.toggle()
+                            }
+                        } else {
+                            Text("Você")
+                        }
+
                 }
             }
             .onChange(of: informationPageViewModel.sortOrder) { newValue in
@@ -154,7 +155,7 @@ struct InformationPageView: View {
                     .background(.white)
                     .environmentObject(informationPageViewModel)
             })
-        }.padding()
+        }.padding(.horizontal, 60)
     }
     
     func getRole() -> String{

@@ -18,6 +18,7 @@ struct SheetView: View {
     @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @EnvironmentObject var kanbanViewModel: KanbanViewModel<TaskDataService>
     @EnvironmentObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
     @ObservedObject var workspaceDataService = WorkspaceDataService.shared
@@ -68,11 +69,12 @@ struct SheetView: View {
         }
         case .loginError: return {dismiss()}
         case .archiveTask: return {
-            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
+            taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
             dismiss()
         }
-        case .deleteWorkspaceMember: return {
-            informationPageViewModel.removeMember()
+        case .deleteWorkspaceMember: return {            
+            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspaceId)
+            
             dismiss()
         }
             

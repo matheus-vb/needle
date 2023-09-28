@@ -9,13 +9,19 @@ import Foundation
 import Combine
 import SwiftUI
 
+extension String{
+    static var selectedMemberId : String = ""
+}
+
 class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W: WorkspaceDataServiceProtocol & ObservableObject, A: AuthenticationManagerProtocol & ObservableObject >: ObservableObject{
+    
+//    static var shared : InformationPageViewModel
     let workspaceId: String
     let workspaceName: String
     @Published var tasks: [TaskModel]
     @Published var workspaceMembers: [User]
     @Published var sortOrder = [KeyPathComparator(\User.name)]
-    @Published var selectedMemberId: String = ""
+//    @Published var selectedMemberId: String = ""
     
     @ObservedObject var authManager: A
     var workspaceDS: W
@@ -50,11 +56,17 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
         
     }
     
+    func updateSelectedMemberId(memberId: String){
+        String.selectedMemberId = memberId
+        print("already there: \(String.selectedMemberId), receiving \(memberId)")
+
+    }
+        func getMemberId() -> String{
+            return String.selectedMemberId
+    }
+    
     func removeMember(){
-        
-//        print(selectedMemberId)
-        print("jpistheman \(selectedMemberId)")
-        workspaceDS.deleteWorkspaceMember(userId: self.selectedMemberId, workspaceId: self.workspaceId)
+        workspaceDS.deleteWorkspaceMember(userId: String.selectedMemberId, workspaceId: self.workspaceId)
     }
     
 }
