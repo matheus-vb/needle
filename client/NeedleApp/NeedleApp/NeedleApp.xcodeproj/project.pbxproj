@@ -192,6 +192,7 @@
 		8A76DFD62A82E6BC0044189B /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A76DFD52A82E6BC0044189B /* DropdownButton.swift */; };
 		8A9BC3602A71C00300A070FC /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9BC35F2A71C00300A070FC /* LoginPageView.swift */; };
 		8AA46EC22AA267380001BE9D /* InformationPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA46EC12AA267380001BE9D /* InformationPageView.swift */; };
+		8AA66F182AC7585800948EE3 /* DashedExcludeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA66F172AC7585800948EE3 /* DashedExcludeButton.swift */; };
 		8AA87FE72A84043A007DFEB5 /* DashedSmallerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */; };
 		8AA87FEB2A8432DD007DFEB5 /* DropdownDateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */; };
 		8AC2A2E32A8470FB00C6CCF8 /* DropdownStatusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */; };
@@ -374,6 +375,7 @@
 		8A76DFD52A82E6BC0044189B /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		8A9BC35F2A71C00300A070FC /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		8AA46EC12AA267380001BE9D /* InformationPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPageView.swift; sourceTree = "<group>"; };
+		8AA66F172AC7585800948EE3 /* DashedExcludeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedExcludeButton.swift; sourceTree = "<group>"; };
 		8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedSmallerButton.swift; sourceTree = "<group>"; };
 		8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownDateButton.swift; sourceTree = "<group>"; };
 		8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownStatusButton.swift; sourceTree = "<group>"; };
@@ -877,6 +879,7 @@
 				27F32F9D2A81729D0046CB62 /* PopUpButton.swift */,
 				8A76DFD32A82E2AC0044189B /* DashedButton.swift */,
 				8AA87FE62A84043A007DFEB5 /* DashedSmallerButton.swift */,
+				8AA66F172AC7585800948EE3 /* DashedExcludeButton.swift */,
 				8A76DFD52A82E6BC0044189B /* DropdownButton.swift */,
 				8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */,
 				8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */,
@@ -1183,6 +1186,7 @@
 				27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
 				446767462AB10476006083C2 /* BoldText.swift in Sources */,
+				8AA66F182AC7585800948EE3 /* DashedExcludeButton.swift in Sources */,
 				D43EB9BB2A8414C900CF0315 /* SheetView.swift in Sources */,
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
@@ -1451,7 +1455,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1466,7 +1470,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.7.2;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

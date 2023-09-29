@@ -61,6 +61,16 @@ export class UserWorkspaceRepository implements IUserWorkspaceRepository{
         return true;
     }
 
+async deleteWorkspaceMember(userId: string, workspaceId: string) {
+        await prisma.user_Workspace.deleteMany({
+            where: {
+                userId: userId,
+                workspaceId: workspaceId
+            }
+        })
+        return
+}
+
     async updateRole(userId: string, workspaceId: string, role: Role) {
         await prisma.user_Workspace.updateMany({
             where: {

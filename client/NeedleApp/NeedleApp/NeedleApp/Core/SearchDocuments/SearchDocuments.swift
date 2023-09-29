@@ -44,7 +44,8 @@ struct SearchDocuments: View {
                 
                 Group {
                     TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
-                        .frame(width: 320, height: 32)
+                        .frame(height: 32)
+                        .frame(maxWidth: 320)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .onSubmit {
                             searchDocumentsViewModel.query = nil
