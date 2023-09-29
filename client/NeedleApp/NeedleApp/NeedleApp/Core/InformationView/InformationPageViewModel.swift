@@ -14,23 +14,18 @@ extension String{
 }
 
 class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W: WorkspaceDataServiceProtocol & ObservableObject, A: AuthenticationManagerProtocol & ObservableObject >: ObservableObject{
-    
-//    static var shared : InformationPageViewModel
-    let workspaceId: String
-    let workspaceName: String
+
+    let workspace : Workspace
     @Published var tasks: [TaskModel]
     @Published var workspaceMembers: [User]
     @Published var sortOrder = [KeyPathComparator(\User.name)]
-//    @Published var selectedMemberId: String = ""
-    
     @ObservedObject var authManager: A
     var workspaceDS: W
     private var taskDS: T
     private var cancellables = Set<AnyCancellable>()
     
-    init(tasks: [TaskModel], workspaceMembers: [User], workspaceId: String, workspaceName: String, workspaceDS: W, taskDS: T, authManager: A) {
-        self.workspaceId = workspaceId
-        self.workspaceName = workspaceName
+    init(tasks: [TaskModel], workspaceMembers: [User], workspace: Workspace, workspaceDS: W, taskDS: T, authManager: A) {
+        self.workspace = workspace
         self.tasks = tasks
         self.workspaceMembers = workspaceMembers
         self.workspaceDS = workspaceDS
@@ -44,13 +39,13 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     private func addSubscribers() {
         taskDS.allUsersTasksPublisher
             .sink(receiveValue: { [weak self] returnedTasks in
-                self?.tasks = returnedTasks[self!.workspaceId] ?? []
+                self?.tasks = returnedTasks[self!.workspace.id] ?? []
             })
             .store(in: &cancellables)
         
         workspaceDS.membersPublisher
             .sink(receiveValue: { [weak self] returnedUsers in
-                self?.workspaceMembers = returnedUsers[self!.workspaceId] ?? []
+                self?.workspaceMembers = returnedUsers[self!.workspace.id] ?? []
             })
             .store(in: &cancellables)
         
@@ -59,14 +54,16 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     func updateSelectedMemberId(memberId: String){
         String.selectedMemberId = memberId
         print("already there: \(String.selectedMemberId), receiving \(memberId)")
-
+        
     }
-        func getMemberId() -> String{
-            return String.selectedMemberId
+    func getMemberId() -> String{
+        return String.selectedMemberId
     }
     
     func removeMember(){
-        workspaceDS.deleteWorkspaceMember(userId: String.selectedMemberId, workspaceId: self.workspaceId)
+        workspaceDS.deleteWorkspaceMember(userId: String.selectedMemberId, workspaceId: self.workspace.id)
     }
+    
+//    func get
     
 }

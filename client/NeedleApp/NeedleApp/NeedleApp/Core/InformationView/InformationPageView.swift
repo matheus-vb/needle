@@ -64,19 +64,18 @@ struct OtherCardInformationPageView: View {
 
 struct InformationPageView: View {
     
-    @State var isPM : Bool = true
+    @State var isPM : Bool = false
     @State var isActive : Bool = false
     @State var sheetOpened : Bool = false
     
     @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
-    init(tasks: [TaskModel]?, workspaceMembers: [User]?, workspaceId: String, workspaceName: String) {
+    init(tasks: [TaskModel]?, workspaceMembers: [User]?, workspace: Workspace) {
         
         self.informationPageViewModel = InformationPageViewModel(
             tasks: tasks  ?? [],
             workspaceMembers: workspaceMembers ?? [],
-            workspaceId: workspaceId,
-            workspaceName: workspaceName,
+            workspace: workspace,
             workspaceDS: WorkspaceDataService.shared,
             taskDS: TaskDataService.shared,
             authManager: AuthenticationManager.shared
@@ -88,7 +87,7 @@ struct InformationPageView: View {
         
         VStack(alignment: .leading){
             HStack{
-                Text(informationPageViewModel.workspaceName)
+                Text(informationPageViewModel.workspace.name)
                     .font(.system(size: 40))
                     .fontWeight(.bold)
                     .padding(.top, 20)
@@ -107,7 +106,7 @@ struct InformationPageView: View {
                 .padding(.bottom, 32)
             
             HStack{
-                RoleCardInformationPageView(role: getRole())
+                RoleCardInformationPageView(role: getRole().displayName)
                 //                    .padding(.trailing, 88)
                 Spacer()
                 Spacer()
@@ -129,39 +128,16 @@ struct InformationPageView: View {
                 .padding(.top, 54)
                 .padding(.bottom, 24)
             
-            Table(informationPageViewModel.workspaceMembers, sortOrder: $informationPageViewModel.sortOrder) {
-                TableColumn(NSLocalizedString("Nome", comment: ""), value: \.name)
-                TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
-                TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
-                TableColumn(NSLocalizedString("Permanência", comment: "")) { member in
-                    if member.workspaces![0].userRole != Role.PRODUCT_MANAGER {
-                            HStack{
-                                Text("Excluir membro: ")
-                                Image(systemName: "trash")
-                            }.onTapGesture {
-                                informationPageViewModel.updateSelectedMemberId(memberId: member.id)
-                                print("memberId: \(member.id)")
-                                sheetOpened.toggle()
-                            }
-                        } else {
-                            Text(Role.PRODUCT_MANAGER.displayName)
-                        }
-
-                }
+            if getRole() == Role.PRODUCT_MANAGER {
+                PMTable()
+            } else {
+                memberTable()
             }
-            .onChange(of: informationPageViewModel.sortOrder) { newValue in
-                informationPageViewModel.workspaceMembers.sort(using: newValue)
-            }
-            .sheet(isPresented: $sheetOpened, content: {
-                SheetView(type: .deleteWorkspaceMember)
-                    .foregroundColor(Color.theme.grayHover)
-                    .background(.white)
-                    .environmentObject(informationPageViewModel)
-            })
+            
         }.padding(.horizontal, 60)
     }
     
-    func getRole() -> String{
+    func getRole() -> Role {
         
         var elementByIdentifier: [String: User] {
             Dictionary(uniqueKeysWithValues: informationPageViewModel.workspaceMembers.map { ($0.id, $0) })
@@ -169,11 +145,57 @@ struct InformationPageView: View {
         
         if let role = elementByIdentifier[informationPageViewModel.authManager.user!.id] {
             // Do something with the element
-            return role.workspaces![0].userRole.displayName
+            return role.workspaces![0].userRole
         } else {
-            return "NO ROLE"
+            return Role.PRODUCT_MANAGER
         }
         
+    }
+    
+}
+
+extension InformationPageView{
+    @ViewBuilder
+    func PMTable() -> some View {
+        Table(informationPageViewModel.workspaceMembers, sortOrder: $informationPageViewModel.sortOrder) {
+            TableColumn(NSLocalizedString("Nome", comment: ""), value: \.name)
+            TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
+            TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
+            TableColumn(NSLocalizedString("Permanência", comment: "")) { member in
+                if member.workspaces![0].userRole != Role.PRODUCT_MANAGER {
+                        HStack{
+                            Text("Excluir membro: ")
+                            Image(systemName: "trash")
+                        }.onTapGesture {
+                            informationPageViewModel.updateSelectedMemberId(memberId: member.id)
+                            print("memberId: \(member.id)")
+                            sheetOpened.toggle()
+                        }
+                    } else {
+                        Text(Role.PRODUCT_MANAGER.displayName)
+                    }
+            }
+        }
+        .onChange(of: informationPageViewModel.sortOrder) { newValue in
+            informationPageViewModel.workspaceMembers.sort(using: newValue)
+        }
+        .sheet(isPresented: $sheetOpened, content: {
+            SheetView(type: .deleteWorkspaceMember)
+                .foregroundColor(Color.theme.grayHover)
+                .background(.white)
+                .environmentObject(informationPageViewModel)
+        })
+    }
+
+    func memberTable() -> some View {
+        Table(informationPageViewModel.workspaceMembers, sortOrder: $informationPageViewModel.sortOrder) {
+            TableColumn(NSLocalizedString("Nome", comment: ""), value: \.name)
+            TableColumn(NSLocalizedString("Email",comment: ""), value: \.email)
+            TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
+        }
+        .onChange(of: informationPageViewModel.sortOrder) { newValue in
+            informationPageViewModel.workspaceMembers.sort(using: newValue)
+        }
     }
     
 }

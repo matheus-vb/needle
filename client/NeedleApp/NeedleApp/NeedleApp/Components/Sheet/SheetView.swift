@@ -73,7 +73,7 @@ struct SheetView: View {
             dismiss()
         }
         case .deleteWorkspaceMember: return {
-            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspaceId)
+            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
             
             dismiss()
         }
