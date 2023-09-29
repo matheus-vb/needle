@@ -42,6 +42,7 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
                 }
             }, receiveValue: { [weak self] (returnedWorkspaces) in
                 self?.workspaces = returnedWorkspaces.data
+                self?.workspaces.sort{ $0.name < $1.name }
                 self?.workspaceSubscription?.cancel()
             })
     }

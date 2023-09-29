@@ -1,6 +1,7 @@
-import { Prisma, User_Workspace } from "@prisma/client";
+import { Prisma, Role, User_Workspace } from "@prisma/client";
 import { prisma } from "../../lib/prisma";
 import { IUserWorkspaceRepository } from "../IUserWorkspaceRepository";
+import { truncate } from "fs";
 
 
 export class UserWorkspaceRepository implements IUserWorkspaceRepository{
@@ -69,4 +70,18 @@ async deleteWorkspaceMember(userId: string, workspaceId: string) {
         })
         return
 }
+
+    async updateRole(userId: string, workspaceId: string, role: Role) {
+        await prisma.user_Workspace.updateMany({
+            where: {
+                userId: userId,
+                workspaceId: workspaceId
+            },
+            data:{
+                userRole: role,
+            }
+        })
+
+        return true
+    }
 }

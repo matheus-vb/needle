@@ -129,7 +129,6 @@
 		868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */; };
 		86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86866C542A7C9B220027FEE9 /* Color+Theme.swift */; };
 		86BE497F2A97EB4A008A7F7F /* DocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */; };
-		86BE49812A97EB63008A7F7F /* DocumentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */; };
 		86BE49832A9FBB4E008A7F7F /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0822A8FF9F600F8168A /* RootViewModel.swift */; };
 		86BE49862A9FBBAF008A7F7F /* RootViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */; };
 		86BE49882A9FBC4D008A7F7F /* AuthenticationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0852A901F3000F8168A /* AuthenticationManagerProtocol.swift */; };
@@ -1198,7 +1197,6 @@
 				86E7BCEC2A7D6D7800CDCCB2 /* UpdateDeviceTokenDTO.swift in Sources */,
 				44FE06332A82E71800386ADE /* PickerApp.swift in Sources */,
 				279F09C12A82ACA80016B12E /* EditTaskPopUPComponents.swift in Sources */,
-				86BE49812A97EB63008A7F7F /* DocumentationViewModel.swift in Sources */,
 				864D69A22A787B0700EB256A /* NetworkingManager.swift in Sources */,
 				86EFD0902A952AF200F8168A /* WorkspaceCardViewModel.swift in Sources */,
 				274A283F2A71A0D90002CFEA /* CoordinatorPlaceHolder.swift in Sources */,
