@@ -9,12 +9,13 @@ import Foundation
 import SwiftUI
 
 enum SheetType {
-    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError, archiveTask, deleteWorkspaceMember
+    case newWorkspace, deleteWorkspace, joinCode, shareCode, documentNotFound, deleteTask, loginError, archiveTask, deleteWorkspaceMember, deleteWorkspaceFromInfo
     
     var image: Image {
         switch self {
         case .newWorkspace: return Image("NewWorkspace")
         case .deleteWorkspace: return Image("DeleteWorkspace")
+        case .deleteWorkspaceFromInfo: return Image("DeleteWorkspace")
         case .joinCode: return Image("JoinCode")
         case .shareCode: return Image("ShareCode")
         case .documentNotFound: return Image("DocumentNotFound")
@@ -31,6 +32,7 @@ enum SheetType {
         switch self {
         case .newWorkspace: return ""
         case .deleteWorkspace:return NSLocalizedString("Excluir projeto?", comment: "")
+        case .deleteWorkspaceFromInfo:return NSLocalizedString("Excluir projeto?", comment: "")
         case .joinCode: return ""
         case .shareCode: return ""
         case .documentNotFound: return NSLocalizedString("Documento não encontrado", comment: "")
@@ -46,6 +48,7 @@ enum SheetType {
         switch self {
         case .newWorkspace: return NSLocalizedString("Nomeie seu novo workspace:", comment: "")
         case .deleteWorkspace: return NSLocalizedString("Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos.", comment: "")
+        case .deleteWorkspaceFromInfo: return NSLocalizedString("Lembre-se, ao excluir um workspace,\nsuas tasks e documentos serão perdidos.", comment: "")
         case .joinCode: return ""
         case .shareCode: return NSLocalizedString("Envie o código do workspace para sua equipe e deixe-a alinhada.", comment: "")
         case .documentNotFound: return NSLocalizedString("Procure por outras palavras-chave como título da task, área ou data!", comment: "")
@@ -63,6 +66,7 @@ enum SheetType {
         switch self {
         case .newWorkspace: return true
         case .deleteWorkspace: return true
+        case .deleteWorkspaceFromInfo: return true
         case .joinCode: return true
         case .shareCode: return true
         case .documentNotFound: return false
@@ -78,6 +82,7 @@ enum SheetType {
         switch self {
         case .newWorkspace: return NSLocalizedString("Criar", comment: "")
         case .deleteWorkspace: return NSLocalizedString("Excluir", comment: "")
+        case .deleteWorkspaceFromInfo: return NSLocalizedString("Excluir", comment: "")
         case .joinCode: return NSLocalizedString("Entrar", comment: "")
         case .shareCode: return NSLocalizedString("Copiar", comment: "")
         case .documentNotFound: return "Ok"
@@ -93,6 +98,7 @@ enum SheetType {
         switch self {
         case .newWorkspace: return 328
         case .deleteWorkspace: return 328
+        case .deleteWorkspaceFromInfo: return 328
         case .joinCode: return 328
         case .shareCode: return 328
         case .documentNotFound: return 328
@@ -110,6 +116,7 @@ enum SheetType {
         switch self {
         case .newWorkspace: return 264
         case .deleteWorkspace: return 264
+        case .deleteWorkspaceFromInfo: return 264
         case .joinCode: return 264
         case .shareCode: return 264
         case .documentNotFound: return 264

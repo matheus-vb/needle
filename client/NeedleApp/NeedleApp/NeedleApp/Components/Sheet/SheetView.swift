@@ -48,10 +48,16 @@ struct SheetView: View {
             dismiss()
             
         }
-        case .deleteWorkspace: return {                     WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
+        case .deleteWorkspace: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
             dismiss()
-            
         }
+        
+        case .deleteWorkspaceFromInfo: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
+            dismiss()
+        }
+            
         case .joinCode: return {
             WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
             

@@ -64,9 +64,10 @@ struct OtherCardInformationPageView: View {
 
 struct InformationPageView: View {
     
-    @State var isPM : Bool = false
-    @State var isActive : Bool = false
     @State var sheetOpened : Bool = false
+    @State var deleteSheetOpened : Bool = false
+    @Environment(\.dismiss) var dismiss
+
     
     @ObservedObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
@@ -94,11 +95,17 @@ struct InformationPageView: View {
                     .padding(.bottom, 40)
                 Spacer()
                 
-                //                HStack{
-                //                    Text("Excluir projeto")
-                //                        .font(.system(size: 16))
-                //                    Image(systemName: "trash")
-                //                }
+                DashedExcludeButton(text: NSLocalizedString("Excluir projeto", comment: "")){
+//                    informationPageViewModel.deleteWorkspace()
+                    deleteSheetOpened.toggle()
+//                    dismiss()
+                }
+                .sheet(isPresented: $deleteSheetOpened, content: {
+                    SheetView(type: .deleteWorkspaceFromInfo)
+                        .foregroundColor(Color.theme.grayHover)
+                        .background(.white)
+                        .environmentObject(informationPageViewModel)
+                })
             }
             
             Text(NSLocalizedString("Informações Gerais",comment:""))
@@ -163,17 +170,17 @@ extension InformationPageView{
             TableColumn(NSLocalizedString("Função", comment: ""), value: \.workspaces![0].userRole.displayName)
             TableColumn(NSLocalizedString("Permanência", comment: "")) { member in
                 if member.workspaces![0].userRole != Role.PRODUCT_MANAGER {
-                        HStack{
-                            Text("Excluir membro: ")
-                            Image(systemName: "trash")
-                        }.onTapGesture {
-                            informationPageViewModel.updateSelectedMemberId(memberId: member.id)
-                            print("memberId: \(member.id)")
-                            sheetOpened.toggle()
-                        }
-                    } else {
-                        Text(Role.PRODUCT_MANAGER.displayName)
+                    HStack{
+                        Text("Excluir membro: ")
+                        Image(systemName: "trash")
+                    }.onTapGesture {
+                        informationPageViewModel.updateSelectedMemberId(memberId: member.id)
+                        print("memberId: \(member.id)")
+                        sheetOpened.toggle()
                     }
+                } else {
+                    Text(Role.PRODUCT_MANAGER.displayName)
+                }
             }
         }
         .onChange(of: informationPageViewModel.sortOrder) { newValue in
@@ -186,7 +193,7 @@ extension InformationPageView{
                 .environmentObject(informationPageViewModel)
         })
     }
-
+    
     func memberTable() -> some View {
         Table(informationPageViewModel.workspaceMembers, sortOrder: $informationPageViewModel.sortOrder) {
             TableColumn(NSLocalizedString("Nome", comment: ""), value: \.name)

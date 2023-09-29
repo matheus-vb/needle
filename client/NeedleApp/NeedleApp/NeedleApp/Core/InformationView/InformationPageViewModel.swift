@@ -64,6 +64,8 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
         workspaceDS.deleteWorkspaceMember(userId: String.selectedMemberId, workspaceId: self.workspace.id)
     }
     
-//    func get
+    func deleteWorkspace(){
+        workspaceDS.deleteWorkspace(accessCode: workspace.accessCode, userId: authManager.user?.id ?? "")
+    }
     
 }
