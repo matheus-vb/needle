@@ -6,6 +6,14 @@
 //
 import Foundation
 class WorkspaceDataServiceMock: WorkspaceDataServiceProtocol{
+    func deleteWorkspaceMember(userId: String, workspaceId: String) {
+        
+    }
+    
+    @Published var errorCount: Int = 0
+    
+    var errorCountPublisher: Published<Int>.Publisher {$errorCount}
+    
     let db: DBMock
     @Published var workspaces: [Workspace] = []
     var workspacePublisher: Published<[Workspace]>.Publisher {$workspaces}

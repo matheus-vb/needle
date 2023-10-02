@@ -28,6 +28,7 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
     var joinWorkspaceSubscription: AnyCancellable?
     var deleteWorkspaceSubscription: AnyCancellable?
     var getMembersSubscription: AnyCancellable?
+    var deleteWorkspaceMemberSubscription : AnyCancellable?
     
     func getUsersWorkspaces(userId: String) {
         guard let url = URL(string: Bundle.baseURL + "workspace/list/\(userId)") else { return }
@@ -41,6 +42,7 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
                 }
             }, receiveValue: { [weak self] (returnedWorkspaces) in
                 self?.workspaces = returnedWorkspaces.data
+                self?.workspaces.sort{ $0.name < $1.name }
                 self?.workspaceSubscription?.cancel()
             })
     }
@@ -98,6 +100,21 @@ class WorkspaceDataService: WorkspaceDataServiceProtocol {
             }, receiveValue: { [weak self] _ in
                 self?.getUsersWorkspaces(userId: userId)
                 self?.workspaceSubscription?.cancel()
+            })
+    }
+        
+    func deleteWorkspaceMember(userId: String, workspaceId : String) {
+        guard let url = URL(string: Bundle.baseURL + "members/delete/\(userId)/\(workspaceId)") else { return }
+        
+        deleteWorkspaceMemberSubscription = NetworkingManager.delete(url: url)
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] _ in
+                self?.getWorkspaceMembers(workspaceId: workspaceId)
+                self?.deleteWorkspaceMemberSubscription?.cancel()
             })
     }
     

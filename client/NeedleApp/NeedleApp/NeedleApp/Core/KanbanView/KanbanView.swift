@@ -32,14 +32,21 @@ struct KanbanView: View {
     
     var body: some View {
         ZStack {
-            Image("icon-bg")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 2000, alignment: .bottomTrailing)
             VStack{
+                HStack(spacing: 44) {
+                    statusTitleLabel(rowName: NSLocalizedString("A fazer", comment: ""), color: Color.theme.redMain)
+                    statusTitleLabel(rowName: NSLocalizedString("Fazendo", comment: ""), color: Color.theme.blueKanban)
+                    statusTitleLabel(rowName: NSLocalizedString("Em revisão", comment: ""), color: Color.theme.orangeKanban)
+                    statusTitleLabel(rowName: NSLocalizedString("Feito", comment: ""), color: Color.theme.greenKanban)
+                }
+                .padding(.leading, 8)
+                //.padding(.trailing, 64)
+                .padding(.top, 24)
                 HStack{
-                    DropdownTypeButton(taskType: $kanbanViewModel.taskType, dropOptions: TaskType.allCases) {}
-                    DropdownPriorityButton(taskPriority: $kanbanViewModel.taskPriority, dropOptions: TaskPriority.allCases) {}
+                    HStack {
+                        DropdownTypeButton(taskType: $kanbanViewModel.taskType, dropOptions: TaskType.allCases) {}
+                        DropdownPriorityButton(taskPriority: $kanbanViewModel.taskPriority, dropOptions: TaskPriority.allCases) {}
+                    }.padding(.leading, 8)
                     Spacer()
                     Group {
                         HStack {
@@ -79,6 +86,7 @@ struct KanbanView: View {
             .padding(.leading, 64)
         }.sheet(isPresented: $kanbanViewModel.isArchiving, content: {
             SheetView(type: .archiveTask)
+                .environmentObject(kanbanViewModel)
         })
         
     }
@@ -168,9 +176,9 @@ struct KanbanView: View {
     func InReviewView() -> some View {
         NavigationStack {
             VStack {
-                addTaskButton(status: TaskStatus.PENDING)
-                Spacer()
-                    .frame(height: 24)
+//                addTaskButton(status: TaskStatus.PENDING)
+//                Spacer()
+//                    .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.PENDING &&
@@ -190,6 +198,7 @@ struct KanbanView: View {
                 .scrollIndicators(.never)
             }
         }
+        .frame(minWidth: 128, maxWidth: 1000)
         .dropDestination(for: String.self) { items, location in
             kanbanViewModel.currentlyDragging = items.first
             self.disableTap = true
@@ -208,9 +217,9 @@ struct KanbanView: View {
     func DoneView() -> some View {
         NavigationStack {
             VStack {
-                addTaskButton(status: TaskStatus.DONE)
-                Spacer()
-                    .frame(height: 24)
+//                addTaskButton(status: TaskStatus.DONE)
+//                Spacer()
+//                    .frame(height: 24)
                 ScrollView(.vertical) {
                     ForEach(kanbanViewModel.localTasks.filter {
                         $0.status == TaskStatus.DONE  &&
@@ -230,6 +239,7 @@ struct KanbanView: View {
                 .scrollIndicators(.never)
             }
         }
+        .frame(minWidth: 128, maxWidth: 1000)
         .dropDestination(for: String.self) { items, location in
             self.disableTap = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -246,6 +256,31 @@ struct KanbanView: View {
             return false
         } isTargeted: { status in
         }
+    }
+    
+    
+    @ViewBuilder
+    func statusTitleLabel(rowName: String, color: Color) -> some View {
+        
+        HStack{
+            Circle()
+                .frame(width: 10)
+                .foregroundColor(color)
+                .cornerRadius(5)
+            Spacer()
+                .frame(width: 8)
+            Text(rowName)
+                .font(
+                    Font.custom("SF Pro", size: 18)
+                        .weight(.medium)
+                )
+                .foregroundColor(.black)
+            Spacer()
+        }
+        .frame(minWidth: 132)
+        .frame(height: 32)
+        .cornerRadius(5)
+        
     }
 }
 

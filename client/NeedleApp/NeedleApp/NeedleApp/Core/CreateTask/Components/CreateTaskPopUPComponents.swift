@@ -37,7 +37,7 @@ extension CreateTaskPopUp{
                 ForEach(createTaskViewModel.members) { membro in
                     Text(membro.name)
                         .foregroundColor(Color.theme.blackMain)
-                        .tag(membro.id)
+                        .tag(Optional(membro.id))
                 }
             }
             .frame(maxWidth: geometry.size.width*0.26)

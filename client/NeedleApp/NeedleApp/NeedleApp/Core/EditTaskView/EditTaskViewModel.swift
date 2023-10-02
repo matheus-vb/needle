@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import RichTextKit
 
 class EditTaskViewModel<
     T: TaskDataServiceProtocol & ObservableObject
@@ -17,6 +18,8 @@ class EditTaskViewModel<
     
     private var taskDS: T
     let selectedTask: TaskModel
+    
+    let context = RichTextContext()
     
     @Binding var isEditing: Bool
     @Published var documentationID: String
@@ -28,8 +31,6 @@ class EditTaskViewModel<
     @Published var prioritySelection: TaskPriority
     @Published var deadLineSelection: Date
     @Published var categorySelection: TaskType
-    @Published var seeDocumentation: Bool = false
-
     @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
@@ -56,7 +57,7 @@ class EditTaskViewModel<
         self.documentationID = data.document?.id ?? "0"
         self.members = members
         self.taskDS = taskDS
-        
+                
         //Pegar a documentacao
         let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
         do{
@@ -81,7 +82,9 @@ class EditTaskViewModel<
         )
         
         self.setupBindings()
+
     }
+    
     
     func setupBindings() {
         Publishers.CombineLatest4($selectedMember, $taskTitle, $taskDescription, $statusSelection)
@@ -120,5 +123,18 @@ class EditTaskViewModel<
     
     func unarchiveTask(){
         taskDS.updateTaskStatus(taskId: selectedTask.id, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
+    }
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return .purple
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
     }
 }

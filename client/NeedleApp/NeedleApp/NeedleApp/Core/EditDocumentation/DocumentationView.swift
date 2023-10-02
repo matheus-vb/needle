@@ -9,19 +9,20 @@ import SwiftUI
 import RichTextKit
 
 struct DocumentationView: View {
-    @ObservedObject var documentationViewModel: DocumentationViewModel<DocumentationDataService>
-    @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @StateObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
     @Environment(\.dismiss) var dismiss
     
     var geometry: GeometryProxy
+    
+    var action: () -> ()
     
     @Binding var documentationNS: NSAttributedString
     
     @State var backButtonHovered: Bool = false
     
-    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>, geometry: GeometryProxy) {
-        self.documentationViewModel = DocumentationViewModel(workspaceId: workspaceId, documentId: documentId, docDS: DocumentationDataService.shared)
-        self.editTaskViewModel = editTaskViewModel
+    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>,  action: @escaping () -> (), geometry: GeometryProxy) {
+        self.action = action
+        self._editTaskViewModel = StateObject(wrappedValue: editTaskViewModel)
         self._documentationNS = documentationNS
         self.geometry = geometry
     }
@@ -44,8 +45,10 @@ struct DocumentationView: View {
         var taskDataHeader: some View {
             VStack(alignment: .center, spacing: 32) {
                 HStack {
-                    Button(action: {print("fechei pelo <")
-                        editTaskViewModel.seeDocumentation.toggle()}, label: {
+                    Button(action: {
+                        action()
+                        
+                    }, label: {
                         Image(systemName: "chevron.backward")
                             .resizable()
                             .scaledToFit()
@@ -94,16 +97,16 @@ struct DocumentationView: View {
                             switch editTaskViewModel.selectedTask.taskPriority {
                             case .LOW:
                                 Text(NSLocalizedString("Baixa", comment: ""))
-                                    .foregroundColor(documentationViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
+                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
                             case .MEDIUM:
                                 Text(NSLocalizedString("Moderada", comment: ""))
-                                    .foregroundColor(documentationViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
+                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
                             case .HIGH:
                                 Text(NSLocalizedString("Alta", comment: ""))
-                                    .foregroundColor(documentationViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
+                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
                             case .VERY_HIGH:
                                 Text(NSLocalizedString("Urgente", comment: ""))
-                                    .foregroundColor(documentationViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
+                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
                             }
                         
                     }
@@ -115,16 +118,16 @@ struct DocumentationView: View {
         }
         
         var editor: some View {
-            RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
+            RichTextEditor(text: $documentationNS, context: editTaskViewModel.context) {
                 $0.textContentInset = CGSize(width: 20, height: 40)
             }
             .cornerRadius(8)
-            .focusedValue(\.richTextContext, documentationViewModel.context)
+            .focusedValue(\.richTextContext, editTaskViewModel.context)
         }
         
         var toolbar: some View {
             VStack {
-                RichTextFormatSidebar(context: documentationViewModel.context)
+                RichTextFormatSidebar(context: editTaskViewModel.context)
                     .layoutPriority(-1)
                     .foregroundColor(Color.theme.blackMain)
             }

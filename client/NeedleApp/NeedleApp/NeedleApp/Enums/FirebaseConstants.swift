@@ -25,4 +25,5 @@ enum K: String {
     case changedTaskStatus = "changedTaskStatus"  //implementado
     case copiedJoinCode = "copiedJoinCode"  // implementado
     case nonPMTriedToConclude = "nonPMTriedToConclude"
+    case feedback = "feedback"
 }

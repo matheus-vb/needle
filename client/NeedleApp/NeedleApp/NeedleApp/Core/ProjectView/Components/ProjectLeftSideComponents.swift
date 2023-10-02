@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension ProjectLeftSideComponent{
+extension ProjectView{
     
     var leftSideTitle: some View {
         HStack{
@@ -21,13 +21,13 @@ extension ProjectLeftSideComponent{
 
         }
         .padding(15)
-        .scaleEffect(onHoverProject ? 1.1 : 0.98)
-        .animation(.spring(), value: onHoverProject)
+        .scaleEffect(projectViewModel.onHoverProject ? 1.1 : 0.98)
+        .animation(.spring(), value: projectViewModel.onHoverProject)
         .onTapGesture {
             dismiss()
         }
         .onHover { Bool in
-            onHoverProject = Bool
+            projectViewModel.onHoverProject = Bool
         }
         
     }
@@ -38,15 +38,15 @@ extension ProjectLeftSideComponent{
             .font(Font.custom("SF Pro", size: 16).weight(.regular))
             .padding(.vertical, 10)
             .padding(.leading, 20)
-            .scaleEffect(onHoverNewProject ? 1.1 : 0.98)
-            .animation(.spring(), value: onHoverNewProject)
+            .scaleEffect(projectViewModel.onHoverNewProject ? 1.1 : 0.98)
+            .animation(.spring(), value: projectViewModel.onHoverNewProject)
             .onTapGesture {
-                isNaming.toggle()
+                projectViewModel.isNaming.toggle()
             }
             .onHover { Bool in
-                onHoverNewProject = Bool
+                projectViewModel.onHoverNewProject = Bool
             }
-            .sheet(isPresented: $isNaming) {
+            .sheet(isPresented: $projectViewModel.isNaming) {
                 SheetView(type: .newWorkspace)
                     .foregroundColor(Color.theme.grayHover)
                     .background(.white)
@@ -55,10 +55,12 @@ extension ProjectLeftSideComponent{
     
     var projectsList: some View {
         List($projectViewModel.projects, id: \.self) {project in
-            ProjectButton(project: project.wrappedValue, triggerLoading: $triggerLoading)
+            ProjectButton(project: project.wrappedValue, triggerLoading: $projectViewModel.triggerLoading)
                 .listRowInsets(EdgeInsets())
+                .environmentObject(projectViewModel)
         }
         .frame(height: $projectViewModel.projects.count >= 5 ? 330 : (66 * CGFloat($projectViewModel.projects.count)))
+
 
     }
 }

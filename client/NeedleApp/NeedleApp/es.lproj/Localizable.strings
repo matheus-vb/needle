@@ -160,6 +160,8 @@
 
 "Selecione uma função:" = "Seleccione una función:";
 
+"Função"= "Función";
+
 "+ Novo projeto" = "+ Nuevo proyecto";
 
 "Deixe um feedback" = "Deja un comentario";
@@ -167,6 +169,21 @@
 "Ninguém documentou nada ainda. Seja o primeiro!" = "Nadie ha documentado nada todavía. ¡Sé el primero!";
 
 "Insira o nome do novo workspace" = "Ingrese el nombre del nuevo espacio de trabajo.";
+
+"Minha função" = "Mi función";
+
+"Tasks no Kanban" = "Tareas en kanban";
+
+"Tasks Documentadas"= "Tareas documentadas";
+
+"Tasks Pendentes" = "Tareas pendientes";
+
+"Excluir Projeto" = "Eliminar Proyecto";
+
+"Total de membros: "= "Número de miembros: ";
+
+"Informação" = "Informacíon";
+
 
 // Templates:
 

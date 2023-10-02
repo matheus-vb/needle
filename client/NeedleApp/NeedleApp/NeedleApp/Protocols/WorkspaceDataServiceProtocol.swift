@@ -24,4 +24,6 @@ protocol WorkspaceDataServiceProtocol: ObservableObject {
     func joinWorkspace(userId: String, accessCode: String, role: Role)
     func deleteWorkspace(accessCode: String, userId: String)
     func getWorkspaceMembers(workspaceId: String)
+    func deleteWorkspaceMember(userId: String, workspaceId : String)
+    
 }

@@ -13,9 +13,13 @@ import Combine
 
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
+    
+    // receber
     @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @EnvironmentObject var kanbanViewModel: KanbanViewModel<TaskDataService>
+    @EnvironmentObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
     @ObservedObject var workspaceDataService = WorkspaceDataService.shared
     @ObservedObject var authManager = AuthenticationManager.shared
@@ -30,7 +34,7 @@ struct SheetView: View {
     @State var action: () -> () = {}
     
     @State var accessCode = ""
-        
+    
     @State var textfieldInput: String = ""
     @State var selectedRole: Role = .DEVELOPER
     
@@ -44,10 +48,16 @@ struct SheetView: View {
             dismiss()
             
         }
-        case .deleteWorkspace: return {                     WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
+        case .deleteWorkspace: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
             dismiss()
-            
         }
+        
+        case .deleteWorkspaceFromInfo: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
+            dismiss()
+        }
+            
         case .joinCode: return {
             WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
             
@@ -65,67 +75,72 @@ struct SheetView: View {
         }
         case .loginError: return {dismiss()}
         case .archiveTask: return {
-            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
+            taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
             dismiss()
         }
-
+        case .deleteWorkspaceMember: return {
+            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
+            
+            dismiss()
+        }
+            
         }
     }
-        
+    
     var buttonBlock: some View {
-      HStack(spacing: 8) {
-          if type.twoButtons && type != .joinCode {
-                    Button("Cancelar", action: {
-                        if(type == .deleteTask){
-                            editTaskViewModel.isDeleting.toggle()
-                        }else{
+        HStack(spacing: 8) {
+            if type.twoButtons && type != .joinCode {
+                Button("Cancelar", action: {
+                    if(type == .deleteTask){
+                        editTaskViewModel.isDeleting.toggle()
+                    }else{
+                        dismiss()
+                    }
+                }).buttonStyle(SecondarySheetActionButton())
+                
+                Button(type.primaryAction, action: {
+                    buttonAction()
+                }).buttonStyle(PrimarySheetActionButton())
+                    .keyboardShortcut(.defaultAction)
+            }
+            else if type == .joinCode {
+                VStack(spacing: 10) {
+                    Text(NSLocalizedString("Selecione uma função:", comment: ""))
+                    Picker("", selection: $selectedRole) {
+                        ForEach(Role.allCases.filter{ $0 != .PRODUCT_MANAGER }) { role in
+                            Text(role.displayName).tag(role)
+                        }
+                    }.padding(.horizontal, 24)
+                    
+                    
+                    
+                    HStack {
+                        Button("Cancelar") {
                             dismiss()
                         }
-                    }).buttonStyle(SecondarySheetActionButton())
-                    
-                    Button(type.primaryAction, action: {
-                        buttonAction()
-                    }).buttonStyle(PrimarySheetActionButton())
-                  .keyboardShortcut(.defaultAction)
+                        .buttonStyle(SecondarySheetActionButton())
+                        Button("Entrar") {
+                            WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role: selectedRole)
+                            
+                            showMain.toggle()
+                            
+                        }.buttonStyle(PrimarySheetActionButton())
+                            .keyboardShortcut(.defaultAction)
+                    }
                 }
-          else if type == .joinCode {
-                  VStack(spacing: 10) {
-                      Text(NSLocalizedString("Selecione uma função:", comment: ""))
-                      Picker("", selection: $selectedRole) {
-                          ForEach(Role.allCases.filter{ $0 != .PRODUCT_MANAGER }) { role in
-                              Text(role.displayName).tag(role)
-                          }
-                      }.padding(.horizontal, 24)
-
-                      
-                      
-                      HStack {
-                          Button("Cancelar") {
-                              dismiss()
-                          }
-                          .buttonStyle(SecondarySheetActionButton())
-                          Button("Entrar") {
-                              WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role: selectedRole)
-                              
-                              showMain.toggle()
-
-                          }.buttonStyle(PrimarySheetActionButton())
-                              .keyboardShortcut(.defaultAction)
-                      }
-                  }
-                  .offset(y: -20)
-                  .padding(.vertical, 10)
-          }
-                else   {
-                    Spacer()
-                    Button("Ok", action: {
-                        buttonAction()
-                        showMain.toggle()
-                    }).buttonStyle(PrimarySheetActionButton())
-                    Spacer()
-                }
+                .offset(y: -20)
+                .padding(.vertical, 10)
+            }
+            else   {
+                Spacer()
+                Button("Ok", action: {
+                    buttonAction()
+                    showMain.toggle()
+                }).buttonStyle(PrimarySheetActionButton())
+                Spacer()
             }
         }
+    }
     
     var textField: some View {
         HStack {
@@ -138,14 +153,14 @@ struct SheetView: View {
                 }
                 .foregroundColor(.black)
                 .frame(width: type == .joinCode ? 100 : 260)
-
+            
         }
     }
     
     func limitText(_ upper: Int) {
-            if textfieldInput.count > upper {
-                textfieldInput = String(textfieldInput.prefix(upper))
-            }
+        if textfieldInput.count > upper {
+            textfieldInput = String(textfieldInput.prefix(upper))
+        }
     }
     
     var errorMessage: some View {
@@ -156,9 +171,15 @@ struct SheetView: View {
     
     var loading: some View {
         ZStack {
-            Image("icon-bg")
-                .offset(x: 200, y: 40)
-                .blur(radius: 8)
+            HStack {
+                Spacer()
+                    .frame(maxWidth: .infinity)
+                Image("Bg_Arte")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, alignment: .bottomTrailing)
+            }
+            .frame(width: .infinity, height: .infinity)
             Circle()
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)
@@ -170,7 +191,7 @@ struct SheetView: View {
                     }
                 }
         }
-
+        
     }
     
     var main: some View {
@@ -179,30 +200,30 @@ struct SheetView: View {
             if isShowingError {
                 errorMessage
             }
-                VStack(spacing: 12) {
-                    if type.title != "" {
-                        Text(type == .shareCode ? accessCode : type.title)
-                            .font(.custom("SF Pro", size: 16))
-                            .bold()
-                            .padding(.top, 8)
-                    }
-                    if type.text != ""{
-                        Text(type.text)
-                            .font(.custom("SF Pro", size: 14))
-                            .multilineTextAlignment(.center)
-                    }
+            VStack(spacing: 12) {
+                if type.title != "" {
+                    Text(type == .shareCode ? accessCode : type.title)
+                        .font(.custom("SF Pro", size: 16))
+                        .bold()
+                        .padding(.top, 8)
+                }
+                if type.text != ""{
+                    Text(type.text)
+                        .font(.custom("SF Pro", size: 14))
+                        .multilineTextAlignment(.center)
+                }
                 
                 if type == .joinCode || type == .newWorkspace {
                     textField
                 }
-            
+                
             }
             buttonBlock
                 .padding(.top, type == .joinCode ? 20 : 16)
         }
         .padding(.vertical, 20)
         .padding(.horizontal, 35.5)
-
+        
         .foregroundColor(.black)
     }
     
@@ -219,18 +240,18 @@ struct SheetView: View {
                     }
             }
         }.frame(width: type.width, height: type.height)
-        .onChange(of: workspaceDataService.errorCount, perform: { _ in
-            isShowingError.toggle()
-        })
-        .onChange(of: taskDataService.errorCount, perform: { _ in
-            isShowingError.toggle()
-        })
-        .onChange(of: authManager.errorCount, perform: { _ in
-            isShowingError.toggle()
-        })
-        .onChange(of: documentDataService.errorCount, perform: { _ in
-            isShowingError.toggle()
-        })
+            .onChange(of: workspaceDataService.errorCount, perform: { _ in
+                isShowingError.toggle()
+            })
+            .onChange(of: taskDataService.errorCount, perform: { _ in
+                isShowingError.toggle()
+            })
+            .onChange(of: authManager.errorCount, perform: { _ in
+                isShowingError.toggle()
+            })
+            .onChange(of: documentDataService.errorCount, perform: { _ in
+                isShowingError.toggle()
+            })
     }
     
     func loadData() async {
@@ -248,16 +269,16 @@ struct SheetView_Previews: PreviewProvider {
                 .background(.white)
             SheetView(type: .deleteWorkspace)
                 .background(.white)
-
+            
             SheetView(type: .documentNotFound)
                 .background(.white)
-
+            
             SheetView(type: .joinCode)
                 .background(.white)
-
+            
             SheetView(type: .newWorkspace)
                 .background(.white)
-
+            
             SheetView(type: .shareCode)
                 .background(.white)
             
@@ -266,8 +287,8 @@ struct SheetView_Previews: PreviewProvider {
             
             SheetView(type: .deleteTask)
                 .background(.white)
-
-
+            
+            
         }.background(.pink)
     }
 }
