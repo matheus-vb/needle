@@ -57,8 +57,10 @@ extension ProjectView{
         List($projectViewModel.projects, id: \.self) {project in
             ProjectButton(project: project.wrappedValue, triggerLoading: $projectViewModel.triggerLoading)
                 .listRowInsets(EdgeInsets())
+                .environmentObject(projectViewModel)
         }
         .frame(height: $projectViewModel.projects.count >= 5 ? 330 : (66 * CGFloat($projectViewModel.projects.count)))
+
 
     }
 }

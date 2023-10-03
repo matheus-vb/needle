@@ -9,21 +9,23 @@ import Foundation
 import Combine
 import SwiftUI
 
+extension String{
+    static var selectedMemberId : String = ""
+}
+
 class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W: WorkspaceDataServiceProtocol & ObservableObject, A: AuthenticationManagerProtocol & ObservableObject >: ObservableObject{
-    let workspaceId: String
-    let workspaceName: String
+
+    let workspace : Workspace
     @Published var tasks: [TaskModel]
     @Published var workspaceMembers: [User]
     @Published var sortOrder = [KeyPathComparator(\User.name)]
-    
     @ObservedObject var authManager: A
-    @ObservedObject var workspaceDS: W
+    var workspaceDS: W
     private var taskDS: T
     private var cancellables = Set<AnyCancellable>()
     
-    init(tasks: [TaskModel], workspaceMembers: [User], workspaceId: String, workspaceName: String, workspaceDS: W, taskDS: T, authManager: A) {
-        self.workspaceId = workspaceId
-        self.workspaceName = workspaceName
+    init(tasks: [TaskModel], workspaceMembers: [User], workspace: Workspace, workspaceDS: W, taskDS: T, authManager: A) {
+        self.workspace = workspace
         self.tasks = tasks
         self.workspaceMembers = workspaceMembers
         self.workspaceDS = workspaceDS
@@ -37,18 +39,33 @@ class InformationPageViewModel< T: TaskDataServiceProtocol & ObservableObject, W
     private func addSubscribers() {
         taskDS.allUsersTasksPublisher
             .sink(receiveValue: { [weak self] returnedTasks in
-                self?.tasks = returnedTasks[self!.workspaceId] ?? []
+                self?.tasks = returnedTasks[self!.workspace.id] ?? []
             })
             .store(in: &cancellables)
         
         workspaceDS.membersPublisher
             .sink(receiveValue: { [weak self] returnedUsers in
-                self?.workspaceMembers = returnedUsers[self!.workspaceId] ?? []
+                self?.workspaceMembers = returnedUsers[self!.workspace.id] ?? []
             })
             .store(in: &cancellables)
         
-        print("jpmoreira\(workspaceMembers)")
+    }
+    
+    func updateSelectedMemberId(memberId: String){
+        String.selectedMemberId = memberId
+        print("already there: \(String.selectedMemberId), receiving \(memberId)")
         
+    }
+    func getMemberId() -> String{
+        return String.selectedMemberId
+    }
+    
+    func removeMember(){
+        workspaceDS.deleteWorkspaceMember(userId: String.selectedMemberId, workspaceId: self.workspace.id)
+    }
+    
+    func deleteWorkspace(){
+        workspaceDS.deleteWorkspace(accessCode: workspace.accessCode, userId: authManager.user?.id ?? "")
     }
     
 }
