@@ -40,37 +40,7 @@ struct SearchDocuments: View {
                 Spacer()
                 //TODO: Add date to query
                 
-                
-                
-                TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
-                    .frame(height: 24)
-                    .padding(.horizontal, 25)
-                    .background(.white)
-                    .cornerRadius(6)
-                    .padding(.horizontal, 10)
-                    .shadow(color: Color.theme.grayPressed, radius: 3, x: 3, y: 3)
-                    .onSubmit {
-                        searchDocumentsViewModel.query = nil
-                    }
-                    .modifier(searchFieldModifier())
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .overlay(
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .padding(.horizontal, 15)
-                            Spacer()
-                            if searchDocumentsViewModel.query != nil {
-                                Button(action: {
-                                    searchDocumentsViewModel.query = nil
-                                    isEditing = false
-                                }, label: {
-                                    Image(systemName: "xmark.circle.fill")
-                                        .padding(.trailing, 15)
-                                        .opacity(0.5)
-                                })
-                                .buttonStyle(.plain)
-                            }
-                        })
+                CustomSearchBarView(text: $searchDocumentsViewModel.query)
             }
             .padding(.top, 10)
 
