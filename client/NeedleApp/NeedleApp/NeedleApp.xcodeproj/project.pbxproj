@@ -335,7 +335,6 @@
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
-		86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewModel.swift; sourceTree = "<group>"; };
 		86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
 		86BE498D2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerMock.swift; sourceTree = "<group>"; };
 		86BE499B2A9FBED4008A7F7F /* DBMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMock.swift; sourceTree = "<group>"; };
@@ -859,7 +858,6 @@
 			isa = PBXGroup;
 			children = (
 				86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */,
-				86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */,
 			);
 			path = EditDocumentation;
 			sourceTree = "<group>";
@@ -1455,7 +1453,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = QJZZNXUZ63;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1470,7 +1468,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.7.2;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAppJP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
