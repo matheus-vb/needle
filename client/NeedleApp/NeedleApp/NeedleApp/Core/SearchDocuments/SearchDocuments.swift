@@ -11,6 +11,7 @@ import SwiftUI
 struct SearchDocuments: View {
     
     @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService>
+    @State var isEditing : Bool = false
     
     init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -27,9 +28,6 @@ struct SearchDocuments: View {
         VStack {
             
             HStack(spacing: 16) {
-                DropdownStatusButton(taskStatus: $searchDocumentsViewModel.selectedStatus, dropOptions: TaskStatus.allCases){
-
-                }
                 
                 DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
                     
@@ -38,29 +36,44 @@ struct SearchDocuments: View {
                 DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
                     
                 }
-
+                
                 Spacer()
                 //TODO: Add date to query
                 
-                Group {
-                    TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
-                        .frame(height: 32)
-                        .frame(maxWidth: 320)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onSubmit {
-                            searchDocumentsViewModel.query = nil
-                        }
-                        .modifier(searchFieldModifier())
-                    Button(action: {
+                
+                
+                TextField(NSLocalizedString("Procurar por nome, descrição, responsável...", comment: ""), text: $searchDocumentsViewModel.query ?? "")
+                    .frame(height: 24)
+                    .padding(.horizontal, 25)
+                    .background(.white)
+                    .cornerRadius(6)
+                    .padding(.horizontal, 10)
+                    .shadow(color: Color.theme.grayPressed, radius: 3, x: 3, y: 3)
+                    .onSubmit {
                         searchDocumentsViewModel.query = nil
-                    }, label: {
-                        Image(systemName: "delete.left")
-                    })
-                    .buttonStyle(.plain)
-                }
+                    }
+                    .modifier(searchFieldModifier())
+                    .textFieldStyle(PlainTextFieldStyle())
+                    .overlay(
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .padding(.horizontal, 15)
+                            Spacer()
+                            if searchDocumentsViewModel.query != nil {
+                                Button(action: {
+                                    searchDocumentsViewModel.query = nil
+                                    isEditing = false
+                                }, label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .padding(.trailing, 15)
+                                        .opacity(0.5)
+                                })
+                                .buttonStyle(.plain)
+                            }
+                        })
             }
             .padding(.top, 10)
-            
+
             Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTaskID, sortOrder: $searchDocumentsViewModel.sortOrder){
                 TableColumn(NSLocalizedString("Nome da Task", comment: ""), value: \.title)
                 TableColumn(NSLocalizedString("Prioridade", comment: ""), value: \.taskPriority.order ){
