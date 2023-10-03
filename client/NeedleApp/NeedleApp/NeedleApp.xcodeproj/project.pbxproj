@@ -335,7 +335,6 @@
 		868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinWorkspaceDTO.swift; sourceTree = "<group>"; };
 		86866C542A7C9B220027FEE9 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationView.swift; sourceTree = "<group>"; };
-		86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewModel.swift; sourceTree = "<group>"; };
 		86BE49852A9FBBAF008A7F7F /* RootViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTests.swift; sourceTree = "<group>"; };
 		86BE498D2A9FBCB8008A7F7F /* AuthenticationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerMock.swift; sourceTree = "<group>"; };
 		86BE499B2A9FBED4008A7F7F /* DBMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMock.swift; sourceTree = "<group>"; };
@@ -859,7 +858,6 @@
 			isa = PBXGroup;
 			children = (
 				86BE497E2A97EB4A008A7F7F /* DocumentationView.swift */,
-				86BE49802A97EB63008A7F7F /* DocumentationViewModel.swift */,
 			);
 			path = EditDocumentation;
 			sourceTree = "<group>";

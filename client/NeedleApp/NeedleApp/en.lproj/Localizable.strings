@@ -6,7 +6,9 @@
   
 */
 
-"Não deixe uma\nponta solta" = "No loose ends";
+"**Needle** veio para estimular o registro e consulta das suas\natividades." =  "**Needle** came to encourage the recording and consultation of your activities.";
+
+"Não deixe uma ponta solta" = "No loose ends";
 
 "A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "The documentation culture allows each project to be skillfully tailored, avoiding tangles and confusion. That's why Needle has come to encourage the recording and retrieval of its activities.";
 
@@ -221,6 +223,9 @@
 
 "Informação" = "Information";
 
+"Design" = "Design";
+
+"Gestão de Projetos" = "Project Management";
 
 
 //Templates:
