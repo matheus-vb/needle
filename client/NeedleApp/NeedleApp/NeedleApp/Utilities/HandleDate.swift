@@ -57,4 +57,20 @@ class HandleDate {
             return "-"
         }
     }
+    
+    static func sortArrayOfDates(dateArr: [String]) -> [String]{
+        
+        print("unsorted", dateArr)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+
+        let sortedArray = dateArr.sorted {dateFormatter.date(from: $0)! > dateFormatter.date(from: $1)!}
+        
+        print("sorted", sortedArray)
+        
+        return sortedArray
+    }
+    
 }

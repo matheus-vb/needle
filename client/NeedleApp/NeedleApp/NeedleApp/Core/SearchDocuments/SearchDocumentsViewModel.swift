@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-class SearchDocumentsViewModel<T: TaskDataServiceProtocol & ObservableObject>: ObservableObject {
+class SearchDocumentsViewModel<T: TaskDataServiceProtocol & ObservableObject, A: AuthenticationManagerProtocol & ObservableObject>: ObservableObject {
     let workspaceId: String
     @Published var tasks: [TaskModel]
     @Published var selectedTaskID: TaskModel.ID?
@@ -23,10 +23,12 @@ class SearchDocumentsViewModel<T: TaskDataServiceProtocol & ObservableObject>: O
     @Published var sortOrder = [KeyPathComparator(\TaskModel.title)]
     
     private var taskDS: T
+    private var authManager: A
     private var cancellables = Set<AnyCancellable>()
     
-    init(tasks: [TaskModel], workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, taskDS: T) {
+    init(tasks: [TaskModel], workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, taskDS: T, authManager: A) {
         self.taskDS = taskDS
+        self.authManager = authManager
         self.tasks = tasks
         self.workspaceId = workspaceId
         self.currDTO = QueryTasksDTO(
@@ -67,5 +69,9 @@ class SearchDocumentsViewModel<T: TaskDataServiceProtocol & ObservableObject>: O
                 self?.taskDS.queryTasks(dto: self!.currDTO)
             })
             .store(in: &cancellables)
+    }
+    
+    func getUserID() -> String {
+        return authManager.user?.id ?? ""
     }
 }

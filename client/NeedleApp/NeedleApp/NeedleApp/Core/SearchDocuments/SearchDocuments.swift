@@ -10,10 +10,8 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService>
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService, AuthenticationManager>
     @State var seeDocumentation : Bool = false
-    @State var scrollOffset : Int = 0
-
     
     init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -22,7 +20,8 @@ struct SearchDocuments: View {
             workspaceId: workspaceId,
             selectedTask: selectedTask,
             isEditing: isEditing,
-            taskDS: TaskDataService.shared
+            taskDS: TaskDataService.shared,
+            authManager: AuthenticationManager.shared
         )
     }
     
@@ -53,6 +52,28 @@ struct SearchDocuments: View {
                                     .font(.custom("SF Pro", size: 18)
                                         .weight(.bold))
                                 Spacer()
+                            }
+                            
+                            ScrollView(.horizontal, showsIndicators: false){
+                                LazyHStack(spacing: 32) {
+                                    ForEach(0..<min(searchDocumentsViewModel.tasks.count, 3), id: \.self){ i in
+                                        
+                                        Text(HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks.map{$0.updated_at})[i])
+                                        
+//                                        DocumentationThumbnailView(taskTitle: self.searchDocumentsViewModel.tasks[i].title, taskOwner: self.searchDocumentsViewModel.tasks[i].user?.name ?? "Sem responsável", taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
+//                                            .id(i)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ScrollViewReader { value in
+                        VStack(alignment: .leading, spacing: 16){
+                            HStack{
+                                Text(NSLocalizedString("Minha documentação", comment: ""))
+                                    .font(.custom("SF Pro", size: 18)
+                                        .weight(.bold))
+                                Spacer()
                                 
                                 Button {
                                     value.scrollTo(0)
@@ -64,7 +85,6 @@ struct SearchDocuments: View {
                                 .buttonStyle(.plain)
 
                                 Button {
-                                    scrollOffset += 1
                                     value.scrollTo(8)
                                     print("hey")
                                 } label: {
@@ -78,32 +98,57 @@ struct SearchDocuments: View {
                             ScrollView(.horizontal, showsIndicators: false){
                                 LazyHStack(spacing: 32) {
                                     ForEach(0..<searchDocumentsViewModel.tasks.count, id: \.self){ i in
-                                        DocumentationThumbnailView(taskTitle: "\(self.searchDocumentsViewModel.tasks[i].isRejected)", taskOwner: self.searchDocumentsViewModel.tasks[i].user?.name ?? "Sem responsável", taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
+                                        
+                                        if self.searchDocumentsViewModel.tasks[i].user?.id == self.searchDocumentsViewModel.getUserID() {
+                                            
+                                            DocumentationThumbnailView(taskTitle: self.searchDocumentsViewModel.tasks[i].title, taskOwner: HandleDate.formatDateWithTime(dateInput:(self.searchDocumentsViewModel.tasks[i].created_at)), taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
+                                                .id(i)
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ScrollViewReader { value in
+                        VStack(alignment: .leading, spacing: 16){
+                            HStack{
+                                Text(NSLocalizedString("Todas as documentações", comment: ""))
+                                    .font(.custom("SF Pro", size: 18)
+                                        .weight(.bold))
+                                Spacer()
+                                
+                                Button {
+                                    value.scrollTo(0)
+                                    print("ho")
+                                } label: {
+                                    Image(systemName: "chevron.left")
+                                        .padding()
+                                }
+                                .buttonStyle(.plain)
+
+                                Button {
+                                    value.scrollTo(8)
+                                    print("hey")
+                                } label: {
+                                    Image(systemName: "chevron.right")
+                                        .padding()
+                                }
+                                .buttonStyle(.plain)
+
+                            }
+                            
+                            ScrollView(.horizontal, showsIndicators: false){
+                                LazyHStack(spacing: 32) {
+                                    ForEach(0..<searchDocumentsViewModel.tasks.count, id: \.self){ i in
+                                        DocumentationThumbnailView(taskTitle: self.searchDocumentsViewModel.tasks[i].title, taskOwner: self.searchDocumentsViewModel.tasks[i].user?.name ?? "Sem responsável", taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
                                             .id(i)
                                     }
                                 }
                             }
                         }
                     }
-                    
-                    VStack(alignment: .leading, spacing: 16){
-                        Text(NSLocalizedString("A revisar", comment: ""))
-                            .font(.custom("SF Pro", size: 18)
-                                .weight(.bold))
-                        ScrollView(.horizontal, showsIndicators: false){
-                            LazyHStack(spacing: 32) {
-                            }
-                        }
-                    }
-                    VStack(alignment: .leading, spacing: 16){
-                        Text(NSLocalizedString("Todas as documentações", comment: ""))
-                            .font(.custom("SF Pro", size: 18)
-                                .weight(.bold))
-                        ScrollView(.horizontal, showsIndicators: false){
-                            LazyHStack(spacing: 32) {
-                            }
-                        }
-                    }
+
                 }
             }
             .padding(.top, 50)
