@@ -8,31 +8,52 @@
 import SwiftUI
 
 struct DocumentationThumbnailView: View {
-    var image : String = "checkmark.square.fill"
-    var image2 : String = "arrow.counterclockwise.circle.fill"
-    var image3 : String = "clock.fill"
-    var documentationName : String = "Documentation"
-    var documentationOwner : String = "Mister Owner"
+    var done : String = "checkmark.circle.fill"
+    var rejected : String = "arrow.counterclockwise.circle.fill"
+    var pending : String = "clock.fill"
+//    var completedness : 
+    var taskTitle : String
+    var taskOwner : String
+    var taskContent : String
+    var isRejected : Bool
+    var status: TaskStatus
     
     var body: some View {
         
         VStack{
-            HStack{
+            
+            ZStack{
+                VStack{
+                    Text(taskContent)
+                        .font(.custom("SF Pro", size: 8)
+                            .weight(.regular))
+                        .foregroundColor(Color.theme.blackMain)
+                        .padding(8)
+                        .padding([.leading, .top], 10)
                 Spacer()
-                Image(systemName: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 25, height: 25)
-                    .foregroundColor(.green)
-                    .padding(8)
+                }
+                HStack{
+                    Spacer()
+                    VStack{
+                        Image(systemName: status == TaskStatus.DONE ? done : (isRejected ? rejected : pending))
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(status == TaskStatus.DONE ? .green : (isRejected ? .orange : .yellow))
+                            .background(.white)
+                            .clipShape(Circle())
+                            .padding(8)
+                        Spacer()
+                    }
+                }
             }
             
             Spacer()
             VStack(alignment: .leading) {
-                Text(documentationName)
+                Text(taskTitle)
                     .font(.custom("SF Pro", size: 12))
                     .foregroundColor(.white)
-                Text(documentationOwner)
+                Text(taskOwner)
                     .foregroundColor(.white)
                         .font(.custom("SF Pro", size: 10))
             }
@@ -51,6 +72,6 @@ struct DocumentationThumbnailView: View {
 
 struct DocumentationThumbnailView_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentationThumbnailView()
+        DocumentationThumbnailView(taskTitle: "Some Task", taskOwner: "André Valença", taskContent: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. It usually begins with:", isRejected: true, status: TaskStatus.DONE)
     }
 }
