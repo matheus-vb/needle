@@ -28,9 +28,8 @@ struct SearchDocuments: View {
         VStack {
             
             HStack(spacing: 16) {
-                
+
                 DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
-                    
                 }
                 
                 DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {

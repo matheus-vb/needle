@@ -17,42 +17,55 @@ struct DropdownStatusButton: View {
             onButtonTapped()
             isClicked.toggle()
         }, label:{
-            HStack{
-                Text("\(taskStatus?.displayName ?? "Status")")
-                .font(.custom("SF Pro", size: 12)
-                    .weight(.regular))
-                .foregroundColor(.black)
-                .padding(.leading, 10)
-
+            HStack(spacing: 0){
                 Spacer()
-                Text(isClicked ? "􀄥" : "􀄧")
-                    .padding(.trailing, 10)
+                Text("\(NSLocalizedString("Área:", comment: ""))")
+                    .padding(.trailing, 4)
+                    .font(.custom("SF Pro", size: 12)
+                        .weight(.semibold))
+                    .foregroundColor(Color.theme.grayPressed)
+                
+                Text("\(taskStatus?.displayName ?? NSLocalizedString("Selecione", comment: ""))")
+                    .font(.custom("SF Pro", size: 12)
+                        .weight(.semibold))
+                    .foregroundColor(Color.theme.grayButton)
+                Image(systemName: isClicked ? "chevron.down" : "chevron.right")
+                    .frame(width: 10)
+                    .padding(.leading, 4)
+                Spacer()
             }
-            .frame(width: 140, height: 32)
-            .background(Color.theme.greenMain)
+            .frame(width: 170, height: 24)
+            .padding(.horizontal, 2)
+            .background(Color.theme.grayBackground)
             .overlay(
-              RoundedRectangle(cornerRadius: 6)
-                .stroke(.black, lineWidth: 1)
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color.theme.grayButton, lineWidth: 1)
             )
         })
         .buttonStyle(.plain)
         .popover(isPresented: $isClicked, arrowEdge: .bottom) {
-            
             VStack(spacing: 0){
-                SecondaryDropdownEnumButton(text: "----------") {
+                SecondaryDropdownEnumButton(text: NSLocalizedString("Selecione", comment: "")) {
                     taskStatus = nil
                 }
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color.theme.grayPressed)
                 ForEach(dropOptions, id: \.self) { dropOption in
                     SecondaryDropdownEnumButton(text: "\(dropOption.displayName)") {
                         taskStatus = dropOption
-                        isClicked.toggle()
+                        isClicked = false
                     }
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.theme.grayButton)
                 }
             }
         }
         .modifier(Clickable())
     }
 }
+
 
 struct DropdownPriorityButton: View {
     @Binding var taskPriority : TaskPriority?
@@ -64,42 +77,55 @@ struct DropdownPriorityButton: View {
             onButtonTapped()
             isClicked.toggle()
         }, label:{
-            HStack{
-                Text("\(taskPriority?.displayName ?? NSLocalizedString("Prioridade", comment: ""))")
-                .font(.custom("SF Pro", size: 12)
-                    .weight(.regular))
-                .foregroundColor(.black)
-                .padding(.leading, 10)
-
+            HStack(spacing: 0){
                 Spacer()
-                Image(systemName: isClicked ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
-                    .padding(.trailing, 10)
+                Text("\(NSLocalizedString("Área:", comment: ""))")
+                    .padding(.trailing, 4)
+                    .font(.custom("SF Pro", size: 12)
+                        .weight(.semibold))
+                    .foregroundColor(Color.theme.grayPressed)
+                
+                Text("\(taskPriority?.displayName ?? NSLocalizedString("Selecione", comment: ""))")
+                    .font(.custom("SF Pro", size: 12)
+                        .weight(.semibold))
+                    .foregroundColor(Color.theme.grayButton)
+                Image(systemName: isClicked ? "chevron.down" : "chevron.right")
+                    .frame(width: 10)
+                    .padding(.leading, 4)
+                Spacer()
             }
-            .frame(width: 140, height: 32)
-            .background(Color.theme.greenMain)
+            .frame(width: 170, height: 24)
+            .padding(.horizontal, 2)
+            .background(Color.theme.grayBackground)
             .overlay(
-              RoundedRectangle(cornerRadius: 6)
-                .stroke(.black, lineWidth: 1)
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color.theme.grayButton, lineWidth: 1)
             )
         })
         .buttonStyle(.plain)
         .popover(isPresented: $isClicked, arrowEdge: .bottom) {
-            
             VStack(spacing: 0){
-                SecondaryDropdownEnumButton(text: "----------") {
+                SecondaryDropdownEnumButton(text: NSLocalizedString("Selecione", comment: "")) {
                     taskPriority = nil
                 }
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color.theme.grayPressed)
                 ForEach(dropOptions, id: \.self) { dropOption in
                     SecondaryDropdownEnumButton(text: "\(dropOption.displayName)") {
                         taskPriority = dropOption
-                        isClicked.toggle()
+                        isClicked = false
                     }
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.theme.grayButton)
                 }
             }
         }
         .modifier(Clickable())
     }
 }
+
 
 struct DropdownTypeButton: View {
     @Binding var taskType : TaskType?
@@ -111,36 +137,48 @@ struct DropdownTypeButton: View {
             onButtonTapped()
             isClicked.toggle()
         }, label:{
-            HStack{
-                Text("\(taskType?.displayName ?? NSLocalizedString("Área", comment: ""))")
-                .font(.custom("SF Pro", size: 12)
-                    .weight(.regular))
-                .foregroundColor(.black)
-                .padding(.leading, 10)
-
+            HStack(spacing: 0){
                 Spacer()
-                Image(systemName: isClicked ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
-                    .padding(.trailing, 10)
+                Text("\(NSLocalizedString("Área:", comment: ""))")
+                    .padding(.trailing, 4)
+                    .font(.custom("SF Pro", size: 12)
+                        .weight(.semibold))
+                    .foregroundColor(Color.theme.grayPressed)
+                
+                Text("\(taskType?.displayName ?? NSLocalizedString("Selecione", comment: ""))")
+                    .font(.custom("SF Pro", size: 12)
+                        .weight(.semibold))
+                    .foregroundColor(Color.theme.grayButton)
+                Image(systemName: isClicked ? "chevron.down" : "chevron.right")
+                    .frame(width: 10)
+                    .padding(.leading, 4)
+                Spacer()
             }
-            .frame(width: 140, height: 32)
-            .background(Color.theme.greenMain)
+            .frame(width: 170, height: 24)
+            .padding(.horizontal, 2)
+            .background(Color.theme.grayBackground)
             .overlay(
-              RoundedRectangle(cornerRadius: 6)
-                .stroke(.black, lineWidth: 1)
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color.theme.grayButton, lineWidth: 1)
             )
         })
         .buttonStyle(.plain)
         .popover(isPresented: $isClicked, arrowEdge: .bottom) {
-            
             VStack(spacing: 0){
-                SecondaryDropdownEnumButton(text: "----------") {
+                SecondaryDropdownEnumButton(text: NSLocalizedString("Selecione", comment: "")) {
                     taskType = nil
                 }
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(Color.theme.grayPressed)
                 ForEach(dropOptions, id: \.self) { dropOption in
                     SecondaryDropdownEnumButton(text: "\(dropOption.displayName)") {
                         taskType = dropOption
-                        isClicked.toggle()
+                        isClicked = false
                     }
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.theme.grayButton)
                 }
             }
         }
@@ -158,23 +196,16 @@ struct SecondaryDropdownEnumButton: View {
             onButtonTapped()
         }, label:{
             Text(text)
+                .font(.custom("SF Pro", size: 12)
+                    .weight(.semibold))
                 .padding([.top, .bottom], 9)
-                .frame(width: 140)
-                .background(onHover ? Color.theme.greenTertiary : Color.theme.greenMain)
-                .foregroundColor(Color.theme.blackMain)
+                .frame(width: 183, height: 24)
+                .background(onHover ? Color.theme.greenTertiary : Color.theme.grayBackground)
+                .foregroundColor(Color.theme.grayButton)
                 .onHover { Bool in
                     onHover = Bool
                 }
-                
         })
         .buttonStyle(.plain)
     }
 }
-
-//struct DropdownButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DropdownButton(text:"Status")
-//            .frame(width: 200, height: 200)
-//    }
-//}
-
