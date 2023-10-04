@@ -15,78 +15,92 @@ struct LoginPageView: View {
     
     var body: some View {
         VStack {
-            Spacer()
+            
+            VStack {
+                
+                Spacer()
+                .frame(maxHeight: .infinity)
+                
+                Text(NSLocalizedString("Não deixe uma ponta solta", comment: ""))
+//                .fixedSize(horizontal: false, vertical: true)
+                .font(
+                Font.custom("SF Pro", size: 70)
+                .weight(.semibold)
+                )
+                .foregroundColor(.black)
+                .padding()
+                .frame(maxHeight: .infinity)
+
+                Text(.init(NSLocalizedString("**Needle** veio para estimular o registro e consulta das suas\natividades.", comment: "")))
+                .font(
+                Font.custom("SF Pro", size: 24)                )
+                .fixedSize(horizontal: false, vertical: true)
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+                .frame(maxHeight: .infinity)
+                .padding()
+            }
             
             HStack {
-                VStack(alignment: .leading) {
-                    Text("Não deixe uma\nponta solta")
-                        .font(.custom(SpaceGrotesk.bold.rawValue, size: 60))
+                Image("IlustraHome")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: .infinity, alignment: .bottomLeading)
+                
+                VStack {
                     SignInWithAppleButton(.continue) { request in
                         request.requestedScopes = [.email, .fullName]
                     } onCompletion: { result in
                         loginPageViewModel.handleResult(result)
                     }
-//                    .signInWithAppleButtonStyle(.black)
-                    .frame(maxWidth: 300, maxHeight: 45)
+                    .signInWithAppleButtonStyle(.black)
+                    .frame(width: 311, height: 56)
+                    .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
                     .modifier(Clickable())
-                }
-                .padding(50)
-                Spacer()
-                Image("ilustra_novelo_PEQ")
-                    .resizable()
-                    .scaledToFit()
-                    .ignoresSafeArea()
-            }
-            
-            Spacer()
-            
-            HStack {
-                VStack(alignment: .leading){
-                    HStack{
-                        Text("Needle")
-                            .font(.custom(SpaceGrotesk.bold.rawValue, size: 32))
-                            .padding(.leading, 50)
-                        Image("agulha_PEQ")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 44)
-                    }
-                    Text("A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades.")
-                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 20))
-                        .padding(.leading, 50)
-
-
-                }
-                
-                Divider()
-                HStack{
-                    VStack(alignment: .leading) {
-                        Text("Projetos e Tarefas")
-                            .font(.custom(SpaceGrotesk.regular.rawValue, size: 32))
-                        VStack(alignment: .leading, spacing: 20){
-                            HStack (spacing: 20) {
-                                Text("Product design")
-                                    .customTextCard()
-                                Text("UI/UX")
-                                    .customTextCard()
-                            }
-                            HStack (spacing: 20){
-                                Text("Front-end")
-                                    .customTextCard()
-                                Text("Back-end")
-                                    .customTextCard()
-                                Text("Branding")
-                                    .customTextCard()
-                            }
-                        }
-                    }
-                    .padding(.leading, 25)
+                    
                     Spacer()
                 }
                 .frame(maxWidth: .infinity)
+                
+                Spacer()
+                    .frame(maxWidth: .infinity)
+                
             }
-            .frame(maxHeight: 250)
+
+            HStack {
+                
+                Text(NSLocalizedString("Design", comment: ""))
+                .font(
+                Font.custom("SF Pro", size: 24)
+                .weight(.bold)
+                )
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                
+                Text(NSLocalizedString("Gestão de Projetos", comment: ""))
+                .font(
+                Font.custom("SF Pro", size: 24)
+                .weight(.bold)
+                )
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                
+                Text(NSLocalizedString("Desenvolvimento", comment: ""))
+                .font(
+                Font.custom("SF Pro", size: 24)
+                .weight(.bold)
+                )
+                .multilineTextAlignment(.center)
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                
+            }
+            .frame(maxWidth: .infinity ,maxHeight: 164)
+            .background(.black)
         }
+        .background(Color.theme.grayBackground)
     }
 }
 

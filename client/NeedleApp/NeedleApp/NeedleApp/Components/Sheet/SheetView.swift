@@ -18,6 +18,8 @@ struct SheetView: View {
     @EnvironmentObject var workspaceViewModel: WorkspaceHomeViewModel<WorkspaceDataService>
     @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @EnvironmentObject var kanbanViewModel: KanbanViewModel<TaskDataService>
+    @EnvironmentObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
     
     @ObservedObject var workspaceDataService = WorkspaceDataService.shared
     @ObservedObject var authManager = AuthenticationManager.shared
@@ -32,7 +34,7 @@ struct SheetView: View {
     @State var action: () -> () = {}
     
     @State var accessCode = ""
-        
+    
     @State var textfieldInput: String = ""
     @State var selectedRole: Role = .DEVELOPER
     
@@ -46,10 +48,16 @@ struct SheetView: View {
             dismiss()
             
         }
-        case .deleteWorkspace: return {                     WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
+        case .deleteWorkspace: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
             dismiss()
-            
         }
+        
+        case .deleteWorkspaceFromInfo: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
+            dismiss()
+        }
+            
         case .joinCode: return {
             WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
             
@@ -67,7 +75,12 @@ struct SheetView: View {
         }
         case .loginError: return {dismiss()}
         case .archiveTask: return {
-            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
+            taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
+            dismiss()
+        }
+        case .deleteWorkspaceMember: return {
+            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
+            
             dismiss()
         }
             

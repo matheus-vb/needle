@@ -7,6 +7,8 @@ const envSchema = z.object({
     TEAM_ID: z.string(),
     BUNDLE_ID: z.string(),
     NODE_ENV: z.string(),
+    MAIL: z.string().default("none"),
+    MAIL_PASSWORD: z.string().default("none"),
 })
 
 const _env = envSchema.safeParse(process.env);

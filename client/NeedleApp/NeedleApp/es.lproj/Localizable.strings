@@ -6,7 +6,9 @@
   
 */
 
-"Não deixe uma\nponta solta" = "No dejes cabos sueltos";
+"**Needle** veio para estimular o registro e consulta das suas\natividades." =  "**Needle** vino para fomentar el registro y la consulta de sus actividades.";
+
+"Não deixe uma ponta solta" = "No dejes cabos sueltos";
 
 "A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "La cultura de documentación permite que cada proyecto sea confeccionado con maestría, evitando enredos y confusiones. Por eso, Needle ha llegado para fomentar el registro y la consulta de sus actividades.";
 
@@ -183,6 +185,10 @@
 "Total de membros: "= "Número de miembros: ";
 
 "Informação" = "Informacíon";
+
+"Design" = "Diseño";
+
+"Gestão de Projetos" = "Gestión de Proyectos";
 
 
 // Templates:

@@ -86,6 +86,7 @@ struct KanbanView: View {
             .padding(.leading, 64)
         }.sheet(isPresented: $kanbanViewModel.isArchiving, content: {
             SheetView(type: .archiveTask)
+                .environmentObject(kanbanViewModel)
         })
         
     }
