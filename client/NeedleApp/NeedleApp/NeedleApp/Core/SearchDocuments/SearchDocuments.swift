@@ -57,11 +57,14 @@ struct SearchDocuments: View {
                             ScrollView(.horizontal, showsIndicators: false){
                                 LazyHStack(spacing: 32) {
                                     ForEach(0..<min(searchDocumentsViewModel.tasks.count, 3), id: \.self){ i in
-                                        
-                                        Text(HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks.map{$0.updated_at})[i])
-                                        
-//                                        DocumentationThumbnailView(taskTitle: self.searchDocumentsViewModel.tasks[i].title, taskOwner: self.searchDocumentsViewModel.tasks[i].user?.name ?? "Sem responsável", taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
-//                                            .id(i)
+                                
+                                        DocumentationThumbnailView(
+                                            taskTitle: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].title,
+                                            taskOwner: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].user?.name ?? "Sem responsável",
+                                            taskContent: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].document?.textString ?? "",
+                                            isRejected: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].isRejected,
+                                            status: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].status)
+                                            .id(i)
                                     }
                                 }
                             }

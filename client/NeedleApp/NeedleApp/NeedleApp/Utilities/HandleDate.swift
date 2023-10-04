@@ -58,7 +58,7 @@ class HandleDate {
         }
     }
     
-    static func sortArrayOfDates(dateArr: [String]) -> [String]{
+    static func sortArrayOfDates(dateArr: [TaskModel]) -> [TaskModel]{
         
         print("unsorted", dateArr)
         
@@ -66,7 +66,7 @@ class HandleDate {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
 
-        let sortedArray = dateArr.sorted {dateFormatter.date(from: $0)! > dateFormatter.date(from: $1)!}
+        let sortedArray = dateArr.sorted {dateFormatter.date(from: $0.updated_at)! > dateFormatter.date(from: $1.updated_at)!}
         
         print("sorted", sortedArray)
         
