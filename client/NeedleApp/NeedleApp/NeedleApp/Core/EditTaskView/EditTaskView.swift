@@ -20,10 +20,12 @@ struct EditTaskPopUP: View {
     }
     
     var body: some View {
-        VStack(spacing: 24){
-            contentStack
+        NavigationStack {
+            VStack(spacing: 24){
+                contentStack
                 //.frame(maxWidth: geometry.size.width*0.29)
-                .padding(2)
+                    .padding(2)
+            }
         }
         .overlay(content: {
             if seeDocumentation {

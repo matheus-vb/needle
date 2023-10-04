@@ -33,6 +33,8 @@ class ProjectViewModel<
     @Published var feedbackSheet = false
 
     @Published var showCard: Bool = false
+    @Published var showDocumentation: Bool = false
+
     @Published var showShareCode = false
     @Published var isAnimating = false
     @Published var isNaming: Bool = false
