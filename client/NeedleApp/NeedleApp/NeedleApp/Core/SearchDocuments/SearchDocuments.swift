@@ -12,6 +12,8 @@ struct SearchDocuments: View {
     
     @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService, AuthenticationManager>
     @State var seeDocumentation : Bool = false
+    @State var scrollToOne = 0
+    @State var scrollToTwo = 0
     
     init(tasks: [TaskModel]?, workspaceId: String, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>) {
         
@@ -75,8 +77,12 @@ struct SearchDocuments: View {
                                 Spacer()
                                 
                                 Button {
-                                    value.scrollTo(0)
-                                    print("ho")
+                                    if self.scrollToOne > 0 {
+                                        self.scrollToOne -= 1
+                                    }
+                                    withAnimation {
+                                        value.scrollTo(scrollToOne)
+                                    }
                                 } label: {
                                     Image(systemName: "chevron.left")
                                         .padding()
@@ -84,8 +90,14 @@ struct SearchDocuments: View {
                                 .buttonStyle(.plain)
 
                                 Button {
-                                    value.scrollTo(8)
-                                    print("hey")
+                                    if self.scrollToOne < searchDocumentsViewModel.userTasks.count{
+                                        self.scrollToOne += 1
+                                    }
+                                    print(scrollToOne)
+        
+                                    withAnimation {
+                                        value.scrollTo(scrollToOne)
+                                    }
                                 } label: {
                                     Image(systemName: "chevron.right")
                                         .padding()
@@ -96,15 +108,11 @@ struct SearchDocuments: View {
                             
                             ScrollView(.horizontal, showsIndicators: false){
                                 LazyHStack(spacing: 32) {
-                                    ForEach(0..<searchDocumentsViewModel.tasks.count, id: \.self){ i in
-                                        
-                                        if self.searchDocumentsViewModel.tasks[i].user?.id == self.searchDocumentsViewModel.getUserID() {
+                                    ForEach(0..<searchDocumentsViewModel.userTasks.count, id: \.self){ i in
                                             
-                                            DocumentationThumbnailView(task: self.searchDocumentsViewModel.tasks[i], showDate: true)
+                                        DocumentationThumbnailView(task: self.searchDocumentsViewModel.userTasks[i], showDate: true)
                                                 .id(i)
                                         }
-
-                                    }
                                 }
                             }
                         }
@@ -118,8 +126,13 @@ struct SearchDocuments: View {
                                 Spacer()
                                 
                                 Button {
-                                    value.scrollTo(0)
-                                    print("ho")
+                                    if self.scrollToTwo > 0 {
+                                        self.scrollToTwo -= 1
+                                    }
+                                    print(scrollToTwo)
+                                    withAnimation {
+                                        value.scrollTo(scrollToTwo, anchor: .top)
+                                    }
                                 } label: {
                                     Image(systemName: "chevron.left")
                                         .padding()
@@ -127,8 +140,13 @@ struct SearchDocuments: View {
                                 .buttonStyle(.plain)
 
                                 Button {
-                                    value.scrollTo(8)
-                                    print("hey")
+                                    if self.scrollToTwo < searchDocumentsViewModel.tasks.count{
+                                        self.scrollToTwo += 1
+                                    }
+                                    print(scrollToTwo)
+                                    withAnimation {
+                                        value.scrollTo(scrollToTwo, anchor: .top)
+                                    }
                                 } label: {
                                     Image(systemName: "chevron.right")
                                         .padding()
