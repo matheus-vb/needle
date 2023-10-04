@@ -59,11 +59,7 @@ struct SearchDocuments: View {
                                     ForEach(0..<min(searchDocumentsViewModel.tasks.count, 3), id: \.self){ i in
                                 
                                         DocumentationThumbnailView(
-                                            taskTitle: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].title,
-                                            taskOwner: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].user?.name ?? "Sem responsável",
-                                            taskContent: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].document?.textString ?? "",
-                                            isRejected: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].isRejected,
-                                            status: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i].status)
+                                            task: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i], showDate: false)
                                             .id(i)
                                     }
                                 }
@@ -104,7 +100,7 @@ struct SearchDocuments: View {
                                         
                                         if self.searchDocumentsViewModel.tasks[i].user?.id == self.searchDocumentsViewModel.getUserID() {
                                             
-                                            DocumentationThumbnailView(taskTitle: self.searchDocumentsViewModel.tasks[i].title, taskOwner: HandleDate.formatDateWithTime(dateInput:(self.searchDocumentsViewModel.tasks[i].created_at)), taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
+                                            DocumentationThumbnailView(task: self.searchDocumentsViewModel.tasks[i], showDate: true)
                                                 .id(i)
                                         }
 
@@ -144,7 +140,7 @@ struct SearchDocuments: View {
                             ScrollView(.horizontal, showsIndicators: false){
                                 LazyHStack(spacing: 32) {
                                     ForEach(0..<searchDocumentsViewModel.tasks.count, id: \.self){ i in
-                                        DocumentationThumbnailView(taskTitle: self.searchDocumentsViewModel.tasks[i].title, taskOwner: self.searchDocumentsViewModel.tasks[i].user?.name ?? "Sem responsável", taskContent: self.searchDocumentsViewModel.tasks[i].document?.textString ?? "", isRejected: self.searchDocumentsViewModel.tasks[i].isRejected, status: self.searchDocumentsViewModel.tasks[i].status)
+                                        DocumentationThumbnailView(task: self.searchDocumentsViewModel.tasks[i], showDate: false)
                                             .id(i)
                                     }
                                 }
@@ -155,49 +151,6 @@ struct SearchDocuments: View {
                 }
             }
             .padding(.top, 50)
-            
-            //            Table(searchDocumentsViewModel.tasks, selection: $searchDocumentsViewModel.selectedTaskID, sortOrder: $searchDocumentsViewModel.sortOrder){
-            //                TableColumn(NSLocalizedString("Nome da Task", comment: ""), value: \.title)
-            //                TableColumn(NSLocalizedString("Prioridade", comment: ""), value: \.taskPriority.order ){
-            //                    switch $0.taskPriority{
-            //                    case .LOW:
-            //                        Text($0.taskPriority.displayName)
-            //                            .foregroundColor(Color.theme.greenKanban)
-            //                    case .MEDIUM:
-            //                        Text($0.taskPriority.displayName)
-            //                            .foregroundColor(Color.theme.orangeKanban)
-            //                    case .HIGH:
-            //                        Text($0.taskPriority.displayName)
-            //                            .foregroundColor(Color.theme.redMain)
-            //                    case .VERY_HIGH:
-            //                        Text($0.taskPriority.displayName)
-            //                            .foregroundColor(Color.theme.redMain)
-            //                    }
-            //                }
-            //                TableColumn( NSLocalizedString("Status", comment: ""), value: \.status.order){
-            //                    Text($0.status.displayName)
-            //                        .foregroundColor(getColor(task: $0))
-            //                }
-            //                TableColumn( NSLocalizedString("Área", comment: ""), value: \.type.displayName)
-            //                TableColumn( NSLocalizedString("Responsável", comment: "")) {
-            //                    Text($0.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
-            //                }
-            //                TableColumn( NSLocalizedString("Atualização", comment: ""), value: \.updated_at) {
-            //                    Text(HandleDate.formatDateWithTime(dateInput: $0.updated_at))
-            //                }
-            //            }
-            //            .contextMenu(forSelectionType: TaskModel.ID.self) { _ in } primaryAction: { items in
-            //                guard let task = searchDocumentsViewModel.tasks.first(where: { $0.id == items.first }) else { return }
-            //                searchDocumentsViewModel.selectedTask = task
-            //                searchDocumentsViewModel.isEditing = true
-            //            }
-            //            .onChange(of: searchDocumentsViewModel.sortOrder){
-            //                searchDocumentsViewModel.tasks.sort(using: $0)
-            //            }
-            //            .cornerRadius(6)
-            //            .padding(.top, 20)
-            //            .padding(.bottom, 60)
-            
         }
         .padding(.top, 32)
         .padding(.leading, 64)
