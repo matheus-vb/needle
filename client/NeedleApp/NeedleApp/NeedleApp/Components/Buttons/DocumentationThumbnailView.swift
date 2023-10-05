@@ -21,7 +21,7 @@ struct DocumentationThumbnailView: View {
             
             ZStack{
                 VStack{
-                    Text(task.document?.textString ?? "")
+                    Text(String(task.isVisible))
                         .font(.custom("SF Pro", size: 8)
                             .weight(.regular))
                         .foregroundColor(Color.theme.blackMain)
