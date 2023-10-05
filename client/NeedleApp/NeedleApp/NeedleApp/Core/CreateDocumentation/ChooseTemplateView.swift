@@ -12,6 +12,9 @@ struct ChooseTemplateView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var documentationNS: NSAttributedString
     
+    @State var chosenTemplate: TemplateType = .overview
+
+    
     var geometry: GeometryProxy
 
     var action: () -> ()
@@ -38,7 +41,7 @@ struct ChooseTemplateView: View {
                 Text("􀆄")
             }.padding(.top, 16)
             .padding(.horizontal, 32)
-            HStack {
+            VStack(alignment: .center) {
                 Text(NSLocalizedString("Configure sua documentação", comment: ""))
                 Text(NSLocalizedString("Escolha seu Template", comment: ""))
             }
@@ -48,7 +51,7 @@ struct ChooseTemplateView: View {
     var content: some View {
         HStack {
             templatePicker
-            VStack {
+            VStack(alignment: .trailing) {
                 templateVisualizer
                 createButton
             }
@@ -58,21 +61,29 @@ struct ChooseTemplateView: View {
     var templatePicker: some View {
         ScrollView {
             VStack {
-            
-            }   
+                ForEach(TemplateArea.allCases, id: \.rawValue) { area in
+                    VStack {
+                        Text(area.rawValue)
+                        ForEach(TemplateType.allCases.filter({ $0.info.area == area }), id: \.rawValue) { item in
+                            Button(action: {chosenTemplate = item}, label: { Text(item.info.name) })
+                        }
+                    }
+                }   
+            }
         }
     }
     
     var templateVisualizer: some View {
-        VStack {
-            
+        VStack(alignment: .leading) {
+            Text(chosenTemplate.info.name)
+            Image(chosenTemplate.info.img)
         }
     }
     
     
     var createButton: some View {
-        VStack {
-            
-        }
+        Button(action: {}, label: {
+            Text(NSLocalizedString("Criar", comment: ""))
+        })
     }
 }

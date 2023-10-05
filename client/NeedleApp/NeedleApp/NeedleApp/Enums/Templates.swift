@@ -7,16 +7,18 @@
 
 import Foundation
 
-enum TemplateArea {
+enum TemplateArea: String, CaseIterable {
     case general, design, dev
 }
 
 struct TemplateInfo {
     var name: String
     var area: TemplateArea
+    var img: String
+
 }
 
-enum TemplateType: String {
+enum TemplateType: String, CaseIterable {
     
     case overview = "OVERVIEW"
     case generalDesign = "GENERAL_DESIGN"
@@ -31,19 +33,19 @@ enum TemplateType: String {
     var info: TemplateInfo {
         switch self {
             // general templates
-        case .overview: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .general)
+        case .overview: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .general, img: "visualizer_placeholder")
             
             // design templates
-        case .generalDesign: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .design)
-        case .doubleDiamond: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .design)
+        case .generalDesign: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .design, img: "visualizer_placeholder")
+        case .doubleDiamond: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .design, img: "visualizer_placeholder")
             
             // dev templates
-        case .taskImplem: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev)
-        case .generalDev: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev)
-        case .bugReport: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev)
-        case .simpleBack: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev)
-        case .prBack: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev)
-        case .simpleFront: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev)
+        case .taskImplem: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev, img: "visualizer_placeholder")
+        case .generalDev: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev, img: "visualizer_placeholder")
+        case .bugReport: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev, img: "visualizer_placeholder")
+        case .simpleBack: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev, img: "visualizer_placeholder")
+        case .prBack: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev, img: "visualizer_placeholder")
+        case .simpleFront: return TemplateInfo(name: NSLocalizedString("", comment: ""), area: .dev, img: "visualizer_placeholder")
         }
     }
     
