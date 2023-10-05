@@ -78,7 +78,10 @@ struct SearchDocuments: View {
                                 
                                 Button {
                                     if self.scrollToOne > 0 {
-                                        self.scrollToOne -= 1
+                                        self.scrollToOne -= 3
+                                        if self.scrollToOne < 0 {
+                                            self.scrollToOne = 0
+                                        }
                                     }
                                     withAnimation {
                                         value.scrollTo(scrollToOne)
@@ -86,24 +89,29 @@ struct SearchDocuments: View {
                                 } label: {
                                     Image(systemName: "chevron.left")
                                         .padding()
+                                        .foregroundColor(scrollToOne <= 0 ? Color.theme.grayPressed : Color.theme.blackMain)
                                 }
                                 .buttonStyle(.plain)
 
                                 Button {
-                                    if self.scrollToOne < searchDocumentsViewModel.userTasks.count{
-                                        self.scrollToOne += 1
+                                    if self.scrollToOne < searchDocumentsViewModel.userTasks.count {
+                                        self.scrollToOne += 3
+                                        if self.scrollToOne > searchDocumentsViewModel.userTasks.count - 1{
+                                            self.scrollToOne = searchDocumentsViewModel.userTasks.count - 1
+                                        }
+                                        
                                     }
-                                    print(scrollToOne)
-        
+    
                                     withAnimation {
                                         value.scrollTo(scrollToOne)
                                     }
                                 } label: {
                                     Image(systemName: "chevron.right")
                                         .padding()
+                                        .foregroundColor(scrollToOne >= searchDocumentsViewModel.userTasks.count - 1 ? Color.theme.grayPressed : Color.theme.blackMain)
+
                                 }
                                 .buttonStyle(.plain)
-
                             }
                             
                             ScrollView(.horizontal, showsIndicators: false){
@@ -127,29 +135,35 @@ struct SearchDocuments: View {
                                 
                                 Button {
                                     if self.scrollToTwo > 0 {
-                                        self.scrollToTwo -= 1
+                                        self.scrollToTwo -= 3
+                                        if self.scrollToTwo < 0 {
+                                            self.scrollToTwo = 0
+                                        }
                                     }
-                                    print(scrollToTwo)
                                     withAnimation {
-                                        value.scrollTo(scrollToTwo, anchor: .top)
+                                        value.scrollTo(scrollToTwo, anchor: .center)
                                     }
                                 } label: {
                                     Image(systemName: "chevron.left")
                                         .padding()
+                                        .foregroundColor(scrollToTwo <= 0 ? Color.theme.grayPressed : Color.theme.blackMain)
                                 }
                                 .buttonStyle(.plain)
 
                                 Button {
-                                    if self.scrollToTwo < searchDocumentsViewModel.tasks.count{
-                                        self.scrollToTwo += 1
+                                    if self.scrollToTwo < searchDocumentsViewModel.tasks.count - 1 {
+                                        self.scrollToTwo += 3
+                                        if self.scrollToTwo > searchDocumentsViewModel.tasks.count - 1 {
+                                            self.scrollToTwo = searchDocumentsViewModel.tasks.count - 1
+                                        }
                                     }
-                                    print(scrollToTwo)
                                     withAnimation {
-                                        value.scrollTo(scrollToTwo, anchor: .top)
+                                        value.scrollTo(scrollToTwo, anchor: .center)
                                     }
                                 } label: {
                                     Image(systemName: "chevron.right")
                                         .padding()
+                                        .foregroundColor(scrollToTwo >= searchDocumentsViewModel.tasks.count - 1 ? Color.theme.grayPressed : Color.theme.blackMain)
                                 }
                                 .buttonStyle(.plain)
 
@@ -162,7 +176,7 @@ struct SearchDocuments: View {
                                             .id(i)
                                     }
                                 }
-                            }
+                            }.padding(.bottom, 50)
                         }
                     }
 
