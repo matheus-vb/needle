@@ -92,7 +92,7 @@ struct InformationPageView: View {
                     .font(.system(size: 40))
                     .fontWeight(.bold)
                     .padding(.top, 20)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 20)
                 Spacer()
                 
                 DashedExcludeButton(text: NSLocalizedString("Excluir projeto", comment: "")){
@@ -132,8 +132,7 @@ struct InformationPageView: View {
             
             Text(NSLocalizedString("Total de membros: ", comment: "") + "\(informationPageViewModel.workspaceMembers.count)")
                 .font(.system(size: 24))
-                .padding(.top, 54)
-                .padding(.bottom, 24)
+                .padding(.vertical, 26)
             
             if getRole() == Role.PRODUCT_MANAGER {
                 PMTable()
@@ -183,6 +182,7 @@ extension InformationPageView{
                 }
             }
         }
+        .padding(.bottom, 25)
         .onChange(of: informationPageViewModel.sortOrder) { newValue in
             informationPageViewModel.workspaceMembers.sort(using: newValue)
         }
