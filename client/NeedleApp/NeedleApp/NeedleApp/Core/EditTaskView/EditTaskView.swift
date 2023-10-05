@@ -29,9 +29,9 @@ struct EditTaskPopUP: View {
         }
         .overlay(content: {
             if seeDocumentation {
-                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, action: { seeDocumentation.toggle() }, geometry: geometry)
-
-                    .background(.white)
+                ChooseTemplateView()
+//                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, action: { seeDocumentation.toggle() }, geometry: geometry)
+//                    .background(.white)
             }
         })
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
