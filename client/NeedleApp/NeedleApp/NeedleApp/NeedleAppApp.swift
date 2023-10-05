@@ -13,7 +13,7 @@ import Firebase
 struct NeedleAppApp: App {
     
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
+    
     var body: some Scene {
         Window("NeedleView", id: "main") {
             RootView()
@@ -21,8 +21,18 @@ struct NeedleAppApp: App {
                 .preferredColorScheme(.light)
                 .ignoresSafeArea(.all)
         }.windowStyle(HiddenTitleBarWindowStyle())
+            .commands{
+                CommandMenu(NSLocalizedString("Atalhos", comment: "")){
+                    Text(NSLocalizedString("Novo projeto/atividade", comment: ""))
+                        .keyboardShortcut("n", modifiers: .command)
+                    Text(NSLocalizedString("Buscar", comment: ""))
+                        .keyboardShortcut("f", modifiers: .command)
+                    Text(NSLocalizedString("Novo projeto", comment: ""))
+                        .keyboardShortcut(.tab, modifiers: .command)
+                }
+            }
         
-            
+        
     }
 }
 

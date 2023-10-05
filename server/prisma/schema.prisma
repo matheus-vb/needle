@@ -85,6 +85,7 @@ model Task {
   user         User?        @relation(fields: [userId], references: [id])
   document     Document     @relation(fields: [documentId], references: [id], onDelete: Cascade)
   status       TaskStatus   @default(TODO)
+  isRejected   Boolean      @default(false)
   type         TaskType
   documentId   String       @unique
   endDate      DateTime
