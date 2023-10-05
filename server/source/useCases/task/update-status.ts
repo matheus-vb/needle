@@ -1,4 +1,4 @@
-import { Task, TaskStatus } from "@prisma/client"
+import { Role, Task, TaskStatus } from "@prisma/client"
 import { ITaskRepository } from "../../repositories/ITaskRepository"
 import { z } from "zod"
 import { IUserRepository } from "../../repositories/IUserRepository"
@@ -6,6 +6,7 @@ import { sendNotification } from "../../notification/send-notification"
 import { INotificationRepository } from "../../repositories/INotificationRepository"
 import { UserNotFound } from "../errors/UserNotFound"
 import { BadRequest } from "../errors/BadRequest"
+import { IWorkspaceInterface } from "../../repositories/IWorkspaceRepository"
 
 interface IUpdateTaskStatusUseCaseRequest {
     taskId: string
@@ -21,6 +22,7 @@ export class UpdateTaskStatusUseCase {
         private taskRepository: ITaskRepository, 
         private userRepository: IUserRepository, 
         private notificationRepository: INotificationRepository,
+        private workspaceRepository: IWorkspaceInterface,
     ) {}
 
     async handle({
@@ -48,6 +50,26 @@ export class UpdateTaskStatusUseCase {
 
         if(!user.deviceToken) {
             return { task }
+        }
+
+        if(status === TaskStatus.PENDING) {
+            const workspace = await this.workspaceRepository.findById(task.workId)
+            if (!workspace) {
+                throw new BadRequest()
+            }
+
+            const pmArr = await this.userRepository.findAllUsersInWorkspace(workspace.id, Role.PRODUCT_MANAGER)
+
+            if (!pmArr[0].deviceToken) {
+                return { task }
+            }
+
+            const alert = `A aprovação da task ${task.title} está pendente!`
+            sendNotification(pmArr[0].deviceToken, alert, {
+                notificationRepository: this.notificationRepository,
+                userId: pmArr[0].id,
+                workspaceId: task.workId
+            })
         }
 
         if(originalTask.status === TaskStatus.PENDING && status === TaskStatus.DONE) {
