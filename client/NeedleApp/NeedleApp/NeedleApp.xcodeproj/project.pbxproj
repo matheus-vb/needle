@@ -209,6 +209,8 @@
 		D468EC972A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */; };
 		D468EC992A8D6B38004AE74F /* MockWorkspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */; };
 		D468EC9B2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */; };
+		D4A05DD62ACF266D0085AFCC /* CreateDocumentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05DD52ACF266D0085AFCC /* CreateDocumentationView.swift */; };
+		D4A05DD82ACF26B30085AFCC /* CreateDocumentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05DD72ACF26B30085AFCC /* CreateDocumentationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,6 +394,8 @@
 		D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Grid.swift"; sourceTree = "<group>"; };
 		D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkspaces.swift; sourceTree = "<group>"; };
 		D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Loading.swift"; sourceTree = "<group>"; };
+		D4A05DD52ACF266D0085AFCC /* CreateDocumentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDocumentationView.swift; sourceTree = "<group>"; };
+		D4A05DD72ACF26B30085AFCC /* CreateDocumentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDocumentationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -599,6 +603,7 @@
 		274A283A2A71A0B40002CFEA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D4A05DD42ACF264F0085AFCC /* CreateDocumentation */,
 				44FE062F2A82E67E00386ADE /* SearchDocuments */,
 				279F09BB2A82A0480016B12E /* EditTaskView */,
 				649B45412A7D79C300F8F54B /* KanbanView */,
@@ -927,6 +932,15 @@
 			path = WorkspaceModelling;
 			sourceTree = "<group>";
 		};
+		D4A05DD42ACF264F0085AFCC /* CreateDocumentation */ = {
+			isa = PBXGroup;
+			children = (
+				D4A05DD52ACF266D0085AFCC /* CreateDocumentationView.swift */,
+				D4A05DD72ACF26B30085AFCC /* CreateDocumentationViewModel.swift */,
+			);
+			path = CreateDocumentation;
+			sourceTree = "<group>";
+		};
 		D4E40A792A72EBC300B47A07 /* WorkspaceHome */ = {
 			isa = PBXGroup;
 			children = (
@@ -1089,6 +1103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */,
+				D4A05DD82ACF26B30085AFCC /* CreateDocumentationViewModel.swift in Sources */,
 				86EFD0832A8FF9F600F8168A /* RootViewModel.swift in Sources */,
 				86EFD0952A959E3800F8168A /* RoleResponse.swift in Sources */,
 				27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */,
@@ -1184,6 +1199,7 @@
 				270912D62A7AEB8F00CB91FA /* TaskType.swift in Sources */,
 				270912D82A7AEDB700CB91FA /* WorkspaceUser.swift in Sources */,
 				27BCF7DC2A82C1FF0026F381 /* UpdateDocDTO.swift in Sources */,
+				D4A05DD62ACF266D0085AFCC /* CreateDocumentationView.swift in Sources */,
 				274A282E2A71A0290002CFEA /* User.swift in Sources */,
 				446767462AB10476006083C2 /* BoldText.swift in Sources */,
 				8AA66F182AC7585800948EE3 /* DashedExcludeButton.swift in Sources */,
