@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DocumentationViewSideBarUIView: View {
     @State private var overText = -1
+    @State private var overText2 = -1
 
     @ViewBuilder
-    func listCell(index: Int) -> some View{
-       
+    func feedbackListCell(index: Int) -> some View{
         HStack{
             Image(systemName: "arrow.counterclockwise.circle.fill")
                 .resizable()
@@ -28,7 +28,31 @@ struct DocumentationViewSideBarUIView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(height: 99)
+    }
+    @ViewBuilder
+    func pendingListCell(index: Int) -> some View{
         
+        VStack(alignment: .leading){
+            
+            HStack{
+                Text(NSLocalizedString("\(index) e mais algo", comment: ""))
+                    .font(.custom("SF Pro", size: 12))
+                    .foregroundColor(Color.theme.blackMain)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Image(systemName: "flag.fill")
+                    .foregroundColor(.green)
+            }
+            HStack{
+                Text(NSLocalizedString("\(index) e outro", comment: ""))
+                    .font(.custom("SF Pro", size: 10))
+                    .foregroundColor(Color.theme.blackMain)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Image(systemName: "square.fill")
+                    .foregroundColor(.orange)
+            }
+        }
+        .frame(height: 40)
     }
     
     var body: some View {
@@ -40,8 +64,7 @@ struct DocumentationViewSideBarUIView: View {
                     .foregroundColor(Color.theme.blackMain)
                 Spacer()
                 Text(NSLocalizedString("Limpar", comment: ""))
-                    .font(.custom("SF Pro", size: 14)
-                        .weight(.regular))
+                    .font(.custom("SF Pro", size: 14))
                     .foregroundColor(Color.theme.blackMain)
                     .opacity(0.6)
             }
@@ -53,11 +76,14 @@ struct DocumentationViewSideBarUIView: View {
                 HStack{
                     List{
                         ForEach(0..<10){i in
-                            listCell(index: i)
+                            feedbackListCell(index: i)
                                 .background(overText == i ? Color.theme.grayListHover : Color.clear)
-                                .onHover(perform: { hovering in
-                                    overText = i
-                                })
+                                .onHover{hovering in
+                                    if hovering{
+                                        overText = i
+                                    } else {
+                                        overText = -1
+                                    }                                }
                                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
 
                                 .cornerRadius(9)
@@ -80,7 +106,16 @@ struct DocumentationViewSideBarUIView: View {
                 HStack{
                     List{
                         ForEach(0..<10){i in
-                            listCell(index: i)
+                            pendingListCell(index: i)
+                                .background(overText2 == i ? Color.theme.grayListHover : Color.clear)
+                                .onHover{hovering in
+                                    if hovering{
+                                        overText2 = i
+                                    } else {
+                                        overText2 = -1
+                                    }
+                                }
+                                .cornerRadius(9)
                         }
                     }.scrollContentBackground(.hidden)
 //                        .environment(\.defaultMinListRowHeight, 10)
