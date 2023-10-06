@@ -204,6 +204,7 @@
 		D445C8D02A7AF3DE0089481D /* NotificationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */; };
 		D445C8D22A7AF3F70089481D /* AppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D445C8D12A7AF3F70089481D /* AppNotification.swift */; };
 		D46245632ACF404B00D24FFA /* ChooseTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46245622ACF404B00D24FFA /* ChooseTemplateView.swift */; };
+		D46245672AD090B300D24FFA /* ChooseTemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46245662AD090AF00D24FFA /* ChooseTemplateViewModel.swift */; };
 		D4659FB52A71B9560038CD50 /* WorkspaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */; };
 		D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */; };
 		D468EC912A8D6A5E004AE74F /* WorkspaceTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */; };
@@ -212,7 +213,6 @@
 		D468EC972A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */; };
 		D468EC992A8D6B38004AE74F /* MockWorkspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */; };
 		D468EC9B2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */; };
-		D4A05DD82ACF26B30085AFCC /* CreateDocumentationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A05DD72ACF26B30085AFCC /* CreateDocumentationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -390,6 +390,7 @@
 		D445C8CF2A7AF3DE0089481D /* NotificationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCardView.swift; sourceTree = "<group>"; };
 		D445C8D12A7AF3F70089481D /* AppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotification.swift; sourceTree = "<group>"; };
 		D46245622ACF404B00D24FFA /* ChooseTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTemplateView.swift; sourceTree = "<group>"; };
+		D46245662AD090AF00D24FFA /* ChooseTemplateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTemplateViewModel.swift; sourceTree = "<group>"; };
 		D4659FB42A71B9560038CD50 /* WorkspaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceCardView.swift; sourceTree = "<group>"; };
 		D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetActionButton.swift; sourceTree = "<group>"; };
 		D468EC902A8D6A5E004AE74F /* WorkspaceTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceTab.swift; sourceTree = "<group>"; };
@@ -398,7 +399,6 @@
 		D468EC962A8D6B18004AE74F /* WorkspaceHomeView+Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Grid.swift"; sourceTree = "<group>"; };
 		D468EC982A8D6B38004AE74F /* MockWorkspaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWorkspaces.swift; sourceTree = "<group>"; };
 		D468EC9A2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkspaceHomeView+Loading.swift"; sourceTree = "<group>"; };
-		D4A05DD72ACF26B30085AFCC /* CreateDocumentationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDocumentationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -939,7 +939,7 @@
 		D4A05DD42ACF264F0085AFCC /* CreateDocumentation */ = {
 			isa = PBXGroup;
 			children = (
-				D4A05DD72ACF26B30085AFCC /* CreateDocumentationViewModel.swift */,
+				D46245662AD090AF00D24FFA /* ChooseTemplateViewModel.swift */,
 				D46245622ACF404B00D24FFA /* ChooseTemplateView.swift */,
 			);
 			path = CreateDocumentation;
@@ -1107,7 +1107,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				86866C552A7C9B220027FEE9 /* Color+Theme.swift in Sources */,
-				D4A05DD82ACF26B30085AFCC /* CreateDocumentationViewModel.swift in Sources */,
 				86EFD0832A8FF9F600F8168A /* RootViewModel.swift in Sources */,
 				86EFD0952A959E3800F8168A /* RoleResponse.swift in Sources */,
 				27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */,
@@ -1140,6 +1139,7 @@
 				64FE760C2A96840300DF620D /* AddTaskButton.swift in Sources */,
 				86EFD08C2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
+				D46245672AD090B300D24FFA /* ChooseTemplateViewModel.swift in Sources */,
 				86BE497F2A97EB4A008A7F7F /* DocumentationView.swift in Sources */,
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
 				270515852A84635E005FF0EE /* HandleDate.swift in Sources */,
