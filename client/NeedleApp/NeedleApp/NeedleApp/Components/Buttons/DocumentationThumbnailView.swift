@@ -21,12 +21,15 @@ struct DocumentationThumbnailView: View {
             
             ZStack{
                 VStack{
-                    Text(task.document?.textString ?? "")
-                        .font(.custom("SF Pro", size: 8)
-                            .weight(.regular))
-                        .foregroundColor(Color.theme.blackMain)
-                        .padding(8)
-                        .padding([.leading, .top], 10)
+                    HStack{
+                        Text(task.document?.textString ?? "")
+                            .font(.custom("SF Pro", size: 8)
+                                .weight(.regular))
+                            .foregroundColor(Color.theme.blackMain)
+                            .padding(8)
+                            .padding([.leading, .top], 10)
+                    Spacer()
+                    }
                 Spacer()
                 }
                 HStack{
