@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RootView: View {
 
-    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
+    @ObservedObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
     @AppStorage("onboard") var isOnboard : Bool = false
+    @State var logout: Bool = false
+    @Environment(\.dismiss) var dismiss
 
-    
     init(){
         if (UserDefaults.standard.object(forKey: "onboard") != nil){
             self.isOnboard = false
@@ -31,12 +32,8 @@ struct RootView: View {
     
     var mainView: some View {
         ZStack {
-            if rootViewModel.authManager.user == nil {
-                if(isOnboard){
-                    OnboardingView()
-                } else {
-                    LoginPageView()
-                }
+            if rootViewModel.authManager.user == nil || logout {
+                LoginPageView()
             } else {
                 AppView()
                     .toolbar{
@@ -62,7 +59,9 @@ struct RootView: View {
                             }
                             .popover(isPresented: $rootViewModel.userLogoutIsPresented, arrowEdge: .bottom) {
                                 Button {
+                                    logout.toggle()
                                     rootViewModel.logout()
+                                    logout.toggle()
                                 } label: {
                                     HStack{
                                         Text("Sair ")
