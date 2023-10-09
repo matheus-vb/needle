@@ -61,7 +61,7 @@ class CreateTaskViewModel<
             type: categorySelection.rawValue,
             endDate: "\(deadLineSelection)",
             priority: prioritySelection.rawValue,
-            docTemplate: template.devTemplate
+            docTemplate: TemplateType.generalDev.initialText
         )
         
         taskDS.createTask(dto: dto, userId: userID, workspaceId: seletectedWorkspace.id)

@@ -157,7 +157,7 @@ extension EditTaskPopUP{
     }
     
     var seeDocumentationButton: some View {
-        DashedButton(text: editTaskViewModel.selectedTask.document?.text == template.devTemplate ? NSLocalizedString("Criar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
+        DashedButton(text: editTaskViewModel.selectedTask.document?.text == nil ? NSLocalizedString("Criar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
     }
     
     var documentationArea: some View {
@@ -167,7 +167,7 @@ extension EditTaskPopUP{
                 .foregroundColor(Color.theme.grayPressed)
             seeDocumentationButton
             Text(NSLocalizedString("Ninguém documentou nada ainda. Seja o primeiro!", comment: ""))
-                .opacity(editTaskViewModel.selectedTask.document?.text == template.devTemplate ? 1 : 0)
+                .opacity(editTaskViewModel.selectedTask.document?.text == nil ? 1 : 0)
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(Color.theme.grayHover)
 

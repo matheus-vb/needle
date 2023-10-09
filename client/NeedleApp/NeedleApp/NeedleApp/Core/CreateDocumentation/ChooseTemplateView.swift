@@ -8,75 +8,122 @@
 import Foundation
 import SwiftUI
 
+struct ChooseTemplateButton: ButtonStyle {
+    var onHover = false
+        func makeBody(configuration: Configuration) -> some View {
+            ZStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .stroke(lineWidth: 0.63)
+                    .foregroundStyle(.black)
+                configuration.label
+                    .foregroundStyle(.black)
+                    .padding(.vertical, 6.26)
+                    .padding(.horizontal, 6.26)
+            }
+                .font(.custom("SF Pro", size: 14))
+            
+                .background(onHover ? Color.theme.greenSecondary : .white)
+                .frame(width: 210, height: 35)
+        }
+}
+
+struct CreateTemplateButton: ButtonStyle {
+    var onHover = false
+        func makeBody(configuration: Configuration) -> some View {
+            ZStack {
+                RoundedRectangle(cornerRadius: 6)
+                    .background(.black)
+                configuration.label
+                    .foregroundStyle(.white)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+            }
+                .font(.custom("SF Pro", size: 14))
+                .cornerRadius(6)
+                .frame(width: 104, height: 32)
+        }
+}
+
 struct ChooseTemplateView: View {
     @Environment(\.dismiss) var dismiss
-    @Binding var documentationNS: NSAttributedString
-    
+//    @Binding var documentationNS: NSAttributedString
+//
     @State var chosenTemplate: TemplateType = .overview
-
     
-    var geometry: GeometryProxy
-
-    var action: () -> ()
-        
-    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>,  action: @escaping () -> (), geometry: GeometryProxy) {
-        self.action = action
-//        self._editTaskViewModel = StateObject(wrappedValue: editTaskViewModel)
-        self._documentationNS = documentationNS
-        self.geometry = geometry
-    }
+//    var geometry: GeometryProxy
+//
+//    init(geometry: GeometryProxy) {
+//        self.geometry = geometry
+//    }
 
     var body: some View {
         VStack{
             header
+            Divider()
             content
-        }
+        }.background(.white)
+        .foregroundColor(.black)
+        .frame(width: 945, height: 645)
     }
     
     var header: some View {
-        VStack {
-            HStack {
-                Text("􀰪")
-                Spacer()
-                Text("􀆄")
-            }.padding(.top, 16)
-            .padding(.horizontal, 32)
-            VStack(alignment: .center) {
-                Text(NSLocalizedString("Configure sua documentação", comment: ""))
-                Text(NSLocalizedString("Escolha seu Template", comment: ""))
+            VStack {
+                HStack {
+                    Button(action: {}, label: {Text("􀰪")})
+                        .foregroundColor(.black)
+                        .buttonStyle(.borderless)
+                    Spacer()
+                    Button(action: {dismiss()}, label: {Text("􀆄")})
+                        .foregroundColor(.black)
+                        .buttonStyle(.borderless)
+                }.padding(.top, 16)
+                    .padding(.horizontal, 32)
+                VStack(alignment: .center) {
+                    Text(NSLocalizedString("Configure sua documentação", comment: ""))
+                    Text(NSLocalizedString("Escolha seu Template", comment: ""))
+                }
             }
-        }
     }
     
     var content: some View {
-        HStack {
-            templatePicker
-            VStack(alignment: .trailing) {
-                templateVisualizer
-                createButton
+        GeometryReader { geometry in
+            HStack {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 24) {
+                        ForEach(TemplateArea.allCases, id: \.rawValue) { area in
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text(area.areaName)
+                                ForEach(TemplateType.allCases.filter({ $0.info.area == area }), id: \.rawValue) { item in
+                                    Button(action: {chosenTemplate = item}, label: {
+                                        Text(item.info.name)
+                                    }).buttonStyle(ChooseTemplateButton())
+                                }
+                            }
+                        }
+                    }.padding(.top, 16)
+                    .padding(.trailing, 4)
+                    .foregroundColor(.black)
+                }.padding(.leading, 24)
+                Divider()
+                    .padding(.horizontal, 24)
+                VStack(alignment: .trailing, spacing: 32) {
+                    templateVisualizer
+                        .frame(width: geometry.size.width*0.60)
+                        .padding(.leading, 4)
+                    createButton
+                    Spacer()
+                }.padding(.top, 16)
             }
         }
     }
     
-    var templatePicker: some View {
-        ScrollView {
-            VStack {
-                ForEach(TemplateArea.allCases, id: \.rawValue) { area in
-                    VStack {
-                        Text(area.rawValue)
-                        ForEach(TemplateType.allCases.filter({ $0.info.area == area }), id: \.rawValue) { item in
-                            Button(action: {chosenTemplate = item}, label: { Text(item.info.name) })
-                        }
-                    }
-                }   
-            }
-        }
-    }
     
     var templateVisualizer: some View {
         VStack(alignment: .leading) {
-            Text(chosenTemplate.info.name)
-            Image(chosenTemplate.info.img)
+            Text(NSLocalizedString("Pré-visualização:", comment: "")) + Text(" ") + Text(chosenTemplate.info.name)
+            Image("visualizer_placeholder")
+                .resizable()
+                .scaledToFit()
         }
     }
     
@@ -85,5 +132,12 @@ struct ChooseTemplateView: View {
         Button(action: {}, label: {
             Text(NSLocalizedString("Criar", comment: ""))
         })
+        .buttonStyle(CreateTemplateButton())
+    }
+}
+
+struct ChooseTemplateView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChooseTemplateView()
     }
 }
