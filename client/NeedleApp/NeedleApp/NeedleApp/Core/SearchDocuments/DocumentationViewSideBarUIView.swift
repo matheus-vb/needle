@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DocumentationViewSideBarUIView: View {
+    
+    let tasks : [TaskModel]
+    
     @State private var overText = -1
     @State private var overText2 = -1
 
@@ -30,28 +33,35 @@ struct DocumentationViewSideBarUIView: View {
         .frame(height: 99)
     }
     @ViewBuilder
-    func pendingListCell(index: Int) -> some View{
+    func pendingListCell(task: TaskModel) -> some View{
         
         VStack(alignment: .leading){
-            
             HStack{
-                Text(NSLocalizedString("\(index) e mais algo", comment: ""))
+                Text(NSLocalizedString(task.title, comment: ""))
                     .font(.custom("SF Pro", size: 12))
                     .foregroundColor(Color.theme.blackMain)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Image(systemName: "flag.fill")
-                    .foregroundColor(.green)
+                    .foregroundColor(getPriorityFlagColor(priority: task.taskPriority))
             }
             HStack{
-                Text(NSLocalizedString("\(index) e outro", comment: ""))
+                Text(NSLocalizedString(task.user?.name ?? NSLocalizedString("Sem responsável", comment: ""), comment: ""))
                     .font(.custom("SF Pro", size: 10))
                     .foregroundColor(Color.theme.blackMain)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Image(systemName: "square.fill")
-                    .foregroundColor(.orange)
+                Text(tagName(tagName:task.type))
+                    .frame(height: 18)
+                    .font(Font.custom("SF Pro", size: 8))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 4)
+                    .padding(.vertical, 0)
+                    .background(tagColor(tagName: task.type))
+                    .cornerRadius(3)
             }
         }
+        .padding(.vertical, 10)
+        .padding(.trailing, 11)
         .frame(height: 40)
     }
     
@@ -74,25 +84,26 @@ struct DocumentationViewSideBarUIView: View {
             
             VStack(alignment: .leading){
                 HStack{
-                    List{
-                        ForEach(0..<10){i in
-                            feedbackListCell(index: i)
-                                .background(overText == i ? Color.theme.grayListHover : Color.clear)
-                                .onHover{hovering in
-                                    if hovering{
-                                        overText = i
-                                    } else {
-                                        overText = -1
-                                    }                                }
-                                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-
-                                .cornerRadius(9)
+                    ScrollView{
+                        VStack(alignment: .leading){
+                            ForEach(0..<tasks.count, id: \.self){ i in
+                                feedbackListCell(index: i)
+                                    .listRowInsets(EdgeInsets())
+                                    .background(overText == i ? Color.theme.grayListHover : Color.clear)
+                                    .onHover{hovering in
+                                        if hovering{
+                                            overText = i
+                                        } else {
+                                            overText = -1
+                                        }
+                                    }
+                            }
                         }
-                    }
-                    .frame( maxWidth: .infinity)
-                    .edgesIgnoringSafeArea(.all)
-                    .listStyle(.plain)
-                    .scrollContentBackground(.hidden)
+                        .frame( maxWidth: .infinity)
+                        .edgesIgnoringSafeArea(.all)
+                        .listStyle(.plain)
+                        .scrollContentBackground(.hidden)
+                    }.background(Color.clear)
                 }
             }
             Spacer()
@@ -101,39 +112,77 @@ struct DocumentationViewSideBarUIView: View {
                     .font(.custom("SF Pro", size: 18)
                         .weight(.bold))
                     .foregroundColor(Color.black)
-                    .padding(20)
                 
                 HStack{
-                    List{
-                        ForEach(0..<10){i in
-                            pendingListCell(index: i)
-                                .background(overText2 == i ? Color.theme.grayListHover : Color.clear)
-                                .onHover{hovering in
-                                    if hovering{
-                                        overText2 = i
-                                    } else {
-                                        overText2 = -1
+                    ScrollView{
+                        VStack(alignment: .leading){
+                            ForEach(0..<tasks.count, id: \.self){i in
+                                pendingListCell(task: tasks[i])
+                                    .padding(5)
+                                    .listRowInsets(EdgeInsets())
+                                    .background(overText2 == i ? Color.theme.grayListHover : Color.clear)
+                                    .onHover{hovering in
+                                        if hovering{
+                                            overText2 = i
+                                        } else {
+                                            overText2 = -1
+                                        }
                                     }
-                                }
-                                .cornerRadius(9)
+                            }
                         }
-                    }.scrollContentBackground(.hidden)
-//                        .environment(\.defaultMinListRowHeight, 10)
-                    
+                    }
                 }
             }
+            .padding(.vertical, 20)
             Spacer()
         }
         .frame(width: 279)
         .frame(maxHeight: .infinity)
         .background(Color.theme.grayBackground)
     }
-}
-
-
-
-struct DocumentationViewSideBarUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        DocumentationViewSideBarUIView()
+    
+    
+    func getPriorityFlagColor(priority: TaskPriority) -> Color {
+        switch priority {
+        case .HIGH:
+            return Color.theme.redMain
+        case .VERY_HIGH:
+            return .purple
+        case .MEDIUM:
+            return Color.theme.orangeKanban
+        case .LOW:
+            return Color.theme.greenKanban
+        }
     }
+    
+    func tagColor(tagName: TaskType) -> Color {
+        switch tagName {
+        case TaskType.DEV:
+            return Color.theme.blueMain
+        case TaskType.DESIGN:
+            return Color.theme.orangeMain
+        default:
+            return Color.theme.redMain
+        }
+    }
+    
+    func tagName(tagName: TaskType) -> String {
+        switch tagName {
+        case TaskType.DEV:
+            return "Dev"
+        case TaskType.DESIGN:
+            return "Design"
+        default:
+            return NSLocalizedString(tagName.displayName, comment: "")
+        }
+    }
+    
 }
+
+
+
+//struct DocumentationViewSideBarUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DocumentationViewSideBarUIView(tasks: <#[TaskModel]#>)
+//    }
+//}

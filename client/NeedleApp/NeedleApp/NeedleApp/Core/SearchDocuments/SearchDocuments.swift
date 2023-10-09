@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService, AuthenticationManager>
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService, AuthenticationManager, NotificationDataService>
     @State var seeDocumentation : Bool = false
     @State var scrollToOne = 0
     @State var scrollToTwo = 0
@@ -23,7 +23,8 @@ struct SearchDocuments: View {
             selectedTask: selectedTask,
             isEditing: isEditing,
             taskDS: TaskDataService.shared,
-            authManager: AuthenticationManager.shared
+            authManager: AuthenticationManager.shared,
+            notificationDS: NotificationDataService.shared
         )
     }
     
@@ -187,10 +188,11 @@ struct SearchDocuments: View {
             }
             .padding(.top, 32)
             .padding(.leading, 64)
-            .padding(.trailing, 64)
+//            .padding(.trailing, 64)
         
             Divider()
-            DocumentationViewSideBarUIView()
+                .padding(0)
+            DocumentationViewSideBarUIView(tasks: self.searchDocumentsViewModel.tasks)
         }
         }
 }

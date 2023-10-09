@@ -22,7 +22,7 @@ struct DocumentationThumbnailView: View {
             ZStack{
                 VStack{
                     HStack{
-                        Text(task.document?.textString ?? "")
+                        Text(task.document?.textString ?? NSLocalizedString("SEM DOCUMENTAÇÃO", comment: ""))
                             .font(.custom("SF Pro", size: 8)
                                 .weight(.regular))
                             .foregroundColor(Color.theme.blackMain)
@@ -53,7 +53,7 @@ struct DocumentationThumbnailView: View {
                 Text(task.title)
                     .font(.custom("SF Pro", size: 12))
                     .foregroundColor(.white)
-                Text(showDate ? HandleDate.formatDateWithTime(dateInput: task.updated_at) : task.user?.name ?? "Sem responsável")
+                Text(showDate ? HandleDate.formatDateWithTime(dateInput: task.updated_at) : task.user?.name ?? NSLocalizedString("Sem responsável", comment: ""))
                     .foregroundColor(.white)
                         .font(.custom("SF Pro", size: 10))
             }

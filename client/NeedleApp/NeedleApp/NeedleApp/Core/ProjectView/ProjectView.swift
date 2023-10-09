@@ -80,7 +80,7 @@ struct ProjectView: View {
                             }
                     } else {
                         ProjectsViewRightSide
-//                            .background(Color.theme.grayBackground)
+                            .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
                 }
