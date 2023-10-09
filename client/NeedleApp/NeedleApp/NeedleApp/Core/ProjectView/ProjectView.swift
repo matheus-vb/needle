@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ProjectView: View {
-    
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @Environment(\.dismiss) var dismiss
     @State var triggerLoading: Bool = true
     @State var initalLoading: Bool = true
     @State var selectedTab: SelectedTab = .Kanban
+    @State var seeDocumentation: Bool = false
+
     
     init(selectedWorkspace: Workspace) {
         self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)

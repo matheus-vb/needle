@@ -12,28 +12,31 @@ struct EditTaskPopUP: View {
     @State var seeDocumentation: Bool = false
 
     var geometry: GeometryProxy
-    
-    
+            
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
         self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, taskDS: TaskDataService.shared)
         self.geometry = geometry
     }
     
+    var editTask: some View {
+        VStack(spacing: 24){
+            contentStack
+            //.frame(maxWidth: geometry.size.width*0.29)
+                .padding(2)
+        }
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack(spacing: 24){
-                contentStack
-                //.frame(maxWidth: geometry.size.width*0.29)
-                    .padding(2)
+            if seeDocumentation {
+//                if editTaskViewModel.documentationString == {
+                ChooseTemplateView(backAction: { seeDocumentation.toggle() }, closeAction: { editTaskViewModel.isEditing.toggle() },goToDocumentationAction: {  })
+//                }
+            }
+            else {
+                editTask
             }
         }
-        .overlay(content: {
-            if seeDocumentation {
-                ChooseTemplateView()
-//                DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, action: { seeDocumentation.toggle() }, geometry: geometry)
-//                    .background(.white)
-            }
-        })
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
                 .foregroundColor(Color.theme.grayHover)

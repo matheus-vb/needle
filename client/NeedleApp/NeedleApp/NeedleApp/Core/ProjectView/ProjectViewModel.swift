@@ -34,6 +34,7 @@ class ProjectViewModel<
 
     @Published var showCard: Bool = false
     @Published var showDocumentation: Bool = false
+    @Published var navigateToDocument: Bool = false
 
     @Published var showShareCode = false
     @Published var isAnimating = false

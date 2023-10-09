@@ -50,37 +50,41 @@ struct ChooseTemplateView: View {
 //
     @State var chosenTemplate: TemplateType = .overview
     
-//    var geometry: GeometryProxy
-//
-//    init(geometry: GeometryProxy) {
-//        self.geometry = geometry
-//    }
+    var backAction: () -> ()
+    
+    var closeAction: () -> ()
+    
+    var goToDocumentationAction: () -> ()
 
     var body: some View {
-        VStack{
-            header
-            Divider()
-            content
-        }.background(.white)
-        .foregroundColor(.black)
-        .frame(width: 945, height: 645)
+        GeometryReader { geometry in
+            VStack{
+                header
+                Divider()
+                content
+            }.background(.white)
+                .foregroundColor(.black)
+        }
     }
     
     var header: some View {
             VStack {
                 HStack {
-                    Button(action: {}, label: {Text("􀰪")})
+                    Button(action: {backAction()}, label: {Text("􀰪")})
                         .foregroundColor(.black)
                         .buttonStyle(.borderless)
                     Spacer()
-                    Button(action: {dismiss()}, label: {Text("􀆄")})
+                    Button(action: {closeAction()}, label: {Text("􀆄")})
                         .foregroundColor(.black)
                         .buttonStyle(.borderless)
                 }.padding(.top, 16)
                     .padding(.horizontal, 32)
-                VStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 10) {
                     Text(NSLocalizedString("Configure sua documentação", comment: ""))
+                        .font(Font.custom("SF Pro", size: 24).weight(.medium))
                     Text(NSLocalizedString("Escolha seu Template", comment: ""))
+                        .font(Font.custom("SF Pro", size: 20).weight(.regular))
+
                 }
             }
     }
@@ -88,22 +92,27 @@ struct ChooseTemplateView: View {
     var content: some View {
         GeometryReader { geometry in
             HStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 24) {
-                        ForEach(TemplateArea.allCases, id: \.rawValue) { area in
-                            VStack(alignment: .leading, spacing: 16) {
-                                Text(area.areaName)
-                                ForEach(TemplateType.allCases.filter({ $0.info.area == area }), id: \.rawValue) { item in
-                                    Button(action: {chosenTemplate = item}, label: {
-                                        Text(item.info.name)
-                                    }).buttonStyle(ChooseTemplateButton())
+                VStack(alignment: .leading) {
+                    Text(NSLocalizedString("Modelos disponíveis", comment: ""))
+                        .font(Font.custom("SF Pro", size: 16).weight(.semibold))
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 24) {
+                            ForEach(TemplateArea.allCases, id: \.rawValue) { area in
+                                VStack(alignment: .leading, spacing: 16) {
+                                    Text(area.areaName)
+                                    ForEach(TemplateType.allCases.filter({ $0.info.area == area }), id: \.rawValue) { item in
+                                        Button(action: {chosenTemplate = item}, label: {
+                                            Text(item.info.name)
+                                        }).buttonStyle(ChooseTemplateButton())
+                                    }
                                 }
                             }
-                        }
-                    }.padding(.top, 16)
-                    .padding(.trailing, 4)
-                    .foregroundColor(.black)
-                }.padding(.leading, 24)
+                        }.padding(.trailing, 20)
+                            .foregroundColor(.black)
+                    }
+                }.padding(.top, 16)
+                .padding(.trailing, 4)
+                .padding(.leading, 24)
                 Divider()
                     .padding(.horizontal, 24)
                 VStack(alignment: .trailing, spacing: 32) {
@@ -119,9 +128,11 @@ struct ChooseTemplateView: View {
     
     
     var templateVisualizer: some View {
-        VStack(alignment: .leading) {
-            Text(NSLocalizedString("Pré-visualização:", comment: "")) + Text(" ") + Text(chosenTemplate.info.name)
-            Image("visualizer_placeholder")
+        VStack(alignment: .leading, spacing: 20) {
+            Text(NSLocalizedString("Pré-visualização:", comment: "")).font(Font.custom("SF Pro", size: 16)
+                .weight(.semibold)) + Text(" ")
+            + Text(chosenTemplate.info.name).font((Font.custom("SF Pro", size: 16).weight(.semibold)))
+            Image(chosenTemplate.info.img)
                 .resizable()
                 .scaledToFit()
         }
@@ -129,15 +140,15 @@ struct ChooseTemplateView: View {
     
     
     var createButton: some View {
-        Button(action: {}, label: {
+        Button(action: {goToDocumentationAction()}, label: {
             Text(NSLocalizedString("Criar", comment: ""))
         })
         .buttonStyle(CreateTemplateButton())
     }
 }
-
-struct ChooseTemplateView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChooseTemplateView()
-    }
-}
+//
+//struct ChooseTemplateView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ChooseTemplateView()
+//    }
+//}
