@@ -25,4 +25,5 @@ protocol TaskDataServiceProtocol: ObservableObject {
     func queryTasks(dto: QueryTasksDTO)
     func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String)
     func deleteTask(dto: DeleteTaskDTO, userId: String, workspaceId: String)
+    func updateTask(dto: UpdateTaskDTO, userId: String, workspaceId: String)
 }

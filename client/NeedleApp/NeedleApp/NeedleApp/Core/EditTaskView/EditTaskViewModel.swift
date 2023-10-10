@@ -35,7 +35,8 @@ class EditTaskViewModel<
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
     @Published var isDeleting: Bool = false
-    var dto: SaveTaskDTO
+    var dto: UpdateTaskDTO
+
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, taskDS: T) {
         self.selectedTask = data
@@ -57,28 +58,15 @@ class EditTaskViewModel<
         self.documentationID = data.document?.id ?? "0"
         self.members = members
         self.taskDS = taskDS
-                
-        //Pegar a documentacao
-        let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
-        do{
-            let decoded = try NSAttributedString(data: decodedData!, format: .rtf)
-            self.documentationString = decoded
-        }catch{
-            print(error)
-        }
         
-        self.dto = SaveTaskDTO(
-            userId: nil,
+        self.dto = UpdateTaskDTO(
             taskId: data.id,
-            documentId: data.documentId ?? "",
             title: data.title,
             description: data.description,
-            status: data.status.rawValue,
+            stats: data.status.rawValue,
             type: data.type.rawValue,
             endDate: data.endDate,
-            priority: data.taskPriority.rawValue,
-            text: data.document?.text ?? "",
-            textString: data.document?.textString ?? ""
+            priority: data.taskPriority.rawValue
         )
         
         self.setupBindings()
@@ -87,34 +75,27 @@ class EditTaskViewModel<
     
     
     func setupBindings() {
-        Publishers.CombineLatest4($selectedMember, $taskTitle, $taskDescription, $statusSelection)
-            .sink(receiveValue: { [weak self] (selectedMember, taskTitle, taskDescription, statusSelection) in
-                self?.dto.userId = selectedMember?.id
+        Publishers.CombineLatest4($taskId, $taskTitle, $taskDescription, $statusSelection)
+            .sink(receiveValue: { [weak self] (taskId, taskTitle, taskDescription, statusSelection) in
+                self?.dto.taskId = taskId
                 self?.dto.title = taskTitle
                 self?.dto.description = taskDescription
-                self?.dto.status = statusSelection.rawValue
+                self?.dto.stats = statusSelection.rawValue
             })
             .store(in: &cancellables)
         
-        Publishers.CombineLatest4($categorySelection, $deadLineSelection, $prioritySelection, $documentationString)
-            .sink(receiveValue: { [weak self] (categorySelection, deadLineSelection, prioritySelection, documentationString) in
+        Publishers.CombineLatest4($categorySelection, $deadLineSelection, $prioritySelection, $taskId)
+            .sink(receiveValue: { [weak self] (categorySelection, deadLineSelection, prioritySelection, taskId) in
                 self?.dto.type = categorySelection.rawValue
                 self?.dto.endDate = "\(deadLineSelection)"
                 self?.dto.priority = prioritySelection.rawValue
-                do {
-                    self?.dto.textString = documentationString.string
-                    let data = try documentationString.richTextData(for: .rtf)
-                    let encodedData = data.base64EncodedString(options: .lineLength64Characters)
-                    self?.dto.text = encodedData
-                } catch {
-                    print("ERRO NO ENCODE")
-                }
             })
             .store(in: &cancellables)
+
     }
     
     func saveTask(){
-        taskDS.saveTask(dto: self.dto, userId: userID, workspaceId: self.workspaceID)
+        taskDS.updateTask(dto: self.dto, userId: userID, workspaceId: self.workspaceID)
     }
     
     func archiveTask(){

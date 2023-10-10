@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UpdateTaskDTO: Codable {
+struct UpdateDocDTO: Codable {
     let id: String
     let text: String
     let textString: String
