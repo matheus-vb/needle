@@ -6,7 +6,9 @@
   
 */
 
-"Não deixe uma\nponta solta" = "No dejes cabos sueltos";
+"**Needle** veio para estimular o registro e consulta das suas\natividades." =  "**Needle** vino para fomentar el registro y la consulta de sus actividades.";
+
+"Não deixe uma ponta solta" = "No dejes cabos sueltos";
 
 "A cultura de documentação permite que cada projeto seja costurado com maestria, evitando emaranhados e confusões, por isso o Needle veio para estimular o registro e consulta das suas atividades." = "La cultura de documentación permite que cada proyecto sea confeccionado con maestría, evitando enredos y confusiones. Por eso, Needle ha llegado para fomentar el registro y la consulta de sus actividades.";
 
@@ -184,6 +186,10 @@
 
 "Informação" = "Informacíon";
 
+"Design" = "Diseño";
+
+"Gestão de Projetos" = "Gestión de Proyectos";
+
 
 // Templates:
 
@@ -206,3 +212,11 @@
 "Próximo" = "Siguiente";
 
 "Começar" = "Comenzar";
+
+"Excluir conta" = "Eliminar cuenta";
+
+"Excluir conta?" = "¿Eliminar cuenta?";
+
+"Ao excluir sua conta você perde\n o acesso a todos os seus projetos. Lembre-se desvincular o app do seu Sign In with Apple caso queira criar uma nova conta clicando no link abaixo." = "Al eliminar tu cuenta, perderás el acceso a todos tus proyectos. Recuerda desvincular la aplicación de tu Sign In with Apple si deseas crear una nueva cuenta haciendo clic en el enlace de abajo.";
+
+"Desativar" = "Desactivar";

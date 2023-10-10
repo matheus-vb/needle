@@ -12,6 +12,8 @@ struct TaskModel: Codable, Identifiable {
     var title: String
     var description: String
     var status: TaskStatus
+    var isRejected : Bool
+    var isVisible : Bool
     var type: TaskType
     let documentId: String?
     var endDate: String
