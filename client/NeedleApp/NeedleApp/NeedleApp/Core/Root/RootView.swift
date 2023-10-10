@@ -35,6 +35,9 @@ struct RootView: View {
                 }
             } else {
                 AppView()
+                    .sheet(isPresented: $deletingAccount) {
+                        DeleteAccountSheet(logout: $logout)
+                    }
                     .toolbar{
                         Image("icon-horizontal")
                             .resizable()
@@ -83,11 +86,6 @@ struct RootView: View {
                                 .foregroundColor(Color.theme.blackMain)
                                 .onTapGesture {
                                         deletingAccount.toggle()
-                                }
-                                .sheet(isPresented: $deletingAccount) {
-                                    SheetView(type: .deleteAccount)
-                                        .foregroundColor(Color.theme.grayHover)
-                                        .background(.white)
                                 }
                             }
                         }
