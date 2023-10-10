@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 import Combine
 
-
-
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     
@@ -20,6 +18,7 @@ struct SheetView: View {
     @EnvironmentObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
     @EnvironmentObject var kanbanViewModel: KanbanViewModel<TaskDataService>
     @EnvironmentObject var informationPageViewModel: InformationPageViewModel<TaskDataService, WorkspaceDataService, AuthenticationManager>
+    @EnvironmentObject var rootViewModel: RootViewModel<AuthenticationManager, NotificationDataService, TaskDataService, WorkspaceDataService, UserDataService>
     
     @ObservedObject var workspaceDataService = WorkspaceDataService.shared
     @ObservedObject var authManager = AuthenticationManager.shared
@@ -27,14 +26,10 @@ struct SheetView: View {
     @ObservedObject var documentDataService = DocumentationDataService.shared
     
     @State var isShowingError = false
-    
     @State var showMain = true
     @State var isAnimating = false
-    
     @State var action: () -> () = {}
-    
     @State var accessCode = ""
-    
     @State var textfieldInput: String = ""
     @State var selectedRole: Role = .DEVELOPER
     
@@ -42,50 +37,52 @@ struct SheetView: View {
     
     var buttonAction: () -> () {
         switch type {
-        case .newWorkspace: return {
-            WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: textfieldInput)
-            
-            dismiss()
-            
-        }
-        case .deleteWorkspace: return {
-            WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
-            dismiss()
-        }
-        
-        case .deleteWorkspaceFromInfo: return {
-            WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
-            dismiss()
-        }
-            
-        case .joinCode: return {
-            WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
-            
-            dismiss()
-            
-        }
-        case .shareCode: return {
-            dismiss()
-        }
-        case .documentNotFound: return { dismiss() }
-        case .deleteTask: return {
-            projectViewModel.deleteTask()
-            editTaskViewModel.isDeleting.toggle()
-            projectViewModel.showEditTaskPopUP.toggle()
-        }
-        case .loginError: return {dismiss()}
-        case .archiveTask: return {
-            taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
-            dismiss()
-        }
-        case .deleteWorkspaceMember: return {
-            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
-            
-            dismiss()
-        }
-            
-        }
-    }
+            case .deleteAccount: return {
+                UserDataService.shared.deleteUser(userId: AuthenticationManager.shared.user!.id)
+                self.authManager.user = nil
+                dismiss()
+            }
+            case .newWorkspace: return {
+                WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: textfieldInput)
+                dismiss()
+                
+            }
+            case .deleteWorkspace: return {
+                WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
+                dismiss()
+            }
+                
+            case .deleteWorkspaceFromInfo: return {
+                WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
+                dismiss()
+            }
+                
+            case .joinCode: return {
+                WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
+                
+                dismiss()
+                
+            }
+            case .shareCode: return {
+                dismiss()
+            }
+            case .documentNotFound: return { dismiss() }
+            case .deleteTask: return {
+                projectViewModel.deleteTask()
+                editTaskViewModel.isDeleting.toggle()
+                projectViewModel.showEditTaskPopUP.toggle()
+            }
+            case .loginError: return {dismiss()}
+            case .archiveTask: return {
+                taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
+                dismiss()
+            }
+            case .deleteWorkspaceMember: return {
+                WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
+                
+                dismiss()
+            }
+        }}
     
     var buttonBlock: some View {
         HStack(spacing: 8) {
@@ -210,11 +207,24 @@ struct SheetView: View {
                 if type.text != ""{
                     Text(type.text)
                         .font(.custom("SF Pro", size: 14))
+                        .frame(width: 248, alignment: .center)
                         .multilineTextAlignment(.center)
                 }
                 
                 if type == .joinCode || type == .newWorkspace {
                     textField
+                }
+                if type == .deleteAccount {
+                    Link("Link", destination: URL(string: "https://support.apple.com/en-sg/HT210426")!)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .frame(width: 248, height: 32, alignment: .center)
+                        .cornerRadius(6)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .inset(by: 0.5)
+                                .stroke(.black, lineWidth: 1)
+                        )
                 }
                 
             }

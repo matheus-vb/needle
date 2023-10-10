@@ -53,7 +53,7 @@ class RootViewModel<
         self.authManager.user = nil
     }
     
-    func deleteAccound() {
+    func deleteAccount() {
         UserDefaults.standard.removeObject(forKey: "userID")
         self.userDS.deleteUser(userId: authManager.user!.id)
     }

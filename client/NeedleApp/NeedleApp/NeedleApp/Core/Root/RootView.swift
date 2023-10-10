@@ -7,7 +7,9 @@
 import SwiftUI
 struct RootView: View {
     @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, userDS: UserDataService.shared)
+    
     @State var logout: Bool = false
+    @State var deletingAccount: Bool = false
     @AppStorage("onboard") var isOnboard : Bool = false
     init(){
         if (UserDefaults.standard.object(forKey: "onboard") != nil){
@@ -69,23 +71,28 @@ struct RootView: View {
                                     rootViewModel.logout()
                                     logout.toggle()
                                 }
-//                                Rectangle()
-//                                    .frame(width: 144, height: 1)
-//                                    .foregroundColor(Color.theme.blackMain)
-//                                HStack{
-//                                    Text("Excluir Conta")
-//                                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
-//                                }
-//                                .padding(.horizontal, 20)
-//                                .padding(.vertical, 10)
-//                                .foregroundColor(Color.theme.blackMain)
-//                                .onTapGesture {
-//                                    
+                                Rectangle()
+                                    .frame(width: 144, height: 1)
+                                    .foregroundColor(Color.theme.blackMain)
+                                HStack{
+                                    Text(NSLocalizedString("Excluir conta", comment: ""))
+                                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                                }
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .foregroundColor(Color.theme.blackMain)
+                                .onTapGesture {
+                                        deletingAccount.toggle()
 //                                    rootViewModel.deleteAccound()
 //                                    logout.toggle()
 //                                    rootViewModel.logout()
 //                                    logout.toggle()
-//                                }
+                                }
+                                .sheet(isPresented: $deletingAccount) {
+                                    SheetView(type: .deleteAccount)
+                                        .foregroundColor(Color.theme.grayHover)
+                                        .background(.white)
+                                }
                             }
                         }
                         .background(.white)
