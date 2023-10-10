@@ -20,6 +20,19 @@ export class NotificationRepository implements INotificationRepository {
 
         return notification
     }
+    
+    async findByWorkspaceId(workspaceId: string) {
+        const notifications = await prisma.notification.findMany({
+            where: {
+                workspaceId,
+            },
+            include: {
+                user: true,
+            }
+        })
+
+        return notifications
+    }
 
     async getUserNotifications(userId: string) {
         const notifications = await prisma.notification.findMany({

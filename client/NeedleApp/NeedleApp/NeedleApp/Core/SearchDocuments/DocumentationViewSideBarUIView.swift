@@ -9,29 +9,34 @@ import SwiftUI
 
 struct DocumentationViewSideBarUIView: View {
     
+    let users : [User]
     let tasks : [TaskModel]
+    let notifications : [NotificationModel]
     
     @State private var overText = -1
     @State private var overText2 = -1
 
     @ViewBuilder
-    func feedbackListCell(index: Int) -> some View{
+    func feedbackListCell(notification: NotificationModel) -> some View{
         HStack{
-            Image(systemName: "arrow.counterclockwise.circle.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 25, height: 25)
-                .foregroundColor(.orange)
-                .background(.white)
-                .clipShape(Circle())
-                .padding(8)
+//            Image(systemName: "arrow.counterclockwise.circle.fill")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: 25, height: 25)
+//                .foregroundColor(.orange)
+//                .background(.white)
+//                .clipShape(Circle())
+//                .padding(8)
             
-            Text(NSLocalizedString("\(index)", comment: ""))
+//            Text(NSLocalizedString(getUserNameById(id: notification.userId) + " entered " + notification.workspace.name + " workspace at " + HandleDate.formatDateWithTime(dateInput: notification.created_at), comment: ""))
+            Text(notification.payload)
                 .foregroundColor(Color.theme.blackMain)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
         }
-        .frame(height: 99)
+        .frame(height: 70)
     }
+    
     @ViewBuilder
     func pendingListCell(task: TaskModel) -> some View{
         
@@ -60,23 +65,18 @@ struct DocumentationViewSideBarUIView: View {
                     .cornerRadius(3)
             }
         }
-        .padding(.vertical, 10)
-        .padding(.trailing, 11)
+        .padding(15)
         .frame(height: 40)
     }
     
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Text(NSLocalizedString("Feedbacks", comment: ""))
+                Text(NSLocalizedString("Histórico", comment: ""))
                     .font(.custom("SF Pro", size: 18)
                         .weight(.bold))
                     .foregroundColor(Color.theme.blackMain)
                 Spacer()
-                Text(NSLocalizedString("Limpar", comment: ""))
-                    .font(.custom("SF Pro", size: 14))
-                    .foregroundColor(Color.theme.blackMain)
-                    .opacity(0.6)
             }
             .padding(20)
             
@@ -86,8 +86,8 @@ struct DocumentationViewSideBarUIView: View {
                 HStack{
                     ScrollView{
                         VStack(alignment: .leading){
-                            ForEach(0..<tasks.count, id: \.self){ i in
-                                feedbackListCell(index: i)
+                            ForEach(0..<notifications.count, id: \.self){ i in
+                                feedbackListCell(notification: notifications[i])
                                     .listRowInsets(EdgeInsets())
                                     .background(overText == i ? Color.theme.grayListHover : Color.clear)
                                     .onHover{hovering in
@@ -116,7 +116,7 @@ struct DocumentationViewSideBarUIView: View {
                 HStack{
                     ScrollView{
                         VStack(alignment: .leading){
-                            ForEach(0..<tasks.count, id: \.self){i in
+                            ForEach(0..<tasks.filter{$0.status != TaskStatus.DONE}.count, id: \.self){i in
                                 pendingListCell(task: tasks[i])
                                     .padding(5)
                                     .listRowInsets(EdgeInsets())
@@ -175,6 +175,10 @@ struct DocumentationViewSideBarUIView: View {
         default:
             return NSLocalizedString(tagName.displayName, comment: "")
         }
+    }
+    
+    func getUserNameById(id: String) -> String{
+        return users.filter{$0.id == id}[0].name
     }
     
 }

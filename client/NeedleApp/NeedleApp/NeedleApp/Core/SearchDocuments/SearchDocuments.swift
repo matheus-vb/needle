@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService, AuthenticationManager, NotificationDataService>
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<WorkspaceDataService, TaskDataService, AuthenticationManager, NotificationDataService>
     @State var seeDocumentation : Bool = false
     @State var scrollToOne = 0
     @State var scrollToTwo = 0
@@ -24,7 +24,8 @@ struct SearchDocuments: View {
             isEditing: isEditing,
             taskDS: TaskDataService.shared,
             authManager: AuthenticationManager.shared,
-            notificationDS: NotificationDataService.shared
+            notificationDS: NotificationDataService.shared,
+            workspaceDS: WorkspaceDataService.shared
         )
     }
     
@@ -192,7 +193,7 @@ struct SearchDocuments: View {
         
             Divider()
                 .padding(0)
-            DocumentationViewSideBarUIView(tasks: self.searchDocumentsViewModel.tasks)
+            DocumentationViewSideBarUIView(users: self.searchDocumentsViewModel.workspaceMembers, tasks: self.searchDocumentsViewModel.tasks, notifications: self.searchDocumentsViewModel.workspaceNotifications)
         }
         }
 }
