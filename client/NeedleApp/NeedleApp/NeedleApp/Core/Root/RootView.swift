@@ -83,10 +83,6 @@ struct RootView: View {
                                 .foregroundColor(Color.theme.blackMain)
                                 .onTapGesture {
                                         deletingAccount.toggle()
-//                                    rootViewModel.deleteAccound()
-//                                    logout.toggle()
-//                                    rootViewModel.logout()
-//                                    logout.toggle()
                                 }
                                 .sheet(isPresented: $deletingAccount) {
                                     SheetView(type: .deleteAccount)
