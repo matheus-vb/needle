@@ -34,7 +34,7 @@ extension ProjectView {
                         .foregroundColor(Color.theme.grayHover)
                         .background(.white)
                 }
-        }
+        }.background(.white)
     }
     
     func backButton(){

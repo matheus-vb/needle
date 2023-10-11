@@ -60,6 +60,7 @@ extension ProjectView{
                 .environmentObject(projectViewModel)
         }
         .frame(height: $projectViewModel.projects.count >= 5 ? 330 : (66 * CGFloat($projectViewModel.projects.count)))
+        
 
 
     }

@@ -89,10 +89,11 @@ struct RootView: View {
                                 }
                             }
                         }
-                        .background(.white)
                         .padding(.trailing, 30)
                         .padding(.leading, 10)
                     }
+
+
             }
         }
     }
