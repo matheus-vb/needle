@@ -9,14 +9,16 @@ import SwiftUI
 
 struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
+    @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @State var seeDocumentation: Bool = false
 
     var geometry: GeometryProxy
     
     
-    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
+    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy, projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>) {
         self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, taskDS: TaskDataService.shared)
         self.geometry = geometry
+        self.projectViewModel = projectViewModel
     }
     
     var body: some View {
@@ -28,15 +30,15 @@ struct EditTaskPopUP: View {
         .overlay(content: {
             if seeDocumentation {
                 DocumentationView(workspaceId: editTaskViewModel.workspaceID, documentId: editTaskViewModel.documentationID, documentationNS: $editTaskViewModel.documentationString, editTaskViewModel: editTaskViewModel, action: { seeDocumentation.toggle() }, geometry: geometry)
-
                     .background(.white)
             }
         })
-        .popover(isPresented: $editTaskViewModel.isDeleting, content: {
+        .sheet(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(editTaskViewModel)
+                .environmentObject(projectViewModel)
         })
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)

@@ -19,12 +19,17 @@ struct ColorTheme {
     let grayHover = Color("GrayHover")
     let grayPressed = Color("GrayPressed")
     let grayButton = Color("GrayButton")
+    let grayColumn = Color("GrayColumn")
+    let grayLine = Color("GrayLine")
+    let grayText = Color("GrayText")
     let greenKanban = Color("GreenKanban")
     let greenMain = Color("GreenMain")
     let greenSecondary = Color("GreenSecondary")
+    let greenTags = Color("GreenTags")
     let greenTertiary = Color("GreenTertiary")
     let orangeKanban = Color("OrangeKanban")
     let orangeMain = Color("OrangeMain")
     let redMain = Color("RedMain")
+    let yellowKanban = Color("YellowKanban")
 }
 
