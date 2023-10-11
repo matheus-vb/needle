@@ -6,4 +6,5 @@ export interface INotificationRepository {
     getUserNotifications(userId: string): Promise<Notification[]>
     deleteNotification(id: string): Promise<Notification>
     deleteUserNotifications(userId: string): Promise<void>
+    findByWorkspaceId(workspaceId: string): Promise<Notification[]>
 }

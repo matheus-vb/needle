@@ -18,6 +18,7 @@ struct ColorTheme {
     let grayBackground = Color("GrayBackground")
     let grayHover = Color("GrayHover")
     let grayPressed = Color("GrayPressed")
+    let grayListHover = Color("GrayListHover")
     let grayButton = Color("GrayButton")
     let greenKanban = Color("GreenKanban")
     let greenMain = Color("GreenMain")
