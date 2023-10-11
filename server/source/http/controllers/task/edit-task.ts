@@ -11,9 +11,10 @@ export async function editTask(request: FastifyRequest, reply: FastifyReply){
         type: z.string(),
         endDate: z.coerce.date(),
         priority: z.string(),
+        userId: z.string().nullish().nullable(),
     })
 
-    const { taskId, title, description, stats, type, endDate, priority } = createEditTaskBodySchema.parse(request.body)
+    const { taskId, title, description, stats, type, endDate, priority, userId } = createEditTaskBodySchema.parse(request.body)
 
 
     try {
@@ -25,7 +26,8 @@ export async function editTask(request: FastifyRequest, reply: FastifyReply){
             status: stats,
             type,
             endDate,
-            priority
+            priority,
+            userId: userId ? userId : null,
         })
 
         return reply.status(200).send({task})

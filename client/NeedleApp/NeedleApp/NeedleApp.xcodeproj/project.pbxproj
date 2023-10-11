@@ -61,7 +61,10 @@
 		27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */; };
 		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
 		27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */; };
+		27DEB5132AD5CC9C0020CE79 /* DeleteAccountSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DEB5122AD5CC9C0020CE79 /* DeleteAccountSheet.swift */; };
 		27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F32F9D2A81729D0046CB62 /* PopUpButton.swift */; };
+		4453C2652ACF3DAE00ECDD95 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C2642ACF3DAE00ECDD95 /* UserDataService.swift */; };
+		4453C2672ACF442D00ECDD95 /* UserDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C2662ACF442D00ECDD95 /* UserDataServiceProtocol.swift */; };
 		446767462AB10476006083C2 /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446767452AB10476006083C2 /* BoldText.swift */; };
 		446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */; };
 		44E80C812AB223FE00ED0326 /* HighlightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E80C802AB223FE00ED0326 /* HighlightText.swift */; };
@@ -288,7 +291,10 @@
 		27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUPComponents.swift; sourceTree = "<group>"; };
+		27DEB5122AD5CC9C0020CE79 /* DeleteAccountSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountSheet.swift; sourceTree = "<group>"; };
 		27F32F9D2A81729D0046CB62 /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
+		4453C2642ACF3DAE00ECDD95 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		4453C2662ACF442D00ECDD95 /* UserDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServiceProtocol.swift; sourceTree = "<group>"; };
 		446767452AB10476006083C2 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMembersButton.swift; sourceTree = "<group>"; };
 		44E80C802AB223FE00ED0326 /* HighlightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightText.swift; sourceTree = "<group>"; };
@@ -541,6 +547,7 @@
 				86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */,
 				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
 				27BCF7D92A82C12F0026F381 /* DocumentationDataService.swift */,
+				4453C2642ACF3DAE00ECDD95 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -819,6 +826,7 @@
 				86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */,
 				86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */,
 				86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */,
+				4453C2662ACF442D00ECDD95 /* UserDataServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -830,6 +838,7 @@
 				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
 				D43EB9BA2A8414C900CF0315 /* SheetView.swift */,
 				86EFD0922A958B8B00F8168A /* SheetViewModel.swift */,
+				27DEB5122AD5CC9C0020CE79 /* DeleteAccountSheet.swift */,
 			);
 			path = Sheet;
 			sourceTree = "<group>";
@@ -1109,6 +1118,7 @@
 				649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */,
 				649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */,
 				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
+				4453C2672ACF442D00ECDD95 /* UserDataServiceProtocol.swift in Sources */,
 				D43EB9BD2A84184400CF0315 /* SheetType.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
@@ -1125,6 +1135,7 @@
 				D468EC9B2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift in Sources */,
 				86EFD08E2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift in Sources */,
 				270515812A8430D2005FF0EE /* BackButton.swift in Sources */,
+				27DEB5132AD5CC9C0020CE79 /* DeleteAccountSheet.swift in Sources */,
 				64FE760C2A96840300DF620D /* AddTaskButton.swift in Sources */,
 				86EFD08C2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
@@ -1136,6 +1147,7 @@
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
 				64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */,
+				4453C2652ACF3DAE00ECDD95 /* UserDataService.swift in Sources */,
 				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
 				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
 				863789852A745D70004EEB9B /* NotificationDataService.swift in Sources */,
@@ -1465,6 +1477,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				DEVELOPMENT_TEAM = XST7PF6RZ3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1479,8 +1492,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.7.3;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				MARKETING_VERSION = 1.7.4;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1499,7 +1512,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = L3ZW5SA328;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1513,8 +1526,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.7.3;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleApp;
+				MARKETING_VERSION = 1.7.4;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.Needle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1528,11 +1541,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1547,11 +1560,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1565,10 +1578,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1582,10 +1595,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

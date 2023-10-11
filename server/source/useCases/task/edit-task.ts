@@ -11,6 +11,7 @@ interface IEditTaskRequest{
     type: string
     endDate: Date
     priority: string
+    userId: string | null
 }
 
 interface IEditTaskReply{
@@ -28,6 +29,7 @@ export class EditTaskUseCase{
         type,
         endDate,
         priority,
+        userId,
     }:IEditTaskRequest) : Promise<IEditTaskReply> {
         const task = await this.taskRepository.findById(taskId)
 
@@ -44,7 +46,7 @@ export class EditTaskUseCase{
         const checkedPriority = parsePriority.parse(priority)
         const updatedTask = await this.taskRepository.updateTask(taskId, title, 
                                                                 description, checkedStatus, checkedType, endDate, 
-                                                                checkedPriority)
+                                                                checkedPriority, userId)
         
         return {
             task: updatedTask

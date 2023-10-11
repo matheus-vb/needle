@@ -224,3 +224,11 @@
 "Próximo" = "Suivant";
 
 "Começar" = "Commencer";
+
+"Excluir conta" = "Supprimer le compte";
+"Excluir conta?" = "Supprimer le compte?";
+
+"Ao excluir sua conta você perde\n o acesso a todos os seus projetos. Lembre-se desvincular o app do seu Sign In with Apple caso queira criar uma nova conta clicando no link abaixo." = "En supprimant votre compte, vous perdrez l'accès à tous vos projets. N'oubliez pas de dissocier l'application de votre Sign In with Apple si vous souhaitez créer un nouveau compte en cliquant sur le lien ci-dessous.";
+
+"Desativar" = "Désactiver";
+
