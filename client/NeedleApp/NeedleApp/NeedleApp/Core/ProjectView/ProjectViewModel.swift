@@ -123,4 +123,5 @@ class ProjectViewModel<
     func toggleNavigate() {
         navigateToDocument.toggle()
     }
+
 }

@@ -9,11 +9,25 @@ import SwiftUI
 import RichTextKit
 
 struct DocumentationView: View {
-    var name = "Titulo da Task"
-    var responsible = "Fulano de Tal"
-    var deadline = "22/04/2022"
-    var area: TaskType = .DESIGN
-    var priority: TaskPriority = .LOW
+    var name: String //?? "Titulo da Task"
+    var responsible: String // ?? "Sem Responsável"
+    var deadline: String // "22/04/2022"
+    var area: TaskType //= .DESIGN
+    var priority: TaskPriority //= .LOW
+    var members: [User] //= .LOW
+    var documentationViewModel: DocumentationViewModel<DocumentationDataService>
+    
+    
+    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [User]) {
+        self.name = name
+        self.responsible = responsible
+        self.deadline = deadline
+        self.area = area
+        self.priority = priority
+        self.members = members
+        self.documentationViewModel = DocumentationViewModel(data: data, userID: data.userId ?? "", workspaceID: data.workId, documentationID: data.documentId ?? "", documentationText: data.document?.text ?? "", documentationString: NSAttributedString(string: data.document?.textString ?? ""), members: members, isDeleting: false, docDS: DocumentationDataService.shared)
+
+    }
 
     var body: some View {
         VStack {
@@ -106,11 +120,11 @@ struct DocumentationView: View {
     }
 }
 
-struct DocumentationView_Previews: PreviewProvider {
-    static var previews: some View {
-        DocumentationView()
-    }
-}
+//struct DocumentationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DocumentationView()
+//    }
+//}
 
 //struct DocumentationView: View {
 //    @StateObject var editTaskViewModel: EditTaskViewModel<TaskDataService>

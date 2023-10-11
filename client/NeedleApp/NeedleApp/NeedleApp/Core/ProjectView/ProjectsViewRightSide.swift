@@ -9,13 +9,13 @@ import SwiftUI
 
 extension ProjectView {
     var ProjectsViewRightSide: some View {
-        VStack{
+        VStack {
             topContainer
                 .padding([.top], 64)
                 .padding([.leading, .trailing], 64)
             
             if projectViewModel.navigateToDocument {
-                DocumentationView()
+                DocumentationView(data: projectViewModel.selectedTask!, name: projectViewModel.selectedTask!.title, responsible: projectViewModel.selectedTask!.user?.name ?? NSLocalizedString("Sem responsável", comment: ""), deadline: projectViewModel.selectedTask!.endDate, area: projectViewModel.selectedTask!.type, priority: projectViewModel.selectedTask!.taskPriority, members: [])
 
             }
             else {
