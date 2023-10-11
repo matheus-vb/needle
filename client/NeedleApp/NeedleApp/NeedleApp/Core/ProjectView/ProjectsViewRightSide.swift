@@ -14,9 +14,9 @@ extension ProjectView {
                 .padding([.top], 64)
                 .padding([.leading, .trailing], 64)
             
-            if seeDocumentation {
+            if projectViewModel.navigateToDocument {
                 DocumentationView()
-//                DocumentationView(workspaceId: projectViewModel.selectedWorkspace.id, documentId: "", documentationNS: "", action: {projectViewModel.navigateToDocument.toggle()})
+
             }
             else {
                 if selectedTab == .Kanban {

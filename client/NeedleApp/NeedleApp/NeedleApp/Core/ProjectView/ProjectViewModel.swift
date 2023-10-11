@@ -119,4 +119,8 @@ class ProjectViewModel<
         pasteBoard.setString(self.getCode(), forType: .string)
 
     }
+    
+    func toggleNavigate() {
+        navigateToDocument.toggle()
+    }
 }

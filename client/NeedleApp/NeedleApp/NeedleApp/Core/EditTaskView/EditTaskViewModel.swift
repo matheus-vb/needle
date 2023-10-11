@@ -22,6 +22,7 @@ class EditTaskViewModel<
     let context = RichTextContext()
     
     @Binding var isEditing: Bool
+    @Published var userId: String?
     @Published var documentationID: String
     @Published var workspaceID: String
     @Published var taskId: String
@@ -34,6 +35,7 @@ class EditTaskViewModel<
     @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
+
     @Published var isDeleting: Bool = false
     var dto: UpdateTaskDTO
 
@@ -46,6 +48,7 @@ class EditTaskViewModel<
         formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
         let date = formatter.date(from: isoDateString)
         self.workspaceID = workspaceID
+        self.userId = data.userId
         self.taskId = data.id
         self.taskDescription = data.description
         self.taskTitle = data.title
@@ -60,6 +63,7 @@ class EditTaskViewModel<
         self.taskDS = taskDS
         
         self.dto = UpdateTaskDTO(
+            userId: data.userId,
             taskId: data.id,
             title: data.title,
             description: data.description,
@@ -75,17 +79,18 @@ class EditTaskViewModel<
     
     
     func setupBindings() {
-        Publishers.CombineLatest4($taskId, $taskTitle, $taskDescription, $statusSelection)
-            .sink(receiveValue: { [weak self] (taskId, taskTitle, taskDescription, statusSelection) in
+        Publishers.CombineLatest4($userId, $taskId, $taskTitle, $taskDescription)
+            .sink(receiveValue: { [weak self] (userId, taskId, taskTitle, taskDescription) in
+                self?.dto.userId = userId
                 self?.dto.taskId = taskId
                 self?.dto.title = taskTitle
                 self?.dto.description = taskDescription
-                self?.dto.stats = statusSelection.rawValue
             })
             .store(in: &cancellables)
         
-        Publishers.CombineLatest4($categorySelection, $deadLineSelection, $prioritySelection, $taskId)
-            .sink(receiveValue: { [weak self] (categorySelection, deadLineSelection, prioritySelection, taskId) in
+        Publishers.CombineLatest4($statusSelection, $categorySelection, $deadLineSelection, $prioritySelection)
+            .sink(receiveValue: { [weak self] (statusSelection, categorySelection, deadLineSelection, prioritySelection) in
+                self?.dto.stats = statusSelection.rawValue
                 self?.dto.type = categorySelection.rawValue
                 self?.dto.endDate = "\(deadLineSelection)"
                 self?.dto.priority = prioritySelection.rawValue

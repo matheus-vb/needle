@@ -11,11 +11,13 @@ struct EditTaskPopUP: View {
     @ObservedObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
     @State var seeDocumentation: Bool = false
 
+    var navigate: () -> ()
     var geometry: GeometryProxy
             
-    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy) {
+    init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, geometry: GeometryProxy, navigate: @escaping () -> ()) {
         self.editTaskViewModel = EditTaskViewModel(data: data, workspaceID: workspaceID, members: members, isEditing: isEditing, taskDS: TaskDataService.shared)
         self.geometry = geometry
+        self.navigate = navigate
     }
     
     var editTask: some View {
@@ -30,7 +32,7 @@ struct EditTaskPopUP: View {
         NavigationStack {
             if seeDocumentation {
 //                if editTaskViewModel.documentationString == {
-                ChooseTemplateView(backAction: { seeDocumentation.toggle() }, closeAction: { editTaskViewModel.isEditing.toggle() },goToDocumentationAction: {  })
+                ChooseTemplateView(backAction: { seeDocumentation.toggle() }, closeAction: { editTaskViewModel.isEditing.toggle() }, goToDocumentationAction: { navigate() })
 //                }
             }
             else {

@@ -140,7 +140,8 @@ struct ChooseTemplateView: View {
     
     
     var createButton: some View {
-        Button(action: {goToDocumentationAction()}, label: {
+        Button(action: { dismiss()
+            goToDocumentationAction()}, label: {
             Text(NSLocalizedString("Criar", comment: ""))
         })
         .buttonStyle(CreateTemplateButton())

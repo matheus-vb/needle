@@ -13,8 +13,6 @@ struct ProjectView: View {
     @State var triggerLoading: Bool = true
     @State var initalLoading: Bool = true
     @State var selectedTab: SelectedTab = .Kanban
-    @State var seeDocumentation: Bool = false
-
     
     init(selectedWorkspace: Workspace) {
         self.projectViewModel = ProjectViewModel(selectedWorkspace: selectedWorkspace, manager: AuthenticationManager.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
@@ -80,6 +78,7 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
+                        
                         ProjectsViewRightSide
 //                            .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
@@ -88,7 +87,7 @@ struct ProjectView: View {
             })
             .navigationBarBackButtonHidden(true)
             .sheet(isPresented: $projectViewModel.showEditTaskPopUP, content: {
-                EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry)
+                EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry, navigate: { projectViewModel.toggleNavigate() })
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)

@@ -51,7 +51,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
                 .font(.system(size: 14))
 
-            Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.dto.userId){
+            Picker(NSLocalizedString("Responsável", comment: ""),selection: $editTaskViewModel.dto.userId){
                     ForEach(editTaskViewModel.members) {membro in
                         Text(membro.name)
                             .foregroundColor(Color.theme.blackMain)

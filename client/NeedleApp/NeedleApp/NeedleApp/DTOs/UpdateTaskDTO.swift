@@ -8,6 +8,7 @@
 import Foundation
 
 struct UpdateTaskDTO: Codable {
+    var userId: String?
     var taskId: String
     var title: String
     var description: String
