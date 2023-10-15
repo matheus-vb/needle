@@ -42,28 +42,6 @@ struct TaskCardBackground: ViewModifier {
     }
 }
 
-struct AddTaskButtonBackground: ViewModifier {
-    @State var isHovered = false
-    @EnvironmentObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
-    
-    func body(content: Content) -> some View {
-        content
-            .onHover { inside in
-                if inside && !projectViewModel.showPopUp {
-                    isHovered = true
-                } else if !projectViewModel.showPopUp {
-                    isHovered = false
-                }
-            }
-            .onChange(of: projectViewModel.showPopUp, perform: { newValue in
-                if newValue == false {
-                    isHovered = false
-                }
-            })
-            .background(isHovered ? Color.theme.greenSecondary : Color.theme.greenTertiary)
-    }
-}
-
 struct workspaceCardModifier: ViewModifier {
     let standardColor : Color
     let hoveredColor : Color

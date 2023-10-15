@@ -18,8 +18,6 @@ class KanbanViewModel<
     @Published var somethingBeingDragged = false
     @Published var currentlyDragging : String?
     @Published var currentlyTarget: String?
-    @Published var isDeleting = false
-    @Published var isArchiving = false
     @Published var showEditTaskPopUP: Bool = false
     
     @Published var taskType: TaskType? = nil
@@ -33,6 +31,9 @@ class KanbanViewModel<
     @Binding var showPopUp: Bool
     @Binding var showCard: Bool
     @Binding var isEditing: Bool
+    @Binding var isDeleting: Bool
+    @Binding var isArchiving: Bool
+    
     
     let role: Role
     
@@ -40,7 +41,7 @@ class KanbanViewModel<
     
     private var taskDS: T
     
-    init(localTasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, taskDS: T) {
+    init(localTasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, isDeleting: Binding<Bool>, isArchiving: Binding<Bool>, taskDS: T) {
         self.localTasks = localTasks
         self.role = role
         self._selectedColumn = selectedColumn
@@ -50,6 +51,8 @@ class KanbanViewModel<
         self._selectedTask = selectedTask
         self._isEditing = isEditing
         self.taskDS = taskDS
+        self._isDeleting = isDeleting
+        self._isArchiving = isArchiving
     }
     
     func presentCard() {

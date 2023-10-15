@@ -70,6 +70,7 @@
 		44E80C812AB223FE00ED0326 /* HighlightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E80C802AB223FE00ED0326 /* HighlightText.swift */; };
 		44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06302A82E69200386ADE /* SearchDocuments.swift */; };
 		44FE06332A82E71800386ADE /* PickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06322A82E71800386ADE /* PickerApp.swift */; };
+		646BE57B2AD5CBF7008BC305 /* ColumnTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */; };
 		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
 		649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45442A7D7B8200F8F54B /* TaskCardView.swift */; };
 		649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */; };
@@ -298,9 +299,10 @@
 		446767452AB10476006083C2 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMembersButton.swift; sourceTree = "<group>"; };
 		44E80C802AB223FE00ED0326 /* HighlightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightText.swift; sourceTree = "<group>"; };
-		44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		44FE06302A82E69200386ADE /* SearchDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocuments.swift; sourceTree = "<group>"; };
 		44FE06322A82E71800386ADE /* PickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerApp.swift; sourceTree = "<group>"; };
+		646BE5772AD5C858008BC305 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnTitle.swift; sourceTree = "<group>"; };
 		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 		649B45442A7D7B8200F8F54B /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTagView.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 			children = (
 				64FE760B2A96840300DF620D /* AddTaskButton.swift */,
 				64FE76082A96814900DF620D /* KanbanColumnViews.swift */,
+				646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */,
 				649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */,
 				649B45442A7D7B8200F8F54B /* TaskCardView.swift */,
 			);
@@ -753,8 +756,8 @@
 		864D69A32A787BE000EB256A /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				646BE5772AD5C858008BC305 /* Debug.xcconfig */,
 				86503D0B2A84A262001D26EE /* Release.xcconfig */,
-				44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1174,6 +1177,7 @@
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				86503D112A85559D001D26EE /* NotificationResponse.swift in Sources */,
 				868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */,
+				646BE57B2AD5CBF7008BC305 /* ColumnTitle.swift in Sources */,
 				D468EC992A8D6B38004AE74F /* MockWorkspaces.swift in Sources */,
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
@@ -1349,7 +1353,7 @@
 /* Begin XCBuildConfiguration section */
 		274A28172A719F6E0002CFEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */;
+			baseConfigurationReference = 646BE5772AD5C858008BC305 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1477,7 +1481,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"NeedleApp/Preview Content\"";
-				DEVELOPMENT_TEAM = XST7PF6RZ3;
+				DEVELOPMENT_TEAM = QJZZNXUZ63;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

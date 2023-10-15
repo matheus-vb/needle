@@ -19,7 +19,7 @@ extension WorkspaceHomeView {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity, alignment: .bottomTrailing)
             }
-            .frame(width: .infinity, height: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             Circle()
                 .trim(from: 0, to: 0.8)
                 .stroke(Color.theme.blackMain, lineWidth: 4)

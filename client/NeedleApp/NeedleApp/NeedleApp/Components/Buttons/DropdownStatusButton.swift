@@ -19,7 +19,7 @@ struct DropdownStatusButton: View {
         }, label:{
             HStack(spacing: 0){
                 Spacer()
-                Text("\(NSLocalizedString("Área:", comment: ""))")
+                Text("\(NSLocalizedString("Área", comment: "")):")
                     .padding(.trailing, 4)
                     .font(.custom("SF Pro", size: 12)
                         .weight(.semibold))
@@ -79,7 +79,7 @@ struct DropdownPriorityButton: View {
         }, label:{
             HStack(spacing: 0){
                 Spacer()
-                Text("\(NSLocalizedString("Área:", comment: ""))")
+                Text("\(NSLocalizedString("Prioridade", comment: "")):")
                     .padding(.trailing, 4)
                     .font(.custom("SF Pro", size: 12)
                         .weight(.semibold))
