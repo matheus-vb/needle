@@ -12,6 +12,7 @@ protocol NotificationDataServiceProtocol: ObservableObject {
     
     var usersNotifications: [NotificationModel] { get set }
     var usersNotificationsPublisher: Published<[NotificationModel]>.Publisher { get }
+    var workspaceNotificationsPublisher: Published<[NotificationModel]>.Publisher { get }
     
     var currError: NetworkingManager.NetworkingError? { get set }
     
@@ -20,5 +21,6 @@ protocol NotificationDataServiceProtocol: ObservableObject {
     
     func updateDeviceToken(userId: String)
     func getUserNotifications(userId: String)
+    func getWorkspaceNotifications(workspaceId: String)
     func deleteUserNotifications(userId: String)
 }

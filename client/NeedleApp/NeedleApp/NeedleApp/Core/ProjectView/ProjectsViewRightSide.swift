@@ -9,10 +9,17 @@ import SwiftUI
 
 extension ProjectView {
     var ProjectsViewRightSide: some View {
-        VStack{
-            topContainer
-                .padding([.top], 64)
-                .padding([.leading, .trailing], 64)
+
+            VStack{
+                ZStack{
+                    Rectangle()
+                        .background(.black)
+                        .frame(height: 100)
+                        .shadow(radius: 5)
+                    topContainer
+                        .padding(30)
+                        .background(.white)
+                }
             
             if selectedTab == .Kanban {
                 KanbanView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], role: projectViewModel.roles[projectViewModel.selectedWorkspace.id] ?? .DEVELOPER, selectedColumn: $projectViewModel.selectedColumnStatus, showPopUp: $projectViewModel.showPopUp, showCard: $projectViewModel.showCard, selectedWorkspace: projectViewModel.selectedWorkspace, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP, isDeleting: $projectViewModel.isDeleting, isArchiving: $projectViewModel.isArchiving)

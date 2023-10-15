@@ -63,7 +63,7 @@ struct ProjectView: View {
             NavigationSplitView(sidebar: {
                 ProjectSideBar
                     .padding(.top, 62)
-                    .background(Color.theme.grayBackground)
+                    .background(.white)
                     .environmentObject(projectViewModel)
             }, detail: {
                 ZStack {
@@ -80,7 +80,7 @@ struct ProjectView: View {
                             }
                     } else {
                         ProjectsViewRightSide
-//                            .background(Color.theme.grayBackground)
+                            .background(Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
                 }
