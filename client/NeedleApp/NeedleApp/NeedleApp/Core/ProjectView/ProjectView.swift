@@ -58,7 +58,7 @@ struct ProjectView: View {
         
     
     var main: some View {
-        GeometryReader{geometry in
+        GeometryReader { geometry in
             NavigationSplitView(sidebar: {
                 ProjectSideBar
                     .padding(.top, 62)
@@ -80,7 +80,7 @@ struct ProjectView: View {
                     } else {
                         
                         ProjectsViewRightSide
-                            .background(Color.theme.grayBackground)
+                            .background(projectViewModel.navigateToDocument ? .white : Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
                 }

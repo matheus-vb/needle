@@ -20,7 +20,7 @@ class DocumentationViewModel <
     
     let selectedTask: TaskModel
     var workspaceID: String
-    var docReview: String = ""
+    var docReview: String = NSLocalizedString("Comente a documentação", comment: "")
     @Published var documentationID: String
     @Published var documentationText: String
     @Published var documentationString: NSAttributedString

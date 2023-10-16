@@ -34,13 +34,20 @@ struct DocumentationView: View {
     }
     
     var body: some View {
-        VStack {
-            backHeader.foregroundColor(Color.theme.grayPressed)
-            informationHeader
-            textContent
-        }.padding(.bottom, 32)
-        .background(.clear)
-            .foregroundColor(.black)
+        GeometryReader { geometry in
+            VStack {
+                backHeader.foregroundColor(Color.theme.grayPressed)
+                informationHeader
+                HStack {
+                    textContent.background(Color.theme.grayBackground)
+                    toolbar
+                        .frame(width: geometry.size.width*0.18)
+                        .background(isEditing ? Color.theme.grayBackground : .white)
+                }
+            }.padding(.bottom, 32)
+                .background(.clear)
+                .foregroundColor(.black)
+        }
     }
     
     var backHeader: some View {
@@ -125,7 +132,6 @@ struct DocumentationView: View {
         HStack {
             editor
             Divider()
-            toolbar
         }
 //                .cornerRadius(6)
 //                .background(Color.theme.grayHover)
@@ -157,33 +163,52 @@ struct DocumentationView: View {
     var toolbar: some View {
         VStack {
             if !isEditing {
-                VStack {
-                    Text(NSLocalizedString("Revisão do documento", comment: ""))
-                    Text(NSLocalizedString("Aprove ou rejeite o documento. Opcionalmente, deixe feedbacks para o responsável no campo abaixo.", comment: ""))
-                    
-                }
-                TextField("", text: Binding(get: {
-                    documentationViewModel.docReview
-                },
-                                            set: {
-                    documentationViewModel.docReview = $0
-                }))
-                
-                VStack {
-                    Button(action: {}, label: {Text(NSLocalizedString("Aprovar", comment: ""))})
-                    Button(action: {}, label: {Text(NSLocalizedString("Rejeitar", comment: ""))})
-                    HStack {
-                        Text(NSLocalizedString("Tasks rejeitadas serão enviadas de volta à coluna Fazendo", comment: ""))
-                        Image(systemName: "circle.fill")
-                            .foregroundColor(Color.theme.blueKanban)
-                    }
-                }
+                revisionBlock
             }
             else {
                 RichTextFormatSidebar(context: documentationViewModel.context)
                     .layoutPriority(-1)
                     .foregroundColor(Color.theme.blackMain)
                 saveButton
+                    .padding(.bottom, 12)
+            }
+        }
+    }
+    
+    var revisionBlock: some View {
+        GeometryReader { geometry in
+            VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading) {
+                    Text(NSLocalizedString("Revisão do documento", comment: ""))
+                        .font(.system(size: 16, weight: .semibold))
+                    Text(NSLocalizedString("Aprove ou rejeite o documento. Opcionalmente, deixe feedbacks para o responsável no campo abaixo.", comment: ""))
+                        .font(.system(size: 12, weight: .regular))
+                    
+                }
+                TextEditor(text: Binding(get: {
+                    documentationViewModel.docReview
+                },
+                                            set: {
+                    documentationViewModel.docReview = $0
+                }))
+                .cornerRadius(6)
+                .background(Color.theme.grayBackground)
+                .frame(width: geometry.size.width, height: geometry.size.height*0.63)
+                
+                VStack(alignment: .leading, spacing: 16) {
+                    VStack(spacing: 12) {
+                        Button(action: {}, label: {Text(NSLocalizedString("Aprovar", comment: ""))})
+                        Button(action: {}, label: {Text(NSLocalizedString("Rejeitar", comment: ""))})
+                    }
+                    HStack(spacing: 0) {
+                        Text(NSLocalizedString("Tasks rejeitadas serão enviadas de volta à coluna", comment: ""))
+                            .foregroundColor(.black) + Text(" ") + Text(NSLocalizedString("Fazendo", comment: "")).foregroundColor(Color.theme.blueKanban)
+                            .font(.system(size: 10, weight: .regular))
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(Color.theme.blueKanban)
+                            .frame(width: 10, height: 10)
+                    }
+                }
             }
         }
     }
