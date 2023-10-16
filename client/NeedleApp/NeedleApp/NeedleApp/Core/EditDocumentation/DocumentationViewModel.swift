@@ -65,5 +65,9 @@ class DocumentationViewModel <
             })
             .store(in: &cancellables)
     }
+    
+    func saveDoc() {
+        DocumentationDataService.shared.updateDocumentation(data: dto, userId: selectedTask.userId ?? "", workspaceId: selectedTask.workId)
+    }
 
 }

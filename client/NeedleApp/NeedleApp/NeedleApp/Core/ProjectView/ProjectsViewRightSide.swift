@@ -10,15 +10,18 @@ import SwiftUI
 extension ProjectView {
     var ProjectsViewRightSide: some View {
         VStack {
-            topContainer
-                .padding([.top], 64)
-                .padding([.leading, .trailing], 64)
             
             if projectViewModel.navigateToDocument {
-                DocumentationView(data: projectViewModel.selectedTask!, name: projectViewModel.selectedTask!.title, responsible: projectViewModel.selectedTask!.user?.name ?? NSLocalizedString("Sem responsável", comment: ""), deadline: projectViewModel.selectedTask!.endDate, area: projectViewModel.selectedTask!.type, priority: projectViewModel.selectedTask!.taskPriority, members: [], backAction: { projectViewModel.navigateToDocument.toggle() }, documentationNS: projectViewModel.selectedTask!.doc)
-
+                DocumentationView(data: projectViewModel.selectedTask!, name: projectViewModel.selectedTask!.title, responsible: projectViewModel.selectedTask!.user?.name ?? NSLocalizedString("Sem responsável", comment: ""), deadline: projectViewModel.selectedTask!.endDate, area: projectViewModel.selectedTask!.type, priority: projectViewModel.selectedTask!.taskPriority, members: [], backAction: { projectViewModel.navigateToDocument.toggle() })
+                    .padding([.top], 64)
+                    .padding([.leading, .trailing], 64)
             }
+            
             else {
+                topContainer
+                    .padding([.top], 64)
+                    .padding([.leading, .trailing], 64)
+                
                 if selectedTab == .Kanban {
                     KanbanView(tasks: projectViewModel.tasks[projectViewModel.selectedWorkspace.id] ?? [], role: projectViewModel.roles[projectViewModel.selectedWorkspace.id] ?? .DEVELOPER, selectedColumn: $projectViewModel.selectedColumnStatus, showPopUp: $projectViewModel.showPopUp, showCard: $projectViewModel.showCard, selectedWorkspace: projectViewModel.selectedWorkspace, selectedTask: $projectViewModel.selectedTask, isEditing: $projectViewModel.showEditTaskPopUP)
                 }else if selectedTab == .Documentation{

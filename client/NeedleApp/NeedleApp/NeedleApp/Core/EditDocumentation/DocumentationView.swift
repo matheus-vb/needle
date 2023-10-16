@@ -9,19 +9,18 @@ import SwiftUI
 import RichTextKit
 
 struct DocumentationView: View {
-    var name: String //?? "Titulo da Task"
-    var responsible: String // ?? "Sem Responsável"
-    var deadline: String // "22/04/2022"
-    var area: TaskType //= .DESIGN
-    var priority: TaskPriority //= .LOW
-    var members: [User] //= .LOW
+    var name: String
+    var responsible: String
+    var deadline: String
+    var area: TaskType
+    var priority: TaskPriority
+    var members: [User]
     var documentationViewModel: DocumentationViewModel<DocumentationDataService>
     var backAction: () -> ()
-    
-    @Binding var documentationNS: NSAttributedString
+    var documentationNS: NSAttributedString
 
     
-    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [User], backAction: @escaping () -> (), documentationNS: Binding<NSAttributedString>) {
+    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [User], backAction: @escaping () -> ()) {
         self.name = name
         self.responsible = responsible
         self.deadline = deadline
@@ -30,7 +29,7 @@ struct DocumentationView: View {
         self.members = members
         self.documentationViewModel = DocumentationViewModel(data: data, userID: data.userId ?? "", workspaceID: data.workId, documentationID: data.documentId ?? "", documentationText: data.document?.text ?? "", documentationString: NSAttributedString(string: data.document?.textString ?? ""), members: members, isDeleting: false, docDS: DocumentationDataService.shared)
         self.backAction = backAction
-        self._documentationNS = documentationNS
+        self.documentationNS = documentationViewModel.documentationString
 
     }
     
@@ -40,22 +39,25 @@ struct DocumentationView: View {
             informationHeader
             textContent
             saveButton
-        }.background(Color.theme.grayBackground)
+        }.background(.clear)
             .foregroundColor(.black)
     }
     
     var backHeader: some View {
         HStack {
-            Button(action: { backAction() }, label: { Text("􀰪") })
+            Button(action: { documentationViewModel.saveDoc()
+                backAction() }, label: { Text("􀰪") })
+                .buttonStyle(.borderless)
+                .foregroundColor(Color.theme.grayButton)
             Text(name)
-            Text(" ")
+            Text(" // ")
             Text(NSLocalizedString("Documentação", comment: ""))
             Spacer()
         }
     }
     
     var informationHeader: some View {
-                    VStack(alignment: .center, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 12) {
                         HStack {
                                 Text("\(name)")
                                     .font(.system(size: 38, weight: .medium))
@@ -116,23 +118,33 @@ struct DocumentationView: View {
     var textContent: some View {
                         HStack {
                             editor
-                            leftBorder
+                            Divider()
                             toolbar
                         }.background(Color.theme.grayBackground)
     }
     
     var saveButton: some View {
-        Button(action: {}, label: {})
+        Button(action: {documentationViewModel.saveDoc()
+            print("salvei")
+        }, label: {Text(NSLocalizedString("Salvar", comment: ""))})
             .buttonStyle(CreateTemplateButton())
     }
     
     var editor: some View {
-        RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
+        RichTextEditor(text: Binding(
+            get: {
+                documentationViewModel.documentationString
+            },
+            set: {
+                documentationViewModel.documentationString = $0
+            }
+        ), context: documentationViewModel.context) {
             $0.textContentInset = CGSize(width: 20, height: 40)
         }
         .cornerRadius(8)
         .focusedValue(\.richTextContext, documentationViewModel.context)
     }
+
 
     var toolbar: some View {
         VStack {
@@ -141,151 +153,4 @@ struct DocumentationView: View {
                 .foregroundColor(Color.theme.blackMain)
         }
     }
-
-    var leftBorder: some View {
-        HStack {
-            Rectangle()
-                .frame(width: 2)
-                .foregroundColor(Color.theme.blackMain)
-        }
-    }
 }
-
-//struct DocumentationView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DocumentationView()
-//    }
-//}
-
-//struct DocumentationView: View {
-//    @StateObject var editTaskViewModel: EditTaskViewModel<TaskDataService>
-//    @Environment(\.dismiss) var dismiss
-//
-//    var geometry: GeometryProxy
-//
-//    var action: () -> ()
-//
-//    @Binding var documentationNS: NSAttributedString
-//
-//    @State var backButtonHovered: Bool = false
-//
-//    init(workspaceId: String, documentId: String, documentationNS: Binding<NSAttributedString>, editTaskViewModel: EditTaskViewModel<TaskDataService>,  action: @escaping () -> (), geometry: GeometryProxy) {
-//        self.action = action
-//        self._editTaskViewModel = StateObject(wrappedValue: editTaskViewModel)
-//        self._documentationNS = documentationNS
-//        self.geometry = geometry
-//    }
-//
-//    var body: some View {
-//        VStack(alignment: .center) {
-//                taskDataHeader.padding(.top, 20)
-//                Spacer()
-//                HStack {
-//                    editor
-//                    leftBorder
-//                    toolbar
-//                }.background(Color.theme.grayBackground)
-//                Spacer()
-//            saveTask
-//        }
-//
-//        }
-//
-//        var taskDataHeader: some View {
-//            VStack(alignment: .center, spacing: 32) {
-//                HStack {
-//                    Button(action: {
-//                        action()
-//
-//                    }, label: {
-//                        Image(systemName: "chevron.backward")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 10)
-//                            .foregroundColor(backButtonHovered ? Color.theme.blackMain : Color.theme.grayHover)
-//                    }).onHover(perform: { hover in
-//                        backButtonHovered.toggle()
-//                    })
-//                    .scaleEffect(backButtonHovered ? 1.1 : 0.98)
-//                    .animation(.spring(), value: backButtonHovered)
-//                    .buttonStyle(.borderless)
-//                    Spacer()
-//                        Text("\(editTaskViewModel.taskTitle)")
-//                            .font(.system(size: 38, weight: .medium))
-//                            .foregroundColor(.black)
-//                    Spacer()
-//                }
-//
-//                HStack(spacing: 20) {
-//                    HStack(spacing: 8) {
-//                        LabelComponent(imageName: "calendar", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Prazo", comment: ""))
-//                            .font(.system(size: 14, weight: .regular))
-//
-//                        Text("\(HandleDate.formatDateWithoutTime(dateInput: editTaskViewModel.selectedTask.endDate))")
-//                            .font(.system(size: 14, weight: .regular))
-//
-//                    }
-//                    HStack(spacing: 12) {
-//                        LabelComponent(imageName: "shippingbox", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Área", comment: ""))
-//                            .font(.system(size: 14, weight: .regular))
-//
-//                        KanbanTagView(taskType: editTaskViewModel.selectedTask.type)
-//                    }
-//                    HStack(spacing: 12) {
-//                        LabelComponent(imageName: "person.fill", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Responsável", comment: ""))
-//                            .font(.system(size: 12, weight: .regular))
-//
-//                        Text(editTaskViewModel.selectedTask.user?.name ?? NSLocalizedString("Sem responsável.", comment: ""))
-//                            .font(.system(size: 14, weight: .regular))
-//
-//                    }
-//                    HStack(spacing: 12) {
-//                        LabelComponent(imageName: "flag.fill", label: geometry.size.width <= 1360 ? "": NSLocalizedString("Prioridade", comment: ""))
-//                            .font(.system(size: 14, weight: .regular))
-//
-//                            switch editTaskViewModel.selectedTask.taskPriority {
-//                            case .LOW:
-//                                Text(NSLocalizedString("Baixa", comment: ""))
-//                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
-//                            case .MEDIUM:
-//                                Text(NSLocalizedString("Moderada", comment: ""))
-//                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
-//                            case .HIGH:
-//                                Text(NSLocalizedString("Alta", comment: ""))
-//                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
-//                            case .VERY_HIGH:
-//                                Text(NSLocalizedString("Urgente", comment: ""))
-//                                    .foregroundColor(editTaskViewModel.getPriorityFlagColor(priority: editTaskViewModel.selectedTask.taskPriority))
-//                            }
-//
-//                    }
-//
-//
-//                }
-//
-//            }
-//        }
-//
-//
-//        var saveTask: some View{
-//            HStack{
-//                Button(action: {
-//                    editTaskViewModel.isEditing.toggle()
-//                    print("fechei pelo cancelar")
-//                }, label: {
-//                   Text(NSLocalizedString("Cancelar", comment: ""))
-//                }).buttonStyle(SecondarySheetActionButton())
-//                Button(action: {
-//                    saveTaskButton()
-//                }, label: {
-//                   Text(NSLocalizedString("Salvar", comment: ""))
-//                }).buttonStyle(PrimarySheetActionButton())
-//            }
-//        }
-//
-//        func saveTaskButton() {
-//            let currDto = editTaskViewModel.dto
-//            TaskDataService.shared.saveTask(dto: editTaskViewModel.dto, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
-//            editTaskViewModel.isEditing.toggle()
-//        }
-//}
