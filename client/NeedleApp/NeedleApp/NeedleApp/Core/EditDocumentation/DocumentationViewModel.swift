@@ -20,6 +20,7 @@ class DocumentationViewModel <
     
     let selectedTask: TaskModel
     var workspaceID: String
+    var docReview: String = ""
     @Published var documentationID: String
     @Published var documentationText: String
     @Published var documentationString: NSAttributedString
@@ -29,7 +30,7 @@ class DocumentationViewModel <
 
     var dto: UpdateDocumentationDTO
     
-    init(data: TaskModel, userID: String, workspaceID: String, documentationID: String, documentationText: String, documentationString: NSAttributedString, members: [User], isDeleting: Bool, docDS: D) {
+    init(data: TaskModel, userID: String, workspaceID: String, documentationID: String, documentationText: String, documentationString: NSAttributedString, members: [String : [User]], isDeleting: Bool, docDS: D) {
         self.selectedTask = data
         self.userID = userID
         self.workspaceID = workspaceID

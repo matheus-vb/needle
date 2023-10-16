@@ -9,18 +9,19 @@ import SwiftUI
 import RichTextKit
 
 struct DocumentationView: View {
+    @State var isEditing: Bool = true
+    
     var name: String
     var responsible: String
     var deadline: String
     var area: TaskType
     var priority: TaskPriority
-    var members: [User]
+    var members: [String:[User]]
     var documentationViewModel: DocumentationViewModel<DocumentationDataService>
     var backAction: () -> ()
-    var documentationNS: NSAttributedString
 
     
-    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [User], backAction: @escaping () -> ()) {
+    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [String:[User]], backAction: @escaping () -> ()) {
         self.name = name
         self.responsible = responsible
         self.deadline = deadline
@@ -29,7 +30,6 @@ struct DocumentationView: View {
         self.members = members
         self.documentationViewModel = DocumentationViewModel(data: data, userID: data.userId ?? "", workspaceID: data.workId, documentationID: data.documentId ?? "", documentationText: data.document?.text ?? "", documentationString: NSAttributedString(string: data.document?.textString ?? ""), members: members, isDeleting: false, docDS: DocumentationDataService.shared)
         self.backAction = backAction
-        self.documentationNS = documentationViewModel.documentationString
 
     }
     
@@ -38,8 +38,8 @@ struct DocumentationView: View {
             backHeader.foregroundColor(Color.theme.grayPressed)
             informationHeader
             textContent
-            saveButton
-        }.background(.clear)
+        }.padding(.bottom, 32)
+        .background(.clear)
             .foregroundColor(.black)
     }
     
@@ -63,7 +63,13 @@ struct DocumentationView: View {
                                     .font(.system(size: 38, weight: .medium))
                                     .foregroundColor(.black)
                             Spacer()
-                        }
+
+                            Toggle(isOn: $isEditing, label: {
+                                Text(isEditing ? NSLocalizedString("Modo de edição", comment: "") : NSLocalizedString("Modo de revisão", comment: ""))
+                                    .font(.system(size: 12, weight: .semibold))
+                            })
+                                .toggleStyle(SwitchToggleStyle(tint: Color.theme.greenMain))
+                        }.padding(.trailing, 20)
         
                         HStack(spacing: 32) {
                             HStack(spacing: 12) {
@@ -116,11 +122,13 @@ struct DocumentationView: View {
     }
     
     var textContent: some View {
-                        HStack {
-                            editor
-                            Divider()
-                            toolbar
-                        }.background(Color.theme.grayBackground)
+        HStack {
+            editor
+            Divider()
+            toolbar
+        }
+//                .cornerRadius(6)
+//                .background(Color.theme.grayHover)
     }
     
     var saveButton: some View {
@@ -148,9 +156,48 @@ struct DocumentationView: View {
 
     var toolbar: some View {
         VStack {
-            RichTextFormatSidebar(context: documentationViewModel.context)
-                .layoutPriority(-1)
-                .foregroundColor(Color.theme.blackMain)
+            if !isEditing {
+                VStack {
+                    Text(NSLocalizedString("Revisão do documento", comment: ""))
+                    Text(NSLocalizedString("Aprove ou rejeite o documento. Opcionalmente, deixe feedbacks para o responsável no campo abaixo.", comment: ""))
+                    
+                }
+                TextField("", text: Binding(get: {
+                    documentationViewModel.docReview
+                },
+                                            set: {
+                    documentationViewModel.docReview = $0
+                }))
+                
+                VStack {
+                    Button(action: {}, label: {Text(NSLocalizedString("Aprovar", comment: ""))})
+                    Button(action: {}, label: {Text(NSLocalizedString("Rejeitar", comment: ""))})
+                    HStack {
+                        Text(NSLocalizedString("Tasks rejeitadas serão enviadas de volta à coluna Fazendo", comment: ""))
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(Color.theme.blueKanban)
+                    }
+                }
+            }
+            else {
+                RichTextFormatSidebar(context: documentationViewModel.context)
+                    .layoutPriority(-1)
+                    .foregroundColor(Color.theme.blackMain)
+                saveButton
+            }
         }
+    }
+    
+    func getMembersList() -> [User]  {
+        var list: [User] = []
+        
+        for u in members.values {
+            for i in u {
+                list.append(i)
+                print(i.name)
+            }
+        }
+        
+        return list
     }
 }
