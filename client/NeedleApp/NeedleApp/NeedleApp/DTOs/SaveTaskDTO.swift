@@ -19,4 +19,6 @@ struct SaveTaskDTO{
     var priority: String
     var text: String
     var textString: String
+    var isRejected: Bool
+    var isVisible: Bool
 }

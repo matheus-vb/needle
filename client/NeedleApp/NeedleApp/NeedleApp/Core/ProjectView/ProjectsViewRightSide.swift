@@ -15,7 +15,7 @@ extension ProjectView {
                 .padding([.leading, .trailing], 64)
             
             if projectViewModel.navigateToDocument {
-                DocumentationView(data: projectViewModel.selectedTask!, name: projectViewModel.selectedTask!.title, responsible: projectViewModel.selectedTask!.user?.name ?? NSLocalizedString("Sem responsável", comment: ""), deadline: projectViewModel.selectedTask!.endDate, area: projectViewModel.selectedTask!.type, priority: projectViewModel.selectedTask!.taskPriority, members: [])
+                DocumentationView(data: projectViewModel.selectedTask!, name: projectViewModel.selectedTask!.title, responsible: projectViewModel.selectedTask!.user?.name ?? NSLocalizedString("Sem responsável", comment: ""), deadline: projectViewModel.selectedTask!.endDate, area: projectViewModel.selectedTask!.type, priority: projectViewModel.selectedTask!.taskPriority, members: [], backAction: { projectViewModel.navigateToDocument.toggle() }, documentationNS: projectViewModel.selectedTask!.doc)
 
             }
             else {

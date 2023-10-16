@@ -16,9 +16,12 @@ struct DocumentationView: View {
     var priority: TaskPriority //= .LOW
     var members: [User] //= .LOW
     var documentationViewModel: DocumentationViewModel<DocumentationDataService>
+    var backAction: () -> ()
     
+    @Binding var documentationNS: NSAttributedString
+
     
-    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [User]) {
+    init(data: TaskModel, name: String, responsible: String, deadline: String, area: TaskType, priority: TaskPriority, members: [User], backAction: @escaping () -> (), documentationNS: Binding<NSAttributedString>) {
         self.name = name
         self.responsible = responsible
         self.deadline = deadline
@@ -26,9 +29,11 @@ struct DocumentationView: View {
         self.priority = priority
         self.members = members
         self.documentationViewModel = DocumentationViewModel(data: data, userID: data.userId ?? "", workspaceID: data.workId, documentationID: data.documentId ?? "", documentationText: data.document?.text ?? "", documentationString: NSAttributedString(string: data.document?.textString ?? ""), members: members, isDeleting: false, docDS: DocumentationDataService.shared)
+        self.backAction = backAction
+        self._documentationNS = documentationNS
 
     }
-
+    
     var body: some View {
         VStack {
             backHeader.foregroundColor(Color.theme.grayPressed)
@@ -41,7 +46,7 @@ struct DocumentationView: View {
     
     var backHeader: some View {
         HStack {
-            Text("􀰪")
+            Button(action: { backAction() }, label: { Text("􀰪") })
             Text(name)
             Text(" ")
             Text(NSLocalizedString("Documentação", comment: ""))
@@ -109,14 +114,40 @@ struct DocumentationView: View {
     }
     
     var textContent: some View {
-        VStack {
-            
-        }
+                        HStack {
+                            editor
+                            leftBorder
+                            toolbar
+                        }.background(Color.theme.grayBackground)
     }
     
     var saveButton: some View {
         Button(action: {}, label: {})
             .buttonStyle(CreateTemplateButton())
+    }
+    
+    var editor: some View {
+        RichTextEditor(text: $documentationNS, context: documentationViewModel.context) {
+            $0.textContentInset = CGSize(width: 20, height: 40)
+        }
+        .cornerRadius(8)
+        .focusedValue(\.richTextContext, documentationViewModel.context)
+    }
+
+    var toolbar: some View {
+        VStack {
+            RichTextFormatSidebar(context: documentationViewModel.context)
+                .layoutPriority(-1)
+                .foregroundColor(Color.theme.blackMain)
+        }
+    }
+
+    var leftBorder: some View {
+        HStack {
+            Rectangle()
+                .frame(width: 2)
+                .foregroundColor(Color.theme.blackMain)
+        }
     }
 }
 
@@ -235,29 +266,6 @@ struct DocumentationView: View {
 //            }
 //        }
 //
-//        var editor: some View {
-//            RichTextEditor(text: $documentationNS, context: editTaskViewModel.context) {
-//                $0.textContentInset = CGSize(width: 20, height: 40)
-//            }
-//            .cornerRadius(8)
-//            .focusedValue(\.richTextContext, editTaskViewModel.context)
-//        }
-//
-//        var toolbar: some View {
-//            VStack {
-//                RichTextFormatSidebar(context: editTaskViewModel.context)
-//                    .layoutPriority(-1)
-//                    .foregroundColor(Color.theme.blackMain)
-//            }
-//        }
-//
-//        var leftBorder: some View {
-//            HStack {
-//                Rectangle()
-//                    .frame(width: 2)
-//                    .foregroundColor(Color.theme.blackMain)
-//            }
-//        }
 //
 //        var saveTask: some View{
 //            HStack{

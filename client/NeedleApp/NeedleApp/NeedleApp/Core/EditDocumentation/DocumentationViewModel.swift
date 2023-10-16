@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import RichTextKit
 
 class DocumentationViewModel <
     D: DocumentationDataServiceProtocol & ObservableObject
@@ -24,6 +25,8 @@ class DocumentationViewModel <
     @Published var documentationString: NSAttributedString
     @Published var isDeleting: Bool = false
     
+    let context = RichTextContext()
+
     var dto: UpdateDocumentationDTO
     
     init(data: TaskModel, userID: String, workspaceID: String, documentationID: String, documentationText: String, documentationString: NSAttributedString, members: [User], isDeleting: Bool, docDS: D) {

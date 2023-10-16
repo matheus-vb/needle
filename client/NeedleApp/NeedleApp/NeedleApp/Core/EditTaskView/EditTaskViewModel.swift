@@ -110,6 +110,7 @@ class EditTaskViewModel<
     func unarchiveTask(){
         taskDS.updateTaskStatus(taskId: selectedTask.id, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
     }
+
     
     func getPriorityFlagColor(priority: TaskPriority) -> Color {
         switch priority {

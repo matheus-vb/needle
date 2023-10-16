@@ -118,7 +118,7 @@ class TaskDataService: TaskDataServiceProtocol {
             })
     }
     
-    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String) {
+    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String, isRejected: Bool, isVisible: Bool) {
         guard let url = URL(string: Bundle.baseURL + "update/task") else { return }
 
         let parameters = convertToDictionary(dto)

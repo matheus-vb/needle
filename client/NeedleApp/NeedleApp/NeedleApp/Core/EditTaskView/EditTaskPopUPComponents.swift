@@ -198,6 +198,12 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        seeDocumentation = true
+        if editTaskViewModel.selectedTask.document == nil {
+            chooseTemplate = true
+        }
+        else{
+            navigate()
+            dismiss()
+        }
     }
 }
