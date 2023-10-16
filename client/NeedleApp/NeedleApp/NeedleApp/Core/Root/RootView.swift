@@ -1,41 +1,42 @@
 //
-//  RootView.swift
-//  NeedleApp
+// RootView.swift
+// NeedleApp
 //
-//  Created by matheusvb on 03/08/23.
+// Created by matheusvb on 03/08/23.
 //
-
 import SwiftUI
-
 struct RootView: View {
-
-    @ObservedObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared)
-    @AppStorage("onboard") var isOnboard : Bool = false
+    @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, userDS: UserDataService.shared)
     @State var logout: Bool = false
-    @Environment(\.dismiss) var dismiss
-
+    @State var deletingAccount: Bool = false
+    @State var isOnboarding: Bool
+    
     init(){
-        if (UserDefaults.standard.object(forKey: "onboard") != nil){
-            self.isOnboard = false
+        if UserDefaults.standard.object(forKey: "checkOnboarding") != nil {
+            isOnboarding = false
         }else{
-            self.isOnboard = true
-            UserDefaults.standard.set(false, forKey: "onboard")
+            isOnboarding = true
         }
     }
-    
     var body: some View {
         mainView
             .sheet(isPresented: $rootViewModel.showErrorSheet, content: {
                 SheetView(type: .loginError)
-            }) 
+            })
     }
-    
     var mainView: some View {
         ZStack {
             if rootViewModel.authManager.user == nil || logout {
-                LoginPageView()
+                if(isOnboarding){
+                    OnboardingView(isOnboarding: $isOnboarding)
+                } else {
+                    LoginPageView()
+                }
             } else {
                 AppView()
+                    .sheet(isPresented: $deletingAccount) {
+                        DeleteAccountSheet(logout: $logout)
+                    }
                     .toolbar{
                         Image("icon-horizontal")
                             .resizable()
@@ -53,32 +54,52 @@ struct RootView: View {
                                 .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
                             Image(systemName: rootViewModel.userLogoutIsPresented ? "arrowtriangle.down.fill" : "arrowtriangle.right.fill")
                         }
-                            .onTapGesture{
-                                rootViewModel.userLogoutIsPresented.toggle()
-                                rootViewModel.fetchNotifications()
-                            }
-                            .popover(isPresented: $rootViewModel.userLogoutIsPresented, arrowEdge: .bottom) {
-                                Button {
+                        .onTapGesture{
+                            rootViewModel.userLogoutIsPresented.toggle()
+                            rootViewModel.fetchNotifications()
+                        }
+                        .popover(isPresented: $rootViewModel.userLogoutIsPresented, arrowEdge: .bottom) {
+                            VStack{
+                                HStack{
+                                    Text("Sair ")
+                                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                                }
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .foregroundColor(Color.theme.blackMain)
+                                .onTapGesture {
                                     logout.toggle()
                                     rootViewModel.logout()
                                     logout.toggle()
-                                } label: {
-                                    HStack{
-                                        Text("Sair ")
-                                            .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
-                                        Image(systemName: "rectangle.portrait.and.arrow.right")
-                                    }
                                 }
-                                .buttonStyle(.plain)
+                                Rectangle()
+                                    .frame(width: 144, height: 1)
+                                    .foregroundColor(Color.theme.blackMain)
+                                HStack{
+                                    Text(NSLocalizedString("Excluir conta", comment: ""))
+                                        .font(.custom(SpaceGrotesk.regular.rawValue, size: 14))
+                                }
                                 .padding(.horizontal, 20)
                                 .padding(.vertical, 10)
-                                .background(Color.theme.greenMain)
                                 .foregroundColor(Color.theme.blackMain)
+                                .onTapGesture {
+                                        deletingAccount.toggle()
+                                }
                             }
-                            .padding(.trailing, 30)
-                            .padding(.leading, 10)
+                        }
+                        .padding(.trailing, 30)
+                        .padding(.leading, 10)
                     }
+
+
             }
         }
     }
 }
+
+
+
+
+
+

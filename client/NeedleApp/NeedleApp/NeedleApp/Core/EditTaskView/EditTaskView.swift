@@ -43,6 +43,7 @@ struct EditTaskPopUP: View {
                 .foregroundColor(Color.theme.grayHover)
                 .background(.white)
                 .environmentObject(editTaskViewModel)
+                .environmentObject(projectViewModel)
         })
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)

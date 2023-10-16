@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SearchDocuments: View {
     
-    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<TaskDataService, AuthenticationManager>
+    @ObservedObject var searchDocumentsViewModel: SearchDocumentsViewModel<WorkspaceDataService, TaskDataService, AuthenticationManager, NotificationDataService>
     @State var seeDocumentation : Bool = false
     @State var scrollToOne = 0
     @State var scrollToTwo = 0
@@ -23,171 +23,179 @@ struct SearchDocuments: View {
             selectedTask: selectedTask,
             isEditing: isEditing,
             taskDS: TaskDataService.shared,
-            authManager: AuthenticationManager.shared
+            authManager: AuthenticationManager.shared,
+            notificationDS: NotificationDataService.shared,
+            workspaceDS: WorkspaceDataService.shared
         )
     }
     
     var body: some View {
-        VStack {
-            
-            HStack(spacing: 16) {
+        HStack{
+            VStack {
                 
-                DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
-                }
-                
-                DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
+                HStack(spacing: 16) {
                     
+                    DropdownTypeButton(taskType: $searchDocumentsViewModel.selectedArea, dropOptions: TaskType.allCases) {
+                    }
+                    
+                    DropdownPriorityButton(taskPriority: $searchDocumentsViewModel.selectedPriority, dropOptions: TaskPriority.allCases) {
+                        
+                    }
+                    
+                    Spacer()
+                    //TODO: Add date to query
+                    
+                    CustomSearchBarView(text: $searchDocumentsViewModel.query)
                 }
-                
-                Spacer()
-                //TODO: Add date to query
-                
-                CustomSearchBarView(text: $searchDocumentsViewModel.query)
-            }
-            .padding(.top, 10)
-            ScrollView(.vertical){
-                VStack (alignment: .leading, spacing: 50){
-                    ScrollViewReader { value in
-                        VStack(alignment: .leading, spacing: 16){
-                            HStack{
-                                Text(NSLocalizedString("Último acesso", comment: ""))
-                                    .font(.custom("SF Pro", size: 18)
-                                        .weight(.bold))
-                                Spacer()
-                            }
-                            
-                            ScrollView(.horizontal, showsIndicators: false){
-                                LazyHStack(spacing: 32) {
-                                    ForEach(0..<min(searchDocumentsViewModel.tasks.count, 3), id: \.self){ i in
+                .padding(.top, 10)
+                ScrollView(.vertical){
+                    VStack (alignment: .leading, spacing: 50){
+                        ScrollViewReader { value in
+                            VStack(alignment: .leading, spacing: 16){
+                                HStack{
+                                    Text(NSLocalizedString("Último acesso", comment: ""))
+                                        .font(.custom("SF Pro", size: 18)
+                                            .weight(.bold))
+                                    Spacer()
+                                }
                                 
-                                        DocumentationThumbnailView(
-                                            task: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i], showDate: false)
+                                ScrollView(.horizontal, showsIndicators: false){
+                                    LazyHStack(spacing: 32) {
+                                        ForEach(0..<min(searchDocumentsViewModel.tasks.count, 3), id: \.self){ i in
+                                            
+                                            DocumentationThumbnailView(
+                                                task: HandleDate.sortArrayOfDates(dateArr: searchDocumentsViewModel.tasks)[i], showDate: false)
                                             .id(i)
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    ScrollViewReader { value in
-                        VStack(alignment: .leading, spacing: 16){
-                            HStack{
-                                Text(NSLocalizedString("Minha documentação", comment: ""))
-                                    .font(.custom("SF Pro", size: 18)
-                                        .weight(.bold))
-                                Spacer()
-                                
-                                Button {
-                                    if self.scrollToOne > 0 {
-                                        self.scrollToOne -= 3
-                                        if self.scrollToOne < 0 {
-                                            self.scrollToOne = 0
+                        ScrollViewReader { value in
+                            VStack(alignment: .leading, spacing: 16){
+                                HStack{
+                                    Text(NSLocalizedString("Minha documentação", comment: ""))
+                                        .font(.custom("SF Pro", size: 18)
+                                            .weight(.bold))
+                                    Spacer()
+                                    
+                                    Button {
+                                        if self.scrollToOne > 0 {
+                                            self.scrollToOne -= 3
+                                            if self.scrollToOne < 0 {
+                                                self.scrollToOne = 0
+                                            }
                                         }
+                                        withAnimation {
+                                            value.scrollTo(scrollToOne)
+                                        }
+                                    } label: {
+                                        Image(systemName: "chevron.left")
+                                            .padding()
+                                            .foregroundColor(scrollToOne <= 0 ? Color.theme.grayPressed : Color.theme.blackMain)
                                     }
-                                    withAnimation {
-                                        value.scrollTo(scrollToOne)
-                                    }
-                                } label: {
-                                    Image(systemName: "chevron.left")
-                                        .padding()
-                                        .foregroundColor(scrollToOne <= 0 ? Color.theme.grayPressed : Color.theme.blackMain)
-                                }
-                                .buttonStyle(.plain)
-
-                                Button {
-                                    if self.scrollToOne < searchDocumentsViewModel.userTasks.count {
-                                        self.scrollToOne += 3
-                                        if self.scrollToOne > searchDocumentsViewModel.userTasks.count - 1{
-                                            self.scrollToOne = searchDocumentsViewModel.userTasks.count - 1
+                                    .buttonStyle(.plain)
+                                    
+                                    Button {
+                                        if self.scrollToOne < searchDocumentsViewModel.userTasks.count {
+                                            self.scrollToOne += 3
+                                            if self.scrollToOne > searchDocumentsViewModel.userTasks.count - 1{
+                                                self.scrollToOne = searchDocumentsViewModel.userTasks.count - 1
+                                            }
+                                            
                                         }
                                         
+                                        withAnimation {
+                                            value.scrollTo(scrollToOne)
+                                        }
+                                    } label: {
+                                        Image(systemName: "chevron.right")
+                                            .padding()
+                                            .foregroundColor(scrollToOne >= searchDocumentsViewModel.userTasks.count - 1 ? Color.theme.grayPressed : Color.theme.blackMain)
+                                        
                                     }
-    
-                                    withAnimation {
-                                        value.scrollTo(scrollToOne)
-                                    }
-                                } label: {
-                                    Image(systemName: "chevron.right")
-                                        .padding()
-                                        .foregroundColor(scrollToOne >= searchDocumentsViewModel.userTasks.count - 1 ? Color.theme.grayPressed : Color.theme.blackMain)
-
+                                    .buttonStyle(.plain)
                                 }
-                                .buttonStyle(.plain)
-                            }
-                            
-                            ScrollView(.horizontal, showsIndicators: false){
-                                LazyHStack(spacing: 32) {
-                                    ForEach(0..<searchDocumentsViewModel.userTasks.count, id: \.self){ i in
+                                
+                                ScrollView(.horizontal, showsIndicators: false){
+                                    LazyHStack(spacing: 32) {
+                                        ForEach(0..<searchDocumentsViewModel.userTasks.count, id: \.self){ i in
                                             
-                                        DocumentationThumbnailView(task: self.searchDocumentsViewModel.userTasks[i], showDate: true)
+                                            DocumentationThumbnailView(task: self.searchDocumentsViewModel.userTasks[i], showDate: true)
                                                 .id(i)
                                         }
+                                    }
                                 }
                             }
                         }
-                    }
-                    ScrollViewReader { value in
-                        VStack(alignment: .leading, spacing: 16){
-                            HStack{
-                                Text(NSLocalizedString("Todas as documentações", comment: ""))
-                                    .font(.custom("SF Pro", size: 18)
-                                        .weight(.bold))
-                                Spacer()
+                        ScrollViewReader { value in
+                            VStack(alignment: .leading, spacing: 16){
+                                HStack{
+                                    Text(NSLocalizedString("Todas as documentações", comment: ""))
+                                        .font(.custom("SF Pro", size: 18)
+                                            .weight(.bold))
+                                    Spacer()
+                                    
+                                    Button {
+                                        if self.scrollToTwo > 0 {
+                                            self.scrollToTwo -= 3
+                                            if self.scrollToTwo < 0 {
+                                                self.scrollToTwo = 0
+                                            }
+                                        }
+                                        withAnimation {
+                                            value.scrollTo(scrollToTwo, anchor: .center)
+                                        }
+                                    } label: {
+                                        Image(systemName: "chevron.left")
+                                            .padding()
+                                            .foregroundColor(scrollToTwo <= 0 ? Color.theme.grayPressed : Color.theme.blackMain)
+                                    }
+                                    .buttonStyle(.plain)
+                                    
+                                    Button {
+                                        if self.scrollToTwo < searchDocumentsViewModel.tasks.count - 1 {
+                                            self.scrollToTwo += 3
+                                            if self.scrollToTwo > searchDocumentsViewModel.tasks.count - 1 {
+                                                self.scrollToTwo = searchDocumentsViewModel.tasks.count - 1
+                                            }
+                                        }
+                                        withAnimation {
+                                            value.scrollTo(scrollToTwo, anchor: .center)
+                                        }
+                                    } label: {
+                                        Image(systemName: "chevron.right")
+                                            .padding()
+                                            .foregroundColor(scrollToTwo >= searchDocumentsViewModel.tasks.count - 1 ? Color.theme.grayPressed : Color.theme.blackMain)
+                                    }
+                                    .buttonStyle(.plain)
+                                    
+                                }
                                 
-                                Button {
-                                    if self.scrollToTwo > 0 {
-                                        self.scrollToTwo -= 3
-                                        if self.scrollToTwo < 0 {
-                                            self.scrollToTwo = 0
+                                ScrollView(.horizontal, showsIndicators: false){
+                                    LazyHStack(spacing: 32) {
+                                        ForEach(0..<searchDocumentsViewModel.tasks.count, id: \.self){ i in
+                                            DocumentationThumbnailView(task: self.searchDocumentsViewModel.tasks[i], showDate: false)
+                                                .id(i)
                                         }
                                     }
-                                    withAnimation {
-                                        value.scrollTo(scrollToTwo, anchor: .center)
-                                    }
-                                } label: {
-                                    Image(systemName: "chevron.left")
-                                        .padding()
-                                        .foregroundColor(scrollToTwo <= 0 ? Color.theme.grayPressed : Color.theme.blackMain)
-                                }
-                                .buttonStyle(.plain)
-
-                                Button {
-                                    if self.scrollToTwo < searchDocumentsViewModel.tasks.count - 1 {
-                                        self.scrollToTwo += 3
-                                        if self.scrollToTwo > searchDocumentsViewModel.tasks.count - 1 {
-                                            self.scrollToTwo = searchDocumentsViewModel.tasks.count - 1
-                                        }
-                                    }
-                                    withAnimation {
-                                        value.scrollTo(scrollToTwo, anchor: .center)
-                                    }
-                                } label: {
-                                    Image(systemName: "chevron.right")
-                                        .padding()
-                                        .foregroundColor(scrollToTwo >= searchDocumentsViewModel.tasks.count - 1 ? Color.theme.grayPressed : Color.theme.blackMain)
-                                }
-                                .buttonStyle(.plain)
-
+                                }.padding(.bottom, 50)
                             }
-                            
-                            ScrollView(.horizontal, showsIndicators: false){
-                                LazyHStack(spacing: 32) {
-                                    ForEach(0..<searchDocumentsViewModel.tasks.count, id: \.self){ i in
-                                        DocumentationThumbnailView(task: self.searchDocumentsViewModel.tasks[i], showDate: false)
-                                            .id(i)
-                                    }
-                                }
-                            }.padding(.bottom, 50)
                         }
+                        
                     }
-
                 }
+                .padding(.top, 50)
             }
-            .padding(.top, 50)
+            .padding(.top, 32)
+            .padding(.leading, 64)
+//            .padding(.trailing, 64)
+        
+            Divider()
+                .padding(0)
+            DocumentationViewSideBarUIView(users: self.searchDocumentsViewModel.workspaceMembers, tasks: self.searchDocumentsViewModel.tasks, notifications: self.searchDocumentsViewModel.workspaceNotifications)
         }
-        .padding(.top, 32)
-        .padding(.leading, 64)
-        .padding(.trailing, 64)
-    }
+        }
 }
 
 extension SearchDocuments {

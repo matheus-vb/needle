@@ -81,8 +81,6 @@
 
 "Nome da Task" = "Task name";
 
-"Área" = "Field";
-
 "Sem responsável." = "Not assigned.";
 
 "Atualização" = "Updates";
@@ -227,6 +225,26 @@
 
 "Gestão de Projetos" = "Project Management";
 
+"Histórico" = "History";
+
+"Documentação pendente" = "Pending documentation";
+
+"Sem responsável" = "No one responsible";
+
+"Todas as documentações" = "All documentation";
+
+"SEM DOCUMENTAÇÃO" = "NO DOCUMENTATION";
+
+"Minha documentação" = "My documentation";
+
+"Nova Task" = "New Task";
+
+"Excluir conta?" = "Delete account?";
+"Excluir conta" = "Delete account";
+
+"Ao excluir sua conta você perde\n o acesso a todos os seus projetos. Lembre-se desvincular o app do seu Sign In with Apple caso queira criar uma nova conta clicando no link abaixo." = "By deleting your account, you will lose access to all your projects. Remember to unlink the app from your Sign In with Apple if you want to create a new account by clicking the link below.";
+
+"Desativar" = "Deactivate";
 
 //Templates:
 

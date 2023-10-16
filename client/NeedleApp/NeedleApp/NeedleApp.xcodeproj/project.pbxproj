@@ -61,12 +61,16 @@
 		27D87B802A7D745600F8DD95 /* TitleEditableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */; };
 		27D87B842A7D7E4800F8DD95 /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */; };
 		27D87B862A7D800000F8DD95 /* CreateTaskPopUPComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */; };
+		27DEB5132AD5CC9C0020CE79 /* DeleteAccountSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DEB5122AD5CC9C0020CE79 /* DeleteAccountSheet.swift */; };
 		27F32F9E2A81729D0046CB62 /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F32F9D2A81729D0046CB62 /* PopUpButton.swift */; };
+		4453C2652ACF3DAE00ECDD95 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C2642ACF3DAE00ECDD95 /* UserDataService.swift */; };
+		4453C2672ACF442D00ECDD95 /* UserDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C2662ACF442D00ECDD95 /* UserDataServiceProtocol.swift */; };
 		446767462AB10476006083C2 /* BoldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446767452AB10476006083C2 /* BoldText.swift */; };
 		446FC4F42A8D6906007BB314 /* DropDownMembersButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */; };
 		44E80C812AB223FE00ED0326 /* HighlightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E80C802AB223FE00ED0326 /* HighlightText.swift */; };
 		44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06302A82E69200386ADE /* SearchDocuments.swift */; };
 		44FE06332A82E71800386ADE /* PickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06322A82E71800386ADE /* PickerApp.swift */; };
+		646BE57B2AD5CBF7008BC305 /* ColumnTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */; };
 		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
 		649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45442A7D7B8200F8F54B /* TaskCardView.swift */; };
 		649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */; };
@@ -181,6 +185,7 @@
 		86EFD0952A959E3800F8168A /* RoleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EFD0942A959E3800F8168A /* RoleResponse.swift */; };
 		8A05B2F32ACCD2BB000CC0CE /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05B2F22ACCD28A000CC0CE /* CustomSearchBarView.swift */; };
 		8A05B2F52ACD9321000CC0CE /* DocumentationThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05B2F42ACD9320000CC0CE /* DocumentationThumbnailView.swift */; };
+		8A05B2F92AD0880C000CC0CE /* DocumentationViewSideBarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A05B2F82AD0880C000CC0CE /* DocumentationViewSideBarUIView.swift */; };
 		8A1D725F2A8565FC005D93B4 /* CopyClipboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */; };
 		8A2F08562A81C8B70059F848 /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2F08552A81C8B70059F848 /* CustomFonts.swift */; };
 		8A6CE4E52AA8F18900694284 /* InformationPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6CE4E42AA8F18900694284 /* InformationPageViewModel.swift */; };
@@ -291,13 +296,17 @@
 		27D87B7F2A7D745600F8DD95 /* TitleEditableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditableText.swift; sourceTree = "<group>"; };
 		27D87B832A7D7E4800F8DD95 /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		27D87B852A7D800000F8DD95 /* CreateTaskPopUPComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPopUPComponents.swift; sourceTree = "<group>"; };
+		27DEB5122AD5CC9C0020CE79 /* DeleteAccountSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountSheet.swift; sourceTree = "<group>"; };
 		27F32F9D2A81729D0046CB62 /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
+		4453C2642ACF3DAE00ECDD95 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		4453C2662ACF442D00ECDD95 /* UserDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataServiceProtocol.swift; sourceTree = "<group>"; };
 		446767452AB10476006083C2 /* BoldText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldText.swift; sourceTree = "<group>"; };
 		446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMembersButton.swift; sourceTree = "<group>"; };
 		44E80C802AB223FE00ED0326 /* HighlightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightText.swift; sourceTree = "<group>"; };
-		44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		44FE06302A82E69200386ADE /* SearchDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocuments.swift; sourceTree = "<group>"; };
 		44FE06322A82E71800386ADE /* PickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerApp.swift; sourceTree = "<group>"; };
+		646BE5772AD5C858008BC305 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnTitle.swift; sourceTree = "<group>"; };
 		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
 		649B45442A7D7B8200F8F54B /* TaskCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCardView.swift; sourceTree = "<group>"; };
 		649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanTagView.swift; sourceTree = "<group>"; };
@@ -369,6 +378,7 @@
 		86EFD0942A959E3800F8168A /* RoleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleResponse.swift; sourceTree = "<group>"; };
 		8A05B2F22ACCD28A000CC0CE /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		8A05B2F42ACD9320000CC0CE /* DocumentationThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationThumbnailView.swift; sourceTree = "<group>"; };
+		8A05B2F82AD0880C000CC0CE /* DocumentationViewSideBarUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationViewSideBarUIView.swift; sourceTree = "<group>"; };
 		8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyClipboardButton.swift; sourceTree = "<group>"; };
 		8A2F08552A81C8B70059F848 /* CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
 		8A6CE4E42AA8F18900694284 /* InformationPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPageViewModel.swift; sourceTree = "<group>"; };
@@ -547,6 +557,7 @@
 				86E7BCE72A7CA76700CDCCB2 /* TaskDataService.swift */,
 				868604EB2A7C3053001D9213 /* WorkspaceDataService.swift */,
 				27BCF7D92A82C12F0026F381 /* DocumentationDataService.swift */,
+				4453C2642ACF3DAE00ECDD95 /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -704,8 +715,10 @@
 		44FE062F2A82E67E00386ADE /* SearchDocuments */ = {
 			isa = PBXGroup;
 			children = (
+				8A05B2F42ACD9320000CC0CE /* DocumentationThumbnailView.swift */,
 				44FE06302A82E69200386ADE /* SearchDocuments.swift */,
 				86E6FF0F2A83086900BB5D9F /* SearchDocumentsViewModel.swift */,
+				8A05B2F82AD0880C000CC0CE /* DocumentationViewSideBarUIView.swift */,
 			);
 			path = SearchDocuments;
 			sourceTree = "<group>";
@@ -725,6 +738,7 @@
 			children = (
 				64FE760B2A96840300DF620D /* AddTaskButton.swift */,
 				64FE76082A96814900DF620D /* KanbanColumnViews.swift */,
+				646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */,
 				649B454A2A7D86EC00F8F54B /* KanbanTagView.swift */,
 				649B45442A7D7B8200F8F54B /* TaskCardView.swift */,
 			);
@@ -752,8 +766,8 @@
 		864D69A32A787BE000EB256A /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				646BE5772AD5C858008BC305 /* Debug.xcconfig */,
 				86503D0B2A84A262001D26EE /* Release.xcconfig */,
-				44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -825,6 +839,7 @@
 				86EFD0872A90203600F8168A /* NotificationDataServiceProtocol.swift */,
 				86EFD0892A90213A00F8168A /* TaskDataServiceProtocol.swift */,
 				86EFD08B2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift */,
+				4453C2662ACF442D00ECDD95 /* UserDataServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -836,6 +851,7 @@
 				D4659FB82A71C6FD0038CD50 /* SheetActionButton.swift */,
 				D43EB9BA2A8414C900CF0315 /* SheetView.swift */,
 				86EFD0922A958B8B00F8168A /* SheetViewModel.swift */,
+				27DEB5122AD5CC9C0020CE79 /* DeleteAccountSheet.swift */,
 			);
 			path = Sheet;
 			sourceTree = "<group>";
@@ -896,7 +912,6 @@
 				8AA66F172AC7585800948EE3 /* DashedExcludeButton.swift */,
 				8A76DFD52A82E6BC0044189B /* DropdownButton.swift */,
 				8AC2A2E22A8470FB00C6CCF8 /* DropdownStatusButton.swift */,
-				8A05B2F42ACD9320000CC0CE /* DocumentationThumbnailView.swift */,
 				8AA87FEA2A8432DD007DFEB5 /* DropdownDateButton.swift */,
 				8A1D725E2A8565FC005D93B4 /* CopyClipboardButton.swift */,
 				446FC4F32A8D6906007BB314 /* DropDownMembersButton.swift */,
@@ -1126,6 +1141,7 @@
 				649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */,
 				649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */,
 				86E7BCF02A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift in Sources */,
+				4453C2672ACF442D00ECDD95 /* UserDataServiceProtocol.swift in Sources */,
 				D43EB9BD2A84184400CF0315 /* SheetType.swift in Sources */,
 				649B454B2A7D86EC00F8F54B /* KanbanTagView.swift in Sources */,
 				27BCF7DE2A82D8BE0026F381 /* Templates.swift in Sources */,
@@ -1142,6 +1158,7 @@
 				D468EC9B2A8D6B55004AE74F /* WorkspaceHomeView+Loading.swift in Sources */,
 				86EFD08E2A9022CD00F8168A /* DocumentationDataServiceProtocol.swift in Sources */,
 				270515812A8430D2005FF0EE /* BackButton.swift in Sources */,
+				27DEB5132AD5CC9C0020CE79 /* DeleteAccountSheet.swift in Sources */,
 				64FE760C2A96840300DF620D /* AddTaskButton.swift in Sources */,
 				86EFD08C2A9021E600F8168A /* WorkspaceDataServiceProtocol.swift in Sources */,
 				868604F02A7C32E5001D9213 /* CreateWorkspaceDTO.swift in Sources */,
@@ -1154,6 +1171,7 @@
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
 				64FE76182A99443100DF620D /* FirebaseConstants.swift in Sources */,
+				4453C2652ACF3DAE00ECDD95 /* UserDataService.swift in Sources */,
 				868604E72A7C24E1001D9213 /* LoginPageViewModel.swift in Sources */,
 				D46245632ACF404B00D24FFA /* ChooseTemplateView.swift in Sources */,
 				868604F42A7C3B6B001D9213 /* JoinWorkspaceDTO.swift in Sources */,
@@ -1182,6 +1200,7 @@
 				274A28332A71A07E0002CFEA /* ManagersPlaceHolder.swift in Sources */,
 				86503D112A85559D001D26EE /* NotificationResponse.swift in Sources */,
 				868604EA2A7C2AB4001D9213 /* RootView.swift in Sources */,
+				646BE57B2AD5CBF7008BC305 /* ColumnTitle.swift in Sources */,
 				D468EC992A8D6B38004AE74F /* MockWorkspaces.swift in Sources */,
 				D4659FB92A71C6FD0038CD50 /* SheetActionButton.swift in Sources */,
 				274A282C2A71A0240002CFEA /* TaskModel.swift in Sources */,
@@ -1219,6 +1238,7 @@
 				D43EB9BB2A8414C900CF0315 /* SheetView.swift in Sources */,
 				27B795F72A7C2D2600FDA10F /* ProjectView.swift in Sources */,
 				27B796012A7C348A00FDA10F /* ProjectViewModel.swift in Sources */,
+				8A05B2F92AD0880C000CC0CE /* DocumentationViewSideBarUIView.swift in Sources */,
 				D468EC952A8D6AE8004AE74F /* WorkspaceHomeView+Header.swift in Sources */,
 				864D69A72A787C7C00EB256A /* Bundle+baseURL.swift in Sources */,
 				279F09BF2A82A0870016B12E /* EditTaskViewModel.swift in Sources */,
@@ -1357,7 +1377,7 @@
 /* Begin XCBuildConfiguration section */
 		274A28172A719F6E0002CFEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44F4E2B42AAFA5C400AEBF66 /* Debug.xcconfig */;
+			baseConfigurationReference = 646BE5772AD5C858008BC305 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -1548,11 +1568,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1567,11 +1587,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleTestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1585,10 +1605,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -1602,10 +1622,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3ZW5SA328;
+				DEVELOPMENT_TEAM = PST723S8CA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleUITestsV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

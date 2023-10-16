@@ -23,6 +23,8 @@ class ProjectViewModel<
     @Published var roles: [String: Role] = [:]
     
     @Published var showPopUp: Bool = false
+    @Published var isDeleting: Bool = false
+    @Published var isArchiving: Bool = false
     @Published var showEditTaskPopUP: Bool = false
     @Published var selectedColumnStatus: TaskStatus = .TODO
     @Published var selectedTask: TaskModel?

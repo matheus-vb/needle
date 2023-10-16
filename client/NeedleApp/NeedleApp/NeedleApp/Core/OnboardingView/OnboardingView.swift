@@ -48,8 +48,12 @@ struct OnboardingPage : Identifiable, Equatable {
 struct OnboardingView: View {
     
     @State private var pageIndex = 0
+    @Binding var isOnboarding: Bool
     let onboardingPages : [OnboardingPage] = OnboardingPage.samplePages
     
+    init(isOnboarding: Binding<Bool>){
+        self._isOnboarding = isOnboarding
+    }
     var body: some View {
         ZStack {
             Image("onboarding_bg")
@@ -58,7 +62,7 @@ struct OnboardingView: View {
                 .ignoresSafeArea()
             TabView (selection: $pageIndex){
                 ForEach(onboardingPages) { page in
-                    OnboardingPageView(onboardingPage: page, pageIndex: $pageIndex)
+                    OnboardingPageView(onboardingPage: page, pageIndex: $pageIndex, isOnboarding: $isOnboarding)
                         .tag(page.num)
                         .toolbar(.hidden)
                 }
@@ -72,6 +76,7 @@ struct OnboardingPageView: View{
     
     var onboardingPage : OnboardingPage
     @Binding var pageIndex : Int
+    @Binding var isOnboarding: Bool
     
     var body: some View{
         VStack(alignment: .center){
@@ -134,12 +139,7 @@ struct OnboardingPageView: View{
         self.pageIndex-=1
     }
     func setOnboardingToFalse(){
-        UserDefaults.standard.set(false, forKey: "onboard")
-    }
-}
-
-struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
+        self.isOnboarding = false
+        UserDefaults.standard.set(false, forKey: "checkOnboarding")
     }
 }
