@@ -28,7 +28,7 @@ class DocumentationViewModel <
     
     let context = RichTextContext()
 
-    var dto: UpdateDocumentationDTO
+    @State var dto: UpdateDocumentationDTO
     
     init(data: TaskModel, userID: String, workspaceID: String, documentationID: String, documentationText: String, documentationString: NSAttributedString, members: [String : [User]], isDeleting: Bool, docDS: D) {
         self.selectedTask = data
@@ -50,8 +50,8 @@ class DocumentationViewModel <
         
         self.dto = UpdateDocumentationDTO(
             id: documentationID,
-            text: data.document?.text ?? "",
-            textString: data.document?.textString ?? ""
+            text: documentationText,
+            textString: documentationString.string
         )
         
         self.setupBindings()
@@ -68,7 +68,16 @@ class DocumentationViewModel <
     }
     
     func saveDoc() {
-        DocumentationDataService.shared.updateDocumentation(data: dto, userId: selectedTask.userId ?? "", workspaceId: selectedTask.workId)
+        var decodedData = Data(base64Encoded: self.documentationText, options: .ignoreUnknownCharacters)
+        do{
+            let decoded = try NSAttributedString(data: decodedData!, format: .rtf)
+            self.documentationString = decoded
+        }catch{
+            print(error)
+        }
+        print("dto: \(dto), userId: \(userID), workspaceId: \(workspaceID)")
+        DocumentationDataService.shared.updateDocumentation(data: dto, userId: userID, workspaceId: workspaceID)
+
     }
 
 }
