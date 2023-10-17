@@ -2,21 +2,18 @@
 //  UpdateTaskDTO.swift
 //  NeedleApp
 //
-//  Created by jpcm2 on 09/08/23.
+//  Created by Bof on 10/10/23.
 //
 
 import Foundation
 
-struct SaveTaskDTO{
+struct UpdateTaskDTO: Codable {
     var userId: String?
     var taskId: String
-    var documentId: String
     var title: String
     var description: String
-    var status: String
+    var stats: String
     var type: String
     var endDate: String
-    var priority: String
-    var text: String
-    var textString: String
+    var priority: String 
 }

@@ -100,12 +100,30 @@ class TaskDataService: TaskDataServiceProtocol {
             })
     }
     
-    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String) {
-        guard let url = URL(string: Bundle.baseURL + "update/task") else { return }
-        
+    func updateTask(dto: UpdateTaskDTO, userId: String, workspaceId: String) {
+        guard let url = URL(string: Bundle.baseURL + "edit/task") else { return }
+
         let parameters = convertToDictionary(dto)
         guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
-        
+
+       saveTaskSubscription = NetworkingManager.patch(url: url, body: jsonData)
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] _ in
+                self?.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
+                self?.createTaskSubscription?.cancel()
+            })
+    }
+    
+    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String, isRejected: Bool, isVisible: Bool) {
+        guard let url = URL(string: Bundle.baseURL + "update/task") else { return }
+
+        let parameters = convertToDictionary(dto)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
+
        saveTaskSubscription = NetworkingManager.patch(url: url, body: jsonData)
             .sink(receiveCompletion: {
                 completion in NetworkingManager.handleCompletion(completion: completion) { error in

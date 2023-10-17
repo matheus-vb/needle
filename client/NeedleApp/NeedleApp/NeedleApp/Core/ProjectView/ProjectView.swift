@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProjectView: View {
-    
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @Environment(\.dismiss) var dismiss
     @State var triggerLoading: Bool = true
@@ -59,7 +58,7 @@ struct ProjectView: View {
         
     
     var main: some View {
-        GeometryReader{geometry in
+        GeometryReader { geometry in
             NavigationSplitView(sidebar: {
                 ProjectSideBar
                     .padding(.top, 62)
@@ -79,15 +78,16 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
+                        
                         ProjectsViewRightSide
-                            .background(Color.theme.grayBackground)
+                            .background(projectViewModel.navigateToDocument ? .white : Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
                 }
             })
             .navigationBarBackButtonHidden(true)
             .sheet(isPresented: $projectViewModel.showEditTaskPopUP, content: {
-                EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry, projectViewModel: projectViewModel)
+                EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry, navigate: { projectViewModel.toggleNavigate() })
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
