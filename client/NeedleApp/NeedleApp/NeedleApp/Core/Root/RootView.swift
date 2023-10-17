@@ -7,16 +7,15 @@
 import SwiftUI
 struct RootView: View {
     @StateObject var rootViewModel = RootViewModel(manager: AuthenticationManager.shared, notificationDS: NotificationDataService.shared, taskDS: TaskDataService.shared, workspaceDS: WorkspaceDataService.shared, userDS: UserDataService.shared)
-    
     @State var logout: Bool = false
     @State var deletingAccount: Bool = false
-    @AppStorage("onboard") var isOnboard : Bool = false
+    @State var isOnboarding: Bool
+    
     init(){
-        if (UserDefaults.standard.object(forKey: "onboard") != nil){
-            self.isOnboard = false
+        if UserDefaults.standard.object(forKey: "checkOnboarding") != nil {
+            isOnboarding = false
         }else{
-            self.isOnboard = true
-            UserDefaults.standard.set(false, forKey: "onboard")
+            isOnboarding = true
         }
     }
     var body: some View {
@@ -28,8 +27,8 @@ struct RootView: View {
     var mainView: some View {
         ZStack {
             if rootViewModel.authManager.user == nil || logout {
-                if(isOnboard){
-                    OnboardingView()
+                if(isOnboarding){
+                    OnboardingView(isOnboarding: $isOnboarding)
                 } else {
                     LoginPageView()
                 }
@@ -89,10 +88,11 @@ struct RootView: View {
                                 }
                             }
                         }
-                        .background(.white)
                         .padding(.trailing, 30)
                         .padding(.leading, 10)
                     }
+
+
             }
         }
     }

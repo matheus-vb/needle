@@ -31,7 +31,7 @@ struct WorkspaceHomeView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, alignment: .bottomTrailing)
                 }
-                .frame(width: .infinity, height: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 VStack(alignment: .center, spacing: geometry.size.height * 0.094) {
                     pageSelector
                         .frame(height: geometry.size.height * 0.12)

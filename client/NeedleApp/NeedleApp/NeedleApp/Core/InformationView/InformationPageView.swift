@@ -95,7 +95,7 @@ struct InformationPageView: View {
                     .padding(.bottom, 20)
                 Spacer()
                 
-                DashedExcludeButton(text: NSLocalizedString("Excluir projeto", comment: "")){
+                DashedExcludeButton(text: NSLocalizedString("Excluir Projeto", comment: "")){
 //                    informationPageViewModel.deleteWorkspace()
                     deleteSheetOpened.toggle()
 //                    dismiss()

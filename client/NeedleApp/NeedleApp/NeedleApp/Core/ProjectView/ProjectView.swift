@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProjectView: View {
-    
     @ObservedObject var projectViewModel: ProjectViewModel<AuthenticationManager, TaskDataService, WorkspaceDataService>
     @Environment(\.dismiss) var dismiss
     @State var triggerLoading: Bool = true
@@ -31,7 +30,7 @@ struct ProjectView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity, alignment: .bottomTrailing)
             }
-            .frame(width: .infinity, height: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             main
             VStack {
                 Spacer()
@@ -59,11 +58,11 @@ struct ProjectView: View {
         
     
     var main: some View {
-        GeometryReader{geometry in
+        GeometryReader { geometry in
             NavigationSplitView(sidebar: {
                 ProjectSideBar
                     .padding(.top, 62)
-                    .background(Color.theme.grayBackground)
+                    .background(.white)
                     .environmentObject(projectViewModel)
             }, detail: {
                 ZStack {
@@ -79,18 +78,31 @@ struct ProjectView: View {
                                 }
                             }
                     } else {
+                        
                         ProjectsViewRightSide
-//                            .background(Color.theme.grayBackground)
+                            .background(projectViewModel.navigateToDocument ? .white : Color.theme.grayBackground)
                             .environmentObject(projectViewModel)
                     }
                 }
             })
             .navigationBarBackButtonHidden(true)
             .sheet(isPresented: $projectViewModel.showEditTaskPopUP, content: {
-                EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry)
+                EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry, navigate: { projectViewModel.toggleNavigate() })
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
                 CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
+            })
+            .sheet(isPresented: $projectViewModel.isDeleting, content: {
+                SheetView(type: .deleteTaskKanban)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+                    .environmentObject(projectViewModel)
+            })
+            .sheet(isPresented: $projectViewModel.isArchiving, content: {
+                SheetView(type: .archiveTaskKanban)
+                    .foregroundColor(Color.theme.grayHover)
+                    .background(.white)
+                    .environmentObject(projectViewModel)
             })
             .onAppear{
                 projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id]?.append(User(id: "", name: "---", email: "", workspaces: []))

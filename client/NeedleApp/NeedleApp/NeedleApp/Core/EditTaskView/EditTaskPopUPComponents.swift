@@ -51,7 +51,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "person.fill", label: NSLocalizedString("Responsável", comment: ""))
                 .font(.system(size: 14))
 
-            Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.dto.userId){
+            Picker(NSLocalizedString("Responsável", comment: ""),selection: $editTaskViewModel.dto.userId){
                     ForEach(editTaskViewModel.members) {membro in
                         Text(membro.name)
                             .foregroundColor(Color.theme.blackMain)
@@ -70,7 +70,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
                 .font(.system(size: 14))
 
-            Picker("Área",selection: $editTaskViewModel.categorySelection){
+            Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain).tag("")
@@ -139,17 +139,12 @@ extension EditTaskPopUP{
                         .foregroundColor(Color.theme.redMain)
                 })
                 Button(action: {
-                    if(editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE){
-                        editTaskViewModel.unarchiveTask()
-                        editTaskViewModel.isEditing.toggle()
-                    }else{
-                        editTaskViewModel.archiveTask()
-                        editTaskViewModel.isEditing.toggle()
-                    }
+                    editTaskViewModel.isArchiving.toggle()
                 }, label: {
-                    Image(systemName: (editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
+                    Image(systemName: (editTaskViewModel.selectedTask.isVisible == true ? "eye" : "eye.slash"))
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .scaledToFit()
+                        .frame(height: 20)
                         .foregroundColor(Color.theme.blackMain)
                 })
             }        }
@@ -157,7 +152,7 @@ extension EditTaskPopUP{
     }
     
     var seeDocumentationButton: some View {
-        DashedButton(text: editTaskViewModel.selectedTask.document?.text == template.devTemplate ? NSLocalizedString("Criar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
+        DashedButton(text: editTaskViewModel.selectedTask.document?.text == nil ? NSLocalizedString("Criar documentação", comment: "") : NSLocalizedString("Editar documentação", comment: ""), onButtonTapped: openDocumentation)
     }
     
     var documentationArea: some View {
@@ -167,7 +162,7 @@ extension EditTaskPopUP{
                 .foregroundColor(Color.theme.grayPressed)
             seeDocumentationButton
             Text(NSLocalizedString("Ninguém documentou nada ainda. Seja o primeiro!", comment: ""))
-                .opacity(editTaskViewModel.selectedTask.document?.text == template.devTemplate ? 1 : 0)
+                .opacity(editTaskViewModel.selectedTask.document?.text == nil ? 1 : 0)
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(Color.theme.grayHover)
 
@@ -198,6 +193,12 @@ extension EditTaskPopUP{
     }
     
     func openDocumentation(){
-        seeDocumentation = true
+        if editTaskViewModel.selectedTask.document == nil {
+            chooseTemplate = true
+        }
+        else{
+            navigate()
+            dismiss()
+        }
     }
 }

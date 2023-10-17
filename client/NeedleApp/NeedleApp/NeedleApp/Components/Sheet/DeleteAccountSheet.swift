@@ -24,7 +24,7 @@ struct DeleteAccountSheet: View {
     
     var buttonBlock: some View {
         HStack(spacing: 8) {
-            Button("Cancelar", action: {
+            Button(NSLocalizedString("Cancelar", comment: ""), action: {
                 dismiss()
             }).buttonStyle(SecondarySheetActionButton())
             

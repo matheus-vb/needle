@@ -22,6 +22,7 @@ class EditTaskViewModel<
     let context = RichTextContext()
     
     @Binding var isEditing: Bool
+    @Published var userId: String?
     @Published var documentationID: String
     @Published var workspaceID: String
     @Published var taskId: String
@@ -34,8 +35,11 @@ class EditTaskViewModel<
     @Published var selectedMember: User?
     @Published var documentationString: NSAttributedString
     @Published var members: [User]
+
     @Published var isDeleting: Bool = false
-    var dto: SaveTaskDTO
+    @Published var isArchiving: Bool = false
+    var dto: UpdateTaskDTO
+
     
     init(data: TaskModel, workspaceID: String, members: [User], isEditing: Binding<Bool>, taskDS: T) {
         self.selectedTask = data
@@ -45,6 +49,7 @@ class EditTaskViewModel<
         formatter.formatOptions =  [.withInternetDateTime, .withFractionalSeconds]
         let date = formatter.date(from: isoDateString)
         self.workspaceID = workspaceID
+        self.userId = data.userId
         self.taskId = data.id
         self.taskDescription = data.description
         self.taskTitle = data.title
@@ -57,28 +62,16 @@ class EditTaskViewModel<
         self.documentationID = data.document?.id ?? "0"
         self.members = members
         self.taskDS = taskDS
-                
-        //Pegar a documentacao
-        let decodedData = Data(base64Encoded: data.document?.text ?? "", options: .ignoreUnknownCharacters)
-        do{
-            let decoded = try NSAttributedString(data: decodedData!, format: .rtf)
-            self.documentationString = decoded
-        }catch{
-            print(error)
-        }
         
-        self.dto = SaveTaskDTO(
-            userId: nil,
+        self.dto = UpdateTaskDTO(
+            userId: data.userId,
             taskId: data.id,
-            documentId: data.documentId ?? "",
             title: data.title,
             description: data.description,
-            status: data.status.rawValue,
+            stats: data.status.rawValue,
             type: data.type.rawValue,
             endDate: data.endDate,
-            priority: data.taskPriority.rawValue,
-            text: data.document?.text ?? "",
-            textString: data.document?.textString ?? ""
+            priority: data.taskPriority.rawValue
         )
         
         self.setupBindings()
@@ -87,34 +80,28 @@ class EditTaskViewModel<
     
     
     func setupBindings() {
-        Publishers.CombineLatest4($selectedMember, $taskTitle, $taskDescription, $statusSelection)
-            .sink(receiveValue: { [weak self] (selectedMember, taskTitle, taskDescription, statusSelection) in
-                self?.dto.userId = selectedMember?.id
+        Publishers.CombineLatest4($userId, $taskId, $taskTitle, $taskDescription)
+            .sink(receiveValue: { [weak self] (userId, taskId, taskTitle, taskDescription) in
+                self?.dto.userId = userId
+                self?.dto.taskId = taskId
                 self?.dto.title = taskTitle
                 self?.dto.description = taskDescription
-                self?.dto.status = statusSelection.rawValue
             })
             .store(in: &cancellables)
         
-        Publishers.CombineLatest4($categorySelection, $deadLineSelection, $prioritySelection, $documentationString)
-            .sink(receiveValue: { [weak self] (categorySelection, deadLineSelection, prioritySelection, documentationString) in
+        Publishers.CombineLatest4($statusSelection, $categorySelection, $deadLineSelection, $prioritySelection)
+            .sink(receiveValue: { [weak self] (statusSelection, categorySelection, deadLineSelection, prioritySelection) in
+                self?.dto.stats = statusSelection.rawValue
                 self?.dto.type = categorySelection.rawValue
                 self?.dto.endDate = "\(deadLineSelection)"
                 self?.dto.priority = prioritySelection.rawValue
-                do {
-                    self?.dto.textString = documentationString.string
-                    let data = try documentationString.richTextData(for: .rtf)
-                    let encodedData = data.base64EncodedString(options: .lineLength64Characters)
-                    self?.dto.text = encodedData
-                } catch {
-                    print("ERRO NO ENCODE")
-                }
             })
             .store(in: &cancellables)
+
     }
     
     func saveTask(){
-        taskDS.saveTask(dto: self.dto, userId: userID, workspaceId: self.workspaceID)
+        taskDS.updateTask(dto: self.dto, userId: userID, workspaceId: self.workspaceID)
     }
     
     func archiveTask(){
@@ -124,6 +111,7 @@ class EditTaskViewModel<
     func unarchiveTask(){
         taskDS.updateTaskStatus(taskId: selectedTask.id, status: TaskStatus.TODO, userId: userID, workspaceId: workspaceID)
     }
+
     
     func getPriorityFlagColor(priority: TaskPriority) -> Color {
         switch priority {

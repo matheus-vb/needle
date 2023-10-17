@@ -23,6 +23,8 @@ class ProjectViewModel<
     @Published var roles: [String: Role] = [:]
     
     @Published var showPopUp: Bool = false
+    @Published var isDeleting: Bool = false
+    @Published var isArchiving: Bool = false
     @Published var showEditTaskPopUP: Bool = false
     @Published var selectedColumnStatus: TaskStatus = .TODO
     @Published var selectedTask: TaskModel?
@@ -33,6 +35,9 @@ class ProjectViewModel<
     @Published var feedbackSheet = false
 
     @Published var showCard: Bool = false
+    @Published var showDocumentation: Bool = false
+    @Published var navigateToDocument: Bool = false
+
     @Published var showShareCode = false
     @Published var isAnimating = false
     @Published var isNaming: Bool = false
@@ -116,4 +121,9 @@ class ProjectViewModel<
         pasteBoard.setString(self.getCode(), forType: .string)
 
     }
+    
+    func toggleNavigate() {
+        navigateToDocument.toggle()
+    }
+
 }

@@ -37,57 +37,65 @@ struct SheetView: View {
     
     var buttonAction: () -> () {
         switch type {
-            case .deleteAccount: return {
-                UserDataService.shared.deleteUser(userId: AuthenticationManager.shared.user!.id)
-                self.authManager.user = nil
-                dismiss()
-            }
-            case .newWorkspace: return {
-                WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: textfieldInput)
-                dismiss()
-                
-            }
-            case .deleteWorkspace: return {
-                WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
-                dismiss()
-            }
-                
-            case .deleteWorkspaceFromInfo: return {
-                WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
-                dismiss()
-            }
-                
-            case .joinCode: return {
-                WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
-                
-                dismiss()
-                
-            }
-            case .shareCode: return {
-                dismiss()
-            }
-            case .documentNotFound: return { dismiss() }
-            case .deleteTask: return {
-                projectViewModel.deleteTask()
-                editTaskViewModel.isDeleting.toggle()
-                projectViewModel.showEditTaskPopUP.toggle()
-            }
-            case .loginError: return {dismiss()}
-            case .archiveTask: return {
-                taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
-                dismiss()
-            }
-            case .deleteWorkspaceMember: return {
-                WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
-                
-                dismiss()
-            }
+        case .deleteAccount: return {
+            UserDataService.shared.deleteUser(userId: AuthenticationManager.shared.user!.id)
+            self.authManager.user = nil
+            dismiss()
+        }
+        case .newWorkspace: return {
+            WorkspaceDataService.shared.createWorkspace(userId: AuthenticationManager.shared.user!.id, name: textfieldInput)
+            dismiss()
+            
+        }
+        case .deleteWorkspace: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: workspaceViewModel.accessCode!, userId: AuthenticationManager.shared.user!.id)
+            dismiss()
+        }
+            
+        case .deleteWorkspaceFromInfo: return {
+            WorkspaceDataService.shared.deleteWorkspace(accessCode: informationPageViewModel.workspace.accessCode, userId: AuthenticationManager.shared.user!.id)
+            dismiss()
+        }
+            
+        case .joinCode: return {
+            WorkspaceDataService.shared.joinWorkspace(userId: AuthenticationManager.shared.user!.id, accessCode: textfieldInput, role:  selectedRole)
+            
+            dismiss()
+            
+        }
+        case .shareCode: return {
+            dismiss()
+        }
+        case .documentNotFound: return { dismiss() }
+        case .deleteTask: return {
+            projectViewModel.deleteTask()
+            editTaskViewModel.isDeleting.toggle()
+            projectViewModel.showEditTaskPopUP.toggle()
+        }
+        case .deleteTaskKanban: return {
+            projectViewModel.deleteTask()
+            projectViewModel.isDeleting.toggle()
+        }
+        case .loginError: return {dismiss()}
+        case .archiveTask: return {
+            taskDataService.updateTaskVisibility(taskId: editTaskViewModel.selectedTask.id, isVisible: editTaskViewModel.selectedTask.isVisible, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+            dismiss()
+        }
+        case .archiveTaskKanban: return {
+            taskDataService.updateTaskVisibility(taskId: projectViewModel.selectedTask!.id, isVisible: projectViewModel.selectedTask!.isVisible, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
+            dismiss()
+        }
+        case .deleteWorkspaceMember: return {
+            WorkspaceDataService.shared.deleteWorkspaceMember(userId: informationPageViewModel.getMemberId(), workspaceId: informationPageViewModel.workspace.id)
+            
+            dismiss()
+        }
         }}
     
     var buttonBlock: some View {
         HStack(spacing: 8) {
             if type.twoButtons && type != .joinCode {
-                Button("Cancelar", action: {
+                Button(NSLocalizedString("Cancelar", comment: ""), action: {
                     if(type == .deleteTask){
                         editTaskViewModel.isDeleting.toggle()
                     }else{
@@ -112,7 +120,7 @@ struct SheetView: View {
                     
                     
                     HStack {
-                        Button("Cancelar") {
+                        Button(NSLocalizedString("Cancelar", comment: "")) {
                             dismiss()
                         }
                         .buttonStyle(SecondarySheetActionButton())

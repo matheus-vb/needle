@@ -26,7 +26,7 @@ extension ProjectView {
             
             Spacer()
             
-            DashedSmallerButton(text: NSLocalizedString("Deixe um feedback", comment: "")){
+            DashedSmallerButton(standardColor: .clear, hoverColor: .clear, text: NSLocalizedString("Deixe um feedback", comment: "")){
                 projectViewModel.feedbackSheet.toggle()
             }.padding(20)
                 .sheet(isPresented: $projectViewModel.feedbackSheet) {
@@ -34,7 +34,7 @@ extension ProjectView {
                         .foregroundColor(Color.theme.grayHover)
                         .background(.white)
                 }
-        }
+        }.background(.white)
     }
     
     func backButton(){
@@ -48,7 +48,7 @@ struct FeedbackSheetView: View {
     var body: some View {
         VStack(spacing: 4) {
             VStack(spacing: 12) {
-                Text("Diga-nos o que está achando do Needle!")
+                Text(NSLocalizedString("Diga-nos o que está achando do Needle!", comment: ""))
                     .font(.custom("SF Pro", size: 16))
                     .bold()
                     .padding(.vertical, 8)
@@ -56,7 +56,7 @@ struct FeedbackSheetView: View {
             
             TextField("", text: $comment)
             
-            Button("Enviar", action: {
+            Button(NSLocalizedString("Enviar", comment: ""), action: {
                 if comment != "" {
                     Analytics.logEvent(K.feedback.rawValue, parameters: ["feedback" : comment])
                 }
