@@ -53,31 +53,20 @@ class DocumentationViewModel <
             text: documentationText,
             textString: documentationString.string
         )
-        
-        self.setupBindings()
-    }
-    
-    func setupBindings() {
-        Publishers.CombineLatest3($documentationID, $documentationText, $documentationString)
-            .sink(receiveValue: { [weak self] (documentationID, documentationText, documentationString) in
-                self?.dto.id = documentationID
-                self?.dto.text = documentationText
-                self?.dto.textString = documentationString.string
-            })
-            .store(in: &cancellables)
     }
     
     func saveDoc() {
-        var decodedData = Data(base64Encoded: self.documentationText, options: .ignoreUnknownCharacters)
         do{
-            let decoded = try NSAttributedString(data: decodedData!, format: .rtf)
-            self.documentationString = decoded
+            let NSDocumentation = self.documentationString
+            let StrDocumentation = NSDocumentation.string
+            let data = try NSDocumentation.richTextData(for: .rtf)
+            let encodedData = data.base64EncodedString(options: .lineLength64Characters)
+            let newDto = UpdateDocumentationDTO(id: documentationID, text: encodedData, textString: StrDocumentation)
+            print("dto: \(newDto), userId: \(userID), workspaceId: \(workspaceID)")
+            docDS.updateDocumentation(data: newDto, userId: userID, workspaceId: workspaceID)
         }catch{
-            print(error)
+            print("ERRO NO DECODE")
         }
-        print("dto: \(dto), userId: \(userID), workspaceId: \(workspaceID)")
-        DocumentationDataService.shared.updateDocumentation(data: dto, userId: userID, workspaceId: workspaceID)
-
     }
 
 }
