@@ -31,12 +31,7 @@ struct EditTaskPopUP: View {
     
     var body: some View {
         NavigationStack {
-            if chooseTemplate {
-                ChooseTemplateView(backAction: { chooseTemplate.toggle() }, closeAction: { editTaskViewModel.isEditing.toggle() }, goToDocumentationAction: { navigate() })
-            }
-            else {
-                editTask
-            }
+            editTask
         }
         .popover(isPresented: $editTaskViewModel.isDeleting, content: {
             SheetView(type: .deleteTask)
@@ -49,12 +44,5 @@ struct EditTaskPopUP: View {
         .padding([.top, .bottom],32)
         .frame(minWidth: 3*geometry.size.width/5, maxHeight: 19.5*geometry.size.height/20)
         .background(.white)
-    }
-    
-    func openDocumentation() -> any View {
-        if editTaskViewModel.selectedTask.document == nil {
-            navigate()
-        }
-        return ChooseTemplateView(backAction: { chooseTemplate.toggle() }, closeAction: { editTaskViewModel.isEditing.toggle() }, goToDocumentationAction: { navigate() })
     }
 }

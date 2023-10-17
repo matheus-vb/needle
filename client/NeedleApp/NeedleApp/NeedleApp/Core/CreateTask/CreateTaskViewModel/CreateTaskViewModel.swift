@@ -24,6 +24,8 @@ class CreateTaskViewModel<
     @Published var selectedMemberId: String = ""
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
     
+    @Published var chosenTemplate : TemplateType
+    
     @Binding var showPopUp: Bool
     
     let seletectedWorkspace: Workspace
@@ -40,6 +42,7 @@ class CreateTaskViewModel<
         self.seletectedWorkspace = selectedWorkspace
         self.selectedStatus = selectedStatus
         self.taskDS = taskDS
+        self.chosenTemplate = .overview
     }
     
         
@@ -61,7 +64,7 @@ class CreateTaskViewModel<
             type: categorySelection.rawValue,
             endDate: "\(deadLineSelection)",
             priority: prioritySelection.rawValue,
-            docTemplate: TemplateType.generalDev.initialText
+            docTemplate: chosenTemplate.initialText
         )
         
         taskDS.createTask(dto: dto, userId: userID, workspaceId: seletectedWorkspace.id)
