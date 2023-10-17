@@ -38,15 +38,15 @@ enum TemplateType: String, CaseIterable {
     var info: TemplateInfo {
         switch self {
             // general templates
-        case .overview: return TemplateInfo(name: NSLocalizedString("Visão geral", comment: ""), area: .general, img: "visualizer_placeholder")
+        case .overview: return TemplateInfo(name: NSLocalizedString("Visão geral", comment: ""), area: .general, img: "ProjectOverview")
             
             // design templates
-        case .generalDesign: return TemplateInfo(name: NSLocalizedString("Design geral", comment: ""), area: .design, img: "visualizer_placeholder")
-        case .doubleDiamond: return TemplateInfo(name: NSLocalizedString("Double Diamond", comment: ""), area: .design, img: "visualizer_placeholder")
+        case .generalDesign: return TemplateInfo(name: NSLocalizedString("Design geral", comment: ""), area: .design, img: "Design")
+        case .doubleDiamond: return TemplateInfo(name: NSLocalizedString("Double Diamond", comment: ""), area: .design, img: "DoubleDiamond")
             
             // dev templates
-        case .generalDev: return TemplateInfo(name: NSLocalizedString("Dev geral", comment: ""), area: .dev, img: "visualizer_placeholder")
-        case .bugReport: return TemplateInfo(name: NSLocalizedString("Bug report", comment: ""), area: .dev, img: "visualizer_placeholder")
+        case .generalDev: return TemplateInfo(name: NSLocalizedString("Dev geral", comment: ""), area: .dev, img: "GeneralDev")
+        case .bugReport: return TemplateInfo(name: NSLocalizedString("Bug report", comment: ""), area: .dev, img: "BugReport")
         }
     }
     
