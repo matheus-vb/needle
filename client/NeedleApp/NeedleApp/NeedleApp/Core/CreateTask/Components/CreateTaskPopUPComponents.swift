@@ -22,7 +22,6 @@ extension CreateTaskPopUp{
             DatePicker(selection: $createTaskViewModel.deadLineSelection, in: Date.now..., displayedComponents: .date) {
                 Text("Selecione uma data")
             }
-            .frame(maxWidth: geometry.size.width*0.26)
             .labelsHidden()
             Spacer()
         }
@@ -133,7 +132,19 @@ extension CreateTaskPopUp{
     var createTask: some View {
         HStack{
             PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)
-            PopUpButton(text: "Criar", onButtonTapped: createTaskButton)
+            Button(action: {
+                goToChooseDoc = true
+            }, label:{
+                Text("Continuar")
+                    .padding([.top, .bottom], 9)
+                    .frame(width: 104)
+                    .background(Color.theme.greenMain)
+                    .font(.custom(SpaceGrotesk.regular.rawValue, size: 12))
+                    .cornerRadius(8)
+                    
+            })
+            .buttonStyle(.plain)
+            .modifier(Clickable())
         }
     }
     
@@ -144,5 +155,96 @@ extension CreateTaskPopUp{
     func createTaskButton(){
         createTaskViewModel.createTask()
         createTaskViewModel.showPopUp.toggle()
+    }
+    
+    func goToChooseDocFunc(){
+        self.goToChooseDoc.toggle()
+    }
+
+    var header: some View {
+        VStack {
+            HStack {
+                Button(action: {
+                    goToChooseDoc = false
+                }, label: {Text("􀰪")})
+                    .foregroundColor(.black)
+                    .buttonStyle(.borderless)
+                Spacer()
+                Button(action: {
+                    createTaskViewModel.showPopUp.toggle()
+                }, label: {Text("􀆄")})
+                    .foregroundColor(.black)
+                    .buttonStyle(.borderless)
+            }.padding(.top, 16)
+                .padding(.horizontal, 32)
+            VStack(alignment: .center, spacing: 10) {
+                Text(NSLocalizedString("Configure sua documentação", comment: ""))
+                    .font(Font.custom("SF Pro", size: 24).weight(.medium))
+                Text(NSLocalizedString("Escolha seu Template", comment: ""))
+                    .font(Font.custom("SF Pro", size: 20).weight(.regular))
+                
+            }
+        }
+    }
+    
+    var content: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(NSLocalizedString("Modelos disponíveis", comment: ""))
+                    .font(Font.custom("SF Pro", size: 16).weight(.semibold))
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 24) {
+                        ForEach(TemplateArea.allCases, id: \.rawValue) { area in
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text(area.areaName)
+                                ForEach(TemplateType.allCases.filter({ $0.info.area == area }), id: \.rawValue) { item in
+                                    Button(action: {
+                                        createTaskViewModel.chosenTemplate = item
+                                    }, label: {
+                                        Text(item.info.name)
+                                    }).buttonStyle(ChooseTemplateButton())
+                                }
+                            }
+                        }
+                    }.padding(.trailing, 20)
+                        .foregroundColor(.black)
+                }
+            }.padding(.top, 16)
+                .padding(.leading, 24)
+            Divider()
+                .padding(.horizontal, 24)
+            VStack(alignment: .trailing, spacing: 32) {
+                templateVisualizer
+                //                        .frame(width: geometry.size.width*0.60)
+                    .padding(.leading, 4)
+                createButton
+                Spacer()
+            }.padding(.top, 16)
+            Spacer()
+                .frame(width: 20)
+        }
+    }
+    
+    
+    var templateVisualizer: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text(NSLocalizedString("Pré-visualização:", comment: "")).font(Font.custom("SF Pro", size: 16)
+                .weight(.semibold)) + Text(" ")
+            + Text(createTaskViewModel.chosenTemplate.info.name).font((Font.custom("SF Pro", size: 16).weight(.semibold)))
+            Image(createTaskViewModel.chosenTemplate.info.img)
+                .resizable()
+                .scaledToFit()
+        }
+    }
+    
+    
+    var createButton: some View {
+        Button(action: { 
+            createTaskViewModel.createTask()
+            createTaskViewModel.showPopUp.toggle()
+        }, label: {
+                Text(NSLocalizedString("Criar", comment: ""))
+            })
+        .buttonStyle(CreateTemplateButton())
     }
 }

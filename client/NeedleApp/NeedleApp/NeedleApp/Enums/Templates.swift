@@ -56,15 +56,15 @@ enum TemplateType: String, CaseIterable {
             //TODO: replace strings w correct code
             
             // general templates
-        case .overview: return NSLocalizedString("devTemplate", comment: "")
+        case .overview: return NSLocalizedString("projectTemplate", comment: "")
             
             // design templates
-        case .generalDesign: return NSLocalizedString("devTemplate", comment: "")
-        case .doubleDiamond: return NSLocalizedString("devTemplate", comment: "")
+        case .generalDesign: return NSLocalizedString("designTemplate", comment: "")
+        case .doubleDiamond: return NSLocalizedString("doubleDiamondTemplate", comment: "")
             
             // dev templates
         case .generalDev: return NSLocalizedString("devTemplate", comment: "")
-        case .bugReport: return NSLocalizedString("devTemplate", comment: "")
+        case .bugReport: return NSLocalizedString("bugReportTemplate", comment: "")
         }
     }
 }

@@ -24,24 +24,25 @@ class CreateTaskViewModel<
     @Published var selectedMemberId: String = ""
     @Published var documentationString: NSAttributedString = NSAttributedString(string: "")
     
+    @Published var chosenTemplate : TemplateType
+    
     @Binding var showPopUp: Bool
     
     let seletectedWorkspace: Workspace
     let selectedStatus: TaskStatus
-    let templateType: TemplateType
     
     
     @Published var members: [User]
     
     private var taskDS: T
     
-    init(members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus, taskDS: T, templateType: TemplateType) {
+    init(members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus, taskDS: T) {
         self.members = members
         self._showPopUp = showPopUp
         self.seletectedWorkspace = selectedWorkspace
         self.selectedStatus = selectedStatus
         self.taskDS = taskDS
-        self.templateType = templateType
+        self.chosenTemplate = .overview
     }
     
         
@@ -63,7 +64,7 @@ class CreateTaskViewModel<
             type: categorySelection.rawValue,
             endDate: "\(deadLineSelection)",
             priority: prioritySelection.rawValue,
-            docTemplate: templateType.initialText
+            docTemplate: chosenTemplate.initialText
         )
         
         taskDS.createTask(dto: dto, userId: userID, workspaceId: seletectedWorkspace.id)

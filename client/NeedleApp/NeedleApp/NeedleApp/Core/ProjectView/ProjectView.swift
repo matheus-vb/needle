@@ -90,8 +90,7 @@ struct ProjectView: View {
                 EditTaskPopUP(data: projectViewModel.selectedTask!, workspaceID: projectViewModel.selectedWorkspace.id, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], isEditing: $projectViewModel.showEditTaskPopUP, geometry: geometry, navigate: { projectViewModel.toggleNavigate() })
             })
             .sheet(isPresented: $projectViewModel.showPopUp, content: {
-                ChooseTemplateView(backAction: {dismiss}, closeAction: {dismiss}, goToDocumentationAction: {dismiss})
-//                CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
+                CreateTaskPopUp(geometry: geometry, members: projectViewModel.workspaceMembers[projectViewModel.selectedWorkspace.id] ?? [], showPopUp: $projectViewModel.showPopUp, selectedWorkspace: projectViewModel.selectedWorkspace, selectedStatus: projectViewModel.selectedColumnStatus)
             })
             .sheet(isPresented: $projectViewModel.isDeleting, content: {
                 SheetView(type: .deleteTaskKanban)
