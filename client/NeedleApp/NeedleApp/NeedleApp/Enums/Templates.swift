@@ -32,12 +32,8 @@ enum TemplateType: String, CaseIterable {
     case overview = "OVERVIEW"
     case generalDesign = "GENERAL_DESIGN"
     case doubleDiamond = "DOUBLE_DIAMOND"
-    case taskImplem = "TASKIMPLEM"
     case generalDev  = "GENERALDEV"
     case bugReport = "BUGREPORT"
-    case simpleBack = "SIMPLEBACK"
-    case prBack = "PRBACK"
-    case simpleFront = "SIMPLEFRONT"
     
     var info: TemplateInfo {
         switch self {
@@ -49,12 +45,8 @@ enum TemplateType: String, CaseIterable {
         case .doubleDiamond: return TemplateInfo(name: NSLocalizedString("Double Diamond", comment: ""), area: .design, img: "visualizer_placeholder")
             
             // dev templates
-        case .taskImplem: return TemplateInfo(name: NSLocalizedString("Implementando Task", comment: ""), area: .dev, img: "visualizer_placeholder")
         case .generalDev: return TemplateInfo(name: NSLocalizedString("Dev geral", comment: ""), area: .dev, img: "visualizer_placeholder")
         case .bugReport: return TemplateInfo(name: NSLocalizedString("Bug report", comment: ""), area: .dev, img: "visualizer_placeholder")
-        case .simpleBack: return TemplateInfo(name: NSLocalizedString("Back-end simples", comment: ""), area: .dev, img: "visualizer_placeholder")
-        case .prBack: return TemplateInfo(name: NSLocalizedString("Back-end PR", comment: ""), area: .dev, img: "visualizer_placeholder")
-        case .simpleFront: return TemplateInfo(name: NSLocalizedString("Front-end simples", comment: ""), area: .dev, img: "visualizer_placeholder")
         }
     }
     
@@ -71,12 +63,8 @@ enum TemplateType: String, CaseIterable {
         case .doubleDiamond: return NSLocalizedString("devTemplate", comment: "")
             
             // dev templates
-        case .taskImplem: return NSLocalizedString("devTemplate", comment: "")
         case .generalDev: return NSLocalizedString("devTemplate", comment: "")
         case .bugReport: return NSLocalizedString("devTemplate", comment: "")
-        case .simpleBack: return NSLocalizedString("devTemplate", comment: "")
-        case .prBack: return NSLocalizedString("devTemplate", comment: "")
-        case .simpleFront: return NSLocalizedString("devTemplate", comment: "")
         }
     }
 }

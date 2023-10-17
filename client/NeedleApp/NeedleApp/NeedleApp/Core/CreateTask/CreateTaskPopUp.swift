@@ -11,14 +11,15 @@ struct CreateTaskPopUp: View {
     @ObservedObject var createTaskViewModel: CreateTaskViewModel<TaskDataService>
     var geometry: GeometryProxy
     
-    init(geometry: GeometryProxy, members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus) {
+    init(geometry: GeometryProxy, members: [User], showPopUp: Binding<Bool>, selectedWorkspace: Workspace, selectedStatus: TaskStatus, templateType: TemplateType) {
         
         self.createTaskViewModel = CreateTaskViewModel(
             members: members,
             showPopUp: showPopUp,
             selectedWorkspace: selectedWorkspace,
             selectedStatus: selectedStatus,
-            taskDS: .shared
+            taskDS: .shared,
+            templateType: templateType
         )
         
         self.geometry = geometry
