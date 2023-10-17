@@ -215,8 +215,6 @@
 
 "Tasks Pendentes" = "Pending tasks";
 
-"Excluir Projeto" = "Delete workspace";
-
 "Total de membros: "= "Member count: ";
 
 "Informação" = "Information";
@@ -245,6 +243,36 @@
 "Ao excluir sua conta você perde\n o acesso a todos os seus projetos. Lembre-se desvincular o app do seu Sign In with Apple caso queira criar uma nova conta clicando no link abaixo." = "By deleting your account, you will lose access to all your projects. Remember to unlink the app from your Sign In with Apple if you want to create a new account by clicking the link below.";
 
 "Desativar" = "Deactivate";
+
+"Selecione" = "Select";
+
+"Continuar" = "Continue";
+
+"Último acesso" = "Last access";
+
+"Modo de edição" = "Editing mode";
+
+"Revisão do documento" = "Document review";
+
+"Aprove ou rejeite o documento. Opcionalmente, deixe feedbacks para o responsável no campo abaixo." = "Approve or reject the document. Optionally, provide feedback to the responsible person in the field below.";
+
+"Comente a documentação" = "Comment on the documentation";
+
+"Aprovar" = "Approve";
+
+"Rejeitar" = "Reject";
+
+"Tasks rejeitadas serão enviadas de volta à coluna" = "Rejected tasks will be sent back to the column";
+
+"Mostrar tasks" = "Show tasks";
+
+"Ocultar tasks" = "Hide tasks";
+
+"Permanência" = "Duration";
+
+"Diga-nos o que está achando do Needle!" = "Tell us what you think of Needle!";
+
+"Enviar" = "Send";
 
 //Templates:
 

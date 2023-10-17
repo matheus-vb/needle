@@ -31,6 +31,6 @@ struct ColorTheme {
     let orangeKanban = Color("OrangeKanban")
     let orangeMain = Color("OrangeMain")
     let redMain = Color("RedMain")
-    let yellowKanban = Color("YellowKanban")
+    let yellowKanban = Color("yellowKanban")
 }
 
