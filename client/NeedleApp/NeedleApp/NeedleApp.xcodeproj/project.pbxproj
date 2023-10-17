@@ -70,6 +70,7 @@
 		44E80C812AB223FE00ED0326 /* HighlightText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E80C802AB223FE00ED0326 /* HighlightText.swift */; };
 		44FE06312A82E69200386ADE /* SearchDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06302A82E69200386ADE /* SearchDocuments.swift */; };
 		44FE06332A82E71800386ADE /* PickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FE06322A82E71800386ADE /* PickerApp.swift */; };
+		643745152ADEFC1800491A1B /* UpdateIsVisibleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643745142ADEFC1800491A1B /* UpdateIsVisibleDTO.swift */; };
 		646BE57B2AD5CBF7008BC305 /* ColumnTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */; };
 		649B45432A7D79DB00F8F54B /* KanbanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45422A7D79DB00F8F54B /* KanbanView.swift */; };
 		649B45452A7D7B8200F8F54B /* TaskCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B45442A7D7B8200F8F54B /* TaskCardView.swift */; };
@@ -305,6 +306,7 @@
 		44E80C802AB223FE00ED0326 /* HighlightText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightText.swift; sourceTree = "<group>"; };
 		44FE06302A82E69200386ADE /* SearchDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDocuments.swift; sourceTree = "<group>"; };
 		44FE06322A82E71800386ADE /* PickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerApp.swift; sourceTree = "<group>"; };
+		643745142ADEFC1800491A1B /* UpdateIsVisibleDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateIsVisibleDTO.swift; sourceTree = "<group>"; };
 		646BE5772AD5C858008BC305 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		646BE57A2AD5CBF7008BC305 /* ColumnTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnTitle.swift; sourceTree = "<group>"; };
 		649B45422A7D79DB00F8F54B /* KanbanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanView.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				868604EF2A7C32E5001D9213 /* CreateWorkspaceDTO.swift */,
 				868604F32A7C3B6B001D9213 /* JoinWorkspaceDTO.swift */,
 				86E7BCEF2A7DEA6500CDCCB2 /* UpdateTaskStatusDTO.swift */,
+				643745142ADEFC1800491A1B /* UpdateIsVisibleDTO.swift */,
 				27BCF7DB2A82C1FF0026F381 /* UpdateDocDTO.swift */,
 				86E6FF112A830AA300BB5D9F /* QueryTasksDTO.swift */,
 				276877D62A84147200CE70C4 /* SaveTaskDTO.swift */,
@@ -1167,6 +1170,7 @@
 				27BCF7DA2A82C12F0026F381 /* DocumentationDataService.swift in Sources */,
 				270515852A84635E005FF0EE /* HandleDate.swift in Sources */,
 				D445C8CB2A7AE4130089481D /* NotificationBarView.swift in Sources */,
+				643745152ADEFC1800491A1B /* UpdateIsVisibleDTO.swift in Sources */,
 				276877D72A84147200CE70C4 /* SaveTaskDTO.swift in Sources */,
 				863789832A745BC1004EEB9B /* KeychainSwift.swift in Sources */,
 				868604E52A7C243A001D9213 /* UserResponse.swift in Sources */,
@@ -1519,8 +1523,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.7.3;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleAp;
+				MARKETING_VERSION = 1.7.4;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.academy.NeedleJP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

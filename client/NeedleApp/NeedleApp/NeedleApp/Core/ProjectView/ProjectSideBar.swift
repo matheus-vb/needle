@@ -26,7 +26,7 @@ extension ProjectView {
             
             Spacer()
             
-            DashedSmallerButton(text: NSLocalizedString("Deixe um feedback", comment: "")){
+            DashedSmallerButton(standardColor: .clear, hoverColor: .clear, text: NSLocalizedString("Deixe um feedback", comment: "")){
                 projectViewModel.feedbackSheet.toggle()
             }.padding(20)
                 .sheet(isPresented: $projectViewModel.feedbackSheet) {

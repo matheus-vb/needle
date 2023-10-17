@@ -78,7 +78,7 @@ struct SheetView: View {
         }
         case .loginError: return {dismiss()}
         case .archiveTask: return {
-            taskDataService.updateTaskStatus(taskId: kanbanViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
+            taskDataService.updateTaskVisibility(taskId: kanbanViewModel.selectedTask!.id, isVisible: kanbanViewModel.selectedTask!.isVisible, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
             dismiss()
         }
         case .archiveTaskKanban: return {

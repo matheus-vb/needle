@@ -79,7 +79,7 @@ extension ProjectView{
     }
     
     var inviteMemberButton: some View {
-        CopyClipboardButton(text: projectViewModel.getCode(), isOnCard: false) {
+        CopyClipboardButton(backgroundColor: .clear, hoverColor: Color.theme.grayBackground ,text: projectViewModel.getCode(), isOnCard: false) {
         }
 
     }

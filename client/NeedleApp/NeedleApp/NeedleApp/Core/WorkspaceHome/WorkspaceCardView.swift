@@ -73,7 +73,7 @@ struct WorkspaceCardView: View, Identifiable {
                 HStack {
                     Text(NSLocalizedString("Código para convite:", comment: "")).font(.system(size: 12, weight: .medium))
                     Spacer()
-                    CopyClipboardButton(text: code, isOnCard: true) {
+                    CopyClipboardButton(backgroundColor: Color.theme.greenMain, hoverColor: Color.theme.greenSecondary ,text: code, isOnCard: true) {
                     }
                 }.frame(width: 227)
                 
