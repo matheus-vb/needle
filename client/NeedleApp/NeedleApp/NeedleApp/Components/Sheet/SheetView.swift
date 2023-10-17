@@ -82,7 +82,7 @@ struct SheetView: View {
             dismiss()
         }
         case .archiveTaskKanban: return {
-            taskDataService.updateTaskStatus(taskId: projectViewModel.selectedTask!.id, status: .NOT_VISIBLE, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
+            taskDataService.updateTaskVisibility(taskId: projectViewModel.selectedTask!.id, isVisible: projectViewModel.selectedTask!.isVisible, userId: projectViewModel.userID, workspaceId: projectViewModel.selectedWorkspace.id)
             dismiss()
         }
         case .deleteWorkspaceMember: return {
