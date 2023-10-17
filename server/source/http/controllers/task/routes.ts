@@ -8,6 +8,7 @@ import { queryTasks } from "./query-tasks";
 import { editTask } from "./edit-task";
 import { updateTask } from "./update-task";
 import { deleteTask } from "./delete-task";
+import { changeIsVisibleStatus } from "./change-isVisible-Status";
 
 export async function taskRoutes(app: FastifyInstance) {
     app.post('/task/create', createTask);
@@ -15,6 +16,7 @@ export async function taskRoutes(app: FastifyInstance) {
     app.patch('/task', updateStatus);
     app.patch('/edit/task', editTask);
     app.patch('/update/task', updateTask)
+    app.patch('/task/update/isVisible', changeIsVisibleStatus)
     app.get('/task/:workspaceId', tasksByWorkspace);
     app.post('/task/tag', addTag);
     app.get('/task/query/:workspaceId', queryTasks)

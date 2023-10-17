@@ -67,7 +67,7 @@ class TaskDataServiceMock: TaskDataServiceProtocol {
         
     }
     
-    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String) {
+    func saveTask(dto: SaveTaskDTO, userId: String, workspaceId: String, isRejected: Bool, isVisible: Bool) {
         guard let taskIdx = db.tasksInWorkspace[workspaceId]?.firstIndex(where: { $0.id == dto.taskId }) else { return }
         
         var user: User?

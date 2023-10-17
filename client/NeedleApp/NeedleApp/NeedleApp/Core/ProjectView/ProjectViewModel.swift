@@ -35,6 +35,9 @@ class ProjectViewModel<
     @Published var feedbackSheet = false
 
     @Published var showCard: Bool = false
+    @Published var showDocumentation: Bool = false
+    @Published var navigateToDocument: Bool = false
+
     @Published var showShareCode = false
     @Published var isAnimating = false
     @Published var isNaming: Bool = false
@@ -118,4 +121,9 @@ class ProjectViewModel<
         pasteBoard.setString(self.getCode(), forType: .string)
 
     }
+    
+    func toggleNavigate() {
+        navigateToDocument.toggle()
+    }
+
 }

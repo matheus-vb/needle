@@ -18,4 +18,5 @@ export interface ITaskRepository {
         priority: string | null
         ): Promise<Task[]>;
     findTasksByWorkspaceIdAndStatus(workspaceId: string, status: TaskStatus): Promise<number>;
+    updateIsVisibleStatus(taskId: string, isVisibile: boolean): Promise<Task>;
 }

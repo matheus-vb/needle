@@ -8,7 +8,7 @@
 import Foundation
 
 struct UpdateDocumentationDTO: Codable{
-    let id: String
-    let text: String //Aqui vai o data rtf
-    let textString: String //Aqui vai o texto string mesmo
+    var id: String
+    var text: String //Aqui vai o data rtf
+    var textString: String //Aqui vai o texto string mesmo
 }

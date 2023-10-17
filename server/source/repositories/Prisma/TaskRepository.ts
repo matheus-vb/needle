@@ -155,4 +155,16 @@ export class TaskRepository implements ITaskRepository {
         return task
     }
     
+    async updateIsVisibleStatus(taskId: string, isVisibile: boolean): Promise<Task> {
+        const task = await prisma.task.update({
+            where:{
+                id: taskId,
+            },
+            data:{
+                isVisible: isVisibile
+            }
+        })
+        return task
+    }
+
 }
