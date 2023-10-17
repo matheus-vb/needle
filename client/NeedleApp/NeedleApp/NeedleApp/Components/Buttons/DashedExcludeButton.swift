@@ -16,7 +16,7 @@ struct DashedExcludeButton: View {
             onButtonTapped()
         }, label:{
             HStack{
-                Text("\(text)")
+                Text(text)
                 .font(
                 Font.custom("SF Pro", size: 16)
                     .weight(.regular)

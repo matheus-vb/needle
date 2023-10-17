@@ -39,6 +39,12 @@ struct EditTaskPopUP: View {
                 .background(.white)
                 .environmentObject(editTaskViewModel)
         })
+        .popover(isPresented: $editTaskViewModel.isArchiving, content: {
+            SheetView(type: .archiveTask)
+                .foregroundColor(Color.theme.grayHover)
+                .background(.white)
+                .environmentObject(editTaskViewModel)
+        })
         .scrollIndicators(.hidden)
         .padding([.leading, .trailing], 64)
         .padding([.top, .bottom],32)

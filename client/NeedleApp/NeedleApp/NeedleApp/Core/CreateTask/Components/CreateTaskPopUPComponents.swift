@@ -131,11 +131,11 @@ extension CreateTaskPopUp{
     
     var createTask: some View {
         HStack{
-            PopUpButton(text: "Cancelar", onButtonTapped: cancelButton)
+            PopUpButton(text: NSLocalizedString("Cancelar", comment: ""), onButtonTapped: cancelButton)
             Button(action: {
                 goToChooseDoc = true
             }, label:{
-                Text("Continuar")
+                Text(NSLocalizedString("Continuar", comment: ""))
                     .padding([.top, .bottom], 9)
                     .frame(width: 104)
                     .background(Color.theme.greenMain)

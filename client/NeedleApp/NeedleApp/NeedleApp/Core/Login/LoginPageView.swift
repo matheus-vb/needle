@@ -62,8 +62,10 @@ struct LoginPageView: View {
                 }
                 .frame(maxWidth: .infinity)
                 
-                Spacer()
-                    .frame(maxWidth: .infinity)
+                Image("Ilustra_mulherHome")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: .infinity, alignment: .bottomTrailing)
                 
             }
 

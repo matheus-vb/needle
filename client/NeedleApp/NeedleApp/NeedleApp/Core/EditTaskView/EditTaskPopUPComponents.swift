@@ -70,7 +70,7 @@ extension EditTaskPopUP{
             LabelComponent(imageName: "shippingbox", label:NSLocalizedString("Área", comment: ""))
                 .font(.system(size: 14))
 
-            Picker("Área",selection: $editTaskViewModel.categorySelection){
+            Picker(NSLocalizedString("Área", comment: ""),selection: $editTaskViewModel.categorySelection){
                ForEach(TaskType.allCases, id: \.self) { type in
                    Text(type.displayName)
                        .foregroundColor(Color.theme.blackMain).tag("")
@@ -139,17 +139,12 @@ extension EditTaskPopUP{
                         .foregroundColor(Color.theme.redMain)
                 })
                 Button(action: {
-                    if(editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE){
-                        editTaskViewModel.unarchiveTask()
-                        editTaskViewModel.isEditing.toggle()
-                    }else{
-                        editTaskViewModel.archiveTask()
-                        editTaskViewModel.isEditing.toggle()
-                    }
+                    editTaskViewModel.isArchiving.toggle()
                 }, label: {
-                    Image(systemName: (editTaskViewModel.selectedTask.status == TaskStatus.NOT_VISIBLE ? "arrow.up.bin" : "archivebox"))
+                    Image(systemName: (editTaskViewModel.selectedTask.isVisible == true ? "eye" : "eye.slash"))
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .scaledToFit()
+                        .frame(height: 20)
                         .foregroundColor(Color.theme.blackMain)
                 })
             }        }

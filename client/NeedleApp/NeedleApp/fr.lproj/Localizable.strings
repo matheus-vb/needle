@@ -230,6 +230,36 @@
 
 "Desativar" = "Désactiver";
 
+"Selecione" = "Sélectionnez";
+
+"Continuar" = "Continuer";
+
+"Último acesso" = "Dernier accès";
+
+"Modo de edição" = "Mode d'édition";
+
+"Revisão do documento" = "Révision du document";
+
+"Aprove ou rejeite o documento. Opcionalmente, deixe feedbacks para o responsável no campo abaixo." = "Approuvez ou rejetez le document. Vous pouvez également laisser des commentaires pour la personne en charge dans le champ ci-dessous.";
+
+"Comente a documentação" = "Commentez la documentation";
+
+"Aprovar" = "Approuver";
+
+"Rejeitar" = "Rejeter";
+
+"Tasks rejeitadas serão enviadas de volta à coluna" = "Les tâches rejetées seront renvoyées à la colonne";
+
+"Mostrar tasks" = "Afficher les tâches";
+
+"Ocultar tasks" = "Masquer les tâches";
+
+"Permanência" = "Durée";
+
+"Diga-nos o que está achando do Needle!" = "Dites-nous ce que vous pensez de Needle !";
+
+"Enviar" = "Envoyer";
+
 //Templates:
 
 "devTemplate" = "e1xydGYxXGFuc2lcYW5zaWNwZzEyNTJcY29jb2FydGYyNzA5Clxjb2NvYXRleHRz\r\nY2FsaW5nMFxjb2NvYXBsYXRmb3JtMHtcZm9udHRibFxmMFxmc3dpc3NcZmNoYXJz\r\nZXQwIEhlbHZldGljYTt9CntcY29sb3J0Ymw7XHJlZDI1NVxncmVlbjI1NVxibHVl\r\nMjU1O1xyZWQwXGdyZWVuMFxibHVlMDt9CntcKlxleHBhbmRlZGNvbG9ydGJsOztc\r\nY3NzcmdiXGMwXGMwXGMwXGNuYW1lIHRleHRDb2xvcjt9ClxwYXJkXHR4NTYwXHR4\r\nMTEyMFx0eDE2ODBcdHgyMjQwXHR4MjgwMFx0eDMzNjBcdHgzOTIwXHR4NDQ4MFx0\r\neDUwNDBcdHg1NjAwXHR4NjE2MFx0eDY3MjBccGFyZGlybmF0dXJhbFxwYXJ0aWdo\r\ndGVuZmFjdG9yMAoKXGYwXGZzMjggXGNmMiAxLiBEZXNjcmlwdGlvbiBkZSBsYSB0\r\nXCdlMmNoZSA6XAogICAtIFtCclwnZTh2ZSBkZXNjcmlwdGlvbiBkZSBsJ29iamVj\r\ndGlmIGRlIGxhIHRcJ2UyY2hlXS5cClwKMi4gRXhpZ2VuY2VzIGQnZW50clwnZTll\r\nIDpcCiAgIC0gW0xpc3RlIGRlcyBleGlnZW5jZXMsIGRvbm5cJ2U5ZXMgb3UgcGFy\r\nYW1cJ2U4dHJlcyBkJ2VudHJcJ2U5ZV1cClwKMy4gQXR0ZW50ZXMgZW4gbWF0aVwn\r\nZThyZSBkZSByXCdlOXN1bHRhdHMgOlwKICAgLSBbRGVzY3JpcHRpb24gZGVzIHJc\r\nJ2U5c3VsdGF0cyBhdHRlbmR1c11cClwKNC4gRFwnZTlwZW5kYW5jZXMgOlwKICAg\r\nLSBbTGlzdGUgZGVzIGRcJ2U5cGVuZGFuY2VzLCB5IGNvbXByaXMgbGVzIGZvbmN0\r\naW9ucywgbGVzIG1vZHVsZXMgb3UgbGVzIGJpYmxpb3RoXCdlOHF1ZXNdLlwKXAo1\r\nLiBJbnN0cnVjdGlvbnMgZCd1dGlsaXNhdGlvbiA6XAogICAtIFtJbnN0cnVjdGlv\r\nbnMgXCdlOXRhcGUgcGFyIFwnZTl0YXBlIHN1ciBsYSBtYW5pXCdlOHJlIGQnZXhc\r\nJ2U5Y3V0ZXIgbGEgdFwnZTJjaGVdXApcCjYuIEV4ZW1wbGUgZCd1dGlsaXNhdGlv\r\nbiA6XAogICAtIFtFeGVtcGxlcyBjb25jcmV0cyBkJ3V0aWxpc2F0aW9uIGRlIGxh\r\nIHRcJ2UyY2hlIGF2ZWMgZW50clwnZTllIGV0IHNvcnRpZV1cClwKNy4gR2VzdGlv\r\nbiBkZXMgZXJyZXVycyA6XAogICAtIFtFeHBsaWNhdGlvbiBkZSBsYSBtYW5pXCdl\r\nOHJlIGRvbnQgbGVzIGVycmV1cnMgb3UgbGVzIGV4Y2VwdGlvbnMgc29udCBnXCdl\r\nOXJcJ2U5ZXNdXApcCjguIENvbnNpZFwnZTlyYXRpb25zIHJlbGF0aXZlcyBhdXgg\r\ncGVyZm9ybWFuY2VzIChmYWN1bHRhdGlmKSA6XAogICAtIFtJbmZvcm1hdGlvbnMg\r\nc3VyIGxlcyBjYXJhY3RcJ2U5cmlzdGlxdWVzIGRlIHBlcmZvcm1hbmNlLCBsZSBj\r\nYXMgXCdlOWNoXCdlOWFudF1cClwKOS4gTm90ZXMgb3UgaW5mb3JtYXRpb25zIGNv\r\nbXBsXCdlOW1lbnRhaXJlcyAoZmFjdWx0YXRpZikgOlwKICAgLSBbVG91dGUgaW5m\r\nb3JtYXRpb24gb3UgY29uc2lkXCdlOXJhdGlvbiBzdXBwbFwnZTltZW50YWlyZV1c\r\nClwKMTAuIEhpc3RvcmlxdWUgZGVzIHZlcnNpb25zIChmYWN1bHRhdGlmKSA6XAog\r\nICAgLSBbU3VpdmkgZGVzIG1vZGlmaWNhdGlvbnMgZXQgZGVzIG1pc2VzIFwnZTAg\r\nam91ciBkZSBsYSB0XCdlMmNoZSBhdSBmaWwgZHUgdGVtcHNdfQ==";

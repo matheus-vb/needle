@@ -78,7 +78,7 @@ struct SheetView: View {
         }
         case .loginError: return {dismiss()}
         case .archiveTask: return {
-            taskDataService.updateTaskVisibility(taskId: kanbanViewModel.selectedTask!.id, isVisible: kanbanViewModel.selectedTask!.isVisible, userId: kanbanViewModel.userID, workspaceId: kanbanViewModel.selectedWorkspace.id)
+            taskDataService.updateTaskVisibility(taskId: editTaskViewModel.selectedTask.id, isVisible: editTaskViewModel.selectedTask.isVisible, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
             dismiss()
         }
         case .archiveTaskKanban: return {
@@ -95,7 +95,7 @@ struct SheetView: View {
     var buttonBlock: some View {
         HStack(spacing: 8) {
             if type.twoButtons && type != .joinCode {
-                Button("Cancelar", action: {
+                Button(NSLocalizedString("Cancelar", comment: ""), action: {
                     if(type == .deleteTask){
                         editTaskViewModel.isDeleting.toggle()
                     }else{
@@ -120,7 +120,7 @@ struct SheetView: View {
                     
                     
                     HStack {
-                        Button("Cancelar") {
+                        Button(NSLocalizedString("Cancelar", comment: "")) {
                             dismiss()
                         }
                         .buttonStyle(SecondarySheetActionButton())

@@ -37,6 +37,7 @@ class EditTaskViewModel<
     @Published var members: [User]
 
     @Published var isDeleting: Bool = false
+    @Published var isArchiving: Bool = false
     var dto: UpdateTaskDTO
 
     

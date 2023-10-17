@@ -78,6 +78,7 @@ struct CopyClipboardButton: View {
         .popover(isPresented: $onTap, arrowEdge: .bottom) {
             Text(NSLocalizedString("Código de compartilhamento copiado!", comment: ""))
                 .padding()
+                .foregroundStyle(.black)
         }
 
     }
