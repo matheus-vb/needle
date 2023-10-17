@@ -10,6 +10,9 @@ import Firebase
 
 struct CopyClipboardButton: View {
     
+    let backgroundColor : Color
+    let hoverColor : Color
+    
     func setTimer() async{
         onTap.toggle()
         try? await Task.sleep(nanoseconds: 2_000_000_000)
@@ -47,7 +50,7 @@ struct CopyClipboardButton: View {
                 Spacer()
                 Image(systemName: onTap ? "checkmark" : "doc.on.doc")
                     .frame(width: isOnCard ? 24 : 35, height: isOnCard ? 24 : 35)
-                    .background(onHover ? Color.theme.greenSecondary : Color.theme.greenMain)
+                    .background(onHover ? hoverColor : backgroundColor)
                     .cornerRadius(6)
 
                 .font(
@@ -59,7 +62,7 @@ struct CopyClipboardButton: View {
             }
             .padding(isOnCard ? 0 : 4)
             .frame(width: isOnCard ? 100 : 140, height: isOnCard ? 36 : 48)
-            .background(Color.theme.greenMain)
+            .background(backgroundColor)
             .cornerRadius(6)
             .overlay(
               RoundedRectangle(cornerRadius: 6)
@@ -80,9 +83,9 @@ struct CopyClipboardButton: View {
     }
 }
 
-
-struct CopyClipboardButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CopyClipboardButton(text: "98889", isOnCard: false){}
-    }
-}
+//
+//struct CopyClipboardButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CopyClipboardButton(text: "98889", isOnCard: false){}
+//    }
+//}

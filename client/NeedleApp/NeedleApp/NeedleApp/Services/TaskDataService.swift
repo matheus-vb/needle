@@ -29,6 +29,7 @@ class TaskDataService: TaskDataServiceProtocol {
     var updateTaskStatusSubscription: AnyCancellable?
     var queryTasksSubscription: AnyCancellable?
     var saveTaskSubscription: AnyCancellable?
+    var updateTaskIsVisibleSubscription : AnyCancellable?
     
     func getWorkspaceTasks(userId: String, workspaceId: String) {
         guard let url = URL(string: Bundle.baseURL + "task/\(workspaceId)") else { return }
@@ -129,6 +130,26 @@ class TaskDataService: TaskDataServiceProtocol {
             }, receiveValue: { [weak self] _ in
                 self?.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
                 self?.createTaskSubscription?.cancel()
+            })
+    }
+    
+    func updateTaskVisibility(taskId: String, isVisible: Bool, userId: String, workspaceId: String) {
+        guard let url = URL(string: Bundle.baseURL + "task/update/isVisible") else { return }
+        
+        let dto = UpdateIsVisibleDTO(taskId: taskId, isVisible: !isVisible)
+        
+        let parameters = convertToDictionary(dto)
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else { return }
+        
+        updateTaskIsVisibleSubscription = NetworkingManager.patch(url: url, body: jsonData)
+            .sink(receiveCompletion: {
+                completion in NetworkingManager.handleCompletion(completion: completion) { error in
+                    self.currError = error as? NetworkingManager.NetworkingError
+                    self.errorCount += 1
+                }
+            }, receiveValue: { [weak self] _ in
+                self?.getWorkspaceTasks(userId: userId, workspaceId: workspaceId)
+                self?.updateTaskIsVisibleSubscription?.cancel()
             })
     }
 }
