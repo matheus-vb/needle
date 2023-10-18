@@ -23,7 +23,7 @@ struct DashedSmallerButton: View {
                 Font.custom("SF Pro", size: 12)
                 .weight(.semibold)
                 )
-                .foregroundColor(.black)
+                .foregroundColor(onHover ? Color.theme.grayHover : .black)
             }
             .frame(width: 168, height: 48, alignment: .center)
             .background(onHover ?  hoverColor :  standardColor)
@@ -32,7 +32,7 @@ struct DashedSmallerButton: View {
               RoundedRectangle(cornerRadius: 6)
                 .inset(by: 0.5)
 //                .stroke(.black, style: StrokeStyle(lineWidth: 1, dash: [6, 6]))
-                .stroke(.black, style: StrokeStyle(lineWidth: 1))
+                .stroke(onHover ? Color.theme.grayHover : .black, style: StrokeStyle(lineWidth: 1))
             )
         })
         .buttonStyle(.plain)
