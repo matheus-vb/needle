@@ -138,8 +138,10 @@ extension EditTaskPopUP{
                         .frame(width: 20, height: 20)
                         .foregroundColor(Color.theme.redMain)
                 })
+                .modifier(Clickable())
                 Button(action: {
-                    editTaskViewModel.isArchiving.toggle()
+                    TaskDataService.shared.updateTaskVisibility(taskId: editTaskViewModel.selectedTask.id, isVisible: editTaskViewModel.selectedTask.isVisible, userId: editTaskViewModel.userID, workspaceId: editTaskViewModel.workspaceID)
+                    editTaskViewModel.isEditing.toggle()
                 }, label: {
                     Image(systemName: (editTaskViewModel.selectedTask.isVisible == true ? "eye" : "eye.slash"))
                         .resizable()
@@ -147,6 +149,7 @@ extension EditTaskPopUP{
                         .frame(height: 20)
                         .foregroundColor(Color.theme.blackMain)
                 })
+                .modifier(Clickable())
             }        }
         .buttonStyle(.plain)
     }

@@ -125,4 +125,8 @@ class EditTaskViewModel<
             return Color.theme.greenKanban
         }
     }
+    
+    func deleteTask(){
+        TaskDataService.shared.deleteTask(dto: DeleteTaskDTO(taskId: selectedTask.id), userId: userID, workspaceId: workspaceID)
+    }
 }
