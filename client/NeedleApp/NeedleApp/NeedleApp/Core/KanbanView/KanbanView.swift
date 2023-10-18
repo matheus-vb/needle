@@ -10,6 +10,7 @@ import SwiftUI
 struct KanbanView: View {
     @ObservedObject var kanbanViewModel: KanbanViewModel<TaskDataService>
     @State var disableTap : Bool = false
+    @State var targetStatus : TaskStatus = .NOT_VISIBLE
     
     init(tasks: [TaskModel], role: Role, selectedColumn: Binding<TaskStatus>, showPopUp: Binding<Bool>, showCard: Binding<Bool>, selectedWorkspace: Workspace, selectedTask: Binding<TaskModel?>, isEditing: Binding<Bool>, isDeleting: Binding<Bool>, isArchiving: Binding<Bool>) {
         

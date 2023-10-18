@@ -52,8 +52,10 @@ struct DocumentationView: View {
     
     var backHeader: some View {
         HStack {
-            Button(action: { documentationViewModel.saveDoc()
-                backAction() }, label: { Text("􀰪") })
+            Button(action: {
+//                documentationViewModel.saveDoc()
+                backAction()
+            }, label: { Text("􀰪") })
                 .buttonStyle(.borderless)
                 .foregroundColor(Color.theme.grayButton)
             Text(name)
@@ -71,11 +73,13 @@ struct DocumentationView: View {
                                     .foregroundColor(.black)
                             Spacer()
 
-                            Toggle(isOn: $isEditing, label: {
-                                Text(isEditing ? NSLocalizedString("Modo de edição", comment: "") : NSLocalizedString("Modo de revisão", comment: ""))
-                                    .font(.system(size: 12, weight: .semibold))
-                            })
-                                .toggleStyle(SwitchToggleStyle(tint: Color.theme.greenMain))
+                            if documentationViewModel.selectedTask.status == .PENDING {
+                                Toggle(isOn: $isEditing, label: {
+                                    Text(isEditing ? NSLocalizedString("Modo de edição", comment: "") : NSLocalizedString("Modo de revisão", comment: ""))
+                                        .font(.system(size: 12, weight: .semibold))
+                                })
+                                    .toggleStyle(SwitchToggleStyle(tint: Color.theme.greenMain))
+                            }
                         }.padding(.trailing, 20)
         
                         HStack(spacing: 32) {
@@ -138,7 +142,9 @@ struct DocumentationView: View {
     }
     
     var saveButton: some View {
-        Button(action: {documentationViewModel.saveDoc()
+        Button(action: {
+            documentationViewModel.saveDoc()
+            backAction()
             print("salvei")
         }, label: {Text(NSLocalizedString("Salvar", comment: ""))})
             .buttonStyle(CreateTemplateButton())
@@ -197,9 +203,15 @@ struct DocumentationView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     VStack(spacing: 12) {
-                        Button(action: {}, label: {Text(NSLocalizedString("Aprovar", comment: ""))})
+                        Button(action: {
+                            TaskDataService.shared.updateTaskStatus(taskId: documentationViewModel.selectedTask.id, status: .DONE, userId: documentationViewModel.userID, workspaceId: documentationViewModel.workspaceID)
+                            backAction()
+                        }, label: {Text(NSLocalizedString("Aprovar", comment: ""))})
                             .buttonStyle(PrimarySheetActionButton())
-                        Button(action: {}, label: {Text(NSLocalizedString("Rejeitar", comment: ""))})
+                        Button(action: {
+                            TaskDataService.shared.updateTaskStatus(taskId: documentationViewModel.selectedTask.id, status: .IN_PROGRESS, userId: documentationViewModel.userID, workspaceId: documentationViewModel.workspaceID)
+                            backAction()
+                        }, label: {Text(NSLocalizedString("Rejeitar", comment: ""))})
                             .buttonStyle(SecondarySheetActionButton())
                     }
                     HStack(spacing: 4) {

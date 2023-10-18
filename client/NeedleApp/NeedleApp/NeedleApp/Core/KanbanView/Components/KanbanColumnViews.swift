@@ -24,6 +24,9 @@ extension KanbanView {
                         .frame(height: 10)
                     VStack {
                         ScrollView(.vertical) {
+                            if targetStatus == .TODO {
+                                PositionPreview(backgroundColor: Color.theme.yellowKanban)
+                            }
                             ForEach(kanbanViewModel.localTasks.filter {
                                 $0.status == TaskStatus.TODO &&
                                 (kanbanViewModel.searchText == nil || kanbanViewModel.searchText!.isEmpty || $0.title.lowercased().contains(kanbanViewModel.searchText!.lowercased())) &&
@@ -57,7 +60,12 @@ extension KanbanView {
                     kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.TODO)
                 }
                 return false
-            } isTargeted: { status in
+            } isTargeted: { targeted in
+                if targeted {
+                    targetStatus = .TODO
+                } else {
+                    targetStatus = .NOT_VISIBLE
+                }
             }
         }
     }
@@ -78,6 +86,9 @@ extension KanbanView {
                             .frame(height: 10)
                         
                         ScrollView(.vertical) {
+                            if targetStatus == .IN_PROGRESS {
+                                PositionPreview(backgroundColor: Color.theme.blueKanban)
+                            }
                             ForEach(kanbanViewModel.localTasks.filter {
                                 $0.status == TaskStatus.IN_PROGRESS  &&
                                 ( kanbanViewModel.searchText == nil || kanbanViewModel.searchText!.isEmpty || $0.title.lowercased().contains(kanbanViewModel.searchText!.lowercased())) &&
@@ -110,7 +121,12 @@ extension KanbanView {
                     kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.IN_PROGRESS)
                 }
                 return false
-            } isTargeted: { status in
+            } isTargeted: { targeted in
+                if targeted {
+                    targetStatus = .IN_PROGRESS
+                } else {
+                    targetStatus = .NOT_VISIBLE
+                }
             }
         }
     }
@@ -130,6 +146,9 @@ extension KanbanView {
                     
                     VStack {
                         ScrollView(.vertical) {
+                            if targetStatus == .PENDING {
+                                PositionPreview(backgroundColor: Color.theme.orangeKanban)
+                            }
                             ForEach(kanbanViewModel.localTasks.filter {
                                 $0.status == TaskStatus.PENDING &&
                                 ( kanbanViewModel.searchText == nil || kanbanViewModel.searchText!.isEmpty || $0.title.lowercased().contains(kanbanViewModel.searchText!.lowercased())) &&
@@ -162,7 +181,12 @@ extension KanbanView {
                     kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.PENDING)
                 }
                 return false
-            } isTargeted: { status in
+            } isTargeted: { targeted in
+                if targeted {
+                    targetStatus = .PENDING
+                } else {
+                    targetStatus = .NOT_VISIBLE
+                }
             }
         }
     }
@@ -183,6 +207,9 @@ extension KanbanView {
                             .frame(height: 10)
                         
                         ScrollView(.vertical) {
+                            if targetStatus == .DONE {
+                                PositionPreview(backgroundColor: Color.theme.greenKanban)
+                            }
                             ForEach(kanbanViewModel.localTasks.filter {
                                 $0.status == TaskStatus.DONE  &&
                                 ( kanbanViewModel.searchText == nil || kanbanViewModel.searchText!.isEmpty || $0.title.lowercased().contains(kanbanViewModel.searchText!.lowercased())) &&
@@ -219,7 +246,12 @@ extension KanbanView {
                     kanbanViewModel.addItem(currentlyDragging: kanbanViewModel.currentlyDragging ?? "", status: TaskStatus.DONE)
                 }
                 return false
-            } isTargeted: { status in
+            } isTargeted: { targeted in
+                if targeted {
+                    targetStatus = .DONE
+                } else {
+                    targetStatus = .NOT_VISIBLE
+                }
             }
         }
     }

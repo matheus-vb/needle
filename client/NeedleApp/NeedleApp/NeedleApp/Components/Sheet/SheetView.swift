@@ -68,9 +68,9 @@ struct SheetView: View {
         }
         case .documentNotFound: return { dismiss() }
         case .deleteTask: return {
-            projectViewModel.deleteTask()
+            editTaskViewModel.deleteTask()
             editTaskViewModel.isDeleting.toggle()
-            projectViewModel.showEditTaskPopUP.toggle()
+            editTaskViewModel.isEditing.toggle()
         }
         case .deleteTaskKanban: return {
             projectViewModel.deleteTask()
